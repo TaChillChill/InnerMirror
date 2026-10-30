@@ -10,6 +10,7 @@ API access from Vietnam, policy + hackathon rules, structured output, transactio
 | Feature | Notes |
 |---|---|
 | Paste conversation text | Simple "Name: message" lines; parse + let user fix speakers |
+| Screenshot import (**conditional P0**, Founder 2026-10-30) | 1–3 screenshots → `/api/extract` → same editable transcript. In Phase 1 only if `PHASE0_REPORT.md` §8 passes; else moves to P1 |
 | AI Observation | Per message: functional expression (5 + unclear), cues, confidence, alternative; transactions (source → target); turning points; summary + uncertainty |
 | Conversation View with mascot badges | Chat bubbles; mascot badge per message = that message's possible expression |
 | My Interpretation | Tap mascot → why, evidence, change, "not sure", note. AI vs user visibly different |
@@ -21,8 +22,11 @@ API access from Vietnam, policy + hackathon rules, structured output, transactio
 | Transaction Map | Two participants × P/A/C, simple interactive SVG, synced with selected message pair, AI vs user-confirmed styling |
 | Scenario Explorer | One alternative response at one turning point; simulated path visually distinct from the actual conversation; disabled for safety-flagged chats |
 
+## Proposed, not approved: Conversation Replay
+Visual layer over the AI Observation view: shift markers, a simple per-turn transaction card, corrections, entry to Scenario Explorer. Reuses the existing analysis (no new AI call). Would move the full Transaction Map to post-MVP. Spec: `CONVERSATION_REPLAY.md`; decisions Q18–Q22.
+
 ## Phase 3 — Usability
-Screenshot import + transcript correction, EN/VI localization (keys from day one, VI copy here), sample mode, error handling, UI refinement (Impeccable).
+Screenshot import (if not already in Phase 1), EN/VI localization (keys from day one, VI copy here), sample mode, error handling, UI refinement (Impeccable).
 
 ## Phase 4 — Submission
 Core flow tests, privacy/safety review, privacy page, deploy (approval), demo video, submit.

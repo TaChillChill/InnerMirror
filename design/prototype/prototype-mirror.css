@@ -1,0 +1,109 @@
+/* My Mirror: stickers, saved collections, patterns, collection sheet, storage note. */
+
+/* Stickers: one per message of mine. The artwork is never dimmed or recoloured;
+   the state lives in the tile (dashed + recessed = AI suggestion I haven't reviewed). */
+.pt-stickers { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(104px, 1fr)); gap: var(--im-space-3); }
+.pt-stickers > li { display: grid; }
+.pt-sticker { position: relative; display: grid; justify-items: center; align-content: start; text-align: center; gap: 2px; padding: var(--im-space-3) var(--im-space-2); background: var(--im-surface); border: 1.5px solid transparent; border-radius: var(--im-radius-lg); box-shadow: var(--im-shadow-1); font: inherit; color: var(--im-text); animation: pt-settle var(--im-dur-slow) var(--im-ease-out) both; }
+button.pt-sticker { cursor: pointer; }
+button.pt-sticker:hover { border-color: var(--im-primary); }
+.pt-sticker .pt-mascot { max-width: 80px; }
+.pt-sticker strong { font: var(--im-text-label); color: var(--ex-ink); }
+.pt-sticker__state { display: inline-flex; gap: 4px; align-items: center; font: var(--im-text-caption); color: var(--im-text-muted); }
+.pt-sticker__state svg { width: 14px; height: 14px; }
+.pt-sticker[data-state="suggested"] { background: var(--im-surface-sunken); border: 1.5px dashed var(--im-border-strong); box-shadow: none; }
+.pt-sticker[data-state="suggested"] strong { color: var(--im-text-muted); }
+.pt-sticker__mark { position: absolute; top: 8px; right: 8px; width: 22px; height: 22px; border-radius: 50%; display: grid; place-items: center; background: var(--im-primary); color: #fff; }
+.pt-sticker__mark svg { width: 12px; height: 12px; }
+.pt-sticker__was { position: absolute; top: 6px; left: 6px; }
+.pt-sticker__q { width: 80px; aspect-ratio: 1; display: grid; place-items: center; font: 800 2rem/1 var(--im-font); color: var(--im-text-muted); }
+.pt-sticker[data-ex="unsure"] strong, .pt-sticker[data-ex="UNCLEAR"] strong { color: var(--im-text); }
+@media (max-width: 559.98px) { .pt-stickers { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--im-space-2); } .pt-sticker .pt-mascot, .pt-sticker__q { max-width: 64px; width: 64px; } }
+@keyframes pt-settle { from { opacity: 0; transform: translateY(6px) scale(0.96); } }
+.pt-tally { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: var(--im-space-2); }
+.pt-tally li { display: inline-flex; gap: 6px; align-items: center; padding: 4px 12px 4px 4px; background: var(--im-surface); border-radius: var(--im-radius-pill); font: var(--im-text-caption); }
+.pt-tally strong { font-weight: 800; }
+.pt-legend-line { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; font: var(--im-text-caption); color: var(--im-text-muted); margin-bottom: var(--im-space-3); }
+.pt-coll__badges { display: flex; flex-wrap: wrap; gap: 4px; align-items: center; }
+.pt-coll__more { font: var(--im-text-caption); color: var(--im-text-muted); padding-left: 2px; }
+
+.pt-current { display: grid; gap: var(--im-space-4); padding: var(--im-space-5); background: var(--im-surface-tint); border-radius: var(--im-radius-xl); }
+.pt-current .im-notice { background: var(--im-surface); }
+.pt-tried { display: flex; gap: var(--im-space-2); align-items: start; color: var(--im-primary-ink); font: var(--im-text-caption); }
+.pt-saved-list { margin: 0; padding-left: 1.2em; display: grid; gap: var(--im-space-2); font: var(--im-text-caption); }
+
+/* AI suggestion next to my choice, per message of mine */
+.pt-seq { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: var(--im-space-3); }
+.pt-seq li { display: grid; grid-template-columns: auto auto; gap: 2px var(--im-space-2); align-items: center; padding: var(--im-space-2) var(--im-space-3); background: var(--im-surface); border-radius: var(--im-radius-md); }
+.pt-seq__n { grid-column: 1 / -1; font: var(--im-text-caption); color: var(--im-text-muted); }
+.pt-seq__ai, .pt-seq__me { display: grid; justify-items: center; gap: 2px; }
+.pt-seq small { font: 600 0.875rem/1 var(--im-font); color: var(--im-text-muted); }
+.pt-seq__none { width: 24px; height: 24px; display: grid; place-items: center; color: var(--im-text-muted); }
+
+/* Tabs */
+.pt-tabs { display: flex; gap: var(--im-space-1); border-bottom: 1px solid var(--im-border); margin-bottom: var(--im-space-4); }
+.pt-tabs button { all: unset; cursor: pointer; display: inline-flex; gap: 6px; align-items: center; min-height: var(--im-tap-min); padding: 0 var(--im-space-4); font: var(--im-text-label); font-size: 1rem; color: var(--im-text-muted); border-bottom: 3px solid transparent; margin-bottom: -1px; }
+.pt-tabs button[aria-selected="true"] { color: var(--im-primary-ink); border-bottom-color: var(--im-primary); }
+.pt-tabs button:focus-visible { outline: 2px solid var(--im-focus); outline-offset: -2px; }
+
+/* Saved collections grid */
+.pt-colls { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: var(--im-space-3); }
+.pt-coll { width: 100%; height: 100%; display: grid; gap: var(--im-space-2); align-content: start; text-align: start; padding: var(--im-space-4); background: var(--im-surface); border: 1.5px solid var(--im-border); border-radius: var(--im-radius-lg); cursor: pointer; color: var(--im-text); font: var(--im-text-body); }
+.pt-coll:hover { border-color: var(--im-primary); }
+.pt-coll strong { font: var(--im-text-label); font-size: 1rem; }
+.pt-coll__meta, .pt-coll__empty { font: var(--im-text-caption); color: var(--im-text-muted); }
+.pt-coll__note { font: var(--im-text-caption); font-style: italic; color: var(--im-text-muted); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+
+.pt-empty { display: grid; gap: var(--im-space-3); justify-items: center; text-align: center; padding: var(--im-space-6) var(--im-space-4); background: var(--im-surface); border-radius: var(--im-radius-lg); }
+.pt-empty > svg { width: 32px; height: 32px; color: var(--im-primary-ink); }
+.pt-empty__title { font: var(--im-text-h3); }
+.pt-empty p { color: var(--im-text-muted); max-width: 42ch; }
+.pt-empty__art { display: grid; grid-template-columns: repeat(2, 96px); gap: var(--im-space-2); }
+
+/* Patterns: 100% stacked bars, mascot colors plus a labeled legend (color is never alone) */
+.pt-patterns { display: grid; gap: var(--im-space-3); }
+.pt-legend-row { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: var(--im-space-2) var(--im-space-4); font: var(--im-text-caption); }
+.pt-legend-row li { display: inline-flex; gap: 6px; align-items: center; }
+.pt-swatch { width: 24px; height: 24px; border-radius: 50%; }
+.pt-swatch--unsure { background: #c9c6d9; }
+.pt-swatch--ai { background: repeating-linear-gradient(45deg, var(--im-border-strong) 0 4px, var(--im-surface-sunken) 4px 8px); }
+.pt-include { font: var(--im-text-caption); }
+.pt-lead-sm { color: var(--im-text-muted); max-width: var(--im-measure); }
+.pt-chartbar-row { display: grid; grid-template-columns: minmax(120px, 220px) 1fr 2.5em; gap: var(--im-space-3); align-items: center; }
+.pt-chartbar-n { font: var(--im-text-caption); color: var(--im-text-muted); text-align: end; font-variant-numeric: tabular-nums; }
+.pt-chartbar-label { font: var(--im-text-caption); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.pt-chartbar { display: flex; height: 24px; border-radius: var(--im-radius-pill); overflow: hidden; background: var(--im-surface-sunken); gap: 2px; }
+.pt-seg { background: var(--ex-fill); }
+.pt-seg[data-src="ai"] { background: repeating-linear-gradient(45deg, var(--ex-fill) 0 4px, var(--ex-tint) 4px 8px); }
+.pt-seg[data-ex="unsure"] { background: #c9c6d9; }
+.pt-seg[data-ex="unsure"][data-src="ai"] { background: repeating-linear-gradient(45deg, #c9c6d9 0 4px, var(--im-surface-sunken) 4px 8px); }
+@media (max-width: 560px) { .pt-chartbar-row { grid-template-columns: 1fr 2em; gap: 4px var(--im-space-2); } .pt-chartbar-label { grid-column: 1 / -1; } }
+
+/* Collection detail: centered dialog on desktop, bottom sheet on phones */
+.pt-sheet-backdrop.is-open { display: block; position: fixed; inset: 0; z-index: 29; background: rgb(37 35 68 / 0.32); }
+.pt-modal { position: fixed; z-index: 30; display: grid; gap: var(--im-space-4); background: var(--im-bg); overflow: auto; box-shadow: var(--im-shadow-2);
+  left: 50%; top: 50%; transform: translate(-50%, -50%); width: min(560px, calc(100vw - 32px)); max-height: 85vh; padding: var(--im-space-4) var(--im-space-5) var(--im-space-5); border-radius: var(--im-radius-xl); }
+.pt-modal .pt-sheet-bar { justify-content: flex-end; }
+.pt-modal .pt-sheet-close { display: inline-grid; }
+.pt-modal > .im-btn { justify-self: start; }
+.pt-note-saved { padding: var(--im-space-3) var(--im-space-4); background: var(--im-surface-tint); border-radius: var(--im-radius-md); display: grid; gap: 4px; }
+@media (max-width: 559.98px) {
+  .pt-modal { left: 0; right: 0; top: auto; bottom: 0; transform: none; width: auto; border-radius: var(--im-radius-xl) var(--im-radius-xl) 0 0; padding: 0 var(--im-gutter) var(--im-space-6); }
+  .pt-modal .pt-sheet-bar { position: sticky; top: 0; background: var(--im-bg); padding: var(--im-space-2) 0; }
+}
+
+.pt-toast { position: fixed; z-index: 40; left: 50%; bottom: var(--im-space-5); transform: translateX(-50%); display: flex; gap: var(--im-space-3); align-items: center; padding: var(--im-space-3) var(--im-space-5); background: var(--im-text); color: #fff; border-radius: var(--im-radius-pill); box-shadow: var(--im-shadow-2); font: var(--im-text-label); }
+.pt-toast .pt-textlink { color: var(--im-brand-lavender); }
+
+.pt-storage { display: flex; gap: var(--im-space-3); align-items: start; padding: var(--im-space-4); border-top: 1px solid var(--im-border); font: var(--im-text-caption); color: var(--im-text-muted); }
+.pt-storage svg { width: 18px; height: 18px; flex: none; margin-top: 2px; color: var(--im-primary-ink); }
+.pt-storage strong { color: var(--im-text); }
+.pt-storage > div { max-width: var(--im-measure); }
+/* Grid and open <details> children default to min-width:auto; let the table scroll inside its box instead. */
+.pt-patterns > *, .pt-more[open] > * { min-width: 0; }
+.pt-table-wrap { overflow-x: auto; max-width: 100%; }
+.pt-table { border-collapse: collapse; font: var(--im-text-caption); min-width: 100%; }
+.pt-table th, .pt-table td { padding: 6px 8px; text-align: start; border-bottom: 1px solid var(--im-border); white-space: nowrap; }
+.pt-table td { text-align: end; font-variant-numeric: tabular-nums; }
+
+@media (prefers-reduced-motion: reduce) { .pt-sticker { animation: none; } }

@@ -31,6 +31,21 @@ Purpose: keep three layers separate so the product never presents its own hypoth
 | Functional vs structural model | Later TA (Stewart & Joines). ⚠ | Functional model describes observed behavior; it does not tell what is "inside" a person. |
 | Drama Triangle (Persecutor / Rescuer / Victim) | Stephen Karpman, 1968. | Out of scope for MVP; don't mix in. |
 
+## Product terminology (D1, approved 2026-10-30)
+InnerMirror uses the **five-part functional model** (Layer 2) as its product vocabulary. Berne's *Games People Play* stays the foundational reference for the three ego states (Parent, Adult, Child) and for transactions. The five labels are **not** Berne's; never present them as his.
+
+| Code | English | Vietnamese (pending linguistic review) | Berne's structural state | Mascot |
+|---|---|---|---|---|
+| CP | Critical Parent | Cha mẹ Phê phán | Parent | red octopus |
+| NP | Nurturing Parent | Cha mẹ Nuôi dưỡng | Parent | purple octopus holding a heart |
+| A | Adult | Người trưởng thành | Adult | blue octopus with magnifier |
+| FC | Free Child | Trẻ em Tự do | Child | yellow octopus |
+| AC | Adapted Child | Trẻ em Thích nghi | Child | green octopus |
+
+- Not to be confused with Berne's GPP *forms*: Parent as **direct** vs **indirect** influence, and the **natural** vs **adapted** Child (Layer 1). "Adapted Child" exists in both; "Free Child" is the later name for the natural Child.
+- Every label is a hypothesis about how a **message** reads, never a diagnosis or a property of a person. No state is better than another; each has helpful and less helpful forms.
+- Codes are language-neutral and used in data, prompts and schemas; names appear only in UI and model text.
+
 ## Layer 3 — InnerMirror product hypotheses (ours, unvalidated)
 
 1. **Five functional labels as product vocabulary.** We use CP, NP, A, FC, AC because they are concrete and illustratable. In UI they are "characters", with a footnote: *"Inspired by Transactional Analysis. The five-character split comes from later TA, not directly from Berne."*
@@ -66,4 +81,4 @@ Based on Berne's transactional diagram (two people, each drawn as P/A/C; vectors
 
 ## Open theory tasks
 - [ ] Founder: verify ⚠ items against GPP (EN or VI edition), note page numbers.
-- [ ] Decide final VI names for the five characters (see `OPEN_QUESTIONS.md`).
+- [x] VI names for the five characters decided (Q9, table above). Linguistic review still pending (`design/OPEN_DECISIONS.md` D6).

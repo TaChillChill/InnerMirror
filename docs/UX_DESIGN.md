@@ -9,23 +9,23 @@ Playful, warm, curious, positive, emotionally safe. Adult, not childish. Not a p
 - Every expression has a helpful and a less helpful side. No good/bad states.
 
 ## Mascots (Founder's own assets)
-Five 2D octopus mascots = five **functional ego-state expressions**. Use as provided, keep their colors; never regenerate or redesign. Location: `public/mascots/` (pending, Q14).
+Five 2D octopus mascots = five **functional ego-state expressions** (later five-part TA model, see `THEORY_FOUNDATION.md`). Use as provided, keep their colors; never regenerate or redesign. Assets: `design/brand/mascots/` (copied to `public/mascots/` in Phase 1). Visual rules, colors and descriptions: `design/DESIGN_SYSTEM.md`.
 
-| ID | Expression | Structural state | Helpful side | Less helpful side |
-|---|---|---|---|---|
-| `CP` | Critical Parent | Parent | standards, boundaries | blame, lecturing |
-| `NP` | Nurturing Parent | Parent | care, support | smothering, rescuing |
-| `A` | Adult | Adult | clarifying, solving | cold, detached |
-| `FC` | Free Child | Child | joy, honesty, spontaneity | impulsive, reactive |
-| `AC` | Adapted Child | Child | cooperative, polite | over-complying, sulking, passive resistance |
-| `UNCLEAR` | — | — | neutral "?" badge (not a mascot) | |
+| ID | Expression (EN / VI) | Mascot | Structural state | Helpful side | Less helpful side |
+|---|---|---|---|---|---|
+| `CP` | Critical Parent / Cha mẹ Phê phán | red | Parent | standards, boundaries | blame, lecturing |
+| `NP` | Nurturing Parent / Cha mẹ Nuôi dưỡng | purple, holding a heart | Parent | care, support | smothering, rescuing |
+| `A` | Adult / Người trưởng thành | blue, magnifier | Adult | clarifying, solving | cold, detached |
+| `FC` | Free Child / Trẻ em Tự do | yellow | Child | joy, honesty, spontaneity | impulsive, reactive |
+| `AC` | Adapted Child / Trẻ em Thích nghi | green | Child | cooperative, polite | over-complying, sulking, passive resistance |
+| `UNCLEAR` | — | — | — | neutral "?" badge (not a mascot) | |
 
-VI names: pending (Q9). Color is never the only signal: badge has mascot + text label.
+VI names approved 2026-10-30, pending linguistic review. Color is never the only signal: badge has mascot + text label.
 
 ## Conversation View (primary)
 - Chat layout: user's messages right, others left. Avatar/initial per participant.
 - Mascot badge (~28 px) next to the avatar/bubble = this message's possible expression; label under bubble.
-- Badge states: AI suggestion (soft outline, opacity by confidence) → user-confirmed (solid, small check) → user-changed (solid + "you chose" dot) → not sure ("?").
+- Badge states: AI suggestion (dashed ring) → user-confirmed (solid, small check) → user-changed (solid + "you chose" dot) → not sure ("?"). Confidence is shown in words in the opened observation, never as opacity, dots or numbers.
 - Turning point: thin divider with label between bubbles.
 - Tap badge → bottom sheet (mobile) / side panel (desktop) with evidence and actions (see `USER_JOURNEY.md`).
 

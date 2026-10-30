@@ -19,6 +19,17 @@ Researched 2026-10-30 from public docs at dev.meta.ai. **No live API call has be
 | **Contributor mode** | `-contributor` variants are ~10× cheaper but **content may be used to train Meta models**. Standard: "your content is not used to train Meta models." → **We use Standard only.** | /docs/models |
 | Availability | Public preview; blog says "available to developers in the US". Help center: "most countries and territories where Meta AI is available and billing is supported", governed by a Geographic Use Policy. | blog, /help |
 
+## Re-check before Phase 1 (2026-10-30, docs only, still no live call)
+| Topic | Finding |
+|---|---|
+| New model | `muse-wonder-1.0` (**preview**, Standard only): text/image/video/audio/PDF in, text out; reasoning `minimal`…`max`; structured output. Price **$4 in / $20 out** per 1M (3.2× / 4.7× Spark). Same 3,000 RPM / 4M TPM. |
+| Spark 1.3 | "Recommended for new work"; image/video understanding, structured output, all reasoning levels incl. `max`. Prices unchanged. |
+| Images | jpeg/png/gif/webp; 50 MB inline; `image_url` in `user` messages only (system/developer → HTTP 400). Token cost "scales with resolution", method undocumented; `POST /v1/responses/input_tokens` measures it. No documented image + `json_schema` example. |
+| Data Commitments | Standard: content not used for training. Meta "may use Content for evaluation, safety, abuse, quality, and policy review". Retention "as described in the Terms and Privacy Policy" — **no period stated**. "You can view and delete your Content through your Account." |
+| Not documented | Spend limits, credits, input-image tokenization, ZDR on the pricing/commitments pages. |
+
+**Recommendation:** `muse-spark-1.3` for analyze, extract and What if?. Wonder only as a one-off comparison on 1–2 eval conversations (preview + ~4× cost); switch only if it is clearly better on our rubric.
+
 ## Legal findings (read 2026-10-30, dev.meta.ai/legal)
 | Topic | Finding |
 |---|---|

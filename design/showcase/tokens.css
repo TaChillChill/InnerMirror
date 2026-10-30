@@ -1,0 +1,98 @@
+/*
+ * InnerMirror design tokens — v0.2 (draft for Founder review)
+ * Documented in design/DESIGN_SYSTEM.md.
+ * [brand] = approved in the brand guidelines poster. Everything else is a derived proposal.
+ * Light theme only for the MVP (D5). Dark values are parked in DESIGN_SYSTEM.md, appendix A.
+ * Contrast ratios in comments are WCAG 2.x against the token's intended background.
+ */
+:root {
+  color-scheme: light;
+
+  /* Brand palette [brand] */
+  --im-brand-purple: #635bce;
+  --im-brand-lavender: #ede8ff;
+  --im-brand-blue: #82b9f8;
+  --im-brand-bg: #fafafe;
+  --im-brand-ink: #252344;
+
+  /* Surfaces */
+  --im-bg: var(--im-brand-bg);
+  --im-surface: #ffffff;
+  --im-surface-sunken: #f4f2fb;
+  --im-surface-tint: var(--im-brand-lavender); /* reserved for what belongs to the user */
+  --im-border: #e3dff3;          /* decorative dividers only */
+  --im-border-strong: #8d88ad;   /* control boundaries, 3.4:1 on white */
+
+  /* Text */
+  --im-text: var(--im-brand-ink);   /* 14.4:1 on bg */
+  --im-text-muted: #5e5a7e;         /* 6.2:1 on bg, 5.4:1 on lavender */
+  --im-text-on-primary: #ffffff;    /* 5.4:1 on primary */
+
+  /* Action */
+  --im-primary: var(--im-brand-purple);
+  --im-primary-strong: #4f47b8;     /* hover/pressed */
+  --im-primary-ink: #4f47b8;        /* purple text and links; 6.0:1 on lavender */
+  --im-focus: var(--im-brand-purple);
+  --im-accent: var(--im-brand-blue); /* 2.0:1: decoration only, never text */
+
+  /* Feedback */
+  --im-error-ink: #b42339;
+  --im-success-ink: #0e7462;
+  --im-success-tint: #e2f6f2;
+
+  /* Ego-state expressions, keyed by language-neutral code.
+     fill [brand] = mascot color, identification only, never text;
+     tint = soft background; ink = text, AA on tint and surface. Not a ranking. */
+  --im-ex-cp: #ff5b6b;  --im-ex-cp-tint: #ffe5e7;  --im-ex-cp-ink: #c1283c;
+  --im-ex-np: #c9a8ff;  --im-ex-np-tint: #f3ecff;  --im-ex-np-ink: #7442c8;
+  --im-ex-a:  #82b9f8;  --im-ex-a-tint:  #e4f0fd;  --im-ex-a-ink:  #1f5fae;
+  --im-ex-fc: #ffc34d;  --im-ex-fc-tint: #fff1d4;  --im-ex-fc-ink: #8a5600;
+  --im-ex-ac: #60d6c0;  --im-ex-ac-tint: #dcf6f1;  --im-ex-ac-ink: #0e7462;
+
+  /* Typography — Nunito [brand]; H1–Caption sizes [brand]; Display and Label are proposals */
+  --im-font: "Nunito", ui-rounded, "SF Pro Rounded", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --im-text-display: 800 2.5rem/3rem var(--im-font);
+  --im-text-h1: 700 2rem/2.5rem var(--im-font);
+  --im-text-h2: 700 1.5rem/2rem var(--im-font);
+  --im-text-h3: 600 1.25rem/1.75rem var(--im-font);
+  --im-text-body: 400 1rem/1.5rem var(--im-font);
+  --im-text-label: 600 0.875rem/1.25rem var(--im-font);
+  --im-text-caption: 400 0.875rem/1.25rem var(--im-font);
+
+  /* Spacing — 4px base */
+  --im-space-1: 4px;
+  --im-space-2: 8px;
+  --im-space-3: 12px;
+  --im-space-4: 16px;
+  --im-space-5: 24px;
+  --im-space-6: 32px;
+  --im-space-7: 48px;
+  --im-space-8: 64px;
+
+  /* Radius — rounded, like the mascots */
+  --im-radius-sm: 8px;
+  --im-radius-md: 12px;
+  --im-radius-lg: 16px;
+  --im-radius-xl: 24px;
+  --im-radius-pill: 999px;
+
+  /* Elevation — soft and low; depth comes mostly from surface color */
+  --im-shadow-1: 0 1px 2px rgb(37 35 68 / 0.06), 0 2px 8px rgb(37 35 68 / 0.05);
+  --im-shadow-2: 0 4px 12px rgb(37 35 68 / 0.08), 0 12px 32px rgb(37 35 68 / 0.10);
+
+  /* Motion */
+  --im-ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --im-dur-fast: 140ms;
+  --im-dur-base: 220ms;
+  --im-dur-slow: 360ms;
+
+  /* Layout */
+  --im-measure: 68ch;
+  --im-content-max: 1120px;
+  --im-gutter: 16px;
+  --im-tap-min: 44px;
+}
+
+@media (min-width: 768px) {
+  :root { --im-gutter: 32px; }
+}

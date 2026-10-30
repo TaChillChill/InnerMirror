@@ -34,7 +34,7 @@ The five octopus mascots are the **Founder's own brand assets**. Use them as pro
 - Never log conversation content server-side. Don't store screenshots or transcripts on the server.
 
 ## Approved exceptions
-- **Live API testing budget (approved by Founder 2026-10-30):** max **$1** for initial API verification; max **$15 total** for prompt evaluation, including initial tests. Hackathon credits. Standard models only. Synthetic conversations only. Tracked in `scripts/phase0/.ledger.json`; scripts refuse calls that could exceed the cap. Exceeding requires new approval.
+- **Live API testing budget (approved by Founder 2026-10-30):** max **$1** for initial API verification; max **$15 total** for prompt evaluation, including initial tests. Hackathon credits. Standard models only. Synthetic conversations only. Tracked in `scripts/phase0/.ledger.json`; scripts refuse calls that could exceed the cap. Exceeding requires new approval. **Current working cap (Founder, 2026-10-30): $5** for the initial evaluation (Milestone 1 + eval suite); the harness enforces it. Stop and ask before going past it.
 
 ## Workflow
 - Small, verifiable steps; targeted tests; clear error handling.
@@ -78,3 +78,5 @@ Live commands spend from the approved budget: run them only with the Founder's g
 | `docs/IMPLEMENTATION_PLAN.md` | Phases, schedule, acceptance criteria, risks, submission checklist |
 | `docs/OPEN_QUESTIONS.md` | Decisions and Founder answers |
 | `docs/PHASE0_REPORT.md` | Feasibility results (after Phase 0) |
+| `docs/CONVERSATION_REPLAY.md` | Proposed feature spec (not approved) |
+| `docs/ARCHITECTURE_REVIEW.md` | Whole-project review and recommendations (awaiting approval) |

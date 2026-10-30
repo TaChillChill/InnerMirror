@@ -1,0 +1,201 @@
+/*
+ * InnerMirror component styles — v0.2 proposal.
+ * Product-facing pieces only; showcase page chrome lives in showcase.css.
+ */
+
+/* Focus is part of the component system, so it ports with these styles. */
+:focus-visible { outline: 2px solid var(--im-focus); outline-offset: 2px; }
+
+/* ---------- Buttons ---------- */
+.im-btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: var(--im-space-2);
+  min-height: var(--im-tap-min); padding: 0 var(--im-space-5);
+  border: 1.5px solid transparent; border-radius: var(--im-radius-pill);
+  font: var(--im-text-label); font-size: 1rem; letter-spacing: 0.005em;
+  cursor: pointer; text-decoration: none; text-align: center; max-width: 100%;
+  transition: background-color var(--im-dur-fast) var(--im-ease-out),
+              border-color var(--im-dur-fast) var(--im-ease-out),
+              transform var(--im-dur-fast) var(--im-ease-out);
+}
+.im-btn:active:not([disabled]) { transform: translateY(1px); }
+.im-btn svg { width: 18px; height: 18px; flex: none; }
+.im-btn--primary { background: var(--im-primary); color: var(--im-text-on-primary); }
+.im-btn--primary:hover:not([disabled]) { background: var(--im-primary-strong); }
+.im-btn--secondary { background: var(--im-surface); color: var(--im-primary-ink); border-color: var(--im-primary); }
+.im-btn--secondary:hover:not([disabled]) { background: var(--im-surface-tint); }
+.im-btn--ghost { background: transparent; color: var(--im-primary-ink); }
+.im-btn--ghost:hover:not([disabled]) { background: var(--im-surface-tint); }
+.im-btn--sm { min-height: var(--im-tap-min); padding: 0 var(--im-space-4); font-size: 0.875rem; }
+.im-btn[disabled] { opacity: 0.45; cursor: not-allowed; }
+.im-btn[aria-busy="true"] { cursor: progress; }
+.im-btn[aria-busy="true"]::before {
+  content: ""; width: 16px; height: 16px; border-radius: 50%;
+  border: 2px solid currentColor; border-right-color: transparent;
+  animation: im-spin 0.9s linear infinite;
+}
+@keyframes im-spin { to { transform: rotate(360deg); } }
+
+/* ---------- Form fields ---------- */
+.im-field { display: grid; gap: var(--im-space-2); }
+.im-label { font: var(--im-text-label); color: var(--im-text); }
+.im-hint { font: var(--im-text-caption); color: var(--im-text-muted); }
+.im-input, .im-textarea {
+  width: 100%; min-height: var(--im-tap-min); padding: var(--im-space-3) var(--im-space-4);
+  font: var(--im-text-body); color: var(--im-text);
+  background: var(--im-surface); border: 1.5px solid var(--im-border-strong); border-radius: var(--im-radius-md);
+  transition: border-color var(--im-dur-fast) var(--im-ease-out);
+}
+.im-textarea { min-height: 148px; resize: vertical; line-height: 1.6; }
+.im-input::placeholder, .im-textarea::placeholder { color: var(--im-text-muted); }
+.im-input:hover, .im-textarea:hover { border-color: var(--im-primary); }
+.im-field--error .im-input, .im-field--error .im-textarea { border-color: var(--im-error-ink); }
+.im-error { display: flex; gap: var(--im-space-2); align-items: start; font: var(--im-text-caption); color: var(--im-error-ink); }
+.im-error svg { width: 16px; height: 16px; margin-top: 2px; flex: none; }
+
+.im-check { display: flex; gap: var(--im-space-3); align-items: start; font: var(--im-text-body); cursor: pointer; }
+.im-check input { width: 20px; height: 20px; margin-top: 2px; flex: none; accent-color: var(--im-primary); }
+
+/* Segmented "This is me" picker */
+.im-segment { display: inline-flex; flex-wrap: wrap; gap: var(--im-space-2); }
+.im-segment button {
+  min-height: var(--im-tap-min); padding: 0 var(--im-space-4); border-radius: var(--im-radius-pill);
+  font: var(--im-text-label); color: var(--im-text); background: var(--im-surface);
+  border: 1.5px solid var(--im-border-strong); cursor: pointer;
+}
+.im-segment button[aria-pressed="true"] { background: var(--im-surface-tint); border-color: var(--im-primary); color: var(--im-primary-ink); }
+
+/* ---------- Expression chip and mascot badge ---------- */
+.im-ex { --ex-fill: var(--im-ex-a); --ex-tint: var(--im-ex-a-tint); --ex-ink: var(--im-ex-a-ink); }
+.im-ex[data-ex="cp"] { --ex-fill: var(--im-ex-cp); --ex-tint: var(--im-ex-cp-tint); --ex-ink: var(--im-ex-cp-ink); }
+.im-ex[data-ex="np"] { --ex-fill: var(--im-ex-np); --ex-tint: var(--im-ex-np-tint); --ex-ink: var(--im-ex-np-ink); }
+.im-ex[data-ex="fc"] { --ex-fill: var(--im-ex-fc); --ex-tint: var(--im-ex-fc-tint); --ex-ink: var(--im-ex-fc-ink); }
+.im-ex[data-ex="ac"] { --ex-fill: var(--im-ex-ac); --ex-tint: var(--im-ex-ac-tint); --ex-ink: var(--im-ex-ac-ink); }
+
+.im-chip {
+  display: inline-flex; align-items: center; gap: 6px; padding: 2px 10px 2px 8px;
+  border-radius: var(--im-radius-pill); background: var(--ex-tint); color: var(--ex-ink);
+  font: var(--im-text-label);
+}
+.im-chip::before { content: ""; flex: none; width: 8px; height: 8px; border-radius: 50%; background: var(--ex-fill); }
+.im-choice[data-ex="unsure"] { --ex-ink: var(--im-text); --ex-tint: var(--im-surface-sunken); --ex-fill: var(--im-border-strong); }
+.im-chip--unsure { --ex-tint: var(--im-surface-sunken); --ex-ink: var(--im-text-muted); --ex-fill: var(--im-border-strong); }
+
+/* Badge: the mascot's head variant (design/brand/mascots/badge/) in a white circle with an expression ring. */
+.im-badge {
+  --size: 40px;
+  position: relative; display: inline-grid; place-items: center; flex: none;
+  width: var(--size); height: var(--size); border-radius: 50%;
+  background: #fff; box-shadow: 0 0 0 2px var(--ex-fill);
+  transition: box-shadow var(--im-dur-slow) var(--im-ease-out);
+}
+.im-badge__face { position: absolute; inset: 0; border-radius: 50%; overflow: hidden; }
+.im-badge__face img { width: 100%; height: 100%; object-fit: cover; }
+/* AI suggestion: dashed ring — a hypothesis, not yet owned */
+.im-badge--suggested { box-shadow: none; background: var(--im-surface); outline: 2px dashed var(--ex-ink); outline-offset: -1px; }
+.im-badge__mark {
+  position: absolute; right: -3px; bottom: -3px; width: 16px; height: 16px; border-radius: 50%;
+  display: grid; place-items: center; background: var(--im-primary); color: #fff;
+  box-shadow: 0 0 0 2px var(--im-surface);
+}
+.im-badge__mark svg { width: 10px; height: 10px; }
+.im-badge--unsure { background: var(--im-surface-sunken); box-shadow: 0 0 0 2px var(--im-border-strong); color: var(--im-text-muted); font: 800 1.1rem/1 var(--im-font); }
+
+/* ---------- Confidence: words only, so it never reads as a rating ---------- */
+.im-confidence { font: var(--im-text-caption); color: var(--im-text-muted); }
+
+/* ---------- The three layers ---------- */
+.im-layer { border-radius: var(--im-radius-lg); padding: var(--im-space-5); display: grid; gap: var(--im-space-4); }
+.im-layer__head { display: flex; align-items: center; gap: var(--im-space-2); font: var(--im-text-label); color: var(--im-text-muted); }
+.im-layer__head svg { width: 18px; height: 18px; flex: none; }
+.im-layer__title { font: var(--im-text-h3); color: var(--im-text); margin: 0; }
+.im-layer p { margin: 0; max-width: var(--im-measure); }
+
+/* Layer 1 — AI Observation: dashed, recessed. Reads as a suggestion on the table. */
+.im-layer--ai { background: var(--im-surface-sunken); border: 1.5px dashed var(--im-border-strong); }
+/* Layer 2 — My Interpretation: solid, raised, in the user's own space. */
+.im-layer--mine { background: var(--im-surface); border: 1.5px solid var(--im-primary); box-shadow: var(--im-shadow-1); }
+.im-layer--mine .im-layer__head { color: var(--im-primary-ink); }
+/* Layer 3 — My Mirror: kept and calm, lavender, no border. */
+.im-layer--mirror { background: var(--im-surface-tint); }
+.im-layer--mirror .im-layer__head { color: var(--im-primary-ink); }
+
+.im-cue {
+  background: linear-gradient(transparent 60%, var(--ex-tint) 60%);
+  color: var(--im-text); font-weight: 700; padding: 0 2px; border-radius: 2px;
+}
+.im-dl { display: grid; gap: var(--im-space-3); margin: 0; }
+.im-dl dt { font: var(--im-text-label); color: var(--im-text-muted); }
+.im-dl dd { margin: 2px 0 0; }
+
+/* Interpretation choices: mascot radio cards */
+.im-choices { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: var(--im-space-2); }
+.im-choice {
+  display: flex; align-items: center; gap: var(--im-space-3); min-height: 56px; padding: var(--im-space-2) var(--im-space-3);
+  border: 1.5px solid var(--im-border-strong); border-radius: var(--im-radius-md); background: var(--im-surface);
+  font: var(--im-text-label); color: var(--im-text); cursor: pointer; text-align: start;
+  transition: border-color var(--im-dur-fast) var(--im-ease-out), background-color var(--im-dur-fast) var(--im-ease-out);
+}
+.im-choice:hover { border-color: var(--im-primary); }
+.im-choice { position: relative; }
+.im-choice[aria-checked="true"] { border-color: var(--ex-ink); background: var(--ex-tint); color: var(--ex-ink); padding-right: 36px; }
+.im-choice__check { position: absolute; top: 8px; right: 8px; width: 20px; height: 20px; border-radius: 50%; display: grid; place-items: center; background: var(--ex-ink); color: var(--im-surface); }
+.im-choice__check svg { width: 12px; height: 12px; }
+.im-choice__ai { color: var(--im-primary-ink) !important; font-weight: 700 !important; }
+.im-choice .im-badge { --size: 40px; }
+.im-choice small { display: block; font: var(--im-text-caption); color: var(--im-text-muted); }
+
+/* ---------- Notices ---------- */
+.im-notice {
+  display: flex; gap: var(--im-space-3); align-items: start; padding: var(--im-space-3) var(--im-space-4);
+  border-radius: var(--im-radius-md); background: var(--im-surface-sunken); color: var(--im-text); font: var(--im-text-caption);
+}
+.im-notice svg { width: 18px; height: 18px; margin-top: 1px; flex: none; color: var(--im-primary-ink); }
+.im-notice strong { display: block; font-weight: 700; }
+/* Errors: neutral surface + deep border and icon, so no expression tint ever reads as "wrong". */
+.im-notice--error { background: var(--im-surface); border: 1.5px solid var(--im-error-ink); }
+.im-notice--error svg { color: var(--im-error-ink); }
+.im-notice--success { background: var(--im-success-tint); }
+.im-notice--success svg { color: var(--im-success-ink); }
+/* Safety: plain, steady, no mascot and no playfulness. */
+.im-notice--safety { background: var(--im-surface); border: 1.5px solid var(--im-border-strong); font: var(--im-text-body); padding: var(--im-space-4) var(--im-space-5); }
+.im-notice--safety .im-btn { margin-top: var(--im-space-3); }
+
+/* ---------- Navigation: flow stepper ---------- */
+.im-stepper { display: flex; gap: var(--im-space-1); list-style: none; margin: 0; padding: 0; counter-reset: step; }
+.im-stepper li { flex: 1; min-width: 0; }
+.im-stepper li > span {
+  display: grid; gap: 6px; padding: var(--im-space-2) 0; color: var(--im-text-muted);
+  font: var(--im-text-label);
+}
+.im-stepper li > span::before { content: ""; height: 4px; border-radius: var(--im-radius-pill); background: var(--im-border); }
+.im-stepper [aria-current="step"] { color: var(--im-primary-ink); }
+.im-stepper [aria-current="step"]::before, .im-stepper .is-done::before { background: var(--im-primary); }
+.im-stepper li { overflow-wrap: anywhere; }
+
+/* ---------- Conversation ---------- */
+.im-thread { display: grid; gap: var(--im-space-4); }
+.im-msg { display: grid; grid-template-columns: auto 1fr; gap: var(--im-space-2) var(--im-space-3); align-items: end; max-width: 92%; }
+.im-msg--me { grid-template-columns: 1fr auto; justify-self: end; }
+.im-avatar {
+  width: 32px; height: 32px; border-radius: 50%; display: grid; place-items: center;
+  background: var(--im-surface-sunken); color: var(--im-text-muted); font: 700 0.8125rem/1 var(--im-font);
+}
+.im-bubble {
+  padding: var(--im-space-3) var(--im-space-4); border-radius: 18px 18px 18px 6px;
+  background: var(--im-surface); border: 1px solid var(--im-border); color: var(--im-text); font: var(--im-text-body);
+}
+.im-msg--me .im-bubble { border-radius: 18px 18px 6px 18px; background: var(--im-surface-tint); border-color: transparent; }
+.im-msg__meta { grid-column: 2; display: flex; align-items: center; gap: var(--im-space-2); }
+.im-msg--me .im-msg__meta { grid-column: 1; justify-content: end; }
+.im-msg__meta button { all: unset; display: inline-flex; align-items: center; gap: var(--im-space-2); cursor: pointer; border-radius: var(--im-radius-pill); padding: 2px 4px; min-height: var(--im-tap-min); }
+.im-msg__meta button:focus-visible { outline: 2px solid var(--im-focus); outline-offset: 2px; }
+.im-msg__meta .im-badge { --size: 28px; }
+/* The message whose observation is open: dashed like the AI layer, so it never reads as keyboard focus. */
+.im-msg[aria-current="true"] .im-bubble { outline: 2px dashed var(--im-border-strong); outline-offset: 3px; }
+.im-turn { display: flex; align-items: center; gap: var(--im-space-3); font: var(--im-text-caption); color: var(--im-text-muted); }
+.im-turn::before, .im-turn::after { content: ""; flex: 1; height: 1px; background: var(--im-border); }
+
+@media (prefers-reduced-motion: reduce) {
+  .im-btn, .im-badge, .im-badge img, .im-choice, .im-input, .im-textarea { transition: none; }
+  .im-btn[aria-busy="true"]::before { animation-duration: 2.4s; }
+}

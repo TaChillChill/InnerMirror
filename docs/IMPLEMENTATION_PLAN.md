@@ -14,7 +14,7 @@ Status: stack approved. **Phase 0 in progress.** Phase 1+ starts only after the 
 | 3 Usability | Nov 3 (until freeze) | Screenshot import, VI copy, sample mode, errors, Impeccable polish |
 | 4 Submission | Nov 3 evening – Nov 4 | Tests, privacy/safety check, deploy (approval), demo video, submit |
 
-If Phase 1 slips, cut in this order: screenshot import → Scenario Explorer → map interactivity (static map).
+If Phase 1 slips, cut in this order (updated 2026-10-30, proposal): multi-screenshot import → Scenario Explorer → "Next shift" → single-screenshot import (Paste Text always stays).
 
 ## Phase 0 — Feasibility (today)
 | # | Task | Done when |
@@ -24,6 +24,7 @@ If Phase 1 slips, cut in this order: screenshot import → Scenario Explorer →
 | 0.3 | Smoke test: text call + structured output call | Status, latency, tokens recorded |
 | 0.4 | Analysis prompt + strict schema; 3 synthetic conversations (+1 short safety probe) | JSON valid; outputs saved in `scripts/phase0/results/` |
 | 0.5 | Quality review against rubric | `PHASE0_REPORT.md` |
+| 0.6 | Screenshot import feasibility (synthetic screenshots, budget Q26) | `PHASE0_REPORT.md` §8 filled; go / single-only / no-go decided |
 
 ## Phase 1 — Core
 | # | Task | Done when |
@@ -31,6 +32,7 @@ If Phase 1 slips, cut in this order: screenshot import → Scenario Explorer →
 | 1.1 | Scaffold Next.js + TS + Tailwind + zod; `AI_MODE` fixtures switch; access code | `npm run build` passes |
 | 1.2 | Paste parser + transcript editor + "This is me" | Any speaker error fixable |
 | 1.3 | `/api/analyze` (prompt from Phase 0, zod, retry) | Valid on all fixtures |
+| 1.3b | *Conditional on 0.6:* `/api/extract` + uploader (compress, 1–3 images) feeding the same transcript editor | Synthetic screenshots meet §8 bars in-app |
 | 1.4 | Conversation View + mascot badges | Badges per message; turning points |
 | 1.5 | Interpretation sheet (why, cues, change, not sure, note) | AI vs user state separate in data and UI |
 | 1.6 | My Mirror save/list/delete (localStorage) | Survives reload |

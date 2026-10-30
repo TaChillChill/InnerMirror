@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>InnerMirror Design System v0.2</title>
+  <meta name="description" content="Design system draft and visual showcase for InnerMirror. For Founder review.">
+  <link rel="icon" href="../brand/logo-interim/app-icon-color.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap">
+  <link rel="stylesheet" href="tokens.css">
+  <link rel="stylesheet" href="components.css">
+  <link rel="stylesheet" href="showcase.css">
+</head>
+<body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+      <symbol id="i-dot" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5" fill="currentColor"/></symbol>
+      <symbol id="i-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/></symbol>
+      <symbol id="i-person" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c.8-3.6 3.6-5.5 7-5.5s6.2 1.9 7 5.5"/></symbol>
+      <symbol id="i-saved" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M7.5 3.5h9a1.5 1.5 0 011.5 1.5v16l-6-4-6 4V5a1.5 1.5 0 011.5-1.5z"/></symbol>
+      <symbol id="i-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="10.5" width="14" height="10" rx="3"/><path d="M8.5 10.5V8a3.5 3.5 0 017 0v2.5"/></symbol>
+      <symbol id="i-device" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="6.5" y="2.5" width="11" height="19" rx="3"/><path d="M10.5 18.5h3"/></symbol>
+      <symbol id="i-trash" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 7h15M9.5 7V5h5v2M7 7l.8 12.2a2 2 0 002 1.8h4.4a2 2 0 002-1.8L17 7"/></symbol>
+      <symbol id="i-alert" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v5.5M12 16.5v.01"/></symbol>
+      <symbol id="i-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7.5-4.6-7.5-10A4.3 4.3 0 0112 7.4 4.3 4.3 0 0119.5 10c0 5.4-7.5 10-7.5 10z"/></symbol>
+    </defs>
+  </svg>
+
+  <a class="sc-skip" href="#main" data-i18n="skip">Skip to content</a>
+
+  <header class="sc-top">
+    <div class="sc-top__inner">
+      <a class="sc-brand" href="#top">
+        <img src="../brand/logo-interim/app-icon-color.png" alt="InnerMirror">
+        <span data-i18n="top.label">Design System v0.2</span>
+      </a>
+      <div class="sc-controls">
+        <div class="sc-toggle" role="group" aria-label="Language" data-i18n-aria="top.lang">
+          <button type="button" data-lang-set="en" lang="en">EN</button>
+          <button type="button" data-lang-set="vi" lang="vi">VI</button>
+        </div>
+      </div>
+    </div>
+    <nav class="sc-nav" aria-label="Sections" data-i18n-aria="nav.label">
+      <ul>
+        <li><a href="#brand" data-i18n="nav.brand">Brand</a></li>
+        <li><a href="#mascots" data-i18n="nav.mascots">Mascots</a></li>
+        <li><a href="#ui" data-i18n="nav.ui">Foundations</a></li>
+        <li><a href="#product" data-i18n="nav.product">Previews</a></li>
+        <li><a href="#responsive" data-i18n="nav.responsive">Responsive</a></li>
+        <li><a href="#language" data-i18n="nav.themes">Language</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="sc-intro" id="top">
+      <h1 data-i18n="intro.title">InnerMirror design system</h1>
+      <p data-i18n="intro.body"></p>
+    </section>
+
+    <!-- Brand identity -->
+    <section class="sc-section" id="brand" aria-labelledby="h-brand">
+      <h2 id="h-brand" data-i18n="brand.title">Brand identity</h2>
+      <div class="sc-hero">
+        <div class="sc-tile"><img src="../brand/logo-interim/logo-hero.png" alt="InnerMirror: understand, communicate, be you"></div>
+        <div class="sc-panel sc-essence">
+          <h3 data-i18n="brand.essence.title"></h3>
+          <p data-i18n="brand.essence.body"></p>
+          <p class="sc-philosophy" data-i18n="brand.philosophy"></p>
+          <p class="sc-caption" data-i18n="brand.philosophy.body"></p>
+          <ul class="sc-traits" aria-label="Personality" data-i18n-aria="brand.traits.title">
+            <li data-i18n="trait.1"></li><li data-i18n="trait.2"></li><li data-i18n="trait.3"></li>
+            <li data-i18n="trait.4"></li><li data-i18n="trait.5"></li><li data-i18n="trait.6"></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="sc-sub">
+        <h3><span data-i18n="logo.title">Logo</span><span class="sc-tag sc-tag--interim" data-i18n="tag.interim"></span></h3>
+        <p data-i18n="logo.note"></p>
+        <div class="sc-logos">
+          <figure><div class="sc-tile"><img src="../brand/logo-interim/logo-horizontal.png" alt="InnerMirror horizontal logo"></div><figcaption class="sc-caption" data-i18n="logo.horizontal"></figcaption></figure>
+          <figure><div class="sc-tile"><img src="../brand/logo-interim/logo-stacked.png" alt="InnerMirror stacked logo"></div><figcaption class="sc-caption" data-i18n="logo.stacked"></figcaption></figure>
+          <figure>
+            <div class="sc-tile"><div class="sc-icons">
+              <img src="../brand/logo-interim/app-icon-color.png" alt="App icon, color">
+              <img src="../brand/logo-interim/app-icon-dark.png" alt="App icon, dark">
+              <img src="../brand/logo-interim/app-icon-mono.png" alt="App icon, mono">
+            </div></div>
+            <figcaption class="sc-caption"><span data-i18n="logo.icon.color"></span> · <span data-i18n="logo.icon.dark"></span> · <span data-i18n="logo.icon.mono"></span></figcaption>
+          </figure>
+          <figure><div class="sc-tile sc-logo-dark"><img src="../brand/logo-interim/logo-on-dark.png" alt="InnerMirror logo on dark"></div><figcaption class="sc-caption" data-i18n="logo.ondark"></figcaption></figure>
+        </div>
+      </div>
+
+      <div class="sc-sub">
+        <h3><span data-i18n="color.title">Color</span><span class="sc-tag sc-tag--approved" data-i18n="tag.approved"></span></h3>
+        <p data-i18n="color.body"></p>
+        <div class="sc-swatches">
+          <div class="sc-swatch"><div class="sc-swatch__chip" style="background:#635BCE"></div><b>#635BCE</b><span class="sc-caption" data-i18n="color.primary"></span></div>
+          <div class="sc-swatch"><div class="sc-swatch__chip" style="background:#EDE8FF"></div><b>#EDE8FF</b><span class="sc-caption" data-i18n="color.lavender"></span></div>
+          <div class="sc-swatch"><div class="sc-swatch__chip" style="background:#82B9F8"></div><b>#82B9F8</b><span class="sc-caption" data-i18n="color.blue"></span></div>
+          <div class="sc-swatch"><div class="sc-swatch__chip" style="background:#FAFAFE"></div><b>#FAFAFE</b><span class="sc-caption" data-i18n="color.bg"></span></div>
+          <div class="sc-swatch"><div class="sc-swatch__chip" style="background:#252344"></div><b>#252344</b><span class="sc-caption" data-i18n="color.ink"></span></div>
+        </div>
+        <h3 class="sc-sub-h" data-i18n="color.ex.title"></h3>
+        <p class="sc-caption" data-i18n="color.ex.body"></p>
+        <div class="sc-exrows" id="ex-rows"></div>
+      </div>
+
+      <div class="sc-sub">
+        <h3><span data-i18n="type.title">Typography</span><span class="sc-tag sc-tag--approved" data-i18n="tag.approved"></span></h3>
+        <p data-i18n="type.body"></p>
+        <div class="sc-type sc-panel">
+          <div>
+            <div class="sc-type__big">Nunito</div>
+            <p class="sc-type__abc">Aa Bb Cc Dd Ee Ff Gg Hh Ii Jj Kk Ll Mm Nn Oo Pp Qq Rr Ss Tt Uu Vv Ww Xx Yy Zz 0123456789<br>Ă Â Đ Ê Ô Ơ Ư · ắ ầ ẩ ễ ộ ớ ự ỹ</p>
+          </div>
+          <div class="sc-scale" id="type-scale"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mascot system -->
+    <section class="sc-section" id="mascots" aria-labelledby="h-mascots">
+      <h2 id="h-mascots"><span data-i18n="masc.title">Mascot system</span> <span class="sc-tag sc-tag--approved" data-i18n="tag.approved"></span></h2>
+      <p data-i18n="masc.body"></p>
+      <p data-i18n="masc.model"></p>
+      <div class="sc-cast" id="cast"></div>
+
+      <div class="sc-sub">
+        <h3 data-i18n="masc.bg.title"></h3>
+        <p data-i18n="masc.bg.body"></p>
+        <div class="sc-bgs" id="mascot-bgs"></div>
+      </div>
+
+      <div class="sc-sub">
+        <h3><span data-i18n="masc.badge.title"></span><span class="sc-tag sc-tag--proposal" data-i18n="tag.proposal"></span></h3>
+        <p data-i18n="masc.badge.body"></p>
+        <div class="sc-panel"><div class="sc-states" id="badge-states"></div></div>
+      </div>
+    </section>
+
+    <!-- UI foundations -->
+    <section class="sc-section" id="ui" aria-labelledby="h-ui">
+      <h2 id="h-ui"><span data-i18n="ui.title">UI foundations</span></h2>
+
+      <div class="sc-sub">
+        <h3><span data-i18n="ui.buttons"></span><span class="sc-tag sc-tag--proposal" data-i18n="tag.proposal"></span></h3>
+        <div class="sc-panel sc-row">
+          <button class="im-btn im-btn--primary" type="button" data-i18n="btn.primary"></button>
+          <button class="im-btn im-btn--secondary" type="button" data-i18n="btn.secondary"></button>
+          <button class="im-btn im-btn--ghost" type="button" data-i18n="btn.ghost"></button>
+          <button class="im-btn im-btn--primary" type="button" disabled data-i18n="btn.disabled"></button>
+          <button class="im-btn im-btn--secondary" type="button" aria-busy="true" data-i18n="btn.loading"></button>
+        </div>
+      </div>
+
+      <div class="sc-sub">
+        <h3><span data-i18n="ui.inputs"></span><span class="sc-tag sc-tag--proposal" data-i18n="tag.proposal"></span></h3>
+        <div class="sc-panel sc-grid">
+          <div class="im-field">
+            <label class="im-label" for="f-conv" data-i18n="in.label"></label>
+            <textarea class="im-textarea" id="f-conv" data-i18n-attr="placeholder:in.placeholder" aria-describedby="f-conv-hint"></textarea>
+            <span class="im-hint" id="f-conv-hint" data-i18n="in.hint"></span>
+          </div>
+          <div style="display:grid;gap:24px">
+            <div class="im-field im-field--error">
+              <label class="im-label" for="f-err" data-i18n="in.label"></label>
+              <textarea class="im-textarea" id="f-err" rows="2" aria-invalid="true" aria-describedby="f-err-msg">Linh: hi</textarea>
+              <span class="im-error" id="f-err-msg"><svg aria-hidden="true"><use href="#i-alert"/></svg><span data-i18n="in.error"></span></span>
+            </div>
+            <div class="im-field">
+              <label class="im-label" for="f-name" data-i18n="in.name"></label>
+              <input class="im-input" id="f-name" data-i18n-attr="value:c.me">
+            </div>
+            <label class="im-check"><input type="checkbox"><span data-i18n="in.consent"></span></label>
+          </div>
+        </div>
+      </div>
+
+      <div class="sc-sub">
+        <h3><span data-i18n="ui.layers"></span><span class="sc-tag sc-tag--proposal" data-i18n="tag.proposal"></span></h3>
+        <p data-i18n="ui.layers.body"></p>
+        <div class="sc-grid" id="layers"></div>
+      </div>
+
+      <div class="sc-sub">
+        <h3><span data-i18n="ui.nav"></span><span class="sc-tag sc-tag--proposal" data-i18n="tag.proposal"></span></h3>
+        <p data-i18n="ui.nav.body"></p>
+        <div class="sc-panel" id="nav-demo"></div>
+      </div>
+
+      <div class="sc-sub">
+        <h3><span data-i18n="ui.status"></span><span class="sc-tag sc-tag--proposal" data-i18n="tag.proposal"></span></h3>
+        <div class="sc-panel" style="display:grid;gap:24px">
+          <div class="sc-row" id="status-chips"></div>
+          <div class="sc-row" id="status-conf"></div>
+          <div class="sc-grid">
+            <div class="im-notice im-notice--success"><svg aria-hidden="true"><use href="#i-device"/></svg><div><strong data-i18n="st.saved.title"></strong><span data-i18n="st.saved.body"></span></div></div>
+            <div class="im-notice"><svg aria-hidden="true"><use href="#i-lock"/></svg><div><strong data-i18n="st.privacy.title"></strong><span data-i18n="st.privacy.body"></span></div></div>
+            <div class="im-notice im-notice--error" role="alert"><svg aria-hidden="true"><use href="#i-alert"/></svg><div><strong data-i18n="st.error.title"></strong><span data-i18n="st.error.body"></span></div></div>
+          </div>
+          <div class="im-notice im-notice--safety"><svg aria-hidden="true"><use href="#i-heart"/></svg><div><strong data-i18n="st.safety.title"></strong><span data-i18n="st.safety.body"></span><br><a class="im-btn im-btn--primary im-btn--sm" href="#" data-i18n="st.safety.resources"></a></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Product previews -->
+    <section class="sc-section" id="product" aria-labelledby="h-product">
+      <h2 id="h-product"><span data-i18n="prod.title">Product previews</span></h2>
+      <p><span class="sc-tag" data-i18n="tag.illustrative"></span> <span data-i18n="prod.body"></span></p>
+      <div class="sc-gallery" id="gallery"></div>
+    </section>
+
+    <!-- Responsive preview -->
+    <section class="sc-section" id="responsive" aria-labelledby="h-resp">
+      <h2 id="h-resp" data-i18n="resp.title">Responsive preview</h2>
+      <p data-i18n="resp.body"></p>
+      <div class="sc-row">
+        <div class="sc-toggle" role="group" aria-label="Width" data-i18n-aria="resp.width" id="resp-width">
+          <button type="button" data-width="mobile" data-i18n="resp.mobile"></button>
+          <button type="button" data-width="tablet" data-i18n="resp.tablet"></button>
+          <button type="button" data-width="desktop" data-i18n="resp.desktop"></button>
+        </div>
+        <div class="sc-toggle" role="group" aria-label="Screen" data-i18n-aria="resp.screen" id="resp-screen"></div>
+      </div>
+      <div class="sc-stage"><div class="sc-stage__scaler"><div class="sc-frame" id="resp-frame"></div></div></div>
+    </section>
+
+    <!-- Theme and language -->
+    <section class="sc-section" id="language" aria-labelledby="h-language">
+      <h2 id="h-language" data-i18n="themes.title">Language</h2>
+      <p data-i18n="themes.body"></p>
+      <p data-i18n="themes.length"></p>
+      <div class="sc-compare" id="compare-lang"></div>
+    </section>
+  </main>
+
+  <footer class="sc-foot">InnerMirror Design System v0.2 · 2026-10-30 · design/DESIGN_SYSTEM.md · <a href="../brand/brand-guidelines-poster.png">Brand guidelines poster</a></footer>
+
+  <script src="i18n.en.js"></script>
+  <script src="i18n.vi.js"></script>
+  <script src="screens.js"></script>
+  <script src="showcase.js"></script>
+</body>
+</html>

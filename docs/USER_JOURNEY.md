@@ -7,7 +7,8 @@ All state is client-side. Nothing about the conversation is stored on the server
 Promise, 4-step "how it works", privacy note (*"Processed once, not stored. Remove names and private details of others if you can."*), EN/VI toggle, "Try a sample" (no API call).
 
 ## 1. Conversation
-- **Phase 1:** paste text (`Name: message` per line). **Phase 3:** or upload a screenshot → AI extraction.
+- Three choices (Founder decision 2026-10-30): **Upload screenshot(s)**, **Paste text** (`Name: message` per line), **Try a sample**. Screenshot import is conditional P0: in Phase 1 only if the feasibility test passes (`PHASE0_REPORT.md` §8); otherwise Paste Text is the Phase 1 input.
+- Screenshot and paste both produce the **same editable transcript**; for screenshots, low-legibility lines are highlighted and the image is shown beside the editor (browser memory only, discarded after confirmation).
 - Editable transcript: rename participants, reassign speaker, edit/delete lines.
 - User marks **"This is me"** (required).
 - Consent checkbox: *"This is a conversation I'm part of; I'm using this for my own reflection."*
@@ -19,6 +20,7 @@ Promise, 4-step "how it works", privacy note (*"Processed once, not stored. Remo
 - Summary card: neutral overview + explicit uncertainty note.
 - **Secondary view: Transaction Map** (Phase 2, two-person chats). Select a message pair → map highlights source → target arrows.
 - Safety-flagged: calm support message first; playful framing and Scenario Explorer off.
+- *Proposed (not approved):* **Conversation Replay** makes this step more visual: "Conversation shift" markers and a simple per-turn transaction card, with the full map optional. See `CONVERSATION_REPLAY.md`.
 
 ## 3. My Interpretation
 Tap a mascot badge → sheet with:
