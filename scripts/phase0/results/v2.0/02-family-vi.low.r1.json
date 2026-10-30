@@ -1,0 +1,256 @@
+{
+  "meta": {
+    "model": "muse-spark-1.3",
+    "effort": "low",
+    "run": 1,
+    "latencyMs": 18162,
+    "usd": 0.018588249999999997,
+    "usage": {
+      "completion_tokens": 3694,
+      "prompt_tokens": 2311,
+      "total_tokens": 6005,
+      "completion_tokens_details": {
+        "reasoning_tokens": 2058
+      },
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "finish": "stop"
+  },
+  "output": {
+    "exchanges": [
+      {
+        "note": "Câu hỏi han được đáp lại bằng thông tin công việc.",
+        "pattern": "crossed",
+        "responseAddresses": "A",
+        "responseFrom": "A",
+        "responseId": "m2",
+        "stimulusAddresses": "C",
+        "stimulusFrom": "P",
+        "stimulusId": "m1"
+      },
+      {
+        "note": "Câu chia sẻ về công việc được đáp lại bằng lời nhắc chuyện khác.",
+        "pattern": "crossed",
+        "responseAddresses": "C",
+        "responseFrom": "P",
+        "responseId": "m3",
+        "stimulusAddresses": "A",
+        "stimulusFrom": "A",
+        "stimulusId": "m2"
+      },
+      {
+        "note": "Lời nhắc được đáp lại bằng câu phản đối trực tiếp.",
+        "pattern": "complementary",
+        "responseAddresses": "P",
+        "responseFrom": "C",
+        "responseId": "m4",
+        "stimulusAddresses": "C",
+        "stimulusFrom": "P",
+        "stimulusId": "m3"
+      },
+      {
+        "note": "Câu phản đối được đáp lại bằng lời giải thích có ý lo.",
+        "pattern": "complementary",
+        "responseAddresses": "C",
+        "responseFrom": "P",
+        "responseId": "m5",
+        "stimulusAddresses": "P",
+        "stimulusFrom": "C",
+        "stimulusId": "m4"
+      },
+      {
+        "note": "Lời lo lắng được đáp lại bằng lời xin lỗi và dừng lại.",
+        "pattern": "complementary",
+        "responseAddresses": "P",
+        "responseFrom": "C",
+        "responseId": "m6",
+        "stimulusAddresses": "C",
+        "stimulusFrom": "P",
+        "stimulusId": "m5"
+      }
+    ],
+    "readings": [
+      {
+        "alternative": null,
+        "confidence": "high",
+        "cues": [
+          "Con ăn cơm chưa?",
+          "nhớ giữ sức khỏe nhé"
+        ],
+        "expression": "NP",
+        "invites": "C",
+        "messageId": "m1",
+        "rationale": "Câu hỏi han và lời dặn nghe như quan tâm, muốn chăm sóc. Có thể mời phía bên kia đón nhận sự quan tâm.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": null,
+        "confidence": "high",
+        "cues": [
+          "Con ăn rồi",
+          "Tuần này dự án gấp"
+        ],
+        "expression": "A",
+        "invites": "A",
+        "messageId": "m2",
+        "rationale": "Câu chữ đưa thông tin rõ ràng về việc đã ăn và việc bận. Nghe như trao đổi thực tế.",
+        "reflectionQuestion": "Khi đọc câu “nhớ giữ sức khỏe nhé”, bạn để ý thấy điều gì ở mình trước khi trả lời về dự án?",
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "NP",
+          "rationale": "Câu này cũng có thể nghe như lời lo xa cho tương lai, không chỉ là nhắc nhở."
+        },
+        "confidence": "medium",
+        "cues": [
+          "cũng phải lo",
+          "Con nhà cô Lan cưới rồi đấy"
+        ],
+        "expression": "CP",
+        "invites": "C",
+        "messageId": "m3",
+        "rationale": "Chữ “phải lo” nghe như đưa ra quy tắc phải làm. Ví dụ so sánh có thể nghe như thúc giục.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "AC",
+          "rationale": "Câu này cũng có thể nghe như chống lại lời nhắc vừa rồi để giữ ý mình."
+        },
+        "confidence": "medium",
+        "cues": [
+          "Mẹ lại thế rồi",
+          "Con biết con phải làm gì mà"
+        ],
+        "expression": "FC",
+        "invites": "P",
+        "messageId": "m4",
+        "rationale": "Câu “Mẹ lại thế rồi” nghe như nói thẳng sự khó chịu. Có thể mời phía bên kia dừng lại.",
+        "reflectionQuestion": "Câu “Con nhà cô Lan cưới rồi đấy” có chỗ nào khiến bạn muốn nói “Mẹ lại thế rồi” ngay lúc đó?",
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "CP",
+          "rationale": "Cụm “cứ thế này mãi” cũng có thể nghe như trách, không chỉ là lo."
+        },
+        "confidence": "low",
+        "cues": [
+          "vì thương con thôi",
+          "ai lo cho con?"
+        ],
+        "expression": "NP",
+        "invites": "C",
+        "messageId": "m5",
+        "rationale": "Câu nói về thương và lo cho tương lai nghe như muốn che chở. Có thể mời phía bên kia đón nhận ý lo đó.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": null,
+        "confidence": "high",
+        "cues": [
+          "Vâng.",
+          "Con xin lỗi."
+        ],
+        "expression": "AC",
+        "invites": "P",
+        "messageId": "m6",
+        "rationale": "Chữ “Vâng” và “xin lỗi” nghe như nhận lỗi và thuận theo. Câu đi làm tiếp nghe như muốn khép lại.",
+        "reflectionQuestion": "Khi nhắn “Con đi làm tiếp đây” để khép lại, bạn mong điều gì sẽ đến sau đó?",
+        "secondLayer": {
+          "cues": [
+            "Vâng. Con xin lỗi."
+          ],
+          "observation": "“Vâng. Con xin lỗi” sau câu phản đối có thể nghe như đồng ý ở bề mặt, trong khi chuyện trước đó vẫn còn mở."
+        }
+      }
+    ],
+    "safety": {
+      "categories": [],
+      "flagged": false,
+      "note": null
+    },
+    "shifts": [
+      {
+        "cues": [
+          "cũng phải lo chuyện chồng con"
+        ],
+        "description": "Lời đang hỏi sức khỏe và công việc chuyển sang nhắc chuyện chồng con.",
+        "messageId": "m3"
+      },
+      {
+        "cues": [
+          "Mẹ lại thế rồi"
+        ],
+        "description": "Từ trao đổi thông tin chuyển sang nói thẳng sự không đồng tình.",
+        "messageId": "m4"
+      },
+      {
+        "cues": [
+          "Con xin lỗi.",
+          "Con đi làm tiếp đây"
+        ],
+        "description": "Từ qua lại chuyển sang xin lỗi ngắn gọn và dừng cuộc trò chuyện.",
+        "messageId": "m6"
+      }
+    ],
+    "summary": "Cuộc trò chuyện bắt đầu bằng hỏi han sức khỏe và công việc. Sau câu nhắc chuyện chồng con, lời qua lại chuyển sang căng hơn rồi khép nhanh bằng lời xin lỗi và quay lại công việc. Mạch chung là từ quan tâm sang nhắc nhở rồi dừng lại.",
+    "uncertainty": "Chỉ qua chữ viết khó biết giọng điệu, nét mặt và chuyện trước đây của hai người. Cách nhớ lại lời cũng có thể không còn nguyên từng chữ."
+  },
+  "checks": {
+    "coverage": "6/6",
+    "cueVerbatimRate": 1,
+    "unclearCount": 0,
+    "secondLayers": [
+      "m6"
+    ],
+    "shifts": [
+      "m3",
+      "m4",
+      "m6"
+    ],
+    "repeatedOpeners": 0,
+    "outsidePlausible": [],
+    "exchanges": [
+      {
+        "pair": "m1->m2",
+        "pattern": "crossed",
+        "vectorsRule": "crossed"
+      },
+      {
+        "pair": "m2->m3",
+        "pattern": "crossed",
+        "vectorsRule": "crossed"
+      },
+      {
+        "pair": "m3->m4",
+        "pattern": "complementary",
+        "vectorsRule": "complementary"
+      },
+      {
+        "pair": "m4->m5",
+        "pattern": "complementary",
+        "vectorsRule": "complementary"
+      },
+      {
+        "pair": "m5->m6",
+        "pattern": "complementary",
+        "vectorsRule": "complementary"
+      }
+    ],
+    "flags": {
+      "unsupportedInference": [
+        "m1: muốn",
+        "m5: muốn"
+      ],
+      "leadingQuestions": []
+    },
+    "issues": []
+  }
+}

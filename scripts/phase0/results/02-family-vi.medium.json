@@ -1,0 +1,203 @@
+{
+  "meta": {
+    "effort": "medium",
+    "latencyMs": 21451,
+    "usd": 0.02188575,
+    "usage": {
+      "completion_tokens": 4629,
+      "prompt_tokens": 1770,
+      "total_tokens": 6399,
+      "completion_tokens_details": {
+        "reasoning_tokens": 3135
+      },
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    }
+  },
+  "output": {
+    "readings": [
+      {
+        "addressedTo": "p2",
+        "alternative": "A",
+        "confidence": "medium",
+        "cues": [
+          "Con ăn cơm chưa?",
+          "nhớ giữ sức khỏe nhé"
+        ],
+        "expression": "NP",
+        "messageId": "m1",
+        "rationale": "Cách hỏi thăm và nhắc giữ sức khỏe có thể đọc như biểu hiện chăm sóc, và có thể hướng tới sự đón nhận ở phía người nghe.",
+        "reflectionQuestion": null,
+        "target": "C"
+      },
+      {
+        "addressedTo": "p1",
+        "alternative": "AC",
+        "confidence": "medium",
+        "cues": [
+          "Con ăn rồi mẹ ạ.",
+          "con hơi bận"
+        ],
+        "expression": "A",
+        "messageId": "m2",
+        "rationale": "Việc đưa thông tin về tình hình ăn uống và công việc có thể đọc như trao đổi thực tế, hướng tới việc chia sẻ thông tin.",
+        "reflectionQuestion": "Khi trả lời về tình hình của mình lúc đó, bạn nhận thấy điều gì đang diễn ra trong mình?",
+        "target": "A"
+      },
+      {
+        "addressedTo": "p2",
+        "alternative": null,
+        "confidence": "high",
+        "cues": [
+          "phải lo chuyện chồng con đi chứ",
+          "Con nhà cô Lan cưới rồi đấy"
+        ],
+        "expression": "CP",
+        "messageId": "m3",
+        "rationale": "Cụm từ mang tính yêu cầu và so sánh có thể đọc như biểu hiện đặt ra quy tắc, và có thể hướng tới sự nghe theo ở phía người nghe.",
+        "reflectionQuestion": null,
+        "target": "C"
+      },
+      {
+        "addressedTo": "p1",
+        "alternative": "FC",
+        "confidence": "medium",
+        "cues": [
+          "Mẹ lại thế rồi",
+          "Con biết con phải làm gì mà"
+        ],
+        "expression": "AC",
+        "messageId": "m4",
+        "rationale": "Cách phản ứng lại lời nhắc trước đó có thể đọc như sự chống lại một yêu cầu, và có thể hướng tới việc được dừng lại ở phía người nghe.",
+        "reflectionQuestion": "Khi nói câu này, bạn nhận thấy điều gì đang diễn ra trong mình lúc đó?",
+        "target": "P"
+      },
+      {
+        "addressedTo": "p2",
+        "alternative": "CP",
+        "confidence": "low",
+        "cues": [
+          "vì thương con thôi",
+          "ai lo cho con?"
+        ],
+        "expression": "NP",
+        "messageId": "m5",
+        "rationale": "Việc giải thích là vì thương và lo cho tương lai có thể đọc như biểu hiện bảo vệ, chăm sóc, và có thể hướng tới sự đón nhận ở phía người nghe.",
+        "reflectionQuestion": null,
+        "target": "C"
+      },
+      {
+        "addressedTo": "p1",
+        "alternative": null,
+        "confidence": "high",
+        "cues": [
+          "Vâng.",
+          "Con xin lỗi"
+        ],
+        "expression": "AC",
+        "messageId": "m6",
+        "rationale": "Lời nhận lỗi và xin dừng lại có thể đọc như sự tuân theo và rút lui, và có thể hướng tới sự chấp nhận ở phía người nghe.",
+        "reflectionQuestion": "Khi khép lại bằng lời xin lỗi và quay lại công việc, bạn nhận thấy điều gì đang diễn ra trong mình?",
+        "target": "P"
+      }
+    ],
+    "safety": {
+      "categories": [],
+      "flagged": false,
+      "note": null
+    },
+    "summary": "Cuộc trò chuyện bắt đầu bằng hỏi thăm sức khỏe, sau đó chuyển sang bàn về chuyện lập gia đình. Từ đó cách trao đổi có thể đọc như trở nên căng hơn rồi khép lại bằng lời xin lỗi và rút lui để quay lại công việc.",
+    "transactions": [
+      {
+        "confidence": "medium",
+        "explanation": "Tin nhắn trước có thể đọc như từ Cha mẹ Nuôi dưỡng tới Trẻ em, nhưng tin nhắn sau có thể đọc như từ Người trưởng thành tới Người trưởng thành, nên mạch đáp lại không khớp như được mời.",
+        "hiddenMessage": null,
+        "responseId": "m2",
+        "stimulusId": "m1",
+        "type": "crossed"
+      },
+      {
+        "confidence": "medium",
+        "explanation": "Tin nhắn trước có thể đọc như từ Người trưởng thành tới Người trưởng thành, nhưng tin nhắn sau có thể đọc như từ Cha mẹ Phê phán tới Trẻ em, nên hướng trao đổi thay đổi.",
+        "hiddenMessage": null,
+        "responseId": "m3",
+        "stimulusId": "m2",
+        "type": "crossed"
+      },
+      {
+        "confidence": "medium",
+        "explanation": "Tin nhắn trước có thể đọc như hướng tới Trẻ em, và tin nhắn sau có thể đọc như từ Trẻ em Thích nghi trở lại Cha mẹ, nên mạch đáp lại khớp với lời mời.",
+        "hiddenMessage": null,
+        "responseId": "m4",
+        "stimulusId": "m3",
+        "type": "complementary"
+      },
+      {
+        "confidence": "low",
+        "explanation": "Tin nhắn trước có thể đọc như từ Trẻ em Thích nghi tới Cha mẹ, và tin nhắn sau có thể đọc như từ Cha mẹ Nuôi dưỡng trở lại Trẻ em, nên mạch đáp lại khớp với lời mời.",
+        "hiddenMessage": null,
+        "responseId": "m5",
+        "stimulusId": "m4",
+        "type": "complementary"
+      },
+      {
+        "confidence": "high",
+        "explanation": "Tin nhắn trước có thể đọc như hướng tới Trẻ em, và tin nhắn sau có thể đọc như từ Trẻ em Thích nghi trở lại Cha mẹ, nên mạch đáp lại khớp với lời mời.",
+        "hiddenMessage": null,
+        "responseId": "m6",
+        "stimulusId": "m5",
+        "type": "complementary"
+      }
+    ],
+    "turningPoints": [
+      {
+        "messageId": "m3",
+        "why": "Cách trao đổi có thể đọc như chuyển từ hỏi thăm sang nêu yêu cầu về chuyện gia đình."
+      },
+      {
+        "messageId": "m6",
+        "why": "Cuộc trò chuyện có thể đọc như chuyển sang khép lại bằng lời xin lỗi và rút lui."
+      }
+    ],
+    "uncertainty": "Chỉ qua chữ viết khó biết giọng điệu, nét mặt, lịch sử quan hệ và bối cảnh thực tế của hai người, nên các cách đọc trên chỉ là giả thuyết để suy ngẫm."
+  },
+  "checks": {
+    "coverage": "6/6",
+    "cueVerbatimRate": 1,
+    "txConsistency": [
+      {
+        "pair": "m1->m2",
+        "model": "crossed",
+        "rule": "crossed",
+        "consistent": true
+      },
+      {
+        "pair": "m2->m3",
+        "model": "crossed",
+        "rule": "crossed",
+        "consistent": true
+      },
+      {
+        "pair": "m3->m4",
+        "model": "complementary",
+        "rule": "complementary",
+        "consistent": true
+      },
+      {
+        "pair": "m4->m5",
+        "model": "complementary",
+        "rule": "complementary",
+        "consistent": true
+      },
+      {
+        "pair": "m5->m6",
+        "model": "complementary",
+        "rule": "complementary",
+        "consistent": true
+      }
+    ],
+    "forbiddenHits": [],
+    "issues": []
+  }
+}

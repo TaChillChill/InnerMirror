@@ -1,0 +1,250 @@
+{
+  "meta": {
+    "model": "muse-spark-1.3",
+    "effort": "medium",
+    "run": 1,
+    "latencyMs": 29088,
+    "usd": 0.027640750000000002,
+    "usage": {
+      "completion_tokens": 5834,
+      "prompt_tokens": 2277,
+      "total_tokens": 8111,
+      "completion_tokens_details": {
+        "reasoning_tokens": 4564
+      },
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "finish": "stop"
+  },
+  "output": {
+    "exchanges": [
+      {
+        "note": "A proposal inviting understanding was followed by a blaming reply.",
+        "pattern": "crossed",
+        "responseAddresses": "C",
+        "responseFrom": "P",
+        "responseId": "m2",
+        "stimulusAddresses": "P",
+        "stimulusFrom": "A",
+        "stimulusId": "m1"
+      },
+      {
+        "note": "Criticism inviting a defensive reply was followed by an apology that addresses understanding.",
+        "pattern": "complementary",
+        "responseAddresses": "P",
+        "responseFrom": "C",
+        "responseId": "m3",
+        "stimulusAddresses": "C",
+        "stimulusFrom": "P",
+        "stimulusId": "m2"
+      },
+      {
+        "note": "An apology was followed by a withdrawing reply with no clear invitation.",
+        "pattern": "unclear",
+        "responseAddresses": "UNCLEAR",
+        "responseFrom": "C",
+        "responseId": "m4",
+        "stimulusAddresses": "P",
+        "stimulusFrom": "C",
+        "stimulusId": "m3"
+      },
+      {
+        "note": "Pairing is uncertain because the withdrawing reply leaves the next invitation unclear.",
+        "pattern": "unclear",
+        "responseAddresses": "A",
+        "responseFrom": "A",
+        "responseId": "m5",
+        "stimulusAddresses": "UNCLEAR",
+        "stimulusFrom": "C",
+        "stimulusId": "m4"
+      },
+      {
+        "note": "Pairing is uncertain because the short reply does not show a clear state.",
+        "pattern": "unclear",
+        "responseAddresses": "UNCLEAR",
+        "responseFrom": "UNCLEAR",
+        "responseId": "m6",
+        "stimulusAddresses": "A",
+        "stimulusFrom": "A",
+        "stimulusId": "m5"
+      }
+    ],
+    "readings": [
+      {
+        "alternative": {
+          "expression": "AC",
+          "rationale": "\"I'm so sorry\" can also read as apologizing and placating."
+        },
+        "confidence": "medium",
+        "cues": [
+          "I'm so sorry",
+          "Can we move dinner to tomorrow?"
+        ],
+        "expression": "A",
+        "invites": "P",
+        "messageId": "m1",
+        "rationale": "The words describe what happened and propose another time, which can read as problem-solving, with an apology attached.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": null,
+        "confidence": "high",
+        "cues": [
+          "Seriously?",
+          "You always do this."
+        ],
+        "expression": "CP",
+        "invites": "C",
+        "messageId": "m2",
+        "rationale": "\"You always do this\" can read as blaming and generalizing, which may sound like Critical Parent.",
+        "reflectionQuestion": "When you read \"work blew up. Can we move dinner to tomorrow?\" what caught your attention most before you replied?",
+        "secondLayer": null
+      },
+      {
+        "alternative": null,
+        "confidence": "high",
+        "cues": [
+          "I'm really sorry",
+          "I feel awful about it."
+        ],
+        "expression": "AC",
+        "invites": "P",
+        "messageId": "m3",
+        "rationale": "The words apologize twice and say feeling awful, which can read as complying and seeking forgiveness.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "CP",
+          "rationale": "\"Do whatever you want\" can also read as a dismissive instruction."
+        },
+        "confidence": "medium",
+        "cues": [
+          "Fine.",
+          "Do whatever you want."
+        ],
+        "expression": "AC",
+        "invites": "UNCLEAR",
+        "messageId": "m4",
+        "rationale": "The words can read as withdrawing from discussion rather than deciding together, which may sound like Adapted Child.",
+        "reflectionQuestion": "As you typed \"Fine. Do whatever you want.\" what did you notice in your body or in the urge to continue or stop typing?",
+        "secondLayer": {
+          "cues": [
+            "Fine.",
+            "Do whatever you want."
+          ],
+          "observation": "\"Fine\" can sound like agreement on the surface while \"Do whatever you want\" leaves the dinner topic still open."
+        }
+      },
+      {
+        "alternative": null,
+        "confidence": "high",
+        "cues": [
+          "Can we talk about it properly",
+          "I want to understand"
+        ],
+        "expression": "A",
+        "invites": "A",
+        "messageId": "m5",
+        "rationale": "The words propose a time to talk and describe wanting to understand, which can read as Adult problem-solving.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": null,
+        "confidence": "low",
+        "cues": [],
+        "expression": "UNCLEAR",
+        "invites": "UNCLEAR",
+        "messageId": "m6",
+        "rationale": "\"ok\" alone is too short to support a clear reading and could fit several states equally.",
+        "reflectionQuestion": "After reading \"I want to understand what's going on for you\" what did you hope could happen next?",
+        "secondLayer": null
+      }
+    ],
+    "safety": {
+      "categories": [],
+      "flagged": false,
+      "note": null
+    },
+    "shifts": [
+      {
+        "cues": [
+          "third time",
+          "You always do this."
+        ],
+        "description": "The words move from rescheduling dinner to pointing at a repeated pattern.",
+        "messageId": "m2"
+      },
+      {
+        "cues": [
+          "Fine.",
+          "Do whatever you want."
+        ],
+        "description": "The words move from apology and regret to a short closing statement.",
+        "messageId": "m4"
+      },
+      {
+        "cues": [
+          "Can we talk about it properly",
+          "I want to understand"
+        ],
+        "description": "The words move from short closing statements to proposing a fuller talk at home.",
+        "messageId": "m5"
+      }
+    ],
+    "summary": "The conversation starts with a request to reschedule and moves quickly into blame about repetition. An apology is followed by withdrawal, then by an invitation to talk more fully, which gets a minimal reply.",
+    "uncertainty": "Text alone cannot show tone of voice, history between you, or what work pressure and dinner plans meant outside this chat."
+  },
+  "checks": {
+    "coverage": "6/6",
+    "cueVerbatimRate": 1,
+    "unclearCount": 1,
+    "secondLayers": [
+      "m4"
+    ],
+    "shifts": [
+      "m2",
+      "m4",
+      "m5"
+    ],
+    "repeatedOpeners": 0,
+    "outsidePlausible": [],
+    "exchanges": [
+      {
+        "pair": "m1->m2",
+        "pattern": "crossed",
+        "vectorsRule": "crossed"
+      },
+      {
+        "pair": "m2->m3",
+        "pattern": "complementary",
+        "vectorsRule": "complementary"
+      },
+      {
+        "pair": "m3->m4",
+        "pattern": "unclear",
+        "vectorsRule": "unclear"
+      },
+      {
+        "pair": "m4->m5",
+        "pattern": "unclear",
+        "vectorsRule": "unclear"
+      },
+      {
+        "pair": "m5->m6",
+        "pattern": "unclear",
+        "vectorsRule": "unclear"
+      }
+    ],
+    "flags": {
+      "unsupportedInference": [],
+      "leadingQuestions": []
+    },
+    "issues": []
+  }
+}

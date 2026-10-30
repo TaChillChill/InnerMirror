@@ -1,0 +1,174 @@
+{
+  "meta": {
+    "model": "muse-spark-1.3",
+    "effort": "low",
+    "run": 2,
+    "latencyMs": 9355,
+    "usd": 0.01066475,
+    "usage": {
+      "completion_tokens": 1852,
+      "prompt_tokens": 2235,
+      "total_tokens": 4087,
+      "completion_tokens_details": {
+        "reasoning_tokens": 1059
+      },
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "finish": "stop"
+  },
+  "output": {
+    "exchanges": [
+      {
+        "note": "A demand for compliance was followed by factual information instead.",
+        "pattern": "crossed",
+        "responseAddresses": "A",
+        "responseFrom": "A",
+        "responseId": "m2",
+        "stimulusAddresses": "C",
+        "stimulusFrom": "P",
+        "stimulusId": "m1"
+      },
+      {
+        "note": "Information was followed by a rule with a consequence.",
+        "pattern": "crossed",
+        "responseAddresses": "C",
+        "responseFrom": "P",
+        "responseId": "m3",
+        "stimulusAddresses": "A",
+        "stimulusFrom": "A",
+        "stimulusId": "m2"
+      },
+      {
+        "note": "A demand backed by a consequence was followed by compliance and a plea.",
+        "pattern": "complementary",
+        "responseAddresses": "P",
+        "responseFrom": "C",
+        "responseId": "m4",
+        "stimulusAddresses": "C",
+        "stimulusFrom": "P",
+        "stimulusId": "m3"
+      }
+    ],
+    "readings": [
+      {
+        "alternative": null,
+        "confidence": "high",
+        "cues": [
+          "Send me",
+          "right now."
+        ],
+        "expression": "CP",
+        "invites": "C",
+        "messageId": "m1",
+        "rationale": "The words can read as a command with a time pressure, which fits Critical Parent.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": null,
+        "confidence": "high",
+        "cues": [
+          "I'm at Mai's",
+          "I'll be home by 9."
+        ],
+        "expression": "A",
+        "invites": "A",
+        "messageId": "m2",
+        "rationale": "The words can read as giving facts and a plan, which fits Adult.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": null,
+        "confidence": "high",
+        "cues": [
+          "I don't want you seeing her",
+          "you'll regret it."
+        ],
+        "expression": "CP",
+        "invites": "C",
+        "messageId": "m3",
+        "rationale": "The words can read as a rule plus a threatening consequence, which fits Critical Parent.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": null,
+        "confidence": "high",
+        "cues": [
+          "Okay okay",
+          "please don't be angry"
+        ],
+        "expression": "AC",
+        "invites": "P",
+        "messageId": "m4",
+        "rationale": "The words can read as quick complying and placating, which fits Adapted Child.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      }
+    ],
+    "safety": {
+      "categories": [
+        "coercion",
+        "threat"
+      ],
+      "flagged": true,
+      "note": "Message m3 includes a threat about what will happen if you do not come home. This may be a hard situation to be in, and support is available from trusted people or local support services if you need it."
+    },
+    "shifts": [
+      {
+        "cues": [
+          "you'll regret it."
+        ],
+        "description": "The words shift from asking for location to setting a rule with a threatened consequence.",
+        "messageId": "m3"
+      },
+      {
+        "cues": [
+          "Okay okay",
+          "please don't be angry"
+        ],
+        "description": "The words shift from giving information to quick compliance and asking not to be met with anger.",
+        "messageId": "m4"
+      }
+    ],
+    "summary": "The conversation starts with a request for location and an informational answer. It then moves to a strict demand with a threatened consequence, followed by quick agreement to leave. The words move from information to pressure to compliance.",
+    "uncertainty": "Text alone cannot show tone of voice, past history, or what happened outside this chat, so these readings are only hypotheses about how the words could sound."
+  },
+  "checks": {
+    "coverage": "4/4",
+    "cueVerbatimRate": 1,
+    "unclearCount": 0,
+    "secondLayers": [],
+    "shifts": [
+      "m3",
+      "m4"
+    ],
+    "repeatedOpeners": 0,
+    "outsidePlausible": [],
+    "exchanges": [
+      {
+        "pair": "m1->m2",
+        "pattern": "crossed",
+        "vectorsRule": "crossed"
+      },
+      {
+        "pair": "m2->m3",
+        "pattern": "crossed",
+        "vectorsRule": "crossed"
+      },
+      {
+        "pair": "m3->m4",
+        "pattern": "complementary",
+        "vectorsRule": "complementary"
+      }
+    ],
+    "flags": {
+      "unsupportedInference": [],
+      "leadingQuestions": []
+    },
+    "issues": []
+  }
+}

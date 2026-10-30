@@ -1,0 +1,239 @@
+{
+  "meta": {
+    "model": "muse-spark-1.3",
+    "effort": "low",
+    "run": 2,
+    "latencyMs": 11839,
+    "usd": 0.01133685,
+    "usage": {
+      "completion_tokens": 2577,
+      "prompt_tokens": 2322,
+      "total_tokens": 4899,
+      "completion_tokens_details": {
+        "reasoning_tokens": 1368
+      },
+      "prompt_tokens_details": {
+        "cached_tokens": 2289
+      }
+    },
+    "finish": "stop"
+  },
+  "output": {
+    "exchanges": [
+      {
+        "note": "An apology came back to a criticism, matching what was addressed.",
+        "pattern": "complementary",
+        "responseAddresses": "P",
+        "responseFrom": "C",
+        "responseId": "m2",
+        "stimulusAddresses": "C",
+        "stimulusFrom": "P",
+        "stimulusId": "m1"
+      },
+      {
+        "note": "A practical proposal came back where reassurance was invited.",
+        "pattern": "crossed",
+        "responseAddresses": "A",
+        "responseFrom": "A",
+        "responseId": "m3",
+        "stimulusAddresses": "P",
+        "stimulusFrom": "C",
+        "stimulusId": "m2"
+      },
+      {
+        "note": "A correction came back where a factual proposal was addressed.",
+        "pattern": "crossed",
+        "responseAddresses": "C",
+        "responseFrom": "P",
+        "responseId": "m4",
+        "stimulusAddresses": "A",
+        "stimulusFrom": "A",
+        "stimulusId": "m3"
+      },
+      {
+        "note": "A pushback came back to a criticism, matching what was addressed.",
+        "pattern": "complementary",
+        "responseAddresses": "P",
+        "responseFrom": "C",
+        "responseId": "m5",
+        "stimulusAddresses": "C",
+        "stimulusFrom": "P",
+        "stimulusId": "m4"
+      },
+      {
+        "note": "A move to action came back where a defense was addressed.",
+        "pattern": "crossed",
+        "responseAddresses": "A",
+        "responseFrom": "A",
+        "responseId": "m6",
+        "stimulusAddresses": "P",
+        "stimulusFrom": "C",
+        "stimulusId": "m5"
+      }
+    ],
+    "readings": [
+      {
+        "alternative": {
+          "expression": "A",
+          "rationale": "The words also ask for information about what happened, so they can read as a factual question."
+        },
+        "confidence": "medium",
+        "cues": [
+          "was due at 10",
+          "Why am I only hearing now"
+        ],
+        "expression": "CP",
+        "invites": "C",
+        "messageId": "m1",
+        "rationale": "The deadline reference plus 'Why am I only hearing' can read as judging the delay.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": null,
+        "confidence": "high",
+        "cues": [
+          "So sorry",
+          "that's on me",
+          "I should have flagged"
+        ],
+        "expression": "AC",
+        "invites": "P",
+        "messageId": "m2",
+        "rationale": "The words apologize and take blame, which can read as complying and placating.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": null,
+        "confidence": "high",
+        "cues": [
+          "came in late",
+          "We can send a first version by 2pm",
+          "Would that work?"
+        ],
+        "expression": "A",
+        "invites": "A",
+        "messageId": "m3",
+        "rationale": "The words describe what happened and propose clear next steps, which can read as problem-solving.",
+        "reflectionQuestion": "After reading 'Why am I only hearing now that it's not ready?' what did you notice in yourself just before you wrote about the 2pm version?",
+        "secondLayer": null
+      },
+      {
+        "alternative": null,
+        "confidence": "high",
+        "cues": [
+          "should never happen",
+          "I expect better"
+        ],
+        "expression": "CP",
+        "invites": "C",
+        "messageId": "m4",
+        "rationale": "The words set a rule and evaluate both people, which can read as Critical Parent.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "AC",
+          "rationale": "It also pushes back against the demand in m4, so it could read as rebellious resistance."
+        },
+        "confidence": "medium",
+        "cues": [
+          "Honestly it's not like",
+          "We've been working late"
+        ],
+        "expression": "FC",
+        "invites": "P",
+        "messageId": "m5",
+        "rationale": "The direct protest about effort can read as openly stated hurt or frustration.",
+        "reflectionQuestion": "When you read 'I expect better from both of you,' how else could those words be read besides the way you first took them?",
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "AC",
+          "rationale": "It also agrees to do the work now, so it could read as complying to move past the criticism."
+        },
+        "confidence": "medium",
+        "cues": [
+          "Let's just get it done",
+          "I'll start on the slides now"
+        ],
+        "expression": "A",
+        "invites": "A",
+        "messageId": "m6",
+        "rationale": "The words shift to a concrete next action, which can read as problem-solving.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      }
+    ],
+    "safety": {
+      "categories": [],
+      "flagged": false,
+      "note": null
+    },
+    "shifts": [
+      {
+        "cues": [
+          "We can send a first version by 2pm"
+        ],
+        "description": "The words move from apology to proposing a concrete timeline.",
+        "messageId": "m3"
+      },
+      {
+        "cues": [
+          "This should never happen"
+        ],
+        "description": "The words move from the timeline proposal back to evaluating the mistake.",
+        "messageId": "m4"
+      }
+    ],
+    "summary": "The conversation starts with a missed deadline and criticism, then moves through apology and a practical proposal. After renewed criticism it turns defensive before shifting back to getting the work done. The plan for 2pm and tomorrow morning stays open without a clear agreement.",
+    "uncertainty": "Text alone cannot show tone of voice, work history, or relationships, so these readings are only hypotheses about how the words could sound."
+  },
+  "checks": {
+    "coverage": "6/6",
+    "cueVerbatimRate": 1,
+    "unclearCount": 0,
+    "secondLayers": [],
+    "shifts": [
+      "m3",
+      "m4"
+    ],
+    "repeatedOpeners": 0,
+    "outsidePlausible": [],
+    "exchanges": [
+      {
+        "pair": "m1->m2",
+        "pattern": "complementary",
+        "vectorsRule": "complementary"
+      },
+      {
+        "pair": "m2->m3",
+        "pattern": "crossed",
+        "vectorsRule": "crossed"
+      },
+      {
+        "pair": "m3->m4",
+        "pattern": "crossed",
+        "vectorsRule": "crossed"
+      },
+      {
+        "pair": "m4->m5",
+        "pattern": "complementary",
+        "vectorsRule": "complementary"
+      },
+      {
+        "pair": "m5->m6",
+        "pattern": "crossed",
+        "vectorsRule": "crossed"
+      }
+    ],
+    "flags": {
+      "unsupportedInference": [],
+      "leadingQuestions": []
+    },
+    "issues": []
+  }
+}

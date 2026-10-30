@@ -1,0 +1,181 @@
+{
+  "meta": {
+    "model": "muse-spark-1.3",
+    "effort": "medium",
+    "run": 2,
+    "latencyMs": 15668,
+    "usd": 0.0174435,
+    "usage": {
+      "completion_tokens": 3447,
+      "prompt_tokens": 2235,
+      "total_tokens": 5682,
+      "completion_tokens_details": {
+        "reasoning_tokens": 2606
+      },
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "finish": "stop"
+  },
+  "output": {
+    "exchanges": [
+      {
+        "note": "A factual update comes back after a demand for location.",
+        "pattern": "crossed",
+        "responseAddresses": "A",
+        "responseFrom": "A",
+        "responseId": "m2",
+        "stimulusAddresses": "C",
+        "stimulusFrom": "P",
+        "stimulusId": "m1"
+      },
+      {
+        "note": "A rule with a warning comes back after factual information.",
+        "pattern": "crossed",
+        "responseAddresses": "C",
+        "responseFrom": "P",
+        "responseId": "m3",
+        "stimulusAddresses": "A",
+        "stimulusFrom": "A",
+        "stimulusId": "m2"
+      },
+      {
+        "note": "Compliance and a plea come back after a demand with a warning.",
+        "pattern": "complementary",
+        "responseAddresses": "P",
+        "responseFrom": "C",
+        "responseId": "m4",
+        "stimulusAddresses": "C",
+        "stimulusFrom": "P",
+        "stimulusId": "m3"
+      }
+    ],
+    "readings": [
+      {
+        "alternative": {
+          "expression": "A",
+          "rationale": "'Where are you?' could also read as a straightforward request for information."
+        },
+        "confidence": "medium",
+        "cues": [
+          "Where are you?",
+          "Send me your location right now."
+        ],
+        "expression": "CP",
+        "invites": "C",
+        "messageId": "m1",
+        "rationale": "The imperative about sending location can read as a command setting an immediate demand.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "AC",
+          "rationale": "'I told you this morning' could also read as justifying to avoid disapproval."
+        },
+        "confidence": "medium",
+        "cues": [
+          "I'm at Mai's,",
+          "I'll be home by 9."
+        ],
+        "expression": "A",
+        "invites": "A",
+        "messageId": "m2",
+        "rationale": "The words give location and a return time, which can read as factual information and planning.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": null,
+        "confidence": "high",
+        "cues": [
+          "I don't want you seeing her.",
+          "you'll regret it."
+        ],
+        "expression": "CP",
+        "invites": "C",
+        "messageId": "m3",
+        "rationale": "The words set a rule about contact and state a negative consequence, which can read as a command with a warning.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": null,
+        "confidence": "high",
+        "cues": [
+          "Okay okay",
+          "please don't be angry"
+        ],
+        "expression": "AC",
+        "invites": "P",
+        "messageId": "m4",
+        "rationale": "The repeated agreement and plea can read as complying to avoid disapproval.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      }
+    ],
+    "safety": {
+      "categories": [
+        "coercion",
+        "threat"
+      ],
+      "flagged": true,
+      "note": "This looks like a hard situation to be in. You deserve to feel safe, and support from a trusted person or helpline is available if you need it."
+    },
+    "shifts": [
+      {
+        "cues": [
+          "I don't want you seeing her.",
+          "you'll regret it."
+        ],
+        "description": "The words move from asking for location to setting a rule about contact with a time limit and warning.",
+        "messageId": "m3"
+      },
+      {
+        "cues": [
+          "I'm leaving now,",
+          "please don't be angry"
+        ],
+        "description": "The words move from stating a plan to return by 9 to agreeing to leave now with a plea.",
+        "messageId": "m4"
+      }
+    ],
+    "summary": "The conversation starts with a request for location and a reply giving a location and return time. It then moves to a rule about contact with a warning, followed by immediate agreement to leave.",
+    "uncertainty": "Text alone cannot show tone of voice, history between you, or what happened outside the chat."
+  },
+  "checks": {
+    "coverage": "4/4",
+    "cueVerbatimRate": 1,
+    "unclearCount": 0,
+    "secondLayers": [],
+    "shifts": [
+      "m3",
+      "m4"
+    ],
+    "repeatedOpeners": 0,
+    "outsidePlausible": [],
+    "exchanges": [
+      {
+        "pair": "m1->m2",
+        "pattern": "crossed",
+        "vectorsRule": "crossed"
+      },
+      {
+        "pair": "m2->m3",
+        "pattern": "crossed",
+        "vectorsRule": "crossed"
+      },
+      {
+        "pair": "m3->m4",
+        "pattern": "complementary",
+        "vectorsRule": "complementary"
+      }
+    ],
+    "flags": {
+      "unsupportedInference": [],
+      "leadingQuestions": []
+    },
+    "issues": []
+  }
+}

@@ -1,0 +1,249 @@
+{
+  "meta": {
+    "model": "muse-spark-1.3",
+    "effort": "medium",
+    "run": 1,
+    "latencyMs": 23355,
+    "usd": 0.027448,
+    "usage": {
+      "completion_tokens": 5756,
+      "prompt_tokens": 2388,
+      "total_tokens": 8144,
+      "completion_tokens_details": {
+        "reasoning_tokens": 4409
+      },
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "finish": "stop"
+  },
+  "output": {
+    "exchanges": [
+      {
+        "note": "Lời hỏi thăm được đáp lại bằng thông tin về công việc.",
+        "pattern": "crossed",
+        "responseAddresses": "A",
+        "responseFrom": "A",
+        "responseId": "m2",
+        "stimulusAddresses": "C",
+        "stimulusFrom": "P",
+        "stimulusId": "m1"
+      },
+      {
+        "note": "Lời kể về công việc được đáp lại bằng lời giục chuyện khác.",
+        "pattern": "crossed",
+        "responseAddresses": "C",
+        "responseFrom": "P",
+        "responseId": "m3",
+        "stimulusAddresses": "A",
+        "stimulusFrom": "A",
+        "stimulusId": "m2"
+      },
+      {
+        "note": "Lời giục được đáp lại bằng lời phản đối và tự khẳng định.",
+        "pattern": "complementary",
+        "responseAddresses": "P",
+        "responseFrom": "C",
+        "responseId": "m4",
+        "stimulusAddresses": "C",
+        "stimulusFrom": "P",
+        "stimulusId": "m3"
+      },
+      {
+        "note": "Lời phản đối được đáp lại bằng lời giải thích về sự quan tâm.",
+        "pattern": "complementary",
+        "responseAddresses": "C",
+        "responseFrom": "P",
+        "responseId": "m5",
+        "stimulusAddresses": "P",
+        "stimulusFrom": "C",
+        "stimulusId": "m4"
+      },
+      {
+        "note": "Lời giải thích kèm lo lắng được đáp lại bằng lời xin lỗi và dừng lại.",
+        "pattern": "complementary",
+        "responseAddresses": "P",
+        "responseFrom": "C",
+        "responseId": "m6",
+        "stimulusAddresses": "C",
+        "stimulusFrom": "P",
+        "stimulusId": "m5"
+      }
+    ],
+    "readings": [
+      {
+        "alternative": null,
+        "confidence": "high",
+        "cues": [
+          "Con ăn cơm chưa?",
+          "nhớ giữ sức khỏe nhé."
+        ],
+        "expression": "NP",
+        "invites": "C",
+        "messageId": "m1",
+        "rationale": "Câu hỏi ăn uống và lời dặn giữ sức khỏe nghe như quan tâm, muốn che chở.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "AC",
+          "rationale": "Chữ “mẹ ạ” nghe như lễ phép, thuận theo người nghe."
+        },
+        "confidence": "medium",
+        "cues": [
+          "Con ăn rồi mẹ ạ.",
+          "dự án gấp"
+        ],
+        "expression": "A",
+        "invites": "A",
+        "messageId": "m2",
+        "rationale": "Câu chữ đưa thông tin ngắn gọn về việc đã ăn và tình hình bận rộn, nghe như trao đổi thực tế.",
+        "reflectionQuestion": "Lúc đọc lời hỏi thăm về sức khỏe, điều gì khiến bạn muốn kể thêm chuyện “dự án gấp”?",
+        "secondLayer": null
+      },
+      {
+        "alternative": null,
+        "confidence": "high",
+        "cues": [
+          "phải lo chuyện chồng con đi chứ.",
+          "Con nhà cô Lan cưới rồi đấy."
+        ],
+        "expression": "CP",
+        "invites": "C",
+        "messageId": "m3",
+        "rationale": "Chữ “phải” kèm so sánh với người khác nghe như nhắc nhở, đặt ra yêu cầu.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "CP",
+          "rationale": "Câu “Mẹ lại thế rồi” cũng có thể nghe như đánh giá cách nói vừa rồi của mẹ."
+        },
+        "confidence": "medium",
+        "cues": [
+          "Mẹ lại thế rồi.",
+          "Con biết con phải làm gì mà."
+        ],
+        "expression": "AC",
+        "invites": "P",
+        "messageId": "m4",
+        "rationale": "Câu chữ nghe như gạt đi lời giục vừa rồi và khẳng định lại ý mình.",
+        "reflectionQuestion": "Khi đọc câu “lo chuyện chồng con đi chứ”, ngoài lời giục, bạn còn thấy cách đọc nào khác cho lời mẹ không?",
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "CP",
+          "rationale": "Cụm “cứ thế này mãi” nghe như chê cách sống hiện tại."
+        },
+        "confidence": "medium",
+        "cues": [
+          "vì thương con thôi.",
+          "ai lo cho con?"
+        ],
+        "expression": "NP",
+        "invites": "C",
+        "messageId": "m5",
+        "rationale": "Câu chữ nói về thương và lo cho tương lai, nghe như muốn che chở.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": null,
+        "confidence": "high",
+        "cues": [
+          "Con xin lỗi.",
+          "Con đi làm tiếp đây."
+        ],
+        "expression": "AC",
+        "invites": "P",
+        "messageId": "m6",
+        "rationale": "Lời xin lỗi kèm câu báo đi làm tiếp nghe như thuận theo và khép lại trao đổi.",
+        "reflectionQuestion": "Khi viết “Con đi làm tiếp đây” để khép lại, bạn mong điều gì sẽ diễn ra tiếp theo trong cuộc trò chuyện?",
+        "secondLayer": null
+      }
+    ],
+    "safety": {
+      "categories": [],
+      "flagged": false,
+      "note": null
+    },
+    "shifts": [
+      {
+        "cues": [
+          "phải lo chuyện chồng con đi chứ."
+        ],
+        "description": "Lời lẽ chuyển từ hỏi thăm sức khỏe sang giục chuyện chồng con.",
+        "messageId": "m3"
+      },
+      {
+        "cues": [
+          "Mẹ lại thế rồi."
+        ],
+        "description": "Lời lẽ chuyển từ giục giã sang phản đối lời giục vừa rồi.",
+        "messageId": "m4"
+      },
+      {
+        "cues": [
+          "Con xin lỗi.",
+          "Con đi làm tiếp đây."
+        ],
+        "description": "Lời lẽ chuyển sang xin lỗi và dừng trao đổi để quay lại công việc.",
+        "messageId": "m6"
+      }
+    ],
+    "summary": "Cuộc trò chuyện bắt đầu bằng hỏi thăm sức khỏe rồi chuyển sang giục chuyện chồng con. Bạn phản đối ngắn rồi mẹ giải thích là vì thương và lo. Cuối cùng bạn xin lỗi và khép lại để đi làm tiếp.",
+    "uncertainty": "Chỉ qua chữ viết khó biết giọng điệu, nét mặt và chuyện đã xảy ra trước đó giữa hai người. Lịch sử quan hệ và bối cảnh ngoài đoạn chat có thể làm đổi cách hiểu."
+  },
+  "checks": {
+    "coverage": "6/6",
+    "cueVerbatimRate": 1,
+    "unclearCount": 0,
+    "secondLayers": [],
+    "shifts": [
+      "m3",
+      "m4",
+      "m6"
+    ],
+    "repeatedOpeners": 0,
+    "outsidePlausible": [],
+    "exchanges": [
+      {
+        "pair": "m1->m2",
+        "pattern": "crossed",
+        "vectorsRule": "crossed"
+      },
+      {
+        "pair": "m2->m3",
+        "pattern": "crossed",
+        "vectorsRule": "crossed"
+      },
+      {
+        "pair": "m3->m4",
+        "pattern": "complementary",
+        "vectorsRule": "complementary"
+      },
+      {
+        "pair": "m4->m5",
+        "pattern": "complementary",
+        "vectorsRule": "complementary"
+      },
+      {
+        "pair": "m5->m6",
+        "pattern": "complementary",
+        "vectorsRule": "complementary"
+      }
+    ],
+    "flags": {
+      "unsupportedInference": [
+        "m1: muốn",
+        "m5: muốn"
+      ],
+      "leadingQuestions": []
+    },
+    "issues": []
+  }
+}

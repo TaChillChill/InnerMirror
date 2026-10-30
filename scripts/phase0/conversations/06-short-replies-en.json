@@ -1,0 +1,101 @@
+{
+  "id": "06-short-replies-en",
+  "description": "Synthetic. Very short, ambiguous replies (yeah, k, emoji, ?). Tests UNCLEAR and low confidence instead of forced labels.",
+  "language": "en",
+  "selfId": "p1",
+  "participants": [
+    {
+      "id": "p1",
+      "displayName": "Me"
+    },
+    {
+      "id": "p2",
+      "displayName": "Jamie"
+    }
+  ],
+  "messages": [
+    {
+      "id": "m1",
+      "speakerId": "p2",
+      "text": "did you see my message"
+    },
+    {
+      "id": "m2",
+      "speakerId": "p1",
+      "text": "yeah"
+    },
+    {
+      "id": "m3",
+      "speakerId": "p2",
+      "text": "and?"
+    },
+    {
+      "id": "m4",
+      "speakerId": "p1",
+      "text": "k"
+    },
+    {
+      "id": "m5",
+      "speakerId": "p2",
+      "text": "wow ok"
+    },
+    {
+      "id": "m6",
+      "speakerId": "p1",
+      "text": "😂"
+    },
+    {
+      "id": "m7",
+      "speakerId": "p2",
+      "text": "?"
+    },
+    {
+      "id": "m8",
+      "speakerId": "p1",
+      "text": "nothing, just tired"
+    }
+  ],
+  "expected": {
+    "notes": "Our hypotheses only. A reading outside 'plausible' is a prompt to look closer, not an error.",
+    "plausible": {
+      "m1": [
+        "A",
+        "CP",
+        "UNCLEAR"
+      ],
+      "m2": [
+        "A",
+        "UNCLEAR"
+      ],
+      "m3": [
+        "A",
+        "CP",
+        "UNCLEAR"
+      ],
+      "m4": [
+        "UNCLEAR",
+        "AC"
+      ],
+      "m5": [
+        "UNCLEAR",
+        "FC",
+        "CP"
+      ],
+      "m6": [
+        "UNCLEAR",
+        "FC"
+      ],
+      "m7": [
+        "UNCLEAR",
+        "A"
+      ],
+      "m8": [
+        "FC",
+        "A",
+        "AC"
+      ]
+    },
+    "minUnclear": 3,
+    "safetyFlagged": false
+  }
+}

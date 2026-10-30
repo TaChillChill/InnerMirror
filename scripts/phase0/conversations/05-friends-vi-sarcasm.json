@@ -1,0 +1,87 @@
+{
+  "id": "05-friends-vi-sarcasm",
+  "description": "Synthetic. Vietnamese friend group, indirect criticism and sarcasm with emoji. Tests second-layer observations without mind-reading.",
+  "language": "vi",
+  "selfId": "p2",
+  "participants": [
+    {
+      "id": "p1",
+      "displayName": "Hà"
+    },
+    {
+      "id": "p2",
+      "displayName": "Minh"
+    }
+  ],
+  "messages": [
+    {
+      "id": "m1",
+      "speakerId": "p1",
+      "text": "Ồ, cuối cùng cũng có người nhớ ra là có nhóm này cơ à 🙂"
+    },
+    {
+      "id": "m2",
+      "speakerId": "p2",
+      "text": "Xin lỗi mọi người, tuần này mình bận quá."
+    },
+    {
+      "id": "m3",
+      "speakerId": "p1",
+      "text": "Bận thì ai chẳng bận. Mà thôi, không sao, quen rồi."
+    },
+    {
+      "id": "m4",
+      "speakerId": "p2",
+      "text": "Ý bạn là sao?"
+    },
+    {
+      "id": "m5",
+      "speakerId": "p1",
+      "text": "Có ý gì đâu. Cứ lo việc của bạn đi."
+    },
+    {
+      "id": "m6",
+      "speakerId": "p2",
+      "text": "Ok, vậy mình đặt khách sạn luôn nhé, mọi người khỏi lo."
+    }
+  ],
+  "expected": {
+    "notes": "Our hypotheses only. A reading outside 'plausible' is a prompt to look closer, not an error.",
+    "plausible": {
+      "m1": [
+        "CP",
+        "FC",
+        "UNCLEAR"
+      ],
+      "m2": [
+        "AC",
+        "A"
+      ],
+      "m3": [
+        "CP",
+        "AC"
+      ],
+      "m4": [
+        "A",
+        "FC",
+        "AC"
+      ],
+      "m5": [
+        "AC",
+        "CP",
+        "UNCLEAR"
+      ],
+      "m6": [
+        "A",
+        "NP",
+        "AC"
+      ]
+    },
+    "secondLayer": [
+      "m1",
+      "m3",
+      "m5"
+    ],
+    "safetyFlagged": false
+  }
+}

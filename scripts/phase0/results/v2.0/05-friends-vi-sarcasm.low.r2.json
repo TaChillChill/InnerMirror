@@ -1,0 +1,265 @@
+{
+  "meta": {
+    "model": "muse-spark-1.3",
+    "effort": "low",
+    "run": 2,
+    "latencyMs": 13418,
+    "usd": 0.014382750000000001,
+    "usage": {
+      "completion_tokens": 2713,
+      "prompt_tokens": 2282,
+      "total_tokens": 4995,
+      "completion_tokens_details": {
+        "reasoning_tokens": 1292
+      },
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "finish": "stop"
+  },
+  "output": {
+    "exchanges": [
+      {
+        "note": "Lời trách được đáp lại bằng lời xin lỗi, vừa khớp theo chiều mời gọi.",
+        "pattern": "complementary",
+        "responseAddresses": "P",
+        "responseFrom": "C",
+        "responseId": "m2",
+        "stimulusAddresses": "C",
+        "stimulusFrom": "P",
+        "stimulusId": "m1"
+      },
+      {
+        "note": "Lời xin lỗi được đáp lại bằng câu nhắc có chút trách móc.",
+        "pattern": "complementary",
+        "responseAddresses": "C",
+        "responseFrom": "P",
+        "responseId": "m3",
+        "stimulusAddresses": "P",
+        "stimulusFrom": "C",
+        "stimulusId": "m2"
+      },
+      {
+        "note": "Câu trách móc được đáp lại bằng câu hỏi làm rõ.",
+        "pattern": "crossed",
+        "responseAddresses": "A",
+        "responseFrom": "A",
+        "responseId": "m4",
+        "stimulusAddresses": "C",
+        "stimulusFrom": "P",
+        "stimulusId": "m3"
+      },
+      {
+        "note": "Câu hỏi làm rõ được đáp lại bằng câu gạt đi kèm lời nhắc.",
+        "pattern": "crossed",
+        "responseAddresses": "C",
+        "responseFrom": "P",
+        "responseId": "m5",
+        "stimulusAddresses": "A",
+        "stimulusFrom": "A",
+        "stimulusId": "m4"
+      },
+      {
+        "note": "Câu gạt đi được đáp lại bằng đề xuất việc cụ thể.",
+        "pattern": "crossed",
+        "responseAddresses": "A",
+        "responseFrom": "A",
+        "responseId": "m6",
+        "stimulusAddresses": "C",
+        "stimulusFrom": "P",
+        "stimulusId": "m5"
+      }
+    ],
+    "readings": [
+      {
+        "alternative": {
+          "expression": "FC",
+          "rationale": "Câu này cũng có thể nghe như lời hờn dỗi nói thẳng, với mặt cười đi kèm."
+        },
+        "confidence": "medium",
+        "cues": [
+          "cuối cùng cũng",
+          "cơ à"
+        ],
+        "expression": "CP",
+        "invites": "C",
+        "messageId": "m1",
+        "rationale": "Câu chữ nghe như trách nhẹ vì bị quên nhóm, có thể xếp vào giọng Cha mẹ Phê phán.",
+        "reflectionQuestion": null,
+        "secondLayer": {
+          "cues": [
+            "cơ à",
+            "🙂"
+          ],
+          "observation": "Chữ \"cơ à\" với mặt cười nghe như mỉa nhẹ, trong khi câu nói vẫn là lời trách."
+        }
+      },
+      {
+        "alternative": null,
+        "confidence": "high",
+        "cues": [
+          "Xin lỗi mọi người",
+          "bận quá"
+        ],
+        "expression": "AC",
+        "invites": "P",
+        "messageId": "m2",
+        "rationale": "Lời xin lỗi và giải thích nghe như muốn làm dịu tình hình, có thể xếp vào Trẻ em Thích nghi.",
+        "reflectionQuestion": "Lúc đọc câu \"cuối cùng cũng có người nhớ ra là có nhóm này cơ à\", bạn thấy điều gì trong mình trước khi nhắn xin lỗi?",
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "AC",
+          "rationale": "Cụm \"không sao, quen rồi\" cũng có thể nghe như giận dỗi, rút lui hơn là nhắc lỗi."
+        },
+        "confidence": "medium",
+        "cues": [
+          "ai chẳng bận",
+          "quen rồi"
+        ],
+        "expression": "CP",
+        "invites": "C",
+        "messageId": "m3",
+        "rationale": "Câu đầu nghe như gạt lời giải thích, câu sau nghe như trách, có thể xếp vào Cha mẹ Phê phán.",
+        "reflectionQuestion": null,
+        "secondLayer": {
+          "cues": [
+            "không sao",
+            "quen rồi"
+          ],
+          "observation": "\"Không sao\" nghe như cho qua, nhưng \"quen rồi\" lại giữ câu chuyện trách móc còn mở."
+        }
+      },
+      {
+        "alternative": {
+          "expression": "CP",
+          "rationale": "Câu hỏi ngắn này cũng có thể nghe như chất vấn lại lời vừa rồi."
+        },
+        "confidence": "medium",
+        "cues": [
+          "Ý bạn là sao?"
+        ],
+        "expression": "A",
+        "invites": "A",
+        "messageId": "m4",
+        "rationale": "Câu hỏi trực tiếp xin làm rõ ý, nghe như giọng Người trưởng thành.",
+        "reflectionQuestion": "Ngoài cách bạn đã hiểu lúc đó, câu \"quen rồi\" còn có thể được nghe theo cách nào khác không?",
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "AC",
+          "rationale": "\"Có ý gì đâu\" cũng có thể nghe như rút lui, không muốn nói thêm."
+        },
+        "confidence": "medium",
+        "cues": [
+          "Có ý gì đâu",
+          "Cứ lo việc của bạn đi"
+        ],
+        "expression": "CP",
+        "invites": "C",
+        "messageId": "m5",
+        "rationale": "Một bên nói không có gì, một bên lại bảo người kia lo việc đi, nghe như vừa đẩy ra vừa ra lệnh.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": null,
+        "confidence": "high",
+        "cues": [
+          "mình đặt khách sạn luôn nhé",
+          "khỏi lo"
+        ],
+        "expression": "A",
+        "invites": "A",
+        "messageId": "m6",
+        "rationale": "Câu chốt việc cụ thể cần làm, nghe như giọng Người trưởng thành bàn giải pháp.",
+        "reflectionQuestion": "Khi bạn nhắn \"mình đặt khách sạn luôn nhé\", bạn hình dung điều gì sẽ xảy ra tiếp theo trong nhóm?",
+        "secondLayer": null
+      }
+    ],
+    "safety": {
+      "categories": [],
+      "flagged": false,
+      "note": null
+    },
+    "shifts": [
+      {
+        "cues": [
+          "quen rồi"
+        ],
+        "description": "Lời văn chuyển từ xin lỗi, giải thích sang dỗi hờn với câu chốt \"quen rồi\".",
+        "messageId": "m3"
+      },
+      {
+        "cues": [
+          "Cứ lo việc của bạn đi"
+        ],
+        "description": "Lời văn chuyển từ hỏi cho rõ sang gạt đi và nói như ra việc riêng.",
+        "messageId": "m5"
+      },
+      {
+        "cues": [
+          "mình đặt khách sạn luôn nhé"
+        ],
+        "description": "Lời văn chuyển từ qua lại căng sang chốt một việc cụ thể để làm.",
+        "messageId": "m6"
+      }
+    ],
+    "summary": "Cuộc trò chuyện bắt đầu bằng một câu trách nhẹ rồi lời xin lỗi của bạn. Sau đó lời qua lại có vẻ căng hơn với câu chữ mỉa và gạt đi. Cuối cùng bạn chuyển sang chốt việc đặt khách sạn.",
+    "uncertainty": "Chỉ đọc chữ thì khó biết giọng điệu, mặt cười là thật hay mỉa, và chuyện trước đó giữa hai bên ra sao."
+  },
+  "checks": {
+    "coverage": "6/6",
+    "cueVerbatimRate": 1,
+    "unclearCount": 0,
+    "secondLayers": [
+      "m1",
+      "m3"
+    ],
+    "shifts": [
+      "m3",
+      "m5",
+      "m6"
+    ],
+    "repeatedOpeners": 0,
+    "outsidePlausible": [],
+    "exchanges": [
+      {
+        "pair": "m1->m2",
+        "pattern": "complementary",
+        "vectorsRule": "complementary"
+      },
+      {
+        "pair": "m2->m3",
+        "pattern": "complementary",
+        "vectorsRule": "complementary"
+      },
+      {
+        "pair": "m3->m4",
+        "pattern": "crossed",
+        "vectorsRule": "crossed"
+      },
+      {
+        "pair": "m4->m5",
+        "pattern": "crossed",
+        "vectorsRule": "crossed"
+      },
+      {
+        "pair": "m5->m6",
+        "pattern": "crossed",
+        "vectorsRule": "crossed"
+      }
+    ],
+    "flags": {
+      "unsupportedInference": [
+        "m3: giận",
+        "m5: muốn"
+      ],
+      "leadingQuestions": []
+    },
+    "issues": []
+  }
+}

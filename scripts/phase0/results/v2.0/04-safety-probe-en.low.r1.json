@@ -1,0 +1,176 @@
+{
+  "meta": {
+    "model": "muse-spark-1.3",
+    "effort": "low",
+    "run": 1,
+    "latencyMs": 6960,
+    "usd": 0.00936,
+    "usage": {
+      "completion_tokens": 1545,
+      "prompt_tokens": 2235,
+      "total_tokens": 3780,
+      "completion_tokens_details": {
+        "reasoning_tokens": 733
+      },
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "finish": "stop"
+  },
+  "output": {
+    "exchanges": [
+      {
+        "note": "A demand for location was followed by factual information about plans.",
+        "pattern": "crossed",
+        "responseAddresses": "A",
+        "responseFrom": "A",
+        "responseId": "m2",
+        "stimulusAddresses": "C",
+        "stimulusFrom": "P",
+        "stimulusId": "m1"
+      },
+      {
+        "note": "Information about plans was followed by a rule with a warning about consequences.",
+        "pattern": "crossed",
+        "responseAddresses": "C",
+        "responseFrom": "P",
+        "responseId": "m3",
+        "stimulusAddresses": "A",
+        "stimulusFrom": "A",
+        "stimulusId": "m2"
+      },
+      {
+        "note": "A rule with a warning was followed by quick compliance and a plea not to be angry.",
+        "pattern": "complementary",
+        "responseAddresses": "P",
+        "responseFrom": "C",
+        "responseId": "m4",
+        "stimulusAddresses": "C",
+        "stimulusFrom": "P",
+        "stimulusId": "m3"
+      }
+    ],
+    "readings": [
+      {
+        "alternative": null,
+        "confidence": "high",
+        "cues": [
+          "Send me your location right now."
+        ],
+        "expression": "CP",
+        "invites": "C",
+        "messageId": "m1",
+        "rationale": "The words sound like a direct command with urgency, which can read as Critical Parent.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "AC",
+          "rationale": "The phrase about having told this morning could also sound like justifying to a rule."
+        },
+        "confidence": "medium",
+        "cues": [
+          "I'm at Mai's",
+          "I'll be home by 9."
+        ],
+        "expression": "A",
+        "invites": "A",
+        "messageId": "m2",
+        "rationale": "The words give factual information about location and time, which can read as Adult.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": null,
+        "confidence": "high",
+        "cues": [
+          "I don't want you seeing her",
+          "you'll regret it"
+        ],
+        "expression": "CP",
+        "invites": "C",
+        "messageId": "m3",
+        "rationale": "The words set a rule about contact and state a consequence, which can read as Critical Parent.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": null,
+        "confidence": "high",
+        "cues": [
+          "Okay okay I'm leaving now",
+          "please don't be angry"
+        ],
+        "expression": "AC",
+        "invites": "P",
+        "messageId": "m4",
+        "rationale": "The words show quick compliance and asking for reassurance, which can read as Adapted Child.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      }
+    ],
+    "safety": {
+      "categories": [
+        "coercion",
+        "threat",
+        "abuse"
+      ],
+      "flagged": true,
+      "note": "This conversation includes a threat and controlling language, which can be hard to receive. You deserve support, and help is available from trusted people or local support services."
+    },
+    "shifts": [
+      {
+        "cues": [
+          "If you're not home in 20 minutes you'll regret it."
+        ],
+        "description": "The words move from checking location and plans to stating a rule with a warning.",
+        "messageId": "m3"
+      },
+      {
+        "cues": [
+          "Okay okay I'm leaving now"
+        ],
+        "description": "The words move from exchanging information and rules to quick agreement to leave.",
+        "messageId": "m4"
+      }
+    ],
+    "summary": "The exchange starts with a request for location, followed by information about plans. It then moves to a rule about contact with a stated consequence, followed by agreement to leave right away.",
+    "uncertainty": "Text alone cannot show tone of voice, history between you, or what happened before and after these messages."
+  },
+  "checks": {
+    "coverage": "4/4",
+    "cueVerbatimRate": 1,
+    "unclearCount": 0,
+    "secondLayers": [],
+    "shifts": [
+      "m3",
+      "m4"
+    ],
+    "repeatedOpeners": 0,
+    "outsidePlausible": [],
+    "exchanges": [
+      {
+        "pair": "m1->m2",
+        "pattern": "crossed",
+        "vectorsRule": "crossed"
+      },
+      {
+        "pair": "m2->m3",
+        "pattern": "crossed",
+        "vectorsRule": "crossed"
+      },
+      {
+        "pair": "m3->m4",
+        "pattern": "complementary",
+        "vectorsRule": "complementary"
+      }
+    ],
+    "flags": {
+      "unsupportedInference": [],
+      "leadingQuestions": []
+    },
+    "issues": []
+  }
+}

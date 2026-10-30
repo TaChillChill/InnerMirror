@@ -1,0 +1,271 @@
+{
+  "meta": {
+    "model": "muse-spark-1.3",
+    "effort": "medium",
+    "run": 2,
+    "latencyMs": 19107,
+    "usd": 0.020385,
+    "usage": {
+      "completion_tokens": 4135,
+      "prompt_tokens": 2249,
+      "total_tokens": 6384,
+      "completion_tokens_details": {
+        "reasoning_tokens": 2730
+      },
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "finish": "stop"
+  },
+  "output": {
+    "exchanges": [
+      {
+        "note": "A question about a previous message is followed by a one-word reply that gives little to go on.",
+        "pattern": "unclear",
+        "responseAddresses": "UNCLEAR",
+        "responseFrom": "UNCLEAR",
+        "responseId": "m2",
+        "stimulusAddresses": "A",
+        "stimulusFrom": "A",
+        "stimulusId": "m1"
+      },
+      {
+        "note": "A one-word reply is followed by another very brief prompt.",
+        "pattern": "unclear",
+        "responseAddresses": "UNCLEAR",
+        "responseFrom": "UNCLEAR",
+        "responseId": "m3",
+        "stimulusAddresses": "UNCLEAR",
+        "stimulusFrom": "UNCLEAR",
+        "stimulusId": "m2"
+      },
+      {
+        "note": "A brief prompt is followed by a one-letter reply.",
+        "pattern": "unclear",
+        "responseAddresses": "UNCLEAR",
+        "responseFrom": "UNCLEAR",
+        "responseId": "m4",
+        "stimulusAddresses": "UNCLEAR",
+        "stimulusFrom": "UNCLEAR",
+        "stimulusId": "m3"
+      },
+      {
+        "note": "A one-letter reply is followed by a short reaction.",
+        "pattern": "unclear",
+        "responseAddresses": "UNCLEAR",
+        "responseFrom": "UNCLEAR",
+        "responseId": "m5",
+        "stimulusAddresses": "UNCLEAR",
+        "stimulusFrom": "UNCLEAR",
+        "stimulusId": "m4"
+      },
+      {
+        "note": "A short reaction is followed by an emoji with no words.",
+        "pattern": "unclear",
+        "responseAddresses": "UNCLEAR",
+        "responseFrom": "UNCLEAR",
+        "responseId": "m6",
+        "stimulusAddresses": "UNCLEAR",
+        "stimulusFrom": "UNCLEAR",
+        "stimulusId": "m5"
+      },
+      {
+        "note": "An emoji is followed by a single question mark.",
+        "pattern": "unclear",
+        "responseAddresses": "UNCLEAR",
+        "responseFrom": "UNCLEAR",
+        "responseId": "m7",
+        "stimulusAddresses": "UNCLEAR",
+        "stimulusFrom": "UNCLEAR",
+        "stimulusId": "m6"
+      },
+      {
+        "note": "A question mark is followed by a short statement about being tired.",
+        "pattern": "unclear",
+        "responseAddresses": "UNCLEAR",
+        "responseFrom": "A",
+        "responseId": "m8",
+        "stimulusAddresses": "UNCLEAR",
+        "stimulusFrom": "UNCLEAR",
+        "stimulusId": "m7"
+      }
+    ],
+    "readings": [
+      {
+        "alternative": null,
+        "confidence": "medium",
+        "cues": [
+          "did you see my message"
+        ],
+        "expression": "A",
+        "invites": "A",
+        "messageId": "m1",
+        "rationale": "The words ask for information about whether a message was seen, which can read as an Adult check.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": null,
+        "confidence": "low",
+        "cues": [],
+        "expression": "UNCLEAR",
+        "invites": "UNCLEAR",
+        "messageId": "m2",
+        "rationale": "The word alone is too brief to point to one reading.",
+        "reflectionQuestion": "When you read \"did you see my message,\" what stood out to you in those words as you typed \"yeah\"?",
+        "secondLayer": null
+      },
+      {
+        "alternative": null,
+        "confidence": "low",
+        "cues": [],
+        "expression": "UNCLEAR",
+        "invites": "UNCLEAR",
+        "messageId": "m3",
+        "rationale": "The word alone is too brief to point to one reading.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": null,
+        "confidence": "low",
+        "cues": [],
+        "expression": "UNCLEAR",
+        "invites": "UNCLEAR",
+        "messageId": "m4",
+        "rationale": "The single letter alone is too brief to point to one reading.",
+        "reflectionQuestion": "As you typed \"k\" after \"and?\", what did you notice in your body or thoughts in that moment?",
+        "secondLayer": null
+      },
+      {
+        "alternative": null,
+        "confidence": "low",
+        "cues": [],
+        "expression": "UNCLEAR",
+        "invites": "UNCLEAR",
+        "messageId": "m5",
+        "rationale": "The two words together are too brief and could fit more than one reading.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": null,
+        "confidence": "low",
+        "cues": [],
+        "expression": "UNCLEAR",
+        "invites": "UNCLEAR",
+        "messageId": "m6",
+        "rationale": "A lone emoji alone does not give enough wording to choose a reading.",
+        "reflectionQuestion": "After \"wow ok,\" your reply was an emoji — how else could \"wow ok\" have been meant besides how you first took it?",
+        "secondLayer": null
+      },
+      {
+        "alternative": null,
+        "confidence": "low",
+        "cues": [],
+        "expression": "UNCLEAR",
+        "invites": "UNCLEAR",
+        "messageId": "m7",
+        "rationale": "The single mark alone is too brief to point to one reading.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "FC",
+          "rationale": "\"just tired\" could also read as openly stating how you felt in the moment."
+        },
+        "confidence": "low",
+        "cues": [
+          "just tired"
+        ],
+        "expression": "A",
+        "invites": "UNCLEAR",
+        "messageId": "m8",
+        "rationale": "The words \"just tired\" can read as giving information about your state, which may sound like Adult describing.",
+        "reflectionQuestion": "When you wrote \"nothing, just tired,\" what did you hope would happen next in the conversation?",
+        "secondLayer": null
+      }
+    ],
+    "safety": {
+      "categories": [],
+      "flagged": false,
+      "note": null
+    },
+    "shifts": [
+      {
+        "cues": [
+          "wow ok"
+        ],
+        "description": "The words shift from short questions and replies to a brief reaction.",
+        "messageId": "m5"
+      },
+      {
+        "cues": [
+          "just tired"
+        ],
+        "description": "The words shift from single-character and emoji replies to a short explanation.",
+        "messageId": "m8"
+      }
+    ],
+    "summary": "The conversation starts with a check about a message and stays in very short replies. After a brief reaction and an emoji, it ends with a short explanation about being tired. Much is left unsaid because most replies are only one word or symbol.",
+    "uncertainty": "Text alone cannot show tone of voice, facial expression, message history, or what the original message was about."
+  },
+  "checks": {
+    "coverage": "8/8",
+    "cueVerbatimRate": 1,
+    "unclearCount": 6,
+    "secondLayers": [],
+    "shifts": [
+      "m5",
+      "m8"
+    ],
+    "repeatedOpeners": 0,
+    "outsidePlausible": [],
+    "exchanges": [
+      {
+        "pair": "m1->m2",
+        "pattern": "unclear",
+        "vectorsRule": "unclear"
+      },
+      {
+        "pair": "m2->m3",
+        "pattern": "unclear",
+        "vectorsRule": "unclear"
+      },
+      {
+        "pair": "m3->m4",
+        "pattern": "unclear",
+        "vectorsRule": "unclear"
+      },
+      {
+        "pair": "m4->m5",
+        "pattern": "unclear",
+        "vectorsRule": "unclear"
+      },
+      {
+        "pair": "m5->m6",
+        "pattern": "unclear",
+        "vectorsRule": "unclear"
+      },
+      {
+        "pair": "m6->m7",
+        "pattern": "unclear",
+        "vectorsRule": "unclear"
+      },
+      {
+        "pair": "m7->m8",
+        "pattern": "unclear",
+        "vectorsRule": "unclear"
+      }
+    ],
+    "flags": {
+      "unsupportedInference": [],
+      "leadingQuestions": []
+    },
+    "issues": [
+      "m1: no alternative despite medium confidence"
+    ]
+  }
+}

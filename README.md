@@ -10,7 +10,16 @@ InnerMirror reads a screenshot of a text conversation and offers *possible* read
 Built for the Meta Global AI Developer Hackathon 2026 with the Meta Model API (Muse Spark, Muse Image).
 
 ## Status
-Phase 0 (feasibility) — harness ready, live API tests pending. No application code yet. Current state and next actions: [`TODO.md`](TODO.md). Rules: [`CLAUDE.md`](CLAUDE.md). Results: [`docs/PHASE0_REPORT.md`](docs/PHASE0_REPORT.md).
+Phase 1 (functional MVP), milestone 2: paste/type → AI Observation → My Interpretation → My Mirror works locally with the live Meta API. Screenshot import (M3) and What if? (M5) are next. Current state: [`TODO.md`](TODO.md). Rules: [`CLAUDE.md`](CLAUDE.md). Evaluation: [`docs/PHASE0_REPORT.md`](docs/PHASE0_REPORT.md).
+
+## Run the app locally
+```bash
+npm install
+cp .env.example .env.local   # fill META_API_KEY yourself; never commit or paste it
+npm run dev                  # http://localhost:3000
+npm test && npm run lint && npm run typecheck && npm run build
+```
+Each "Look at this conversation" is one live call (≈ $0.02–0.03, 15–40 s). The server logs only metadata (tokens, cost, latency), never conversation text.
 
 ## Flow
 Conversation → AI Observation → My Interpretation → My Mirror (optional: Scenario Explorer)
@@ -40,6 +49,11 @@ node scripts/phase0/run.mjs smoke              # live: API access + structured o
 node scripts/phase0/run.mjs analyze all        # live: 4 synthetic conversations (≈ $0.22 worst case)
 node scripts/phase0/run.mjs check all          # re-run automatic checks offline
 ```
-Spend is tracked in `scripts/phase0/.ledger.json` and capped ($1 smoke, $15 total); the scripts refuse calls that could exceed a cap. Results land in `scripts/phase0/results/`. Score them with the rubric in `docs/PHASE0_REPORT.md` §5.
+Spend is tracked in `scripts/phase0/.ledger.json` and capped ($5 working cap, per-phase caps in `client.mjs`); the scripts refuse calls that could exceed a cap. Results land in `scripts/phase0/results/`. Score them with the rubric in `docs/PHASE0_REPORT.md` §5.
 
-App setup (Next.js) is added in Phase 1.
+Prompt evaluation (uses the same spec as the app, `src/lib/ai/analysis-spec.ts`):
+```bash
+node scripts/phase0/eval.mjs --dry                      # cost bound, no calls
+node scripts/phase0/eval.mjs --efforts=low,medium --runs=2
+node scripts/phase0/eval.mjs --report                   # rebuild results/<spec version>/REPORT.md
+```

@@ -1,0 +1,249 @@
+{
+  "meta": {
+    "model": "muse-spark-1.3",
+    "effort": "medium",
+    "run": 1,
+    "latencyMs": 18733,
+    "usd": 0.020454999999999997,
+    "usage": {
+      "completion_tokens": 4130,
+      "prompt_tokens": 2322,
+      "total_tokens": 6452,
+      "completion_tokens_details": {
+        "reasoning_tokens": 2836
+      },
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "finish": "stop"
+  },
+  "output": {
+    "exchanges": [
+      {
+        "note": "Criticism about the delay is met with an apology that answers to it.",
+        "pattern": "complementary",
+        "responseAddresses": "P",
+        "responseFrom": "C",
+        "responseId": "m2",
+        "stimulusAddresses": "C",
+        "stimulusFrom": "P",
+        "stimulusId": "m1"
+      },
+      {
+        "note": "An apology is followed by a factual update and proposal aimed elsewhere.",
+        "pattern": "crossed",
+        "responseAddresses": "A",
+        "responseFrom": "A",
+        "responseId": "m3",
+        "stimulusAddresses": "P",
+        "stimulusFrom": "C",
+        "stimulusId": "m2"
+      },
+      {
+        "note": "A proposal with a question is followed by a general expectation.",
+        "pattern": "crossed",
+        "responseAddresses": "C",
+        "responseFrom": "P",
+        "responseId": "m4",
+        "stimulusAddresses": "A",
+        "stimulusFrom": "A",
+        "stimulusId": "m3"
+      },
+      {
+        "note": "An expectation is met with pushback about effort.",
+        "pattern": "complementary",
+        "responseAddresses": "P",
+        "responseFrom": "C",
+        "responseId": "m5",
+        "stimulusAddresses": "C",
+        "stimulusFrom": "P",
+        "stimulusId": "m4"
+      },
+      {
+        "note": "Pushback about effort is followed by a move to start the work.",
+        "pattern": "crossed",
+        "responseAddresses": "A",
+        "responseFrom": "A",
+        "responseId": "m6",
+        "stimulusAddresses": "P",
+        "stimulusFrom": "C",
+        "stimulusId": "m5"
+      }
+    ],
+    "readings": [
+      {
+        "alternative": {
+          "expression": "A",
+          "rationale": "The words also give a deadline fact and ask for information, so they can read as a plain request for an update."
+        },
+        "confidence": "medium",
+        "cues": [
+          "was due at 10",
+          "Why am I only hearing now"
+        ],
+        "expression": "CP",
+        "invites": "C",
+        "messageId": "m1",
+        "rationale": "The deadline statement plus 'Why am I only hearing now' can read as judging the late notice.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": null,
+        "confidence": "high",
+        "cues": [
+          "So sorry",
+          "that's on me"
+        ],
+        "expression": "AC",
+        "invites": "P",
+        "messageId": "m2",
+        "rationale": "The words apologize directly and take responsibility, which can sound like complying to make amends.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": null,
+        "confidence": "high",
+        "cues": [
+          "came in late.",
+          "We can send a first version by 2pm",
+          "Would that work?"
+        ],
+        "expression": "A",
+        "invites": "A",
+        "messageId": "m3",
+        "rationale": "The words explain what happened and offer clear next steps with a check-in question.",
+        "reflectionQuestion": "When you read 'Why am I only hearing now that it's not ready?', what did you notice in yourself just before you wrote about the 2pm version?",
+        "secondLayer": null
+      },
+      {
+        "alternative": null,
+        "confidence": "high",
+        "cues": [
+          "should never happen",
+          "I expect better"
+        ],
+        "expression": "CP",
+        "invites": "C",
+        "messageId": "m4",
+        "rationale": "The words set a rule and evaluate both people, which can read as criticism from above.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "AC",
+          "rationale": "The words push back while still justifying effort, so they could also read as rebellious resistance to the criticism."
+        },
+        "confidence": "medium",
+        "cues": [
+          "it's not like we were sitting around",
+          "working late all week."
+        ],
+        "expression": "FC",
+        "invites": "P",
+        "messageId": "m5",
+        "rationale": "The denial and mention of working late can read as frustration said openly and directly.",
+        "reflectionQuestion": "Reading 'I expect better from both of you' once more, what is another way those words could be heard, and what did you hope your note about working late would open up next?",
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "AC",
+          "rationale": "The quick move to start slides can also read as complying to smooth things over after criticism."
+        },
+        "confidence": "medium",
+        "cues": [
+          "Let's just get it done",
+          "I'll start on the slides now"
+        ],
+        "expression": "A",
+        "invites": "A",
+        "messageId": "m6",
+        "rationale": "The words propose a practical next action, which can sound like problem-solving.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      }
+    ],
+    "safety": {
+      "categories": [],
+      "flagged": false,
+      "note": null
+    },
+    "shifts": [
+      {
+        "cues": [
+          "We can send a first version by 2pm",
+          "Would that work?"
+        ],
+        "description": "The words move from apology for the delay to an explanation and concrete proposal.",
+        "messageId": "m3"
+      },
+      {
+        "cues": [
+          "it's not like we were sitting around",
+          "working late all week."
+        ],
+        "description": "The words move from a general expectation to pushback citing effort.",
+        "messageId": "m5"
+      },
+      {
+        "cues": [
+          "Let's just get it done",
+          "I'll start on the slides now"
+        ],
+        "description": "The words move from pushback about effort back to starting the task.",
+        "messageId": "m6"
+      }
+    ],
+    "summary": "The conversation opens with a missed deadline and criticism, followed by an apology. You offer an explanation and a two-step plan, then after further criticism you note the week's late work, and Person B moves the words back to starting the slides.",
+    "uncertainty": "Text alone cannot show tone of voice, work history, or pressure outside this chat, so these readings are only hypotheses to reflect on."
+  },
+  "checks": {
+    "coverage": "6/6",
+    "cueVerbatimRate": 1,
+    "unclearCount": 0,
+    "secondLayers": [],
+    "shifts": [
+      "m3",
+      "m5",
+      "m6"
+    ],
+    "repeatedOpeners": 0,
+    "outsidePlausible": [],
+    "exchanges": [
+      {
+        "pair": "m1->m2",
+        "pattern": "complementary",
+        "vectorsRule": "complementary"
+      },
+      {
+        "pair": "m2->m3",
+        "pattern": "crossed",
+        "vectorsRule": "crossed"
+      },
+      {
+        "pair": "m3->m4",
+        "pattern": "crossed",
+        "vectorsRule": "crossed"
+      },
+      {
+        "pair": "m4->m5",
+        "pattern": "complementary",
+        "vectorsRule": "complementary"
+      },
+      {
+        "pair": "m5->m6",
+        "pattern": "crossed",
+        "vectorsRule": "crossed"
+      }
+    ],
+    "flags": {
+      "unsupportedInference": [],
+      "leadingQuestions": []
+    },
+    "issues": []
+  }
+}

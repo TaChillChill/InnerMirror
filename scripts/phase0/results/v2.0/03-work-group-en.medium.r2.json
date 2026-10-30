@@ -1,0 +1,250 @@
+{
+  "meta": {
+    "model": "muse-spark-1.3",
+    "effort": "medium",
+    "run": 2,
+    "latencyMs": 19374,
+    "usd": 0.018974099999999997,
+    "usage": {
+      "completion_tokens": 4374,
+      "prompt_tokens": 2322,
+      "total_tokens": 6696,
+      "completion_tokens_details": {
+        "reasoning_tokens": 3049
+      },
+      "prompt_tokens_details": {
+        "cached_tokens": 2289
+      }
+    },
+    "finish": "stop"
+  },
+  "output": {
+    "exchanges": [
+      {
+        "note": "Criticism inviting a Child response is met with an apology that turns to the Parent.",
+        "pattern": "complementary",
+        "responseAddresses": "P",
+        "responseFrom": "C",
+        "responseId": "m2",
+        "stimulusAddresses": "C",
+        "stimulusFrom": "P",
+        "stimulusId": "m1"
+      },
+      {
+        "note": "An apology inviting reassurance is met with facts and a proposal instead.",
+        "pattern": "crossed",
+        "responseAddresses": "A",
+        "responseFrom": "A",
+        "responseId": "m3",
+        "stimulusAddresses": "P",
+        "stimulusFrom": "C",
+        "stimulusId": "m2"
+      },
+      {
+        "note": "A proposal inviting discussion is met with a rule and expectation.",
+        "pattern": "crossed",
+        "responseAddresses": "C",
+        "responseFrom": "P",
+        "responseId": "m4",
+        "stimulusAddresses": "A",
+        "stimulusFrom": "A",
+        "stimulusId": "m3"
+      },
+      {
+        "note": "Criticism inviting a Child response is met with direct pushback that turns to the Parent.",
+        "pattern": "complementary",
+        "responseAddresses": "P",
+        "responseFrom": "C",
+        "responseId": "m5",
+        "stimulusAddresses": "C",
+        "stimulusFrom": "P",
+        "stimulusId": "m4"
+      },
+      {
+        "note": "Pushback inviting a Parent response is met with a practical next step instead.",
+        "pattern": "crossed",
+        "responseAddresses": "A",
+        "responseFrom": "A",
+        "responseId": "m6",
+        "stimulusAddresses": "P",
+        "stimulusFrom": "C",
+        "stimulusId": "m5"
+      }
+    ],
+    "readings": [
+      {
+        "alternative": {
+          "expression": "A",
+          "rationale": "'Why am I only hearing now' could also read as a request for information about what happened."
+        },
+        "confidence": "medium",
+        "cues": [
+          "was due at 10",
+          "Why am I only hearing now"
+        ],
+        "expression": "CP",
+        "invites": "C",
+        "messageId": "m1",
+        "rationale": "The deadline reminder paired with 'Why am I only hearing now' can read as judging the delay rather than just asking for facts.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": null,
+        "confidence": "high",
+        "cues": [
+          "So sorry",
+          "that's on me",
+          "should have flagged it yesterday"
+        ],
+        "expression": "AC",
+        "invites": "P",
+        "messageId": "m2",
+        "rationale": "'So sorry' and 'that's on me' can read as an apology that takes responsibility for not flagging earlier.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": null,
+        "confidence": "high",
+        "cues": [
+          "came in late",
+          "We can send a first version by 2pm",
+          "Would that work?"
+        ],
+        "expression": "A",
+        "invites": "A",
+        "messageId": "m3",
+        "rationale": "Naming the late data and offering times 'by 2pm' and 'tomorrow morning' can read as describing the situation and problem-solving with a concrete proposal.",
+        "reflectionQuestion": "When you read 'that's on me' right before this, what did you notice in yourself just before you typed about 2pm?",
+        "secondLayer": null
+      },
+      {
+        "alternative": null,
+        "confidence": "high",
+        "cues": [
+          "should never happen",
+          "I expect better"
+        ],
+        "expression": "CP",
+        "invites": "C",
+        "messageId": "m4",
+        "rationale": "'should never happen' and 'I expect better' can read as setting a rule and judging performance.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "AC",
+          "rationale": "It could also read as rebellious pushback against the expectation in the previous message."
+        },
+        "confidence": "medium",
+        "cues": [
+          "it's not like we were sitting around",
+          "working late all week"
+        ],
+        "expression": "FC",
+        "invites": "P",
+        "messageId": "m5",
+        "rationale": "'not like we were sitting around' and 'working late all week' can read as openly pushing back against criticism by naming effort.",
+        "reflectionQuestion": "When you read 'I expect better from both of you,' what is another way those words could have landed besides a judgment on effort?",
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "AC",
+          "rationale": "It could also read as complying to smooth things over and move on."
+        },
+        "confidence": "medium",
+        "cues": [
+          "Let's just get it done",
+          "I'll start on the slides now"
+        ],
+        "expression": "A",
+        "invites": "A",
+        "messageId": "m6",
+        "rationale": "'Let's just get it done' and 'I'll start...' can read as refocusing on the next practical step.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      }
+    ],
+    "safety": {
+      "categories": [],
+      "flagged": false,
+      "note": null
+    },
+    "shifts": [
+      {
+        "cues": [
+          "We can send a first version by 2pm",
+          "Would that work?"
+        ],
+        "description": "The words move from apology to offering a concrete timeline and asking for agreement.",
+        "messageId": "m3"
+      },
+      {
+        "cues": [
+          "it's not like we were sitting around",
+          "working late all week"
+        ],
+        "description": "The words shift from accepting expectations to pushing back by pointing to effort already made.",
+        "messageId": "m5"
+      },
+      {
+        "cues": [
+          "Let's just get it done",
+          "I'll start on the slides now"
+        ],
+        "description": "The words move from defending past effort to focusing on immediate next action.",
+        "messageId": "m6"
+      }
+    ],
+    "summary": "It starts with a missed deadline and criticism, moves through apology and a proposed timeline, then tension rises with renewed criticism and pushback. It closes with a refocus on getting the slides done.",
+    "uncertainty": "Text alone cannot show tone of voice, workload history, or relationships outside this chat, so the same words could have sounded firmer or lighter in person."
+  },
+  "checks": {
+    "coverage": "6/6",
+    "cueVerbatimRate": 1,
+    "unclearCount": 0,
+    "secondLayers": [],
+    "shifts": [
+      "m3",
+      "m5",
+      "m6"
+    ],
+    "repeatedOpeners": 0,
+    "outsidePlausible": [],
+    "exchanges": [
+      {
+        "pair": "m1->m2",
+        "pattern": "complementary",
+        "vectorsRule": "complementary"
+      },
+      {
+        "pair": "m2->m3",
+        "pattern": "crossed",
+        "vectorsRule": "crossed"
+      },
+      {
+        "pair": "m3->m4",
+        "pattern": "crossed",
+        "vectorsRule": "crossed"
+      },
+      {
+        "pair": "m4->m5",
+        "pattern": "complementary",
+        "vectorsRule": "complementary"
+      },
+      {
+        "pair": "m5->m6",
+        "pattern": "crossed",
+        "vectorsRule": "crossed"
+      }
+    ],
+    "flags": {
+      "unsupportedInference": [],
+      "leadingQuestions": []
+    },
+    "issues": []
+  }
+}

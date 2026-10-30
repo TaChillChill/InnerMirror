@@ -1,0 +1,77 @@
+/* My Mirror: stickers, saved collections, collection dialog, storage note. Ported from design/prototype. */
+
+/* Stickers: one per message of mine. The artwork is never dimmed or recoloured;
+   the state lives in the tile (dashed + recessed = AI suggestion I haven't reviewed). */
+.app-stickers { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(104px, 1fr)); gap: var(--im-space-3); }
+.app-stickers > li { display: grid; }
+.app-sticker { position: relative; display: grid; justify-items: center; align-content: start; text-align: center; gap: 2px; padding: var(--im-space-3) var(--im-space-2); background: var(--im-surface); border: 1.5px solid transparent; border-radius: var(--im-radius-lg); box-shadow: var(--im-shadow-1); font: inherit; color: var(--im-text); animation: app-settle var(--im-dur-slow) var(--im-ease-out) both; }
+button.app-sticker { cursor: pointer; }
+button.app-sticker:hover { border-color: var(--im-primary); }
+.app-sticker .app-mascot { max-width: 80px; }
+.app-sticker strong { font: var(--im-text-label); color: var(--ex-ink); }
+.app-sticker__state { display: inline-flex; gap: 4px; align-items: center; font: var(--im-text-caption); color: var(--im-text-muted); }
+.app-sticker__state svg { width: 14px; height: 14px; }
+.app-sticker[data-state="suggested"] { background: var(--im-surface-sunken); border: 1.5px dashed var(--im-border-strong); box-shadow: none; }
+.app-sticker[data-state="suggested"] strong { color: var(--im-text-muted); }
+.app-sticker__mark { position: absolute; top: 8px; right: 8px; width: 22px; height: 22px; border-radius: 50%; display: grid; place-items: center; background: var(--im-primary); color: #fff; }
+.app-sticker__mark svg { width: 12px; height: 12px; }
+.app-sticker__was { position: absolute; top: 6px; left: 6px; }
+.app-sticker__q { width: 80px; aspect-ratio: 1; display: grid; place-items: center; font: 800 2rem/1 var(--im-font); color: var(--im-text-muted); }
+.app-sticker[data-ex="unsure"] strong, .app-sticker[data-ex="UNCLEAR"] strong { color: var(--im-text); }
+@media (max-width: 559.98px) { .app-stickers { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--im-space-2); } .app-sticker .app-mascot, .app-sticker__q { max-width: 64px; width: 64px; } }
+@keyframes app-settle { from { opacity: 0; transform: translateY(6px) scale(0.96); } }
+.app-tally { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: var(--im-space-2); }
+.app-tally li { display: inline-flex; gap: 6px; align-items: center; padding: 4px 12px 4px 4px; background: var(--im-surface); border-radius: var(--im-radius-pill); font: var(--im-text-caption); }
+.app-tally strong { font-weight: 800; }
+.app-legend-line { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; font: var(--im-text-caption); color: var(--im-text-muted); margin-bottom: var(--im-space-3); }
+.app-coll__badges { display: flex; flex-wrap: wrap; gap: 4px; align-items: center; }
+.app-coll__more { font: var(--im-text-caption); color: var(--im-text-muted); padding-left: 2px; }
+
+.app-current { display: grid; gap: var(--im-space-4); padding: var(--im-space-5); background: var(--im-surface-tint); border-radius: var(--im-radius-xl); }
+.app-current .im-notice { background: var(--im-surface); }
+.app-tried { display: flex; gap: var(--im-space-2); align-items: start; color: var(--im-primary-ink); font: var(--im-text-caption); }
+.app-saved-list { margin: 0; padding-left: 1.2em; display: grid; gap: var(--im-space-2); font: var(--im-text-caption); }
+
+/* Saved collections grid */
+.app-colls { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: var(--im-space-3); }
+.app-coll { width: 100%; height: 100%; display: grid; gap: var(--im-space-2); align-content: start; text-align: start; padding: var(--im-space-4); background: var(--im-surface); border: 1.5px solid var(--im-border); border-radius: var(--im-radius-lg); cursor: pointer; color: var(--im-text); font: var(--im-text-body); }
+.app-coll:hover { border-color: var(--im-primary); }
+.app-coll strong { font: var(--im-text-label); font-size: 1rem; }
+.app-coll__meta, .app-coll__empty { font: var(--im-text-caption); color: var(--im-text-muted); }
+.app-coll__note { font: var(--im-text-caption); font-style: italic; color: var(--im-text-muted); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+
+.app-empty { display: grid; gap: var(--im-space-3); justify-items: center; text-align: center; padding: var(--im-space-6) var(--im-space-4); background: var(--im-surface); border-radius: var(--im-radius-lg); }
+.app-empty > svg { width: 32px; height: 32px; color: var(--im-primary-ink); }
+.app-empty__title { font: var(--im-text-h3); }
+.app-empty p { color: var(--im-text-muted); max-width: 42ch; }
+.app-empty__art { display: grid; grid-template-columns: repeat(2, 96px); gap: var(--im-space-2); }
+
+/* Collection detail: centered dialog on desktop, bottom sheet on phones */
+.app-modal-backdrop { display: block; position: fixed; inset: 0; z-index: 29; background: rgb(37 35 68 / 0.32); }
+.app-modal { position: fixed; z-index: 30; display: grid; gap: var(--im-space-4); background: var(--im-bg); overflow: auto; box-shadow: var(--im-shadow-2);
+  left: 50%; top: 50%; transform: translate(-50%, -50%); width: min(560px, calc(100vw - 32px)); max-height: 85vh; padding: var(--im-space-4) var(--im-space-5) var(--im-space-5); border-radius: var(--im-radius-xl); }
+.app-modal .app-sheet-bar { justify-content: flex-end; }
+.app-modal .app-sheet-close { display: inline-grid; }
+.app-modal > .im-btn { justify-self: start; }
+.app-note-saved { padding: var(--im-space-3) var(--im-space-4); background: var(--im-surface-tint); border-radius: var(--im-radius-md); display: grid; gap: 4px; }
+@media (max-width: 559.98px) {
+  .app-modal { left: 0; right: 0; top: auto; bottom: 0; transform: none; width: auto; border-radius: var(--im-radius-xl) var(--im-radius-xl) 0 0; padding: 0 var(--im-gutter) var(--im-space-6); }
+  .app-modal .app-sheet-bar { position: sticky; top: 0; background: var(--im-bg); padding: var(--im-space-2) 0; }
+}
+
+.app-toast { position: fixed; z-index: 40; left: 50%; bottom: var(--im-space-5); transform: translateX(-50%); display: flex; gap: var(--im-space-3); align-items: center; padding: var(--im-space-3) var(--im-space-5); background: var(--im-text); color: #fff; border-radius: var(--im-radius-pill); box-shadow: var(--im-shadow-2); font: var(--im-text-label); }
+.app-toast .app-textlink { color: var(--im-brand-lavender); }
+
+.app-storage { display: flex; gap: var(--im-space-3); align-items: start; padding: var(--im-space-4); border-top: 1px solid var(--im-border); font: var(--im-text-caption); color: var(--im-text-muted); }
+.app-storage svg { width: 18px; height: 18px; flex: none; margin-top: 2px; color: var(--im-primary-ink); }
+.app-storage strong { color: var(--im-text); }
+.app-storage > div { max-width: var(--im-measure); }
+/* Grid and open <details> children default to min-width:auto; let the table scroll inside its box instead. */
+.app-patterns > *, .app-more[open] > * { min-width: 0; }
+.app-table-wrap { overflow-x: auto; max-width: 100%; }
+.app-table { border-collapse: collapse; font: var(--im-text-caption); min-width: 100%; }
+.app-table th, .app-table td { padding: 6px 8px; text-align: start; border-bottom: 1px solid var(--im-border); white-space: nowrap; }
+.app-table td { text-align: end; font-variant-numeric: tabular-nums; }
+
+@media (prefers-reduced-motion: reduce) { .app-sticker { animation: none; } }
+.app-mirror-new { margin-top: var(--im-space-4); }

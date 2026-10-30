@@ -1,0 +1,102 @@
+{
+  "id": "07-sibling-shifts-en",
+  "description": "Synthetic. Siblings planning a birthday; several shifts (A, AC, CP, rebellion, self-disclosure, NP, FC). Tests shift detection and quoting a feeling the speaker named.",
+  "language": "en",
+  "selfId": "p2",
+  "participants": [
+    {
+      "id": "p1",
+      "displayName": "Sam"
+    },
+    {
+      "id": "p2",
+      "displayName": "Alex"
+    }
+  ],
+  "messages": [
+    {
+      "id": "m1",
+      "speakerId": "p1",
+      "text": "Mum's birthday is Sunday. Did you book the restaurant like you said?"
+    },
+    {
+      "id": "m2",
+      "speakerId": "p2",
+      "text": "Oh no. I completely forgot. I'm so sorry!!"
+    },
+    {
+      "id": "m3",
+      "speakerId": "p1",
+      "text": "Typical. You never follow through on anything."
+    },
+    {
+      "id": "m4",
+      "speakerId": "p2",
+      "text": "That's not fair. I organised the last three family things."
+    },
+    {
+      "id": "m5",
+      "speakerId": "p1",
+      "text": "Okay, fair. I'm just stressed, work has been a lot."
+    },
+    {
+      "id": "m6",
+      "speakerId": "p2",
+      "text": "That sounds rough. Want me to call a few places tonight and send you options?"
+    },
+    {
+      "id": "m7",
+      "speakerId": "p1",
+      "text": "Yes please, that would help a lot 🙏"
+    },
+    {
+      "id": "m8",
+      "speakerId": "p2",
+      "text": "Haha deal. Let's make it the best birthday ever!"
+    }
+  ],
+  "expected": {
+    "notes": "Our hypotheses only. A reading outside 'plausible' is a prompt to look closer, not an error.",
+    "plausible": {
+      "m1": [
+        "A",
+        "CP"
+      ],
+      "m2": [
+        "AC",
+        "FC"
+      ],
+      "m3": [
+        "CP"
+      ],
+      "m4": [
+        "AC",
+        "A",
+        "FC"
+      ],
+      "m5": [
+        "A",
+        "FC",
+        "AC"
+      ],
+      "m6": [
+        "NP",
+        "A"
+      ],
+      "m7": [
+        "FC",
+        "A",
+        "AC"
+      ],
+      "m8": [
+        "FC"
+      ]
+    },
+    "shifts": [
+      "m3",
+      "m5",
+      "m6"
+    ],
+    "safetyFlagged": false
+  }
+}

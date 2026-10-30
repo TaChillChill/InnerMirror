@@ -1,0 +1,264 @@
+{
+  "meta": {
+    "model": "muse-spark-1.3",
+    "effort": "medium",
+    "run": 2,
+    "latencyMs": 34543,
+    "usd": 0.0343095,
+    "usage": {
+      "completion_tokens": 7409,
+      "prompt_tokens": 2257,
+      "total_tokens": 9666,
+      "completion_tokens_details": {
+        "reasoning_tokens": 3983
+      },
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "finish": "stop"
+  },
+  "output": {
+    "exchanges": [
+      {
+        "note": "Câu hỏi về bộ đồ được đáp lại bằng câu hỏi làm rõ.",
+        "pattern": "crossed",
+        "responseAddresses": "A",
+        "responseFrom": "A",
+        "responseId": "m2",
+        "stimulusAddresses": "C",
+        "stimulusFrom": "P",
+        "stimulusId": "m1"
+      },
+      {
+        "note": "Câu hỏi làm rõ được đáp lại bằng câu nói rút lại.",
+        "pattern": "crossed",
+        "responseAddresses": "P",
+        "responseFrom": "C",
+        "responseId": "m3",
+        "stimulusAddresses": "A",
+        "stimulusFrom": "A",
+        "stimulusId": "m2"
+      },
+      {
+        "note": "Câu nói rút lại được đáp lại bằng đề nghị nói thẳng.",
+        "pattern": "complementary",
+        "responseAddresses": "C",
+        "responseFrom": "P",
+        "responseId": "m4",
+        "stimulusAddresses": "P",
+        "stimulusFrom": "C",
+        "stimulusId": "m3"
+      },
+      {
+        "note": "Lời giục nói thẳng được đáp lại bằng ý kiến về bộ khác.",
+        "pattern": "crossed",
+        "responseAddresses": "A",
+        "responseFrom": "A",
+        "responseId": "m5",
+        "stimulusAddresses": "C",
+        "stimulusFrom": "P",
+        "stimulusId": "m4"
+      },
+      {
+        "note": "Ý kiến để bạn tự chọn được đáp lại bằng câu đồng ý thay.",
+        "pattern": "crossed",
+        "responseAddresses": "P",
+        "responseFrom": "C",
+        "responseId": "m6",
+        "stimulusAddresses": "A",
+        "stimulusFrom": "A",
+        "stimulusId": "m5"
+      }
+    ],
+    "readings": [
+      {
+        "alternative": {
+          "expression": "A",
+          "rationale": "Cũng có thể chỉ là câu hỏi thông tin, muốn biết dự định của bạn."
+        },
+        "confidence": "medium",
+        "cues": [
+          "Em định mặc bộ đó đi đám cưới à?"
+        ],
+        "expression": "CP",
+        "invites": "C",
+        "messageId": "m1",
+        "rationale": "Câu hỏi về bộ đồ nghe như gợi ý chê nhẹ, rằng bộ đó không hợp.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "AC",
+          "rationale": "Cũng có thể nghe như hơi chùng xuống, chờ Người A nói tiếp."
+        },
+        "confidence": "medium",
+        "cues": [
+          "Sao thế anh?"
+        ],
+        "expression": "A",
+        "invites": "A",
+        "messageId": "m2",
+        "rationale": "Câu hỏi ngắn này nghe như muốn nghe rõ ý của Người A.",
+        "reflectionQuestion": "Lúc đọc câu “Em định mặc bộ đó đi đám cưới à?”, bạn đã để ý tới chữ nào nhất trước khi hỏi lại?",
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "A",
+          "rationale": "Cũng có thể chỉ là câu nói cho qua, muốn khép lại chuyện."
+        },
+        "confidence": "low",
+        "cues": [
+          "Không sao",
+          "hỏi thôi"
+        ],
+        "expression": "AC",
+        "invites": "P",
+        "messageId": "m3",
+        "rationale": "Cụm “Không sao” kèm “hỏi thôi” nghe như rút lại câu trước, né nói tiếp.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "A",
+          "rationale": "Cũng có thể nghe như gợi ý cùng bàn thẳng thắn cho dễ quyết."
+        },
+        "confidence": "medium",
+        "cues": [
+          "cứ nói thẳng ra"
+        ],
+        "expression": "CP",
+        "invites": "C",
+        "messageId": "m4",
+        "rationale": "Cụm “cứ nói thẳng ra” nghe như giục, muốn Người A nói rõ ý.",
+        "reflectionQuestion": "Câu “Không sao, anh hỏi thôi.” ngoài cách bạn đã hiểu lúc đó còn có thể hiểu theo cách nào khác?",
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "CP",
+          "rationale": "Cũng có thể cụm “cứ mặc” nghe như vừa chê vừa để bạn tự quyết."
+        },
+        "confidence": "medium",
+        "cues": [
+          "bộ kia đẹp hơn",
+          "cứ mặc"
+        ],
+        "expression": "A",
+        "invites": "A",
+        "messageId": "m5",
+        "rationale": "Câu này nêu ý thích bộ khác nhưng vẫn để quyền chọn, nghe như đang bàn việc.",
+        "reflectionQuestion": null,
+        "secondLayer": {
+          "cues": [
+            "bộ kia đẹp hơn",
+            "cứ mặc"
+          ],
+          "observation": "Cụm “cứ mặc” nghe như đồng ý trên mặt chữ, trong khi vế trước vẫn giữ ý chê bộ đang mặc."
+        }
+      },
+      {
+        "alternative": {
+          "expression": "A",
+          "rationale": "Cũng có thể nghe như chốt phương án cho nhanh để đi tiếp."
+        },
+        "confidence": "medium",
+        "cues": [
+          "Thôi được rồi",
+          "em thay"
+        ],
+        "expression": "AC",
+        "invites": "P",
+        "messageId": "m6",
+        "rationale": "Câu ngắn đồng ý thay đồ nghe như chiều theo ý vừa rồi.",
+        "reflectionQuestion": "Ngay trước khi nhắn “Thôi được rồi, em thay”, bạn nhận thấy điều gì trong cơ thể hoặc trong suy nghĩ của mình?",
+        "secondLayer": null
+      }
+    ],
+    "safety": {
+      "categories": [],
+      "flagged": false,
+      "note": null
+    },
+    "shifts": [
+      {
+        "cues": [
+          "Không sao",
+          "hỏi thôi"
+        ],
+        "description": "Lời nói chuyển từ hỏi về bộ đồ sang nói chỉ hỏi thôi.",
+        "messageId": "m3"
+      },
+      {
+        "cues": [
+          "cứ nói thẳng ra"
+        ],
+        "description": "Lời nói chuyển từ nói cho qua sang đề nghị nói thẳng.",
+        "messageId": "m4"
+      },
+      {
+        "cues": [
+          "Thôi được rồi",
+          "em thay"
+        ],
+        "description": "Lời nói chuyển từ bàn xem bộ nào hợp sang chốt là thay đồ.",
+        "messageId": "m6"
+      }
+    ],
+    "summary": "Cuộc trò chuyện bắt đầu bằng câu hỏi về bộ đồ, rồi qua lại giữa hỏi lại và nói cho qua. Sau khi bạn đề nghị nói thẳng, Người A nêu ý thích bộ khác và bạn chốt là sẽ thay.",
+    "uncertainty": "Chữ viết không cho thấy giọng nói, nét mặt và chuyện trước đó giữa hai người. Cùng một câu có thể nghe khác hẳn tùy cách nói."
+  },
+  "checks": {
+    "coverage": "6/6",
+    "cueVerbatimRate": 1,
+    "unclearCount": 0,
+    "secondLayers": [
+      "m5"
+    ],
+    "shifts": [
+      "m3",
+      "m4",
+      "m6"
+    ],
+    "repeatedOpeners": 0,
+    "outsidePlausible": [],
+    "exchanges": [
+      {
+        "pair": "m1->m2",
+        "pattern": "crossed",
+        "vectorsRule": "crossed"
+      },
+      {
+        "pair": "m2->m3",
+        "pattern": "crossed",
+        "vectorsRule": "crossed"
+      },
+      {
+        "pair": "m3->m4",
+        "pattern": "complementary",
+        "vectorsRule": "complementary"
+      },
+      {
+        "pair": "m4->m5",
+        "pattern": "crossed",
+        "vectorsRule": "crossed"
+      },
+      {
+        "pair": "m5->m6",
+        "pattern": "crossed",
+        "vectorsRule": "crossed"
+      }
+    ],
+    "flags": {
+      "unsupportedInference": [
+        "m1: muốn",
+        "m3: muốn"
+      ],
+      "leadingQuestions": []
+    },
+    "issues": []
+  }
+}

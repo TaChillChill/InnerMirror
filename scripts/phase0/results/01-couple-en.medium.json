@@ -1,0 +1,208 @@
+{
+  "meta": {
+    "effort": "medium",
+    "latencyMs": 28554,
+    "usd": 0.028458,
+    "usage": {
+      "completion_tokens": 6186,
+      "prompt_tokens": 1734,
+      "total_tokens": 7920,
+      "completion_tokens_details": {
+        "reasoning_tokens": 5059
+      },
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    }
+  },
+  "output": {
+    "readings": [
+      {
+        "addressedTo": "p1",
+        "alternative": "A",
+        "confidence": "medium",
+        "cues": [
+          "I'm so sorry",
+          "Can we move dinner to tomorrow?"
+        ],
+        "expression": "AC",
+        "messageId": "m1",
+        "rationale": "The apology and request for change may read as Adapted Child seeking understanding, which could invite a Parent response, though the proposal part could also read as Adult.",
+        "reflectionQuestion": null,
+        "target": "P"
+      },
+      {
+        "addressedTo": "p2",
+        "alternative": null,
+        "confidence": "high",
+        "cues": [
+          "Seriously?",
+          "You always do this."
+        ],
+        "expression": "CP",
+        "messageId": "m2",
+        "rationale": "The words counting occurrences and using 'always' could read as Critical Parent criticism addressing the Child.",
+        "reflectionQuestion": "What were you noticing in yourself as you wrote this?",
+        "target": "C"
+      },
+      {
+        "addressedTo": "p1",
+        "alternative": "FC",
+        "confidence": "medium",
+        "cues": [
+          "I'm really sorry",
+          "I feel awful"
+        ],
+        "expression": "AC",
+        "messageId": "m3",
+        "rationale": "The wording may read as apologizing and acknowledging fault, which could invite a Parent response.",
+        "reflectionQuestion": null,
+        "target": "P"
+      },
+      {
+        "addressedTo": "p2",
+        "alternative": "CP",
+        "confidence": "low",
+        "cues": [
+          "Fine.",
+          "Do whatever you want."
+        ],
+        "expression": "AC",
+        "messageId": "m4",
+        "rationale": "The brief wording could read as withdrawing or complying on the surface while closing down discussion, which might invite a Parent response.",
+        "reflectionQuestion": "What might have been going on for you in the moment you sent this?",
+        "target": "P"
+      },
+      {
+        "addressedTo": "p1",
+        "alternative": "NP",
+        "confidence": "medium",
+        "cues": [
+          "Can we talk about it properly",
+          "I want to understand"
+        ],
+        "expression": "A",
+        "messageId": "m5",
+        "rationale": "The suggestion of a time to talk and to understand may read as Adult problem-solving inviting an Adult discussion.",
+        "reflectionQuestion": null,
+        "target": "A"
+      },
+      {
+        "addressedTo": "p2",
+        "alternative": "AC",
+        "confidence": "low",
+        "cues": [
+          "ok"
+        ],
+        "expression": "UNCLEAR",
+        "messageId": "m6",
+        "rationale": "A single word on its own could read in several ways and is too brief to interpret with confidence.",
+        "reflectionQuestion": "What was it like for you to respond with just this word here?",
+        "target": "UNCLEAR"
+      }
+    ],
+    "safety": {
+      "categories": [],
+      "flagged": false,
+      "note": null
+    },
+    "summary": "The exchange starts with an apology and request to reschedule, followed by protest about repeated changes. An apology is then met with brief withdrawal, followed by an invitation to talk later about what happened, ending with a minimal reply that leaves the conversation paused.",
+    "transactions": [
+      {
+        "confidence": "medium",
+        "explanation": "The first message appears to invite a Parent response of understanding, while the reply comes from Critical Parent to Child, which is a different direction than invited.",
+        "hiddenMessage": null,
+        "responseId": "m2",
+        "stimulusId": "m1",
+        "type": "crossed"
+      },
+      {
+        "confidence": "high",
+        "explanation": "Criticism addressing the Child is met with an apology from the Child back to the Parent, matching the invited states on both sides.",
+        "hiddenMessage": null,
+        "responseId": "m3",
+        "stimulusId": "m2",
+        "type": "complementary"
+      },
+      {
+        "confidence": "medium",
+        "explanation": "The words say agreement on the surface, but 'Fine.' in this context plausibly carries a second message of not being fine.",
+        "hiddenMessage": "I am not actually fine with this.",
+        "responseId": "m4",
+        "stimulusId": "m3",
+        "type": "ulterior"
+      },
+      {
+        "confidence": "medium",
+        "explanation": "The withdrawing message appears to invite a Parent response, while the next message comes from Adult and invites Adult discussion instead.",
+        "hiddenMessage": null,
+        "responseId": "m5",
+        "stimulusId": "m4",
+        "type": "crossed"
+      },
+      {
+        "confidence": "low",
+        "explanation": "The invitation to talk in an Adult way is met with a single word that is too brief to read clearly, so the pairing cannot be determined.",
+        "hiddenMessage": null,
+        "responseId": "m6",
+        "stimulusId": "m5",
+        "type": "unclear"
+      }
+    ],
+    "turningPoints": [
+      {
+        "messageId": "m2",
+        "why": "The tone shifts from a request to reschedule to protest and criticism."
+      },
+      {
+        "messageId": "m4",
+        "why": "The brief 'Fine. Do whatever you want.' shifts toward withdrawal and possible distance."
+      },
+      {
+        "messageId": "m5",
+        "why": "The invitation to talk properly later attempts to shift toward calmer discussion."
+      }
+    ],
+    "uncertainty": "Text alone cannot show tone of voice, facial expression, past history, or what these words meant in the relationship."
+  },
+  "checks": {
+    "coverage": "6/6",
+    "cueVerbatimRate": 1,
+    "txConsistency": [
+      {
+        "pair": "m1->m2",
+        "model": "crossed",
+        "rule": "complementary",
+        "consistent": false
+      },
+      {
+        "pair": "m2->m3",
+        "model": "complementary",
+        "rule": "complementary",
+        "consistent": true
+      },
+      {
+        "pair": "m3->m4",
+        "model": "ulterior",
+        "rule": "crossed",
+        "consistent": true
+      },
+      {
+        "pair": "m4->m5",
+        "model": "crossed",
+        "rule": "crossed",
+        "consistent": true
+      },
+      {
+        "pair": "m5->m6",
+        "model": "unclear",
+        "rule": "unclear",
+        "consistent": true
+      }
+    ],
+    "forbiddenHits": [],
+    "issues": [
+      "m1->m2: model says crossed, source/target rule says complementary"
+    ]
+  }
+}

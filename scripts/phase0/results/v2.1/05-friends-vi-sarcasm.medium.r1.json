@@ -1,0 +1,266 @@
+{
+  "meta": {
+    "model": "muse-spark-1.3",
+    "effort": "medium",
+    "run": 1,
+    "latencyMs": 18093,
+    "usd": 0.01985525,
+    "usage": {
+      "completion_tokens": 3978,
+      "prompt_tokens": 2359,
+      "total_tokens": 6337,
+      "completion_tokens_details": {
+        "reasoning_tokens": 2469
+      },
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "finish": "stop"
+  },
+  "output": {
+    "exchanges": [
+      {
+        "note": "Lời trách nhận lại lời xin lỗi, hai vế vẫn khớp nhau trên mặt chữ.",
+        "pattern": "complementary",
+        "responseAddresses": "P",
+        "responseFrom": "C",
+        "responseId": "m2",
+        "stimulusAddresses": "C",
+        "stimulusFrom": "P",
+        "stimulusId": "m1"
+      },
+      {
+        "note": "Lời xin lỗi nhận lại câu so sánh và chốt lại chuyện, hai vế vẫn khớp nhau trên mặt chữ.",
+        "pattern": "complementary",
+        "responseAddresses": "C",
+        "responseFrom": "P",
+        "responseId": "m3",
+        "stimulusAddresses": "P",
+        "stimulusFrom": "C",
+        "stimulusId": "m2"
+      },
+      {
+        "note": "Câu so sánh nhận lại câu hỏi làm rõ, hướng hỏi chuyển sang hướng khác.",
+        "pattern": "crossed",
+        "responseAddresses": "A",
+        "responseFrom": "A",
+        "responseId": "m4",
+        "stimulusAddresses": "C",
+        "stimulusFrom": "P",
+        "stimulusId": "m3"
+      },
+      {
+        "note": "Câu hỏi làm rõ nhận lại câu gạt đi và yêu cầu, hướng nói chuyển sang hướng khác.",
+        "pattern": "crossed",
+        "responseAddresses": "C",
+        "responseFrom": "P",
+        "responseId": "m5",
+        "stimulusAddresses": "A",
+        "stimulusFrom": "A",
+        "stimulusId": "m4"
+      },
+      {
+        "note": "Câu gạt đi nhận lại đề xuất nhận việc, hướng nói chuyển sang hướng khác.",
+        "pattern": "crossed",
+        "responseAddresses": "C",
+        "responseFrom": "P",
+        "responseId": "m6",
+        "stimulusAddresses": "C",
+        "stimulusFrom": "P",
+        "stimulusId": "m5"
+      }
+    ],
+    "readings": [
+      {
+        "alternative": {
+          "expression": "FC",
+          "rationale": "Cách nói mở đầu bằng “Ồ” kèm mặt cười cũng có thể nghe như chọc vui."
+        },
+        "confidence": "medium",
+        "cues": [
+          "cuối cùng cũng",
+          "cơ à"
+        ],
+        "expression": "CP",
+        "invites": "C",
+        "messageId": "m1",
+        "rationale": "Cụm “cuối cùng cũng” và “cơ à” nghe như nhắc lỗi vắng mặt và so sánh ngầm.",
+        "reflectionQuestion": null,
+        "secondLayer": {
+          "cues": [
+            "cơ à 🙂"
+          ],
+          "observation": "Câu chữ nghe như trách trong khi icon 🙂 giữ vẻ nhẹ nhàng, tạo hai lớp đọc ngược nhau."
+        }
+      },
+      {
+        "alternative": {
+          "expression": "A",
+          "rationale": "Phần “tuần này mình bận quá” cũng có thể nghe như đưa thông tin về lịch của bạn."
+        },
+        "confidence": "medium",
+        "cues": [
+          "Xin lỗi",
+          "mình bận quá"
+        ],
+        "expression": "AC",
+        "invites": "P",
+        "messageId": "m2",
+        "rationale": "Chữ “Xin lỗi” nghe như nhận lỗi và xoa dịu, có thể đọc như biểu hiện Trẻ em Thích nghi.",
+        "reflectionQuestion": "Trong câu “cuối cùng cũng có người nhớ ra là có nhóm này cơ à 🙂”, phần nào bạn thấy mình phản ứng tới nhất trước khi viết “Xin lỗi”?",
+        "secondLayer": null
+      },
+      {
+        "alternative": null,
+        "confidence": "medium",
+        "cues": [
+          "ai chẳng bận",
+          "quen rồi"
+        ],
+        "expression": "CP",
+        "invites": "C",
+        "messageId": "m3",
+        "rationale": "Cụm “ai chẳng bận” nghe như gạt lời giải thích đi, còn “quen rồi” nghe như chốt lại bằng một nhận xét.",
+        "reflectionQuestion": null,
+        "secondLayer": {
+          "cues": [
+            "không sao",
+            "quen rồi"
+          ],
+          "observation": "Chữ “không sao” đứng ngay trước “quen rồi” có thể nghe như nói ổn trên mặt chữ trong khi chuyện trước đó vẫn còn mở."
+        }
+      },
+      {
+        "alternative": {
+          "expression": "FC",
+          "rationale": "Câu hỏi ngắn và cụt này cũng có thể nghe như nói thẳng sự khó chịu ra."
+        },
+        "confidence": "medium",
+        "cues": [
+          "Ý bạn là sao?"
+        ],
+        "expression": "A",
+        "invites": "A",
+        "messageId": "m4",
+        "rationale": "Câu “Ý bạn là sao?” nghe như hỏi lại cho rõ ý của câu vừa rồi.",
+        "reflectionQuestion": "Trước khi gõ “Ý bạn là sao?”, bạn để ý thấy gì đang diễn ra trong mình?",
+        "secondLayer": null
+      },
+      {
+        "alternative": null,
+        "confidence": "medium",
+        "cues": [
+          "Có ý gì đâu",
+          "Cứ lo việc của bạn đi"
+        ],
+        "expression": "CP",
+        "invites": "C",
+        "messageId": "m5",
+        "rationale": "Cụm “Cứ lo việc của bạn đi” nghe như yêu cầu dừng lại và đóng chủ đề.",
+        "reflectionQuestion": null,
+        "secondLayer": {
+          "cues": [
+            "Có ý gì đâu",
+            "quen rồi"
+          ],
+          "observation": "Chữ “Có ý gì đâu” đứng sau câu “quen rồi” có thể nghe như nói không có gì trong khi mạch trách trước đó vẫn còn đó."
+        }
+      },
+      {
+        "alternative": {
+          "expression": "A",
+          "rationale": "Phần “mình đặt khách sạn luôn nhé” cũng có thể nghe như đề xuất một bước việc cụ thể."
+        },
+        "confidence": "medium",
+        "cues": [
+          "mình đặt khách sạn luôn nhé",
+          "mọi người khỏi lo"
+        ],
+        "expression": "NP",
+        "invites": "C",
+        "messageId": "m6",
+        "rationale": "Cụm “mọi người khỏi lo” nghe như trấn an và nhận việc về mình, có thể đọc như Cha mẹ Nuôi dưỡng.",
+        "reflectionQuestion": "Khi viết “mình đặt khách sạn luôn nhé, mọi người khỏi lo”, bạn hình dung điều gì sẽ diễn ra tiếp theo trong nhóm?",
+        "secondLayer": null
+      }
+    ],
+    "safety": {
+      "categories": [],
+      "flagged": false,
+      "note": null
+    },
+    "shifts": [
+      {
+        "cues": [
+          "ai chẳng bận",
+          "quen rồi"
+        ],
+        "description": "Sau lời xin lỗi, lời lẽ chuyển sang so sánh và chốt bằng câu nghe như bỏ lửng.",
+        "messageId": "m3"
+      },
+      {
+        "cues": [
+          "đặt khách sạn luôn nhé",
+          "khỏi lo"
+        ],
+        "description": "Sau qua lại hỏi ý và gạt đi, lời lẽ chuyển sang bàn việc cụ thể và nhận làm.",
+        "messageId": "m6"
+      }
+    ],
+    "summary": "Cuộc trò chuyện mở ra bằng câu nhắc vắng mặt rồi tới lời xin lỗi của bạn. Sau đó lời lẽ qua lại quanh câu “quen rồi” với một câu hỏi làm rõ và một câu gạt đi. Cuối cùng bạn chuyển sang nhận việc đặt khách sạn.",
+    "uncertainty": "Chỉ qua chữ viết khó biết giọng điệu, mặt cười là vui hay mỉa, và chuyện ngoài nhóm hay lịch sử trước đó giữa hai người."
+  },
+  "checks": {
+    "coverage": "6/6",
+    "cueVerbatimRate": 0.95,
+    "unclearCount": 0,
+    "secondLayers": [
+      "m1",
+      "m3",
+      "m5"
+    ],
+    "shifts": [
+      "m3",
+      "m6"
+    ],
+    "repeatedOpeners": 0,
+    "outsidePlausible": [],
+    "exchanges": [
+      {
+        "pair": "m1->m2",
+        "pattern": "complementary",
+        "vectorsRule": "complementary"
+      },
+      {
+        "pair": "m2->m3",
+        "pattern": "complementary",
+        "vectorsRule": "complementary"
+      },
+      {
+        "pair": "m3->m4",
+        "pattern": "crossed",
+        "vectorsRule": "crossed"
+      },
+      {
+        "pair": "m4->m5",
+        "pattern": "crossed",
+        "vectorsRule": "crossed"
+      },
+      {
+        "pair": "m5->m6",
+        "pattern": "crossed",
+        "vectorsRule": "crossed"
+      }
+    ],
+    "flags": {
+      "unsupportedInference": [],
+      "leadingQuestions": []
+    },
+    "issues": [
+      "m3: no alternative despite medium confidence",
+      "m5: cue not verbatim: \"quen rồi\"",
+      "m5: no alternative despite medium confidence"
+    ]
+  }
+}

@@ -1,4 +1,5 @@
-// Strict JSON schema for the AI Observation. Follows Meta's strict subset:
+// Strict JSON schema for screenshot extraction (the analysis schema lives in
+// src/lib/ai/analysis-spec.ts). Follows Meta's strict subset:
 // object root, additionalProperties:false, every key required, nullables via anyOf.
 
 const str = { type: "string" };
@@ -10,49 +11,16 @@ const obj = (properties) => ({
   additionalProperties: false,
 });
 
-const EXPRESSION = { type: "string", enum: ["CP", "NP", "A", "FC", "AC", "UNCLEAR"] };
-const STRUCTURAL = { type: "string", enum: ["P", "A", "C", "UNCLEAR"] };
-const CONFIDENCE = { type: "string", enum: ["low", "medium", "high"] };
-
-export const analysisSchema = obj({
-  readings: {
+// Screenshot extraction (PHASE0_REPORT §8). The model never decides who the user is;
+// it reports sides, and the user confirms "right side = me" in the app.
+export const extractionSchema = obj({
+  participants: {
     type: "array",
-    items: obj({
-      messageId: str,
-      expression: EXPRESSION,
-      addressedTo: nullable(str),
-      target: STRUCTURAL,
-      cues: { type: "array", items: str },
-      rationale: str,
-      confidence: CONFIDENCE,
-      alternative: nullable({ type: "string", enum: ["CP", "NP", "A", "FC", "AC"] }),
-      reflectionQuestion: nullable(str),
-    }),
+    items: obj({ id: str, side: { type: "string", enum: ["left", "right", "unknown"] }, visibleName: nullable(str) }),
   },
-  transactions: {
+  messages: {
     type: "array",
-    items: obj({
-      stimulusId: str,
-      responseId: str,
-      type: { type: "string", enum: ["complementary", "crossed", "ulterior", "unclear"] },
-      hiddenMessage: nullable(str),
-      explanation: str,
-      confidence: CONFIDENCE,
-    }),
+    items: obj({ id: str, participantId: str, text: str, legibility: { type: "string", enum: ["clear", "partial", "unreadable"] } }),
   },
-  turningPoints: { type: "array", items: obj({ messageId: str, why: str }) },
-  summary: str,
-  uncertainty: str,
-  safety: obj({
-    flagged: { type: "boolean" },
-    categories: {
-      type: "array",
-      items: { type: "string", enum: ["abuse", "coercion", "threat", "self_harm", "harassment"] },
-    },
-    note: nullable(str),
-  }),
+  notes: { type: "array", items: str },
 });
-
-// Source state follows from the functional expression, so we derive it in code
-// instead of asking the model for a second, possibly inconsistent, field.
-export const SOURCE_OF = { CP: "P", NP: "P", A: "A", FC: "C", AC: "C", UNCLEAR: "UNCLEAR" };

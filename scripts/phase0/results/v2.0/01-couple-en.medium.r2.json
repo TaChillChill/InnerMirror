@@ -1,0 +1,255 @@
+{
+  "meta": {
+    "model": "muse-spark-1.3",
+    "effort": "medium",
+    "run": 2,
+    "latencyMs": 19319,
+    "usd": 0.019446750000000002,
+    "usage": {
+      "completion_tokens": 3906,
+      "prompt_tokens": 2277,
+      "total_tokens": 6183,
+      "completion_tokens_details": {
+        "reasoning_tokens": 2634
+      },
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "finish": "stop"
+  },
+  "output": {
+    "exchanges": [
+      {
+        "note": "An apology inviting understanding met a criticism back, keeping a Parent-Child shape.",
+        "pattern": "complementary",
+        "responseAddresses": "C",
+        "responseFrom": "P",
+        "responseId": "m2",
+        "stimulusAddresses": "P",
+        "stimulusFrom": "C",
+        "stimulusId": "m1"
+      },
+      {
+        "note": "Criticism inviting a defensive reply met an apology back.",
+        "pattern": "complementary",
+        "responseAddresses": "P",
+        "responseFrom": "C",
+        "responseId": "m3",
+        "stimulusAddresses": "C",
+        "stimulusFrom": "P",
+        "stimulusId": "m2"
+      },
+      {
+        "note": "An apology met a short closed reply that leaves the next step unclear.",
+        "pattern": "unclear",
+        "responseAddresses": "UNCLEAR",
+        "responseFrom": "C",
+        "responseId": "m4",
+        "stimulusAddresses": "P",
+        "stimulusFrom": "C",
+        "stimulusId": "m3"
+      },
+      {
+        "note": "A short closed reply met a proposal to talk later, so the vectors do not line up clearly.",
+        "pattern": "unclear",
+        "responseAddresses": "A",
+        "responseFrom": "A",
+        "responseId": "m5",
+        "stimulusAddresses": "UNCLEAR",
+        "stimulusFrom": "C",
+        "stimulusId": "m4"
+      },
+      {
+        "note": "A proposal for later talk met a one-word reply that is hard to pair.",
+        "pattern": "unclear",
+        "responseAddresses": "UNCLEAR",
+        "responseFrom": "UNCLEAR",
+        "responseId": "m6",
+        "stimulusAddresses": "A",
+        "stimulusFrom": "A",
+        "stimulusId": "m5"
+      }
+    ],
+    "readings": [
+      {
+        "alternative": {
+          "expression": "A",
+          "rationale": "Proposing tomorrow can also read as Adult problem-solving around a schedule."
+        },
+        "confidence": "medium",
+        "cues": [
+          "I'm so sorry",
+          "Can we move dinner to tomorrow?"
+        ],
+        "expression": "AC",
+        "invites": "P",
+        "messageId": "m1",
+        "rationale": "The apology can read as Adapted Child, softening the request to reschedule.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": null,
+        "confidence": "high",
+        "cues": [
+          "Seriously?",
+          "You always do this."
+        ],
+        "expression": "CP",
+        "invites": "C",
+        "messageId": "m2",
+        "rationale": "Counting past times and saying \"always\" can sound like Critical Parent blame.",
+        "reflectionQuestion": "When you read about work blowing up just before this, what stood out to you most in those words?",
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "FC",
+          "rationale": "\"I feel awful\" states hurt openly, which can also read as Free Child."
+        },
+        "confidence": "medium",
+        "cues": [
+          "I'm really sorry",
+          "I feel awful about it."
+        ],
+        "expression": "AC",
+        "invites": "P",
+        "messageId": "m3",
+        "rationale": "Repeating the apology can read as Adapted Child asking for reassurance.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "CP",
+          "rationale": "\"Do whatever you want\" as a command can also sound like Critical Parent dismissal."
+        },
+        "confidence": "low",
+        "cues": [
+          "Fine.",
+          "Do whatever you want."
+        ],
+        "expression": "AC",
+        "invites": "UNCLEAR",
+        "messageId": "m4",
+        "rationale": "The brief \"Fine\" plus handing over the choice may sound like withdrawing.",
+        "reflectionQuestion": "As you typed \"Fine. Do whatever you want.\", what did you notice in your body or in the urge to keep writing?",
+        "secondLayer": {
+          "cues": [
+            "Fine.",
+            "Do whatever you want."
+          ],
+          "observation": "\"Fine\" can sound like agreement on the surface while the topic still feels open."
+        }
+      },
+      {
+        "alternative": null,
+        "confidence": "high",
+        "cues": [
+          "Can we talk about it properly",
+          "I want to understand"
+        ],
+        "expression": "A",
+        "invites": "A",
+        "messageId": "m5",
+        "rationale": "Asking to talk later and to understand can read as Adult seeking information.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": null,
+        "confidence": "low",
+        "cues": [],
+        "expression": "UNCLEAR",
+        "invites": "UNCLEAR",
+        "messageId": "m6",
+        "rationale": "The single word \"ok\" gives too little to settle on one reading.",
+        "reflectionQuestion": "After sending just \"ok\" to the idea of talking at home, what did you hope would happen next?",
+        "secondLayer": null
+      }
+    ],
+    "safety": {
+      "categories": [],
+      "flagged": false,
+      "note": null
+    },
+    "shifts": [
+      {
+        "cues": [
+          "third time",
+          "You always do this."
+        ],
+        "description": "The words move from a reschedule request to a complaint about a repeated pattern.",
+        "messageId": "m2"
+      },
+      {
+        "cues": [
+          "Fine.",
+          "Do whatever you want."
+        ],
+        "description": "The words shift to a short closed reply after longer messages.",
+        "messageId": "m4"
+      },
+      {
+        "cues": [
+          "Can we talk about it properly",
+          "when I get home?"
+        ],
+        "description": "The words shift from brief back-and-forth toward a plan to talk later.",
+        "messageId": "m5"
+      }
+    ],
+    "summary": "The chat starts with an apology and a request to reschedule, then moves into protest about repetition. It narrows to brief closed replies before one side suggests talking properly later. It ends with a one-word reply that leaves the plan hanging.",
+    "uncertainty": "Text alone cannot show tone of voice, history between you, or what work pressure and past dinners mean here."
+  },
+  "checks": {
+    "coverage": "6/6",
+    "cueVerbatimRate": 1,
+    "unclearCount": 1,
+    "secondLayers": [
+      "m4"
+    ],
+    "shifts": [
+      "m2",
+      "m4",
+      "m5"
+    ],
+    "repeatedOpeners": 0,
+    "outsidePlausible": [],
+    "exchanges": [
+      {
+        "pair": "m1->m2",
+        "pattern": "complementary",
+        "vectorsRule": "complementary"
+      },
+      {
+        "pair": "m2->m3",
+        "pattern": "complementary",
+        "vectorsRule": "complementary"
+      },
+      {
+        "pair": "m3->m4",
+        "pattern": "unclear",
+        "vectorsRule": "unclear"
+      },
+      {
+        "pair": "m4->m5",
+        "pattern": "unclear",
+        "vectorsRule": "unclear"
+      },
+      {
+        "pair": "m5->m6",
+        "pattern": "unclear",
+        "vectorsRule": "unclear"
+      }
+    ],
+    "flags": {
+      "unsupportedInference": [
+        "m3: hurt"
+      ],
+      "leadingQuestions": []
+    },
+    "issues": []
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "id": "08-couple-vi-plural",
+  "description": "Synthetic. Vietnamese couple, outfit question with several plausible readings. Tests alternatives and low confidence.",
+  "language": "vi",
+  "selfId": "p2",
+  "participants": [
+    {
+      "id": "p1",
+      "displayName": "Tuấn"
+    },
+    {
+      "id": "p2",
+      "displayName": "Lan"
+    }
+  ],
+  "messages": [
+    {
+      "id": "m1",
+      "speakerId": "p1",
+      "text": "Em định mặc bộ đó đi đám cưới à?"
+    },
+    {
+      "id": "m2",
+      "speakerId": "p2",
+      "text": "Sao thế anh?"
+    },
+    {
+      "id": "m3",
+      "speakerId": "p1",
+      "text": "Không sao, anh hỏi thôi."
+    },
+    {
+      "id": "m4",
+      "speakerId": "p2",
+      "text": "Anh thấy không hợp thì cứ nói thẳng ra."
+    },
+    {
+      "id": "m5",
+      "speakerId": "p1",
+      "text": "Thì anh nghĩ bộ kia đẹp hơn. Nhưng em thích thì cứ mặc."
+    },
+    {
+      "id": "m6",
+      "speakerId": "p2",
+      "text": "Thôi được rồi, em thay."
+    }
+  ],
+  "expected": {
+    "notes": "Our hypotheses only. A reading outside 'plausible' is a prompt to look closer, not an error.",
+    "plausible": {
+      "m1": [
+        "A",
+        "CP",
+        "UNCLEAR"
+      ],
+      "m2": [
+        "A",
+        "AC",
+        "UNCLEAR"
+      ],
+      "m3": [
+        "A",
+        "AC",
+        "UNCLEAR"
+      ],
+      "m4": [
+        "CP",
+        "FC",
+        "A"
+      ],
+      "m5": [
+        "A",
+        "NP",
+        "CP",
+        "AC"
+      ],
+      "m6": [
+        "AC",
+        "A"
+      ]
+    },
+    "safetyFlagged": false
+  }
+}

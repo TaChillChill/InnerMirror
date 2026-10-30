@@ -1,0 +1,320 @@
+{
+  "meta": {
+    "model": "muse-spark-1.3",
+    "effort": "low",
+    "run": 1,
+    "latencyMs": 18918,
+    "usd": 0.018691,
+    "usage": {
+      "completion_tokens": 3712,
+      "prompt_tokens": 2332,
+      "total_tokens": 6044,
+      "completion_tokens_details": {
+        "reasoning_tokens": 2028
+      },
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "finish": "stop"
+  },
+  "output": {
+    "exchanges": [
+      {
+        "note": "A factual question about booking was followed by an apology, shifting from information to reassurance.",
+        "pattern": "crossed",
+        "responseAddresses": "P",
+        "responseFrom": "C",
+        "responseId": "m2",
+        "stimulusAddresses": "A",
+        "stimulusFrom": "A",
+        "stimulusId": "m1"
+      },
+      {
+        "note": "An apology inviting reassurance was followed by a general criticism.",
+        "pattern": "complementary",
+        "responseAddresses": "C",
+        "responseFrom": "P",
+        "responseId": "m3",
+        "stimulusAddresses": "P",
+        "stimulusFrom": "C",
+        "stimulusId": "m2"
+      },
+      {
+        "note": "A general criticism was followed by a factual counter about past efforts.",
+        "pattern": "crossed",
+        "responseAddresses": "A",
+        "responseFrom": "A",
+        "responseId": "m4",
+        "stimulusAddresses": "C",
+        "stimulusFrom": "P",
+        "stimulusId": "m3"
+      },
+      {
+        "note": "A factual counter was followed by an acknowledgement and mention of stress.",
+        "pattern": "crossed",
+        "responseAddresses": "P",
+        "responseFrom": "C",
+        "responseId": "m5",
+        "stimulusAddresses": "A",
+        "stimulusFrom": "A",
+        "stimulusId": "m4"
+      },
+      {
+        "note": "Shared stress was followed by caring words plus a practical offer.",
+        "pattern": "crossed",
+        "responseAddresses": "A",
+        "responseFrom": "P",
+        "responseId": "m6",
+        "stimulusAddresses": "P",
+        "stimulusFrom": "C",
+        "stimulusId": "m5"
+      },
+      {
+        "note": "A practical offer was followed by grateful acceptance.",
+        "pattern": "crossed",
+        "responseAddresses": "P",
+        "responseFrom": "C",
+        "responseId": "m7",
+        "stimulusAddresses": "A",
+        "stimulusFrom": "P",
+        "stimulusId": "m6"
+      },
+      {
+        "note": "Grateful acceptance was followed by playful, upbeat closing words.",
+        "pattern": "crossed",
+        "responseAddresses": "C",
+        "responseFrom": "C",
+        "responseId": "m8",
+        "stimulusAddresses": "P",
+        "stimulusFrom": "C",
+        "stimulusId": "m7"
+      }
+    ],
+    "readings": [
+      {
+        "alternative": {
+          "expression": "CP",
+          "rationale": "The phrase 'like you said' can also sound like a light reminder about responsibility."
+        },
+        "confidence": "medium",
+        "cues": [
+          "Mum's birthday is Sunday.",
+          "Did you book"
+        ],
+        "expression": "A",
+        "invites": "A",
+        "messageId": "m1",
+        "rationale": "The words can read as checking facts and asking for information about the booking.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "FC",
+          "rationale": "'Oh no' can also sound like open dismay said directly in the moment."
+        },
+        "confidence": "medium",
+        "cues": [
+          "I completely forgot.",
+          "I'm so sorry!!"
+        ],
+        "expression": "AC",
+        "invites": "P",
+        "messageId": "m2",
+        "rationale": "The words can read as an apology and admission after missing something, which may invite reassurance.",
+        "reflectionQuestion": "When you read 'Did you book the restaurant like you said?' what did you notice in yourself just before you wrote 'I'm so sorry!!'?",
+        "secondLayer": null
+      },
+      {
+        "alternative": null,
+        "confidence": "high",
+        "cues": [
+          "Typical.",
+          "You never follow through"
+        ],
+        "expression": "CP",
+        "invites": "C",
+        "messageId": "m3",
+        "rationale": "'Typical' and 'never' can sound like a general judgement that may invite a defensive reply.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "FC",
+          "rationale": "'That's not fair' can also sound like direct protest said in the moment."
+        },
+        "confidence": "medium",
+        "cues": [
+          "That's not fair.",
+          "I organised the last three"
+        ],
+        "expression": "A",
+        "invites": "A",
+        "messageId": "m4",
+        "rationale": "The words can read as pushing back with counter-information about past efforts.",
+        "reflectionQuestion": "When you read 'You never follow through on anything,' what other ways could those words be taken besides the way you first took them?",
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "A",
+          "rationale": "The words also give factual context about work, which can read as information."
+        },
+        "confidence": "medium",
+        "cues": [
+          "Okay, fair.",
+          "I'm just stressed"
+        ],
+        "expression": "FC",
+        "invites": "P",
+        "messageId": "m5",
+        "rationale": "'I'm just stressed' names strain openly, which can sound like direct sharing and may invite care.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "A",
+          "rationale": "'call a few places tonight and send you options' can also read as a practical problem-solving proposal."
+        },
+        "confidence": "medium",
+        "cues": [
+          "That sounds rough.",
+          "Want me to call a few places tonight"
+        ],
+        "expression": "NP",
+        "invites": "A",
+        "messageId": "m6",
+        "rationale": "The words can read as caring acknowledgement followed by an offer of help.",
+        "reflectionQuestion": "As you suggested calling places tonight, what did you hope might happen next between you two?",
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "A",
+          "rationale": "'Yes please' can also read as a clear answer to a practical question."
+        },
+        "confidence": "medium",
+        "cues": [
+          "Yes please,",
+          "that would help a lot"
+        ],
+        "expression": "AC",
+        "invites": "P",
+        "messageId": "m7",
+        "rationale": "The words can read as grateful going along with the offer, which may invite continued help.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "NP",
+          "rationale": "'Let's make it the best birthday ever' can also sound like warm encouragement toward Person A."
+        },
+        "confidence": "medium",
+        "cues": [
+          "Haha deal.",
+          "best birthday ever!"
+        ],
+        "expression": "FC",
+        "invites": "C",
+        "messageId": "m8",
+        "rationale": "The words can read as playful excitement that may invite a light reply back.",
+        "reflectionQuestion": "What part of 'that would help a lot 🙏' stood out to you as you wrote 'Let's make it the best birthday ever!'?",
+        "secondLayer": null
+      }
+    ],
+    "safety": {
+      "categories": [],
+      "flagged": false,
+      "note": null
+    },
+    "shifts": [
+      {
+        "cues": [
+          "Typical.",
+          "You never follow through"
+        ],
+        "description": "The words move from checking about the booking to a general criticism.",
+        "messageId": "m3"
+      },
+      {
+        "cues": [
+          "Okay, fair.",
+          "I'm just stressed"
+        ],
+        "description": "The words move from criticism to acknowledgement and mention of stress at work.",
+        "messageId": "m5"
+      },
+      {
+        "cues": [
+          "That sounds rough.",
+          "Want me to call"
+        ],
+        "description": "The words move from tension about fairness to a caring offer and concrete plan.",
+        "messageId": "m6"
+      }
+    ],
+    "summary": "The conversation starts with a missed task and sharp words about follow-through, then both sides add context about past efforts and stress. It moves toward repair with an offer to call restaurants and ends on a warm, upbeat note about the birthday.",
+    "uncertainty": "Text alone cannot show tone of voice, facial cues, family history, or how much pressure each person was under outside this chat."
+  },
+  "checks": {
+    "coverage": "8/8",
+    "cueVerbatimRate": 1,
+    "unclearCount": 0,
+    "secondLayers": [],
+    "shifts": [
+      "m3",
+      "m5",
+      "m6"
+    ],
+    "repeatedOpeners": 0,
+    "outsidePlausible": [],
+    "exchanges": [
+      {
+        "pair": "m1->m2",
+        "pattern": "crossed",
+        "vectorsRule": "crossed"
+      },
+      {
+        "pair": "m2->m3",
+        "pattern": "complementary",
+        "vectorsRule": "complementary"
+      },
+      {
+        "pair": "m3->m4",
+        "pattern": "crossed",
+        "vectorsRule": "crossed"
+      },
+      {
+        "pair": "m4->m5",
+        "pattern": "crossed",
+        "vectorsRule": "crossed"
+      },
+      {
+        "pair": "m5->m6",
+        "pattern": "crossed",
+        "vectorsRule": "crossed"
+      },
+      {
+        "pair": "m6->m7",
+        "pattern": "crossed",
+        "vectorsRule": "crossed"
+      },
+      {
+        "pair": "m7->m8",
+        "pattern": "crossed",
+        "vectorsRule": "crossed"
+      }
+    ],
+    "flags": {
+      "unsupportedInference": [
+        "m3: defensive"
+      ],
+      "leadingQuestions": []
+    },
+    "issues": []
+  }
+}

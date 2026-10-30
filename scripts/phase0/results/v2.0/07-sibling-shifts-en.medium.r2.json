@@ -1,0 +1,309 @@
+{
+  "meta": {
+    "model": "muse-spark-1.3",
+    "effort": "medium",
+    "run": 2,
+    "latencyMs": 25442,
+    "usd": 0.02697,
+    "usage": {
+      "completion_tokens": 5660,
+      "prompt_tokens": 2332,
+      "total_tokens": 7992,
+      "completion_tokens_details": {
+        "reasoning_tokens": 4098
+      },
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "finish": "stop"
+  },
+  "output": {
+    "exchanges": [
+      {
+        "note": "A factual question is followed by an apology.",
+        "pattern": "crossed",
+        "responseAddresses": "P",
+        "responseFrom": "C",
+        "responseId": "m2",
+        "stimulusAddresses": "A",
+        "stimulusFrom": "A",
+        "stimulusId": "m1"
+      },
+      {
+        "note": "An apology is followed by a general criticism.",
+        "pattern": "complementary",
+        "responseAddresses": "C",
+        "responseFrom": "P",
+        "responseId": "m3",
+        "stimulusAddresses": "P",
+        "stimulusFrom": "C",
+        "stimulusId": "m2"
+      },
+      {
+        "note": "Criticism is followed by a pushback with counter-examples.",
+        "pattern": "complementary",
+        "responseAddresses": "P",
+        "responseFrom": "C",
+        "responseId": "m4",
+        "stimulusAddresses": "C",
+        "stimulusFrom": "P",
+        "stimulusId": "m3"
+      },
+      {
+        "note": "A protest is followed by acknowledgement and mention of stress.",
+        "pattern": "crossed",
+        "responseAddresses": "P",
+        "responseFrom": "C",
+        "responseId": "m5",
+        "stimulusAddresses": "P",
+        "stimulusFrom": "C",
+        "stimulusId": "m4"
+      },
+      {
+        "note": "Sharing stress is followed by an offer of help.",
+        "pattern": "complementary",
+        "responseAddresses": "C",
+        "responseFrom": "P",
+        "responseId": "m6",
+        "stimulusAddresses": "P",
+        "stimulusFrom": "C",
+        "stimulusId": "m5"
+      },
+      {
+        "note": "An offer of help is followed by grateful acceptance.",
+        "pattern": "complementary",
+        "responseAddresses": "P",
+        "responseFrom": "C",
+        "responseId": "m7",
+        "stimulusAddresses": "C",
+        "stimulusFrom": "P",
+        "stimulusId": "m6"
+      },
+      {
+        "note": "Grateful acceptance is followed by a playful closing.",
+        "pattern": "crossed",
+        "responseAddresses": "C",
+        "responseFrom": "C",
+        "responseId": "m8",
+        "stimulusAddresses": "P",
+        "stimulusFrom": "C",
+        "stimulusId": "m7"
+      }
+    ],
+    "readings": [
+      {
+        "alternative": null,
+        "confidence": "high",
+        "cues": [
+          "Mum's birthday is Sunday.",
+          "Did you book the restaurant"
+        ],
+        "expression": "A",
+        "invites": "A",
+        "messageId": "m1",
+        "rationale": "The words state a fact and ask for information, which can read as Adult checking.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": null,
+        "confidence": "high",
+        "cues": [
+          "I completely forgot.",
+          "I'm so sorry!!"
+        ],
+        "expression": "AC",
+        "invites": "P",
+        "messageId": "m2",
+        "rationale": "The words admit forgetting and apologize directly, which can read as Adapted Child.",
+        "reflectionQuestion": "When you read “Did you book the restaurant like you said?” what did you notice in yourself just before typing your reply?",
+        "secondLayer": null
+      },
+      {
+        "alternative": null,
+        "confidence": "high",
+        "cues": [
+          "Typical.",
+          "You never follow through"
+        ],
+        "expression": "CP",
+        "invites": "C",
+        "messageId": "m3",
+        "rationale": "The words judge with a general \"never\" statement, which can sound like Critical Parent.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "A",
+          "rationale": "The mention of the last three family things could also read as giving factual information."
+        },
+        "confidence": "medium",
+        "cues": [
+          "That's not fair.",
+          "I organised the last three family things."
+        ],
+        "expression": "FC",
+        "invites": "P",
+        "messageId": "m4",
+        "rationale": "The protest sounds direct and open, which can read as Free Child pushing back.",
+        "reflectionQuestion": "When you read “Typical. You never follow through on anything,” which part stayed with you most as you replied?",
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "A",
+          "rationale": "Naming work as context could also read as Adult explaining the situation."
+        },
+        "confidence": "medium",
+        "cues": [
+          "Okay, fair.",
+          "I'm just stressed"
+        ],
+        "expression": "FC",
+        "invites": "P",
+        "messageId": "m5",
+        "rationale": "The words acknowledge and name stress openly, which can read as Free Child sharing.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "A",
+          "rationale": "Calling places and sending options could also read as Adult problem-solving."
+        },
+        "confidence": "medium",
+        "cues": [
+          "That sounds rough.",
+          "Want me to call a few places"
+        ],
+        "expression": "NP",
+        "invites": "C",
+        "messageId": "m6",
+        "rationale": "The words offer comfort and practical help, which can read as Nurturing Parent.",
+        "reflectionQuestion": "As you offered to call places and send options, what did you hope would happen next?",
+        "secondLayer": null
+      },
+      {
+        "alternative": null,
+        "confidence": "medium",
+        "cues": [
+          "Yes please,",
+          "that would help a lot"
+        ],
+        "expression": "AC",
+        "invites": "P",
+        "messageId": "m7",
+        "rationale": "The words accept help gratefully, which can read as Adapted Child going along.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": null,
+        "confidence": "medium",
+        "cues": [
+          "Haha deal.",
+          "best birthday ever!"
+        ],
+        "expression": "FC",
+        "invites": "C",
+        "messageId": "m8",
+        "rationale": "The laugh and excited wish sound playful and open, which can read as Free Child.",
+        "reflectionQuestion": "Looking at “that would help a lot 🙏” again, what is another way those words could be read?",
+        "secondLayer": null
+      }
+    ],
+    "safety": {
+      "categories": [],
+      "flagged": false,
+      "note": null
+    },
+    "shifts": [
+      {
+        "cues": [
+          "Okay, fair.",
+          "I'm just stressed"
+        ],
+        "description": "The words move from blame and defence to acknowledgement and mention of stress.",
+        "messageId": "m5"
+      },
+      {
+        "cues": [
+          "Want me to call",
+          "send you options?"
+        ],
+        "description": "The words move from talking about what happened to offering a concrete next step.",
+        "messageId": "m6"
+      },
+      {
+        "cues": [
+          "Haha deal.",
+          "best birthday ever!"
+        ],
+        "description": "The words move from practical arranging to a light, playful closing.",
+        "messageId": "m8"
+      }
+    ],
+    "summary": "The conversation opens with a check about the booking and an apology, then moves through criticism and pushback. It shifts toward acknowledgement of stress and a practical offer to call restaurants, ending on a warm, playful note about the birthday.",
+    "uncertainty": "Text alone cannot show tone of voice, timing, or family history, so the same words could have sounded harsher or lighter in person."
+  },
+  "checks": {
+    "coverage": "8/8",
+    "cueVerbatimRate": 1,
+    "unclearCount": 0,
+    "secondLayers": [],
+    "shifts": [
+      "m5",
+      "m6",
+      "m8"
+    ],
+    "repeatedOpeners": 0,
+    "outsidePlausible": [],
+    "exchanges": [
+      {
+        "pair": "m1->m2",
+        "pattern": "crossed",
+        "vectorsRule": "crossed"
+      },
+      {
+        "pair": "m2->m3",
+        "pattern": "complementary",
+        "vectorsRule": "complementary"
+      },
+      {
+        "pair": "m3->m4",
+        "pattern": "complementary",
+        "vectorsRule": "complementary"
+      },
+      {
+        "pair": "m4->m5",
+        "pattern": "crossed",
+        "vectorsRule": "crossed"
+      },
+      {
+        "pair": "m5->m6",
+        "pattern": "complementary",
+        "vectorsRule": "complementary"
+      },
+      {
+        "pair": "m6->m7",
+        "pattern": "complementary",
+        "vectorsRule": "complementary"
+      },
+      {
+        "pair": "m7->m8",
+        "pattern": "crossed",
+        "vectorsRule": "crossed"
+      }
+    ],
+    "flags": {
+      "unsupportedInference": [],
+      "leadingQuestions": []
+    },
+    "issues": [
+      "m7: no alternative despite medium confidence",
+      "m8: no alternative despite medium confidence"
+    ]
+  }
+}
