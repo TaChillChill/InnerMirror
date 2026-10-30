@@ -1,43 +1,48 @@
 # UX Design
 
 ## Feel
-Playful, warm, curious, positive, emotionally safe. Adult, not childish. Not a psychology textbook.
-Calm layout, generous whitespace, soft color, subtle transitions only. No streaks, scores, or dopamine mechanics.
+Playful, warm, curious, positive, emotionally safe. Adult, not childish. Not a psychology textbook. Calm layout, whitespace, subtle transitions only, no gamification. UI quality pass with the Impeccable skill.
 
-## Voice and copy
-- Second person, gentle, short: *"This message might sound a bit like…"*, *"One possible reading…"*.
-- Forbidden: "you are", "diagnosis", "toxic", "narcissist", "wrong", any verdict on who was right.
-- Each character has a helpful side and a less helpful side. Never good vs bad.
-- Theory terms appear only as small labels with a one-line tooltip.
+## Voice
+- Gentle, short, second person: *"This message might sound a bit like…"*, *"One possible reading…"*.
+- Never: "you are", "diagnosis", "toxic", "narcissist", verdicts on who was right.
+- Every expression has a helpful and a less helpful side. No good/bad states.
 
-## Character system (5 + 1)
-| ID | EN name (working) | VI name (working, needs Founder review) | Helpful side | Less helpful side |
+## Mascots (Founder's own assets)
+Five 2D octopus mascots = five **functional ego-state expressions**. Use as provided, keep their colors; never regenerate or redesign. Location: `public/mascots/` (pending, Q14).
+
+| ID | Expression | Structural state | Helpful side | Less helpful side |
 |---|---|---|---|---|
-| `CP` | Critical Parent, "The Guardian" | Phụ Mẫu Nghiêm Khắc | sets standards, protects boundaries | blames, lectures |
-| `NP` | Nurturing Parent, "The Carer" | Phụ Mẫu Che Chở | comforts, supports | smothers, rescues |
-| `A` | Adult, "The Navigator" | Người Trưởng Thành | clarifies, solves | cold, detached |
-| `FC` | Free Child, "The Spark" | Đứa Trẻ Tự Do | joy, honesty, creativity | impulsive, reactive |
-| `AC` | Adapted Child, "The Pleaser" | Đứa Trẻ Thích Nghi | cooperative, polite | over-complies, sulks |
-| `UNSURE` | "Not sure" | "Chưa chắc" | — | — |
+| `CP` | Critical Parent | Parent | standards, boundaries | blame, lecturing |
+| `NP` | Nurturing Parent | Parent | care, support | smothering, rescuing |
+| `A` | Adult | Adult | clarifying, solving | cold, detached |
+| `FC` | Free Child | Child | joy, honesty, spontaneity | impulsive, reactive |
+| `AC` | Adapted Child | Child | cooperative, polite | over-complying, sulking, passive resistance |
+| `UNCLEAR` | — | — | neutral "?" badge (not a mascot) | |
 
-Visuals: **original placeholder characters** (simple shapes + distinct color + expression) until the mascot question is settled. **Do not use or modify Meta's Muse mascot** without written permission. If approved for P1, generate original characters with Muse Image (prompt must not reference the Meta mascot).
+VI names: pending (Q9). Color is never the only signal: badge has mascot + text label.
 
-Color is never the only signal: each character also has an icon/shape and text label (accessibility).
+## Conversation View (primary)
+- Chat layout: user's messages right, others left. Avatar/initial per participant.
+- Mascot badge (~28 px) next to the avatar/bubble = this message's possible expression; label under bubble.
+- Badge states: AI suggestion (soft outline, opacity by confidence) → user-confirmed (solid, small check) → user-changed (solid + "you chose" dot) → not sure ("?").
+- Turning point: thin divider with label between bubbles.
+- Tap badge → bottom sheet (mobile) / side panel (desktop) with evidence and actions (see `USER_JOURNEY.md`).
 
-## Ego-State Timeline
-- Horizontal lanes = participants (user's lane highlighted, labeled "You").
-- Nodes in message order across lanes; node shows character icon; ring opacity = confidence.
-- Turning points: subtle marker + "Turning point" label.
-- Mobile: becomes a vertical list (chat-like), same info.
-- Built with plain React + SVG/CSS. No chart library.
+## Transaction Map (secondary, Phase 2)
+Reinterpretation of Berne's transactional diagram.
+- Two columns (participant left / right), each with three stacked circles **P, A, C**. Functional mascots appear small inside the relevant circle (CP/NP in P, FC/AC in C).
+- Selecting a message pair in the conversation draws: stimulus arrow (sender's source state → addressed state), response arrow (responder's source → addressed state).
+- Line style: AI hypothesis = dashed; user-confirmed = solid; low confidence = lighter. Ulterior (hidden-level) message = second dotted arrow.
+- Caption names the type: complementary / crossed / ulterior / unclear, in plain words (*"The reply answers from a different place than the one invited, which is often where conversations get stuck."*).
+- Plain React + SVG. No graph library, no elaborate animation (respect `prefers-reduced-motion`).
+- Group chats (> 2 people): map hidden with explanation.
 
-## Screens
-Landing → Upload & Correct → Observe → Reflect → Explore → Mirror. Progress dots at top; back navigation keeps state.
+## Scenario path
+Alternative messages render as a dashed, tinted branch off the chosen turning point with a "what if" label, never inline with the real messages.
 
 ## i18n
-- Two dictionaries `en.json`, `vi.json`; simple `t(key)` helper, language stored in localStorage.
-- Model output language follows UI language; label IDs (`CP`, `NP`…) stay language-neutral in data.
-- Vietnamese text in screenshots must work regardless of UI language.
+`en.json` / `vi.json` + `t()` helper from Phase 1 (keys from day one; VI copy in Phase 3). Model output follows UI language; state IDs stay language-neutral.
 
 ## Accessibility
-Keyboard reachable, visible focus, WCAG AA contrast, alt text for characters, `prefers-reduced-motion` respected.
+Keyboard reachable, visible focus, WCAG AA contrast, alt text for mascots, reduced motion respected.

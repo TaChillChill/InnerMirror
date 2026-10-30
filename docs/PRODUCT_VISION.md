@@ -6,6 +6,9 @@ InnerMirror helps people see themselves more clearly through their everyday conv
 ## Problem
 After a tense conversation, people often replay *what the other person said* but rarely notice *how they themselves shifted*: from calm problem-solving to defending, scolding, or pleasing. Without that awareness, the same patterns repeat.
 
+## Core experience
+**Conversation → AI Observation → My Interpretation → My Mirror**, optional **Scenario Explorer → Alternative Perspective**.
+
 ## Approach
 Use Transactional Analysis (TA), inspired by Eric Berne's *Games People Play* (VI: *Trò Chơi Tâm Lý*), as a friendly vocabulary for those shifts. The AI suggests possible ego states per message, shows where the conversation turned, then hands control to the user.
 

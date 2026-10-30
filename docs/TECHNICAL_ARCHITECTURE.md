@@ -1,6 +1,8 @@
 # Technical Architecture
 
-Status: **proposed**, awaiting Founder approval.
+Status: **stack approved 2026-10-30.** Schemas below are refined by Phase 0 results (`docs/PHASE0_REPORT.md`).
+
+Build order: paste-text flow first (Phase 1); screenshot extraction (`/api/extract`) is Phase 3.
 
 ## Recommendation
 **One Next.js (App Router, TypeScript) app on Vercel. No database, no auth.** Three server routes call the Meta Model API; everything else is client-side state + localStorage.
@@ -60,20 +62,31 @@ interface Message { id: string; speakerId: string; text: string; extractionConfi
 interface Transcript { participants: Participant[]; messages: Message[] }
 interface Extraction extends Transcript { notes: string[] }        // e.g. "2 lines cut off at top"
 
+type Structural = "P" | "A" | "C";
+
 interface MessageReading {
   messageId: string;
-  state: EgoState | "UNCLEAR";
+  expression: EgoState | "UNCLEAR"; // functional expression of this message (mascot)
+  source: Structural | "UNCLEAR";   // where the message seems to come from
+  target: Structural | "UNCLEAR";   // which state in the other it seems to address/invite
+  cues: string[];                   // quoted spans: observable language only
+  rationale: string;                // hedged interpretation
   confidence: Confidence;
-  evidence: string;            // quoted span from the message
-  rationale: string;           // why this reading, in hedged language
-  alternative?: EgoState;      // required when confidence != "high"
+  alternative: EgoState | null;     // required when confidence != "high"
+  reflectionQuestion: string | null;// only for the user's own messages
+}
+interface Transaction {
+  stimulusId: string; responseId: string;
+  type: "complementary" | "crossed" | "ulterior" | "unclear";
+  explanation: string; confidence: Confidence;
 }
 interface Analysis {
   readings: MessageReading[];
-  turningPoints: { messageId: string; why: string; crossed: boolean }[];
+  transactions: Transaction[];
+  turningPoints: { messageId: string; why: string }[];
   summary: string;
   uncertainty: string;
-  safety: { flagged: boolean; categories: ("abuse" | "threat" | "self_harm" | "harassment")[] };
+  safety: { flagged: boolean; categories: ("abuse" | "coercion" | "threat" | "self_harm" | "harassment")[]; note: string | null };
 }
 interface Scenario { alternativeMessage: string; possibleReactions: { participantId: string; text: string }[]; explanation: string }
 
@@ -113,8 +126,11 @@ scripts/                     # (P1) generate-characters.ts
 - Client: downscale to max 1280 px width, JPEG q≈0.85; reject > 4 MB after compression (Vercel body limit 4.5 MB). Very tall screenshots: keep height, check legibility in testing.
 - Server: pass as base64 data URL to Meta; never write to disk or storage.
 
-## Abuse / cost protection
-A public preview URL with a paid key can be drained. MVP options (Founder decision, see `OPEN_QUESTIONS.md`): demo access code for live mode, or Vercel firewall rate limit, plus "sample mode" that needs no API.
+## Abuse / cost protection (approved in principle)
+- Live mode behind a shared access code (env `ACCESS_CODE`, checked server-side, httpOnly cookie). Sample mode open to all.
+- Rate limit per IP on API routes (Vercel firewall rule if available on the plan; otherwise simple in-memory limiter as best effort).
+- Per-request caps: max transcript length (e.g. 60 messages / 8k chars), `max_completion_tokens` on every call.
+- Meta-side: no user-configurable spend cap found in docs; Meta ToS §13.2 says Meta sets the spending limit. Rely on prepaid hackathon credits + no auto top-up (Founder to confirm in billing settings).
 
 ## Testing
 - Unit: zod schemas against fixtures; prompt builders; mirror store.

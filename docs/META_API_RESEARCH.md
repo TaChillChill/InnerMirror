@@ -19,12 +19,23 @@ Researched 2026-10-30 from public docs at dev.meta.ai. **No live API call has be
 | **Contributor mode** | `-contributor` variants are ~10× cheaper but **content may be used to train Meta models**. Standard: "your content is not used to train Meta models." → **We use Standard only.** | /docs/models |
 | Availability | Public preview; blog says "available to developers in the US". Help center: "most countries and territories where Meta AI is available and billing is supported", governed by a Geographic Use Policy. | blog, /help |
 
+## Legal findings (read 2026-10-30, dev.meta.ai/legal)
+| Topic | Finding |
+|---|---|
+| **Geographic Use Policy** | Blocklist of Restricted Territories (Afghanistan, Belarus, Cambodia, China incl. HK/Macau, Cuba, Eritrea, Ethiopia, Haiti, Iran, Iraq, Libya, Myanmar, Nicaragua, North Korea, Pakistan, Russia, Somalia, Syria, Crimea/Donetsk/Luhansk, Venezuela, Western Sahara). **Vietnam is not listed.** §2.1: access only "in jurisdictions where Meta has enabled access" → confirmed in practice by a successful call. Also must not knowingly serve end users in restricted territories. Muse Image restricted in India. |
+| Data Commitments | Standard: "Meta does not use your Content from Standard Services to train Meta Models." Content may be processed to detect AUP violations. No retention period stated (refers to Terms/Privacy Policy). |
+| Retention / ZDR | ZDR exists for qualified org accounts via sales approval (not realistic for hackathon). Flagged requests may be retained up to 2 years. Default retention: unspecified ("as needed", ToS §4.4). → Disclose to users that Meta may retain content as described in its terms. |
+| ToS §6.2 | **Must provide and follow a privacy policy** for the integrated product. Personal/sensitive info must not go to Contributor Services. |
+| ToS §4.1/§16.2 | Developer warrants it has the rights required under data protection law for Inputs. |
+| ToS §7 | No trademark license; neither party may use the other's names or marks. → Don't brand with Meta marks; factual "Built with Meta Model API" wording only if Official Rules allow. |
+| ToS §13.2 | Meta sets spending limits; no self-serve hard cap documented. |
+
 ## Not verified (open)
 | Topic | Status |
 |---|---|
-| **Access from Vietnam** | Not confirmed. Country list not found. → Founder confirms by logging in at dev.meta.ai and creating a key. |
-| Hackathon credits | Third-party sources: $150 Meta API credits per accepted participant. Not seen on an official page. |
-| Data retention / ZDR | Help article titles exist (`/help/policies-and-privacy/zero-data-retention`, data-handling), but the text wasn't readable; points to the AI Developer Legal Center. → Read `dev.meta.ai/legal` before launch. |
+| **API calls from Vietnam** | Phase 0 smoke test. |
+| Hackathon credits | Founder confirms visible in console. |
+| Official hackathon rules | Behind login; Founder to read (Q15). |
 | Vision + json_schema in one call | Docs imply yes; must test. Fallback: plain JSON prompt + zod validation + retry. |
 | OCR quality on chat screenshots (VI diacritics, bubbles, timestamps) | Unknown. Core risk, test on day 1. |
 | Latency | Unknown. Affects UX (spinners vs streaming). |

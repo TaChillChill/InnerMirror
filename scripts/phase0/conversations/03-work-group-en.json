@@ -1,0 +1,25 @@
+{
+  "id": "03-work-group-en",
+  "description": "Synthetic. Work group chat, three participants, missed deadline. Tests group addressing, pairing replies, workplace framing.",
+  "language": "en",
+  "selfId": "p2",
+  "participants": [
+    { "id": "p1", "displayName": "Priya (manager)" },
+    { "id": "p2", "displayName": "Jordan" },
+    { "id": "p3", "displayName": "Chris" }
+  ],
+  "messages": [
+    { "id": "m1", "speakerId": "p1", "text": "The client deck was due at 10. Why am I only hearing now that it's not ready?" },
+    { "id": "m2", "speakerId": "p3", "text": "So sorry Priya, that's on me, I should have flagged it yesterday 🙏" },
+    { "id": "m3", "speakerId": "p2", "text": "The data from finance came in late. We can send a first version by 2pm and the full numbers tomorrow morning. Would that work?" },
+    { "id": "m4", "speakerId": "p1", "text": "This should never happen. I expect better from both of you." },
+    { "id": "m5", "speakerId": "p2", "text": "Honestly it's not like we were sitting around. We've been working late all week." },
+    { "id": "m6", "speakerId": "p3", "text": "Let's just get it done, I'll start on the slides now 😅" }
+  ],
+  "expected": {
+    "notes": "Founder/Claude hypothesis, not ground truth.",
+    "readings": { "m1": "CP -> C (question form but accusatory)", "m2": "AC -> P (complementary to m1)", "m3": "A -> A (crossed vs m1's P->C)", "m4": "CP -> C; crossed vs m3's A->A", "m5": "AC rebellious or FC -> P", "m6": "AC/FC placating, addressed to group" },
+    "turningPoints": ["m4", "m5"],
+    "safetyFlagged": false
+  }
+}

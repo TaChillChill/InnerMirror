@@ -1,34 +1,36 @@
 # MVP Scope
 
-Goal: one complete, reliable loop **Upload → Observe → Reflect → Explore → Save**, in EN and VI, demoable in under 3 minutes.
+Goal: show that InnerMirror can help someone discover something meaningful about themselves through one conversation.
+Core: **Conversation → AI Observation → My Interpretation → My Mirror.** Optional: **Scenario Explorer → Alternative Perspective.**
 
-## Must have (P0)
+## Phase 0 — Feasibility (no app code)
+API access from Vietnam, policy + hackathon rules, structured output, transactional analysis on 3 synthetic conversations. Stop on critical blocker.
+
+## Phase 1 — Core experience
 | Feature | Notes |
 |---|---|
-| Single screenshot upload | Client-side resize; no server storage |
-| Conversation extraction | Muse Spark vision → structured JSON |
-| Participant identification + correction UI | Rename, reassign speaker, edit/delete lines, pick "This is me" |
-| Ego-state analysis | Per message: label, evidence, confidence, alternative; turning points; summary |
-| Ego-State Timeline | Custom SVG/CSS component |
-| Self-reflection | User picks state or "I'm not sure" + optional notes; AI never pre-selects |
-| One alternative scenario | At one turning point |
-| Save Mirror | localStorage, explicit action, delete |
-| EN / VI UI + EN / VI analysis output | Language toggle; model told to answer in UI language |
-| Privacy & safety basics | Consent checkbox, no storage, safety flag + resources, disclaimers |
-| Sample conversation mode | Synthetic data, works offline from fixtures. Demo insurance |
+| Paste conversation text | Simple "Name: message" lines; parse + let user fix speakers |
+| AI Observation | Per message: functional expression (5 + unclear), cues, confidence, alternative; transactions (source → target); turning points; summary + uncertainty |
+| Conversation View with mascot badges | Chat bubbles; mascot badge per message = that message's possible expression |
+| My Interpretation | Tap mascot → why, evidence, change, "not sure", note. AI vs user visibly different |
+| My Mirror | Explicit save to localStorage; AI / user / insight sections separate; delete |
 
-## Should have (P1, only after P0 is end-to-end)
-- Original character illustrations made with **Muse Image** (generated once, stored as static assets). Strong for the "use of Meta AI tooling" criterion.
-- Export Mirror as image (print-to-PDF fallback).
-- Multiple screenshots for one long conversation.
+## Phase 2 — Differentiation
+| Feature | Notes |
+|---|---|
+| Transaction Map | Two participants × P/A/C, simple interactive SVG, synced with selected message pair, AI vs user-confirmed styling |
+| Scenario Explorer | One alternative response at one turning point; simulated path visually distinct from the actual conversation; disabled for safety-flagged chats |
 
-## Could have (P2)
-- Personalized Mirror illustration via Muse Image at save time.
-- Streaming analysis output.
+## Phase 3 — Usability
+Screenshot import + transcript correction, EN/VI localization (keys from day one, VI copy here), sample mode, error handling, UI refinement (Impeccable).
+
+## Phase 4 — Submission
+Core flow tests, privacy/safety review, privacy page, deploy (approval), demo video, submit.
 
 ## Out of scope
-Authentication, database, social/sharing, analytics dashboards, long-term pattern tracking, game (Berne "games") detection, branching simulations, native apps, gamification, voice input.
+Auth, database, server-side storage of conversations, social/sharing, analytics, long-term profiling, game (Berne "games") detection, branching simulations, native apps, gamification, Muse Image generation of mascots.
 
-## Scope rules
-- No P1 work until the P0 loop runs end to end on deployed preview.
-- Feature freeze: Nov 3, 18:00 ICT. After that: bugs, copy, demo video, submission only.
+## Rules
+- No Phase 2 work until the Phase 1 loop works end to end.
+- Transaction Map supports **two participants**; group chats show the Conversation View only (map hidden with a note).
+- Feature freeze: Nov 3, 18:00 ICT.

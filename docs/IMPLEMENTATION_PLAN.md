@@ -1,103 +1,90 @@
 # Implementation Plan
 
-Status: **awaiting Founder approval.** Nothing below starts until approved.
+Status: stack approved. **Phase 0 in progress.** Phase 1+ starts only after the Founder approves `PHASE0_REPORT.md`.
 
 ## Timeline
-- Official deadline: **Nov 4, 9:00 PM ET = Nov 5, 02:00 UTC = Nov 5, 09:00 ICT.**
-- **Internal submission target: Nov 4, 22:00 ICT** (~11 h buffer).
-- **Feature freeze: Nov 3, 18:00 ICT.**
-- Available: ~5 working days from Oct 30.
+- Deadline: **Nov 4, 9:00 PM ET = Nov 5, 09:00 ICT.** Internal submission target: **Nov 4, 22:00 ICT.**
+- Feature freeze: **Nov 3, 18:00 ICT.**
 
-## Phases and tasks (P0 unless marked)
-### Day 0 — Oct 30: Gate + foundations
+| Phase | When (ICT) | Goal |
+|---|---|---|
+| 0 Feasibility | Oct 30 | Prove Muse Spark gives grounded, useful transactional observations |
+| 1 Core | Oct 31 – Nov 1 | Paste → Observation (Conversation View + mascots) → Interpretation → Mirror |
+| 2 Differentiation | Nov 2 | Transaction Map + Scenario Explorer |
+| 3 Usability | Nov 3 (until freeze) | Screenshot import, VI copy, sample mode, errors, Impeccable polish |
+| 4 Submission | Nov 3 evening – Nov 4 | Tests, privacy/safety check, deploy (approval), demo video, submit |
+
+If Phase 1 slips, cut in this order: screenshot import → Scenario Explorer → map interactivity (static map).
+
+## Phase 0 — Feasibility (today)
 | # | Task | Done when |
 |---|---|---|
-| 0.1 | Founder approves plan + answers `OPEN_QUESTIONS.md` blockers | Decisions recorded in `OPEN_QUESTIONS.md` |
-| 0.2 | Founder confirms API access, sets `.env.local`, approves smoke-test budget | Key works; budget recorded in `CLAUDE.md` |
-| 0.3 | API smoke test (text, vision, vision + json_schema) | Results recorded in `META_API_RESEARCH.md` |
-| 0.4 | Scaffold Next.js + TS + Tailwind + zod; `AI_MODE` fixtures switch | `npm run build` passes; landing renders |
-| 0.5 | Create 8–10 synthetic chat screenshots (EN/VI, 2–3 people, 1 hostile, 1 blurry) | Files in `src/fixtures/`, no real people |
+| 0.1 | Policy + hackathon rules review | Findings in `META_API_RESEARCH.md`, `PRIVACY_SAFETY.md` |
+| 0.2 | Spend safeguards: local ledger + hard cap in script; Founder confirms no auto top-up | Script refuses calls over cap |
+| 0.3 | Smoke test: text call + structured output call | Status, latency, tokens recorded |
+| 0.4 | Analysis prompt + strict schema; 3 synthetic conversations (+1 short safety probe) | JSON valid; outputs saved in `scripts/phase0/results/` |
+| 0.5 | Quality review against rubric | `PHASE0_REPORT.md` |
 
-### Day 1 — Oct 31: Upload + Extraction (riskiest piece first)
+## Phase 1 — Core
 | # | Task | Done when |
 |---|---|---|
-| 1.1 | `meta-client.ts` (fetch, timeout, 1 retry, no content logging) | Unit test with mocked fetch |
-| 1.2 | Extraction prompt + schema + `/api/extract` | ≥ 90% of lines correct on synthetic set, speaker correct on 2-person chats |
-| 1.3 | Client image resize + Uploader | 3 MB phone screenshot uploads under body limit |
-| 1.4 | TranscriptEditor (rename, reassign, edit, delete, "This is me") | Can fix any extraction error without re-upload |
+| 1.1 | Scaffold Next.js + TS + Tailwind + zod; `AI_MODE` fixtures switch; access code | `npm run build` passes |
+| 1.2 | Paste parser + transcript editor + "This is me" | Any speaker error fixable |
+| 1.3 | `/api/analyze` (prompt from Phase 0, zod, retry) | Valid on all fixtures |
+| 1.4 | Conversation View + mascot badges | Badges per message; turning points |
+| 1.5 | Interpretation sheet (why, cues, change, not sure, note) | AI vs user state separate in data and UI |
+| 1.6 | My Mirror save/list/delete (localStorage) | Survives reload |
 
-### Day 2 — Nov 1: Observe
+## Phase 2 — Differentiation
 | # | Task | Done when |
 |---|---|---|
-| 2.1 | Analysis prompt + schema + `/api/analyze` (incl. safety flags) | Valid JSON on all fixtures; hostile fixture flagged |
-| 2.2 | Timeline component (desktop lanes, mobile list) | Renders 2- and 3-person fixtures; turning points visible |
-| 2.3 | Evidence card + summary + uncertainty note | Every node opens evidence with quote + confidence |
-| 2.4 | Placeholder characters (original, CSS/SVG) | 5 + "unsure" icons with text labels |
+| 2.1 | Transaction Map (SVG, 2 people, P/A/C, synced selection, dashed AI vs solid confirmed) | Correct arrows for each fixture pair |
+| 2.2 | `/api/scenario` + dashed "what if" branch | Disabled when safety-flagged |
 
-### Day 3 — Nov 2: Reflect + Explore + Save
+## Phase 3 — Usability
 | # | Task | Done when |
 |---|---|---|
-| 3.1 | Reflect step (no pre-selection, "I'm not sure", notes) | User choices stored separately from AI readings |
-| 3.2 | Scenario prompt + `/api/scenario` + ScenarioCard | Works on main turning point; disabled when safety-flagged |
-| 3.3 | Mirror card + localStorage save/list/delete | Survives reload; AI vs user sections visibly separate |
-| 3.4 | i18n EN/VI for all UI strings + model output language | Full flow works in both languages |
+| 3.1 | `/api/extract` screenshot import + correction | Synthetic screenshots extract ≥ 90% lines correct |
+| 3.2 | VI copy for all keys; model output in UI language | Full flow in VI |
+| 3.3 | Sample mode, error/loading states, Impeccable polish | Any API failure recoverable |
 
-### Day 4 — Nov 3: Hardening, deploy, P1
+## Phase 4 — Submission
 | # | Task | Done when |
 |---|---|---|
-| 4.1 | Error/empty/loading states; sample mode | Any API failure shows a recoverable message |
-| 4.2 | Privacy + safety copy, disclosures | Founder-approved copy in both languages |
-| 4.3 | **Vercel preview deploy (needs approval)** + access protection | Full flow passes on preview URL, desktop + phone |
-| 4.4 | P1: Muse Image character set (if approved and P0 done) | Original characters replace placeholders |
-| — | **18:00 ICT feature freeze** | |
-
-### Day 5 — Nov 4: Demo + submission
-| # | Task | Done when |
-|---|---|---|
-| 5.1 | Bug bash on preview, both languages | Checklist below all green |
-| 5.2 | README (setup, architecture, Meta API usage, privacy) | Accurate to the shipped app |
-| 5.3 | Demo video (Founder records; Claude drafts script) | ≤ required length, shows full loop + Meta usage |
-| 5.4 | Repo visibility / push (**needs approval**) + submission form | Submitted by 22:00 ICT |
+| 4.1 | Privacy page + disclosures (Founder-approved) | Live in app |
+| 4.2 | Vercel preview deploy (**approval**) | Full flow on preview, desktop + phone |
+| 4.3 | Demo script (Claude) + recording (Founder) | Meets rules |
+| 4.4 | Repo visibility / push (**approval**) + submit | Submitted by Nov 4, 22:00 ICT |
 
 ## Acceptance criteria (MVP)
-1. A user can complete Upload → Observe → Reflect → Explore → Save on the deployed URL, in EN and VI, on desktop and phone.
-2. Extraction errors can be fixed without re-uploading.
-3. Every AI reading shows evidence, confidence, and is labeled as a possibility.
-4. The AI never pre-selects or overwrites the user's choice; saved Mirror keeps AI and user fields separate.
-5. No screenshot or conversation content is stored server-side or logged.
-6. A safety-flagged conversation shows support messaging and disables the Scenario Explorer.
-7. Sample mode works with zero API calls (demo insurance).
-8. All model responses are schema-validated; a bad response produces a retry or a readable error, not a crash.
+1. Full core loop works on the deployed URL in EN and VI, desktop and phone.
+2. Every AI reading shows quoted cues, confidence, and is worded as a possibility.
+3. Transactions show source → target, with type and uncertainty, not inferred from label pairs.
+4. The AI never pre-selects or overwrites the user's interpretation; Mirror keeps AI and user fields separate.
+5. No conversation content stored or logged server-side.
+6. Safety-flagged conversations: no victim-blaming, Scenario Explorer disabled, resources shown.
+7. Sample mode works with zero API calls.
+8. Model responses are schema-validated; failures produce retry or readable error.
 
 ## Major risks
-| Risk | Likelihood | Impact | Mitigation |
-|---|---|---|---|
-| API not usable from Vietnam / credits missing | Medium | Critical | Verify today (0.2). Fallback: ask on hackathon Discord; teammate/US account only if rules allow. |
-| Poor extraction on real chat UIs / VI diacritics | Medium | High | Test day 1 first; correction UI; tell users to crop; one image per call |
-| Vision + json_schema not supported together | Low–Med | Medium | Plain JSON prompt + zod + retry |
-| Readings feel generic or wrong | Medium | High | Few-shot examples in prompt, evidence quoting, eval on synthetic set, hedged copy |
-| Latency too high (reasoning) | Medium | Medium | Lower `reasoning_effort`; progress UI; split calls already |
-| AUP risk (inferring about third parties) | Medium | High | Message-level labels, user-focused reflection, no person profiles (see `PRIVACY_SAFETY.md`) |
-| Public URL drains credits | Medium | Medium | Access code / rate limit; sample mode |
-| Scope creep (characters, multi-image) | High | Medium | P1 only after P0 deployed; feature freeze |
-| Mascot IP | Low (if we follow rule) | High | Original placeholders; no Meta mascot without written permission |
-| Solo-founder time | High | High | Claude drafts code/docs; Founder decides, tests, records demo |
+| Risk | Mitigation |
+|---|---|
+| Analysis generic / ungrounded | Phase 0 gate; cue quoting; source/target reasoning; few-shot if needed |
+| AUP uncertainty (third-party inference) | Observable-expression framing; ask Meta; fallback to user-only analysis |
+| API slow | Lower `reasoning_effort`; progress UI; sample mode for demo |
+| Mascot assets late | Neutral placeholder circles with state labels until files arrive (not substitutes for the design) |
+| Scope creep | Cut order above; freeze Nov 3 18:00 |
+| Public URL drains credits | Access code + rate limit + per-request caps |
 
 ## Testing strategy
-- **Fixtures mode** for all UI work: zero cost, deterministic.
-- **Prompt eval** on synthetic set after each prompt change (live, within approved budget); log results in `docs/EVAL_NOTES.md`.
-- **Unit tests** (Vitest, if approved as dev dependency): schemas, prompt builders, mirror store, image resize math.
-- **Manual E2E checklist** on preview: EN/VI × desktop/phone × 2-person/3-person/hostile/blurry.
-- Report always states which checks used fixtures vs the live API.
+Fixtures for UI; live prompt eval within budget (`scripts/phase0/.ledger.json`); unit tests for schemas, parser, Mirror store; manual E2E checklist (EN/VI × desktop/phone × 2-person/group/safety). Reports state which checks were mocked vs live.
 
 ## Submission readiness checklist
-- [ ] Official Rules read; requirements copied here (repo visibility, video length, URL, Meta model requirement)
-- [ ] Deployed URL works in a private browser window, both languages
-- [ ] Judge access path documented (access code or sample mode)
-- [ ] Demo video recorded, uploaded, link works
-- [ ] README: what, how, Meta APIs used (Muse Spark vision + structured output; Muse Image if used), privacy, limitations
-- [ ] No secrets in repo history (`git log -p | grep` check), `.env*` ignored
-- [ ] No real people's screenshots in repo or video
-- [ ] No Meta mascot assets unless written permission on file
-- [ ] Theory claims in UI/README match `THEORY_FOUNDATION.md` verified items
-- [ ] Submitted via Cerebral Valley portal; confirmation saved
+- [ ] Official Rules requirements copied here (Q15)
+- [ ] Deployed URL works in private window, both languages; judge access documented
+- [ ] Demo video recorded and linked
+- [ ] README accurate: Meta APIs used, privacy, limitations
+- [ ] Privacy page live
+- [ ] No secrets in repo history; no real conversations anywhere
+- [ ] Theory claims match verified items in `THEORY_FOUNDATION.md`
+- [ ] Submitted; confirmation saved

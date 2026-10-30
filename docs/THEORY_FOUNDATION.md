@@ -47,6 +47,18 @@ Purpose: keep three layers separate so the product never presents its own hypoth
 5. **Turning points** = messages where the dominant label shifts, or where a transaction looks *crossed*. This is where the Scenario Explorer focuses.
 6. **Games are not detected in MVP.** Naming a "game" implies a hidden motive. Too strong a claim from one screenshot. Possible future feature with heavy hedging.
 
+## Transaction model used by InnerMirror
+
+Based on Berne's transactional diagram (two people, each drawn as P/A/C; vectors between them). ⚠ Founder to compare with the diagram in GPP.
+
+- A **stimulus** has a **source** (sender's ego state it seems to come from) and a **target** (the other person's ego state it seems to address/invite). E.g. "Why are you ALWAYS late?" → source Parent (CP), target Child.
+- A **response** likewise has a source and a target.
+- **Complementary:** the response comes from the state that was addressed and goes back to the state that sent the stimulus (parallel vectors). Berne: communication can continue as long as transactions are complementary.
+- **Crossed:** the response comes from or goes to a different state than invited. Berne: communication tends to break off. Often a turning point.
+- **Ulterior:** a social-level message carries a different psychological-level message (e.g. Adult-sounding words with a Child-to-Parent hook). Hardest to infer from text; flag only with explicit cues and low confidence.
+- **Why not pair message labels:** a message's *expression* (e.g. CP) says where it seems to come from, not whom it addresses. "A" message can target the other's Child (talking down); a Critical Parent reply to an Adult question is crossed even though both are "legit" labels. So the model must state source **and** target per message, and the transaction type must follow from those, with uncertainty.
+- Map uses the **structural three states** (P/A/C). Functional expressions (CP/NP, FC/AC) are shown inside P and C.
+
 ## Rules derived for the product
 - Never say "Berne says…" about a Layer 2 or 3 item.
 - Every AI reading includes: quoted evidence, label, confidence (low/medium/high), and an alternative reading when confidence is not high.
