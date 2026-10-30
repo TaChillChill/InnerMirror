@@ -17,3 +17,6 @@ private/
 
 .DS_Store
 npm-debug.log*
+
+# Claude Code personal settings
+.claude/settings.local.json

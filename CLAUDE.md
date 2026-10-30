@@ -7,19 +7,10 @@ Hackathon MVP for the Meta Global AI Developer Hackathon 2026 (Indie track, tent
 **Conversation → AI Observation → My Interpretation → My Mirror**, with an optional **Scenario Explorer**.
 Deadline: **Nov 4, 2026, 9:00 PM ET** (= Nov 5, 09:00 ICT). Schedule in `docs/IMPLEMENTATION_PLAN.md`.
 
-## Current phase
-**Phase 0 — Feasibility validation, partially done.** Approved: stack, Phase 0 API budget. Not approved yet: Phase 1+ feature code, dependency installs, deploy, push. Next gate: Founder reviews the completed `docs/PHASE0_REPORT.md`.
-
-## Handoff — start here (as of 2026-10-30)
-Discovery and planning are **done**; don't redo them. Decisions and answers live in `docs/OPEN_QUESTIONS.md`.
-- Done: all docs, policy/rules research (`META_API_RESEARCH.md`, `PRIVACY_SAFETY.md`), Phase 0 harness in `scripts/phase0/` (tested offline: budget guards + checks work). Spend so far: $0.
-- **Next action:** Founder adds `META_API_KEY` to `.env.local`, then (with Founder's go-ahead in that session):
-  1. `node scripts/phase0/run.mjs smoke` — confirms API access from Vietnam + structured output (< $0.01).
-  2. `node scripts/phase0/run.mjs analyze all` — 3 synthetic conversations + safety probe (≈ $0.22 worst case).
-  3. Review `scripts/phase0/results/*.md` against the rubric in `docs/PHASE0_REPORT.md` §5; tune prompt (`scripts/phase0/prompt.mjs`) if needed, re-run within budget.
-  4. Fill §4–§6 of `PHASE0_REPORT.md`, present to Founder, wait for approval before Phase 1.
-- Open blockers: see `docs/PHASE0_REPORT.md` §7 (key, card attached = no hard spend cap, Official Rules behind login, AUP framing/Discord question, mascot files).
-- Node 24 is required for the scripts (`process.loadEnvFile`). No dependencies needed for Phase 0.
+## Start here
+Read `TODO.md` first: current phase, status, next actions, blockers. It holds all session state; this file holds only stable rules.
+- Update `TODO.md` whenever a meaningful task is completed or blocked. If the Founder says "update TODO" (or "cập nhật TODO"), stop at the nearest safe point and update it first, with enough context for a fresh session to resume.
+- Phase gates: no Phase N+1 code, dependency installs, deploy, or push until the Founder approves the Phase N gate (`docs/IMPLEMENTATION_PLAN.md`).
 
 ## Stack (approved 2026-10-30)
 Next.js (App Router) + TypeScript on Vercel. Meta Model API called server-side only. No database, no auth. Reflections in browser localStorage. Basic access protection, rate limiting, spend safeguards. See `docs/TECHNICAL_ARCHITECTURE.md`.
@@ -54,9 +45,28 @@ The five octopus mascots are the **Founder's own brand assets**. Use them as pro
 - Synthetic test data only. Never commit real conversations.
 - Small local commits are fine. **No push, deploy, repo visibility change, or other external write without explicit approval.**
 
+## Commands
+Node 24 required (`process.loadEnvFile`). Phase 0 has no dependencies.
+```bash
+node scripts/phase0/run.mjs <smoke|analyze <id|all>> --dry   # worst-case cost, no API call
+node scripts/phase0/run.mjs smoke                            # live: access + structured output
+node scripts/phase0/run.mjs analyze <id|all> [--effort=low|medium|high]  # live: synthetic conversations
+node scripts/phase0/run.mjs check <id|all>                   # re-run automatic checks offline
+```
+Live commands spend from the approved budget: run them only with the Founder's go-ahead in that session. App commands (dev, build, lint, typecheck, test) are added in Phase 1.
+
+## Definition of Done
+- The task's "done when" condition is met and verified; `TODO.md` updated.
+- Build, lint, typecheck, tests pass (once they exist, Phase 1+).
+- Product rules above respected; safety path (abuse/self-harm) still shows resources and no simulation.
+- Model output validated against a schema before use; no conversation content or secrets in logs.
+- UI strings in `en` + `vi` dictionaries; empty, loading, and error states handled.
+- Live API spend stays within the approved budget and is reported (mocked vs. live checks stated).
+
 ## Docs map
 | Doc | Purpose |
 |---|---|
+| `TODO.md` | Session state: phase, status, next actions, blockers, last validation |
 | `docs/PRODUCT_VISION.md` | Why, for whom, success criteria |
 | `docs/THEORY_FOUNDATION.md` | Berne vs later TA vs product hypotheses; transaction model |
 | `docs/USER_JOURNEY.md` | The flow, screen by screen |
