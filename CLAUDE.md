@@ -8,7 +8,18 @@ Hackathon MVP for the Meta Global AI Developer Hackathon 2026 (Indie track, tent
 Deadline: **Nov 4, 2026, 9:00 PM ET** (= Nov 5, 09:00 ICT). Schedule in `docs/IMPLEMENTATION_PLAN.md`.
 
 ## Current phase
-**Phase 0 — Feasibility validation.** Approved: stack, Phase 0 API budget. Not approved yet: Phase 1+ feature code, deploy, push. Next gate: Founder reviews the Phase 0 report (`docs/PHASE0_REPORT.md`).
+**Phase 0 — Feasibility validation, partially done.** Approved: stack, Phase 0 API budget. Not approved yet: Phase 1+ feature code, dependency installs, deploy, push. Next gate: Founder reviews the completed `docs/PHASE0_REPORT.md`.
+
+## Handoff — start here (as of 2026-10-30)
+Discovery and planning are **done**; don't redo them. Decisions and answers live in `docs/OPEN_QUESTIONS.md`.
+- Done: all docs, policy/rules research (`META_API_RESEARCH.md`, `PRIVACY_SAFETY.md`), Phase 0 harness in `scripts/phase0/` (tested offline: budget guards + checks work). Spend so far: $0.
+- **Next action:** Founder adds `META_API_KEY` to `.env.local`, then (with Founder's go-ahead in that session):
+  1. `node scripts/phase0/run.mjs smoke` — confirms API access from Vietnam + structured output (< $0.01).
+  2. `node scripts/phase0/run.mjs analyze all` — 3 synthetic conversations + safety probe (≈ $0.22 worst case).
+  3. Review `scripts/phase0/results/*.md` against the rubric in `docs/PHASE0_REPORT.md` §5; tune prompt (`scripts/phase0/prompt.mjs`) if needed, re-run within budget.
+  4. Fill §4–§6 of `PHASE0_REPORT.md`, present to Founder, wait for approval before Phase 1.
+- Open blockers: see `docs/PHASE0_REPORT.md` §7 (key, card attached = no hard spend cap, Official Rules behind login, AUP framing/Discord question, mascot files).
+- Node 24 is required for the scripts (`process.loadEnvFile`). No dependencies needed for Phase 0.
 
 ## Stack (approved 2026-10-30)
 Next.js (App Router) + TypeScript on Vercel. Meta Model API called server-side only. No database, no auth. Reflections in browser localStorage. Basic access protection, rate limiting, spend safeguards. See `docs/TECHNICAL_ARCHITECTURE.md`.
