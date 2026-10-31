@@ -33,7 +33,18 @@ main:focus { outline: none; }
 .app-avatar[data-tone="sand"] { background: #f0e7d8; color: #64502c; }
 .app-avatar[data-tone="stone"] { background: #e9e7e2; color: #4f4c45; }
 
-/* ---------- App bar ---------- */
+/* ---------- App bar ----------
+   Sticky on every screen. --app-header-h: measured by StickyHeader at runtime; 71px (one row)
+   is the first-paint fallback. Sticky panels and anchors offset by it. The border is always 1px so the tint doesn't shift layout. */
+:root { --app-header-h: 71px; }
+.app-header { position: sticky; top: 0; z-index: 10; background: var(--im-bg); border-bottom: 1px solid transparent; transition: background-color 0.2s, border-color 0.2s; }
+.app-header[data-scrolled] { background: #f3f0ff; border-bottom-color: #e5dfff; }
+/* Phones: My Mirror shows its icon (and count) only, so the header stays on one row. */
+@media (max-width: 559.98px) { .app-bar__label { display: none; } }
+/* Below 760px the stepper wraps to a second row (~145px); sticking that would cover too much
+   of a phone screen while reading a conversation, so that header scrolls away as before. */
+@media (max-width: 759.98px) { .app-header:has(.app-stepper) { position: static; } }
+@media (prefers-reduced-motion: reduce) { .app-header { transition: none; } }
 .app-bar { max-width: var(--im-content-max); margin: 0 auto; padding: var(--im-space-3) var(--im-gutter); display: flex; flex-wrap: wrap; gap: var(--im-space-2) var(--im-space-5); align-items: center; }
 .app-home { all: unset; display: inline-flex; gap: var(--im-space-2); align-items: center; cursor: pointer; font: 800 1.125rem/1 var(--im-font); min-height: var(--im-tap-min); border-radius: var(--im-radius-sm); }
 .app-home:focus-visible { outline: 2px solid var(--im-focus); outline-offset: 2px; }
@@ -142,7 +153,7 @@ main:focus { outline: none; }
 .app-tabs [role="tab"]:focus-visible { outline: 2px solid var(--im-focus); outline-offset: 2px; }
 @media (min-width: 960px) {
   .app-page--replay { max-width: var(--im-content-max); grid-template-columns: minmax(0, 1fr) minmax(320px, 380px); column-gap: var(--im-space-6); align-items: start; }
-  .app-sheet { position: sticky; top: var(--im-space-4); max-height: calc(100dvh - 2 * var(--im-space-4)); overflow: auto; overscroll-behavior: contain; padding: var(--im-space-4); background: var(--im-surface); border-radius: var(--im-radius-lg); box-shadow: var(--im-shadow-1); }
+  .app-sheet { position: sticky; top: calc(var(--app-header-h) + var(--im-space-4)); max-height: calc(100dvh - var(--app-header-h) - 2 * var(--im-space-4)); overflow: auto; overscroll-behavior: contain; padding: var(--im-space-4); background: var(--im-surface); border-radius: var(--im-radius-lg); box-shadow: var(--im-shadow-1); }
 }
 @media (max-width: 959.98px) {
   .app-sheet { position: fixed; z-index: 20; left: 0; right: 0; bottom: 0; max-height: 90dvh; overflow: auto; overscroll-behavior: contain; padding: 0 var(--im-gutter) var(--im-space-6); background: var(--im-bg); border-radius: var(--im-radius-xl) var(--im-radius-xl) 0 0; box-shadow: var(--im-shadow-2); transform: translateY(105%); visibility: hidden; transition: transform var(--im-dur-base) var(--im-ease-out), visibility 0s linear var(--im-dur-base); }

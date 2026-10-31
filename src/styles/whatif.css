@@ -11,7 +11,7 @@
 .app-wi__observed { display: grid; gap: 6px; padding: var(--im-space-3); border-radius: var(--im-radius-md); background: var(--im-surface-sunken); }
 .app-wi__chips { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
 .app-wi__more-n { font: var(--im-text-caption); color: var(--im-text-muted); }
-.app-wi__card { display: grid; gap: var(--im-space-2); scroll-margin: var(--im-space-6); }
+.app-wi__card { display: grid; gap: var(--im-space-2); scroll-margin: var(--im-space-6); scroll-margin-top: calc(var(--app-header-h) + var(--im-space-4)); }
 .app-wi__row { display: grid; gap: var(--im-space-2); padding: var(--im-space-3); border: 1.5px solid var(--im-border); border-radius: var(--im-radius-md); background: var(--im-surface); }
 .app-wi__row.is-whatif { border: 2px dashed var(--im-primary); background: var(--im-surface-tint); }
 .app-wi__label { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px var(--im-space-2); font: var(--im-text-label); }

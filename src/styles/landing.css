@@ -46,6 +46,8 @@
 .lp-vibe { justify-self: start; margin-top: 8px; font-weight: 800; font-size: 0.88rem; padding: 6px 12px; border-radius: var(--im-radius-pill); background: var(--im-surface-sunken); }
 .lp-demo__note { font-size: 0.8rem; color: var(--im-text-muted); margin-top: 14px; padding-top: 12px; border-top: 1px dashed var(--im-border); }
 
+#how { scroll-margin-top: var(--app-header-h); }
+
 /* Section bands */
 .lp-band { padding: 64px 0; }
 .lp-band--tint { background: linear-gradient(var(--im-surface-sunken), var(--im-bg)); }
@@ -84,6 +86,16 @@
 .lp-dia__s { fill: var(--ex-ink); }
 .lp-dia__arrow path { stroke: currentColor; stroke-width: 3; fill: none; }
 .lp-dia__arrow .lp-dia__cross { stroke: var(--im-ex-cp); }
+.lp-dia__cross-head { fill: var(--im-ex-cp); }
+.lp-legend { margin-top: 20px; padding: 14px 18px; background: var(--im-surface); border: 1px solid var(--im-border); border-radius: var(--im-radius-lg); }
+.lp-legend__title { font: var(--im-text-label); color: var(--im-text-muted); margin-bottom: 8px; }
+.lp-legend ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px 20px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+.lp-legend li { display: flex; align-items: center; gap: 10px; font-size: 0.9rem; color: var(--im-text-muted); }
+.lp-legend strong { color: var(--im-text); }
+.lp-legend__node { flex: none; width: 32px; height: 32px; border-radius: 50%; display: grid; place-items: center; font-weight: 800; background: var(--ex-tint); color: var(--ex-ink); box-shadow: inset 0 0 0 2px var(--ex-fill); }
+.lp-legend__faces { flex: none; display: flex; }
+.lp-legend__faces .im-badge + .im-badge { margin-left: -8px; }
+.lp-flow { font-weight: 700; font-size: 0.88rem; color: var(--im-primary-ink); text-align: center; margin: 0 0 12px; }
 .lp-ex { display: grid; gap: 6px; font-size: 0.9rem; }
 .lp-ex p { padding: 8px 12px; border-radius: 14px; background: var(--im-surface-sunken); max-width: 85%; color: var(--im-text); }
 .lp-ex p:nth-child(2) { justify-self: end; background: var(--im-brand-lavender); }
@@ -110,8 +122,8 @@
 .app-brand { display: inline-flex; align-items: center; gap: 10px; font-weight: 800; font-size: 1.15rem; letter-spacing: -0.01em; }
 .app-brand img { width: 32px; height: 32px; border-radius: 9px; }
 .app-brand b { color: var(--im-primary); font-weight: 800; }
-.app-lang { display: inline-flex; padding: 3px; background: var(--im-surface-sunken); border: 1px solid var(--im-border); border-radius: var(--im-radius-pill); }
+.app-lang { display: inline-flex; padding: 3px; background: var(--im-surface); border: 1px solid #e5dfff; border-radius: var(--im-radius-pill); }
 .app-lang button { min-width: 44px; height: 38px; border: 0; background: none; font: 800 0.85rem/1 var(--im-font); letter-spacing: 0.04em; color: var(--im-text-muted); border-radius: var(--im-radius-pill); cursor: pointer; }
-.app-lang button[aria-pressed="true"] { background: var(--im-surface); color: var(--im-primary-ink); box-shadow: 0 1px 3px rgb(37 35 68 / 0.12); }
+.app-lang button[aria-pressed="true"] { background: var(--im-brand-lavender); color: var(--im-primary-ink); box-shadow: inset 0 0 0 1.5px var(--im-primary); }
 .app-lang button:focus-visible { outline: 3px solid var(--im-focus); outline-offset: 1px; }
 @media (prefers-reduced-motion: reduce) { .lp-h1__meet, .lp-pick { transition: none; } }

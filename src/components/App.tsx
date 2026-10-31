@@ -7,7 +7,7 @@ import { toAnalyzeRequest } from "@/lib/conversation";
 import type { Analysis } from "@/lib/ai/analysis";
 import { LangContext, Icon } from "./ui";
 import { SiteFooter } from "./SiteFooter";
-import { BrandMark, LangToggle } from "./BrandBits";
+import { BrandMark, LangToggle, StickyHeader } from "./BrandBits";
 import { useCollections, useLang, useStorageOk } from "./use-browser-state";
 import { freshSession, type Session } from "./session";
 import { Landing } from "./Landing";
@@ -67,7 +67,7 @@ export function App() {
 
   return (
     <LangContext.Provider value={{ lang, t }}>
-      <header className="app-bar">
+      <StickyHeader>
         <button className="app-home" onClick={() => go("landing")} aria-label={t.home}><BrandMark /></button>
         {stepIndex >= 0 && (
           <nav aria-label="Progress" className="app-stepper">
@@ -80,13 +80,13 @@ export function App() {
         )}
         <div className="app-bar__end">
           {s.screen !== "mirror" && (
-            <button className="im-btn im-btn--ghost im-btn--sm" onClick={() => go("mirror")}>
-              <Icon name="saved" /> {t.myMirror}{saved.length > 0 && <span className="app-count">{saved.length}</span>}
+            <button className="im-btn im-btn--ghost im-btn--sm app-bar__mirror" onClick={() => go("mirror")} aria-label={t.myMirror}>
+              <Icon name="saved" /> <span className="app-bar__label">{t.myMirror}</span>{saved.length > 0 && <span className="app-count">{saved.length}</span>}
             </button>
           )}
           <LangToggle lang={lang} onChange={setLang} />
         </div>
-      </header>
+      </StickyHeader>
       <main id="main">
         {s.screen === "landing" && <Landing savedCount={saved.length} onStart={startNew} onMirror={() => go("mirror")} onContinue={hasSession ? () => go("replay") : undefined} />}
         {s.screen === "add" && <AddConversation update={update} />}

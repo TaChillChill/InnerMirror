@@ -6,7 +6,7 @@ import { useEffect } from "react";
 import { DICTS } from "@/lib/i18n";
 import { LangContext } from "./ui";
 import { SiteFooter } from "./SiteFooter";
-import { BrandMark, LangToggle } from "./BrandBits";
+import { BrandMark, LangToggle, StickyHeader } from "./BrandBits";
 import { useLang } from "./use-browser-state";
 
 export function PrivacyPolicy() {
@@ -16,12 +16,12 @@ export function PrivacyPolicy() {
   useEffect(() => { document.documentElement.lang = lang; }, [lang]);
   return (
     <LangContext.Provider value={{ lang, t }}>
-      <header className="app-bar">
+      <StickyHeader>
         <Link className="app-home" href="/" aria-label={t.home}><BrandMark /></Link>
         <div className="app-bar__end">
           <LangToggle lang={lang} onChange={setLang} />
         </div>
-      </header>
+      </StickyHeader>
       <main id="main">
         <article className="app-page app-policy">
           <h1 className="app-display">{P.title}</h1>

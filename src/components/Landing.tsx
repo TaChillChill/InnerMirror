@@ -5,7 +5,7 @@ import { useState } from "react";
 import { EX_ORDER, type ExKey } from "@/lib/i18n";
 import { Badge, Icon, Mascot, useT } from "./ui";
 import { VoiceDemo, type DemoPick } from "./VoiceDemo";
-import { InteractionDiagram } from "./InteractionDiagram";
+import { DiagramLegend, InteractionDiagram } from "./InteractionDiagram";
 
 type Props = { savedCount: number; onStart: () => void; onMirror: () => void; onContinue?: () => void };
 // Berne's three ego states, with the five functional styles grouped under them.
@@ -79,12 +79,14 @@ export function Landing({ savedCount, onStart, onMirror, onContinue }: Props) {
           <p className="lp-kicker">{L.meet.kicker}</p>
           <h2 id="lp-meet" className="lp-h2">{L.meet.title}</h2>
           <p className="lp-sectlead">{L.meet.lead}</p>
+          <DiagramLegend />
           <div className="lp-meets">
             {(["click", "miss"] as const).map((kind) => (
               <article key={kind} className="lp-card">
                 <h3>{L.meet[kind].title}</h3>
                 <p>{L.meet[kind].body}</p>
                 <InteractionDiagram kind={kind} title={L.meet[kind].diagram} you={L.meet.you} them={L.meet.them} />
+                <p className="lp-flow">{L.meet[kind].flow}</p>
                 <div className="lp-ex"><p>{L.meet[kind].ex[0]}</p><p>{L.meet[kind].ex[1]}</p></div>
               </article>
             ))}

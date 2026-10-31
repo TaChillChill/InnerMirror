@@ -41,8 +41,14 @@ export const landingVi: LandingDict = {
     lead: "Theo TA, một cuộc trò chuyện trôi chảy hay vấp váp thường tuỳ vào cách các trạng thái cái tôi của hai người gặp nhau.",
     you: "Bạn",
     them: "Họ",
-    click: { title: "Ăn ý", body: "Câu trả lời đến từ đúng phần được gọi tới. Cuộc trò chuyện thường trôi tiếp.", ex: ["“Cậu có thấy chìa khoá của mình đâu không?”", "“Hình như trên bàn đó.”"], diagram: "Mũi tên song song: Người trưởng thành đến Người trưởng thành, và đáp lại như vậy" },
-    miss: { title: "Lệch nhịp", body: "Câu trả lời đến từ một phần khác với mong đợi. Thường đây là lúc cuộc trò chuyện đổi hướng.", ex: ["“Cậu có thấy chìa khoá của mình đâu không?”", "“Sao lúc nào cũng hỏi mình thế?”"], diagram: "Mũi tên chéo: Người trưởng thành đến Người trưởng thành, được đáp từ Trẻ em đến Cha mẹ" },
+    legend: {
+      title: "Ai là ai trong sơ đồ",
+      P: ["Cha mẹ", "quy tắc, quan tâm, che chở"],
+      A: ["Người trưởng thành", "dữ kiện, suy xét, lựa chọn"],
+      C: ["Trẻ em", "cảm xúc, hồn nhiên, thích nghi"],
+    },
+    click: { title: "Ăn ý", body: "Câu trả lời đến từ đúng phần được gọi tới. Cuộc trò chuyện thường trôi tiếp.", flow: "Người trưởng thành → Người trưởng thành, và được đáp lại bằng Người trưởng thành.", ex: ["“Cậu có thấy chìa khoá của mình đâu không?”", "“Hình như trên bàn đó.”"], diagram: "Mũi tên song song: Người trưởng thành đến Người trưởng thành, và đáp lại như vậy" },
+    miss: { title: "Lệch nhịp", body: "Câu trả lời đến từ một phần khác với mong đợi. Thường đây là lúc cuộc trò chuyện đổi hướng.", flow: "Người trưởng thành → Người trưởng thành, nhưng câu trả lời đến từ Cha mẹ và nhắm vào Trẻ em.", ex: ["“Cậu có thấy chìa khoá của mình đâu không?”", "“Đồ của mình mà cũng không tự giữ được à?”"], diagram: "Mũi tên chéo: Người trưởng thành đến Người trưởng thành, được đáp từ Cha mẹ đến Trẻ em" },
     honest: "Trong app, Gương chỉ ra những chỗ cuộc trò chuyện có thể đã đổi hướng, kèm mức độ chắc chắn. Bạn mới là người biết điều gì thật sự đã diễn ra.",
   },
   how: {

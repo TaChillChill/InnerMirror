@@ -40,8 +40,14 @@ export const landingEn = {
     lead: "In TA, a conversation tends to flow or snag depending on how two people's ego states meet.",
     you: "You",
     them: "Them",
-    click: { title: "Clicks", body: "The reply comes from the part that was spoken to. The conversation tends to keep going.", ex: ["“Have you seen my keys?”", "“I think they're on the table.”"], diagram: "Parallel arrows: Adult to Adult, and back from Adult to Adult" },
-    miss: { title: "Misfires", body: "The reply comes from a different part than expected. Often this is where a conversation turns.", ex: ["“Have you seen my keys?”", "“Why do you always ask me?”"], diagram: "Crossed arrows: Adult to Adult, answered from Child to Parent" },
+    legend: {
+      title: "Who's who in the diagrams",
+      P: ["Parent", "rules, care, protection"],
+      A: ["Adult", "facts, reasoning, choices"],
+      C: ["Child", "feelings, spontaneity, adaptation"],
+    },
+    click: { title: "Clicks", body: "The reply comes from the part that was spoken to. The conversation tends to keep going.", flow: "Adult → Adult, and an Adult reply comes back.", ex: ["“Have you seen my keys?”", "“I think they're on the table.”"], diagram: "Parallel arrows: Adult to Adult, and back from Adult to Adult" },
+    miss: { title: "Misfires", body: "The reply comes from a different part than expected. Often this is where a conversation turns.", flow: "Adult → Adult, but the reply comes from Parent and speaks to Child.", ex: ["“Have you seen my keys?”", "“Can't you keep track of your own things?”"], diagram: "Crossed arrows: Adult to Adult, answered from Parent to Child" },
     honest: "In the app, Mirror points to moments where your conversation may have shifted, with how sure it is. You decide what really happened.",
   },
   how: {
