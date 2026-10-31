@@ -24,6 +24,8 @@ const ICONS: Record<string, ReactNode> = {
   close: <path d="M6 6l12 12M18 6L6 18" />,
   plus: <path d="M12 5v14M5 12h14" />,
   search: <><circle cx="10.5" cy="10.5" r="6" /><path d="M15 15l5 5M10.5 8v5M8 10.5h5" /></>,
+  arrow: <path d="M4 12h15M14 7l5 5-5 5" />,
+  chev: <path d="M8 10l4 4 4-4" />,
   edit: <path d="M4.5 19.5l1-4L15.5 5.5l3 3-10 10z" />,
 };
 

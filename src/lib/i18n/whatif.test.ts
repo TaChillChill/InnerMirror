@@ -28,13 +28,26 @@ test("What if? copy has the same keys in EN and VI and no evaluative wording", (
   };
   for (const [lang, d] of Object.entries(dicts) as ["en" | "vi", typeof en][]) {
     for (const v of Object.values(d.whatIf)) {
-      const text = typeof v === "function" ? v("X") : v;
+      const out = typeof v === "function" ? v("X") : v;
+      const text = Array.isArray(out) ? out.join(" ") : out;
       assert.doesNotMatch(text, bad[lang], `${lang}: ${text}`);
     }
   }
 });
 
-test("the exact disclaimer wording is present", () => {
-  assert.equal(en.whatIf.disclaimer, "Possible interaction patterns, not predictions.");
-  assert.equal(en.whatIf.heading, "Possible response patterns based on earlier interactions");
+test("the caveat sits on the What if row in both languages", () => {
+  assert.equal(en.whatIf.caveat, "Possibilities, not predictions.");
+  assert.equal(vi.whatIf.caveat, "Chỉ là khả năng, không phải dự đoán.");
+});
+
+test("brand voice: Replay and What if? say Mirror/Gương, and 'AI' only where it names Meta's model", () => {
+  for (const d of Object.values(dicts)) {
+    for (const [section, strings] of Object.entries({ replay: d.replay, whatIf: d.whatIf })) {
+      for (const [key, v] of Object.entries(strings)) {
+        const out = typeof v === "function" ? (v as (n: string) => unknown)("X") : v;
+        const text = Array.isArray(out) ? out.join(" ") : String(out);
+        if (/\bAI\b/.test(text)) assert.match(text, /Meta/, `${section}.${key}: ${text}`);
+      }
+    }
+  }
 });

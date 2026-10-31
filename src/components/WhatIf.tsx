@@ -1,139 +1,175 @@
 "use client";
-// "What if?" under one of my messages: pick any of the five characters, then Explore.
-// The result is a dashed branch of up to two plausible receiver characters with the words
-// they rest on. No dialogue, no predictions; every character is laid out identically.
+// "What if?" for one of my messages. The comparison card is the point: what happened
+// (solid) above what could happen (dashed), mascot to mascot. Explanations open on tap.
+// No dialogue, no predictions; all five characters are laid out identically.
 import { useEffect, useRef, useState } from "react";
 import { EX_ORDER, type ExKey } from "@/lib/i18n";
-import type { ScenarioContext, ScenarioResult } from "@/lib/ai/scenario";
+import type { Possibility, ScenarioContext, ScenarioResult } from "@/lib/ai/scenario";
 import type { State } from "@/lib/ai/scenario-spec";
 import { buildRequest, scenarioKey, type Entry, useScenarios } from "./use-scenarios";
 import { effectiveState, nameOf, withNames, type Session } from "./session";
 import { Badge, Chip, Icon, toKey, useT } from "./ui";
 
 type Msg = NonNullable<Session["transcript"]>["messages"][number];
-type Props = { s: Session; ctx: ScenarioContext<Msg>; scenarios: ReturnType<typeof useScenarios>; onClose: () => void };
+type Props = { s: Session; ctx: ScenarioContext<Msg>; scenarios: ReturnType<typeof useScenarios> };
+type Done = Extract<Entry, { status: "done" }>;
 
 const asState = (k: ExKey) => k.toUpperCase() as State;
+const keyOf = (p: Possibility) => p.state.toLowerCase() as ExKey;
+const NO_RETRY = ["forbidden", "not_configured", "budget", "invalid_input", "too_long"];
 
-export function WhatIf({ s, ctx, scenarios, onClose }: Props) {
+function Who({ ex, name, dashed, waiting }: { ex: ExKey | "unsure"; name: string; dashed?: boolean; waiting?: boolean }) {
+  return (
+    <span className={`app-wi__who${waiting ? " is-waiting" : ""}`}>
+      <Badge ex={ex} state={dashed ? "suggested" : "plain"} size={44} />
+      <small>{name}</small>
+    </span>
+  );
+}
+const Arrow = ({ dashed }: { dashed?: boolean }) => <span className={`app-wi__arrow${dashed ? " is-dashed" : ""}`}><Icon name="arrow" /></span>;
+
+export function WhatIf({ s, ctx, scenarios }: Props) {
   const { t, lang } = useT();
   const W = t.whatIf;
   const heading = useRef<HTMLHeadingElement>(null);
+  const card = useRef<HTMLDivElement>(null);
   const [picked, setPicked] = useState<ExKey | null>(null);
-  const [openState, setOpenState] = useState<string | null>(null);
+  const [open, setOpen] = useState<string | null>(null);
   const receiver = nameOf(s, ctx.receiverId, t.replay.you);
-  const current = toKey(effectiveState(s, ctx.target.id).state);
   const entryFor = (k: ExKey): Entry | undefined => scenarios.entries[scenarioKey(lang, ctx.target.id, asState(k))];
-  const explored = EX_ORDER.filter((k) => entryFor(k)?.status === "done");
+  const tried = EX_ORDER.filter((k) => entryFor(k)?.status === "done");
   const entry = picked ? entryFor(picked) : undefined;
 
   useEffect(() => { heading.current?.focus(); }, []);
+  // Keep the comparison in view when an answer starts or lands (it can be off-screen on phones).
+  useEffect(() => {
+    if (entry?.status !== "loading" && entry?.status !== "done") return;
+    const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    card.current?.scrollIntoView({ block: "nearest", behavior: still ? "auto" : "smooth" });
+  }, [entry?.status]);
 
+  const pick = (k: ExKey) => { setPicked(k); setOpen(null); };
   const explore = () => { if (picked) void scenarios.explore(scenarioKey(lang, ctx.target.id, asState(picked)), buildRequest(s, ctx, asState(picked), lang)); };
-  const pick = (k: ExKey) => { setPicked(k); setOpenState(null); };
+  const status = entry?.status === "loading" ? W.waiting(receiver) : entry?.status === "error" ? (t.errors as Record<string, string>)[entry.code] ?? t.errors.unknown : "";
 
   return (
     <section className="app-wi" aria-labelledby={`wi-${ctx.target.id}`}>
-      <div className="app-wi__head">
-        <h2 id={`wi-${ctx.target.id}`} ref={heading} tabIndex={-1} className="app-wi__title">{W.title}</h2>
-        <button className="app-icon-btn" onClick={onClose} aria-label={W.close}><Icon name="close" /></button>
-      </div>
-      <p>{W.lead}</p>
-      <div className="app-sel__choices" role="group" aria-label={W.group}>
-        {EX_ORDER.map((k) => (
-          <button key={k} className="app-sel__opt im-ex" data-ex={k} aria-pressed={picked === k} onClick={() => pick(k)}>
-            <Badge ex={k} state="plain" size={32} />
-            <span>{t.ex[k].name}{(k === current || explored.includes(k)) && <small>{[k === current && W.now, explored.includes(k) && W.explored].filter(Boolean).join(" · ")}</small>}</span>
-          </button>
-        ))}
-      </div>
+      <h2 id={`wi-${ctx.target.id}`} ref={heading} tabIndex={-1} className="app-wi__title">{W.title}</h2>
+      <p className="app-wi__intro">{W.intro(receiver)}</p>
 
-      <p className="app-wi__followed">
-        {ctx.reply
-          ? <>{W.followed(nameOf(s, ctx.reply.speakerId, t.replay.you))} <Chip ex={toKey(effectiveState(s, ctx.reply.id).state)} /> <span className="im-hint">{W.followedHint}</span></>
-          : <span className="im-hint">{W.nothingFollowed}</span>}
-      </p>
-
-      {picked && !entry && (
-        <div className="app-wi__go">
-          <button className="im-btn im-btn--primary im-btn--sm" onClick={explore}>{W.explore}</button>
-          <span className="im-hint">{W.data}</span>
+      <div className="app-wi__card" ref={card}>
+        <div className="app-wi__row">
+          <p className="app-wi__label">{W.happened}</p>
+          <div className="app-wi__pair">
+            <Who ex={toKey(effectiveState(s, ctx.target.id).state)} name={t.replay.you} />
+            <Arrow />
+            {ctx.reply ? <Who ex={toKey(effectiveState(s, ctx.reply.id).state)} name={receiver} /> : <span className="app-wi__none">{W.noReply}</span>}
+          </div>
         </div>
-      )}
-      <div aria-live="polite">
-        {entry?.status === "loading" && <p className="im-hint">{W.exploring} {W.wait}</p>}
-        {entry?.status === "error" && (
-          <div className="im-notice im-notice--error" role="alert"><Icon name="alert" /><div>
-            {(t.errors as Record<string, string>)[entry.code] ?? t.errors.unknown}
-            {!["forbidden", "not_configured", "budget", "invalid_input", "too_long"].includes(entry.code) && <p><button className="im-btn im-btn--ghost im-btn--sm" onClick={explore}>{W.retry}</button></p>}
-          </div></div>
-        )}
-        {picked && entry?.status === "done" && <Branch s={s} picked={picked} result={entry.result} labels={entry.labels} receiver={receiver} open={openState} onOpen={setOpenState} />}
+        <div className="app-wi__row is-whatif">
+          <p className="app-wi__label">{W.whatIfRow} <span className="app-wi__caveat">{W.caveat}</span></p>
+          <div className="app-wi__pair">
+            {picked ? <Who ex={picked} name={t.replay.you} dashed waiting={entry?.status === "loading"} /> : <span className="app-wi__slot" aria-hidden>?</span>}
+            <Arrow dashed />
+            {!picked && <span className="app-wi__none">{W.pickFirst}</span>}
+            {picked && !entry && <span className="app-wi__slot" aria-hidden>?</span>}
+            {entry?.status === "loading" && <span className="app-wi__none">{W.waiting(receiver)}</span>}
+            {entry?.status === "error" && (
+              <span className="app-wi__none" role="alert">
+                {status} {!NO_RETRY.includes(entry.code) && <button className="im-btn im-btn--ghost im-btn--sm" onClick={explore}>{W.retry}</button>}
+              </span>
+            )}
+            {picked && entry?.status === "done" && <Results result={entry.result} receiver={receiver} open={open} onOpen={setOpen} />}
+          </div>
+          {picked && entry?.status === "done" && <Details s={s} entry={entry} picked={picked} receiver={receiver} open={open} />}
+        </div>
       </div>
 
-      {explored.length > 1 && (
-        <div className="app-wi__compare">
-          <h3 className="app-wi__sub">{W.compare}</h3>
+      <div className="app-wi__picker">
+        <p className="app-wi__prompt" id={`wi-pick-${ctx.target.id}`}>{W.prompt}</p>
+        <div className="app-wi__opts" role="group" aria-labelledby={`wi-pick-${ctx.target.id}`}>
+          {EX_ORDER.map((k) => (
+            <button key={k} className="app-wi__opt im-ex" data-ex={k} aria-pressed={picked === k} onClick={() => pick(k)}>
+              <Badge ex={k} state="plain" size={36} />
+              <span><strong>{t.ex[k].name}</strong><small>{t.ex[k].short}</small></span>
+              {tried.includes(k) && <em className="app-wi__tried-tag">{W.tried}</em>}
+            </button>
+          ))}
+        </div>
+        {picked && !entry && (
+          <div className="app-wi__go">
+            <button className="im-btn im-btn--primary" onClick={explore}>{W.explore}</button>
+            <p className="im-hint">{W.data}</p>
+          </div>
+        )}
+      </div>
+
+      {tried.length > 1 && (
+        <div className="app-wi__tried">
+          <p className="app-wi__prompt">{W.triedSoFar}</p>
           <ul>
-            {explored.map((k) => {
-              const e = entryFor(k) as Extract<Entry, { status: "done" }>;
+            {tried.map((k) => {
+              const ps = (entryFor(k) as Done).result.possibilities;
               return (
                 <li key={k}><button aria-pressed={picked === k} onClick={() => pick(k)}>
-                  <Badge ex={k} state="plain" size={28} /><span aria-hidden>→</span>
-                  {e.result.possibilities.length
-                    ? e.result.possibilities.map((p) => <Badge key={p.state} ex={p.state.toLowerCase() as ExKey} state="suggested" size={28} />)
-                    : <span className="im-hint">{W.compareNone}</span>}
-                  <span className="app-visually-hidden">{t.ex[k].name}: {e.result.possibilities.map((p) => t.ex[p.state.toLowerCase() as ExKey].name).join(", ") || W.compareNone}</span>
+                  <Badge ex={k} state="plain" size={24} /><Icon name="arrow" />
+                  {ps.map((p) => <Badge key={p.state} ex={keyOf(p)} state="suggested" size={24} />)}
+                  <span>{t.ex[k].name} → {ps.map((p) => t.ex[keyOf(p)].name).join(", ") || W.none}</span>
                 </button></li>
               );
             })}
           </ul>
         </div>
       )}
+      <p className="app-visually-hidden" aria-live="polite">{status}</p>
     </section>
   );
 }
 
-function Branch({ s, picked, result, labels, receiver, open, onOpen }: { s: Session; picked: ExKey; result: ScenarioResult; labels: Record<string, string>; receiver: string; open: string | null; onOpen: (state: string | null) => void }) {
+function Results({ result, receiver, open, onOpen }: { result: ScenarioResult; receiver: string; open: string | null; onOpen: (s: string | null) => void }) {
   const { t } = useT();
   const W = t.whatIf;
-  const words = (text: string) => withNames(text, s, labels);
-  if (result.flagged) return <div className="im-notice im-notice--safety" role="alert"><Icon name="alert" /><div>{W.flagged} {t.safety.body}</div></div>;
-  const why = result.possibilities.length ? null
-    : result.reason === "no_prior" ? W.noPrior(receiver) : result.reason === "unclear_prior" ? W.unclearPrior(receiver) : W.insufficient(receiver);
+  if (result.flagged) return <span className="app-wi__none" role="alert">{W.flagged}</span>;
+  if (!result.possibilities.length) {
+    const why = result.reason === "no_prior" ? W.noPrior(receiver) : result.reason === "unclear_prior" ? W.unclearPrior(receiver) : W.insufficient;
+    return <span className="app-wi__none">{why}</span>;
+  }
   return (
-    <div className="app-wi__branch">
-      <p className="app-wi__tag"><Icon name="swap" /> {W.branch}</p>
-      <h3 className="app-wi__sub">{W.heading}</h3>
-      <p className="app-wi__from">{W.from} <Chip ex={picked} /></p>
-      <p>{W.mightReply(receiver)}:</p>
-      {why && <p>{why}{result.note && result.reason === "model" ? ` ${words(result.note)}` : ""}</p>}
-      {result.evidence === "thin" && <p className="im-hint">{W.thin(receiver)}</p>}
-      <ul className="app-wi__list">
-        {result.possibilities.map((p, i) => {
-          const key = p.state.toLowerCase() as ExKey;
-          const on = open === p.state;
-          return (
-            <li key={p.state}>
-              <button className="app-wi__poss" aria-expanded={on} onClick={() => onOpen(on ? null : p.state)}>
-                <Badge ex={key} state="suggested" size={40} />
-                <span><strong>{t.ex[key].name}</strong><small>{result.ranked && i === 0 ? W.leading : W.also}</small></span>
-              </button>
-              {on && (
-                <div className="app-wi__detail im-ex" data-ex={key}>
-                  <p><strong>{W.about}.</strong> {t.ex[key].desc}</p>
-                  <p>{words(p.rationale)}</p>
-                  {p.cues.length > 0 && <p>{W.cuesIntro} {p.cues.map((c, j) => <span key={c}>{j > 0 && ", "}<q>{c}</q></span>)}</p>}
-                  <p className="im-hint">{p.basis === "pattern" ? W.basisPattern(receiver) : W.basisContext}</p>
-                </div>
-              )}
-            </li>
-          );
-        })}
-      </ul>
-      {result.possibilities.length > 0 && result.note && <p className="im-hint">{words(result.note)}</p>}
-      {result.reflectionQuestion && <p className="app-wi__q"><Icon name="person" /><span><strong>{W.reflect}:</strong> {words(result.reflectionQuestion)}</span></p>}
-      <p className="im-hint"><strong>{W.disclaimer}</strong> {W.noCause}</p>
+    <ul className="app-wi__results">
+      {result.possibilities.map((p) => (
+        <li key={p.state}>
+          <button className="app-wi__result im-ex" data-ex={keyOf(p)} data-basis={p.basis} aria-expanded={open === p.state} onClick={() => onOpen(open === p.state ? null : p.state)}>
+            <Badge ex={keyOf(p)} state="suggested" size={44} />
+            <span><strong>{t.ex[keyOf(p)].name}</strong><small>{p.basis === "pattern" ? W.likeEarlier(receiver) : W.another}</small></span>
+          </button>
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+function Details({ s, entry, picked, receiver, open }: { s: Session; entry: Done; picked: ExKey; receiver: string; open: string | null }) {
+  const { t } = useT();
+  const W = t.whatIf;
+  const { result } = entry;
+  if (result.flagged || !result.possibilities.length) return <p className="im-hint">{t.whatIf.manyReasons}</p>;
+  const [pre, post] = W.resultTitle(receiver);
+  const p = result.possibilities.find((x) => x.state === open);
+  const words = (text: string) => withNames(text, s, entry.labels);
+  return (
+    <div className="app-wi__more">
+      <p className="app-wi__caption">{pre} <Chip ex={picked} />{post}</p>
+      {result.evidence === "thin" && <p className="im-hint">{W.thin}</p>}
+      {!p && <p className="im-hint">{W.tapHint}</p>}
+      {p && (
+        <div className="app-wi__detail im-ex" data-ex={keyOf(p)}>
+          <p><strong>{W.sounds}.</strong> {t.ex[keyOf(p)].desc}</p>
+          <p><strong>{W.why}.</strong> {words(p.rationale)}</p>
+          {p.cues.length > 0 && <p>{W.fromWords(receiver)} {p.cues.map((c, j) => <span key={c}>{j > 0 && ", "}<q>{c}</q></span>)}</p>}
+          {p.basis === "context" && <p className="im-hint">{W.anotherNote(receiver)}</p>}
+          <p className="im-hint">{W.manyReasons}</p>
+        </div>
+      )}
     </div>
   );
 }

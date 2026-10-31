@@ -1,27 +1,72 @@
-/* ---------- What if? ---------- */
-.app-wi { display: grid; gap: var(--im-space-3); padding: var(--im-space-4); background: var(--im-surface); border: 1.5px solid var(--im-border-strong); border-radius: var(--im-radius-lg); }
+/* ---------- What if? ----------
+   The comparison card leads: "What happened" is solid, "What if" is dashed (the same
+   language as Mirror's observations), mascot to mascot. Everything else is on demand. */
+.app-wi { display: grid; gap: var(--im-space-4); padding-top: var(--im-space-3); }
 .app-wi p { margin: 0; }
-.app-wi__head { display: flex; align-items: center; justify-content: space-between; }
-.app-wi__title { font: var(--im-text-h3); margin: 0; }
+.app-wi__title { font: var(--im-text-h3); margin: 0; text-wrap: balance; }
 .app-wi__title:focus { outline: none; }
-.app-wi__sub { font: var(--im-text-label); font-size: 1rem; margin: 0; }
-.app-wi__followed { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; color: var(--im-text-muted); }
-.app-wi__go { display: grid; gap: var(--im-space-2); justify-items: start; }
-.app-wi__branch { display: grid; gap: var(--im-space-3); padding: var(--im-space-4); border: 2px dashed var(--im-border-strong); border-radius: var(--im-radius-lg); background: var(--im-surface-tint); }
-.app-wi__tag { display: inline-flex; align-items: center; gap: 6px; justify-self: start; padding: 2px var(--im-space-3); border-radius: var(--im-radius-pill); border: 1.5px dashed var(--im-primary); color: var(--im-primary-ink); font: var(--im-text-caption); font-weight: 700; }
-.app-wi__tag svg { width: 16px; height: 16px; }
-.app-wi__from .im-chip { vertical-align: middle; }
-.app-wi__list { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--im-space-2); }
-.app-wi__poss { all: unset; box-sizing: border-box; width: 100%; display: flex; align-items: center; gap: var(--im-space-3); min-height: var(--im-tap-min); padding: var(--im-space-2) var(--im-space-3); border: 1.5px dashed var(--im-border-strong); border-radius: var(--im-radius-md); background: var(--im-surface); cursor: pointer; }
-.app-wi__poss:hover, .app-wi__poss[aria-expanded="true"] { border-color: var(--im-primary); }
-.app-wi__poss:focus-visible { outline: 2px solid var(--im-focus); outline-offset: 2px; }
-.app-wi__poss small { display: block; color: var(--im-text-muted); font: var(--im-text-caption); }
-.app-wi__detail { display: grid; gap: var(--im-space-2); margin-top: var(--im-space-2); padding: var(--im-space-3); border-inline-start: 3px solid var(--im-ex-ink, var(--im-primary)); background: var(--im-surface); border-radius: var(--im-radius-md); }
+.app-wi__intro { color: var(--im-text-muted); }
+
+.app-wi__card { display: grid; gap: var(--im-space-2); scroll-margin: var(--im-space-6); }
+.app-wi__row { display: grid; gap: var(--im-space-2); padding: var(--im-space-3); border: 1.5px solid var(--im-border); border-radius: var(--im-radius-md); background: var(--im-surface); }
+.app-wi__row.is-whatif { border: 2px dashed var(--im-primary); background: var(--im-surface-tint); }
+.app-wi__label { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px var(--im-space-2); font: var(--im-text-label); }
+.app-wi__caveat { font: var(--im-text-caption); font-weight: 600; color: var(--im-primary-ink); }
+/* Three columns, so the arrow always points at what it leads to, however narrow the panel. */
+.app-wi__pair { display: grid; grid-template-columns: auto auto minmax(0, 1fr); align-items: center; gap: var(--im-space-2) var(--im-space-3); }
+.app-wi__who { display: grid; justify-items: center; gap: 2px; min-width: 52px; }
+.app-wi__who small { font: var(--im-text-caption); color: var(--im-text-muted); }
+.app-wi__arrow { display: inline-grid; color: var(--im-text-muted); }
+.app-wi__arrow svg { width: 28px; height: 28px; }
+.app-wi__arrow.is-dashed { color: var(--im-primary-ink); }
+.app-wi__arrow.is-dashed svg path { stroke-dasharray: 3 3; }
+.app-wi__slot { width: 44px; height: 44px; display: grid; place-items: center; border: 2px dashed var(--im-border-strong); border-radius: 50%; color: var(--im-text-muted); font: 800 1.1rem/1 var(--im-font); }
+.app-wi__none { font: var(--im-text-caption); color: var(--im-text-muted); }
+
+.app-wi__results { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--im-space-2); justify-items: start; }
+.app-wi__result { all: unset; box-sizing: border-box; display: flex; align-items: center; gap: var(--im-space-2); min-height: var(--im-tap-min); padding: 4px var(--im-space-3) 4px 4px; border: 1.5px dashed var(--ex-ink); border-radius: var(--im-radius-pill); background: var(--im-surface); cursor: pointer; }
+.app-wi__result strong { display: block; font: var(--im-text-label); }
+.app-wi__result small { display: block; font: var(--im-text-caption); color: var(--im-text-muted); }
+/* A general idea is shown lighter than a pattern drawn from their earlier messages. */
+.app-wi__result[data-basis="context"] { border-style: dotted; border-color: var(--im-border-strong); }
+.app-wi__result:hover, .app-wi__result[aria-expanded="true"] { background: var(--ex-tint); }
+.app-wi__result[aria-expanded="true"] { border-style: solid; border-color: var(--ex-ink); }
+.app-wi__result:focus-visible { outline: 2px solid var(--im-focus); outline-offset: 2px; }
+
+.app-wi__more { display: grid; gap: var(--im-space-2); }
+.app-wi__caption { font: var(--im-text-label); }
+.app-wi__caption .im-chip { vertical-align: middle; }
+.app-wi__detail { display: grid; gap: var(--im-space-2); padding: var(--im-space-3); border: 1.5px solid var(--ex-ink); border-radius: var(--im-radius-md); background: var(--im-surface); }
 .app-wi__detail q { font-style: italic; }
-.app-wi__q { display: flex; gap: var(--im-space-2); align-items: start; }
-.app-wi__q svg { width: 20px; height: 20px; flex: none; margin-top: 2px; color: var(--im-primary-ink); }
-.app-wi__compare ul { list-style: none; margin: var(--im-space-2) 0 0; padding: 0; display: grid; gap: var(--im-space-2); }
-.app-wi__compare button { all: unset; box-sizing: border-box; display: inline-flex; align-items: center; gap: var(--im-space-2); min-height: var(--im-tap-min); padding: 0 var(--im-space-3); border: 1.5px solid var(--im-border-strong); border-radius: var(--im-radius-pill); cursor: pointer; }
-.app-wi__compare button[aria-pressed="true"] { border-color: var(--im-primary); background: var(--im-surface-tint); }
-.app-wi__compare button:focus-visible { outline: 2px solid var(--im-focus); outline-offset: 2px; }
-.app-wi-btn { margin-inline-start: var(--im-space-2); border: 1.5px solid var(--im-border-strong); background: var(--im-surface); }
+
+.app-wi__picker { display: grid; gap: var(--im-space-2); }
+.app-wi__prompt { font: var(--im-text-label); }
+.app-wi__opts { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: var(--im-space-2); }
+.app-wi__opt { all: unset; box-sizing: border-box; position: relative; display: flex; align-items: center; gap: var(--im-space-2); min-height: 56px; padding: 6px var(--im-space-2); border: 1.5px solid var(--im-border-strong); border-radius: var(--im-radius-md); background: var(--im-surface); cursor: pointer; }
+.app-wi__opt span { display: grid; min-width: 0; }
+.app-wi__opt strong { font: var(--im-text-label); }
+.app-wi__opt small { font: var(--im-text-caption); color: var(--im-text-muted); }
+.app-wi__opt:hover { border-color: var(--im-primary); }
+/* A hypothetical pick: neutral and dashed, never the "my reading" style. */
+.app-wi__opt[aria-pressed="true"] { border: 1.5px dashed var(--im-primary); box-shadow: inset 0 0 0 1.5px var(--im-primary); background: var(--im-surface-tint); }
+.app-wi__opt:focus-visible { outline: 2px solid var(--im-focus); outline-offset: 2px; }
+.app-wi__tried-tag { position: absolute; top: 4px; right: 8px; font: 700 0.6875rem/1 var(--im-font); font-style: normal; color: var(--im-primary-ink); }
+.app-wi__go { display: grid; gap: var(--im-space-2); justify-items: start; }
+
+.app-wi__tried { display: grid; gap: var(--im-space-2); }
+.app-wi__tried ul { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--im-space-2); }
+.app-wi__tried button { all: unset; box-sizing: border-box; display: flex; flex-wrap: wrap; align-items: center; gap: 6px; min-height: var(--im-tap-min); padding: 4px var(--im-space-3); border: 1.5px solid var(--im-border-strong); border-radius: var(--im-radius-md); cursor: pointer; }
+.app-wi__tried button > svg { width: 16px; height: 16px; color: var(--im-text-muted); }
+.app-wi__tried button span { font: var(--im-text-caption); color: var(--im-text-muted); }
+.app-wi__tried button[aria-pressed="true"] { border-color: var(--im-primary); background: var(--im-surface-tint); }
+.app-wi__tried button:focus-visible { outline: 2px solid var(--im-focus); outline-offset: 2px; }
+
+/* The one authored moment: the picked mascot bobs while Mirror looks. */
+.app-wi__who.is-waiting .im-badge { animation: app-wi-bob 900ms var(--im-ease-out) infinite alternate; }
+@keyframes app-wi-bob { from { transform: translateY(0); } to { transform: translateY(-5px); } }
+@media (prefers-reduced-motion: reduce) { .app-wi__who.is-waiting .im-badge { animation: none; } }
+
+/* On phones the Explore button stays in thumb reach at the bottom of the sheet. */
+@media (max-width: 959.98px) {
+  .app-sheet .app-wi__go { position: sticky; bottom: calc(var(--im-space-6) * -1); padding: var(--im-space-3) 0 var(--im-space-6); background: var(--im-bg); }
+}
