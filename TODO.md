@@ -14,10 +14,11 @@ Session state and next actions. Stable rules live in `CLAUDE.md`. Overwrite this
 - Spend: harness $0.79 + app dev $0.05 + M3 tests ≈ $0.08 (of the $1 M3 allowance) ≈ **$0.92** of $5.
 
 ## Next actions (max 5)
-1. **Founder:** final UI/UX comments (not yet implemented); review privacy/footer copy.
-2. **Founder (Vercel/Meta):** link project, set `META_API_KEY` and `APP_SPEND_CAP_USD=5`; Vercel Authentication for Founder UAT (Password Protection is Pro only, $20/mo/project); one Firewall rate-limit rule on `/api/` (Hobby: 1 rate-limit rule of 3 custom rules; changes apply without redeploy); check Meta console for a payment method (ToS 13.2 auto-charge; credit exhaustion undocumented).
-3. Then: preview deploy (approval), smoke test with synthetic conversation (~$0.05, approval), real-iPhone Safari checks. Before external beta: rate-limit rule verified, Meta auto-charge risk accepted or card removed.
-4. Deferred: "Your Turn", D12 mascot sizing, extraction eval harness, access-code UI (leave `ACCESS_CODE` unset).
+1. **Founder:** UAT on the protected Preview (Vercel login required): https://innermirror-b0w6iup36-tachillchills-projects.vercel.app . Paid end-to-end smoke test (~$0.05) needs separate approval. Send final UI/UX comments.
+2. Before external beta: switch rate-limit rule from Log to block (`vercel firewall rules edit "API rate limit (log)" --rate-limit-action rate_limit` then `vercel firewall publish --yes`); decide how to open access (protection is "All Deployments" now; external testers need it relaxed or a Preview-target alias); resolve or accept Meta auto-charge risk (credit exhaustion undocumented).
+3. Vercel: project `innermirror` (prj_ZR9aFyXYyPN6IksqoCxhMg72Ly4A). First deploy of a new project is always Production (docs); one such deployment exists (no env vars, protected, no API key). Later deploys: `vercel deploy --target=preview`. Never `--prod` without approval. Emergency stop: `vercel firewall rules enable "EMERGENCY deny API" && vercel firewall publish --yes`.
+4. Real-iPhone Safari checks; VI native-reader pass.
+5. Deferred: "Your Turn", D12 mascot sizing, extraction eval harness, access-code UI.
 
 ## Blockers
 - Meta publishes no retention period; copy says "may keep it for a period it decides".
