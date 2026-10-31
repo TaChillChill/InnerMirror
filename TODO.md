@@ -25,7 +25,9 @@ Session state and next actions. Stable rules live in `CLAUDE.md`. Overwrite this
 - Meta auto-charge after credits run out: unverified (needs console check).
 
 ## Last validation result
-2026-10-31 release prep: `npm test` 41/41, lint, typecheck, build clean; `/privacy` and landing 18+ note confirmed in server HTML. $0 live spend. Not verified: visual check of `/privacy` in a browser, VI native-reader pass, real iOS Safari.
+2026-10-31 Preview paid smoke (synthetic, 5 messages): 1 analyze (200, 16.4 s, $0.0205) + 1 What if (200, 10.9 s, $0.0142) = $0.0347 of the $0.05 approved; Meta key works on Preview; logs hold metadata only (no content, no secrets). Earlier same-instance calls ($0.0535 analyze at 46 s, $0.0132 scenario) were not from this test (likely Founder UAT). Not verified: auto-charge after credits, real iOS Safari.
+
+Previous: 2026-10-31 release prep: `npm test` 41/41, lint, typecheck, build clean; `/privacy` and landing 18+ note confirmed in server HTML. $0 live spend. Not verified: visual check of `/privacy` in a browser, VI native-reader pass, real iOS Safari.
 
 Previous: 2026-10-31 M5 round 3 (Impeccable My Mirror critique 21/40 → fixes): `npm test` 39/39, lint, typecheck, build, detector clean. Mocked acceptance e2e passes at 1280, 1000, 390 px (layers, navigation without re-analysis, confirm on unsaved new, scroll lock behind sheet/dialog, dialog Esc + focus return, card 340 px / 40 px badges). $0 live spend this round (M5 total stays $0.253 of $0.30). Not verified: real iOS Safari. Deferred: 960–1199 px layout (judged readable), sheet drag.
 
