@@ -18,6 +18,9 @@ export const en = {
   unsureShort: "Not sure",
   unclear: "Unclear",
   conf: { low: "Low confidence", medium: "Medium confidence", high: "High confidence" },
+  // Shown on the chip itself, so a guess never looks like a verdict.
+  maybe: { low: "Unsure", medium: "Maybe" },
+  lean: { P: "leans Parent", A: "leans Adult", C: "leans Child" },
   landing: landingEn,
   add: {
     title: "Add a conversation",
@@ -199,6 +202,8 @@ export const en = {
     why: "Why Mirror sees this",
     cuesIntro: "Words that point this way, highlighted in the message:",
     another: "Another reading.",
+    alsoPossible: "Could also be",
+    segment: (n: number) => `${n} messages read together`,
     secondLayer: "Possibly a second layer.",
     secondLayerHint: "Only the people involved know whether that fits.",
     notFact: "A possibility from the words alone, not a fact about anyone.",

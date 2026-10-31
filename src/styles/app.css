@@ -260,3 +260,11 @@ html:has(.app-sheet-open), html:has(.app-modal) { overflow: hidden; }
 
 .app-credit { text-align: center; padding: var(--im-space-5) var(--im-gutter) var(--im-space-6); font-size: 0.8125rem; color: var(--im-text-muted); }
 .app-credit a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
+
+/* P0: one character per segment. Bubbles of one segment sit close together, and only
+   the first carries the avatar; the chip says how sure Mirror is. */
+.im-thread .app-msg--cont { margin-bottom: calc(4px - var(--im-space-4)); }
+.app-avatar-gap { width: 32px; }
+.im-chip__q { font-weight: 600; opacity: 0.8; margin-right: 4px; white-space: nowrap; }
+.im-msg__meta .im-chip { white-space: nowrap; }
+.app-sel__alt { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin: 0; color: var(--im-text-muted); font-size: 0.9375rem; }

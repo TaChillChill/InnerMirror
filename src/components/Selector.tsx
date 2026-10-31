@@ -2,7 +2,8 @@
 // "Your reading" for one message: what Mirror sees (dashed, a possibility) and my own
 // choice (solid, mine). One fixed question invites the user to confirm or change it;
 // my choice always wins visually. Lives in the message panel (Replay decides where).
-import { EX_ORDER } from "@/lib/i18n";
+import type { Reading } from "@/lib/ai/analysis";
+import { EX_ORDER, type Dict } from "@/lib/i18n";
 import type { Update } from "./App";
 import { badgeOf, nameOf, readingFor, withNames, type Choice, type Session } from "./session";
 import { Badge, Chip, Icon, exName, toKey, useT } from "./ui";
@@ -31,8 +32,10 @@ export function Selector({ s, update, id }: { s: Session; update: Update; id: st
         <span>
           {unclear ? (mine ? R.unclearMine : R.unclearOther(other)) : <>{pre} <Chip ex={ai} />{post}</>}
           {!unclear && <small className="app-sel__conf">{t.conf[r.confidence]}</small>}
+          {unclear && r.family !== "UNCLEAR" && <small className="app-sel__conf">{t.lean[r.family]}</small>}
         </span>
       </p>
+      {r.alternative && <p className="app-sel__alt">{R.alsoPossible} <Chip ex={toKey(r.alternative.expression)} /></p>}
       {!unclear && (chosen === ai
         ? <p className="app-sel__agreed"><Icon name="check" /> {R.youAgreed}</p>
         : <button className="im-btn im-btn--secondary im-btn--sm app-sel__yes" onClick={() => choose(ai)}><Icon name="check" /> {mine ? R.yesMine : R.yesOther}</button>)}
@@ -78,6 +81,12 @@ export function Selector({ s, update, id }: { s: Session; update: Update; id: st
       </div>
     </section>
   );
+}
+
+/** How Mirror's own suggestion reads on a chip: uncertainty first, never a bare verdict. */
+export function aiChip(t: Dict, r: Reading): { prefix?: string; text?: string } {
+  if (r.expression === "UNCLEAR") return { text: r.family !== "UNCLEAR" ? `${t.unclear} · ${t.lean[r.family]}` : t.unclear };
+  return { prefix: r.confidence === "high" ? undefined : t.maybe[r.confidence] };
 }
 
 export const badgeFor = (s: Session, id: string) => {

@@ -3,6 +3,7 @@
 // renders it as a sticky right column on desktop and as a bottom sheet on phones, so the
 // conversation stays in view (desktop) or one tap away (phones).
 import type { KeyboardEvent } from "react";
+import { segmentOf } from "@/lib/ai/analysis";
 import { scenarioContext } from "@/lib/ai/scenario";
 import type { Update } from "./App";
 import { Selector } from "./Selector";
@@ -21,6 +22,9 @@ export function MessagePanel({ s, update, id, tab, onTab, scenarios, onClose }: 
   const R = t.replay;
   const m = s.transcript?.messages.find((x) => x.id === id);
   if (!m) return null;
+  // A character can cover several messages of one turn; the panel quotes all of them.
+  const ids = segmentOf(s.analysis!, id)?.messageIds ?? [id];
+  const quote = ids.map((x) => s.transcript!.messages.find((y) => y.id === x)?.text).filter(Boolean).join(" · ");
   const ctx = scenarioContext(s.transcript!.messages, s.selfId, id);
   const active = ctx ? tab : "reading";
 
@@ -35,7 +39,7 @@ export function MessagePanel({ s, update, id, tab, onTab, scenarios, onClose }: 
   return (
     <>
       <div className="app-sheet-bar">
-        <p className="app-panel-quote"><strong>{nameOf(s, m.speakerId, R.you)}:</strong> {m.text}</p>
+        <p className="app-panel-quote"><strong>{nameOf(s, m.speakerId, R.you)}:</strong> {quote}</p>
         <button className="app-icon-btn" onClick={onClose} aria-label={R.close}><Icon name="close" /></button>
       </div>
       {ctx && (

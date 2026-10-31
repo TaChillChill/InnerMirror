@@ -1,5 +1,5 @@
 "use client";
-// My Mirror: one sticker per message of mine (Mirror's observation until I review it), an
+// My Mirror: one sticker per segment of mine (Mirror's observation until I review it), an
 // optional note to my future self, Save, and the collections saved in this browser.
 // After Save the just-saved stickers stay in view with the ways forward: another
 // conversation (primary), back to this one (still in memory), or home.
@@ -7,17 +7,20 @@ import { useEffect, useRef, useState } from "react";
 import { addCollection, clearCollections, makeCollection, removeCollection, restoreCollection, type Collection, type MineEntry } from "@/lib/mirror-store";
 import type { ExKey } from "@/lib/i18n";
 import type { Update } from "./App";
+import { anchorOf } from "@/lib/ai/analysis";
 import { readingFor, type Session } from "./session";
 import { Stickers, Tally, CollectionCard } from "./Stickers";
 import { Icon, useT } from "./ui";
 
 type Props = { s: Session; update: Update; saved: Collection[]; storageOk: boolean; onSavedChange: () => void; onNew: () => void; onBack: () => void; onHome: () => void; onOpenMessage: (id: string) => void };
 
-// My messages in order, with the AI's suggestion and my choice (labels only, no text).
+// My segments in order (one per character shown in Replay), with the AI's suggestion and
+// my choice (labels only, no text). A segment is keyed by its last message.
 export function currentMine(s: Session): (MineEntry & { id: string })[] {
   if (!s.analysis || !s.transcript) return [];
-  return s.transcript.messages.filter((m) => m.speakerId === s.selfId).map((m, order) => {
-    const expr = readingFor(s.analysis!, m.id)?.expression ?? "UNCLEAR";
+  const a = s.analysis;
+  return s.transcript.messages.filter((m) => m.speakerId === s.selfId && anchorOf(a, m.id) === m.id).map((m, order) => {
+    const expr = readingFor(a, m.id)?.expression ?? "UNCLEAR";
     return { id: m.id, order, ai: expr === "UNCLEAR" ? "UNCLEAR" : (expr.toLowerCase() as ExKey), chosen: s.choices[m.id] ?? null };
   });
 }

@@ -73,9 +73,11 @@ export function Avatar({ name, isMe, index, size }: { name: string; isMe: boolea
 export const exName = (t: Dict, ex: ExKey | "unsure" | "UNCLEAR") => (ex === "unsure" ? t.unsure : ex === "UNCLEAR" ? t.unclear : t.ex[ex].name);
 export const toKey = (expr: string): ExKey | "unsure" => (expr === "UNCLEAR" ? "unsure" : (expr.toLowerCase() as ExKey));
 
-export function Chip({ ex }: { ex: ExKey | "unsure" }) {
+// `prefix` carries Mirror's uncertainty ("Maybe ·"); `text` replaces the "not sure" wording.
+export function Chip({ ex, prefix, text }: { ex: ExKey | "unsure"; prefix?: string; text?: string }) {
   const { t } = useT();
+  const q = prefix && <span className="im-chip__q">{prefix} ·</span>;
   return ex === "unsure"
-    ? <span className="im-chip im-chip--unsure">{t.unsure}</span>
-    : <span className="im-chip im-ex" data-ex={ex}>{t.ex[ex].name}</span>;
+    ? <span className="im-chip im-chip--unsure">{q}{text ?? t.unsure}</span>
+    : <span className="im-chip im-ex" data-ex={ex}>{q}{t.ex[ex].name}</span>;
 }

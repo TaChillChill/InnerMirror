@@ -1,13 +1,15 @@
 "use client";
-// Replay: the conversation with a character per message, shifts between messages, and
-// the selector for the open message. The AI's cues are highlighted in the bubble itself.
+// Replay: the conversation with one character per segment (usually a whole turn, so a
+// thought sent as several bubbles reads as one), shifts between messages, and the selector
+// for the open segment. The AI's cues are highlighted in the bubbles themselves.
 import { Fragment, useCallback, useEffect, useRef, useState, type ReactNode } from "react";
 import { EX_ORDER } from "@/lib/i18n";
 import type { Update } from "./App";
-import { badgeFor } from "./Selector";
+import { aiChip, badgeFor } from "./Selector";
 import { MessagePanel, type PanelTab } from "./MessagePanel";
 import { useScenarios } from "./use-scenarios";
 import { scenarioContext } from "@/lib/ai/scenario";
+import { segmentOf } from "@/lib/ai/analysis";
 import { nameOf, readingFor, withNames, type Session } from "./session";
 import { Avatar, Badge, Chip, Icon, toKey, useT } from "./ui";
 
@@ -71,6 +73,32 @@ export function Replay({ s, update, onContinue, onRestart }: { s: Session; updat
     return () => document.removeEventListener("keydown", onKey);
   }, [close]);
 
+  // A plain render function, not a component: the buttons must keep their identity so
+  // focus can return to the one that opened the panel.
+  const meta = (id: string, mine: boolean, size: number) => {
+    const r = readingFor(a, id);
+    const b = badgeFor(s, id);
+    const ai = b.state === "suggested" && r ? aiChip(t, r) : {};
+    const name = ai.text ?? `${ai.prefix ? `${ai.prefix} ` : ""}${b.ex === "unsure" ? t.unsure : t.ex[b.ex].name}`;
+    const label = b.state === "suggested" ? R.aiSuggestion : b.state === "unsure" ? R.youUnsure : b.state === "agreed" ? R.youAgreed : R.youChose;
+    const canWhatIf = mine && !!scenarioContext(T.messages, s.selfId, id);
+    const open = s.selected === id;
+    return (
+      <div className="im-msg__meta">
+        <button className="app-meta-btn" aria-expanded={open && tab === "reading"} aria-label={`${label}: ${name}.${size > 1 ? ` ${R.segment(size)}.` : ""} ${R.open}`}
+          onClick={(e) => openPanel(e.currentTarget, id, "reading")}>
+          <Badge ex={b.ex} state={b.state} size={28} />
+          <span className="app-meta-label">{b.state !== "suggested" && <span className="app-you">{label}</span>}<Chip ex={b.ex} {...ai} /></span>
+          <span className="app-meta-chev"><Icon name="chev" /></span>
+        </button>
+        {canWhatIf && (
+          <button className="app-wi-pill" aria-expanded={open && tab === "whatif"} aria-label={W.buttonAria}
+            onClick={(e) => openPanel(e.currentTarget, id, "whatif")}><Icon name="swap" />{W.button}</button>
+        )}
+      </div>
+    );
+  };
+
   if (a.safety.flagged) return <Safety note={a.safety.note} onBack={onRestart} />;
   const sheetOpen = !!s.selected && !desktop;
 
@@ -94,32 +122,25 @@ export function Replay({ s, update, onContinue, onRestart }: { s: Session; updat
           {T.messages.map((m) => {
             const mine = m.speakerId === s.selfId;
             const r = readingFor(a, m.id);
-            const b = badgeFor(s, m.id);
-            const open = s.selected === m.id;
+            // One character per segment, shown under its last bubble; choices use that id.
+            const seg = segmentOf(a, m.id);
+            const anchor = seg?.messageIds.at(-1) ?? m.id;
+            const isAnchor = anchor === m.id;
+            const first = !seg || seg.messageIds[0] === m.id;
+            const open = s.selected === anchor;
             const shift = a.shifts.find((x) => x.messageId === m.id);
-            const canWhatIf = mine && !!scenarioContext(T.messages, s.selfId, m.id);
-            const label = b.state === "suggested" ? R.aiSuggestion : b.state === "unsure" ? R.youUnsure : b.state === "agreed" ? R.youAgreed : R.youChose;
             return (
               <Fragment key={m.id}>
                 {shift && <p className="app-shift"><Icon name="swap" /><span><strong>{R.shift}.</strong> {withNames(shift.description, s)}</span></p>}
-                <div className={`im-msg${mine ? " im-msg--me" : ""}`} aria-current={open ? "true" : undefined}>
-                  {!mine && <Avatar name={nameOf(s, m.speakerId, R.you)} isMe={false} index={others.findIndex((o) => o.id === m.speakerId)} />}
+                <div className={`im-msg${mine ? " im-msg--me" : ""}${isAnchor ? "" : " app-msg--cont"}`} aria-current={open ? "true" : undefined}>
+                  {!mine && (first
+                    ? <Avatar name={nameOf(s, m.speakerId, R.you)} isMe={false} index={others.findIndex((o) => o.id === m.speakerId)} />
+                    : <span className="app-avatar-gap" aria-hidden="true" />)}
                   <div className="im-bubble">
                     <span className="app-visually-hidden">{nameOf(s, m.speakerId, R.you)}: </span>
                     {open && r ? highlight(m.text, r.cues, toKey(r.expression) === "unsure" ? undefined : toKey(r.expression)) : m.text}
                   </div>
-                  <div className="im-msg__meta">
-                    <button className="app-meta-btn" aria-expanded={open && tab === "reading"} aria-label={`${label}: ${b.ex === "unsure" ? t.unsure : t.ex[b.ex].name}. ${R.open}`}
-                      onClick={(e) => openPanel(e.currentTarget, m.id, "reading")}>
-                      <Badge ex={b.ex} state={b.state} size={28} />
-                      <span className="app-meta-label">{b.state !== "suggested" && <span className="app-you">{label}</span>}<Chip ex={b.ex} /></span>
-                      <span className="app-meta-chev"><Icon name="chev" /></span>
-                    </button>
-                    {canWhatIf && (
-                      <button className="app-wi-pill" aria-expanded={open && tab === "whatif"} aria-label={W.buttonAria}
-                        onClick={(e) => openPanel(e.currentTarget, m.id, "whatif")}><Icon name="swap" />{W.button}</button>
-                    )}
-                  </div>
+                  {isAnchor && meta(anchor, mine, seg?.messageIds.length ?? 1)}
                 </div>
               </Fragment>
             );

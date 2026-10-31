@@ -20,6 +20,8 @@ export const vi: Dict = {
   unsureShort: "Chưa chắc",
   unclear: "Chưa rõ",
   conf: { low: "Độ tin cậy thấp", medium: "Độ tin cậy trung bình", high: "Độ tin cậy cao" },
+  maybe: { low: "Chưa chắc", medium: "Có thể" },
+  lean: { P: "nghiêng về Cha mẹ", A: "nghiêng về Người trưởng thành", C: "nghiêng về Trẻ em" },
   landing: landingVi,
   add: {
     title: "Thêm một cuộc trò chuyện",
@@ -201,6 +203,8 @@ export const vi: Dict = {
     why: "Vì sao Gương thấy vậy",
     cuesIntro: "Những chữ gợi ra cách đọc này, được tô trong tin nhắn:",
     another: "Một cách đọc khác.",
+    alsoPossible: "Cũng có thể là",
+    segment: (n) => `${n} tin được đọc cùng nhau`,
     secondLayer: "Có thể có một lớp nghĩa thứ hai.",
     secondLayerHint: "Chỉ người trong cuộc mới biết điều đó có đúng không.",
     notFact: "Đây là một khả năng dựa trên câu chữ, không phải sự thật về ai cả.",

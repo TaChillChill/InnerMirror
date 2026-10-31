@@ -1,6 +1,7 @@
 // In-memory state for one conversation. Nothing here is persisted: closing the tab
 // drops the conversation; only an explicit Save writes labels to My Mirror.
-import type { Analysis, Reading } from "@/lib/ai/analysis";
+import { anchorOf, type Analysis, type Reading } from "@/lib/ai/analysis";
+import { SELF_LABEL } from "@/lib/ai/analysis-spec";
 import type { Transcript } from "@/lib/conversation";
 import type { NoteCode } from "@/lib/ai/extract-spec";
 import { resolveState } from "@/lib/ai/scenario";
@@ -41,18 +42,19 @@ export function badgeOf(ai: ExKey | "unsure", mine: Choice | undefined): { ex: E
   return { ex: mine, state: mine === ai ? "agreed" : "changed" };
 }
 
-/** The label a message carries now (my choice wins), as sent to What if?. */
-export const effectiveState = (s: Session, id: string) => resolveState(readingFor(s.analysis!, id), s.choices[id]);
+/** The label a message carries now (my choice for its segment wins), as sent to What if?. */
+export const effectiveState = (s: Session, id: string) => resolveState(readingFor(s.analysis!, id), s.choices[anchorOf(s.analysis!, id)]);
 
 /**
- * Replaces the model's neutral labels ("Person A", "You") with the names typed on this
- * device. Each AI call numbers people on its own, so a call can pass its own label map.
+ * Replaces the model's neutral labels ("Person A") with the names typed on this device.
+ * The analysis labels everyone neutrally, the user included; What if? calls the user
+ * "You"/"Bạn", which already reads right. Each call can pass its own label map.
  */
 export function withNames(text: string, s: Session, labels: Record<string, string> = s.labels): string {
   if (!s.transcript) return text;
   let out = text;
   for (const [label, pid] of Object.entries(labels)) {
-    if (pid === s.selfId) continue; // "you"/"bạn" already reads right
+    if (label === SELF_LABEL.en || label === SELF_LABEL.vi) continue;
     const name = s.transcript.participants.find((p) => p.id === pid)?.name;
     if (name) out = out.split(label).join(name);
   }
