@@ -38,6 +38,7 @@ export const EN = [
     acc: { m1: "A CP", m2: "AC FC", m3: "CP", m4: "AC A FC", m5: "A FC AC", m6: "NP A", m7: "AC FC A", m8: "FC" },
     hard: { m3: "A:* NP:* FC:*", m4: "NP:*", m6: "CP:*", m8: "CP:*" },
     ceil: { m1: "medium", m5: "medium" }, review: ["m1", "m5"], safety: false,
+    contexts: { rel: { relationship: "family", note: "" } },
   }),
 
   fixture("en3-couple", "en", "Phase 0 fixture 01: postponed dinner, 'always', apology, 'Fine. Do whatever you want.', 'ok'.", ["Alex", "Sam"], [
@@ -51,6 +52,7 @@ export const EN = [
     acc: { m1: "AC A", m2: "CP", m3: "AC FC", m4: "AC CP FC UNCLEAR", m5: "A NP", m6: "UNCLEAR AC" },
     hard: { m2: "A:* NP:*", m3: "CP:*", m5: "CP:high", m6: "*:medium *:high" },
     ceil: { m4: "medium", m6: "low" }, review: ["m4"], safety: false,
+    contexts: { rel: { relationship: "partner", note: "" } },
   }),
 
   fixture("en4-short", "en", "Phase 0 fixture 06: very short replies.", ["Jamie", "Me"], [

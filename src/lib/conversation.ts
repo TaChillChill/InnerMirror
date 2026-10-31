@@ -79,6 +79,16 @@ export function toAnalyzeRequest(t: Transcript, selfId: string, language: Lang):
   };
 }
 
+/**
+ * Everything the analysis depends on, as a cache key. Who the user is isn't part of it (the
+ * model never sees it), so switching "Who am I?" can reuse a reading; any edit to a text, a
+ * speaker or the language gives a new key.
+ */
+export function analysisKey(req: AnalyzeRequest): string {
+  const speaking = new Set(req.messages.map((m) => m.speakerId));
+  return JSON.stringify([req.language, req.participantIds.filter((p) => speaking.has(p)), req.messages.map((m) => [m.id, m.speakerId, m.text])]);
+}
+
 export type ReviewProblem = "noSelf" | "tooFew" | "tooMany" | "tooLong" | "emptyMessage" | null;
 export function reviewProblem(t: Transcript, selfId: string | null): ReviewProblem {
   if (t.messages.length < LIMITS.minMessages) return "tooFew";

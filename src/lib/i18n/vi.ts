@@ -120,7 +120,8 @@ export const vi: Dict = {
     remove: (n: number) => `Bỏ ảnh ${n}`,
     read: "Đọc ảnh của mình",
     reading: "Đang đọc…",
-    wait: "Đọc chữ trong ảnh thường mất 10 đến 30 giây. Chưa có gì được phân tích.",
+    wait: (lo, hi) => `Đọc chữ trong ảnh thường mất khoảng ${lo}–${hi} giây. Chưa có gì được phân tích.`,
+    slow: "Lâu hơn thường lệ một chút, vẫn đang đọc ảnh.",
     problems: {
       format: "Tệp này không phải ảnh PNG, JPEG, WebP hay GIF.",
       decode: "Không mở được ảnh này. Hãy thử ảnh khác.",
@@ -132,7 +133,8 @@ export const vi: Dict = {
   analyzing: {
     title: "Đang xem cuộc trò chuyện…",
     stages: ["Đọc các tin nhắn", "Xem mỗi tin nhắn có thể nghe ra sao", "Tìm chỗ cuộc trò chuyện đổi hướng"],
-    wait: "Thường mất khoảng 15 đến 40 giây.",
+    wait: (lo, hi) => `Thường mất khoảng ${lo}–${hi} giây.`,
+    slow: "Lâu hơn thường lệ một chút, Gương vẫn đang đọc.",
     cancel: "Huỷ",
   },
   errors: {
@@ -188,6 +190,7 @@ export const vi: Dict = {
     retry: "Thử lại",
   },
   replay: {
+    editTranscript: "Sửa cuộc trò chuyện hoặc đổi người là bạn",
     title: "Gương thấy gì?",
     aiObservation: "Quan sát của Gương",
     tip: "Chạm vào nhân vật dưới mỗi tin nhắn để xem vì sao Gương thấy vậy, và chọn cách hiểu của bạn.",

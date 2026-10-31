@@ -3,7 +3,8 @@
 // State lives here; screens are presentational and talk back through `update`.
 import { useCallback, useEffect, useRef, useState } from "react";
 import { DICTS } from "@/lib/i18n";
-import { toAnalyzeRequest } from "@/lib/conversation";
+import { analysisKey, toAnalyzeRequest } from "@/lib/conversation";
+import { analyzeEstimate } from "@/lib/wait";
 import type { Analysis } from "@/lib/ai/analysis";
 import { LangContext, Icon } from "./ui";
 import { SiteFooter } from "./SiteFooter";
@@ -43,6 +44,16 @@ export function App() {
 
   const analyze = useCallback(async () => {
     if (!s.transcript || !s.selfId) return;
+    const req = toAnalyzeRequest(s.transcript, s.selfId, lang);
+    const key = analysisKey(req);
+    const last = s.lastResult;
+    if (last?.key === key) {
+      // Unchanged conversation (only "Who am I?" may differ): same reading, my choices kept.
+      // A save belongs to the perspective it was made from.
+      update({ screen: "replay", analysis: last.analysis, labels: last.labels, error: null, selected: null, shots: [], extractNotes: [], savedId: last.selfId === s.selfId ? s.savedId : null });
+      window.scrollTo({ top: 0 });
+      return;
+    }
     const controller = new AbortController();
     abort.current = controller;
     update({ screen: "analyzing", error: null, analysis: null, choices: {}, selected: null, savedId: null, shots: [], extractNotes: [] });
@@ -50,18 +61,19 @@ export function App() {
       const res = await fetch("/api/analyze", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(toAnalyzeRequest(s.transcript, s.selfId, lang)),
+        body: JSON.stringify(req),
         signal: controller.signal,
       });
       const json = await res.json().catch(() => ({}));
       if (!res.ok) return update({ screen: "error", error: typeof json.error === "string" ? json.error : "unknown" });
-      update({ screen: "replay", analysis: json.analysis as Analysis, labels: json.labels ?? {} });
+      const analysis = json.analysis as Analysis, labels = json.labels ?? {};
+      update({ screen: "replay", analysis, labels, lastResult: { key, selfId: s.selfId, analysis, labels } });
       window.scrollTo({ top: 0 });
     } catch (e) {
       if (e instanceof DOMException && e.name === "AbortError") return update({ screen: "review" });
       update({ screen: "error", error: "network" });
     }
-  }, [s.transcript, s.selfId, lang, update]);
+  }, [s.transcript, s.selfId, s.lastResult, s.savedId, lang, update]);
 
   const stepIndex = { add: 0, review: 0, analyzing: 0, error: 0, replay: 1, mirror: s.analysis ? 2 : -1, landing: -1 }[s.screen];
 
@@ -91,9 +103,9 @@ export function App() {
         {s.screen === "landing" && <Landing savedCount={saved.length} onStart={startNew} onMirror={() => go("mirror")} onContinue={hasSession ? () => go("replay") : undefined} />}
         {s.screen === "add" && <AddConversation update={update} />}
         {s.screen === "review" && s.transcript && <Review s={s} update={update} onAnalyze={analyze} onBack={() => { update({ shots: [], extractNotes: [] }); go("add"); }} />}
-        {s.screen === "analyzing" && <Analyzing onCancel={() => abort.current?.abort()} />}
+        {s.screen === "analyzing" && s.transcript && <Analyzing estimate={analyzeEstimate(s.transcript.messages)} onCancel={() => abort.current?.abort()} />}
         {s.screen === "error" && <AnalyzeError code={s.error ?? "unknown"} onRetry={analyze} onEdit={() => go("review")} />}
-        {s.screen === "replay" && s.analysis && <Replay s={s} update={update} onContinue={() => go("mirror")} onRestart={() => setS(freshSession())} />}
+        {s.screen === "replay" && s.analysis && <Replay s={s} update={update} onContinue={() => go("mirror")} onEdit={() => go("review")} onRestart={() => setS(freshSession())} />}
         {s.screen === "mirror" && (
           <Mirror s={s} update={update} saved={saved} storageOk={storageOk} onSavedChange={refreshSaved}
             onNew={startNew} onBack={() => go("replay")} onHome={() => go("landing")} onOpenMessage={(id) => update({ screen: "replay", selected: id })} />

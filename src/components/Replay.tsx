@@ -40,7 +40,7 @@ function highlight(text: string, cues: string[], ex: string | undefined): ReactN
   return out;
 }
 
-export function Replay({ s, update, onContinue, onRestart }: { s: Session; update: Update; onContinue: () => void; onRestart: () => void }) {
+export function Replay({ s, update, onContinue, onEdit, onRestart }: { s: Session; update: Update; onContinue: () => void; onEdit: () => void; onRestart: () => void }) {
   const { t } = useT();
   const R = t.replay;
   const W = t.whatIf;
@@ -106,6 +106,8 @@ export function Replay({ s, update, onContinue, onRestart }: { s: Session; updat
     <div className={`app-page app-page--replay${sheetOpen ? " app-sheet-open" : ""}`}>
       <div className="app-replay__main" inert={sheetOpen}>
         <h1 className="app-h1">{R.title}</h1>
+        {/* Back to the transcript; an unchanged conversation is not analyzed again (App). */}
+        <button className="app-textlink app-replay__edit" onClick={onEdit}><Icon name="edit" /> {R.editTranscript}</button>
         <section className="im-layer im-layer--ai">
           <div className="im-layer__head"><Icon name="eye" /> {R.aiObservation}</div>
           <p>{withNames(a.summary, s)}</p>

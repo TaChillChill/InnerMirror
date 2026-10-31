@@ -9,6 +9,7 @@ import { join } from "node:path";
 import { chat, readLedger, worstCaseUsd } from "../client.mjs";
 import { VI } from "./fixtures-vi.mjs";
 import { EN } from "./fixtures-en.mjs";
+import { ROLES } from "./fixtures-roles.mjs";
 import { scoreRun } from "./score.mjs";
 import { OUT, renderRun, writeReport } from "./report.mjs";
 
@@ -16,9 +17,11 @@ const MODEL = "muse-spark-1.3";
 const args = process.argv.slice(2);
 const opt = (name, fallback) => (args.find((a) => a.startsWith(`--${name}=`)) ?? `=${fallback}`).split("=")[1];
 const EFFORT = opt("effort", "low");
+// Budget bucket (client.mjs CAPS): eval-p0 for P0, eval-rel for the relationship eval.
+const PHASE = opt("phase", "eval-p0");
 // Non-default effort writes to its own folder, so runs never mix.
 const folder = (spec) => (spec === "v2.1" || EFFORT === "low" ? spec : `${spec}-${EFFORT}`);
-export const FIXTURES = [...VI, ...EN];
+export const FIXTURES = [...VI, ...EN, ...ROLES];
 
 const selfOf = (variant) => (variant === "selfB" ? "p2" : "p1");
 
@@ -55,11 +58,11 @@ async function runOne(spec, fx, variant) {
   const body = await bodyFor(spec, fx, variant);
   if (!body) return;
   const label = `${spec}:${fx.id}:${variant}`;
-  const { json, latencyMs, usd } = await chat({ phase: "eval-p0", label, body });
+  const { json, latencyMs, usd } = await chat({ phase: PHASE, label, body });
   let raw = null;
   try { raw = JSON.parse(json.choices?.[0]?.message?.content ?? ""); } catch { /* recorded below */ }
   const norm = raw && (await readingsOf(spec, fx, raw));
-  const meta = { spec: folder(spec), effort: EFFORT, fixture: fx.id, variant, latencyMs, usd, usage: json.usage, finish: json.choices?.[0]?.finish_reason };
+  const meta = { spec: folder(spec), effort: EFFORT, contentChars: json.choices?.[0]?.message?.content?.length ?? null, fixture: fx.id, variant, latencyMs, usd, usage: json.usage, finish: json.choices?.[0]?.finish_reason };
   const dir = join(OUT, folder(spec));
   mkdirSync(dir, { recursive: true });
   const score = norm ? scoreRun(fx, norm.readings) : null;
@@ -98,7 +101,7 @@ async function main() {
   };
   await Promise.all(Array.from({ length: 4 }, worker));
   const l = readLedger();
-  console.log(`ledger: eval-p0 $${(l.byPhase["eval-p0"] ?? 0).toFixed(4)} / $3; harness total $${l.totalUsd.toFixed(4)}`);
+  console.log(`ledger: ${PHASE} $${(l.byPhase[PHASE] ?? 0).toFixed(4)}; harness total $${l.totalUsd.toFixed(4)}`);
 }
 
 main().catch((e) => { console.error(e.message); process.exitCode = 1; });

@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { parsePasted, analyzeRequestSchema, toAnalyzeRequest, reviewProblem } from "./conversation.ts";
+import { parsePasted, analyzeRequestSchema, analysisKey, toAnalyzeRequest, reviewProblem } from "./conversation.ts";
 
 test("parsePasted: names, continuation lines and timestamps", () => {
   const t = parsePasted("[21:14] Linh: Why are the dishes left for me?\nMe: Sorry.\nI'll do them now.\n30/10/2026, 21:15 - Linh: ok", "Unknown");
@@ -43,3 +43,15 @@ test("reviewProblem: asks for self last, after content issues", () => {
   assert.equal(reviewProblem(t2, null), "noSelf");
   assert.equal(reviewProblem(t2, "p1"), null);
 });
+
+test("analysis key ignores who the user is, and changes with any edit or the language", () => {
+  const t = { source: "paste" as const, participants: [{ id: "p1", name: "A" }, { id: "p2", name: "B" }], messages: [{ id: "m1", speakerId: "p1", text: "Hi" }, { id: "m2", speakerId: "p2", text: "Hey" }] };
+  const key = analysisKey(toAnalyzeRequest(t, "p1", "vi"));
+  assert.equal(analysisKey(toAnalyzeRequest(t, "p2", "vi")), key);
+  assert.notEqual(analysisKey(toAnalyzeRequest(t, "p1", "en")), key);
+  const edited = { ...t, messages: [t.messages[0], { ...t.messages[1], text: "Hey!" }] };
+  assert.notEqual(analysisKey(toAnalyzeRequest(edited, "p1", "vi")), key);
+  const moved = { ...t, messages: [t.messages[0], { ...t.messages[1], speakerId: "p1" }] };
+  assert.notEqual(analysisKey(toAnalyzeRequest(moved, "p1", "vi")), key);
+});
+

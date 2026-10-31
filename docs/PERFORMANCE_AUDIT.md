@@ -129,3 +129,18 @@ Latency gains are estimates for a typical 6–8 segment conversation, with the l
 - Does Meta support `stream: true` together with `response_format: json_schema`? Third-party docs disagree; Meta's doc pages were not reachable. Needs 1 paid call.
 - Which Vercel region serves the project, and where does Meta serve from? Not visible locally (`.vercel/` is read-protected).
 - Is the vi5 token anomaly whitespace, or something else? Q3 will show it.
+
+---
+
+## 6. Implemented (2026-10-31): Q1–Q5
+Approved by the Founder: Q1–Q5. Not done: Q6, S1, S2. Prompts, schema and model config are unchanged, so the P0 classification results stand as-is. No API calls were made for this work; all checks below are free (unit tests, measured data, mocked browser runs).
+
+| Item | Change | Measured result |
+|---|---|---|
+| Q1 | Wait estimate from the measured fit (`src/lib/wait.ts`: 5.6 s + 1.4 s per turn, −20%/+30%). Analyzing stages paced by it; "taking longer than usual" note once past the upper bound | Estimate range covers **19/22** measured v3.2 runs; the old "15–40 s" covered **5/22**. The 2 misses are the vi5 token anomaly, where the "longer than usual" note shows |
+| Q2 | `callUntilValid`: a retry starts only if ≥ 20–25 s are left before a 110 s budget; each attempt's timeout is capped by the time left. Shared by analyze, extract and scenario | Unit test with a faked Meta: retry with time left, no retry near the deadline. Worst case drops from "killed at 120 s by the platform" to a clean `invalid_output` within 110 s |
+| Q3 | One metadata line per request (`request_done`: totalMs, attempts, outcome, counts of messages, turns, segments and images, image KB) plus `contentChars` on each Meta call. Never text | Typecheck and unit test of the helper. First real log lines appear on the next Founder UAT run (dev server console or Vercel logs) |
+| Q4 | In-memory reuse: the key is language + speakers + message ids/texts, **not** who the user is. Session-only; a new conversation drops it. Choices are kept; a save is kept only for the same perspective. New "Edit the conversation or who you are" link on Replay (needed to reach Review again) | Mocked browser run: switching "Who am I?" re-renders Replay in **219 ms with 0 new requests** (vs p50 12.8 s for a call); editing one message → exactly 1 new request |
+| Q5 | Screenshot reading uses the same estimate-and-slow-note hint (`extractEstimate`: 5 s to 10 + 4 s per image) | Covers the measured 4–14 s; not yet checked on real screenshots |
+
+Not measured: real-device rendering, Vercel cold start, and real extraction time on phone screenshots. Q3 now produces the data for all three.

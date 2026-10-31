@@ -4,7 +4,7 @@
 import { z } from "zod";
 import { EXTRACT_SYSTEM_PROMPT, EXTRACT_JSON_SCHEMA, EXTRACT_SPEC_VERSION, buildExtractContent } from "@/lib/ai/extract-spec";
 import { cleanExtraction } from "@/lib/ai/extraction";
-import { callMeta, MetaError, rateLimited } from "@/lib/ai/meta-client";
+import { callUntilValid, logRequest, MetaError, rateLimited } from "@/lib/ai/meta-client";
 
 export const runtime = "nodejs";
 export const maxDuration = 120;
@@ -26,6 +26,7 @@ const requestSchema = z.object({
 const fail = (error: string, status: number) => Response.json({ error }, { status });
 
 export async function POST(req: Request) {
+  const startedAt = Date.now();
   const code = process.env.ACCESS_CODE;
   if (code && req.headers.get("x-access-code") !== code) return fail("forbidden", 403);
   const client = req.headers.get("x-forwarded-for")?.split(",")[0].trim() || "local";
@@ -49,17 +50,14 @@ export async function POST(req: Request) {
     response_format: { type: "json_schema", json_schema: { name: `Extraction_${EXTRACT_SPEC_VERSION.replace(".", "_")}`, strict: true, schema: EXTRACT_JSON_SCHEMA } },
   };
 
+  const sizes = { images: images.length, imageKb: Math.round(images.reduce((n, i) => n + i.length, 0) / 1024) };
   try {
-    // One retry only when the output is unusable; each attempt is billed.
-    for (let attempt = 1; attempt <= 2; attempt++) {
-      const { content, latencyMs } = await callMeta("extract", body, 90_000, TOKENS_PER_IMAGE * images.length);
-      let json: unknown = null;
-      try { json = JSON.parse(content); } catch { /* retried below */ }
-      const extraction = json && cleanExtraction(json);
-      if (extraction) return Response.json({ extraction, meta: { latencyMs, spec: EXTRACT_SPEC_VERSION } });
-    }
-    return fail("invalid_output", 502);
+    const { result: extraction, latencyMs, attempts } = await callUntilValid("extract", body, startedAt, (json) => cleanExtraction(json), { retryMinMs: 20_000, extraInputTokens: TOKENS_PER_IMAGE * images.length });
+    logRequest("extract", startedAt, { ...sizes, attempts, outcome: extraction ? "ok" : "invalid_output", messages: extraction?.messages.length ?? null });
+    if (!extraction) return fail("invalid_output", 502);
+    return Response.json({ extraction, meta: { latencyMs, spec: EXTRACT_SPEC_VERSION } });
   } catch (e) {
+    logRequest("extract", startedAt, { ...sizes, outcome: e instanceof MetaError ? e.code : "unknown" });
     if (e instanceof MetaError) {
       const status = { not_configured: 500, budget: 503, timeout: 504, upstream: 502, invalid_output: 502 }[e.code];
       return fail(e.code, status);

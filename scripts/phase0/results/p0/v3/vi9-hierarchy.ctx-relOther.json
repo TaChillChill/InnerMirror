@@ -1,0 +1,769 @@
+{
+  "meta": {
+    "spec": "v3",
+    "effort": "low",
+    "contentChars": 3728,
+    "fixture": "vi9-hierarchy",
+    "variant": "ctx-relOther",
+    "latencyMs": 17573,
+    "usd": 0.01734,
+    "usage": {
+      "completion_tokens": 3200,
+      "prompt_tokens": 2992,
+      "total_tokens": 6192,
+      "completion_tokens_details": {
+        "reasoning_tokens": 2033
+      },
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "finish": "stop"
+  },
+  "raw": {
+    "context": {
+      "dynamics": "Trao đổi mở đầu bằng nhắc nhở và xin lỗi, rồi chuyển sang hỏi đáp công việc cụ thể. Các đề nghị kiểm tra số liệu được đáp lại bằng xác nhận kèm lời khen, và kết lại bằng lời cảm ơn vui vẻ.",
+      "register": "Xưng hô \"anh/em\" xuyên suốt, nghe như cách gọi quen thuộc trong công việc. Ghi chú cho biết Người A là nhân viên mới và Người B là trưởng phòng, điều này ngược với cách nói ở lượt đầu nên chỉ ghi nhận ở đây.",
+      "turns": [
+        {
+          "act": "nhắc việc gửi báo cáo muộn và đặt giờ gửi",
+          "respondsTo": null,
+          "turnId": "t1"
+        },
+        {
+          "act": "xin lỗi và hứa sẽ để ý hơn",
+          "respondsTo": "t1",
+          "turnId": "t2"
+        },
+        {
+          "act": "nhờ kiểm tra số liệu ở cột C",
+          "respondsTo": null,
+          "turnId": "t3"
+        },
+        {
+          "act": "xác nhận số liệu đúng và khen làm nhanh",
+          "respondsTo": "t3",
+          "turnId": "t4"
+        },
+        {
+          "act": "cảm ơn và nói đang vui",
+          "respondsTo": "t4",
+          "turnId": "t5"
+        }
+      ]
+    },
+    "safety": {
+      "categories": [],
+      "flagged": false,
+      "note": null
+    },
+    "segments": [
+      {
+        "alternative": null,
+        "confidence": "high",
+        "contextCues": [],
+        "cues": [
+          "muộn ba lần rồi đấy",
+          "phải gửi trước 5 giờ nhé"
+        ],
+        "expression": "CP",
+        "family": "P",
+        "invites": "C",
+        "messageIds": [
+          "m1"
+        ],
+        "rationale": "Câu nói đánh giá việc đã muộn ba lần và đặt ra quy định cho lần sau, nghe như nhắc lỗi và ra yêu cầu.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t1"
+      },
+      {
+        "alternative": null,
+        "confidence": "high",
+        "contextCues": [
+          {
+            "messageId": "m1",
+            "quote": "Lần sau phải gửi trước 5 giờ nhé."
+          }
+        ],
+        "cues": [
+          "anh xin lỗi",
+          "sẽ để ý hơn"
+        ],
+        "expression": "AC",
+        "family": "C",
+        "invites": "P",
+        "messageIds": [
+          "m2"
+        ],
+        "rationale": "Lời xin lỗi và hứa sửa nghe như chấp nhận điều vừa bị nhắc và làm theo mong đợi.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t2"
+      },
+      {
+        "alternative": null,
+        "confidence": "high",
+        "contextCues": [],
+        "cues": [
+          "anh xem giúp em",
+          "cột C có đúng số không"
+        ],
+        "expression": "A",
+        "family": "A",
+        "invites": "A",
+        "messageIds": [
+          "m3"
+        ],
+        "rationale": "Câu hỏi xin kiểm tra số liệu cụ thể, nghe như hỏi thông tin ở hiện tại để xác minh.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t3"
+      },
+      {
+        "alternative": {
+          "expression": "A",
+          "rationale": "Nửa đầu \"Cột C đúng rồi\" cũng có thể đọc như câu trả lời thông tin đơn thuần, không kèm chăm sóc."
+        },
+        "confidence": "medium",
+        "contextCues": [
+          {
+            "messageId": "m3",
+            "quote": "anh xem giúp em cột C có đúng số không."
+          }
+        ],
+        "cues": [
+          "Cột C đúng rồi.",
+          "giỏi đấy!"
+        ],
+        "expression": "NP",
+        "family": "P",
+        "invites": "C",
+        "messageIds": [
+          "m4"
+        ],
+        "rationale": "Vừa trả lời đúng sai vừa khen \"làm nhanh\" và \"giỏi\", nghe như động viên và công nhận.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t4"
+      },
+      {
+        "alternative": null,
+        "confidence": "high",
+        "contextCues": [
+          {
+            "messageId": "m4",
+            "quote": "Em làm nhanh thật, giỏi đấy!"
+          }
+        ],
+        "cues": [
+          "Hihi",
+          "cảm ơn anh, em vui ghê 😄"
+        ],
+        "expression": "FC",
+        "family": "C",
+        "invites": "UNCLEAR",
+        "messageIds": [
+          "m5"
+        ],
+        "rationale": "Lời cảm ơn kèm \"vui ghê\" và mặt cười nói thẳng niềm vui sau lời khen, nghe như biểu lộ tự nhiên.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t5"
+      }
+    ],
+    "shifts": [
+      {
+        "cues": [
+          "Em gửi anh bảng tổng hợp"
+        ],
+        "description": "Lời lẽ chuyển từ nhắc nhở và xin lỗi sang nhờ kiểm tra số liệu mới.",
+        "messageId": "m3"
+      },
+      {
+        "cues": [
+          "Em làm nhanh thật, giỏi đấy!"
+        ],
+        "description": "Lời lẽ chuyển từ kiểm tra đúng sai sang khen và động viên.",
+        "messageId": "m4"
+      }
+    ],
+    "summary": "Cuộc trao đổi đi từ nhắc việc và nhận lỗi sang phối hợp công việc cụ thể. Phía sau, lời xác nhận kèm lời khen được đáp lại bằng lời cảm ơn vui vẻ, nên mạch chuyện nghe như dịu lại.",
+    "uncertainty": "Chỉ qua chữ viết khó biết giọng điệu, mức độ thân thiết và việc ai thực sự phụ trách báo cáo. Ghi chú về vai trò nhân viên mới và trưởng phòng ngược với cách nói ở lượt đầu nên càng cần thận trọng."
+  },
+  "normalized": {
+    "readings": [
+      {
+        "splitReason": null,
+        "cues": [
+          "muộn ba lần rồi đấy",
+          "phải gửi trước 5 giờ nhé"
+        ],
+        "contextCues": [],
+        "rationale": "Câu nói đánh giá việc đã muộn ba lần và đặt ra quy định cho lần sau, nghe như nhắc lỗi và ra yêu cầu.",
+        "family": "P",
+        "expression": "CP",
+        "confidence": "high",
+        "alternative": null,
+        "invites": "C",
+        "secondLayer": null,
+        "messageId": "m1",
+        "segmentId": "s1"
+      },
+      {
+        "splitReason": null,
+        "cues": [
+          "anh xin lỗi",
+          "sẽ để ý hơn"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m1",
+            "quote": "Lần sau phải gửi trước 5 giờ nhé."
+          }
+        ],
+        "rationale": "Lời xin lỗi và hứa sửa nghe như chấp nhận điều vừa bị nhắc và làm theo mong đợi.",
+        "family": "C",
+        "expression": "AC",
+        "confidence": "high",
+        "alternative": null,
+        "invites": "P",
+        "secondLayer": null,
+        "messageId": "m2",
+        "segmentId": "s2"
+      },
+      {
+        "splitReason": null,
+        "cues": [
+          "anh xem giúp em",
+          "cột C có đúng số không"
+        ],
+        "contextCues": [],
+        "rationale": "Câu hỏi xin kiểm tra số liệu cụ thể, nghe như hỏi thông tin ở hiện tại để xác minh.",
+        "family": "A",
+        "expression": "A",
+        "confidence": "high",
+        "alternative": null,
+        "invites": "A",
+        "secondLayer": null,
+        "messageId": "m3",
+        "segmentId": "s3"
+      },
+      {
+        "splitReason": null,
+        "cues": [
+          "Cột C đúng rồi.",
+          "giỏi đấy!"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m3",
+            "quote": "anh xem giúp em cột C có đúng số không."
+          }
+        ],
+        "rationale": "Vừa trả lời đúng sai vừa khen \"làm nhanh\" và \"giỏi\", nghe như động viên và công nhận.",
+        "family": "P",
+        "expression": "NP",
+        "confidence": "medium",
+        "alternative": {
+          "expression": "A",
+          "rationale": "Nửa đầu \"Cột C đúng rồi\" cũng có thể đọc như câu trả lời thông tin đơn thuần, không kèm chăm sóc."
+        },
+        "invites": "C",
+        "secondLayer": null,
+        "messageId": "m4",
+        "segmentId": "s4"
+      },
+      {
+        "splitReason": null,
+        "cues": [
+          "Hihi",
+          "cảm ơn anh, em vui ghê 😄"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m4",
+            "quote": "Em làm nhanh thật, giỏi đấy!"
+          }
+        ],
+        "rationale": "Lời cảm ơn kèm \"vui ghê\" và mặt cười nói thẳng niềm vui sau lời khen, nghe như biểu lộ tự nhiên.",
+        "family": "C",
+        "expression": "FC",
+        "confidence": "high",
+        "alternative": null,
+        "invites": "UNCLEAR",
+        "secondLayer": null,
+        "messageId": "m5",
+        "segmentId": "s5"
+      }
+    ],
+    "segments": [
+      {
+        "turnId": "t1",
+        "messageIds": [
+          "m1"
+        ],
+        "splitReason": null,
+        "cues": [
+          "muộn ba lần rồi đấy",
+          "phải gửi trước 5 giờ nhé"
+        ],
+        "contextCues": [],
+        "rationale": "Câu nói đánh giá việc đã muộn ba lần và đặt ra quy định cho lần sau, nghe như nhắc lỗi và ra yêu cầu.",
+        "family": "P",
+        "expression": "CP",
+        "confidence": "high",
+        "alternative": null,
+        "invites": "C",
+        "secondLayer": null,
+        "id": "s1"
+      },
+      {
+        "turnId": "t2",
+        "messageIds": [
+          "m2"
+        ],
+        "splitReason": null,
+        "cues": [
+          "anh xin lỗi",
+          "sẽ để ý hơn"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m1",
+            "quote": "Lần sau phải gửi trước 5 giờ nhé."
+          }
+        ],
+        "rationale": "Lời xin lỗi và hứa sửa nghe như chấp nhận điều vừa bị nhắc và làm theo mong đợi.",
+        "family": "C",
+        "expression": "AC",
+        "confidence": "high",
+        "alternative": null,
+        "invites": "P",
+        "secondLayer": null,
+        "id": "s2"
+      },
+      {
+        "turnId": "t3",
+        "messageIds": [
+          "m3"
+        ],
+        "splitReason": null,
+        "cues": [
+          "anh xem giúp em",
+          "cột C có đúng số không"
+        ],
+        "contextCues": [],
+        "rationale": "Câu hỏi xin kiểm tra số liệu cụ thể, nghe như hỏi thông tin ở hiện tại để xác minh.",
+        "family": "A",
+        "expression": "A",
+        "confidence": "high",
+        "alternative": null,
+        "invites": "A",
+        "secondLayer": null,
+        "id": "s3"
+      },
+      {
+        "turnId": "t4",
+        "messageIds": [
+          "m4"
+        ],
+        "splitReason": null,
+        "cues": [
+          "Cột C đúng rồi.",
+          "giỏi đấy!"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m3",
+            "quote": "anh xem giúp em cột C có đúng số không."
+          }
+        ],
+        "rationale": "Vừa trả lời đúng sai vừa khen \"làm nhanh\" và \"giỏi\", nghe như động viên và công nhận.",
+        "family": "P",
+        "expression": "NP",
+        "confidence": "medium",
+        "alternative": {
+          "expression": "A",
+          "rationale": "Nửa đầu \"Cột C đúng rồi\" cũng có thể đọc như câu trả lời thông tin đơn thuần, không kèm chăm sóc."
+        },
+        "invites": "C",
+        "secondLayer": null,
+        "id": "s4"
+      },
+      {
+        "turnId": "t5",
+        "messageIds": [
+          "m5"
+        ],
+        "splitReason": null,
+        "cues": [
+          "Hihi",
+          "cảm ơn anh, em vui ghê 😄"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m4",
+            "quote": "Em làm nhanh thật, giỏi đấy!"
+          }
+        ],
+        "rationale": "Lời cảm ơn kèm \"vui ghê\" và mặt cười nói thẳng niềm vui sau lời khen, nghe như biểu lộ tự nhiên.",
+        "family": "C",
+        "expression": "FC",
+        "confidence": "high",
+        "alternative": null,
+        "invites": "UNCLEAR",
+        "secondLayer": null,
+        "id": "s5"
+      }
+    ],
+    "analysis": {
+      "context": {
+        "register": "Xưng hô \"anh/em\" xuyên suốt, nghe như cách gọi quen thuộc trong công việc. Ghi chú cho biết Người A là nhân viên mới và Người B là trưởng phòng, điều này ngược với cách nói ở lượt đầu nên chỉ ghi nhận ở đây.",
+        "turns": [
+          {
+            "turnId": "t1",
+            "act": "nhắc việc gửi báo cáo muộn và đặt giờ gửi",
+            "respondsTo": null
+          },
+          {
+            "turnId": "t2",
+            "act": "xin lỗi và hứa sẽ để ý hơn",
+            "respondsTo": "t1"
+          },
+          {
+            "turnId": "t3",
+            "act": "nhờ kiểm tra số liệu ở cột C",
+            "respondsTo": null
+          },
+          {
+            "turnId": "t4",
+            "act": "xác nhận số liệu đúng và khen làm nhanh",
+            "respondsTo": "t3"
+          },
+          {
+            "turnId": "t5",
+            "act": "cảm ơn và nói đang vui",
+            "respondsTo": "t4"
+          }
+        ],
+        "dynamics": "Trao đổi mở đầu bằng nhắc nhở và xin lỗi, rồi chuyển sang hỏi đáp công việc cụ thể. Các đề nghị kiểm tra số liệu được đáp lại bằng xác nhận kèm lời khen, và kết lại bằng lời cảm ơn vui vẻ."
+      },
+      "segments": [
+        {
+          "turnId": "t1",
+          "messageIds": [
+            "m1"
+          ],
+          "splitReason": null,
+          "cues": [
+            "muộn ba lần rồi đấy",
+            "phải gửi trước 5 giờ nhé"
+          ],
+          "contextCues": [],
+          "rationale": "Câu nói đánh giá việc đã muộn ba lần và đặt ra quy định cho lần sau, nghe như nhắc lỗi và ra yêu cầu.",
+          "family": "P",
+          "expression": "CP",
+          "confidence": "high",
+          "alternative": null,
+          "invites": "C",
+          "secondLayer": null,
+          "id": "s1"
+        },
+        {
+          "turnId": "t2",
+          "messageIds": [
+            "m2"
+          ],
+          "splitReason": null,
+          "cues": [
+            "anh xin lỗi",
+            "sẽ để ý hơn"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m1",
+              "quote": "Lần sau phải gửi trước 5 giờ nhé."
+            }
+          ],
+          "rationale": "Lời xin lỗi và hứa sửa nghe như chấp nhận điều vừa bị nhắc và làm theo mong đợi.",
+          "family": "C",
+          "expression": "AC",
+          "confidence": "high",
+          "alternative": null,
+          "invites": "P",
+          "secondLayer": null,
+          "id": "s2"
+        },
+        {
+          "turnId": "t3",
+          "messageIds": [
+            "m3"
+          ],
+          "splitReason": null,
+          "cues": [
+            "anh xem giúp em",
+            "cột C có đúng số không"
+          ],
+          "contextCues": [],
+          "rationale": "Câu hỏi xin kiểm tra số liệu cụ thể, nghe như hỏi thông tin ở hiện tại để xác minh.",
+          "family": "A",
+          "expression": "A",
+          "confidence": "high",
+          "alternative": null,
+          "invites": "A",
+          "secondLayer": null,
+          "id": "s3"
+        },
+        {
+          "turnId": "t4",
+          "messageIds": [
+            "m4"
+          ],
+          "splitReason": null,
+          "cues": [
+            "Cột C đúng rồi.",
+            "giỏi đấy!"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m3",
+              "quote": "anh xem giúp em cột C có đúng số không."
+            }
+          ],
+          "rationale": "Vừa trả lời đúng sai vừa khen \"làm nhanh\" và \"giỏi\", nghe như động viên và công nhận.",
+          "family": "P",
+          "expression": "NP",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "A",
+            "rationale": "Nửa đầu \"Cột C đúng rồi\" cũng có thể đọc như câu trả lời thông tin đơn thuần, không kèm chăm sóc."
+          },
+          "invites": "C",
+          "secondLayer": null,
+          "id": "s4"
+        },
+        {
+          "turnId": "t5",
+          "messageIds": [
+            "m5"
+          ],
+          "splitReason": null,
+          "cues": [
+            "Hihi",
+            "cảm ơn anh, em vui ghê 😄"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m4",
+              "quote": "Em làm nhanh thật, giỏi đấy!"
+            }
+          ],
+          "rationale": "Lời cảm ơn kèm \"vui ghê\" và mặt cười nói thẳng niềm vui sau lời khen, nghe như biểu lộ tự nhiên.",
+          "family": "C",
+          "expression": "FC",
+          "confidence": "high",
+          "alternative": null,
+          "invites": "UNCLEAR",
+          "secondLayer": null,
+          "id": "s5"
+        }
+      ],
+      "shifts": [
+        {
+          "messageId": "m3",
+          "description": "Lời lẽ chuyển từ nhắc nhở và xin lỗi sang nhờ kiểm tra số liệu mới.",
+          "cues": [
+            "Em gửi anh bảng tổng hợp"
+          ]
+        },
+        {
+          "messageId": "m4",
+          "description": "Lời lẽ chuyển từ kiểm tra đúng sai sang khen và động viên.",
+          "cues": [
+            "Em làm nhanh thật, giỏi đấy!"
+          ]
+        }
+      ],
+      "summary": "Cuộc trao đổi đi từ nhắc việc và nhận lỗi sang phối hợp công việc cụ thể. Phía sau, lời xác nhận kèm lời khen được đáp lại bằng lời cảm ơn vui vẻ, nên mạch chuyện nghe như dịu lại.",
+      "uncertainty": "Chỉ qua chữ viết khó biết giọng điệu, mức độ thân thiết và việc ai thực sự phụ trách báo cáo. Ghi chú về vai trò nhân viên mới và trưởng phòng ngược với cách nói ở lượt đầu nên càng cần thận trọng.",
+      "safety": {
+        "flagged": false,
+        "categories": [],
+        "note": null
+      },
+      "readings": [
+        {
+          "splitReason": null,
+          "cues": [
+            "muộn ba lần rồi đấy",
+            "phải gửi trước 5 giờ nhé"
+          ],
+          "contextCues": [],
+          "rationale": "Câu nói đánh giá việc đã muộn ba lần và đặt ra quy định cho lần sau, nghe như nhắc lỗi và ra yêu cầu.",
+          "family": "P",
+          "expression": "CP",
+          "confidence": "high",
+          "alternative": null,
+          "invites": "C",
+          "secondLayer": null,
+          "messageId": "m1",
+          "segmentId": "s1"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "anh xin lỗi",
+            "sẽ để ý hơn"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m1",
+              "quote": "Lần sau phải gửi trước 5 giờ nhé."
+            }
+          ],
+          "rationale": "Lời xin lỗi và hứa sửa nghe như chấp nhận điều vừa bị nhắc và làm theo mong đợi.",
+          "family": "C",
+          "expression": "AC",
+          "confidence": "high",
+          "alternative": null,
+          "invites": "P",
+          "secondLayer": null,
+          "messageId": "m2",
+          "segmentId": "s2"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "anh xem giúp em",
+            "cột C có đúng số không"
+          ],
+          "contextCues": [],
+          "rationale": "Câu hỏi xin kiểm tra số liệu cụ thể, nghe như hỏi thông tin ở hiện tại để xác minh.",
+          "family": "A",
+          "expression": "A",
+          "confidence": "high",
+          "alternative": null,
+          "invites": "A",
+          "secondLayer": null,
+          "messageId": "m3",
+          "segmentId": "s3"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "Cột C đúng rồi.",
+            "giỏi đấy!"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m3",
+              "quote": "anh xem giúp em cột C có đúng số không."
+            }
+          ],
+          "rationale": "Vừa trả lời đúng sai vừa khen \"làm nhanh\" và \"giỏi\", nghe như động viên và công nhận.",
+          "family": "P",
+          "expression": "NP",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "A",
+            "rationale": "Nửa đầu \"Cột C đúng rồi\" cũng có thể đọc như câu trả lời thông tin đơn thuần, không kèm chăm sóc."
+          },
+          "invites": "C",
+          "secondLayer": null,
+          "messageId": "m4",
+          "segmentId": "s4"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "Hihi",
+            "cảm ơn anh, em vui ghê 😄"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m4",
+              "quote": "Em làm nhanh thật, giỏi đấy!"
+            }
+          ],
+          "rationale": "Lời cảm ơn kèm \"vui ghê\" và mặt cười nói thẳng niềm vui sau lời khen, nghe như biểu lộ tự nhiên.",
+          "family": "C",
+          "expression": "FC",
+          "confidence": "high",
+          "alternative": null,
+          "invites": "UNCLEAR",
+          "secondLayer": null,
+          "messageId": "m5",
+          "segmentId": "s5"
+        }
+      ]
+    }
+  },
+  "score": {
+    "per": [
+      {
+        "id": "m1",
+        "expr": "CP",
+        "family": "P",
+        "conf": "high",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m2",
+        "expr": "AC",
+        "family": "C",
+        "conf": "high",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m3",
+        "expr": "A",
+        "family": "A",
+        "conf": "high",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m4",
+        "expr": "NP",
+        "family": "P",
+        "conf": "medium",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m5",
+        "expr": "FC",
+        "family": "C",
+        "conf": "high",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      }
+    ],
+    "n": 5,
+    "accOk": 5,
+    "hardFails": [],
+    "overCeiling": [],
+    "highOnReview": 0,
+    "altMissing": 0,
+    "unclear": 0,
+    "high": 4
+  }
+}

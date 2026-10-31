@@ -119,7 +119,8 @@ export const en = {
     remove: (n: number) => `Remove screenshot ${n}`,
     read: "Read my screenshots",
     reading: "Reading…",
-    wait: "Reading the text usually takes 10 to 30 seconds. Nothing is analyzed yet.",
+    wait: (lo: number, hi: number) => `Reading the text usually takes about ${lo}–${hi} seconds. Nothing is analyzed yet.`,
+    slow: "Taking a little longer than usual. Still reading the screenshots.",
     problems: {
       format: "That file isn't a PNG, JPEG, WebP or GIF image.",
       decode: "That image couldn't be opened. Try another one.",
@@ -131,7 +132,8 @@ export const en = {
   analyzing: {
     title: "Looking at the conversation…",
     stages: ["Reading the messages", "Noticing how each one could sound", "Looking for where things shifted"],
-    wait: "This usually takes 15 to 40 seconds.",
+    wait: (lo: number, hi: number) => `This usually takes about ${lo}–${hi} seconds.`,
+    slow: "Taking a little longer than usual. Mirror is still reading.",
     cancel: "Cancel",
   },
   errors: {
@@ -187,6 +189,7 @@ export const en = {
     retry: "Try again",
   },
   replay: {
+    editTranscript: "Edit the conversation or who you are",
     title: "What Mirror sees",
     aiObservation: "Mirror's observation",
     tip: "Tap a character under a message to see why Mirror sees it, and to choose your own.",

@@ -1,9 +1,9 @@
 // POST /api/analyze — conversation in, cleaned AI Observation out. Nothing is stored or
 // logged; the conversation exists only for the duration of this request.
 import { analyzeRequestSchema } from "@/lib/conversation";
-import { ANALYSIS_SPEC_VERSION, analysisLabels, buildAnalysisBody } from "@/lib/ai/analysis-spec";
+import { ANALYSIS_SPEC_VERSION, analysisLabels, buildAnalysisBody, groupTurns } from "@/lib/ai/analysis-spec";
 import { cleanAnalysis } from "@/lib/ai/analysis";
-import { callMeta, MetaError, rateLimited } from "@/lib/ai/meta-client";
+import { callUntilValid, logRequest, MetaError, rateLimited } from "@/lib/ai/meta-client";
 
 export const runtime = "nodejs";
 export const maxDuration = 120;
@@ -12,6 +12,7 @@ const MAX_BODY_BYTES = 64_000;
 const fail = (error: string, status: number) => Response.json({ error }, { status });
 
 export async function POST(req: Request) {
+  const startedAt = Date.now();
   const code = process.env.ACCESS_CODE;
   if (code && req.headers.get("x-access-code") !== code) return fail("forbidden", 403);
   const client = req.headers.get("x-forwarded-for")?.split(",")[0].trim() || "local";
@@ -31,19 +32,15 @@ export async function POST(req: Request) {
   // runs, ~2x faster, and medium truncated long conversations (scripts/phase0/results/p0).
   const body = buildAnalysisBody(input, { effort: process.env.ANALYZE_EFFORT === "medium" ? "medium" : "low" });
 
+  const sizes = { messages: input.messages.length, turns: groupTurns(input.messages).length, effort: body.reasoning_effort };
   try {
-    // One retry only when the output is unusable; each attempt is billed.
-    for (let attempt = 1; attempt <= 2; attempt++) {
-      const { content, latencyMs } = await callMeta("analyze", body);
-      let json: unknown = null;
-      try { json = JSON.parse(content); } catch { /* retried below */ }
-      const analysis = json && cleanAnalysis(json, input.messages);
-      if (analysis) {
-        return Response.json({ analysis, labels: Object.fromEntries(Object.entries(labels).map(([id, label]) => [label, id])), meta: { latencyMs, spec: ANALYSIS_SPEC_VERSION } });
-      }
-    }
-    return fail("invalid_output", 502);
+    // A retry needs about one typical call (p90 22 s at low effort, P0 eval).
+    const { result: analysis, latencyMs, attempts } = await callUntilValid("analyze", body, startedAt, (json) => cleanAnalysis(json, input.messages), { retryMinMs: 25_000 });
+    logRequest("analyze", startedAt, { ...sizes, attempts, outcome: analysis ? "ok" : "invalid_output", segments: analysis?.segments.length ?? null });
+    if (!analysis) return fail("invalid_output", 502);
+    return Response.json({ analysis, labels: Object.fromEntries(Object.entries(labels).map(([id, label]) => [label, id])), meta: { latencyMs, spec: ANALYSIS_SPEC_VERSION } });
   } catch (e) {
+    logRequest("analyze", startedAt, { ...sizes, outcome: e instanceof MetaError ? e.code : "unknown" });
     if (e instanceof MetaError) {
       const status = { not_configured: 500, budget: 503, timeout: 504, upstream: 502, invalid_output: 502 }[e.code];
       return fail(e.code, status);

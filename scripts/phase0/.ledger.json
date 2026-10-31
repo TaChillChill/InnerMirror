@@ -1,10 +1,11 @@
 {
-  "totalUsd": 3.431818,
+  "totalUsd": 3.665809,
   "byPhase": {
     "smoke": 0.007918,
     "eval": 0.050344,
     "eval-v2": 0.736201,
-    "eval-p0": 2.637355
+    "eval-p0": 2.637355,
+    "eval-rel": 0.233992
   },
   "calls": [
     {
@@ -2777,6 +2778,321 @@
         }
       },
       "usd": 0.015616,
+      "finishReason": "stop"
+    },
+    {
+      "at": "2026-10-31T08:48:19.761Z",
+      "phase": "eval-rel",
+      "label": "v3:vi9-hierarchy:selfA",
+      "model": "muse-spark-1.3",
+      "status": 200,
+      "latencyMs": 9795,
+      "usage": {
+        "completion_tokens": 2194,
+        "prompt_tokens": 2972,
+        "total_tokens": 5166,
+        "completion_tokens_details": {
+          "reasoning_tokens": 1061
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "usd": 0.013039,
+      "finishReason": "stop"
+    },
+    {
+      "at": "2026-10-31T08:48:21.662Z",
+      "phase": "eval-rel",
+      "label": "v3:vi8-roles:selfA",
+      "model": "muse-spark-1.3",
+      "status": 200,
+      "latencyMs": 11732,
+      "usage": {
+        "completion_tokens": 2367,
+        "prompt_tokens": 3023,
+        "total_tokens": 5390,
+        "completion_tokens_details": {
+          "reasoning_tokens": 989
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 2673
+        }
+      },
+      "usd": 0.010898,
+      "finishReason": "stop"
+    },
+    {
+      "at": "2026-10-31T08:48:21.757Z",
+      "phase": "eval-rel",
+      "label": "v3:vi9-hierarchy:selfB",
+      "model": "muse-spark-1.3",
+      "status": 200,
+      "latencyMs": 11794,
+      "usage": {
+        "completion_tokens": 2494,
+        "prompt_tokens": 2972,
+        "total_tokens": 5466,
+        "completion_tokens_details": {
+          "reasoning_tokens": 1374
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 2929
+        }
+      },
+      "usd": 0.011093,
+      "finishReason": "stop"
+    },
+    {
+      "at": "2026-10-31T08:48:22.896Z",
+      "phase": "eval-rel",
+      "label": "v3:vi8-roles:selfB",
+      "model": "muse-spark-1.3",
+      "status": 200,
+      "latencyMs": 12933,
+      "usage": {
+        "completion_tokens": 2842,
+        "prompt_tokens": 3023,
+        "total_tokens": 5865,
+        "completion_tokens_details": {
+          "reasoning_tokens": 1425
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "usd": 0.015857,
+      "finishReason": "stop"
+    },
+    {
+      "at": "2026-10-31T08:48:33.500Z",
+      "phase": "eval-rel",
+      "label": "v3:vi2-family:ctx-rel",
+      "model": "muse-spark-1.3",
+      "status": 200,
+      "latencyMs": 10379,
+      "usage": {
+        "completion_tokens": 2266,
+        "prompt_tokens": 3000,
+        "total_tokens": 5266,
+        "completion_tokens_details": {
+          "reasoning_tokens": 950
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "usd": 0.013381,
+      "finishReason": "stop"
+    },
+    {
+      "at": "2026-10-31T08:48:36.850Z",
+      "phase": "eval-rel",
+      "label": "v3:vi3-friends:ctx-rel",
+      "model": "muse-spark-1.3",
+      "status": 200,
+      "latencyMs": 13697,
+      "usage": {
+        "completion_tokens": 2965,
+        "prompt_tokens": 3001,
+        "total_tokens": 5966,
+        "completion_tokens_details": {
+          "reasoning_tokens": 1325
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "usd": 0.016352,
+      "finishReason": "stop"
+    },
+    {
+      "at": "2026-10-31T08:48:38.343Z",
+      "phase": "eval-rel",
+      "label": "v3:vi5-work:ctx-relLead",
+      "model": "muse-spark-1.3",
+      "status": 200,
+      "latencyMs": 15177,
+      "usage": {
+        "completion_tokens": 3616,
+        "prompt_tokens": 3037,
+        "total_tokens": 6653,
+        "completion_tokens_details": {
+          "reasoning_tokens": 1861
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "usd": 0.019164,
+      "finishReason": "stop"
+    },
+    {
+      "at": "2026-10-31T08:48:40.633Z",
+      "phase": "eval-rel",
+      "label": "v3:vi5-work:ctx-rel",
+      "model": "muse-spark-1.3",
+      "status": 200,
+      "latencyMs": 17468,
+      "usage": {
+        "completion_tokens": 3471,
+        "prompt_tokens": 3023,
+        "total_tokens": 6494,
+        "completion_tokens_details": {
+          "reasoning_tokens": 2052
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "usd": 0.01853,
+      "finishReason": "stop"
+    },
+    {
+      "at": "2026-10-31T08:48:47.293Z",
+      "phase": "eval-rel",
+      "label": "v3:vi6-checkin:ctx-rel",
+      "model": "muse-spark-1.3",
+      "status": 200,
+      "latencyMs": 13719,
+      "usage": {
+        "completion_tokens": 3051,
+        "prompt_tokens": 3005,
+        "total_tokens": 6056,
+        "completion_tokens_details": {
+          "reasoning_tokens": 1391
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "usd": 0.016723,
+      "finishReason": "stop"
+    },
+    {
+      "at": "2026-10-31T08:48:51.145Z",
+      "phase": "eval-rel",
+      "label": "v3:vi6-checkin:ctx-relOther",
+      "model": "muse-spark-1.3",
+      "status": 200,
+      "latencyMs": 14286,
+      "usage": {
+        "completion_tokens": 3054,
+        "prompt_tokens": 3016,
+        "total_tokens": 6070,
+        "completion_tokens_details": {
+          "reasoning_tokens": 1544
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "usd": 0.01675,
+      "finishReason": "stop"
+    },
+    {
+      "at": "2026-10-31T08:48:51.220Z",
+      "phase": "eval-rel",
+      "label": "v3:en2-sibling:ctx-rel",
+      "model": "muse-spark-1.3",
+      "status": 200,
+      "latencyMs": 12870,
+      "usage": {
+        "completion_tokens": 3017,
+        "prompt_tokens": 3068,
+        "total_tokens": 6085,
+        "completion_tokens_details": {
+          "reasoning_tokens": 1357
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "usd": 0.016657,
+      "finishReason": "stop"
+    },
+    {
+      "at": "2026-10-31T08:48:55.166Z",
+      "phase": "eval-rel",
+      "label": "v3:en3-couple:ctx-rel",
+      "model": "muse-spark-1.3",
+      "status": 200,
+      "latencyMs": 14528,
+      "usage": {
+        "completion_tokens": 3409,
+        "prompt_tokens": 2994,
+        "total_tokens": 6403,
+        "completion_tokens_details": {
+          "reasoning_tokens": 2001
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "usd": 0.018231,
+      "finishReason": "stop"
+    },
+    {
+      "at": "2026-10-31T08:49:00.397Z",
+      "phase": "eval-rel",
+      "label": "v3:vi8-roles:ctx-rel",
+      "model": "muse-spark-1.3",
+      "status": 200,
+      "latencyMs": 13096,
+      "usage": {
+        "completion_tokens": 2829,
+        "prompt_tokens": 3028,
+        "total_tokens": 5857,
+        "completion_tokens_details": {
+          "reasoning_tokens": 1266
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "usd": 0.015808,
+      "finishReason": "stop"
+    },
+    {
+      "at": "2026-10-31T08:49:02.515Z",
+      "phase": "eval-rel",
+      "label": "v3:vi8-roles:ctx-relOther",
+      "model": "muse-spark-1.3",
+      "status": 200,
+      "latencyMs": 11363,
+      "usage": {
+        "completion_tokens": 2441,
+        "prompt_tokens": 3036,
+        "total_tokens": 5477,
+        "completion_tokens_details": {
+          "reasoning_tokens": 1101
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "usd": 0.014169,
+      "finishReason": "stop"
+    },
+    {
+      "at": "2026-10-31T08:49:08.800Z",
+      "phase": "eval-rel",
+      "label": "v3:vi9-hierarchy:ctx-relOther",
+      "model": "muse-spark-1.3",
+      "status": 200,
+      "latencyMs": 17573,
+      "usage": {
+        "completion_tokens": 3200,
+        "prompt_tokens": 2992,
+        "total_tokens": 6192,
+        "completion_tokens_details": {
+          "reasoning_tokens": 2033
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "usd": 0.01734,
       "finishReason": "stop"
     }
   ]

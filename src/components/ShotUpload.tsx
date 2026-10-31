@@ -9,6 +9,8 @@ import { toTranscript, type Extraction } from "@/lib/ai/extraction";
 import type { Update } from "./App";
 import { ShotLightbox } from "./ShotLightbox";
 import { Icon, useT } from "./ui";
+import { WaitHint } from "./Analyzing";
+import { extractEstimate } from "@/lib/wait";
 
 export function ShotUpload({ update }: { update: Update }) {
   const { t, lang } = useT();
@@ -134,7 +136,7 @@ export function ShotUpload({ update }: { update: Update }) {
           </div>
         </>
       )}
-      {busy && <p className="im-hint" aria-live="polite">{S.wait}</p>}
+      {busy && <WaitHint estimate={extractEstimate(images.length)} text={S.wait} slow={S.slow} />}
       {message && <p className={error === "tooMany" ? "im-hint" : "im-error"} role="alert"><Icon name="alert" />{message}</p>}
       {viewing !== null && <ShotLightbox images={images} index={viewing} onIndex={setViewing} onClose={() => setViewing(null)} />}
     </div>

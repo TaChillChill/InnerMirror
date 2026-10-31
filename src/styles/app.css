@@ -268,3 +268,5 @@ html:has(.app-sheet-open), html:has(.app-modal) { overflow: hidden; }
 .im-chip__q { font-weight: 600; opacity: 0.8; margin-right: 4px; white-space: nowrap; }
 .im-msg__meta .im-chip { white-space: nowrap; }
 .app-sel__alt { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin: 0; color: var(--im-text-muted); font-size: 0.9375rem; }
+.app-replay__edit { display: inline-flex; align-items: center; gap: 6px; margin-bottom: var(--im-space-3); font-size: 0.9375rem; min-height: var(--im-tap-min); }
+.app-replay__edit svg { width: 16px; height: 16px; }

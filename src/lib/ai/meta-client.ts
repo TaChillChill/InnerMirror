@@ -58,6 +58,8 @@ export async function callMeta(route: string, body: Body, timeoutMs = 90_000, ex
     status: res.status, latencyMs, promptTokens: usage.prompt_tokens, completionTokens: usage.completion_tokens,
     reasoningTokens: usage.completion_tokens_details?.reasoning_tokens, usd: +usd.toFixed(5), processSpendUsd: +spend.usd.toFixed(4),
     finish: json.choices?.[0]?.finish_reason,
+    // Size only, never the text: chars per visible token exposes padded output (P0 perf audit).
+    contentChars: typeof json.choices?.[0]?.message?.content === "string" ? json.choices[0].message.content.length : null,
   });
   // Error bodies describe the request, not the conversation, but we still keep them out of logs.
   if (!res.ok) throw new MetaError("upstream", `HTTP ${res.status}`);
@@ -80,4 +82,41 @@ export function rateLimited(clientKey: string, limit = 8, windowMs = 10 * 60_000
   recent.push(now);
   hits.set(clientKey, recent);
   return false;
+}
+
+// ---------- Deadline-aware calls ----------
+// Our routes run with maxDuration 120 s; Vercel stops the function after that and the
+// user gets a platform error. A call starts only if it can end in time, leaving ~10 s to
+// validate and answer. Retrying when there's no time left would only delay that error.
+export const ROUTE_BUDGET_MS = 110_000;
+
+/** Timeout for the next attempt, or null when less than `minMs` is left in the budget. */
+export function attemptTimeout(startedAt: number, now: number, minMs: number, maxMs = 90_000): number | null {
+  const left = ROUTE_BUDGET_MS - (now - startedAt);
+  return left < Math.max(minMs, 1_000) ? null : Math.min(maxMs, left);
+}
+
+/**
+ * Calls Meta until `accept` turns the JSON into a usable result: at most one retry, and
+ * only with at least `retryMinMs` left (about a typical call). Each attempt is billed.
+ */
+export async function callUntilValid<T>(route: string, body: Body, startedAt: number, accept: (json: unknown) => T | null, opts: { retryMinMs: number; extraInputTokens?: number }): Promise<{ result: T | null; latencyMs: number; attempts: number }> {
+  let attempts = 0, latencyMs = 0;
+  while (attempts < 2) {
+    const timeout = attemptTimeout(startedAt, Date.now(), attempts === 0 ? 0 : opts.retryMinMs);
+    if (timeout === null) break;
+    attempts++;
+    const r = await callMeta(route, body, timeout, opts.extraInputTokens ?? 0);
+    latencyMs = r.latencyMs;
+    let json: unknown = null;
+    try { json = JSON.parse(r.content); } catch { /* counts as unusable */ }
+    const result = json ? accept(json) : null;
+    if (result) return { result, latencyMs, attempts };
+  }
+  return { result: null, latencyMs, attempts };
+}
+
+/** One metadata line per request: total server time, attempts, outcome and sizes (counts only). */
+export function logRequest(route: string, startedAt: number, data: Record<string, string | number | null>) {
+  console.info(JSON.stringify({ event: "request_done", route, totalMs: Date.now() - startedAt, ...data }));
 }

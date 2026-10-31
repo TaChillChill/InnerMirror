@@ -1,0 +1,966 @@
+{
+  "meta": {
+    "spec": "v3",
+    "effort": "low",
+    "contentChars": 4446,
+    "fixture": "vi8-roles",
+    "variant": "selfB",
+    "latencyMs": 12933,
+    "usd": 0.01585725,
+    "usage": {
+      "completion_tokens": 2842,
+      "prompt_tokens": 3023,
+      "total_tokens": 5865,
+      "completion_tokens_details": {
+        "reasoning_tokens": 1425
+      },
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "finish": "stop"
+  },
+  "raw": {
+    "context": {
+      "dynamics": "Trao đổi mở đầu bằng lời nhờ giúp và lời nhận giúp, rồi chuyển sang khen ngợi vui vẻ. Sau đó giọng chuyển sang nhắc nhở và xin lỗi, rồi khép lại bằng hướng dẫn cụ thể. Hai bên thay phiên dẫn dắt: lúc nhờ và được dỗ, lúc nhắc và nhận lỗi.",
+      "register": "Cách xưng hô \"mẹ / con\" cho thấy quan hệ gia đình gần gũi, có vai mẹ và con. Lời lẽ ngắn, thân mật, có emoji.",
+      "turns": [
+        {
+          "act": "nêu khó khăn với điện thoại và nhờ xem giúp",
+          "respondsTo": null,
+          "turnId": "t1"
+        },
+        {
+          "act": "nhận giúp và trấn an",
+          "respondsTo": "t1",
+          "turnId": "t2"
+        },
+        {
+          "act": "bày tỏ vui mừng và khen",
+          "respondsTo": "t2",
+          "turnId": "t3"
+        },
+        {
+          "act": "nhắc quy tắc và trách việc đã dặn nhiều lần",
+          "respondsTo": "t3",
+          "turnId": "t4"
+        },
+        {
+          "act": "xin lỗi và hứa làm theo",
+          "respondsTo": "t4",
+          "turnId": "t5"
+        },
+        {
+          "act": "đưa thông tin cụ thể về mật khẩu",
+          "respondsTo": "t5",
+          "turnId": "t6"
+        }
+      ]
+    },
+    "safety": {
+      "categories": [],
+      "flagged": false,
+      "note": null
+    },
+    "segments": [
+      {
+        "alternative": {
+          "expression": "AC",
+          "rationale": "Câu \"bấm mãi không vào\" cũng có thể nghe như than khó và chờ giúp, nhưng lời nhờ nói trực tiếp việc cần làm."
+        },
+        "confidence": "medium",
+        "contextCues": [],
+        "cues": [
+          "bấm mãi không vào được mạng",
+          "con xem giúp mẹ với"
+        ],
+        "expression": "A",
+        "family": "A",
+        "invites": "P",
+        "messageIds": [
+          "m1"
+        ],
+        "rationale": "Câu nói nêu sự việc đang xảy ra và nhờ giúp cụ thể, nghe như kiểm tra thực tế và tìm cách giải quyết.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t1"
+      },
+      {
+        "alternative": null,
+        "confidence": "high",
+        "contextCues": [
+          {
+            "messageId": "m1",
+            "quote": "con xem giúp mẹ với."
+          }
+        ],
+        "cues": [
+          "con làm cho",
+          "Mẹ đừng lo"
+        ],
+        "expression": "NP",
+        "family": "P",
+        "invites": "C",
+        "messageIds": [
+          "m2"
+        ],
+        "rationale": "Lời nhận làm thay và dỗ \"đừng lo\" nghe như chăm sóc và che chở cho người kia.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t2"
+      },
+      {
+        "alternative": null,
+        "confidence": "high",
+        "contextCues": [
+          {
+            "messageId": "m2",
+            "quote": "con làm cho."
+          }
+        ],
+        "cues": [
+          "Ôi được rồi!",
+          "mẹ thích quá đi mất 😍"
+        ],
+        "expression": "FC",
+        "family": "C",
+        "invites": "C",
+        "messageIds": [
+          "m3"
+        ],
+        "rationale": "Câu khoe vui ngay lúc đó và lời khen tình cảm nghe như biểu lộ tự nhiên, không giữ kẽ.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t3"
+      },
+      {
+        "alternative": null,
+        "confidence": "high",
+        "contextCues": [
+          {
+            "messageId": "m3",
+            "quote": "Ôi được rồi! Giỏi quá, mẹ thích quá đi mất 😍"
+          }
+        ],
+        "cues": [
+          "phải ghi mật khẩu ra giấy đấy",
+          "con dặn bao nhiêu lần rồi"
+        ],
+        "expression": "CP",
+        "family": "P",
+        "invites": "C",
+        "messageIds": [
+          "m4"
+        ],
+        "rationale": "Câu đặt ra việc \"phải\" làm và nhắc \"bao nhiêu lần rồi\" nghe như đánh giá và đặt quy tắc cho lần sau.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t4"
+      },
+      {
+        "alternative": null,
+        "confidence": "high",
+        "contextCues": [
+          {
+            "messageId": "m4",
+            "quote": "con dặn bao nhiêu lần rồi."
+          }
+        ],
+        "cues": [
+          "mẹ xin lỗi",
+          "lần sau mẹ ghi lại"
+        ],
+        "expression": "AC",
+        "family": "C",
+        "invites": "P",
+        "messageIds": [
+          "m5"
+        ],
+        "rationale": "Lời xin lỗi và hứa làm theo nghe như thuận theo lời nhắc vừa rồi.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t5"
+      },
+      {
+        "alternative": {
+          "expression": "NP",
+          "rationale": "Giọng \"mẹ nhé\" nghe dịu, cũng có thể đọc như hướng dẫn có ý chăm sóc."
+        },
+        "confidence": "medium",
+        "contextCues": [
+          {
+            "messageId": "m5",
+            "quote": "lần sau mẹ ghi lại."
+          }
+        ],
+        "cues": [
+          "Mật khẩu là tên nhà mình viết liền, không dấu",
+          "mẹ nhé"
+        ],
+        "expression": "A",
+        "family": "A",
+        "invites": "A",
+        "messageIds": [
+          "m6"
+        ],
+        "rationale": "Câu đưa thông tin cụ thể để làm theo, nghe như nói việc thực tế ở hiện tại.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t6"
+      }
+    ],
+    "shifts": [
+      {
+        "cues": [
+          "Ôi được rồi!",
+          "mẹ thích quá đi mất 😍"
+        ],
+        "description": "Lời lẽ chuyển từ nhờ và giúp sang mừng rỡ và khen.",
+        "messageId": "m3"
+      },
+      {
+        "cues": [
+          "phải ghi mật khẩu ra giấy đấy",
+          "bao nhiêu lần rồi"
+        ],
+        "description": "Lời lẽ chuyển từ khen vui sang nhắc quy tắc.",
+        "messageId": "m4"
+      },
+      {
+        "cues": [
+          "Mật khẩu là tên nhà mình viết liền, không dấu"
+        ],
+        "description": "Lời lẽ chuyển từ xin lỗi sang đưa thông tin cụ thể.",
+        "messageId": "m6"
+      }
+    ],
+    "summary": "Cuộc trò chuyện đi từ nhờ giúp điện thoại đến được giúp và khen vui. Rồi có một đoạn nhắc nhở và xin lỗi, sau đó khép lại bằng cách nói rõ mật khẩu. Nhịp chung là việc xong, nhắc việc, nhận lỗi, rồi hướng dẫn lại.",
+    "uncertainty": "Chỉ qua chữ viết khó biết giọng nói, nét mặt và chuyện đã xảy ra trước đó giữa hai mẹ con. Vì vậy các cách đọc trên chỉ là giả thuyết."
+  },
+  "normalized": {
+    "readings": [
+      {
+        "splitReason": null,
+        "cues": [
+          "bấm mãi không vào được mạng",
+          "con xem giúp mẹ với"
+        ],
+        "contextCues": [],
+        "rationale": "Câu nói nêu sự việc đang xảy ra và nhờ giúp cụ thể, nghe như kiểm tra thực tế và tìm cách giải quyết.",
+        "family": "A",
+        "expression": "A",
+        "confidence": "medium",
+        "alternative": {
+          "expression": "AC",
+          "rationale": "Câu \"bấm mãi không vào\" cũng có thể nghe như than khó và chờ giúp, nhưng lời nhờ nói trực tiếp việc cần làm."
+        },
+        "invites": "P",
+        "secondLayer": null,
+        "messageId": "m1",
+        "segmentId": "s1"
+      },
+      {
+        "splitReason": null,
+        "cues": [
+          "con làm cho",
+          "Mẹ đừng lo"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m1",
+            "quote": "con xem giúp mẹ với."
+          }
+        ],
+        "rationale": "Lời nhận làm thay và dỗ \"đừng lo\" nghe như chăm sóc và che chở cho người kia.",
+        "family": "P",
+        "expression": "NP",
+        "confidence": "high",
+        "alternative": null,
+        "invites": "C",
+        "secondLayer": null,
+        "messageId": "m2",
+        "segmentId": "s2"
+      },
+      {
+        "splitReason": null,
+        "cues": [
+          "Ôi được rồi!",
+          "mẹ thích quá đi mất 😍"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m2",
+            "quote": "con làm cho."
+          }
+        ],
+        "rationale": "Câu khoe vui ngay lúc đó và lời khen tình cảm nghe như biểu lộ tự nhiên, không giữ kẽ.",
+        "family": "C",
+        "expression": "FC",
+        "confidence": "high",
+        "alternative": null,
+        "invites": "C",
+        "secondLayer": null,
+        "messageId": "m3",
+        "segmentId": "s3"
+      },
+      {
+        "splitReason": null,
+        "cues": [
+          "phải ghi mật khẩu ra giấy đấy",
+          "con dặn bao nhiêu lần rồi"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m3",
+            "quote": "Ôi được rồi! Giỏi quá, mẹ thích quá đi mất 😍"
+          }
+        ],
+        "rationale": "Câu đặt ra việc \"phải\" làm và nhắc \"bao nhiêu lần rồi\" nghe như đánh giá và đặt quy tắc cho lần sau.",
+        "family": "P",
+        "expression": "CP",
+        "confidence": "high",
+        "alternative": null,
+        "invites": "C",
+        "secondLayer": null,
+        "messageId": "m4",
+        "segmentId": "s4"
+      },
+      {
+        "splitReason": null,
+        "cues": [
+          "mẹ xin lỗi",
+          "lần sau mẹ ghi lại"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m4",
+            "quote": "con dặn bao nhiêu lần rồi."
+          }
+        ],
+        "rationale": "Lời xin lỗi và hứa làm theo nghe như thuận theo lời nhắc vừa rồi.",
+        "family": "C",
+        "expression": "AC",
+        "confidence": "high",
+        "alternative": null,
+        "invites": "P",
+        "secondLayer": null,
+        "messageId": "m5",
+        "segmentId": "s5"
+      },
+      {
+        "splitReason": null,
+        "cues": [
+          "Mật khẩu là tên nhà mình viết liền, không dấu",
+          "mẹ nhé"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m5",
+            "quote": "lần sau mẹ ghi lại."
+          }
+        ],
+        "rationale": "Câu đưa thông tin cụ thể để làm theo, nghe như nói việc thực tế ở hiện tại.",
+        "family": "A",
+        "expression": "A",
+        "confidence": "medium",
+        "alternative": {
+          "expression": "NP",
+          "rationale": "Giọng \"mẹ nhé\" nghe dịu, cũng có thể đọc như hướng dẫn có ý chăm sóc."
+        },
+        "invites": "A",
+        "secondLayer": null,
+        "messageId": "m6",
+        "segmentId": "s6"
+      }
+    ],
+    "segments": [
+      {
+        "turnId": "t1",
+        "messageIds": [
+          "m1"
+        ],
+        "splitReason": null,
+        "cues": [
+          "bấm mãi không vào được mạng",
+          "con xem giúp mẹ với"
+        ],
+        "contextCues": [],
+        "rationale": "Câu nói nêu sự việc đang xảy ra và nhờ giúp cụ thể, nghe như kiểm tra thực tế và tìm cách giải quyết.",
+        "family": "A",
+        "expression": "A",
+        "confidence": "medium",
+        "alternative": {
+          "expression": "AC",
+          "rationale": "Câu \"bấm mãi không vào\" cũng có thể nghe như than khó và chờ giúp, nhưng lời nhờ nói trực tiếp việc cần làm."
+        },
+        "invites": "P",
+        "secondLayer": null,
+        "id": "s1"
+      },
+      {
+        "turnId": "t2",
+        "messageIds": [
+          "m2"
+        ],
+        "splitReason": null,
+        "cues": [
+          "con làm cho",
+          "Mẹ đừng lo"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m1",
+            "quote": "con xem giúp mẹ với."
+          }
+        ],
+        "rationale": "Lời nhận làm thay và dỗ \"đừng lo\" nghe như chăm sóc và che chở cho người kia.",
+        "family": "P",
+        "expression": "NP",
+        "confidence": "high",
+        "alternative": null,
+        "invites": "C",
+        "secondLayer": null,
+        "id": "s2"
+      },
+      {
+        "turnId": "t3",
+        "messageIds": [
+          "m3"
+        ],
+        "splitReason": null,
+        "cues": [
+          "Ôi được rồi!",
+          "mẹ thích quá đi mất 😍"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m2",
+            "quote": "con làm cho."
+          }
+        ],
+        "rationale": "Câu khoe vui ngay lúc đó và lời khen tình cảm nghe như biểu lộ tự nhiên, không giữ kẽ.",
+        "family": "C",
+        "expression": "FC",
+        "confidence": "high",
+        "alternative": null,
+        "invites": "C",
+        "secondLayer": null,
+        "id": "s3"
+      },
+      {
+        "turnId": "t4",
+        "messageIds": [
+          "m4"
+        ],
+        "splitReason": null,
+        "cues": [
+          "phải ghi mật khẩu ra giấy đấy",
+          "con dặn bao nhiêu lần rồi"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m3",
+            "quote": "Ôi được rồi! Giỏi quá, mẹ thích quá đi mất 😍"
+          }
+        ],
+        "rationale": "Câu đặt ra việc \"phải\" làm và nhắc \"bao nhiêu lần rồi\" nghe như đánh giá và đặt quy tắc cho lần sau.",
+        "family": "P",
+        "expression": "CP",
+        "confidence": "high",
+        "alternative": null,
+        "invites": "C",
+        "secondLayer": null,
+        "id": "s4"
+      },
+      {
+        "turnId": "t5",
+        "messageIds": [
+          "m5"
+        ],
+        "splitReason": null,
+        "cues": [
+          "mẹ xin lỗi",
+          "lần sau mẹ ghi lại"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m4",
+            "quote": "con dặn bao nhiêu lần rồi."
+          }
+        ],
+        "rationale": "Lời xin lỗi và hứa làm theo nghe như thuận theo lời nhắc vừa rồi.",
+        "family": "C",
+        "expression": "AC",
+        "confidence": "high",
+        "alternative": null,
+        "invites": "P",
+        "secondLayer": null,
+        "id": "s5"
+      },
+      {
+        "turnId": "t6",
+        "messageIds": [
+          "m6"
+        ],
+        "splitReason": null,
+        "cues": [
+          "Mật khẩu là tên nhà mình viết liền, không dấu",
+          "mẹ nhé"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m5",
+            "quote": "lần sau mẹ ghi lại."
+          }
+        ],
+        "rationale": "Câu đưa thông tin cụ thể để làm theo, nghe như nói việc thực tế ở hiện tại.",
+        "family": "A",
+        "expression": "A",
+        "confidence": "medium",
+        "alternative": {
+          "expression": "NP",
+          "rationale": "Giọng \"mẹ nhé\" nghe dịu, cũng có thể đọc như hướng dẫn có ý chăm sóc."
+        },
+        "invites": "A",
+        "secondLayer": null,
+        "id": "s6"
+      }
+    ],
+    "analysis": {
+      "context": {
+        "register": "Cách xưng hô \"mẹ / con\" cho thấy quan hệ gia đình gần gũi, có vai mẹ và con. Lời lẽ ngắn, thân mật, có emoji.",
+        "turns": [
+          {
+            "turnId": "t1",
+            "act": "nêu khó khăn với điện thoại và nhờ xem giúp",
+            "respondsTo": null
+          },
+          {
+            "turnId": "t2",
+            "act": "nhận giúp và trấn an",
+            "respondsTo": "t1"
+          },
+          {
+            "turnId": "t3",
+            "act": "bày tỏ vui mừng và khen",
+            "respondsTo": "t2"
+          },
+          {
+            "turnId": "t4",
+            "act": "nhắc quy tắc và trách việc đã dặn nhiều lần",
+            "respondsTo": "t3"
+          },
+          {
+            "turnId": "t5",
+            "act": "xin lỗi và hứa làm theo",
+            "respondsTo": "t4"
+          },
+          {
+            "turnId": "t6",
+            "act": "đưa thông tin cụ thể về mật khẩu",
+            "respondsTo": "t5"
+          }
+        ],
+        "dynamics": "Trao đổi mở đầu bằng lời nhờ giúp và lời nhận giúp, rồi chuyển sang khen ngợi vui vẻ. Sau đó giọng chuyển sang nhắc nhở và xin lỗi, rồi khép lại bằng hướng dẫn cụ thể. Hai bên thay phiên dẫn dắt: lúc nhờ và được dỗ, lúc nhắc và nhận lỗi."
+      },
+      "segments": [
+        {
+          "turnId": "t1",
+          "messageIds": [
+            "m1"
+          ],
+          "splitReason": null,
+          "cues": [
+            "bấm mãi không vào được mạng",
+            "con xem giúp mẹ với"
+          ],
+          "contextCues": [],
+          "rationale": "Câu nói nêu sự việc đang xảy ra và nhờ giúp cụ thể, nghe như kiểm tra thực tế và tìm cách giải quyết.",
+          "family": "A",
+          "expression": "A",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "AC",
+            "rationale": "Câu \"bấm mãi không vào\" cũng có thể nghe như than khó và chờ giúp, nhưng lời nhờ nói trực tiếp việc cần làm."
+          },
+          "invites": "P",
+          "secondLayer": null,
+          "id": "s1"
+        },
+        {
+          "turnId": "t2",
+          "messageIds": [
+            "m2"
+          ],
+          "splitReason": null,
+          "cues": [
+            "con làm cho",
+            "Mẹ đừng lo"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m1",
+              "quote": "con xem giúp mẹ với."
+            }
+          ],
+          "rationale": "Lời nhận làm thay và dỗ \"đừng lo\" nghe như chăm sóc và che chở cho người kia.",
+          "family": "P",
+          "expression": "NP",
+          "confidence": "high",
+          "alternative": null,
+          "invites": "C",
+          "secondLayer": null,
+          "id": "s2"
+        },
+        {
+          "turnId": "t3",
+          "messageIds": [
+            "m3"
+          ],
+          "splitReason": null,
+          "cues": [
+            "Ôi được rồi!",
+            "mẹ thích quá đi mất 😍"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m2",
+              "quote": "con làm cho."
+            }
+          ],
+          "rationale": "Câu khoe vui ngay lúc đó và lời khen tình cảm nghe như biểu lộ tự nhiên, không giữ kẽ.",
+          "family": "C",
+          "expression": "FC",
+          "confidence": "high",
+          "alternative": null,
+          "invites": "C",
+          "secondLayer": null,
+          "id": "s3"
+        },
+        {
+          "turnId": "t4",
+          "messageIds": [
+            "m4"
+          ],
+          "splitReason": null,
+          "cues": [
+            "phải ghi mật khẩu ra giấy đấy",
+            "con dặn bao nhiêu lần rồi"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m3",
+              "quote": "Ôi được rồi! Giỏi quá, mẹ thích quá đi mất 😍"
+            }
+          ],
+          "rationale": "Câu đặt ra việc \"phải\" làm và nhắc \"bao nhiêu lần rồi\" nghe như đánh giá và đặt quy tắc cho lần sau.",
+          "family": "P",
+          "expression": "CP",
+          "confidence": "high",
+          "alternative": null,
+          "invites": "C",
+          "secondLayer": null,
+          "id": "s4"
+        },
+        {
+          "turnId": "t5",
+          "messageIds": [
+            "m5"
+          ],
+          "splitReason": null,
+          "cues": [
+            "mẹ xin lỗi",
+            "lần sau mẹ ghi lại"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m4",
+              "quote": "con dặn bao nhiêu lần rồi."
+            }
+          ],
+          "rationale": "Lời xin lỗi và hứa làm theo nghe như thuận theo lời nhắc vừa rồi.",
+          "family": "C",
+          "expression": "AC",
+          "confidence": "high",
+          "alternative": null,
+          "invites": "P",
+          "secondLayer": null,
+          "id": "s5"
+        },
+        {
+          "turnId": "t6",
+          "messageIds": [
+            "m6"
+          ],
+          "splitReason": null,
+          "cues": [
+            "Mật khẩu là tên nhà mình viết liền, không dấu",
+            "mẹ nhé"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m5",
+              "quote": "lần sau mẹ ghi lại."
+            }
+          ],
+          "rationale": "Câu đưa thông tin cụ thể để làm theo, nghe như nói việc thực tế ở hiện tại.",
+          "family": "A",
+          "expression": "A",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "NP",
+            "rationale": "Giọng \"mẹ nhé\" nghe dịu, cũng có thể đọc như hướng dẫn có ý chăm sóc."
+          },
+          "invites": "A",
+          "secondLayer": null,
+          "id": "s6"
+        }
+      ],
+      "shifts": [
+        {
+          "messageId": "m3",
+          "description": "Lời lẽ chuyển từ nhờ và giúp sang mừng rỡ và khen.",
+          "cues": [
+            "Ôi được rồi!",
+            "mẹ thích quá đi mất 😍"
+          ]
+        },
+        {
+          "messageId": "m4",
+          "description": "Lời lẽ chuyển từ khen vui sang nhắc quy tắc.",
+          "cues": [
+            "phải ghi mật khẩu ra giấy đấy",
+            "bao nhiêu lần rồi"
+          ]
+        },
+        {
+          "messageId": "m6",
+          "description": "Lời lẽ chuyển từ xin lỗi sang đưa thông tin cụ thể.",
+          "cues": [
+            "Mật khẩu là tên nhà mình viết liền, không dấu"
+          ]
+        }
+      ],
+      "summary": "Cuộc trò chuyện đi từ nhờ giúp điện thoại đến được giúp và khen vui. Rồi có một đoạn nhắc nhở và xin lỗi, sau đó khép lại bằng cách nói rõ mật khẩu. Nhịp chung là việc xong, nhắc việc, nhận lỗi, rồi hướng dẫn lại.",
+      "uncertainty": "Chỉ qua chữ viết khó biết giọng nói, nét mặt và chuyện đã xảy ra trước đó giữa hai mẹ con. Vì vậy các cách đọc trên chỉ là giả thuyết.",
+      "safety": {
+        "flagged": false,
+        "categories": [],
+        "note": null
+      },
+      "readings": [
+        {
+          "splitReason": null,
+          "cues": [
+            "bấm mãi không vào được mạng",
+            "con xem giúp mẹ với"
+          ],
+          "contextCues": [],
+          "rationale": "Câu nói nêu sự việc đang xảy ra và nhờ giúp cụ thể, nghe như kiểm tra thực tế và tìm cách giải quyết.",
+          "family": "A",
+          "expression": "A",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "AC",
+            "rationale": "Câu \"bấm mãi không vào\" cũng có thể nghe như than khó và chờ giúp, nhưng lời nhờ nói trực tiếp việc cần làm."
+          },
+          "invites": "P",
+          "secondLayer": null,
+          "messageId": "m1",
+          "segmentId": "s1"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "con làm cho",
+            "Mẹ đừng lo"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m1",
+              "quote": "con xem giúp mẹ với."
+            }
+          ],
+          "rationale": "Lời nhận làm thay và dỗ \"đừng lo\" nghe như chăm sóc và che chở cho người kia.",
+          "family": "P",
+          "expression": "NP",
+          "confidence": "high",
+          "alternative": null,
+          "invites": "C",
+          "secondLayer": null,
+          "messageId": "m2",
+          "segmentId": "s2"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "Ôi được rồi!",
+            "mẹ thích quá đi mất 😍"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m2",
+              "quote": "con làm cho."
+            }
+          ],
+          "rationale": "Câu khoe vui ngay lúc đó và lời khen tình cảm nghe như biểu lộ tự nhiên, không giữ kẽ.",
+          "family": "C",
+          "expression": "FC",
+          "confidence": "high",
+          "alternative": null,
+          "invites": "C",
+          "secondLayer": null,
+          "messageId": "m3",
+          "segmentId": "s3"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "phải ghi mật khẩu ra giấy đấy",
+            "con dặn bao nhiêu lần rồi"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m3",
+              "quote": "Ôi được rồi! Giỏi quá, mẹ thích quá đi mất 😍"
+            }
+          ],
+          "rationale": "Câu đặt ra việc \"phải\" làm và nhắc \"bao nhiêu lần rồi\" nghe như đánh giá và đặt quy tắc cho lần sau.",
+          "family": "P",
+          "expression": "CP",
+          "confidence": "high",
+          "alternative": null,
+          "invites": "C",
+          "secondLayer": null,
+          "messageId": "m4",
+          "segmentId": "s4"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "mẹ xin lỗi",
+            "lần sau mẹ ghi lại"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m4",
+              "quote": "con dặn bao nhiêu lần rồi."
+            }
+          ],
+          "rationale": "Lời xin lỗi và hứa làm theo nghe như thuận theo lời nhắc vừa rồi.",
+          "family": "C",
+          "expression": "AC",
+          "confidence": "high",
+          "alternative": null,
+          "invites": "P",
+          "secondLayer": null,
+          "messageId": "m5",
+          "segmentId": "s5"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "Mật khẩu là tên nhà mình viết liền, không dấu",
+            "mẹ nhé"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m5",
+              "quote": "lần sau mẹ ghi lại."
+            }
+          ],
+          "rationale": "Câu đưa thông tin cụ thể để làm theo, nghe như nói việc thực tế ở hiện tại.",
+          "family": "A",
+          "expression": "A",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "NP",
+            "rationale": "Giọng \"mẹ nhé\" nghe dịu, cũng có thể đọc như hướng dẫn có ý chăm sóc."
+          },
+          "invites": "A",
+          "secondLayer": null,
+          "messageId": "m6",
+          "segmentId": "s6"
+        }
+      ]
+    }
+  },
+  "score": {
+    "per": [
+      {
+        "id": "m1",
+        "expr": "A",
+        "family": "A",
+        "conf": "medium",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m2",
+        "expr": "NP",
+        "family": "P",
+        "conf": "high",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m3",
+        "expr": "FC",
+        "family": "C",
+        "conf": "high",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m4",
+        "expr": "CP",
+        "family": "P",
+        "conf": "high",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m5",
+        "expr": "AC",
+        "family": "C",
+        "conf": "high",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m6",
+        "expr": "A",
+        "family": "A",
+        "conf": "medium",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      }
+    ],
+    "n": 6,
+    "accOk": 6,
+    "hardFails": [],
+    "overCeiling": [],
+    "highOnReview": 0,
+    "altMissing": 0,
+    "unclear": 0,
+    "high": 4
+  }
+}

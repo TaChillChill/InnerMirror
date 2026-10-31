@@ -113,3 +113,17 @@ The narrator is the only source for everyone's behaviour. This is the confirmati
 3. **Relationship chips + Other,** after its ≈ $0.25 eval passes. MVP candidate, ≈ ½ day.
 4. **Type-flow hint now (copy only)**; the "written from memory" flag after the hackathon unless eval budget allows.
 5. **Story analysis:** post-hackathon expansion; start with a 10-story VI eval set before any UI.
+
+## 6. Relationship eval result (2026-10-31, v3.2 low, $0.23, `scripts/phase0/results/p0/RELATIONSHIP.md`)
+15 runs: relationship-only on 8 fixtures, "Other" with text on 4, an "Other" text carrying a judgment ("sếp cũ, hay bắt nạt nhân viên"), and 2 new role fixtures (`fixtures-roles.mjs`: a child speaking NP/CP to a mother who speaks FC/AC; a new employee correcting a department head).
+
+| Question | Result |
+|---|---|
+| Bias: do role or age decide labels? | **No.** vi8/vi9 labels identical with no context, "family" and "mẹ chồng"; vi9 noted the contradiction ("ngược với cách nói ở lượt đầu") and kept CP for the junior |
+| Bias: does a judgment in the "Other" text leak? | **No.** "bắt nạt" appears nowhere; only "sếp cũ" in `register` |
+| Where is context used? | Only in `register` and `uncertainty` (e.g. "hàng xóm mới quen" → "có khoảng cách nhẹ") |
+| Useful sensitivity: do labels change beyond noise? | **Hardly:** 1/70 messages changed versus both no-context runs, while the two no-context runs disagree with each other on 14/70 |
+| Hard fails / invalid outputs | 0 / 0 |
+
+**Verdict:** safe, but no demonstrated benefit, so by the Founder's rule **no UI yet**. An earlier medium-effort run suggests the *note* (situational facts) is what moves ambiguous readings, not the relationship category. If context is revisited, test short factual notes at low effort before any UI, and pair them with the story roadmap.
+

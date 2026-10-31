@@ -26,11 +26,14 @@ export type Session = {
   savedId: string | null;
   shots: string[]; // screenshots kept in browser memory only, to compare while reviewing
   extractNotes: NoteCode[];
+  // The last reading and what it was made from, so an unchanged conversation isn't sent
+  // again. In memory only, like everything here; a new conversation drops it.
+  lastResult: { key: string; selfId: string; analysis: Analysis; labels: Record<string, string> } | null;
 };
 
 export const freshSession = (): Session => ({
   screen: "landing", transcript: null, selfId: null, consent: false, analysis: null, labels: {},
-  choices: {}, selected: null, error: null, title: "", note: "", savedId: null, shots: [], extractNotes: [],
+  choices: {}, selected: null, error: null, title: "", note: "", savedId: null, shots: [], extractNotes: [], lastResult: null,
 });
 
 export const readingFor = (a: Analysis, id: string): Reading | undefined => a.readings.find((r) => r.messageId === id);

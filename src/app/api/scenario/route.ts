@@ -4,7 +4,7 @@
 import { buildScenarioPayload, SCENARIO_JSON_SCHEMA, SCENARIO_SPEC_VERSION, SCENARIO_SYSTEM_PROMPT } from "@/lib/ai/scenario-spec";
 import { cleanScenario, localAnswer, receiverPrior, scenarioRequestSchema } from "@/lib/ai/scenario";
 import { pseudonymLabel, SELF_LABEL } from "@/lib/ai/analysis-spec";
-import { callMeta, MetaError, rateLimited } from "@/lib/ai/meta-client";
+import { callUntilValid, logRequest, MetaError, rateLimited } from "@/lib/ai/meta-client";
 
 export const runtime = "nodejs";
 export const maxDuration = 120;
@@ -15,6 +15,7 @@ const RATE_LIMIT = 20;
 const fail = (error: string, status: number) => Response.json({ error }, { status });
 
 export async function POST(req: Request) {
+  const startedAt = Date.now();
   const code = process.env.ACCESS_CODE;
   if (code && req.headers.get("x-access-code") !== code) return fail("forbidden", 403);
   const client = req.headers.get("x-forwarded-for")?.split(",")[0].trim() || "local";
@@ -47,19 +48,14 @@ export async function POST(req: Request) {
     response_format: { type: "json_schema", json_schema: { name: `Scenario_${SCENARIO_SPEC_VERSION.replace(".", "_")}`, strict: true, schema: SCENARIO_JSON_SCHEMA } },
   };
 
+  const sizes = { messages: input.messages.length };
   try {
-    // One retry only when the output is unusable; each attempt is billed.
-    for (let attempt = 1; attempt <= 2; attempt++) {
-      const { content, latencyMs } = await callMeta("scenario", body);
-      let json: unknown = null;
-      try { json = JSON.parse(content); } catch { /* retried below */ }
-      const scenario = json && cleanScenario(json, input);
-      if (scenario) {
-        return Response.json({ scenario, labels: Object.fromEntries(participants.map((p) => [p.label, p.id])), meta: { latencyMs, spec: SCENARIO_SPEC_VERSION } });
-      }
-    }
-    return fail("invalid_output", 502);
+    const { result: scenario, latencyMs, attempts } = await callUntilValid("scenario", body, startedAt, (json) => cleanScenario(json, input), { retryMinMs: 20_000 });
+    logRequest("scenario", startedAt, { ...sizes, attempts, outcome: scenario ? "ok" : "invalid_output" });
+    if (!scenario) return fail("invalid_output", 502);
+    return Response.json({ scenario, labels: Object.fromEntries(participants.map((p) => [p.label, p.id])), meta: { latencyMs, spec: SCENARIO_SPEC_VERSION } });
   } catch (e) {
+    logRequest("scenario", startedAt, { ...sizes, outcome: e instanceof MetaError ? e.code : "unknown" });
     if (e instanceof MetaError) {
       const status = { not_configured: 500, budget: 503, timeout: 504, upstream: 502, invalid_output: 502 }[e.code];
       return fail(e.code, status);

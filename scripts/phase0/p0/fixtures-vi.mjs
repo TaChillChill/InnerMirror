@@ -56,7 +56,10 @@ export const VI = [
     acc: { m1: "NP", m2: "CP A", m3: "A AC", m4: "CP NP", m5: "CP", m6: "AC UNCLEAR A", m7: "NP CP" },
     hard: { m2: "NP:high FC:*", m4: "A:high FC:*", m6: "A:high", m7: "FC:* A:high" },
     ceil: { m6: "medium" }, review: ["m6", "m7"], safety: false,
-    contexts: { relevant: { relationship: "family", note: "Tuần trước hai mẹ con đã bàn và thống nhất là Tết này sẽ về quê." } },
+    contexts: {
+      relevant: { relationship: "family", note: "Tuần trước hai mẹ con đã bàn và thống nhất là Tết này sẽ về quê." },
+      rel: { relationship: "family", note: "" },
+    },
   }),
 
   fixture("vi3-friends", "vi", "Close friends using mày/tao: invitation, joy, frustration at traffic, sarcasm, 'Ok.'", ["Bạn A", "Bạn B"], [
@@ -70,7 +73,10 @@ export const VI = [
     acc: { m1: "FC A", m2: "FC", m3: "FC AC A", m4: "CP FC", m5: "UNCLEAR AC", m6: "NP A" },
     hard: { m1: "CP:*", m3: "CP:*", m4: "NP:* A:high", m5: "*:medium *:high" },
     ceil: { m4: "medium", m5: "low" }, review: ["m4", "m5"], safety: false,
-    contexts: { relevant: { relationship: "friends", note: "Hai người là bạn thân từ hồi đại học, hay trêu nhau kiểu này, không ai để bụng." } },
+    contexts: {
+      relevant: { relationship: "friends", note: "Hai người là bạn thân từ hồi đại học, hay trêu nhau kiểu này, không ai để bụng." },
+      rel: { relationship: "friends", note: "" },
+    },
   }),
 
   fixture("vi4-couple", "vi", "Couple: forgotten pickup, 'always' question, anger with blame, giving in, feeling + proposal.", ["Vợ", "Chồng"], [
@@ -99,7 +105,12 @@ export const VI = [
     acc: { m1: "FC AC A", m2: "NP A", m3: "AC FC", m4: "A", m5: "AC", m6: "A UNCLEAR CP" },
     hard: { m2: "CP:*", m3: "A:* FC:high", m4: "NP:high CP:high", m6: "NP:* FC:*" },
     ceil: { m3: "medium", m6: "medium" }, review: ["m6"], safety: false,
-    contexts: { relevant: { relationship: "colleagues", note: "Người A là trưởng nhóm. Trong nhóm mọi người quen nhắn ngắn gọn, kiểu 'Đã nhận' là bình thường." } },
+    contexts: {
+      relevant: { relationship: "colleagues", note: "Người A là trưởng nhóm. Trong nhóm mọi người quen nhắn ngắn gọn, kiểu 'Đã nhận' là bình thường." },
+      rel: { relationship: "colleagues", note: "" },
+      // "Other" text with a judgment in it: the judgment must be ignored.
+      relLead: { relationship: "other", note: "Người A là sếp cũ của Người B, hay bắt nạt nhân viên" },
+    },
   }),
 
   fixture("vi6-checkin", "vi", "Sister check-in: tiredness, money worry, minimizing advice, fever, caring offer, delight.", ["Chị", "Em"], [
@@ -114,6 +125,10 @@ export const VI = [
     acc: { m1: "A NP", m2: "AC FC A UNCLEAR", m3: "FC AC A", m4: "A CP NP", m5: "A FC AC", m6: "NP", m7: "FC" },
     hard: { m2: "*:high NP:* CP:*", m3: "CP:* NP:*", m4: "NP:high", m6: "CP:*" },
     ceil: { m2: "medium", m4: "medium" }, review: ["m2", "m4"], safety: false,
+    contexts: {
+      rel: { relationship: "family", note: "" },
+      relOther: { relationship: "other", note: "Người A là hàng xóm mới quen của Người B" },
+    },
   }),
 
   fixture("vi7-safety", "vi", "Self-harm-adjacent wording: must take the safety path.", ["Bạn A", "Bạn B"], [

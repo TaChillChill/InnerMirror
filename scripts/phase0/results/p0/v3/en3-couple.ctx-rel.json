@@ -1,0 +1,1011 @@
+{
+  "meta": {
+    "spec": "v3",
+    "effort": "low",
+    "contentChars": 5299,
+    "fixture": "en3-couple",
+    "variant": "ctx-rel",
+    "latencyMs": 14528,
+    "usd": 0.01823075,
+    "usage": {
+      "completion_tokens": 3409,
+      "prompt_tokens": 2994,
+      "total_tokens": 6403,
+      "completion_tokens_details": {
+        "reasoning_tokens": 2001
+      },
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "finish": "stop"
+  },
+  "raw": {
+    "context": {
+      "dynamics": "Person B apologizes and proposes changes while Person A criticizes the pattern and then withdraws into short replies. Apologies are answered with further criticism or withdrawal, and an invitation to talk is answered with a minimal reply.",
+      "register": "Informal English between partners with no hierarchy markers. No terms like chị/em or mày/tao appear, which fits the noted partner relationship.",
+      "turns": [
+        {
+          "act": "apologizes and proposes rescheduling",
+          "respondsTo": null,
+          "turnId": "t1"
+        },
+        {
+          "act": "criticizes a repeated pattern",
+          "respondsTo": "t1",
+          "turnId": "t2"
+        },
+        {
+          "act": "apologizes and states feeling bad",
+          "respondsTo": "t2",
+          "turnId": "t3"
+        },
+        {
+          "act": "withdraws with a dismissive agreement",
+          "respondsTo": "t3",
+          "turnId": "t4"
+        },
+        {
+          "act": "proposes talking later and asks about experience",
+          "respondsTo": "t4",
+          "turnId": "t5"
+        },
+        {
+          "act": "gives a minimal acknowledgement",
+          "respondsTo": "t5",
+          "turnId": "t6"
+        }
+      ]
+    },
+    "safety": {
+      "categories": [],
+      "flagged": false,
+      "note": null
+    },
+    "segments": [
+      {
+        "alternative": {
+          "expression": "A",
+          "rationale": "The factual explanation and concrete proposal for tomorrow could also read as Adult reality-testing and planning."
+        },
+        "confidence": "medium",
+        "contextCues": [],
+        "cues": [
+          "I'm so sorry",
+          "Can we move dinner to tomorrow?"
+        ],
+        "expression": "AC",
+        "family": "C",
+        "invites": "A",
+        "messageIds": [
+          "m1"
+        ],
+        "rationale": "The turn can read as apologizing and complying after a broken plan, while offering an alternative time.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t1"
+      },
+      {
+        "alternative": null,
+        "confidence": "high",
+        "contextCues": [
+          {
+            "messageId": "m1",
+            "quote": "Can we move dinner to tomorrow?"
+          }
+        ],
+        "cues": [
+          "This is the third time this month.",
+          "You always do this."
+        ],
+        "expression": "CP",
+        "family": "P",
+        "invites": "C",
+        "messageIds": [
+          "m2"
+        ],
+        "rationale": "The counting of past times and the word \"always\" can read as evaluating the other and generalizing about a pattern, rather than discussing the current request.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t2"
+      },
+      {
+        "alternative": {
+          "expression": "FC",
+          "rationale": "Saying \"I feel awful about it\" directly could also read as spontaneous expression of feeling."
+        },
+        "confidence": "medium",
+        "contextCues": [
+          {
+            "messageId": "m2",
+            "quote": "You always do this."
+          }
+        ],
+        "cues": [
+          "I know",
+          "I'm really sorry"
+        ],
+        "expression": "AC",
+        "family": "C",
+        "invites": "P",
+        "messageIds": [
+          "m3"
+        ],
+        "rationale": "The agreement and repeated apology can read as complying with the criticism just received.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t3"
+      },
+      {
+        "alternative": {
+          "expression": "CP",
+          "rationale": "Telling the other to do whatever they want could also read as a rule that closes further discussion."
+        },
+        "confidence": "medium",
+        "contextCues": [
+          {
+            "messageId": "m3",
+            "quote": "I'm really sorry."
+          }
+        ],
+        "cues": [
+          "Fine.",
+          "Do whatever you want."
+        ],
+        "expression": "AC",
+        "family": "C",
+        "invites": "UNCLEAR",
+        "messageIds": [
+          "m4"
+        ],
+        "rationale": "The short agreement followed by handing over the decision can read as withdrawing from the exchange rather than agreeing.",
+        "secondLayer": {
+          "cues": [
+            "Fine.",
+            "Do whatever you want."
+          ],
+          "observation": "The word \"Fine\" appears together with \"Do whatever you want\", which reads as dismissal rather than agreement."
+        },
+        "splitReason": null,
+        "turnId": "t4"
+      },
+      {
+        "alternative": {
+          "expression": "NP",
+          "rationale": "Wanting to understand what is going on for the other could also read as care and concern."
+        },
+        "confidence": "medium",
+        "contextCues": [
+          {
+            "messageId": "m4",
+            "quote": "Do whatever you want."
+          }
+        ],
+        "cues": [
+          "Can we talk about it properly when I get home?",
+          "I want to understand what's going on for you."
+        ],
+        "expression": "A",
+        "family": "A",
+        "invites": "A",
+        "messageIds": [
+          "m5"
+        ],
+        "rationale": "The proposal of a time to talk and the open question about the other's experience can read as here-and-now problem-solving.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t5"
+      },
+      {
+        "alternative": null,
+        "confidence": "low",
+        "contextCues": [
+          {
+            "messageId": "m5",
+            "quote": "Can we talk about it properly when I get home?"
+          }
+        ],
+        "cues": [],
+        "expression": "UNCLEAR",
+        "family": "UNCLEAR",
+        "invites": "UNCLEAR",
+        "messageIds": [
+          "m6"
+        ],
+        "rationale": "The single word gives too little wording and context to support one reading over another.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t6"
+      }
+    ],
+    "shifts": [
+      {
+        "cues": [
+          "This is the third time this month.",
+          "You always do this."
+        ],
+        "description": "The words move from rescheduling to criticism of a repeated pattern.",
+        "messageId": "m2"
+      },
+      {
+        "cues": [
+          "Fine.",
+          "Do whatever you want."
+        ],
+        "description": "The words move from apology to short withdrawal that closes discussion.",
+        "messageId": "m4"
+      },
+      {
+        "cues": [
+          "Can we talk about it properly when I get home?"
+        ],
+        "description": "The words move from withdrawal to a proposal to talk later.",
+        "messageId": "m5"
+      }
+    ],
+    "summary": "The exchange starts with a request to reschedule, which is met with criticism about repetition. Apologies do not reopen discussion, and one side withdraws into brief replies. A later proposal to talk properly receives only a minimal acknowledgement.",
+    "uncertainty": "Text alone cannot show tone of voice, facial expression, or history of cancelled plans outside this chat. It also cannot show how \"Fine\" and \"ok\" were meant."
+  },
+  "normalized": {
+    "readings": [
+      {
+        "splitReason": null,
+        "cues": [
+          "I'm so sorry",
+          "Can we move dinner to tomorrow?"
+        ],
+        "contextCues": [],
+        "rationale": "The turn can read as apologizing and complying after a broken plan, while offering an alternative time.",
+        "family": "C",
+        "expression": "AC",
+        "confidence": "medium",
+        "alternative": {
+          "expression": "A",
+          "rationale": "The factual explanation and concrete proposal for tomorrow could also read as Adult reality-testing and planning."
+        },
+        "invites": "A",
+        "secondLayer": null,
+        "messageId": "m1",
+        "segmentId": "s1"
+      },
+      {
+        "splitReason": null,
+        "cues": [
+          "This is the third time this month.",
+          "You always do this."
+        ],
+        "contextCues": [
+          {
+            "messageId": "m1",
+            "quote": "Can we move dinner to tomorrow?"
+          }
+        ],
+        "rationale": "The counting of past times and the word \"always\" can read as evaluating the other and generalizing about a pattern, rather than discussing the current request.",
+        "family": "P",
+        "expression": "CP",
+        "confidence": "high",
+        "alternative": null,
+        "invites": "C",
+        "secondLayer": null,
+        "messageId": "m2",
+        "segmentId": "s2"
+      },
+      {
+        "splitReason": null,
+        "cues": [
+          "I know",
+          "I'm really sorry"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m2",
+            "quote": "You always do this."
+          }
+        ],
+        "rationale": "The agreement and repeated apology can read as complying with the criticism just received.",
+        "family": "C",
+        "expression": "AC",
+        "confidence": "medium",
+        "alternative": {
+          "expression": "FC",
+          "rationale": "Saying \"I feel awful about it\" directly could also read as spontaneous expression of feeling."
+        },
+        "invites": "P",
+        "secondLayer": null,
+        "messageId": "m3",
+        "segmentId": "s3"
+      },
+      {
+        "splitReason": null,
+        "cues": [
+          "Fine.",
+          "Do whatever you want."
+        ],
+        "contextCues": [
+          {
+            "messageId": "m3",
+            "quote": "I'm really sorry."
+          }
+        ],
+        "rationale": "The short agreement followed by handing over the decision can read as withdrawing from the exchange rather than agreeing.",
+        "family": "C",
+        "expression": "AC",
+        "confidence": "medium",
+        "alternative": {
+          "expression": "CP",
+          "rationale": "Telling the other to do whatever they want could also read as a rule that closes further discussion."
+        },
+        "invites": "UNCLEAR",
+        "secondLayer": {
+          "observation": "The word \"Fine\" appears together with \"Do whatever you want\", which reads as dismissal rather than agreement.",
+          "cues": [
+            "Fine.",
+            "Do whatever you want."
+          ]
+        },
+        "messageId": "m4",
+        "segmentId": "s4"
+      },
+      {
+        "splitReason": null,
+        "cues": [
+          "Can we talk about it properly when I get home?",
+          "I want to understand what's going on for you."
+        ],
+        "contextCues": [
+          {
+            "messageId": "m4",
+            "quote": "Do whatever you want."
+          }
+        ],
+        "rationale": "The proposal of a time to talk and the open question about the other's experience can read as here-and-now problem-solving.",
+        "family": "A",
+        "expression": "A",
+        "confidence": "medium",
+        "alternative": {
+          "expression": "NP",
+          "rationale": "Wanting to understand what is going on for the other could also read as care and concern."
+        },
+        "invites": "A",
+        "secondLayer": null,
+        "messageId": "m5",
+        "segmentId": "s5"
+      },
+      {
+        "splitReason": null,
+        "cues": [],
+        "contextCues": [
+          {
+            "messageId": "m5",
+            "quote": "Can we talk about it properly when I get home?"
+          }
+        ],
+        "rationale": "The single word gives too little wording and context to support one reading over another.",
+        "family": "UNCLEAR",
+        "expression": "UNCLEAR",
+        "confidence": "low",
+        "alternative": null,
+        "invites": "UNCLEAR",
+        "secondLayer": null,
+        "messageId": "m6",
+        "segmentId": "s6"
+      }
+    ],
+    "segments": [
+      {
+        "turnId": "t1",
+        "messageIds": [
+          "m1"
+        ],
+        "splitReason": null,
+        "cues": [
+          "I'm so sorry",
+          "Can we move dinner to tomorrow?"
+        ],
+        "contextCues": [],
+        "rationale": "The turn can read as apologizing and complying after a broken plan, while offering an alternative time.",
+        "family": "C",
+        "expression": "AC",
+        "confidence": "medium",
+        "alternative": {
+          "expression": "A",
+          "rationale": "The factual explanation and concrete proposal for tomorrow could also read as Adult reality-testing and planning."
+        },
+        "invites": "A",
+        "secondLayer": null,
+        "id": "s1"
+      },
+      {
+        "turnId": "t2",
+        "messageIds": [
+          "m2"
+        ],
+        "splitReason": null,
+        "cues": [
+          "This is the third time this month.",
+          "You always do this."
+        ],
+        "contextCues": [
+          {
+            "messageId": "m1",
+            "quote": "Can we move dinner to tomorrow?"
+          }
+        ],
+        "rationale": "The counting of past times and the word \"always\" can read as evaluating the other and generalizing about a pattern, rather than discussing the current request.",
+        "family": "P",
+        "expression": "CP",
+        "confidence": "high",
+        "alternative": null,
+        "invites": "C",
+        "secondLayer": null,
+        "id": "s2"
+      },
+      {
+        "turnId": "t3",
+        "messageIds": [
+          "m3"
+        ],
+        "splitReason": null,
+        "cues": [
+          "I know",
+          "I'm really sorry"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m2",
+            "quote": "You always do this."
+          }
+        ],
+        "rationale": "The agreement and repeated apology can read as complying with the criticism just received.",
+        "family": "C",
+        "expression": "AC",
+        "confidence": "medium",
+        "alternative": {
+          "expression": "FC",
+          "rationale": "Saying \"I feel awful about it\" directly could also read as spontaneous expression of feeling."
+        },
+        "invites": "P",
+        "secondLayer": null,
+        "id": "s3"
+      },
+      {
+        "turnId": "t4",
+        "messageIds": [
+          "m4"
+        ],
+        "splitReason": null,
+        "cues": [
+          "Fine.",
+          "Do whatever you want."
+        ],
+        "contextCues": [
+          {
+            "messageId": "m3",
+            "quote": "I'm really sorry."
+          }
+        ],
+        "rationale": "The short agreement followed by handing over the decision can read as withdrawing from the exchange rather than agreeing.",
+        "family": "C",
+        "expression": "AC",
+        "confidence": "medium",
+        "alternative": {
+          "expression": "CP",
+          "rationale": "Telling the other to do whatever they want could also read as a rule that closes further discussion."
+        },
+        "invites": "UNCLEAR",
+        "secondLayer": {
+          "observation": "The word \"Fine\" appears together with \"Do whatever you want\", which reads as dismissal rather than agreement.",
+          "cues": [
+            "Fine.",
+            "Do whatever you want."
+          ]
+        },
+        "id": "s4"
+      },
+      {
+        "turnId": "t5",
+        "messageIds": [
+          "m5"
+        ],
+        "splitReason": null,
+        "cues": [
+          "Can we talk about it properly when I get home?",
+          "I want to understand what's going on for you."
+        ],
+        "contextCues": [
+          {
+            "messageId": "m4",
+            "quote": "Do whatever you want."
+          }
+        ],
+        "rationale": "The proposal of a time to talk and the open question about the other's experience can read as here-and-now problem-solving.",
+        "family": "A",
+        "expression": "A",
+        "confidence": "medium",
+        "alternative": {
+          "expression": "NP",
+          "rationale": "Wanting to understand what is going on for the other could also read as care and concern."
+        },
+        "invites": "A",
+        "secondLayer": null,
+        "id": "s5"
+      },
+      {
+        "turnId": "t6",
+        "messageIds": [
+          "m6"
+        ],
+        "splitReason": null,
+        "cues": [],
+        "contextCues": [
+          {
+            "messageId": "m5",
+            "quote": "Can we talk about it properly when I get home?"
+          }
+        ],
+        "rationale": "The single word gives too little wording and context to support one reading over another.",
+        "family": "UNCLEAR",
+        "expression": "UNCLEAR",
+        "confidence": "low",
+        "alternative": null,
+        "invites": "UNCLEAR",
+        "secondLayer": null,
+        "id": "s6"
+      }
+    ],
+    "analysis": {
+      "context": {
+        "register": "Informal English between partners with no hierarchy markers. No terms like chị/em or mày/tao appear, which fits the noted partner relationship.",
+        "turns": [
+          {
+            "turnId": "t1",
+            "act": "apologizes and proposes rescheduling",
+            "respondsTo": null
+          },
+          {
+            "turnId": "t2",
+            "act": "criticizes a repeated pattern",
+            "respondsTo": "t1"
+          },
+          {
+            "turnId": "t3",
+            "act": "apologizes and states feeling bad",
+            "respondsTo": "t2"
+          },
+          {
+            "turnId": "t4",
+            "act": "withdraws with a dismissive agreement",
+            "respondsTo": "t3"
+          },
+          {
+            "turnId": "t5",
+            "act": "proposes talking later and asks about experience",
+            "respondsTo": "t4"
+          },
+          {
+            "turnId": "t6",
+            "act": "gives a minimal acknowledgement",
+            "respondsTo": "t5"
+          }
+        ],
+        "dynamics": "Person B apologizes and proposes changes while Person A criticizes the pattern and then withdraws into short replies. Apologies are answered with further criticism or withdrawal, and an invitation to talk is answered with a minimal reply."
+      },
+      "segments": [
+        {
+          "turnId": "t1",
+          "messageIds": [
+            "m1"
+          ],
+          "splitReason": null,
+          "cues": [
+            "I'm so sorry",
+            "Can we move dinner to tomorrow?"
+          ],
+          "contextCues": [],
+          "rationale": "The turn can read as apologizing and complying after a broken plan, while offering an alternative time.",
+          "family": "C",
+          "expression": "AC",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "A",
+            "rationale": "The factual explanation and concrete proposal for tomorrow could also read as Adult reality-testing and planning."
+          },
+          "invites": "A",
+          "secondLayer": null,
+          "id": "s1"
+        },
+        {
+          "turnId": "t2",
+          "messageIds": [
+            "m2"
+          ],
+          "splitReason": null,
+          "cues": [
+            "This is the third time this month.",
+            "You always do this."
+          ],
+          "contextCues": [
+            {
+              "messageId": "m1",
+              "quote": "Can we move dinner to tomorrow?"
+            }
+          ],
+          "rationale": "The counting of past times and the word \"always\" can read as evaluating the other and generalizing about a pattern, rather than discussing the current request.",
+          "family": "P",
+          "expression": "CP",
+          "confidence": "high",
+          "alternative": null,
+          "invites": "C",
+          "secondLayer": null,
+          "id": "s2"
+        },
+        {
+          "turnId": "t3",
+          "messageIds": [
+            "m3"
+          ],
+          "splitReason": null,
+          "cues": [
+            "I know",
+            "I'm really sorry"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m2",
+              "quote": "You always do this."
+            }
+          ],
+          "rationale": "The agreement and repeated apology can read as complying with the criticism just received.",
+          "family": "C",
+          "expression": "AC",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "FC",
+            "rationale": "Saying \"I feel awful about it\" directly could also read as spontaneous expression of feeling."
+          },
+          "invites": "P",
+          "secondLayer": null,
+          "id": "s3"
+        },
+        {
+          "turnId": "t4",
+          "messageIds": [
+            "m4"
+          ],
+          "splitReason": null,
+          "cues": [
+            "Fine.",
+            "Do whatever you want."
+          ],
+          "contextCues": [
+            {
+              "messageId": "m3",
+              "quote": "I'm really sorry."
+            }
+          ],
+          "rationale": "The short agreement followed by handing over the decision can read as withdrawing from the exchange rather than agreeing.",
+          "family": "C",
+          "expression": "AC",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "CP",
+            "rationale": "Telling the other to do whatever they want could also read as a rule that closes further discussion."
+          },
+          "invites": "UNCLEAR",
+          "secondLayer": {
+            "observation": "The word \"Fine\" appears together with \"Do whatever you want\", which reads as dismissal rather than agreement.",
+            "cues": [
+              "Fine.",
+              "Do whatever you want."
+            ]
+          },
+          "id": "s4"
+        },
+        {
+          "turnId": "t5",
+          "messageIds": [
+            "m5"
+          ],
+          "splitReason": null,
+          "cues": [
+            "Can we talk about it properly when I get home?",
+            "I want to understand what's going on for you."
+          ],
+          "contextCues": [
+            {
+              "messageId": "m4",
+              "quote": "Do whatever you want."
+            }
+          ],
+          "rationale": "The proposal of a time to talk and the open question about the other's experience can read as here-and-now problem-solving.",
+          "family": "A",
+          "expression": "A",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "NP",
+            "rationale": "Wanting to understand what is going on for the other could also read as care and concern."
+          },
+          "invites": "A",
+          "secondLayer": null,
+          "id": "s5"
+        },
+        {
+          "turnId": "t6",
+          "messageIds": [
+            "m6"
+          ],
+          "splitReason": null,
+          "cues": [],
+          "contextCues": [
+            {
+              "messageId": "m5",
+              "quote": "Can we talk about it properly when I get home?"
+            }
+          ],
+          "rationale": "The single word gives too little wording and context to support one reading over another.",
+          "family": "UNCLEAR",
+          "expression": "UNCLEAR",
+          "confidence": "low",
+          "alternative": null,
+          "invites": "UNCLEAR",
+          "secondLayer": null,
+          "id": "s6"
+        }
+      ],
+      "shifts": [
+        {
+          "messageId": "m2",
+          "description": "The words move from rescheduling to criticism of a repeated pattern.",
+          "cues": [
+            "This is the third time this month.",
+            "You always do this."
+          ]
+        },
+        {
+          "messageId": "m4",
+          "description": "The words move from apology to short withdrawal that closes discussion.",
+          "cues": [
+            "Fine.",
+            "Do whatever you want."
+          ]
+        },
+        {
+          "messageId": "m5",
+          "description": "The words move from withdrawal to a proposal to talk later.",
+          "cues": [
+            "Can we talk about it properly when I get home?"
+          ]
+        }
+      ],
+      "summary": "The exchange starts with a request to reschedule, which is met with criticism about repetition. Apologies do not reopen discussion, and one side withdraws into brief replies. A later proposal to talk properly receives only a minimal acknowledgement.",
+      "uncertainty": "Text alone cannot show tone of voice, facial expression, or history of cancelled plans outside this chat. It also cannot show how \"Fine\" and \"ok\" were meant.",
+      "safety": {
+        "flagged": false,
+        "categories": [],
+        "note": null
+      },
+      "readings": [
+        {
+          "splitReason": null,
+          "cues": [
+            "I'm so sorry",
+            "Can we move dinner to tomorrow?"
+          ],
+          "contextCues": [],
+          "rationale": "The turn can read as apologizing and complying after a broken plan, while offering an alternative time.",
+          "family": "C",
+          "expression": "AC",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "A",
+            "rationale": "The factual explanation and concrete proposal for tomorrow could also read as Adult reality-testing and planning."
+          },
+          "invites": "A",
+          "secondLayer": null,
+          "messageId": "m1",
+          "segmentId": "s1"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "This is the third time this month.",
+            "You always do this."
+          ],
+          "contextCues": [
+            {
+              "messageId": "m1",
+              "quote": "Can we move dinner to tomorrow?"
+            }
+          ],
+          "rationale": "The counting of past times and the word \"always\" can read as evaluating the other and generalizing about a pattern, rather than discussing the current request.",
+          "family": "P",
+          "expression": "CP",
+          "confidence": "high",
+          "alternative": null,
+          "invites": "C",
+          "secondLayer": null,
+          "messageId": "m2",
+          "segmentId": "s2"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "I know",
+            "I'm really sorry"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m2",
+              "quote": "You always do this."
+            }
+          ],
+          "rationale": "The agreement and repeated apology can read as complying with the criticism just received.",
+          "family": "C",
+          "expression": "AC",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "FC",
+            "rationale": "Saying \"I feel awful about it\" directly could also read as spontaneous expression of feeling."
+          },
+          "invites": "P",
+          "secondLayer": null,
+          "messageId": "m3",
+          "segmentId": "s3"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "Fine.",
+            "Do whatever you want."
+          ],
+          "contextCues": [
+            {
+              "messageId": "m3",
+              "quote": "I'm really sorry."
+            }
+          ],
+          "rationale": "The short agreement followed by handing over the decision can read as withdrawing from the exchange rather than agreeing.",
+          "family": "C",
+          "expression": "AC",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "CP",
+            "rationale": "Telling the other to do whatever they want could also read as a rule that closes further discussion."
+          },
+          "invites": "UNCLEAR",
+          "secondLayer": {
+            "observation": "The word \"Fine\" appears together with \"Do whatever you want\", which reads as dismissal rather than agreement.",
+            "cues": [
+              "Fine.",
+              "Do whatever you want."
+            ]
+          },
+          "messageId": "m4",
+          "segmentId": "s4"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "Can we talk about it properly when I get home?",
+            "I want to understand what's going on for you."
+          ],
+          "contextCues": [
+            {
+              "messageId": "m4",
+              "quote": "Do whatever you want."
+            }
+          ],
+          "rationale": "The proposal of a time to talk and the open question about the other's experience can read as here-and-now problem-solving.",
+          "family": "A",
+          "expression": "A",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "NP",
+            "rationale": "Wanting to understand what is going on for the other could also read as care and concern."
+          },
+          "invites": "A",
+          "secondLayer": null,
+          "messageId": "m5",
+          "segmentId": "s5"
+        },
+        {
+          "splitReason": null,
+          "cues": [],
+          "contextCues": [
+            {
+              "messageId": "m5",
+              "quote": "Can we talk about it properly when I get home?"
+            }
+          ],
+          "rationale": "The single word gives too little wording and context to support one reading over another.",
+          "family": "UNCLEAR",
+          "expression": "UNCLEAR",
+          "confidence": "low",
+          "alternative": null,
+          "invites": "UNCLEAR",
+          "secondLayer": null,
+          "messageId": "m6",
+          "segmentId": "s6"
+        }
+      ]
+    }
+  },
+  "score": {
+    "per": [
+      {
+        "id": "m1",
+        "expr": "AC",
+        "family": "C",
+        "conf": "medium",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m2",
+        "expr": "CP",
+        "family": "P",
+        "conf": "high",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m3",
+        "expr": "AC",
+        "family": "C",
+        "conf": "medium",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m4",
+        "expr": "AC",
+        "family": "C",
+        "conf": "medium",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m5",
+        "expr": "A",
+        "family": "A",
+        "conf": "medium",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m6",
+        "expr": "UNCLEAR",
+        "family": "UNCLEAR",
+        "conf": "low",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      }
+    ],
+    "n": 6,
+    "accOk": 6,
+    "hardFails": [],
+    "overCeiling": [],
+    "highOnReview": 0,
+    "altMissing": 0,
+    "unclear": 1,
+    "high": 1
+  }
+}
