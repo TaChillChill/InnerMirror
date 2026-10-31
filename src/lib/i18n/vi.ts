@@ -1,9 +1,11 @@
 // Vietnamese UI strings. Terminology follows D6 (design/OPEN_DECISIONS.md).
 import type { Dict } from "./en";
+import { landingVi } from "./landing.vi.ts";
+import { privacyVi } from "./privacy.vi.ts";
 
 export const vi: Dict = {
   appName: "InnerMirror",
-  langSwitch: "English",
+  langLabel: "Ngôn ngữ",
   steps: ["Cuộc trò chuyện", "Xem lại", "Tấm gương của mình"],
   myMirror: "Tấm gương của mình",
   home: "InnerMirror, trang chủ",
@@ -18,29 +20,7 @@ export const vi: Dict = {
   unsureShort: "Chưa chắc",
   unclear: "Chưa rõ",
   conf: { low: "Độ tin cậy thấp", medium: "Độ tin cậy trung bình", high: "Độ tin cậy cao" },
-  landing: {
-    welcomeBack: "Chào mừng bạn quay lại",
-    savedCount: (n) => `${n} bộ sưu tập đã lưu trong trình duyệt này.`,
-    openMirror: "Mở Tấm gương của mình",
-    continueSession: "Tiếp tục cuộc trò chuyện",
-    title: "Gặp gỡ những phần bên trong bạn",
-    lead: "Nhìn lại một cuộc trò chuyện bạn đã tham gia. InnerMirror gợi ý mỗi tin nhắn có thể nghe ra sao, để bạn nhận ra mình đã chuyển trạng thái thế nào. Bạn là người quyết định điều gì đúng với mình.",
-    start: "Bắt đầu với một cuộc trò chuyện",
-    notTherapy: "Một trò chơi tự nhận biết thân thiện, không phải dịch vụ sức khoẻ tâm thần hay trị liệu, cũng không phải chẩn đoán. Mỗi cách đọc chỉ là một khả năng để bạn tự cân nhắc.",
-    ageNote: "Dành cho người từ 18 tuổi trở lên. Khi tiếp tục, bạn xác nhận mình đủ tuổi.",
-    privacyLink: "Chính sách quyền riêng tư",
-    castTitle: "Năm cách một tin nhắn có thể nghe",
-    castNote: "Chúng mô tả tin nhắn, không mô tả con người. Ai cũng dùng cả năm, và không cách nào tốt hơn cách nào.",
-    howTitle: "Cách hoạt động",
-    how: [
-      ["Thêm một cuộc trò chuyện", "Dán vào, hoặc gõ lại theo trí nhớ."],
-      ["Xem lại", "Xem nhân vật có thể ứng với từng tin nhắn và chỗ cuộc trò chuyện đổi hướng."],
-      ["Tự quyết điều gì đúng với mình", "Đồng ý, chọn nhân vật khác, hoặc để là chưa chắc."],
-      ["Giữ lại trong Tấm gương của mình", "Sticker cho các tin nhắn của bạn, chỉ lưu trong trình duyệt này."],
-    ],
-    privacyTitle: "Cuộc trò chuyện vẫn là của bạn",
-    privacy: "Chúng tôi không giữ cuộc trò chuyện của bạn. Khi bạn tiếp tục, nội dung được gửi đến mô hình AI của Meta để đọc, và Meta có thể lưu giữ theo điều khoản của họ. Không có gì được lưu trên thiết bị này trừ khi bạn bấm Lưu.",
-  },
+  landing: landingVi,
   add: {
     title: "Thêm một cuộc trò chuyện",
     lead: "Chọn một cuộc trò chuyện bạn đã tham gia. Bạn sẽ thấy nó dưới dạng khung chat và có thể sửa mọi thứ trước khi gửi đi.",
@@ -210,7 +190,7 @@ export const vi: Dict = {
     aiObservation: "Quan sát của Gương",
     tip: "Chạm vào nhân vật dưới mỗi tin nhắn để xem vì sao Gương thấy vậy, và chọn cách hiểu của bạn.",
     learn: "Các nhân vật có nghĩa là gì?",
-    theory: "Lấy cảm hứng từ Phân tích Giao tiếp (Transactional Analysis). Eric Berne mô tả ba trạng thái bản ngã: Cha mẹ, Người trưởng thành và Trẻ em; cách chia thành năm nhân vật đến từ các tác giả TA sau này, không trực tiếp từ Berne.",
+    theory: "Lấy cảm hứng từ Phân tích Tương tác (Transactional Analysis). Eric Berne mô tả ba trạng thái cái tôi: Cha mẹ, Người trưởng thành và Trẻ em; cách chia thành năm nhân vật đến từ các tác giả TA sau này, không trực tiếp từ Berne.",
     shift: "Cuộc trò chuyện đổi hướng",
     aiSuggestion: "Gương thấy",
     youAgreed: "Bạn đồng ý",
@@ -307,23 +287,6 @@ export const vi: Dict = {
     cardLabel: (title, date, n, mine) => `${title}, ${date}, ${n} tin nhắn, ${mine} do mình chọn`,
     navLabel: "Tiếp theo",
   },
-  privacyPage: {
-    title: "Chính sách quyền riêng tư",
-    updated: "Cập nhật lần cuối: 31 tháng 10 năm 2026",
-    back: "Quay lại InnerMirror",
-    contact: ["Ai vận hành InnerMirror", "InnerMirror được tạo ra và vận hành bởi HeoCoin Family. Nếu có câu hỏi về chính sách này hoặc dữ liệu của bạn, hãy viết đến"],
-    sections: [
-      ["Dành cho ai", "InnerMirror dành cho người từ 18 tuổi trở lên. Đây là một trò chơi tự nhận biết, không phải dịch vụ sức khoẻ tâm thần hay trị liệu, và không chẩn đoán ai."],
-      ["Những gì được gửi đến Meta", "Khi bạn bấm Đọc ảnh chụp hoặc Xem cuộc trò chuyện này, InnerMirror gửi ảnh chụp màn hình hoặc nội dung cuộc trò chuyện đến mô hình AI của Meta để đọc. Ảnh được gửi nguyên vẹn, kể cả tên, ảnh đại diện hay số điện thoại có trong ảnh, nên nếu được, hãy cắt bỏ trước. Tên bạn gõ vào vẫn ở trong trình duyệt: mô hình chỉ thấy nhãn trung tính. Khi bạn dùng What if?, phần cuộc trò chuyện tính đến tin nhắn đó sẽ được gửi lại."],
-      ["Meta xử lý thế nào", "Meta xử lý nội dung theo điều khoản của họ và có thể lưu giữ trong một khoảng thời gian do Meta quyết định. Meta cho biết nội dung gửi đến mô hình này không được dùng để huấn luyện các mô hình của họ, và họ có thể xử lý nội dung để phát hiện việc sử dụng sai mục đích. Bạn có thể đọc điều khoản của Meta tại dev.meta.ai/legal."],
-      ["Máy chủ của chúng tôi", "Máy chủ của chúng tôi chỉ chuyển cuộc trò chuyện của bạn đến Meta, không lưu và không ghi lại nội dung. Nhà cung cấp hosting là Vercel lưu thông tin cơ bản về yêu cầu, như thời gian và địa chỉ IP."],
-      ["Những gì được lưu trên thiết bị của bạn", "Chỉ khi bạn bấm Lưu: với mỗi tin nhắn của bạn, nhân vật mà AI gợi ý và lựa chọn của chính bạn. Nếu bạn chưa xem lại một tin nhắn, gợi ý của AI cho tin nhắn đó cũng được lưu và vẫn được đánh dấu là AI gợi ý. Ngoài ra là tiêu đề và ghi chú nếu bạn có viết, ngày lưu, và những nhân vật bạn đã thử trong What if?. Ngôn ngữ bạn chọn cũng được ghi nhớ."],
-      ["InnerMirror không bao giờ lưu", "Nội dung tin nhắn, ảnh chụp màn hình, tên, phần giải thích của AI, các kịch bản What if? đã khám phá, và mọi thông tin về tin nhắn của người khác."],
-      ["Dữ liệu nằm ở đâu và giới hạn", "Các bộ sưu tập đã lưu chỉ nằm trong trình duyệt này, trên thiết bị này. Không có tài khoản, không sao lưu. Chúng sẽ bị xoá nếu bạn xoá dữ liệu duyệt web, không xem được trong cửa sổ ẩn danh hay trên trình duyệt hoặc thiết bị khác, và một số trình duyệt (ví dụ Safari) có thể tự xoá nếu bạn không mở InnerMirror trong khoảng một tuần. Dữ liệu không được mã hoá, nên bất kỳ ai dùng trình duyệt này đều có thể mở."],
-      ["Xoá dữ liệu", "Bạn có thể xoá từng bộ sưu tập hoặc xoá tất cả trong Tấm gương của mình bất cứ lúc nào."],
-      ["Không theo dõi", "Không tài khoản, không công cụ phân tích, không trình theo dõi quảng cáo."],
-      ["Những người khác trong cuộc trò chuyện", "Hãy chỉ chia sẻ những cuộc trò chuyện mà bạn thoải mái gửi đến một dịch vụ AI. Hãy nghĩ đến những người khác trong đó và cắt bỏ những chi tiết bạn không cần."],
-      ["Thay đổi", "Nếu nội dung này thay đổi, ngày ở trên sẽ thay đổi theo."],
-    ],
-  },
+  privacyPage: privacyVi,
+
 };

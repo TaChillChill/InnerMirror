@@ -1,0 +1,388 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>InnerMirror — Landing mockup v3</title>
+<!-- Static design mockup for Founder review. Not part of the app; uses the approved tokens and brand assets. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../showcase/tokens.css">
+<style>
+  :root { --gutter: 16px; --max: 1120px; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--im-bg); color: var(--im-text); font-family: Nunito, system-ui, sans-serif; font-size: 16px; line-height: 1.55; }
+  img { display: block; max-width: 100%; }
+  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
+  @media (min-width: 720px) { :root { --gutter: 32px; } }
+
+  /* Header */
+  .bar { position: sticky; top: 0; z-index: 5; background: color-mix(in srgb, var(--im-bg) 88%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid #ecebf5; }
+  .bar .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; gap: 12px; }
+  .brand { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 1.2rem; color: var(--im-text); text-decoration: none; letter-spacing: -0.01em; }
+  .brand img { width: 36px; height: 36px; border-radius: 10px; }
+  .brand b { color: var(--im-primary); font-weight: 800; }
+  .bar__end { display: flex; align-items: center; gap: 8px; }
+  .ghost { border: 0; background: none; font: inherit; font-weight: 700; color: var(--im-text); padding: 10px 12px; border-radius: 999px; cursor: pointer; font-size: .9rem; }
+  .ghost:hover { background: var(--im-surface-sunken); }
+  .seg { display: inline-flex; padding: 3px; background: var(--im-surface-sunken); border-radius: 999px; border: 1px solid #e4e1f3; }
+  .seg button { min-width: 44px; height: 38px; border: 0; background: none; font: inherit; font-weight: 800; font-size: .85rem; letter-spacing: .04em; color: #5e5a7e; border-radius: 999px; cursor: pointer; }
+  .seg button[aria-pressed="true"] { background: #fff; color: var(--im-primary-ink); box-shadow: 0 1px 3px rgba(37,35,68,.12); }
+  .seg button:focus-visible, .pick:focus-visible, .btn:focus-visible { outline: 3px solid var(--im-focus); outline-offset: 2px; }
+  @media (max-width: 480px) { .ghost .lbl { display: none; } }
+
+  /* Hero */
+  .hero { padding: 40px 0 56px; }
+  .hero .wrap { display: grid; gap: 32px; align-items: center; }
+  @media (min-width: 960px) { .hero { padding: 72px 0 88px; } .hero .wrap { grid-template-columns: 1.05fr 1fr; gap: 56px; } }
+  .eyebrow { display: inline-flex; align-items: center; gap: 8px; font-weight: 700; font-size: .9rem; color: var(--im-primary-ink); background: var(--im-brand-lavender); padding: 6px 12px; border-radius: 999px; }
+  h1 { font-size: clamp(2.1rem, 6.2vw, 3.6rem); line-height: 1.1; letter-spacing: -0.025em; font-weight: 900; margin: 18px 0 18px; text-wrap: balance; }
+  h1 .who { color: var(--im-primary); }
+  h1 .meet { background: linear-gradient(transparent 62%, var(--hl, var(--im-ex-a)) 62%, var(--hl, var(--im-ex-a)) 90%, transparent 90%); transition: --hl .15s; padding: 0 2px; }
+  .sub { font-size: 1.1rem; color: #4a4669; max-width: 36rem; margin: 0 0 12px; }
+  .sub em { font-style: normal; font-weight: 700; color: var(--im-text); }
+  .clarify { font-size: .9rem; color: #5e5a7e; max-width: 36rem; margin: 0 0 26px; padding-left: 12px; border-left: 3px solid var(--im-brand-lavender); }
+  .ctas { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+  .btn { display: inline-flex; align-items: center; gap: 8px; height: 52px; padding: 0 24px; border-radius: 999px; font: inherit; font-weight: 800; font-size: 1rem; text-decoration: none; cursor: pointer; border: 0; }
+  .btn--primary { background: var(--im-primary); color: #fff; box-shadow: 0 6px 18px rgba(99,91,206,.28); }
+  .btn--primary:hover { background: var(--im-primary-strong); }
+  .btn--link { background: none; color: var(--im-primary-ink); padding: 0 8px; }
+  .fine { font-size: .82rem; color: #5e5a7e; margin-top: 14px; }
+
+  /* Demo card */
+  .demo { background: #fff; border-radius: 28px; padding: 22px; box-shadow: 0 1px 2px rgba(37,35,68,.06), 0 18px 48px rgba(37,35,68,.10); border: 1px solid #efedf8; }
+  @media (min-width: 720px) { .demo { padding: 28px; } }
+  .demo__title { font-weight: 800; font-size: 1.05rem; line-height: 1.35; margin: 0 0 4px; }
+  .demo__title span { color: var(--im-primary); }
+  .situ { font-size: .9rem; color: #5e5a7e; margin: 0 0 16px; }
+  .picks { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 18px; }
+  .pick { border: 2px solid #eceaf6; background: var(--im-surface); border-radius: 18px; padding: 8px 4px 10px; cursor: pointer; font: inherit; display: grid; justify-items: center; gap: 2px; transition: border-color .15s, background .15s; }
+  .pick img { width: 64px; height: 64px; object-fit: contain; }
+  .pick span { font-size: .78rem; font-weight: 800; line-height: 1.2; text-align: center; }
+  .pick[aria-pressed="true"] { border-color: var(--c); background: var(--t); }
+  .pick[aria-pressed="true"] span { color: var(--k); }
+  .chat { display: grid; gap: 10px; min-height: 236px; }
+  .row { display: flex; gap: 8px; align-items: flex-end; }
+  .row--me { justify-content: flex-end; }
+  .who-lbl { font-size: .72rem; font-weight: 800; text-transform: uppercase; letter-spacing: .06em; color: #8b88a6; margin: 4px 0 -2px; }
+  .who-lbl--me { text-align: right; }
+  .bub { max-width: 82%; padding: 10px 14px; border-radius: 18px; font-size: .95rem; line-height: 1.4; }
+  .bub small { display: block; font-size: .72rem; font-weight: 800; margin-top: 4px; opacity: .85; }
+  .row--me .bub { background: var(--t); border: 1.5px solid var(--c); border-bottom-right-radius: 6px; }
+  .row--them .bub { background: var(--im-surface-sunken); border-bottom-left-radius: 6px; }
+  .face { width: 34px; height: 34px; flex: none; border-radius: 50%; background: var(--t); display: grid; place-items: center; overflow: hidden; }
+  .face img { width: 30px; height: 30px; object-fit: contain; }
+  .or { text-align: center; font-size: .75rem; color: #8b88a6; font-weight: 700; }
+  .vibe { display: inline-flex; align-items: center; gap: 6px; margin-top: 14px; font-weight: 800; font-size: .88rem; padding: 6px 12px; border-radius: 999px; background: var(--im-surface-sunken); color: var(--im-text); }
+  .demo__note { font-size: .8rem; color: #5e5a7e; margin: 14px 0 0; padding-top: 12px; border-top: 1px dashed #e4e1f3; }
+
+  /* Sections */
+  section.block { padding: 64px 0; }
+  section.block--tint { background: linear-gradient(#f4f2fb, #fafafe); }
+  .kicker { font-weight: 800; font-size: .8rem; letter-spacing: .08em; text-transform: uppercase; color: var(--im-primary-ink); margin: 0 0 8px; }
+  h2 { font-size: clamp(1.6rem, 4vw, 2.3rem); line-height: 1.15; letter-spacing: -0.02em; font-weight: 900; margin: 0 0 12px; text-wrap: balance; }
+  .lead { color: #4a4669; max-width: 40rem; margin: 0 0 32px; font-size: 1.05rem; }
+
+  /* Three roots, five voices */
+  .roots { display: grid; gap: 16px; }
+  @media (min-width: 880px) { .roots { grid-template-columns: 2fr 1.15fr 2fr; } }
+  .root { background: #fff; border-radius: 24px; padding: 18px; border: 1px solid #efedf8; }
+  .root__h { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 8px; margin: 0 0 12px; }
+  .root__h strong { font-size: 1.15rem; font-weight: 900; }
+  .root__h span { font-size: .85rem; color: #5e5a7e; }
+  .voices { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
+  .voice { border-radius: 18px; padding: 12px; background: var(--t); text-align: center; }
+  .voice img { width: 96px; height: 96px; object-fit: contain; margin: 0 auto 4px; }
+  .voice b { display: block; color: var(--k); font-weight: 900; }
+  .voice q { display: block; font-size: .9rem; margin: 6px 0; quotes: "“" "”"; }
+  .voice p { font-size: .8rem; color: #4a4669; margin: 0; }
+  .ta { font-weight: 800; color: var(--im-primary-ink); background: var(--im-brand-lavender); padding: 1px 8px; border-radius: 8px; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
+  .roots-note { font-size: .92rem; color: #4a4669; max-width: 44rem; margin: -16px 0 24px; }
+  .theory { font-size: .85rem; color: #5e5a7e; margin: 20px 0 0; max-width: 46rem; }
+
+  /* Interaction */
+  .meets { display: grid; gap: 16px; }
+  @media (min-width: 820px) { .meets { grid-template-columns: 1fr 1fr; } }
+  .meet-card { background: #fff; border-radius: 24px; padding: 22px; border: 1px solid #efedf8; }
+  .meet-card h3 { margin: 0 0 4px; font-size: 1.2rem; font-weight: 900; }
+  .meet-card p { margin: 0 0 12px; color: #4a4669; font-size: .95rem; }
+  .meet-card svg { width: 100%; height: auto; max-width: 360px; display: block; margin: 8px auto; }
+  .ex { display: grid; gap: 6px; font-size: .9rem; }
+  .ex div { padding: 8px 12px; border-radius: 14px; background: var(--im-surface-sunken); max-width: 85%; }
+  .ex div:nth-child(2) { justify-self: end; background: var(--im-brand-lavender); }
+  .honest { margin: 20px 0 0; font-size: .9rem; color: #5e5a7e; display: flex; gap: 10px; align-items: flex-start; max-width: 46rem; }
+
+  /* How it works */
+  .steps { display: grid; gap: 16px; counter-reset: s; padding: 0; margin: 0; list-style: none; }
+  @media (min-width: 720px) { .steps { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 1040px) { .steps { grid-template-columns: repeat(4, 1fr); } }
+  .step { background: #fff; border-radius: 24px; padding: 20px; border: 1px solid #efedf8; display: grid; gap: 8px; align-content: start; }
+  .step__n { width: 32px; height: 32px; border-radius: 50%; background: var(--im-primary); color: #fff; font-weight: 900; display: grid; place-items: center; }
+  .step strong { font-size: 1.05rem; font-weight: 900; }
+  .step p { margin: 0; font-size: .92rem; color: #4a4669; }
+  .step__vis { height: 72px; display: flex; align-items: center; gap: 6px; }
+  .mini { width: 40px; height: 40px; border-radius: 50%; background: var(--t); display: grid; place-items: center; }
+  .mini img { width: 34px; height: 34px; object-fit: contain; }
+  .mini--dash { outline: 2px dashed var(--c); outline-offset: -2px; }
+  .line { height: 10px; border-radius: 6px; background: #e8e5f5; }
+
+  /* Close */
+  .close { text-align: center; padding: 72px 0 40px; }
+  .close img { width: min(400px, 80vw); margin: 0 auto 24px; }
+  .close h2 { margin-bottom: 20px; }
+  .trust { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 20px; margin: 28px auto 0; font-size: .85rem; color: #5e5a7e; max-width: 46rem; }
+  footer { text-align: center; font-size: .82rem; color: #5e5a7e; padding: 24px var(--gutter) 40px; }
+  footer a { color: inherit; }
+
+  /* Per-voice colors */
+  [data-ex="cp"] { --c: var(--im-ex-cp); --t: var(--im-ex-cp-tint); --k: var(--im-ex-cp-ink); }
+  [data-ex="np"] { --c: var(--im-ex-np); --t: var(--im-ex-np-tint); --k: var(--im-ex-np-ink); }
+  [data-ex="a"]  { --c: var(--im-ex-a);  --t: var(--im-ex-a-tint);  --k: var(--im-ex-a-ink); }
+  [data-ex="fc"] { --c: var(--im-ex-fc); --t: var(--im-ex-fc-tint); --k: var(--im-ex-fc-ink); }
+  [data-ex="ac"] { --c: var(--im-ex-ac); --t: var(--im-ex-ac-tint); --k: var(--im-ex-ac-ink); }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+
+<header class="bar"><div class="wrap">
+  <a class="brand" href="#"><img src="../../brand/logo-interim/app-icon-color.png" alt=""><span>Inner<b>Mirror</b></span></a>
+  <div class="bar__end">
+    <button class="ghost"><span aria-hidden="true">🔖</span> <span class="lbl" data-k="myMirror"></span></button>
+    <div class="seg" role="group" aria-label="Language">
+      <button lang="en" data-lang="en">EN</button><button lang="vi" data-lang="vi">VI</button>
+    </div>
+  </div>
+</div></header>
+
+<main>
+<section class="hero"><div class="wrap">
+  <div>
+    <span class="eyebrow" data-k="eyebrow"></span>
+    <h1 id="h1"></h1>
+    <p class="sub" data-k="sub"></p>
+    <p class="clarify" data-k="clarify"></p>
+    <div class="ctas">
+      <a class="btn btn--primary" href="#" data-k="cta"></a>
+      <a class="btn btn--link" href="#how" data-k="cta2"></a>
+    </div>
+    <p class="fine" data-k="fine"></p>
+  </div>
+
+  <div class="demo" id="demo">
+    <p class="demo__title" data-k="demoTitle"></p>
+    <p class="situ" data-k="situ"></p>
+    <div class="picks" role="group" id="picks"></div>
+    <div class="chat" id="chat" aria-live="polite"></div>
+    <p class="demo__note" data-k="demoNote"></p>
+  </div>
+</div></section>
+
+<section class="block block--tint" id="voices"><div class="wrap">
+  <p class="kicker" data-k="k1"></p>
+  <h2 data-k="h2voices"></h2>
+  <p class="lead" data-k="leadVoices"></p>
+  <p class="roots-note" data-k="rootsNote"></p>
+  <div class="roots" id="roots"></div>
+  <p class="theory" data-k="theory"></p>
+</div></section>
+
+<section class="block"><div class="wrap">
+  <p class="kicker" data-k="k2"></p>
+  <h2 data-k="h2meet"></h2>
+  <p class="lead" data-k="leadMeet"></p>
+  <div class="meets">
+    <article class="meet-card">
+      <h3 data-k="clickH"></h3><p data-k="clickP"></p>
+      <svg viewBox="0 0 320 170" role="img" aria-labelledby="t1"><title id="t1">Parallel arrows: Adult to Adult and back</title>
+        <g font-family="Nunito" font-weight="800" font-size="14" text-anchor="middle">
+          <text x="60" y="14" fill="#5e5a7e" data-k="you"></text><text x="260" y="14" fill="#5e5a7e" data-k="them"></text>
+          <g><circle cx="60" cy="45" r="20" fill="#f3ecff"/><text x="60" y="50" fill="#7442c8">P</text>
+             <circle cx="60" cy="95" r="20" fill="#e4f0fd" stroke="#82b9f8" stroke-width="3"/><text x="60" y="100" fill="#1f5fae">A</text>
+             <circle cx="60" cy="145" r="20" fill="#fff1d4"/><text x="60" y="150" fill="#8a5600">C</text></g>
+          <g><circle cx="260" cy="45" r="20" fill="#f3ecff"/><text x="260" y="50" fill="#7442c8">P</text>
+             <circle cx="260" cy="95" r="20" fill="#e4f0fd" stroke="#82b9f8" stroke-width="3"/><text x="260" y="100" fill="#1f5fae">A</text>
+             <circle cx="260" cy="145" r="20" fill="#fff1d4"/><text x="260" y="150" fill="#8a5600">C</text></g>
+        </g>
+        <defs><marker id="ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#635bce"/></marker></defs>
+        <path d="M84 86 L236 86" stroke="#635bce" stroke-width="3" marker-end="url(#ar)"/>
+        <path d="M236 104 L84 104" stroke="#635bce" stroke-width="3" marker-end="url(#ar)" stroke-dasharray="6 5"/>
+      </svg>
+      <div class="ex"><div data-k="clickEx1"></div><div data-k="clickEx2"></div></div>
+    </article>
+    <article class="meet-card">
+      <h3 data-k="missH"></h3><p data-k="missP"></p>
+      <svg viewBox="0 0 320 170" role="img" aria-labelledby="t2"><title id="t2">Crossed arrows: Adult to Adult, answered from Child to Parent</title>
+        <g font-family="Nunito" font-weight="800" font-size="14" text-anchor="middle">
+          <text x="60" y="14" fill="#5e5a7e" data-k="you"></text><text x="260" y="14" fill="#5e5a7e" data-k="them"></text>
+          <g><circle cx="60" cy="45" r="20" fill="#f3ecff" stroke="#c9a8ff" stroke-width="3"/><text x="60" y="50" fill="#7442c8">P</text>
+             <circle cx="60" cy="95" r="20" fill="#e4f0fd" stroke="#82b9f8" stroke-width="3"/><text x="60" y="100" fill="#1f5fae">A</text>
+             <circle cx="60" cy="145" r="20" fill="#fff1d4"/><text x="60" y="150" fill="#8a5600">C</text></g>
+          <g><circle cx="260" cy="45" r="20" fill="#f3ecff"/><text x="260" y="50" fill="#7442c8">P</text>
+             <circle cx="260" cy="95" r="20" fill="#e4f0fd" stroke="#82b9f8" stroke-width="3"/><text x="260" y="100" fill="#1f5fae">A</text>
+             <circle cx="260" cy="145" r="20" fill="#fff1d4" stroke="#ffc34d" stroke-width="3"/><text x="260" y="150" fill="#8a5600">C</text></g>
+        </g>
+        <path d="M84 95 L236 95" stroke="#635bce" stroke-width="3" marker-end="url(#ar)"/>
+        <path d="M238 136 L82 54" stroke="#ff5b6b" stroke-width="3" marker-end="url(#ar)" stroke-dasharray="6 5"/>
+      </svg>
+      <div class="ex"><div data-k="missEx1"></div><div data-k="missEx2"></div></div>
+    </article>
+  </div>
+  <p class="honest"><span aria-hidden="true">🪞</span><span data-k="honest"></span></p>
+</div></section>
+
+<section class="block block--tint" id="how"><div class="wrap">
+  <p class="kicker" data-k="k3"></p>
+  <h2 data-k="h2how"></h2>
+  <ol class="steps">
+    <li class="step"><div class="step__vis"><div style="display:grid;gap:6px;width:120px"><div class="line"></div><div class="line" style="width:70%"></div><div class="line" style="width:85%"></div></div></div><span class="step__n">1</span><strong data-k="s1h"></strong><p data-k="s1p"></p></li>
+    <li class="step"><div class="step__vis"><div class="mini mini--dash" data-ex="a"><img src="../../../public/mascots/a-128.png" alt=""></div><div class="mini mini--dash" data-ex="cp"><img src="../../../public/mascots/cp-128.png" alt=""></div><div class="mini mini--dash" data-ex="fc"><img src="../../../public/mascots/fc-128.png" alt=""></div></div><span class="step__n">2</span><strong data-k="s2h"></strong><p data-k="s2p"></p></li>
+    <li class="step"><div class="step__vis"><div class="mini" data-ex="np"><img src="../../../public/mascots/np-128.png" alt=""></div><span style="font-weight:900;color:#8b88a6">⇄</span><div class="mini" data-ex="ac"><img src="../../../public/mascots/ac-128.png" alt=""></div></div><span class="step__n">3</span><strong data-k="s3h"></strong><p data-k="s3p"></p></li>
+    <li class="step"><div class="step__vis"><div class="mini" data-ex="a"><img src="../../../public/mascots/a-128.png" alt=""></div><div class="mini" data-ex="np"><img src="../../../public/mascots/np-128.png" alt=""></div><div class="mini" data-ex="fc"><img src="../../../public/mascots/fc-128.png" alt=""></div><span style="font-size:1.4rem">🔖</span></div><span class="step__n">4</span><strong data-k="s4h"></strong><p data-k="s4p"></p></li>
+  </ol>
+</div></section>
+
+<section class="close"><div class="wrap">
+  <img src="../../brand/logo-interim/logo-hero.png" alt="InnerMirror — Understand · Communicate · Be you">
+  <h2 data-k="closeH"></h2>
+  <a class="btn btn--primary" href="#" data-k="cta"></a>
+  <div class="trust"><span data-k="t1"></span><span data-k="t2"></span><span data-k="t3"></span></div>
+</div></section>
+</main>
+<footer><span data-k="createdBy"></span> <a href="https://heocoinfamily.com">HeoCoin Family</a> · <a href="#" data-k="privacy"></a></footer>
+
+<script>
+const M = (ex) => `../../../public/mascots/${ex}-128.png`;
+const BIG = (ex) => `../../brand/mascots/full/${ex}-256.png`;
+const T = {
+  en: {
+    myMirror: "My Mirror",
+    eyebrow: "💬 Think of your last conversation",
+    h1: 'What really happens when <span class="who">two egos</span> <span class="meet">meet</span>?',
+    sub: "Every message comes from one of your <em>ego states</em> and lands on one of theirs. That meeting can make a chat <em>click</em>, <em>misfire</em> or <em>heat up</em>. Paste a real conversation and explore what might have been going on.",
+    clarify: "Not “ego” as in pride. Ego states come from Transactional Analysis: the parts of us that guide, care, reason, play or adapt.",
+    cta: "Try it with a real conversation", cta2: "How it works ↓",
+    fine: "Free · No account · Takes about a minute",
+    demoTitle: 'Same situation. <span>A different you.</span> A different possible outcome.',
+    situ: "Situation: last night's dishes are still in the sink.",
+    you: "You", them: "Them", youSay: "You say", theyMay: "They might reply", or: "or",
+    demoNote: "An illustration, not a prediction. No voice is right or wrong: a firm voice is sometimes exactly what's needed.",
+    k1: "The cast", h2voices: "Five ways your ego states speak up",
+    leadVoices: 'Inspired by <span class="ta">Transactional Analysis (TA)</span>, InnerMirror helps you explore the different ways you and others think, feel and respond in conversations.',
+    rootsNote: "TA describes three ego states: Parent, Adult and Child. Our five characters show two styles of Parent and two of Child. Everyone uses all five, and they describe how a message sounds, never who a person is.",
+    roots: { P: ["Parent", "what we learned"], A: ["Adult", "here and now"], C: ["Child", "what we feel"] },
+    theory: "Methodology: the three ego states come from Eric Berne's Transactional Analysis (Games People Play, 1964); the five-style view comes from later TA practice. InnerMirror's readings are our own hypotheses, based on text alone.",
+    k2: "The interaction", h2meet: "It's not just what you say. It's which part of them it reaches.",
+    leadMeet: "In TA, a conversation tends to flow or snag depending on how two people's ego states meet.",
+    clickH: "Clicks", clickP: "The reply comes from the part that was spoken to. The conversation tends to keep going.",
+    clickEx1: "“Have you seen my keys?”", clickEx2: "“I think they're on the table.”",
+    missH: "Misfires", missP: "The reply comes from a different part than expected. Often this is where a conversation turns.",
+    missEx1: "“Have you seen my keys?”", missEx2: "“Why do you always ask me?”",
+    honest: "In the app, Mirror points to moments where your conversation may have shifted, with how sure it is. You decide what really happened.",
+    k3: "How it works", h2how: "Four steps, about a minute.",
+    s1h: "Add a conversation", s1p: "Paste the text or upload up to three screenshots.",
+    s2h: "See how it moved", s2p: "Mirror suggests a possible voice for each message and where things shifted.",
+    s3h: "Reflect and explore", s3p: "Agree, choose another, or stay unsure. Try What if? to see how another voice might have landed.",
+    s4h: "Save your Mirror", s4p: "Keep stickers of what you discovered, only in this browser.",
+    closeH: "Which voice did you use in your last conversation?",
+    t1: "🔒 Your conversation isn't stored on our server", t2: "18+", t3: "A self-awareness game, not therapy or a diagnosis",
+    createdBy: "Created by", privacy: "Privacy policy",
+    v: {
+      cp: { name: "Critical Parent", q: "This needs to be done by nine.", d: "Sets standards and limits. Can sound harsh." },
+      np: { name: "Nurturing Parent", q: "Here, let me help with that.", d: "Cares and protects. Can over-help." },
+      a:  { name: "Adult", q: "Let's look at the options.", d: "Weighs facts. Can sound detached." },
+      fc: { name: "Free Child", q: "Oh wow, I love this!", d: "Says what it feels. Can be impulsive." },
+      ac: { name: "Adapted Child", q: "Sure, whatever works for you.", d: "Adjusts to others. Can hide own needs." },
+    },
+    demo: {
+      cp: { me: "Again? You never clean up after yourself.", r: [["ac", "Okay, okay… sorry.", "Adapted Child"], ["cp", "Like you're so perfect.", "Critical Parent"]], vibe: "🌡️ Might heat up" },
+      a:  { me: "The dishes are still there. Want to set a schedule so it's fair?", r: [["a", "Good idea. I'll take weekdays?", "Adult"], ["fc", "Ugh, fine. Can we do it later?", "Free Child"]], vibe: "🤝 Might turn into a plan" },
+      fc: { me: "I'm so tired of always being the one cleaning up 😩", r: [["np", "Oh no, sorry. I'll do them now.", "Nurturing Parent"], ["cp", "You're being dramatic.", "Critical Parent"]], vibe: "💛 Might be heard, or brushed off" },
+    },
+  },
+  vi: {
+    myMirror: "Tấm gương của mình",
+    eyebrow: "💬 Nghĩ về lần trò chuyện gần nhất của bạn",
+    h1: 'Khi <span class="who">hai cái tôi</span> <span class="meet">gặp nhau</span>, điều gì thật sự xảy ra?',
+    sub: "Mỗi tin nhắn xuất phát từ một <em>trạng thái bản ngã</em> của bạn và chạm đến một trạng thái của người kia. Cuộc gặp ấy có thể khiến cuộc trò chuyện <em>ăn ý</em>, <em>lệch nhịp</em> hay <em>nóng lên</em>. Dán một cuộc trò chuyện thật và khám phá điều có thể đã diễn ra.",
+    clarify: "Không phải “cái tôi” kiểu tự ái. Trạng thái bản ngã đến từ Phân tích Tương tác: những phần trong ta biết hướng dẫn, quan tâm, suy xét, vui chơi hay thích nghi.",
+    cta: "Thử với một cuộc trò chuyện thật", cta2: "Cách hoạt động ↓",
+    fine: "Miễn phí · Không cần tài khoản · Khoảng một phút",
+    demoTitle: 'Cùng một tình huống. <span>Một “bạn” khác.</span> Cả cuộc trò chuyện có thể đổi hướng.',
+    situ: "Tình huống: bát đĩa tối qua vẫn còn nằm trong bồn.",
+    you: "Bạn", them: "Họ", youSay: "Bạn nói", theyMay: "Họ có thể đáp", or: "hoặc",
+    demoNote: "Đây là ví dụ minh hoạ, không phải dự đoán. Không giọng nào đúng hay sai: đôi khi một giọng cứng rắn lại chính là điều cần thiết.",
+    k1: "Dàn nhân vật", h2voices: "5 cách cái tôi lên tiếng",
+    leadVoices: 'Lấy cảm hứng từ <span class="ta">Phân tích Tương tác (Transactional Analysis)</span>, InnerMirror giúp bạn khám phá những cách khác nhau mà bạn và người đối diện suy nghĩ, cảm nhận và phản hồi trong một cuộc trò chuyện.',
+    rootsNote: "TA mô tả ba trạng thái bản ngã: Cha mẹ, Người trưởng thành và Trẻ em. Năm nhân vật của chúng tôi thể hiện hai kiểu Cha mẹ và hai kiểu Trẻ em. Ai cũng dùng cả năm, và chúng mô tả một tin nhắn nghe ra sao, không bao giờ mô tả con người.",
+    roots: { P: ["Cha mẹ", "điều ta đã học"], A: ["Người trưởng thành", "ở đây và bây giờ"], C: ["Trẻ em", "điều ta cảm thấy"] },
+    theory: "Phương pháp: ba trạng thái bản ngã đến từ Phân tích Tương tác của Eric Berne (Games People Play, 1964); cách nhìn năm kiểu đến từ thực hành TA về sau. Các cách đọc của InnerMirror là giả thuyết của chúng tôi, chỉ dựa trên chữ viết.",
+    k2: "Sự tương tác", h2meet: "Không chỉ là bạn nói gì. Mà là câu nói chạm đến phần nào trong họ.",
+    leadMeet: "Theo TA, một cuộc trò chuyện trôi chảy hay vấp váp thường tuỳ vào cách các trạng thái bản ngã của hai người gặp nhau.",
+    clickH: "Ăn ý", clickP: "Câu trả lời đến từ đúng phần được gọi tới. Cuộc trò chuyện thường trôi tiếp.",
+    clickEx1: "“Cậu có thấy chìa khoá của mình đâu không?”", clickEx2: "“Hình như trên bàn đó.”",
+    missH: "Lệch nhịp", missP: "Câu trả lời đến từ một phần khác với mong đợi. Thường đây là lúc cuộc trò chuyện đổi hướng.",
+    missEx1: "“Cậu có thấy chìa khoá của mình đâu không?”", missEx2: "“Sao lúc nào cũng hỏi mình thế?”",
+    honest: "Trong app, Gương chỉ ra những chỗ cuộc trò chuyện có thể đã đổi hướng, kèm mức độ chắc chắn. Bạn mới là người biết điều gì thật sự đã diễn ra.",
+    k3: "Cách hoạt động", h2how: "Bốn bước, khoảng một phút.",
+    s1h: "Thêm cuộc trò chuyện", s1p: "Dán nội dung hoặc tải lên tối đa ba ảnh chụp màn hình.",
+    s2h: "Xem nó diễn biến", s2p: "Gương gợi ý một giọng có thể cho từng tin nhắn và chỗ cuộc trò chuyện đổi hướng.",
+    s3h: "Suy ngẫm và khám phá", s3p: "Đồng ý, chọn giọng khác, hoặc để là chưa chắc. Thử What if? để xem một giọng khác có thể được đón nhận ra sao.",
+    s4h: "Lưu Tấm gương", s4p: "Giữ lại sticker cho điều bạn khám phá, chỉ trong trình duyệt này.",
+    closeH: "Trong lần trò chuyện gần nhất, bạn đã dùng giọng nào?",
+    t1: "🔒 Máy chủ không lưu cuộc trò chuyện của bạn", t2: "18+", t3: "Một trò chơi tự nhận biết, không phải trị liệu hay chẩn đoán",
+    createdBy: "Tạo bởi", privacy: "Chính sách quyền riêng tư",
+    v: {
+      cp: { name: "Cha mẹ Phê phán", q: "Phải xong trước chín giờ nhé.", d: "Đặt chuẩn mực, giới hạn. Có lúc nghe gay gắt." },
+      np: { name: "Cha mẹ Nuôi dưỡng", q: "Để mình giúp cho.", d: "Quan tâm, che chở. Có lúc bao bọc quá." },
+      a:  { name: "Người trưởng thành", q: "Mình xem lại các lựa chọn nhé.", d: "Cân nhắc dữ kiện. Có lúc nghe xa cách." },
+      fc: { name: "Trẻ em Tự do", q: "Trời ơi, thích quá!", d: "Nói thẳng cảm xúc. Có lúc bốc đồng." },
+      ac: { name: "Trẻ em Thích nghi", q: "Ừ, sao cũng được.", d: "Điều chỉnh theo người khác. Có lúc giấu nhu cầu." },
+    },
+    demo: {
+      cp: { me: "Lại nữa à? Lúc nào cũng bày ra rồi để đó.", r: [["ac", "Rồi rồi… xin lỗi mà.", "Trẻ em Thích nghi"], ["cp", "Cứ như cậu hoàn hảo lắm ấy.", "Cha mẹ Phê phán"]], vibe: "🌡️ Có thể nóng lên" },
+      a:  { me: "Bát vẫn còn đó. Mình chia lịch rửa cho công bằng nhé?", r: [["a", "Được đó. Mình nhận các ngày trong tuần nhé?", "Người trưởng thành"], ["fc", "Ôi thôi mà, để lát nữa được không?", "Trẻ em Tự do"]], vibe: "🤝 Có thể thành một kế hoạch" },
+      fc: { me: "Mệt quá, sao lúc nào cũng là mình dọn vậy 😩", r: [["np", "Ôi, xin lỗi nha. Để mình rửa liền.", "Cha mẹ Nuôi dưỡng"], ["cp", "Làm gì mà quá lên thế.", "Cha mẹ Phê phán"]], vibe: "💛 Có thể được lắng nghe, hoặc bị gạt đi" },
+    },
+  },
+};
+const PICKS = ["cp", "a", "fc"];
+const HL = { cp: "var(--im-ex-cp)", a: "var(--im-ex-a)", fc: "var(--im-ex-fc)" };
+let lang = "vi", pick = "a";
+
+function renderDemo() {
+  const t = T[lang], d = t.demo[pick];
+  document.getElementById("picks").innerHTML = PICKS.map((ex) =>
+    `<button class="pick" data-ex="${ex}" aria-pressed="${ex === pick}"><img src="${BIG(ex)}" alt=""><span>${t.v[ex].name}</span></button>`).join("");
+  document.getElementById("chat").innerHTML =
+    `<div class="who-lbl who-lbl--me">${t.youSay}</div>
+     <div class="row row--me" data-ex="${pick}"><div class="bub">${d.me}</div><div class="face"><img src="${M(pick)}" alt=""></div></div>
+     <div class="who-lbl">${t.theyMay}</div>
+     ${d.r.map(([ex, text, name], i) => `${i ? `<div class="or">${t.or}</div>` : ""}
+       <div class="row row--them" data-ex="${ex}"><div class="face"><img src="${M(ex)}" alt=""></div><div class="bub">${text}<small style="color:var(--k)">${name}</small></div></div>`).join("")}
+     <div><span class="vibe">${d.vibe}</span></div>`;
+  document.querySelectorAll(".pick").forEach((b) => b.onclick = () => { pick = b.dataset.ex; renderDemo(); });
+  document.getElementById("h1").style.setProperty("--hl", HL[pick]);
+}
+
+function renderRoots() {
+  const t = T[lang], groups = { P: ["cp", "np"], A: ["a"], C: ["fc", "ac"] };
+  document.getElementById("roots").innerHTML = Object.entries(groups).map(([k, list]) =>
+    `<div class="root"><div class="root__h"><strong>${t.roots[k][0]}</strong><span>${t.roots[k][1]}</span></div>
+     <div class="voices">${list.map((ex) => `<div class="voice" data-ex="${ex}"><img src="${BIG(ex)}" alt=""><b>${t.v[ex].name}</b><q>${t.v[ex].q}</q><p>${t.v[ex].d}</p></div>`).join("")}</div></div>`).join("");
+}
+
+function render() {
+  const t = T[lang];
+  document.documentElement.lang = lang;
+  document.querySelectorAll("[data-k]").forEach((el) => { el.innerHTML = t[el.dataset.k]; });
+  document.getElementById("h1").innerHTML = t.h1;
+  document.querySelectorAll(".seg button").forEach((b) => b.setAttribute("aria-pressed", b.dataset.lang === lang));
+  renderDemo(); renderRoots();
+}
+document.querySelectorAll(".seg button").forEach((b) => b.onclick = () => { lang = b.dataset.lang; render(); });
+if (location.hash === "#en") lang = "en";
+render();
+</script>
+</body>
+</html>

@@ -40,7 +40,7 @@ main:focus { outline: none; }
 .app-stepper { flex: 1 1 260px; order: 3; }
 .app-bar__end { margin-left: auto; display: flex; flex-wrap: wrap; gap: var(--im-space-1); }
 .app-bar__end .im-btn svg { width: 18px; height: 18px; }
-@media (min-width: 760px) { .app-stepper { order: 0; } .app-bar__end { margin-left: 0; } }
+@media (min-width: 760px) { .app-stepper { order: 0; } }
 .app-count { display: inline-grid; place-items: center; min-width: 22px; height: 22px; padding: 0 6px; border-radius: var(--im-radius-pill); background: var(--im-primary); color: #fff; font: 700 0.75rem/1 var(--im-font); }
 
 /* ---------- Page ---------- */
@@ -65,25 +65,11 @@ main:focus { outline: none; }
 .app-icon-btn svg { width: 20px; height: 20px; }
 
 /* ---------- Landing ---------- */
-.app-hero { display: grid; gap: var(--im-space-4); padding-top: var(--im-space-3); }
 .app-welcome-back { display: flex; flex-wrap: wrap; gap: var(--im-space-3) var(--im-space-4); align-items: center; padding: var(--im-space-4) var(--im-space-5); background: var(--im-surface-tint); border-radius: var(--im-radius-lg); }
 .app-welcome-back > div:nth-child(2) { flex: 1 1 160px; }
 .app-welcome-back__stickers { display: flex; }
 .app-welcome-back__stickers .im-badge + .im-badge { margin-left: -10px; }
-.app-cast { list-style: none; margin: var(--im-space-4) 0 var(--im-space-3); padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: var(--im-space-3); align-items: start; }
-.app-cast li { display: grid; gap: 2px; text-align: center; justify-items: center; }
-.app-cast .app-mascot { max-width: 128px; }
-.app-cast strong { font: var(--im-text-label); color: var(--ex-ink); }
-.app-cast span { font: var(--im-text-caption); color: var(--im-text-muted); }
-.app-how { margin: var(--im-space-4) 0 0; padding-left: 1.4em; display: grid; gap: var(--im-space-3); }
-.app-how li { padding-left: var(--im-space-2); }
-.app-how strong, .app-how span { display: block; }
-.app-how span { color: var(--im-text-muted); }
-@media (max-width: 560px) {
-  .app-cast { grid-template-columns: repeat(6, minmax(0, 1fr)); row-gap: var(--im-space-4); }
-  .app-cast li { grid-column: span 2; }
-  .app-cast li:nth-child(4) { grid-column: 2 / span 2; }
-}
+/* Landing sections: landing.css. */
 
 /* ---------- Add a conversation ---------- */
 .app-methods { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: var(--im-space-3); }

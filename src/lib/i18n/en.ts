@@ -1,7 +1,9 @@
 // English UI strings. The shape of this object is the dictionary type.
+import { landingEn } from "./landing.en.ts";
+import { privacyEn } from "./privacy.en.ts";
 export const en = {
   appName: "InnerMirror",
-  langSwitch: "Tiếng Việt",
+  langLabel: "Language",
   steps: ["Conversation", "Replay", "My Mirror"],
   myMirror: "My Mirror",
   home: "InnerMirror, home",
@@ -16,29 +18,7 @@ export const en = {
   unsureShort: "Not sure",
   unclear: "Unclear",
   conf: { low: "Low confidence", medium: "Medium confidence", high: "High confidence" },
-  landing: {
-    welcomeBack: "Welcome back",
-    savedCount: (n: number) => `${n} collection${n === 1 ? "" : "s"} saved in this browser.`,
-    openMirror: "Open My Mirror",
-    continueSession: "Continue this conversation",
-    title: "Meet your inner selves",
-    lead: "Look back at a conversation you were part of. InnerMirror suggests how each message might have come across, so you can notice how you shifted. You decide what fits.",
-    start: "Start with a conversation",
-    notTherapy: "A friendly self-awareness game, not a mental-health or therapy service, and not a diagnosis. Every reading is a possibility you decide on.",
-    ageNote: "For people 18 and older. By continuing, you confirm you are.",
-    privacyLink: "Privacy policy",
-    castTitle: "Five ways a message can sound",
-    castNote: "They describe messages, not people. Everyone uses all five, and none is better than another.",
-    howTitle: "How it works",
-    how: [
-      ["Add a conversation", "Paste it, or type it from memory."],
-      ["Replay it", "See a possible character for each message and where things shifted."],
-      ["Decide what fits for you", "Agree, choose another, or stay unsure."],
-      ["Keep it in My Mirror", "Stickers for your messages, saved only in this browser."],
-    ],
-    privacyTitle: "Your conversation stays yours",
-    privacy: "We don't keep your conversation. When you continue, it's sent to Meta's AI model to be read, and Meta may keep it as described in its terms. Nothing is saved on this device unless you tap Save.",
-  },
+  landing: landingEn,
   add: {
     title: "Add a conversation",
     lead: "Pick one you were part of. You'll see it as a chat and can fix anything before it's looked at.",
@@ -305,25 +285,8 @@ export const en = {
     cardLabel: (title: string, date: string, n: number, mine: number) => `${title}, ${date}, ${n} message${n === 1 ? "" : "s"}, ${mine} chosen by me`,
     navLabel: "What next",
   },
-  privacyPage: {
-    title: "Privacy policy",
-    updated: "Last updated: 31 October 2026",
-    back: "Back to InnerMirror",
-    contact: ["Who runs InnerMirror", "InnerMirror is created and operated by HeoCoin Family. For questions about this policy or your data, write to"],
-    sections: [
-      ["Who this is for", "InnerMirror is for people 18 and older. It is a self-awareness game, not a mental-health or therapy service, and it doesn't diagnose anyone."],
-      ["What is sent to Meta", "When you tap Read my screenshot or Look at this conversation, InnerMirror sends your screenshot or the conversation text to Meta's AI model so it can be read. A screenshot is sent as it is, including any names, photos or numbers visible in it, so crop them first if you can. Names you type stay in your browser: the model sees neutral labels. When you use What if?, the conversation up to that message is sent again."],
-      ["What Meta does with it", "Meta processes it under its terms and may keep it for a period it decides. Meta states that content sent to this model is not used to train its models, and that it may process content to detect misuse of its services. You can read Meta's terms at dev.meta.ai/legal."],
-      ["Our server", "Our server only passes your conversation to Meta. It doesn't save or log the conversation. Our hosting provider, Vercel, keeps basic request records such as time and IP address."],
-      ["What is stored on your device", "Only when you tap Save: for each of your own messages, the character the AI suggested and your own choice. If you didn't review a message, its AI suggestion is saved too and stays marked as AI suggested. Also your title and note if you wrote them, the date, and which characters you tried in What if?. The language you picked is remembered too."],
-      ["Never saved by InnerMirror", "The messages themselves, your screenshots, names, the AI's explanations, explored What-if scenarios, and anything about other people's messages."],
-      ["Where it's kept and its limits", "Saved collections stay only in this browser on this device. There is no account and no backup. They are deleted if you clear your browsing data, aren't available in private windows or on another browser or device, and some browsers (Safari, for example) may remove them if you don't open InnerMirror for about a week. They aren't encrypted, so anyone who uses this browser can open them."],
-      ["Deleting", "You can delete one collection or everything from My Mirror at any time."],
-      ["No tracking", "No accounts, no analytics, no advertising trackers."],
-      ["Other people in your conversations", "Please share only conversations you are comfortable sending to an AI service. Think about the other people in them, and crop out details you don't need."],
-      ["Changes", "If this changes, the date above changes with it."],
-    ],
-  },
+  privacyPage: privacyEn,
+
 };
 
 export type Dict = typeof en;

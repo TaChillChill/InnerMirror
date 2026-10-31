@@ -15,3 +15,28 @@ test("age requirement and not-a-health-service scope are stated in both language
     assert.match(d.privacyPage.sections[0][1], /18/);
   }
 });
+
+const shape = (v: unknown): unknown =>
+  typeof v === "function" ? "fn" : Array.isArray(v) ? v.map(shape) : v && typeof v === "object" ? Object.fromEntries(Object.entries(v).map(([k, x]) => [k, shape(x)])) : typeof v;
+
+test("landing copy has the same structure in both languages", () => {
+  assert.deepEqual(shape(vi.landing), shape(en.landing));
+});
+
+test("Vietnamese names TA consistently as Phân tích Tương tác", () => {
+  const all = JSON.stringify(vi);
+  assert.ok(!all.includes("Phân tích Giao tiếp"));
+  assert.match(vi.landing.voices.lead[1], /Phân tích Tương tác/);
+});
+
+test("Berne is named only in the secondary methodology line of the landing", () => {
+  for (const d of [en, vi]) {
+    const { method, ...rest } = d.landing.voices;
+    assert.match(method, /Berne/);
+    assert.ok(!JSON.stringify({ ...d.landing, voices: rest }).includes("Berne"));
+  }
+});
+
+test("each demo voice shows two possible replies from the other person", () => {
+  for (const d of [en, vi]) for (const line of Object.values(d.landing.demo.lines)) assert.equal(line.replies.length, 2);
+});

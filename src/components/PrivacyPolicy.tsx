@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import { DICTS } from "@/lib/i18n";
 import { LangContext } from "./ui";
 import { SiteFooter } from "./SiteFooter";
+import { BrandMark, LangToggle } from "./BrandBits";
 import { useLang } from "./use-browser-state";
 
 export function PrivacyPolicy() {
@@ -16,9 +17,9 @@ export function PrivacyPolicy() {
   return (
     <LangContext.Provider value={{ lang, t }}>
       <header className="app-bar">
-        <Link className="app-home" href="/">{t.appName}</Link>
+        <Link className="app-home" href="/" aria-label={t.home}><BrandMark /></Link>
         <div className="app-bar__end">
-          <button className="im-btn im-btn--ghost im-btn--sm" onClick={() => setLang(lang === "en" ? "vi" : "en")} lang={lang === "en" ? "vi" : "en"}>{t.langSwitch}</button>
+          <LangToggle lang={lang} onChange={setLang} />
         </div>
       </header>
       <main id="main">

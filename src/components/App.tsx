@@ -7,6 +7,7 @@ import { toAnalyzeRequest } from "@/lib/conversation";
 import type { Analysis } from "@/lib/ai/analysis";
 import { LangContext, Icon } from "./ui";
 import { SiteFooter } from "./SiteFooter";
+import { BrandMark, LangToggle } from "./BrandBits";
 import { useCollections, useLang, useStorageOk } from "./use-browser-state";
 import { freshSession, type Session } from "./session";
 import { Landing } from "./Landing";
@@ -31,7 +32,6 @@ export function App() {
   const update: Update = useCallback((patch) => setS((cur) => ({ ...cur, ...(typeof patch === "function" ? patch(cur) : patch) })), []);
   const go = useCallback((screen: Session["screen"]) => { update({ screen, selected: null }); window.scrollTo({ top: 0 }); }, [update]);
 
-  const switchLang = () => setLang(lang === "en" ? "vi" : "en");
   // Home and Back only navigate: the conversation stays in memory. Only starting a new
   // one clears it, and an unsaved analysis asks first.
   const hasSession = !!s.analysis && !!s.transcript;
@@ -68,7 +68,7 @@ export function App() {
   return (
     <LangContext.Provider value={{ lang, t }}>
       <header className="app-bar">
-        <button className="app-home" onClick={() => go("landing")} aria-label={t.home}>{t.appName}</button>
+        <button className="app-home" onClick={() => go("landing")} aria-label={t.home}><BrandMark /></button>
         {stepIndex >= 0 && (
           <nav aria-label="Progress" className="app-stepper">
             <ol className="im-stepper">
@@ -84,7 +84,7 @@ export function App() {
               <Icon name="saved" /> {t.myMirror}{saved.length > 0 && <span className="app-count">{saved.length}</span>}
             </button>
           )}
-          <button className="im-btn im-btn--ghost im-btn--sm" onClick={switchLang} lang={lang === "en" ? "vi" : "en"}>{t.langSwitch}</button>
+          <LangToggle lang={lang} onChange={setLang} />
         </div>
       </header>
       <main id="main">

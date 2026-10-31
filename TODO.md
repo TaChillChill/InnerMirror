@@ -25,7 +25,9 @@ Session state and next actions. Stable rules live in `CLAUDE.md`. Overwrite this
 - Meta auto-charge after credits run out: unverified (needs console check).
 
 ## Last validation result
-2026-10-31 Preview paid smoke (synthetic, 5 messages): 1 analyze (200, 16.4 s, $0.0205) + 1 What if (200, 10.9 s, $0.0142) = $0.0347 of the $0.05 approved; Meta key works on Preview; logs hold metadata only (no content, no secrets). Earlier same-instance calls ($0.0535 analyze at 46 s, $0.0132 scenario) were not from this test (likely Founder UAT). Not verified: auto-charge after credits, real iOS Safari.
+2026-10-31 Landing V3 (approved mockup `design/mockups/landing-v3`): hero "two egos meet", illustrative 3-voice demo, TA section (3 roots / 5 voices, Berne only in the methodology line), educational P/A/C diagram (no transaction map), 4 steps, EN | VI toggle, app icon in header. `npm test` 45/45, lint, typecheck, build clean; screenshots at 1280 and 390 px (EN/VI, privacy); scripted check: demo switch, toggle, CTA, 0 API calls. Not deployed. Not verified: real iOS Safari, VI native-reader pass. Logo is the interim crop (D2): need transparent SVG or >=1600 px PNG before submission.
+
+Previous: 2026-10-31 Preview paid smoke (synthetic, 5 messages): 1 analyze (200, 16.4 s, $0.0205) + 1 What if (200, 10.9 s, $0.0142) = $0.0347 of the $0.05 approved; Meta key works on Preview; logs hold metadata only (no content, no secrets). Earlier same-instance calls ($0.0535 analyze at 46 s, $0.0132 scenario) were not from this test (likely Founder UAT). Not verified: auto-charge after credits, real iOS Safari.
 
 Previous: 2026-10-31 release prep: `npm test` 41/41, lint, typecheck, build clean; `/privacy` and landing 18+ note confirmed in server HTML. $0 live spend. Not verified: visual check of `/privacy` in a browser, VI native-reader pass, real iOS Safari.
 

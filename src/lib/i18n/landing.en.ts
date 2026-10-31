@@ -1,0 +1,65 @@
+// Landing page strings (V3, approved 2026-10-31). Split from en.ts to keep files small.
+// The interaction section is educational only: the app does not show a transaction map.
+export const landingEn = {
+  welcomeBack: "Welcome back",
+  savedCount: (n: number) => `${n} collection${n === 1 ? "" : "s"} saved in this browser.`,
+  openMirror: "Open My Mirror",
+  continueSession: "Continue this conversation",
+  eyebrow: "Think of your last conversation",
+  h1: { before: "What really happens when ", who: "two egos", mid: " ", meet: "meet", after: "?" },
+  lead: "Behind every message there may be a different ego state. When they meet, a conversation can click, misfire or grow tense. Try looking back at one of your conversations from a new angle.",
+  start: "Try it with a real conversation",
+  howLink: "How it works",
+  fine: "No account · Nothing is saved unless you tap Save",
+  demo: {
+    title: ["Same situation. ", "A different you.", " A different possible outcome."],
+    situation: "Situation: last night's dishes are still in the sink.",
+    pickLabel: "Choose how you say it",
+    youSay: "You say",
+    theyMay: "They might reply",
+    or: "or",
+    note: "An illustration, not a prediction. No voice is right or wrong: a firm voice is sometimes exactly what's needed.",
+    lines: {
+      cp: { me: "Again? You never clean up after yourself.", replies: [["ac", "Okay, okay… sorry."], ["cp", "Like you're so perfect."]], vibe: "Might heat up" },
+      a: { me: "The dishes are still there. Want to set a schedule so it's fair?", replies: [["a", "Good idea. I'll take weekdays?"], ["fc", "Ugh, fine. Can we do it later?"]], vibe: "Might turn into a plan" },
+      fc: { me: "I'm so tired of always being the one cleaning up 😩", replies: [["np", "Oh no, sorry. I'll do them now."], ["cp", "You're being dramatic."]], vibe: "Might be heard, or brushed off" },
+    },
+  },
+  voices: {
+    kicker: "The cast",
+    title: "Five ways your ego states speak up",
+    lead: ["Inspired by ", "Transactional Analysis (TA)", ", InnerMirror helps you explore the different ways you and others think, feel and respond in conversations."],
+    explain: "“Ego” here doesn't mean pride. In Transactional Analysis, an ego state is a way of thinking, feeling and responding in a given moment. TA describes three: Parent, Adult and Child. InnerMirror's five characters show two styles of Parent and two of Child. Everyone uses all five, and they describe how a message sounds, never who a person is.",
+    roots: { P: ["Parent", "what we learned"], A: ["Adult", "here and now"], C: ["Child", "what we feel"] },
+    sounds: { cp: "This needs to be done by nine.", np: "Here, let me help with that.", a: "Let's look at the options.", fc: "Oh wow, I love this!", ac: "Sure, whatever works for you." },
+    method: "Methodology: the three ego states come from Eric Berne's Transactional Analysis (Games People Play, 1964); the five-style view comes from later TA practice. InnerMirror's readings are our own hypotheses, based on text alone.",
+  },
+  meet: {
+    kicker: "The interaction",
+    title: "It's not just what you say. It's which part of them it reaches.",
+    lead: "In TA, a conversation tends to flow or snag depending on how two people's ego states meet.",
+    you: "You",
+    them: "Them",
+    click: { title: "Clicks", body: "The reply comes from the part that was spoken to. The conversation tends to keep going.", ex: ["“Have you seen my keys?”", "“I think they're on the table.”"], diagram: "Parallel arrows: Adult to Adult, and back from Adult to Adult" },
+    miss: { title: "Misfires", body: "The reply comes from a different part than expected. Often this is where a conversation turns.", ex: ["“Have you seen my keys?”", "“Why do you always ask me?”"], diagram: "Crossed arrows: Adult to Adult, answered from Child to Parent" },
+    honest: "In the app, Mirror points to moments where your conversation may have shifted, with how sure it is. You decide what really happened.",
+  },
+  how: {
+    kicker: "How it works",
+    title: "Four simple steps",
+    steps: [
+      ["Add a conversation", "Paste the text or upload up to three screenshots."],
+      ["See how it moved", "Mirror suggests a possible voice for each message and where things shifted."],
+      ["Reflect and explore", "Agree, choose another, or stay unsure. Try What if? to see how another voice might have landed."],
+      ["Save your Mirror", "Keep stickers of what you discovered, only in this browser."],
+    ],
+  },
+  closeTitle: "Which voice did you use in your last conversation?",
+  notTherapy: "A friendly self-awareness game, not a mental-health or therapy service, and not a diagnosis. Every reading is a possibility you decide on.",
+  ageNote: "For people 18 and older. By continuing, you confirm you are.",
+  privacyLink: "Privacy policy",
+  privacyTitle: "Your conversation stays yours",
+  privacy: "We don't keep your conversation. When you continue, it's sent to Meta's AI model to be read, and Meta may keep it as described in its terms. Nothing is saved on this device unless you tap Save.",
+};
+
+export type LandingDict = typeof landingEn;
