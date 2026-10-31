@@ -23,8 +23,8 @@ button.app-sticker:hover { border-color: var(--im-primary); }
 .app-tally { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: var(--im-space-2); }
 .app-tally li { display: inline-flex; gap: 6px; align-items: center; padding: 4px 12px 4px 4px; background: var(--im-surface); border-radius: var(--im-radius-pill); font: var(--im-text-caption); }
 .app-tally strong { font-weight: 800; }
-.app-legend-line { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; font: var(--im-text-caption); color: var(--im-text-muted); margin-bottom: var(--im-space-3); }
-.app-coll__badges { display: flex; flex-wrap: wrap; gap: 4px; align-items: center; }
+.app-legend-line { display: flex; flex-wrap: wrap; gap: 6px var(--im-space-2); align-items: center; font: var(--im-text-caption); color: var(--im-text-muted); margin-bottom: var(--im-space-3); }
+.app-coll__badges { display: flex; flex-wrap: wrap; gap: var(--im-space-2); align-items: center; margin-bottom: var(--im-space-2); }
 .app-coll__more { font: var(--im-text-caption); color: var(--im-text-muted); padding-left: 2px; }
 
 .app-current { display: grid; gap: var(--im-space-4); padding: var(--im-space-5); background: var(--im-surface-tint); border-radius: var(--im-radius-xl); }
@@ -33,10 +33,11 @@ button.app-sticker:hover { border-color: var(--im-primary); }
 .app-saved-list { margin: 0; padding-left: 1.2em; display: grid; gap: var(--im-space-2); font: var(--im-text-caption); }
 
 /* Saved collections grid */
-.app-colls { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: var(--im-space-3); }
-.app-coll { width: 100%; height: 100%; display: grid; gap: var(--im-space-2); align-content: start; text-align: start; padding: var(--im-space-4); background: var(--im-surface); border: 1.5px solid var(--im-border); border-radius: var(--im-radius-lg); cursor: pointer; color: var(--im-text); font: var(--im-text-body); }
+.app-colls { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: var(--im-space-4); }
+.app-coll { width: 100%; height: 100%; display: grid; gap: var(--im-space-2); align-content: start; text-align: start; padding: var(--im-space-5); background: var(--im-surface); border: 1.5px solid var(--im-border); border-radius: var(--im-radius-lg); cursor: pointer; color: var(--im-text); font: var(--im-text-body); }
 .app-coll:hover { border-color: var(--im-primary); }
-.app-coll strong { font: var(--im-text-label); font-size: 1rem; }
+.app-coll__title { font: 700 1.0625rem/1.35 var(--im-font); }
+.app-coll .im-badge { --size: 40px; }
 .app-coll__meta, .app-coll__empty { font: var(--im-text-caption); color: var(--im-text-muted); }
 .app-coll__note { font: var(--im-text-caption); font-style: italic; color: var(--im-text-muted); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 
@@ -74,4 +75,15 @@ button.app-sticker:hover { border-color: var(--im-primary); }
 .app-table td { text-align: end; font-variant-numeric: tabular-nums; }
 
 @media (prefers-reduced-motion: reduce) { .app-sticker { animation: none; } }
-.app-mirror-new { margin-top: var(--im-space-4); }
+/* A real sample of each ring, so the legend shows rather than describes. */
+.app-swatch { width: 18px; height: 18px; flex: none; border-radius: 50%; background: var(--im-surface); }
+.app-swatch.is-dashed { outline: 2px dashed var(--im-text-muted); outline-offset: -2px; }
+.app-swatch.is-solid { box-shadow: inset 0 0 0 2px var(--im-primary); }
+.app-swatch.is-solid { margin-left: var(--im-space-2); }
+.app-mirror-nav { display: flex; flex-wrap: wrap; gap: var(--im-space-3); align-items: center; }
+.app-contents { display: contents; }
+/* Focus is moved here by code after Save; no keyboard ring for that. */
+.im-notice[tabindex="-1"]:focus { outline: none; }
+.app-h2 .app-count { margin-left: var(--im-space-2); }
+.app-sticker strong { text-wrap: balance; }
+@media (max-width: 559.98px) { .app-coll .im-badge { --size: 36px; } }

@@ -1,6 +1,8 @@
 "use client";
-// "What if?" for one of my messages. The comparison card is the point: what happened
-// (solid) above what could happen (dashed), mascot to mascot. Explanations open on tap.
+// "What if?" for one of my messages, in time order: what Mirror observed in their earlier
+// messages (evidence, computed here, no call), what happened (solid), and what else could
+// happen (dashed). Only "context" possibilities go in the dashed row: a "pattern" one just
+// restates the earlier messages, which the observed strip already shows per message.
 // No dialogue, no predictions; all five characters are laid out identically.
 import { useEffect, useRef, useState } from "react";
 import { EX_ORDER, type ExKey } from "@/lib/i18n";
@@ -16,6 +18,8 @@ type Done = Extract<Entry, { status: "done" }>;
 
 const asState = (k: ExKey) => k.toUpperCase() as State;
 const keyOf = (p: Possibility) => p.state.toLowerCase() as ExKey;
+const otherWays = (r: ScenarioResult) => r.possibilities.filter((p) => p.basis === "context");
+const MAX_OBSERVED = 6;
 const NO_RETRY = ["forbidden", "not_configured", "budget", "invalid_input", "too_long"];
 
 function Who({ ex, name, dashed, waiting }: { ex: ExKey | "unsure"; name: string; dashed?: boolean; waiting?: boolean }) {
@@ -39,6 +43,8 @@ export function WhatIf({ s, ctx, scenarios }: Props) {
   const entryFor = (k: ExKey): Entry | undefined => scenarios.entries[scenarioKey(lang, ctx.target.id, asState(k))];
   const tried = EX_ORDER.filter((k) => entryFor(k)?.status === "done");
   const entry = picked ? entryFor(picked) : undefined;
+  // Per message, never one label for the person: states attach to messages.
+  const observed = ctx.history.filter((m) => m.speakerId === ctx.receiverId).map((m) => ({ id: m.id, ex: toKey(effectiveState(s, m.id).state) }));
 
   useEffect(() => { heading.current?.focus(); }, []);
   // Keep the comparison in view when an answer starts or lands (it can be off-screen on phones).
@@ -56,6 +62,20 @@ export function WhatIf({ s, ctx, scenarios }: Props) {
     <section className="app-wi" aria-labelledby={`wi-${ctx.target.id}`}>
       <h2 id={`wi-${ctx.target.id}`} ref={heading} tabIndex={-1} className="app-wi__title">{W.title}</h2>
       <p className="app-wi__intro">{W.intro(receiver)}</p>
+
+      <div className="app-wi__observed">
+        <p className="app-wi__label">{W.observedTitle}</p>
+        {observed.length ? (
+          <>
+            <p className="im-hint">{W.observedLead(receiver)}</p>
+            <ul className="app-wi__chips">
+              {observed.length > MAX_OBSERVED && <li className="app-wi__more-n">+{observed.length - MAX_OBSERVED}</li>}
+              {observed.slice(-MAX_OBSERVED).map((o) => <li key={o.id}><Chip ex={o.ex} /></li>)}
+            </ul>
+            {observed.length === 1 && <p className="im-hint">{W.observedOne}</p>}
+          </>
+        ) : <p className="im-hint">{W.noPrior(receiver)}</p>}
+      </div>
 
       <div className="app-wi__card" ref={card}>
         <div className="app-wi__row">
@@ -91,8 +111,7 @@ export function WhatIf({ s, ctx, scenarios }: Props) {
           {EX_ORDER.map((k) => (
             <button key={k} className="app-wi__opt im-ex" data-ex={k} aria-pressed={picked === k} onClick={() => pick(k)}>
               <Badge ex={k} state="plain" size={36} />
-              <span><strong>{t.ex[k].name}</strong><small>{t.ex[k].short}</small></span>
-              {tried.includes(k) && <em className="app-wi__tried-tag">{W.tried}</em>}
+              <span><strong>{t.ex[k].name}</strong><small>{t.ex[k].short}</small>{tried.includes(k) && <em className="app-wi__tried-tag">{W.tried}</em>}</span>
             </button>
           ))}
         </div>
@@ -109,7 +128,7 @@ export function WhatIf({ s, ctx, scenarios }: Props) {
           <p className="app-wi__prompt">{W.triedSoFar}</p>
           <ul>
             {tried.map((k) => {
-              const ps = (entryFor(k) as Done).result.possibilities;
+              const ps = otherWays((entryFor(k) as Done).result);
               return (
                 <li key={k}><button aria-pressed={picked === k} onClick={() => pick(k)}>
                   <Badge ex={k} state="plain" size={24} /><Icon name="arrow" />
@@ -130,17 +149,19 @@ function Results({ result, receiver, open, onOpen }: { result: ScenarioResult; r
   const { t } = useT();
   const W = t.whatIf;
   if (result.flagged) return <span className="app-wi__none" role="alert">{W.flagged}</span>;
-  if (!result.possibilities.length) {
-    const why = result.reason === "no_prior" ? W.noPrior(receiver) : result.reason === "unclear_prior" ? W.unclearPrior(receiver) : W.insufficient;
+  const others = otherWays(result);
+  if (!others.length) {
+    const why = result.possibilities.length ? W.noOther
+      : result.reason === "no_prior" ? W.noPrior(receiver) : result.reason === "unclear_prior" ? W.unclearPrior(receiver) : W.insufficient;
     return <span className="app-wi__none">{why}</span>;
   }
   return (
     <ul className="app-wi__results">
-      {result.possibilities.map((p) => (
+      {others.map((p) => (
         <li key={p.state}>
           <button className="app-wi__result im-ex" data-ex={keyOf(p)} data-basis={p.basis} aria-expanded={open === p.state} onClick={() => onOpen(open === p.state ? null : p.state)}>
             <Badge ex={keyOf(p)} state="suggested" size={44} />
-            <span><strong>{t.ex[keyOf(p)].name}</strong><small>{p.basis === "pattern" ? W.likeEarlier(receiver) : W.another}</small></span>
+            <span><strong>{t.ex[keyOf(p)].name}</strong><small>{W.another}</small></span>
           </button>
         </li>
       ))}
@@ -152,21 +173,21 @@ function Details({ s, entry, picked, receiver, open }: { s: Session; entry: Done
   const { t } = useT();
   const W = t.whatIf;
   const { result } = entry;
-  if (result.flagged || !result.possibilities.length) return <p className="im-hint">{t.whatIf.manyReasons}</p>;
+  const others = otherWays(result);
+  if (result.flagged || !others.length) return <p className="im-hint">{t.whatIf.manyReasons}</p>;
   const [pre, post] = W.resultTitle(receiver);
-  const p = result.possibilities.find((x) => x.state === open);
+  const p = others.find((x) => x.state === open);
   const words = (text: string) => withNames(text, s, entry.labels);
   return (
     <div className="app-wi__more">
       <p className="app-wi__caption">{pre} <Chip ex={picked} />{post}</p>
-      {result.evidence === "thin" && <p className="im-hint">{W.thin}</p>}
       {!p && <p className="im-hint">{W.tapHint}</p>}
       {p && (
         <div className="app-wi__detail im-ex" data-ex={keyOf(p)}>
           <p><strong>{W.sounds}.</strong> {t.ex[keyOf(p)].desc}</p>
           <p><strong>{W.why}.</strong> {words(p.rationale)}</p>
           {p.cues.length > 0 && <p>{W.fromWords(receiver)} {p.cues.map((c, j) => <span key={c}>{j > 0 && ", "}<q>{c}</q></span>)}</p>}
-          {p.basis === "context" && <p className="im-hint">{W.anotherNote(receiver)}</p>}
+          <p className="im-hint">{W.anotherNote(receiver)}</p>
           <p className="im-hint">{W.manyReasons}</p>
         </div>
       )}

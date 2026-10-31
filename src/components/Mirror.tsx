@@ -1,7 +1,9 @@
 "use client";
-// My Mirror: one sticker per message of mine (an AI suggestion until I review it), an
+// My Mirror: one sticker per message of mine (Mirror's observation until I review it), an
 // optional note to my future self, Save, and the collections saved in this browser.
-import { useState } from "react";
+// After Save the just-saved stickers stay in view with the ways forward: another
+// conversation (primary), back to this one (still in memory), or home.
+import { useEffect, useRef, useState } from "react";
 import { addCollection, clearCollections, makeCollection, removeCollection, restoreCollection, type Collection, type MineEntry } from "@/lib/mirror-store";
 import type { ExKey } from "@/lib/i18n";
 import type { Update } from "./App";
@@ -9,7 +11,7 @@ import { readingFor, type Session } from "./session";
 import { Stickers, Tally, CollectionCard } from "./Stickers";
 import { Icon, useT } from "./ui";
 
-type Props = { s: Session; update: Update; saved: Collection[]; storageOk: boolean; onSavedChange: () => void; onNew: () => void; onOpenMessage: (id: string) => void };
+type Props = { s: Session; update: Update; saved: Collection[]; storageOk: boolean; onSavedChange: () => void; onNew: () => void; onBack: () => void; onHome: () => void; onOpenMessage: (id: string) => void };
 
 // My messages in order, with the AI's suggestion and my choice (labels only, no text).
 export function currentMine(s: Session): (MineEntry & { id: string })[] {
@@ -20,13 +22,27 @@ export function currentMine(s: Session): (MineEntry & { id: string })[] {
   });
 }
 
-export function Mirror({ s, update, saved, storageOk, onSavedChange, onNew, onOpenMessage }: Props) {
+export function Mirror({ s, update, saved, storageOk, onSavedChange, onNew, onBack, onHome, onOpenMessage }: Props) {
   const { t, lang } = useT();
   const M = t.mirror;
   const [viewing, setViewing] = useState<Collection | null>(null);
   const [undo, setUndo] = useState<Collection | null>(null);
   const showCurrent = !!s.analysis && !s.savedId && !s.analysis.safety.flagged;
+  const canGoBack = !!s.analysis && !!s.transcript && !s.analysis.safety.flagged;
+  const justSaved = s.savedId ? saved.find((c) => c.id === s.savedId) : undefined;
   const mine = currentMine(s);
+  const notice = useRef<HTMLDivElement>(null);
+  const opener = useRef<HTMLButtonElement | null>(null);
+
+  // After Save the Save button is gone, so focus moves to the confirmation.
+  useEffect(() => { if (s.savedId) notice.current?.focus(); }, [s.savedId]);
+  // The collection dialog: Escape closes it, and focus returns to the card that opened it.
+  useEffect(() => {
+    if (!viewing) { opener.current?.focus(); return; }
+    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") setViewing(null); };
+    document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
+  }, [viewing]);
 
   const save = () => {
     const c = makeCollection(lang, s.title, s.note, mine.map(({ order, ai, chosen }) => ({ order, ai, chosen })));
@@ -39,8 +55,9 @@ export function Mirror({ s, update, saved, storageOk, onSavedChange, onNew, onOp
 
   return (
     <div className="app-page">
+      <div className="app-contents" inert={!!viewing}>
       <h1 className="app-h1">{M.title}</h1>
-      {s.savedId && <div className="im-notice im-notice--success" role="status"><Icon name="device" /><div><strong>{M.savedTitle}</strong>{M.savedBody}</div></div>}
+      {s.savedId && <div className="im-notice im-notice--success" role="status" tabIndex={-1} ref={notice}><Icon name="saved" /><div><strong>{M.savedTitle}</strong>{M.savedBody}</div></div>}
       {!storageOk && <div className="im-notice im-notice--error"><Icon name="alert" /><div><strong>{M.storageBlockedTitle}</strong>{M.storageBlocked}</div></div>}
 
       {showCurrent && (
@@ -68,17 +85,31 @@ export function Mirror({ s, update, saved, storageOk, onSavedChange, onNew, onOp
         </section>
       )}
 
+      {justSaved && (
+        <section className="app-current" aria-labelledby="just">
+          <h2 id="just" className="app-h2">{M.justSaved}: {justSaved.title || M.untitled}</h2>
+          <Stickers mine={justSaved.mine} />
+          {canGoBack && <p className="im-hint">{M.afterSaveHint}</p>}
+        </section>
+      )}
+
+      <nav className="app-mirror-nav" aria-label={M.navLabel}>
+        {/* Before Save, Save stays the one primary action on the page. */}
+        <button className={`im-btn ${showCurrent ? "im-btn--secondary" : "im-btn--primary"}`} onClick={onNew}>{M.newConversation}</button>
+        {canGoBack && <button className="im-btn im-btn--ghost" onClick={onBack}><Icon name="back" /> {M.back}</button>}
+        <button className="app-textlink" onClick={onHome}>{M.home}</button>
+      </nav>
+
       <section aria-labelledby="colls">
         <h2 id="colls" className="app-h2">{M.collections}{saved.length > 0 && <span className="app-count">{saved.length}</span>}</h2>
         {saved.length ? (
           <>
-            <p className="app-legend-line">{M.legend[0]} · {M.legend[1]}</p>
-            <ul className="app-colls">{saved.map((c) => <li key={c.id}><CollectionCard c={c} onOpen={() => setViewing(c)} /></li>)}</ul>
+            <p className="app-legend-line"><span className="app-swatch is-dashed" aria-hidden="true" />{M.legend[0]}<span className="app-swatch is-solid" aria-hidden="true" />{M.legend[1]}</p>
+            <ul className="app-colls">{saved.map((c) => <li key={c.id}><CollectionCard c={c} onOpen={(el) => { opener.current = el; setViewing(c); }} /></li>)}</ul>
           </>
         ) : (
           <div className="app-empty"><h3 className="app-empty__title">{M.emptyTitle}</h3><p>{M.emptyBody}</p></div>
         )}
-        <div className="app-actions app-mirror-new"><button className="im-btn im-btn--secondary" onClick={onNew}>{M.newConversation}</button></div>
       </section>
 
       {undo && <div className="app-toast" role="status">{M.deleted} <button className="app-textlink" onClick={() => { restoreCollection(undo); setUndo(null); onSavedChange(); }}>{M.undo}</button></div>}
@@ -86,6 +117,7 @@ export function Mirror({ s, update, saved, storageOk, onSavedChange, onNew, onOp
       <footer className="app-storage"><Icon name="lock" /><div><strong>{M.storageNoteStrong}</strong> {M.storageNote}
         {saved.length > 0 && <details className="app-more"><summary>{M.manage}</summary><button className="im-btn im-btn--ghost im-btn--sm" onClick={removeAll}><Icon name="trash" /> {M.deleteAll}</button></details>}
       </div></footer>
+      </div>
 
       {viewing && (
         <>

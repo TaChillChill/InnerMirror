@@ -2,7 +2,7 @@
 import { EX_ORDER } from "@/lib/i18n";
 import { Badge, Icon, Mascot, useT } from "./ui";
 
-export function Landing({ savedCount, onStart, onMirror }: { savedCount: number; onStart: () => void; onMirror: () => void }) {
+export function Landing({ savedCount, onStart, onMirror, onContinue }: { savedCount: number; onStart: () => void; onMirror: () => void; onContinue?: () => void }) {
   const { t } = useT();
   const L = t.landing;
   return (
@@ -17,7 +17,10 @@ export function Landing({ savedCount, onStart, onMirror }: { savedCount: number;
       <section className="app-hero">
         <h1 className="app-display">{L.title}</h1>
         <p className="app-lead">{L.lead}</p>
-        <div className="app-actions"><button className="im-btn im-btn--primary" onClick={onStart}>{L.start}</button></div>
+        <div className="app-actions">
+          <button className="im-btn im-btn--primary" onClick={onStart}>{L.start}</button>
+          {onContinue && <button className="im-btn im-btn--secondary" onClick={onContinue}>{L.continueSession}</button>}
+        </div>
         <p className="im-hint">{L.notTherapy}</p>
       </section>
       <section aria-labelledby="cast">

@@ -172,6 +172,9 @@ main:focus { outline: none; }
 .im-msg__meta .app-wi-pill svg { width: 18px; height: 18px; }
 .im-msg__meta .app-wi-pill:hover, .im-msg__meta .app-wi-pill[aria-expanded="true"] { background: var(--im-surface-tint); }
 
+/* While a sheet or dialog is open the page behind it must not scroll. */
+html:has(.app-sheet-open), html:has(.app-modal) { overflow: hidden; }
+
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
 
 /* ---------- Character selector: AI observation + my interpretation, in context ---------- */

@@ -31,6 +31,14 @@ export function App() {
   const go = useCallback((screen: Session["screen"]) => { update({ screen, selected: null }); window.scrollTo({ top: 0 }); }, [update]);
 
   const switchLang = () => setLang(lang === "en" ? "vi" : "en");
+  // Home and Back only navigate: the conversation stays in memory. Only starting a new
+  // one clears it, and an unsaved analysis asks first.
+  const hasSession = !!s.analysis && !!s.transcript;
+  const startNew = () => {
+    if (s.analysis && !s.savedId && !window.confirm(t.mirror.confirmNew)) return;
+    setS({ ...freshSession(), screen: "add" });
+    window.scrollTo({ top: 0 });
+  };
 
   const analyze = useCallback(async () => {
     if (!s.transcript || !s.selfId) return;
@@ -59,7 +67,7 @@ export function App() {
   return (
     <LangContext.Provider value={{ lang, t }}>
       <header className="app-bar">
-        <button className="app-home" onClick={() => { setS(freshSession()); window.scrollTo({ top: 0 }); }} aria-label={t.home}>{t.appName}</button>
+        <button className="app-home" onClick={() => go("landing")} aria-label={t.home}>{t.appName}</button>
         {stepIndex >= 0 && (
           <nav aria-label="Progress" className="app-stepper">
             <ol className="im-stepper">
@@ -79,7 +87,7 @@ export function App() {
         </div>
       </header>
       <main id="main">
-        {s.screen === "landing" && <Landing savedCount={saved.length} onStart={() => go("add")} onMirror={() => go("mirror")} />}
+        {s.screen === "landing" && <Landing savedCount={saved.length} onStart={startNew} onMirror={() => go("mirror")} onContinue={hasSession ? () => go("replay") : undefined} />}
         {s.screen === "add" && <AddConversation update={update} />}
         {s.screen === "review" && s.transcript && <Review s={s} update={update} onAnalyze={analyze} onBack={() => { update({ shots: [], extractNotes: [] }); go("add"); }} />}
         {s.screen === "analyzing" && <Analyzing onCancel={() => abort.current?.abort()} />}
@@ -87,7 +95,7 @@ export function App() {
         {s.screen === "replay" && s.analysis && <Replay s={s} update={update} onContinue={() => go("mirror")} onRestart={() => setS(freshSession())} />}
         {s.screen === "mirror" && (
           <Mirror s={s} update={update} saved={saved} storageOk={storageOk} onSavedChange={refreshSaved}
-            onNew={() => setS({ ...freshSession(), screen: "add" })} onOpenMessage={(id) => update({ screen: "replay", selected: id })} />
+            onNew={startNew} onBack={() => go("replay")} onHome={() => go("landing")} onOpenMessage={(id) => update({ screen: "replay", selected: id })} />
         )}
       </main>
     </LangContext.Provider>

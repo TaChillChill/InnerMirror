@@ -7,6 +7,10 @@
 .app-wi__title:focus { outline: none; }
 .app-wi__intro { color: var(--im-text-muted); }
 
+/* Evidence strip: quiet, no arrow, no border, so it never reads as a third outcome. */
+.app-wi__observed { display: grid; gap: 6px; padding: var(--im-space-3); border-radius: var(--im-radius-md); background: var(--im-surface-sunken); }
+.app-wi__chips { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.app-wi__more-n { font: var(--im-text-caption); color: var(--im-text-muted); }
 .app-wi__card { display: grid; gap: var(--im-space-2); scroll-margin: var(--im-space-6); }
 .app-wi__row { display: grid; gap: var(--im-space-2); padding: var(--im-space-3); border: 1.5px solid var(--im-border); border-radius: var(--im-radius-md); background: var(--im-surface); }
 .app-wi__row.is-whatif { border: 2px dashed var(--im-primary); background: var(--im-surface-tint); }
@@ -50,7 +54,7 @@
 /* A hypothetical pick: neutral and dashed, never the "my reading" style. */
 .app-wi__opt[aria-pressed="true"] { border: 1.5px dashed var(--im-primary); box-shadow: inset 0 0 0 1.5px var(--im-primary); background: var(--im-surface-tint); }
 .app-wi__opt:focus-visible { outline: 2px solid var(--im-focus); outline-offset: 2px; }
-.app-wi__tried-tag { position: absolute; top: 4px; right: 8px; font: 700 0.6875rem/1 var(--im-font); font-style: normal; color: var(--im-primary-ink); }
+.app-wi__tried-tag { justify-self: start; margin-top: 2px; padding: 1px 6px; border: 1px dashed var(--im-primary); border-radius: var(--im-radius-pill); font: 700 0.6875rem/1.3 var(--im-font); font-style: normal; color: var(--im-primary-ink); }
 .app-wi__go { display: grid; gap: var(--im-space-2); justify-items: start; }
 
 .app-wi__tried { display: grid; gap: var(--im-space-2); }

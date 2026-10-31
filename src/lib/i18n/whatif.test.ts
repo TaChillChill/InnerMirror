@@ -36,8 +36,8 @@ test("What if? copy has the same keys in EN and VI and no evaluative wording", (
 });
 
 test("the caveat sits on the What if row in both languages", () => {
-  assert.equal(en.whatIf.caveat, "Possibilities, not predictions.");
-  assert.equal(vi.whatIf.caveat, "Chỉ là khả năng, không phải dự đoán.");
+  assert.equal(en.whatIf.caveat, "One possible interaction, not a prediction.");
+  assert.equal(vi.whatIf.caveat, "Một khả năng tương tác, không phải dự đoán.");
 });
 
 test("brand voice: Replay and What if? say Mirror/Gương, and 'AI' only where it names Meta's model", () => {

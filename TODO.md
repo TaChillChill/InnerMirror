@@ -14,7 +14,7 @@ Session state and next actions. Stable rules live in `CLAUDE.md`. Overwrite this
 - Spend: harness $0.79 + app dev $0.05 + M3 tests ≈ $0.08 (of the $1 M3 allowance) ≈ **$0.92** of $5.
 
 ## Next actions (max 5)
-1. **Founder:** UAT M5 round 2 (`npm run dev`): message panel (desktop right column / mobile sheet), "Your reading" with Mirror vs my choice, What if? comparison card, Mirror/Gương voice. Then decide M5 closure.
+1. **Founder:** UAT M5 round 3 (`npm run dev`): What if? layers (observed strip / what happened / another possibility), My Mirror navigation (Explore another, Back, Home, Continue), collection cards. Then decide M5 closure. If the demo uses an iPhone, run the 7 iOS Safari checks on a real device.
 2. "Your Turn" (pick next state, explore plausible receiver states) deferred; reuse `scenario.ts` and `/api/scenario`.
 3. Before any deploy: wire `ACCESS_CODE` in the UI (analyze, extract, scenario all check it), finalize F6 copy, review D10 resources (Q10).
 4. Bake D12 mascot sizing into `design/brand/mascots/build_variants.py`; VI reader pass on prompt output and UI copy.
@@ -25,7 +25,9 @@ Session state and next actions. Stable rules live in `CLAUDE.md`. Overwrite this
 - D10 safety resources (Q10) still need content review.
 
 ## Last validation result
-2026-10-31 M5 UX revision (Impeccable critique 23/40 → redesign): `npm test` 39/39, lint, typecheck, build, detector clean. Mocked UI e2e passes at 1280, 1000 and 390 px; one live e2e at 1280 px: 2 calls, $0.031 (15 s, 21 s). **M5 live spend total $0.253 of $0.30.** Brand voice: Mirror/Gương in UI; "AI" kept only where it names Meta's model or technical errors.
+2026-10-31 M5 round 3 (Impeccable My Mirror critique 21/40 → fixes): `npm test` 39/39, lint, typecheck, build, detector clean. Mocked acceptance e2e passes at 1280, 1000, 390 px (layers, navigation without re-analysis, confirm on unsaved new, scroll lock behind sheet/dialog, dialog Esc + focus return, card 340 px / 40 px badges). $0 live spend this round (M5 total stays $0.253 of $0.30). Not verified: real iOS Safari. Deferred: 960–1199 px layout (judged readable), sheet drag.
+
+Previous: 2026-10-31 M5 UX revision (Impeccable critique 23/40 → redesign): `npm test` 39/39, lint, typecheck, build, detector clean. Mocked UI e2e passes at 1280, 1000 and 390 px; one live e2e at 1280 px: 2 calls, $0.031 (15 s, 21 s). **M5 live spend total $0.253 of $0.30.** Brand voice: Mirror/Gương in UI; "AI" kept only where it names Meta's model or technical errors.
 
 Previous: 2026-10-31 M5: `npm test` 38/38, lint, typecheck, build clean. Live: 16 scenario calls, **$0.222 of the $0.30 M5 budget** (avg $0.014, median 14 s, range 6–34 s). Browser e2e (live scenario calls, analyze mocked) on 1280 px VI and 390 px EN. Limits: the first possibility is the receiver's own history pattern, so it repeats across explored characters; only the second varies. Not tested: real-app screenshots end to end, iOS Safari.
 
