@@ -1,0 +1,1214 @@
+{
+  "meta": {
+    "spec": "v3-msg",
+    "fixture": "en4-short",
+    "variant": "selfA",
+    "latencyMs": 25170,
+    "usd": 0.02438035,
+    "usage": {
+      "completion_tokens": 5632,
+      "prompt_tokens": 2933,
+      "total_tokens": 8565,
+      "completion_tokens_details": {
+        "reasoning_tokens": 4084
+      },
+      "prompt_tokens_details": {
+        "cached_tokens": 2929
+      }
+    },
+    "finish": "stop"
+  },
+  "raw": {
+    "context": {
+      "dynamics": "Person A sends short prompts asking for more, Person B answers with very brief replies. Prompts are met with shorter answers, then brief reactions follow. The exchange stays minimal and does not develop further.",
+      "register": "No address terms or closeness markers are visible. Wording is very short, casual texting style.",
+      "turns": [
+        {
+          "act": "checks whether a message was seen",
+          "respondsTo": null,
+          "turnId": "t1"
+        },
+        {
+          "act": "confirms briefly that it was seen",
+          "respondsTo": "t1",
+          "turnId": "t2"
+        },
+        {
+          "act": "presses for further response",
+          "respondsTo": "t2",
+          "turnId": "t3"
+        },
+        {
+          "act": "gives minimal acknowledgement",
+          "respondsTo": "t3",
+          "turnId": "t4"
+        },
+        {
+          "act": "reacts briefly to the minimal reply",
+          "respondsTo": "t4",
+          "turnId": "t5"
+        },
+        {
+          "act": "sends a laugh emoji",
+          "respondsTo": "t5",
+          "turnId": "t6"
+        },
+        {
+          "act": "questions the emoji",
+          "respondsTo": "t6",
+          "turnId": "t7"
+        },
+        {
+          "act": "dismisses the question and names tiredness",
+          "respondsTo": "t7",
+          "turnId": "t8"
+        }
+      ]
+    },
+    "safety": {
+      "categories": [],
+      "flagged": false,
+      "note": null
+    },
+    "segments": [
+      {
+        "alternative": null,
+        "confidence": "high",
+        "contextCues": [],
+        "cues": [
+          "did you see my message"
+        ],
+        "expression": "A",
+        "family": "A",
+        "invites": "A",
+        "messageIds": [
+          "m1"
+        ],
+        "rationale": "Can read as a direct here-and-now check for information about whether the message was seen.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t1"
+      },
+      {
+        "alternative": {
+          "expression": "A",
+          "rationale": "Could read as minimal factual confirmation, but a single word is too thin to settle function."
+        },
+        "confidence": "low",
+        "contextCues": [
+          {
+            "messageId": "m1",
+            "quote": "did you see my message"
+          }
+        ],
+        "cues": [],
+        "expression": "UNCLEAR",
+        "family": "UNCLEAR",
+        "invites": "UNCLEAR",
+        "messageIds": [
+          "m2"
+        ],
+        "rationale": "A single word confirming, without enough wording to show what it does beyond answering.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t2"
+      },
+      {
+        "alternative": {
+          "expression": "A",
+          "rationale": "Could read as asking for more information, but a single word is too thin to settle function."
+        },
+        "confidence": "low",
+        "contextCues": [
+          {
+            "messageId": "m2",
+            "quote": "yeah"
+          }
+        ],
+        "cues": [],
+        "expression": "UNCLEAR",
+        "family": "UNCLEAR",
+        "invites": "A",
+        "messageIds": [
+          "m3"
+        ],
+        "rationale": "A single prompt that can read as asking for more, but wording alone does not settle its function.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t3"
+      },
+      {
+        "alternative": {
+          "expression": "AC",
+          "rationale": "Could read as holding back and closing the topic, but a single letter is too thin to decide."
+        },
+        "confidence": "low",
+        "contextCues": [
+          {
+            "messageId": "m3",
+            "quote": "and?"
+          }
+        ],
+        "cues": [],
+        "expression": "UNCLEAR",
+        "family": "UNCLEAR",
+        "invites": "UNCLEAR",
+        "messageIds": [
+          "m4"
+        ],
+        "rationale": "A single letter with no elaboration, too brief to support one functional reading.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t4"
+      },
+      {
+        "alternative": {
+          "expression": "FC",
+          "rationale": "Could read as a spontaneous surprised reaction, but brevity leaves the function unclear."
+        },
+        "confidence": "low",
+        "contextCues": [
+          {
+            "messageId": "m4",
+            "quote": "k"
+          }
+        ],
+        "cues": [
+          "wow ok"
+        ],
+        "expression": "AC",
+        "family": "C",
+        "invites": "UNCLEAR",
+        "messageIds": [
+          "m5"
+        ],
+        "rationale": "Can read as pulling back after the minimal reply, saying little more while marking the short answer.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t5"
+      },
+      {
+        "alternative": {
+          "expression": "FC",
+          "rationale": "Could read as spontaneous amusement, but a lone emoji is too thin to settle function."
+        },
+        "confidence": "low",
+        "contextCues": [
+          {
+            "messageId": "m5",
+            "quote": "wow ok"
+          }
+        ],
+        "cues": [],
+        "expression": "UNCLEAR",
+        "family": "UNCLEAR",
+        "invites": "UNCLEAR",
+        "messageIds": [
+          "m6"
+        ],
+        "rationale": "A lone emoji without words, too brief to support one functional reading.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t6"
+      },
+      {
+        "alternative": {
+          "expression": "A",
+          "rationale": "Could read as asking for clarification, but a single mark is too thin to settle function."
+        },
+        "confidence": "low",
+        "contextCues": [
+          {
+            "messageId": "m6",
+            "quote": "😂"
+          }
+        ],
+        "cues": [],
+        "expression": "UNCLEAR",
+        "family": "UNCLEAR",
+        "invites": "A",
+        "messageIds": [
+          "m7"
+        ],
+        "rationale": "A single question mark that questions the prior message but gives no wording to settle its tone or function.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t7"
+      },
+      {
+        "alternative": {
+          "expression": "FC",
+          "rationale": "Could read as plain naming of being tired, but the dismissing word leaves it unclear."
+        },
+        "confidence": "low",
+        "contextCues": [
+          {
+            "messageId": "m7",
+            "quote": "?"
+          }
+        ],
+        "cues": [
+          "nothing",
+          "just tired"
+        ],
+        "expression": "AC",
+        "family": "C",
+        "invites": "UNCLEAR",
+        "messageIds": [
+          "m8"
+        ],
+        "rationale": "Can read as closing the questioning with 'nothing' while plainly naming tiredness, holding back further detail.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t8"
+      }
+    ],
+    "shifts": [
+      {
+        "cues": [
+          "wow ok"
+        ],
+        "description": "Words shift from asking for content to briefly reacting to the short answer.",
+        "messageId": "m5"
+      },
+      {
+        "cues": [
+          "just tired"
+        ],
+        "description": "Questioning stops and words give a brief closing explanation.",
+        "messageId": "m8"
+      }
+    ],
+    "summary": "Person A asks short checks and prompts, Person B answers with very brief words and an emoji. After minimal replies, Person A reacts briefly and questions, and Person B closes with a reference to being tired. The conversation remains brief throughout without added detail or plans.",
+    "uncertainty": "Text alone cannot show tone of voice, facial expression, history between them, or what the unseen message and tiredness refer to."
+  },
+  "normalized": {
+    "readings": [
+      {
+        "splitReason": null,
+        "cues": [
+          "did you see my message"
+        ],
+        "contextCues": [],
+        "rationale": "Can read as a direct here-and-now check for information about whether the message was seen.",
+        "family": "A",
+        "expression": "A",
+        "confidence": "high",
+        "alternative": null,
+        "invites": "A",
+        "secondLayer": null,
+        "messageId": "m1",
+        "segmentId": "s1"
+      },
+      {
+        "splitReason": null,
+        "cues": [],
+        "contextCues": [
+          {
+            "messageId": "m1",
+            "quote": "did you see my message"
+          }
+        ],
+        "rationale": "A single word confirming, without enough wording to show what it does beyond answering.",
+        "family": "UNCLEAR",
+        "expression": "UNCLEAR",
+        "confidence": "low",
+        "alternative": {
+          "expression": "A",
+          "rationale": "Could read as minimal factual confirmation, but a single word is too thin to settle function."
+        },
+        "invites": "UNCLEAR",
+        "secondLayer": null,
+        "messageId": "m2",
+        "segmentId": "s2"
+      },
+      {
+        "splitReason": null,
+        "cues": [],
+        "contextCues": [
+          {
+            "messageId": "m2",
+            "quote": "yeah"
+          }
+        ],
+        "rationale": "A single prompt that can read as asking for more, but wording alone does not settle its function.",
+        "family": "UNCLEAR",
+        "expression": "UNCLEAR",
+        "confidence": "low",
+        "alternative": {
+          "expression": "A",
+          "rationale": "Could read as asking for more information, but a single word is too thin to settle function."
+        },
+        "invites": "A",
+        "secondLayer": null,
+        "messageId": "m3",
+        "segmentId": "s3"
+      },
+      {
+        "splitReason": null,
+        "cues": [],
+        "contextCues": [
+          {
+            "messageId": "m3",
+            "quote": "and?"
+          }
+        ],
+        "rationale": "A single letter with no elaboration, too brief to support one functional reading.",
+        "family": "UNCLEAR",
+        "expression": "UNCLEAR",
+        "confidence": "low",
+        "alternative": {
+          "expression": "AC",
+          "rationale": "Could read as holding back and closing the topic, but a single letter is too thin to decide."
+        },
+        "invites": "UNCLEAR",
+        "secondLayer": null,
+        "messageId": "m4",
+        "segmentId": "s4"
+      },
+      {
+        "splitReason": null,
+        "cues": [
+          "wow ok"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m4",
+            "quote": "k"
+          }
+        ],
+        "rationale": "Can read as pulling back after the minimal reply, saying little more while marking the short answer.",
+        "family": "C",
+        "expression": "AC",
+        "confidence": "low",
+        "alternative": {
+          "expression": "FC",
+          "rationale": "Could read as a spontaneous surprised reaction, but brevity leaves the function unclear."
+        },
+        "invites": "UNCLEAR",
+        "secondLayer": null,
+        "messageId": "m5",
+        "segmentId": "s5"
+      },
+      {
+        "splitReason": null,
+        "cues": [],
+        "contextCues": [
+          {
+            "messageId": "m5",
+            "quote": "wow ok"
+          }
+        ],
+        "rationale": "A lone emoji without words, too brief to support one functional reading.",
+        "family": "UNCLEAR",
+        "expression": "UNCLEAR",
+        "confidence": "low",
+        "alternative": {
+          "expression": "FC",
+          "rationale": "Could read as spontaneous amusement, but a lone emoji is too thin to settle function."
+        },
+        "invites": "UNCLEAR",
+        "secondLayer": null,
+        "messageId": "m6",
+        "segmentId": "s6"
+      },
+      {
+        "splitReason": null,
+        "cues": [],
+        "contextCues": [
+          {
+            "messageId": "m6",
+            "quote": "😂"
+          }
+        ],
+        "rationale": "A single question mark that questions the prior message but gives no wording to settle its tone or function.",
+        "family": "UNCLEAR",
+        "expression": "UNCLEAR",
+        "confidence": "low",
+        "alternative": {
+          "expression": "A",
+          "rationale": "Could read as asking for clarification, but a single mark is too thin to settle function."
+        },
+        "invites": "A",
+        "secondLayer": null,
+        "messageId": "m7",
+        "segmentId": "s7"
+      },
+      {
+        "splitReason": null,
+        "cues": [
+          "nothing",
+          "just tired"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m7",
+            "quote": "?"
+          }
+        ],
+        "rationale": "Can read as closing the questioning with 'nothing' while plainly naming tiredness, holding back further detail.",
+        "family": "C",
+        "expression": "AC",
+        "confidence": "low",
+        "alternative": {
+          "expression": "FC",
+          "rationale": "Could read as plain naming of being tired, but the dismissing word leaves it unclear."
+        },
+        "invites": "UNCLEAR",
+        "secondLayer": null,
+        "messageId": "m8",
+        "segmentId": "s8"
+      }
+    ],
+    "segments": [
+      {
+        "turnId": "t1",
+        "messageIds": [
+          "m1"
+        ],
+        "splitReason": null,
+        "cues": [
+          "did you see my message"
+        ],
+        "contextCues": [],
+        "rationale": "Can read as a direct here-and-now check for information about whether the message was seen.",
+        "family": "A",
+        "expression": "A",
+        "confidence": "high",
+        "alternative": null,
+        "invites": "A",
+        "secondLayer": null,
+        "id": "s1"
+      },
+      {
+        "turnId": "t2",
+        "messageIds": [
+          "m2"
+        ],
+        "splitReason": null,
+        "cues": [],
+        "contextCues": [
+          {
+            "messageId": "m1",
+            "quote": "did you see my message"
+          }
+        ],
+        "rationale": "A single word confirming, without enough wording to show what it does beyond answering.",
+        "family": "UNCLEAR",
+        "expression": "UNCLEAR",
+        "confidence": "low",
+        "alternative": {
+          "expression": "A",
+          "rationale": "Could read as minimal factual confirmation, but a single word is too thin to settle function."
+        },
+        "invites": "UNCLEAR",
+        "secondLayer": null,
+        "id": "s2"
+      },
+      {
+        "turnId": "t3",
+        "messageIds": [
+          "m3"
+        ],
+        "splitReason": null,
+        "cues": [],
+        "contextCues": [
+          {
+            "messageId": "m2",
+            "quote": "yeah"
+          }
+        ],
+        "rationale": "A single prompt that can read as asking for more, but wording alone does not settle its function.",
+        "family": "UNCLEAR",
+        "expression": "UNCLEAR",
+        "confidence": "low",
+        "alternative": {
+          "expression": "A",
+          "rationale": "Could read as asking for more information, but a single word is too thin to settle function."
+        },
+        "invites": "A",
+        "secondLayer": null,
+        "id": "s3"
+      },
+      {
+        "turnId": "t4",
+        "messageIds": [
+          "m4"
+        ],
+        "splitReason": null,
+        "cues": [],
+        "contextCues": [
+          {
+            "messageId": "m3",
+            "quote": "and?"
+          }
+        ],
+        "rationale": "A single letter with no elaboration, too brief to support one functional reading.",
+        "family": "UNCLEAR",
+        "expression": "UNCLEAR",
+        "confidence": "low",
+        "alternative": {
+          "expression": "AC",
+          "rationale": "Could read as holding back and closing the topic, but a single letter is too thin to decide."
+        },
+        "invites": "UNCLEAR",
+        "secondLayer": null,
+        "id": "s4"
+      },
+      {
+        "turnId": "t5",
+        "messageIds": [
+          "m5"
+        ],
+        "splitReason": null,
+        "cues": [
+          "wow ok"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m4",
+            "quote": "k"
+          }
+        ],
+        "rationale": "Can read as pulling back after the minimal reply, saying little more while marking the short answer.",
+        "family": "C",
+        "expression": "AC",
+        "confidence": "low",
+        "alternative": {
+          "expression": "FC",
+          "rationale": "Could read as a spontaneous surprised reaction, but brevity leaves the function unclear."
+        },
+        "invites": "UNCLEAR",
+        "secondLayer": null,
+        "id": "s5"
+      },
+      {
+        "turnId": "t6",
+        "messageIds": [
+          "m6"
+        ],
+        "splitReason": null,
+        "cues": [],
+        "contextCues": [
+          {
+            "messageId": "m5",
+            "quote": "wow ok"
+          }
+        ],
+        "rationale": "A lone emoji without words, too brief to support one functional reading.",
+        "family": "UNCLEAR",
+        "expression": "UNCLEAR",
+        "confidence": "low",
+        "alternative": {
+          "expression": "FC",
+          "rationale": "Could read as spontaneous amusement, but a lone emoji is too thin to settle function."
+        },
+        "invites": "UNCLEAR",
+        "secondLayer": null,
+        "id": "s6"
+      },
+      {
+        "turnId": "t7",
+        "messageIds": [
+          "m7"
+        ],
+        "splitReason": null,
+        "cues": [],
+        "contextCues": [
+          {
+            "messageId": "m6",
+            "quote": "😂"
+          }
+        ],
+        "rationale": "A single question mark that questions the prior message but gives no wording to settle its tone or function.",
+        "family": "UNCLEAR",
+        "expression": "UNCLEAR",
+        "confidence": "low",
+        "alternative": {
+          "expression": "A",
+          "rationale": "Could read as asking for clarification, but a single mark is too thin to settle function."
+        },
+        "invites": "A",
+        "secondLayer": null,
+        "id": "s7"
+      },
+      {
+        "turnId": "t8",
+        "messageIds": [
+          "m8"
+        ],
+        "splitReason": null,
+        "cues": [
+          "nothing",
+          "just tired"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m7",
+            "quote": "?"
+          }
+        ],
+        "rationale": "Can read as closing the questioning with 'nothing' while plainly naming tiredness, holding back further detail.",
+        "family": "C",
+        "expression": "AC",
+        "confidence": "low",
+        "alternative": {
+          "expression": "FC",
+          "rationale": "Could read as plain naming of being tired, but the dismissing word leaves it unclear."
+        },
+        "invites": "UNCLEAR",
+        "secondLayer": null,
+        "id": "s8"
+      }
+    ],
+    "analysis": {
+      "context": {
+        "register": "No address terms or closeness markers are visible. Wording is very short, casual texting style.",
+        "turns": [
+          {
+            "turnId": "t1",
+            "act": "checks whether a message was seen",
+            "respondsTo": null
+          },
+          {
+            "turnId": "t2",
+            "act": "confirms briefly that it was seen",
+            "respondsTo": "t1"
+          },
+          {
+            "turnId": "t3",
+            "act": "presses for further response",
+            "respondsTo": "t2"
+          },
+          {
+            "turnId": "t4",
+            "act": "gives minimal acknowledgement",
+            "respondsTo": "t3"
+          },
+          {
+            "turnId": "t5",
+            "act": "reacts briefly to the minimal reply",
+            "respondsTo": "t4"
+          },
+          {
+            "turnId": "t6",
+            "act": "sends a laugh emoji",
+            "respondsTo": "t5"
+          },
+          {
+            "turnId": "t7",
+            "act": "questions the emoji",
+            "respondsTo": "t6"
+          },
+          {
+            "turnId": "t8",
+            "act": "dismisses the question and names tiredness",
+            "respondsTo": "t7"
+          }
+        ],
+        "dynamics": "Person A sends short prompts asking for more, Person B answers with very brief replies. Prompts are met with shorter answers, then brief reactions follow. The exchange stays minimal and does not develop further."
+      },
+      "segments": [
+        {
+          "turnId": "t1",
+          "messageIds": [
+            "m1"
+          ],
+          "splitReason": null,
+          "cues": [
+            "did you see my message"
+          ],
+          "contextCues": [],
+          "rationale": "Can read as a direct here-and-now check for information about whether the message was seen.",
+          "family": "A",
+          "expression": "A",
+          "confidence": "high",
+          "alternative": null,
+          "invites": "A",
+          "secondLayer": null,
+          "id": "s1"
+        },
+        {
+          "turnId": "t2",
+          "messageIds": [
+            "m2"
+          ],
+          "splitReason": null,
+          "cues": [],
+          "contextCues": [
+            {
+              "messageId": "m1",
+              "quote": "did you see my message"
+            }
+          ],
+          "rationale": "A single word confirming, without enough wording to show what it does beyond answering.",
+          "family": "UNCLEAR",
+          "expression": "UNCLEAR",
+          "confidence": "low",
+          "alternative": {
+            "expression": "A",
+            "rationale": "Could read as minimal factual confirmation, but a single word is too thin to settle function."
+          },
+          "invites": "UNCLEAR",
+          "secondLayer": null,
+          "id": "s2"
+        },
+        {
+          "turnId": "t3",
+          "messageIds": [
+            "m3"
+          ],
+          "splitReason": null,
+          "cues": [],
+          "contextCues": [
+            {
+              "messageId": "m2",
+              "quote": "yeah"
+            }
+          ],
+          "rationale": "A single prompt that can read as asking for more, but wording alone does not settle its function.",
+          "family": "UNCLEAR",
+          "expression": "UNCLEAR",
+          "confidence": "low",
+          "alternative": {
+            "expression": "A",
+            "rationale": "Could read as asking for more information, but a single word is too thin to settle function."
+          },
+          "invites": "A",
+          "secondLayer": null,
+          "id": "s3"
+        },
+        {
+          "turnId": "t4",
+          "messageIds": [
+            "m4"
+          ],
+          "splitReason": null,
+          "cues": [],
+          "contextCues": [
+            {
+              "messageId": "m3",
+              "quote": "and?"
+            }
+          ],
+          "rationale": "A single letter with no elaboration, too brief to support one functional reading.",
+          "family": "UNCLEAR",
+          "expression": "UNCLEAR",
+          "confidence": "low",
+          "alternative": {
+            "expression": "AC",
+            "rationale": "Could read as holding back and closing the topic, but a single letter is too thin to decide."
+          },
+          "invites": "UNCLEAR",
+          "secondLayer": null,
+          "id": "s4"
+        },
+        {
+          "turnId": "t5",
+          "messageIds": [
+            "m5"
+          ],
+          "splitReason": null,
+          "cues": [
+            "wow ok"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m4",
+              "quote": "k"
+            }
+          ],
+          "rationale": "Can read as pulling back after the minimal reply, saying little more while marking the short answer.",
+          "family": "C",
+          "expression": "AC",
+          "confidence": "low",
+          "alternative": {
+            "expression": "FC",
+            "rationale": "Could read as a spontaneous surprised reaction, but brevity leaves the function unclear."
+          },
+          "invites": "UNCLEAR",
+          "secondLayer": null,
+          "id": "s5"
+        },
+        {
+          "turnId": "t6",
+          "messageIds": [
+            "m6"
+          ],
+          "splitReason": null,
+          "cues": [],
+          "contextCues": [
+            {
+              "messageId": "m5",
+              "quote": "wow ok"
+            }
+          ],
+          "rationale": "A lone emoji without words, too brief to support one functional reading.",
+          "family": "UNCLEAR",
+          "expression": "UNCLEAR",
+          "confidence": "low",
+          "alternative": {
+            "expression": "FC",
+            "rationale": "Could read as spontaneous amusement, but a lone emoji is too thin to settle function."
+          },
+          "invites": "UNCLEAR",
+          "secondLayer": null,
+          "id": "s6"
+        },
+        {
+          "turnId": "t7",
+          "messageIds": [
+            "m7"
+          ],
+          "splitReason": null,
+          "cues": [],
+          "contextCues": [
+            {
+              "messageId": "m6",
+              "quote": "😂"
+            }
+          ],
+          "rationale": "A single question mark that questions the prior message but gives no wording to settle its tone or function.",
+          "family": "UNCLEAR",
+          "expression": "UNCLEAR",
+          "confidence": "low",
+          "alternative": {
+            "expression": "A",
+            "rationale": "Could read as asking for clarification, but a single mark is too thin to settle function."
+          },
+          "invites": "A",
+          "secondLayer": null,
+          "id": "s7"
+        },
+        {
+          "turnId": "t8",
+          "messageIds": [
+            "m8"
+          ],
+          "splitReason": null,
+          "cues": [
+            "nothing",
+            "just tired"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m7",
+              "quote": "?"
+            }
+          ],
+          "rationale": "Can read as closing the questioning with 'nothing' while plainly naming tiredness, holding back further detail.",
+          "family": "C",
+          "expression": "AC",
+          "confidence": "low",
+          "alternative": {
+            "expression": "FC",
+            "rationale": "Could read as plain naming of being tired, but the dismissing word leaves it unclear."
+          },
+          "invites": "UNCLEAR",
+          "secondLayer": null,
+          "id": "s8"
+        }
+      ],
+      "shifts": [
+        {
+          "messageId": "m5",
+          "description": "Words shift from asking for content to briefly reacting to the short answer.",
+          "cues": [
+            "wow ok"
+          ]
+        },
+        {
+          "messageId": "m8",
+          "description": "Questioning stops and words give a brief closing explanation.",
+          "cues": [
+            "just tired"
+          ]
+        }
+      ],
+      "summary": "Person A asks short checks and prompts, Person B answers with very brief words and an emoji. After minimal replies, Person A reacts briefly and questions, and Person B closes with a reference to being tired. The conversation remains brief throughout without added detail or plans.",
+      "uncertainty": "Text alone cannot show tone of voice, facial expression, history between them, or what the unseen message and tiredness refer to.",
+      "safety": {
+        "flagged": false,
+        "categories": [],
+        "note": null
+      },
+      "readings": [
+        {
+          "splitReason": null,
+          "cues": [
+            "did you see my message"
+          ],
+          "contextCues": [],
+          "rationale": "Can read as a direct here-and-now check for information about whether the message was seen.",
+          "family": "A",
+          "expression": "A",
+          "confidence": "high",
+          "alternative": null,
+          "invites": "A",
+          "secondLayer": null,
+          "messageId": "m1",
+          "segmentId": "s1"
+        },
+        {
+          "splitReason": null,
+          "cues": [],
+          "contextCues": [
+            {
+              "messageId": "m1",
+              "quote": "did you see my message"
+            }
+          ],
+          "rationale": "A single word confirming, without enough wording to show what it does beyond answering.",
+          "family": "UNCLEAR",
+          "expression": "UNCLEAR",
+          "confidence": "low",
+          "alternative": {
+            "expression": "A",
+            "rationale": "Could read as minimal factual confirmation, but a single word is too thin to settle function."
+          },
+          "invites": "UNCLEAR",
+          "secondLayer": null,
+          "messageId": "m2",
+          "segmentId": "s2"
+        },
+        {
+          "splitReason": null,
+          "cues": [],
+          "contextCues": [
+            {
+              "messageId": "m2",
+              "quote": "yeah"
+            }
+          ],
+          "rationale": "A single prompt that can read as asking for more, but wording alone does not settle its function.",
+          "family": "UNCLEAR",
+          "expression": "UNCLEAR",
+          "confidence": "low",
+          "alternative": {
+            "expression": "A",
+            "rationale": "Could read as asking for more information, but a single word is too thin to settle function."
+          },
+          "invites": "A",
+          "secondLayer": null,
+          "messageId": "m3",
+          "segmentId": "s3"
+        },
+        {
+          "splitReason": null,
+          "cues": [],
+          "contextCues": [
+            {
+              "messageId": "m3",
+              "quote": "and?"
+            }
+          ],
+          "rationale": "A single letter with no elaboration, too brief to support one functional reading.",
+          "family": "UNCLEAR",
+          "expression": "UNCLEAR",
+          "confidence": "low",
+          "alternative": {
+            "expression": "AC",
+            "rationale": "Could read as holding back and closing the topic, but a single letter is too thin to decide."
+          },
+          "invites": "UNCLEAR",
+          "secondLayer": null,
+          "messageId": "m4",
+          "segmentId": "s4"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "wow ok"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m4",
+              "quote": "k"
+            }
+          ],
+          "rationale": "Can read as pulling back after the minimal reply, saying little more while marking the short answer.",
+          "family": "C",
+          "expression": "AC",
+          "confidence": "low",
+          "alternative": {
+            "expression": "FC",
+            "rationale": "Could read as a spontaneous surprised reaction, but brevity leaves the function unclear."
+          },
+          "invites": "UNCLEAR",
+          "secondLayer": null,
+          "messageId": "m5",
+          "segmentId": "s5"
+        },
+        {
+          "splitReason": null,
+          "cues": [],
+          "contextCues": [
+            {
+              "messageId": "m5",
+              "quote": "wow ok"
+            }
+          ],
+          "rationale": "A lone emoji without words, too brief to support one functional reading.",
+          "family": "UNCLEAR",
+          "expression": "UNCLEAR",
+          "confidence": "low",
+          "alternative": {
+            "expression": "FC",
+            "rationale": "Could read as spontaneous amusement, but a lone emoji is too thin to settle function."
+          },
+          "invites": "UNCLEAR",
+          "secondLayer": null,
+          "messageId": "m6",
+          "segmentId": "s6"
+        },
+        {
+          "splitReason": null,
+          "cues": [],
+          "contextCues": [
+            {
+              "messageId": "m6",
+              "quote": "😂"
+            }
+          ],
+          "rationale": "A single question mark that questions the prior message but gives no wording to settle its tone or function.",
+          "family": "UNCLEAR",
+          "expression": "UNCLEAR",
+          "confidence": "low",
+          "alternative": {
+            "expression": "A",
+            "rationale": "Could read as asking for clarification, but a single mark is too thin to settle function."
+          },
+          "invites": "A",
+          "secondLayer": null,
+          "messageId": "m7",
+          "segmentId": "s7"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "nothing",
+            "just tired"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m7",
+              "quote": "?"
+            }
+          ],
+          "rationale": "Can read as closing the questioning with 'nothing' while plainly naming tiredness, holding back further detail.",
+          "family": "C",
+          "expression": "AC",
+          "confidence": "low",
+          "alternative": {
+            "expression": "FC",
+            "rationale": "Could read as plain naming of being tired, but the dismissing word leaves it unclear."
+          },
+          "invites": "UNCLEAR",
+          "secondLayer": null,
+          "messageId": "m8",
+          "segmentId": "s8"
+        }
+      ]
+    }
+  },
+  "score": {
+    "per": [
+      {
+        "id": "m1",
+        "expr": "A",
+        "family": "A",
+        "conf": "high",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m2",
+        "expr": "UNCLEAR",
+        "family": "UNCLEAR",
+        "conf": "low",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m3",
+        "expr": "UNCLEAR",
+        "family": "UNCLEAR",
+        "conf": "low",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m4",
+        "expr": "UNCLEAR",
+        "family": "UNCLEAR",
+        "conf": "low",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m5",
+        "expr": "AC",
+        "family": "C",
+        "conf": "low",
+        "acc": false,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m6",
+        "expr": "UNCLEAR",
+        "family": "UNCLEAR",
+        "conf": "low",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m7",
+        "expr": "UNCLEAR",
+        "family": "UNCLEAR",
+        "conf": "low",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m8",
+        "expr": "AC",
+        "family": "C",
+        "conf": "low",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      }
+    ],
+    "n": 8,
+    "accOk": 7,
+    "hardFails": [],
+    "overCeiling": [],
+    "highOnReview": 0,
+    "altMissing": 0,
+    "unclear": 5,
+    "high": 1
+  }
+}

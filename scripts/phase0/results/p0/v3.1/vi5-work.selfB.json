@@ -1,0 +1,998 @@
+{
+  "meta": {
+    "spec": "v3",
+    "fixture": "vi5-work",
+    "variant": "selfB",
+    "latencyMs": 26667,
+    "usd": 0.026193849999999998,
+    "usage": {
+      "completion_tokens": 6049,
+      "prompt_tokens": 2966,
+      "total_tokens": 9015,
+      "completion_tokens_details": {
+        "reasoning_tokens": 4196
+      },
+      "prompt_tokens_details": {
+        "cached_tokens": 2929
+      }
+    },
+    "finish": "stop"
+  },
+  "raw": {
+    "context": {
+      "dynamics": "Người B báo việc trễ, Người A nhận một phần và chia lại việc. Người B nói không làm được và nhờ làm giúp, Người A đưa hướng dẫn. Cuối cùng Người B xin lỗi và hứa rút kinh nghiệm, Người A đáp ngắn và hẹn xem sau.",
+      "register": "Cách gọi \"anh / em\" cùng \"Dạ\" và \"ạ\" cho thấy quan hệ quen và có sự lễ phép, có thể là chênh về tuổi hoặc vai trò.",
+      "turns": [
+        {
+          "act": "báo deadline gần và việc còn dở",
+          "respondsTo": null,
+          "turnId": "t1"
+        },
+        {
+          "act": "nhận một phần việc và chia phần còn lại",
+          "respondsTo": "t1",
+          "turnId": "t2"
+        },
+        {
+          "act": "nói không làm được và nhờ làm giúp",
+          "respondsTo": "t2",
+          "turnId": "t3"
+        },
+        {
+          "act": "đưa hướng dẫn cách làm nhanh",
+          "respondsTo": "t3",
+          "turnId": "t4"
+        },
+        {
+          "act": "xin lỗi vì báo muộn và hứa rút kinh nghiệm",
+          "respondsTo": "t4",
+          "turnId": "t5"
+        },
+        {
+          "act": "xác nhận ngắn và hẹn xem xét sau",
+          "respondsTo": "t5",
+          "turnId": "t6"
+        }
+      ]
+    },
+    "safety": {
+      "categories": [],
+      "flagged": false,
+      "note": null
+    },
+    "segments": [
+      {
+        "alternative": {
+          "expression": "AC",
+          "rationale": "Cũng có thể đọc là lời nói theo mong đợi để được giúp, vì có tiếng gọi và báo việc dở."
+        },
+        "confidence": "medium",
+        "contextCues": [],
+        "cues": [
+          "Anh ơi",
+          "còn 3 phần chưa xong 😩"
+        ],
+        "expression": "FC",
+        "family": "C",
+        "invites": "P",
+        "messageIds": [
+          "m1"
+        ],
+        "rationale": "Câu này báo việc còn dở kèm emoji mệt. Nghe như nói thẳng cảm giác lúc đó, chưa xin gì cụ thể.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t1"
+      },
+      {
+        "alternative": {
+          "expression": "A",
+          "rationale": "Cũng có thể đọc là đưa kế hoạch phân việc, vì có chia ai làm phần nào."
+        },
+        "confidence": "medium",
+        "contextCues": [
+          {
+            "messageId": "m1",
+            "quote": "mai deadline mà em còn 3 phần chưa xong 😩"
+          }
+        ],
+        "cues": [
+          "để anh lo phần slide",
+          "em làm nốt số liệu nhé"
+        ],
+        "expression": "NP",
+        "family": "P",
+        "invites": "C",
+        "messageIds": [
+          "m2"
+        ],
+        "rationale": "Cụm \"để anh lo\" nghe như nhận việc về mình cho đỡ. Phần sau chia việc lại bằng giọng nhẹ. Nghe như lo nhiều hơn là ép.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t2"
+      },
+      {
+        "alternative": null,
+        "confidence": "high",
+        "contextCues": [
+          {
+            "messageId": "m2",
+            "quote": "Thôi để anh lo phần slide, em làm nốt số liệu nhé."
+          }
+        ],
+        "cues": [
+          "Em chịu rồi",
+          "anh làm giúp em với"
+        ],
+        "expression": "AC",
+        "family": "C",
+        "invites": "P",
+        "messageIds": [
+          "m3"
+        ],
+        "rationale": "Câu \"Em chịu rồi\" và \"không biết làm sao nữa\" nói rõ là không làm được. Kèm lời nhờ làm giúp. Nghe như buông phần việc và nhờ cậy.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t3"
+      },
+      {
+        "alternative": {
+          "expression": "A",
+          "rationale": "Cũng có thể đọc là đưa thông tin thực tế về cách lọc và tổng hợp."
+        },
+        "confidence": "low",
+        "contextCues": [
+          {
+            "messageId": "m3",
+            "quote": "phần số liệu em không biết làm sao nữa, anh làm giúp em với."
+          }
+        ],
+        "cues": [
+          "thử lọc theo tháng trước",
+          "dùng bảng tổng hợp là ra"
+        ],
+        "expression": "CP",
+        "family": "P",
+        "invites": "C",
+        "messageIds": [
+          "m4"
+        ],
+        "rationale": "Câu này đưa một cách làm có sẵn mà không hỏi thêm. Nghe như chốt nhanh bằng hướng dẫn, sau lời nhờ giúp.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t4"
+      },
+      {
+        "alternative": null,
+        "confidence": "high",
+        "contextCues": [
+          {
+            "messageId": "m4",
+            "quote": "Em thử lọc theo tháng trước, rồi dùng bảng tổng hợp là ra."
+          }
+        ],
+        "cues": [
+          "Em xin lỗi vì báo muộn",
+          "em sẽ rút kinh nghiệm ạ"
+        ],
+        "expression": "AC",
+        "family": "C",
+        "invites": "P",
+        "messageIds": [
+          "m5"
+        ],
+        "rationale": "Câu này xin lỗi và tự nhận báo muộn. Kèm lời hứa rút kinh nghiệm. Nghe như nhận lỗi và làm hòa.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t5"
+      },
+      {
+        "alternative": {
+          "expression": "AC",
+          "rationale": "Cũng có thể đọc là giữ khoảng cách và rút lại, vì lời đáp rất ngắn sau lời xin lỗi."
+        },
+        "confidence": "low",
+        "contextCues": [
+          {
+            "messageId": "m5",
+            "quote": "Em xin lỗi vì báo muộn, lẽ ra em phải nói từ tuần trước, em sẽ rút kinh nghiệm ạ."
+          }
+        ],
+        "cues": [
+          "Đã nhận.",
+          "Sẽ xem xét sau."
+        ],
+        "expression": "A",
+        "family": "A",
+        "invites": "UNCLEAR",
+        "messageIds": [
+          "m6"
+        ],
+        "rationale": "Câu này chỉ báo đã nhận và hẹn xem sau. Ngắn, không có lời đánh giá hay an ủi. Nghe như nói việc thực tế.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t6"
+      }
+    ],
+    "shifts": [
+      {
+        "cues": [
+          "Em chịu rồi",
+          "anh làm giúp em với"
+        ],
+        "description": "Lời nói đổi từ chia việc sang nói không làm được và nhờ làm giúp.",
+        "messageId": "m3"
+      },
+      {
+        "cues": [
+          "Em xin lỗi vì báo muộn",
+          "em sẽ rút kinh nghiệm ạ"
+        ],
+        "description": "Lời nói đổi từ bàn cách làm sang xin lỗi và hứa rút kinh nghiệm.",
+        "messageId": "m5"
+      },
+      {
+        "cues": [
+          "Đã nhận.",
+          "Sẽ xem xét sau."
+        ],
+        "description": "Lời nói đổi từ xin lỗi dài sang xác nhận ngắn và hẹn lại sau.",
+        "messageId": "m6"
+      }
+    ],
+    "summary": "Cuộc trao đổi đi từ báo việc gấp sang chia việc, rồi sang nhờ làm giúp và hướng dẫn. Cuối cùng chuyển sang xin lỗi và chốt ngắn. Ai cũng giữ lời lẽ lịch sự, nhưng lời đáp ngắn dần về cuối.",
+    "uncertainty": "Chỉ có chữ viết nên không rõ giọng, nét mặt và lịch sử trước đó. Cũng không rõ mức độ gấp thật của việc và cách hai người vẫn hay nói với nhau."
+  },
+  "normalized": {
+    "readings": [
+      {
+        "splitReason": null,
+        "cues": [
+          "Anh ơi",
+          "còn 3 phần chưa xong 😩"
+        ],
+        "contextCues": [],
+        "rationale": "Câu này báo việc còn dở kèm emoji mệt. Nghe như nói thẳng cảm giác lúc đó, chưa xin gì cụ thể.",
+        "family": "C",
+        "expression": "FC",
+        "confidence": "medium",
+        "alternative": {
+          "expression": "AC",
+          "rationale": "Cũng có thể đọc là lời nói theo mong đợi để được giúp, vì có tiếng gọi và báo việc dở."
+        },
+        "invites": "P",
+        "secondLayer": null,
+        "messageId": "m1",
+        "segmentId": "s1"
+      },
+      {
+        "splitReason": null,
+        "cues": [
+          "để anh lo phần slide",
+          "em làm nốt số liệu nhé"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m1",
+            "quote": "mai deadline mà em còn 3 phần chưa xong 😩"
+          }
+        ],
+        "rationale": "Cụm \"để anh lo\" nghe như nhận việc về mình cho đỡ. Phần sau chia việc lại bằng giọng nhẹ. Nghe như lo nhiều hơn là ép.",
+        "family": "P",
+        "expression": "NP",
+        "confidence": "medium",
+        "alternative": {
+          "expression": "A",
+          "rationale": "Cũng có thể đọc là đưa kế hoạch phân việc, vì có chia ai làm phần nào."
+        },
+        "invites": "C",
+        "secondLayer": null,
+        "messageId": "m2",
+        "segmentId": "s2"
+      },
+      {
+        "splitReason": null,
+        "cues": [
+          "Em chịu rồi",
+          "anh làm giúp em với"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m2",
+            "quote": "Thôi để anh lo phần slide, em làm nốt số liệu nhé."
+          }
+        ],
+        "rationale": "Câu \"Em chịu rồi\" và \"không biết làm sao nữa\" nói rõ là không làm được. Kèm lời nhờ làm giúp. Nghe như buông phần việc và nhờ cậy.",
+        "family": "C",
+        "expression": "AC",
+        "confidence": "high",
+        "alternative": null,
+        "invites": "P",
+        "secondLayer": null,
+        "messageId": "m3",
+        "segmentId": "s3"
+      },
+      {
+        "splitReason": null,
+        "cues": [
+          "thử lọc theo tháng trước",
+          "dùng bảng tổng hợp là ra"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m3",
+            "quote": "phần số liệu em không biết làm sao nữa, anh làm giúp em với."
+          }
+        ],
+        "rationale": "Câu này đưa một cách làm có sẵn mà không hỏi thêm. Nghe như chốt nhanh bằng hướng dẫn, sau lời nhờ giúp.",
+        "family": "P",
+        "expression": "CP",
+        "confidence": "low",
+        "alternative": {
+          "expression": "A",
+          "rationale": "Cũng có thể đọc là đưa thông tin thực tế về cách lọc và tổng hợp."
+        },
+        "invites": "C",
+        "secondLayer": null,
+        "messageId": "m4",
+        "segmentId": "s4"
+      },
+      {
+        "splitReason": null,
+        "cues": [
+          "Em xin lỗi vì báo muộn",
+          "em sẽ rút kinh nghiệm ạ"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m4",
+            "quote": "Em thử lọc theo tháng trước, rồi dùng bảng tổng hợp là ra."
+          }
+        ],
+        "rationale": "Câu này xin lỗi và tự nhận báo muộn. Kèm lời hứa rút kinh nghiệm. Nghe như nhận lỗi và làm hòa.",
+        "family": "C",
+        "expression": "AC",
+        "confidence": "high",
+        "alternative": null,
+        "invites": "P",
+        "secondLayer": null,
+        "messageId": "m5",
+        "segmentId": "s5"
+      },
+      {
+        "splitReason": null,
+        "cues": [
+          "Đã nhận.",
+          "Sẽ xem xét sau."
+        ],
+        "contextCues": [
+          {
+            "messageId": "m5",
+            "quote": "Em xin lỗi vì báo muộn, lẽ ra em phải nói từ tuần trước, em sẽ rút kinh nghiệm ạ."
+          }
+        ],
+        "rationale": "Câu này chỉ báo đã nhận và hẹn xem sau. Ngắn, không có lời đánh giá hay an ủi. Nghe như nói việc thực tế.",
+        "family": "A",
+        "expression": "A",
+        "confidence": "low",
+        "alternative": {
+          "expression": "AC",
+          "rationale": "Cũng có thể đọc là giữ khoảng cách và rút lại, vì lời đáp rất ngắn sau lời xin lỗi."
+        },
+        "invites": "UNCLEAR",
+        "secondLayer": null,
+        "messageId": "m6",
+        "segmentId": "s6"
+      }
+    ],
+    "segments": [
+      {
+        "turnId": "t1",
+        "messageIds": [
+          "m1"
+        ],
+        "splitReason": null,
+        "cues": [
+          "Anh ơi",
+          "còn 3 phần chưa xong 😩"
+        ],
+        "contextCues": [],
+        "rationale": "Câu này báo việc còn dở kèm emoji mệt. Nghe như nói thẳng cảm giác lúc đó, chưa xin gì cụ thể.",
+        "family": "C",
+        "expression": "FC",
+        "confidence": "medium",
+        "alternative": {
+          "expression": "AC",
+          "rationale": "Cũng có thể đọc là lời nói theo mong đợi để được giúp, vì có tiếng gọi và báo việc dở."
+        },
+        "invites": "P",
+        "secondLayer": null,
+        "id": "s1"
+      },
+      {
+        "turnId": "t2",
+        "messageIds": [
+          "m2"
+        ],
+        "splitReason": null,
+        "cues": [
+          "để anh lo phần slide",
+          "em làm nốt số liệu nhé"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m1",
+            "quote": "mai deadline mà em còn 3 phần chưa xong 😩"
+          }
+        ],
+        "rationale": "Cụm \"để anh lo\" nghe như nhận việc về mình cho đỡ. Phần sau chia việc lại bằng giọng nhẹ. Nghe như lo nhiều hơn là ép.",
+        "family": "P",
+        "expression": "NP",
+        "confidence": "medium",
+        "alternative": {
+          "expression": "A",
+          "rationale": "Cũng có thể đọc là đưa kế hoạch phân việc, vì có chia ai làm phần nào."
+        },
+        "invites": "C",
+        "secondLayer": null,
+        "id": "s2"
+      },
+      {
+        "turnId": "t3",
+        "messageIds": [
+          "m3"
+        ],
+        "splitReason": null,
+        "cues": [
+          "Em chịu rồi",
+          "anh làm giúp em với"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m2",
+            "quote": "Thôi để anh lo phần slide, em làm nốt số liệu nhé."
+          }
+        ],
+        "rationale": "Câu \"Em chịu rồi\" và \"không biết làm sao nữa\" nói rõ là không làm được. Kèm lời nhờ làm giúp. Nghe như buông phần việc và nhờ cậy.",
+        "family": "C",
+        "expression": "AC",
+        "confidence": "high",
+        "alternative": null,
+        "invites": "P",
+        "secondLayer": null,
+        "id": "s3"
+      },
+      {
+        "turnId": "t4",
+        "messageIds": [
+          "m4"
+        ],
+        "splitReason": null,
+        "cues": [
+          "thử lọc theo tháng trước",
+          "dùng bảng tổng hợp là ra"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m3",
+            "quote": "phần số liệu em không biết làm sao nữa, anh làm giúp em với."
+          }
+        ],
+        "rationale": "Câu này đưa một cách làm có sẵn mà không hỏi thêm. Nghe như chốt nhanh bằng hướng dẫn, sau lời nhờ giúp.",
+        "family": "P",
+        "expression": "CP",
+        "confidence": "low",
+        "alternative": {
+          "expression": "A",
+          "rationale": "Cũng có thể đọc là đưa thông tin thực tế về cách lọc và tổng hợp."
+        },
+        "invites": "C",
+        "secondLayer": null,
+        "id": "s4"
+      },
+      {
+        "turnId": "t5",
+        "messageIds": [
+          "m5"
+        ],
+        "splitReason": null,
+        "cues": [
+          "Em xin lỗi vì báo muộn",
+          "em sẽ rút kinh nghiệm ạ"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m4",
+            "quote": "Em thử lọc theo tháng trước, rồi dùng bảng tổng hợp là ra."
+          }
+        ],
+        "rationale": "Câu này xin lỗi và tự nhận báo muộn. Kèm lời hứa rút kinh nghiệm. Nghe như nhận lỗi và làm hòa.",
+        "family": "C",
+        "expression": "AC",
+        "confidence": "high",
+        "alternative": null,
+        "invites": "P",
+        "secondLayer": null,
+        "id": "s5"
+      },
+      {
+        "turnId": "t6",
+        "messageIds": [
+          "m6"
+        ],
+        "splitReason": null,
+        "cues": [
+          "Đã nhận.",
+          "Sẽ xem xét sau."
+        ],
+        "contextCues": [
+          {
+            "messageId": "m5",
+            "quote": "Em xin lỗi vì báo muộn, lẽ ra em phải nói từ tuần trước, em sẽ rút kinh nghiệm ạ."
+          }
+        ],
+        "rationale": "Câu này chỉ báo đã nhận và hẹn xem sau. Ngắn, không có lời đánh giá hay an ủi. Nghe như nói việc thực tế.",
+        "family": "A",
+        "expression": "A",
+        "confidence": "low",
+        "alternative": {
+          "expression": "AC",
+          "rationale": "Cũng có thể đọc là giữ khoảng cách và rút lại, vì lời đáp rất ngắn sau lời xin lỗi."
+        },
+        "invites": "UNCLEAR",
+        "secondLayer": null,
+        "id": "s6"
+      }
+    ],
+    "analysis": {
+      "context": {
+        "register": "Cách gọi \"anh / em\" cùng \"Dạ\" và \"ạ\" cho thấy quan hệ quen và có sự lễ phép, có thể là chênh về tuổi hoặc vai trò.",
+        "turns": [
+          {
+            "turnId": "t1",
+            "act": "báo deadline gần và việc còn dở",
+            "respondsTo": null
+          },
+          {
+            "turnId": "t2",
+            "act": "nhận một phần việc và chia phần còn lại",
+            "respondsTo": "t1"
+          },
+          {
+            "turnId": "t3",
+            "act": "nói không làm được và nhờ làm giúp",
+            "respondsTo": "t2"
+          },
+          {
+            "turnId": "t4",
+            "act": "đưa hướng dẫn cách làm nhanh",
+            "respondsTo": "t3"
+          },
+          {
+            "turnId": "t5",
+            "act": "xin lỗi vì báo muộn và hứa rút kinh nghiệm",
+            "respondsTo": "t4"
+          },
+          {
+            "turnId": "t6",
+            "act": "xác nhận ngắn và hẹn xem xét sau",
+            "respondsTo": "t5"
+          }
+        ],
+        "dynamics": "Người B báo việc trễ, Người A nhận một phần và chia lại việc. Người B nói không làm được và nhờ làm giúp, Người A đưa hướng dẫn. Cuối cùng Người B xin lỗi và hứa rút kinh nghiệm, Người A đáp ngắn và hẹn xem sau."
+      },
+      "segments": [
+        {
+          "turnId": "t1",
+          "messageIds": [
+            "m1"
+          ],
+          "splitReason": null,
+          "cues": [
+            "Anh ơi",
+            "còn 3 phần chưa xong 😩"
+          ],
+          "contextCues": [],
+          "rationale": "Câu này báo việc còn dở kèm emoji mệt. Nghe như nói thẳng cảm giác lúc đó, chưa xin gì cụ thể.",
+          "family": "C",
+          "expression": "FC",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "AC",
+            "rationale": "Cũng có thể đọc là lời nói theo mong đợi để được giúp, vì có tiếng gọi và báo việc dở."
+          },
+          "invites": "P",
+          "secondLayer": null,
+          "id": "s1"
+        },
+        {
+          "turnId": "t2",
+          "messageIds": [
+            "m2"
+          ],
+          "splitReason": null,
+          "cues": [
+            "để anh lo phần slide",
+            "em làm nốt số liệu nhé"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m1",
+              "quote": "mai deadline mà em còn 3 phần chưa xong 😩"
+            }
+          ],
+          "rationale": "Cụm \"để anh lo\" nghe như nhận việc về mình cho đỡ. Phần sau chia việc lại bằng giọng nhẹ. Nghe như lo nhiều hơn là ép.",
+          "family": "P",
+          "expression": "NP",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "A",
+            "rationale": "Cũng có thể đọc là đưa kế hoạch phân việc, vì có chia ai làm phần nào."
+          },
+          "invites": "C",
+          "secondLayer": null,
+          "id": "s2"
+        },
+        {
+          "turnId": "t3",
+          "messageIds": [
+            "m3"
+          ],
+          "splitReason": null,
+          "cues": [
+            "Em chịu rồi",
+            "anh làm giúp em với"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m2",
+              "quote": "Thôi để anh lo phần slide, em làm nốt số liệu nhé."
+            }
+          ],
+          "rationale": "Câu \"Em chịu rồi\" và \"không biết làm sao nữa\" nói rõ là không làm được. Kèm lời nhờ làm giúp. Nghe như buông phần việc và nhờ cậy.",
+          "family": "C",
+          "expression": "AC",
+          "confidence": "high",
+          "alternative": null,
+          "invites": "P",
+          "secondLayer": null,
+          "id": "s3"
+        },
+        {
+          "turnId": "t4",
+          "messageIds": [
+            "m4"
+          ],
+          "splitReason": null,
+          "cues": [
+            "thử lọc theo tháng trước",
+            "dùng bảng tổng hợp là ra"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m3",
+              "quote": "phần số liệu em không biết làm sao nữa, anh làm giúp em với."
+            }
+          ],
+          "rationale": "Câu này đưa một cách làm có sẵn mà không hỏi thêm. Nghe như chốt nhanh bằng hướng dẫn, sau lời nhờ giúp.",
+          "family": "P",
+          "expression": "CP",
+          "confidence": "low",
+          "alternative": {
+            "expression": "A",
+            "rationale": "Cũng có thể đọc là đưa thông tin thực tế về cách lọc và tổng hợp."
+          },
+          "invites": "C",
+          "secondLayer": null,
+          "id": "s4"
+        },
+        {
+          "turnId": "t5",
+          "messageIds": [
+            "m5"
+          ],
+          "splitReason": null,
+          "cues": [
+            "Em xin lỗi vì báo muộn",
+            "em sẽ rút kinh nghiệm ạ"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m4",
+              "quote": "Em thử lọc theo tháng trước, rồi dùng bảng tổng hợp là ra."
+            }
+          ],
+          "rationale": "Câu này xin lỗi và tự nhận báo muộn. Kèm lời hứa rút kinh nghiệm. Nghe như nhận lỗi và làm hòa.",
+          "family": "C",
+          "expression": "AC",
+          "confidence": "high",
+          "alternative": null,
+          "invites": "P",
+          "secondLayer": null,
+          "id": "s5"
+        },
+        {
+          "turnId": "t6",
+          "messageIds": [
+            "m6"
+          ],
+          "splitReason": null,
+          "cues": [
+            "Đã nhận.",
+            "Sẽ xem xét sau."
+          ],
+          "contextCues": [
+            {
+              "messageId": "m5",
+              "quote": "Em xin lỗi vì báo muộn, lẽ ra em phải nói từ tuần trước, em sẽ rút kinh nghiệm ạ."
+            }
+          ],
+          "rationale": "Câu này chỉ báo đã nhận và hẹn xem sau. Ngắn, không có lời đánh giá hay an ủi. Nghe như nói việc thực tế.",
+          "family": "A",
+          "expression": "A",
+          "confidence": "low",
+          "alternative": {
+            "expression": "AC",
+            "rationale": "Cũng có thể đọc là giữ khoảng cách và rút lại, vì lời đáp rất ngắn sau lời xin lỗi."
+          },
+          "invites": "UNCLEAR",
+          "secondLayer": null,
+          "id": "s6"
+        }
+      ],
+      "shifts": [
+        {
+          "messageId": "m3",
+          "description": "Lời nói đổi từ chia việc sang nói không làm được và nhờ làm giúp.",
+          "cues": [
+            "Em chịu rồi",
+            "anh làm giúp em với"
+          ]
+        },
+        {
+          "messageId": "m5",
+          "description": "Lời nói đổi từ bàn cách làm sang xin lỗi và hứa rút kinh nghiệm.",
+          "cues": [
+            "Em xin lỗi vì báo muộn",
+            "em sẽ rút kinh nghiệm ạ"
+          ]
+        },
+        {
+          "messageId": "m6",
+          "description": "Lời nói đổi từ xin lỗi dài sang xác nhận ngắn và hẹn lại sau.",
+          "cues": [
+            "Đã nhận.",
+            "Sẽ xem xét sau."
+          ]
+        }
+      ],
+      "summary": "Cuộc trao đổi đi từ báo việc gấp sang chia việc, rồi sang nhờ làm giúp và hướng dẫn. Cuối cùng chuyển sang xin lỗi và chốt ngắn. Ai cũng giữ lời lẽ lịch sự, nhưng lời đáp ngắn dần về cuối.",
+      "uncertainty": "Chỉ có chữ viết nên không rõ giọng, nét mặt và lịch sử trước đó. Cũng không rõ mức độ gấp thật của việc và cách hai người vẫn hay nói với nhau.",
+      "safety": {
+        "flagged": false,
+        "categories": [],
+        "note": null
+      },
+      "readings": [
+        {
+          "splitReason": null,
+          "cues": [
+            "Anh ơi",
+            "còn 3 phần chưa xong 😩"
+          ],
+          "contextCues": [],
+          "rationale": "Câu này báo việc còn dở kèm emoji mệt. Nghe như nói thẳng cảm giác lúc đó, chưa xin gì cụ thể.",
+          "family": "C",
+          "expression": "FC",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "AC",
+            "rationale": "Cũng có thể đọc là lời nói theo mong đợi để được giúp, vì có tiếng gọi và báo việc dở."
+          },
+          "invites": "P",
+          "secondLayer": null,
+          "messageId": "m1",
+          "segmentId": "s1"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "để anh lo phần slide",
+            "em làm nốt số liệu nhé"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m1",
+              "quote": "mai deadline mà em còn 3 phần chưa xong 😩"
+            }
+          ],
+          "rationale": "Cụm \"để anh lo\" nghe như nhận việc về mình cho đỡ. Phần sau chia việc lại bằng giọng nhẹ. Nghe như lo nhiều hơn là ép.",
+          "family": "P",
+          "expression": "NP",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "A",
+            "rationale": "Cũng có thể đọc là đưa kế hoạch phân việc, vì có chia ai làm phần nào."
+          },
+          "invites": "C",
+          "secondLayer": null,
+          "messageId": "m2",
+          "segmentId": "s2"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "Em chịu rồi",
+            "anh làm giúp em với"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m2",
+              "quote": "Thôi để anh lo phần slide, em làm nốt số liệu nhé."
+            }
+          ],
+          "rationale": "Câu \"Em chịu rồi\" và \"không biết làm sao nữa\" nói rõ là không làm được. Kèm lời nhờ làm giúp. Nghe như buông phần việc và nhờ cậy.",
+          "family": "C",
+          "expression": "AC",
+          "confidence": "high",
+          "alternative": null,
+          "invites": "P",
+          "secondLayer": null,
+          "messageId": "m3",
+          "segmentId": "s3"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "thử lọc theo tháng trước",
+            "dùng bảng tổng hợp là ra"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m3",
+              "quote": "phần số liệu em không biết làm sao nữa, anh làm giúp em với."
+            }
+          ],
+          "rationale": "Câu này đưa một cách làm có sẵn mà không hỏi thêm. Nghe như chốt nhanh bằng hướng dẫn, sau lời nhờ giúp.",
+          "family": "P",
+          "expression": "CP",
+          "confidence": "low",
+          "alternative": {
+            "expression": "A",
+            "rationale": "Cũng có thể đọc là đưa thông tin thực tế về cách lọc và tổng hợp."
+          },
+          "invites": "C",
+          "secondLayer": null,
+          "messageId": "m4",
+          "segmentId": "s4"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "Em xin lỗi vì báo muộn",
+            "em sẽ rút kinh nghiệm ạ"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m4",
+              "quote": "Em thử lọc theo tháng trước, rồi dùng bảng tổng hợp là ra."
+            }
+          ],
+          "rationale": "Câu này xin lỗi và tự nhận báo muộn. Kèm lời hứa rút kinh nghiệm. Nghe như nhận lỗi và làm hòa.",
+          "family": "C",
+          "expression": "AC",
+          "confidence": "high",
+          "alternative": null,
+          "invites": "P",
+          "secondLayer": null,
+          "messageId": "m5",
+          "segmentId": "s5"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "Đã nhận.",
+            "Sẽ xem xét sau."
+          ],
+          "contextCues": [
+            {
+              "messageId": "m5",
+              "quote": "Em xin lỗi vì báo muộn, lẽ ra em phải nói từ tuần trước, em sẽ rút kinh nghiệm ạ."
+            }
+          ],
+          "rationale": "Câu này chỉ báo đã nhận và hẹn xem sau. Ngắn, không có lời đánh giá hay an ủi. Nghe như nói việc thực tế.",
+          "family": "A",
+          "expression": "A",
+          "confidence": "low",
+          "alternative": {
+            "expression": "AC",
+            "rationale": "Cũng có thể đọc là giữ khoảng cách và rút lại, vì lời đáp rất ngắn sau lời xin lỗi."
+          },
+          "invites": "UNCLEAR",
+          "secondLayer": null,
+          "messageId": "m6",
+          "segmentId": "s6"
+        }
+      ]
+    }
+  },
+  "score": {
+    "per": [
+      {
+        "id": "m1",
+        "expr": "FC",
+        "family": "C",
+        "conf": "medium",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m2",
+        "expr": "NP",
+        "family": "P",
+        "conf": "medium",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m3",
+        "expr": "AC",
+        "family": "C",
+        "conf": "high",
+        "acc": true,
+        "hard": null,
+        "over": true,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m4",
+        "expr": "CP",
+        "family": "P",
+        "conf": "low",
+        "acc": false,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m5",
+        "expr": "AC",
+        "family": "C",
+        "conf": "high",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m6",
+        "expr": "A",
+        "family": "A",
+        "conf": "low",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      }
+    ],
+    "n": 6,
+    "accOk": 5,
+    "hardFails": [],
+    "overCeiling": [
+      "m3 AC:high"
+    ],
+    "highOnReview": 0,
+    "altMissing": 0,
+    "unclear": 0,
+    "high": 2
+  }
+}

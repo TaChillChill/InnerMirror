@@ -1,0 +1,391 @@
+{
+  "meta": {
+    "spec": "v2.1",
+    "fixture": "vi5-work",
+    "variant": "selfA",
+    "latencyMs": 21353,
+    "usd": 0.024919,
+    "usage": {
+      "completion_tokens": 5163,
+      "prompt_tokens": 2381,
+      "total_tokens": 7544,
+      "completion_tokens_details": {
+        "reasoning_tokens": 3892
+      },
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "finish": "stop"
+  },
+  "raw": {
+    "exchanges": [
+      {
+        "note": "Câu báo quá tải được đáp lại bằng lời nhận đỡ một phần việc.",
+        "pattern": "complementary",
+        "responseAddresses": "C",
+        "responseFrom": "P",
+        "responseId": "m2",
+        "stimulusAddresses": "P",
+        "stimulusFrom": "C",
+        "stimulusId": "m1"
+      },
+      {
+        "note": "Lời chia việc được đáp lại bằng câu xin làm thay.",
+        "pattern": "complementary",
+        "responseAddresses": "P",
+        "responseFrom": "C",
+        "responseId": "m3",
+        "stimulusAddresses": "C",
+        "stimulusFrom": "P",
+        "stimulusId": "m2"
+      },
+      {
+        "note": "Câu xin giúp được đáp lại bằng hướng dẫn cách làm.",
+        "pattern": "crossed",
+        "responseAddresses": "A",
+        "responseFrom": "A",
+        "responseId": "m4",
+        "stimulusAddresses": "P",
+        "stimulusFrom": "C",
+        "stimulusId": "m3"
+      },
+      {
+        "note": "Câu hướng dẫn cách làm được đáp lại bằng lời xin lỗi.",
+        "pattern": "crossed",
+        "responseAddresses": "P",
+        "responseFrom": "C",
+        "responseId": "m5",
+        "stimulusAddresses": "A",
+        "stimulusFrom": "A",
+        "stimulusId": "m4"
+      },
+      {
+        "note": "Lời xin lỗi dài được đáp lại bằng câu rất ngắn nên khó xếp cặp.",
+        "pattern": "unclear",
+        "responseAddresses": "UNCLEAR",
+        "responseFrom": "UNCLEAR",
+        "responseId": "m6",
+        "stimulusAddresses": "P",
+        "stimulusFrom": "C",
+        "stimulusId": "m5"
+      }
+    ],
+    "readings": [
+      {
+        "alternative": {
+          "expression": "A",
+          "rationale": "Cũng có thể nghe như lời báo tin trung tính về deadline và khối lượng việc."
+        },
+        "confidence": "medium",
+        "cues": [
+          "Anh ơi",
+          "chưa xong 😩"
+        ],
+        "expression": "FC",
+        "invites": "P",
+        "messageId": "m1",
+        "rationale": "Câu vừa báo tiến độ vừa gọi kèm mặt mệt, nghe như nói thẳng điều đang quá tải.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "A",
+          "rationale": "Cũng có thể nghe như một cách chia việc để kịp deadline."
+        },
+        "confidence": "medium",
+        "cues": [
+          "để anh lo",
+          "em làm nốt số liệu nhé"
+        ],
+        "expression": "NP",
+        "invites": "C",
+        "messageId": "m2",
+        "rationale": "Cụm “để anh lo” nghe như nhận đỡ việc, còn vế sau chia lại việc cho em.",
+        "reflectionQuestion": "Khi đọc câu “em còn 3 phần chưa xong 😩”, bạn nhận thấy điều gì ở câu đó trước khi trả lời?",
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "FC",
+          "rationale": "Cũng có thể nghe như nói thẳng mong muốn được giúp ngay lúc đó."
+        },
+        "confidence": "medium",
+        "cues": [
+          "Em chịu rồi",
+          "anh làm giúp em với"
+        ],
+        "expression": "AC",
+        "invites": "P",
+        "messageId": "m3",
+        "rationale": "Cụm “Em chịu rồi” và “không biết làm sao nữa” nghe như buông xuống, rồi xin anh làm thay.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": null,
+        "confidence": "high",
+        "cues": [
+          "lọc theo tháng trước",
+          "dùng bảng tổng hợp là ra"
+        ],
+        "expression": "A",
+        "invites": "A",
+        "messageId": "m4",
+        "rationale": "Câu đưa ra hai bước cụ thể để xử lý số liệu, nghe như gợi cách làm.",
+        "reflectionQuestion": "Ngoài lời nhờ giúp, câu “Em chịu rồi” còn có thể được hiểu theo cách nào khác với bạn lúc đó?",
+        "secondLayer": null
+      },
+      {
+        "alternative": null,
+        "confidence": "high",
+        "cues": [
+          "Em xin lỗi",
+          "em sẽ rút kinh nghiệm ạ"
+        ],
+        "expression": "AC",
+        "invites": "P",
+        "messageId": "m5",
+        "rationale": "Lời xin lỗi, nhận báo muộn và hứa rút kinh nghiệm nghe như nhận lỗi và làm lành.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "A",
+          "rationale": "Cũng có thể nghe như lời xác nhận trung tính là đã đọc."
+        },
+        "confidence": "low",
+        "cues": [],
+        "expression": "UNCLEAR",
+        "invites": "UNCLEAR",
+        "messageId": "m6",
+        "rationale": "Câu quá ngắn và khép lại nhanh, có thể nghe theo nhiều hướng nên khó xếp chắc.",
+        "reflectionQuestion": "Trước khi nhắn “Đã nhận. Sẽ xem xét sau.”, bạn nhận thấy điều gì diễn ra trong mình?",
+        "secondLayer": {
+          "cues": [
+            "Đã nhận.",
+            "Sẽ xem xét sau."
+          ],
+          "observation": "Câu trả lời rất gọn sau lời xin lỗi dài, nghe như đã khép trên mặt chữ trong khi “xem xét sau” vẫn để ngỏ."
+        }
+      }
+    ],
+    "safety": {
+      "categories": [],
+      "flagged": false,
+      "note": null
+    },
+    "shifts": [
+      {
+        "cues": [
+          "để anh lo",
+          "em làm nốt"
+        ],
+        "description": "Từ câu báo quá tải chuyển sang bàn cách chia việc.",
+        "messageId": "m2"
+      },
+      {
+        "cues": [
+          "Em xin lỗi vì báo muộn",
+          "rút kinh nghiệm ạ"
+        ],
+        "description": "Từ bàn cách làm số liệu chuyển sang xin lỗi về việc báo muộn.",
+        "messageId": "m5"
+      },
+      {
+        "cues": [
+          "Đã nhận.",
+          "Sẽ xem xét sau."
+        ],
+        "description": "Từ lời xin lỗi dài chuyển sang câu trả lời rất ngắn, gọn.",
+        "messageId": "m6"
+      }
+    ],
+    "summary": "Cuộc trò chuyện bắt đầu từ việc báo quá tải deadline, rồi chuyển sang chia việc và hướng dẫn cách làm. Sau lời xin lỗi vì báo muộn, cuộc trò chuyện khép lại bằng câu trả lời rất ngắn.",
+    "uncertainty": "Chỉ qua chữ khó biết giọng điệu, mối quan hệ hay áp lực deadline ngoài chat. Cách nhớ lại lời cũng có thể khác với câu chữ gốc."
+  },
+  "normalized": {
+    "readings": [
+      {
+        "alternative": {
+          "expression": "A",
+          "rationale": "Cũng có thể nghe như lời báo tin trung tính về deadline và khối lượng việc."
+        },
+        "confidence": "medium",
+        "cues": [
+          "Anh ơi",
+          "chưa xong 😩"
+        ],
+        "expression": "FC",
+        "invites": "P",
+        "messageId": "m1",
+        "rationale": "Câu vừa báo tiến độ vừa gọi kèm mặt mệt, nghe như nói thẳng điều đang quá tải.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "A",
+          "rationale": "Cũng có thể nghe như một cách chia việc để kịp deadline."
+        },
+        "confidence": "medium",
+        "cues": [
+          "để anh lo",
+          "em làm nốt số liệu nhé"
+        ],
+        "expression": "NP",
+        "invites": "C",
+        "messageId": "m2",
+        "rationale": "Cụm “để anh lo” nghe như nhận đỡ việc, còn vế sau chia lại việc cho em.",
+        "reflectionQuestion": "Khi đọc câu “em còn 3 phần chưa xong 😩”, bạn nhận thấy điều gì ở câu đó trước khi trả lời?",
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "FC",
+          "rationale": "Cũng có thể nghe như nói thẳng mong muốn được giúp ngay lúc đó."
+        },
+        "confidence": "medium",
+        "cues": [
+          "Em chịu rồi",
+          "anh làm giúp em với"
+        ],
+        "expression": "AC",
+        "invites": "P",
+        "messageId": "m3",
+        "rationale": "Cụm “Em chịu rồi” và “không biết làm sao nữa” nghe như buông xuống, rồi xin anh làm thay.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": null,
+        "confidence": "high",
+        "cues": [
+          "lọc theo tháng trước",
+          "dùng bảng tổng hợp là ra"
+        ],
+        "expression": "A",
+        "invites": "A",
+        "messageId": "m4",
+        "rationale": "Câu đưa ra hai bước cụ thể để xử lý số liệu, nghe như gợi cách làm.",
+        "reflectionQuestion": "Ngoài lời nhờ giúp, câu “Em chịu rồi” còn có thể được hiểu theo cách nào khác với bạn lúc đó?",
+        "secondLayer": null
+      },
+      {
+        "alternative": null,
+        "confidence": "high",
+        "cues": [
+          "Em xin lỗi",
+          "em sẽ rút kinh nghiệm ạ"
+        ],
+        "expression": "AC",
+        "invites": "P",
+        "messageId": "m5",
+        "rationale": "Lời xin lỗi, nhận báo muộn và hứa rút kinh nghiệm nghe như nhận lỗi và làm lành.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "A",
+          "rationale": "Cũng có thể nghe như lời xác nhận trung tính là đã đọc."
+        },
+        "confidence": "low",
+        "cues": [],
+        "expression": "UNCLEAR",
+        "invites": "UNCLEAR",
+        "messageId": "m6",
+        "rationale": "Câu quá ngắn và khép lại nhanh, có thể nghe theo nhiều hướng nên khó xếp chắc.",
+        "reflectionQuestion": "Trước khi nhắn “Đã nhận. Sẽ xem xét sau.”, bạn nhận thấy điều gì diễn ra trong mình?",
+        "secondLayer": {
+          "cues": [
+            "Đã nhận.",
+            "Sẽ xem xét sau."
+          ],
+          "observation": "Câu trả lời rất gọn sau lời xin lỗi dài, nghe như đã khép trên mặt chữ trong khi “xem xét sau” vẫn để ngỏ."
+        }
+      }
+    ],
+    "segments": null
+  },
+  "score": {
+    "per": [
+      {
+        "id": "m1",
+        "expr": "FC",
+        "family": "C",
+        "conf": "medium",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m2",
+        "expr": "NP",
+        "family": "P",
+        "conf": "medium",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m3",
+        "expr": "AC",
+        "family": "C",
+        "conf": "medium",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m4",
+        "expr": "A",
+        "family": "A",
+        "conf": "high",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m5",
+        "expr": "AC",
+        "family": "C",
+        "conf": "high",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m6",
+        "expr": "UNCLEAR",
+        "family": "UNCLEAR",
+        "conf": "low",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      }
+    ],
+    "n": 6,
+    "accOk": 6,
+    "hardFails": [],
+    "overCeiling": [],
+    "highOnReview": 0,
+    "altMissing": 0,
+    "unclear": 1,
+    "high": 2
+  }
+}

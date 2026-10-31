@@ -8,7 +8,7 @@ import { dirname, join } from "node:path";
 import { chat, readLedger, worstCaseUsd } from "./client.mjs";
 import { runChecks } from "./checks.mjs";
 import { loadConversations, analysisBody, render } from "./analysis.mjs";
-import { ANALYSIS_SPEC_VERSION } from "../../src/lib/ai/analysis-spec.ts";
+import { ANALYSIS_SPEC_VERSION } from "./p0/spec-v2.1.ts";
 
 // One folder per prompt version, so results of different prompts never mix.
 const OUT = join(dirname(fileURLToPath(import.meta.url)), "results", ANALYSIS_SPEC_VERSION);

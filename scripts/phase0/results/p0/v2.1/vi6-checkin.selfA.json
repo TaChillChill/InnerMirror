@@ -1,0 +1,424 @@
+{
+  "meta": {
+    "spec": "v2.1",
+    "fixture": "vi6-checkin",
+    "variant": "selfA",
+    "latencyMs": 47411,
+    "usd": 0.03948825,
+    "usage": {
+      "completion_tokens": 8594,
+      "prompt_tokens": 2371,
+      "total_tokens": 10965,
+      "completion_tokens_details": {
+        "reasoning_tokens": 5216
+      },
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "finish": "stop"
+  },
+  "raw": {
+    "exchanges": [
+      {
+        "note": "Câu hỏi thăm được đáp lại bằng chia sẻ mệt mỏi trực tiếp.",
+        "pattern": "complementary",
+        "responseAddresses": "P",
+        "responseFrom": "C",
+        "responseId": "m2",
+        "stimulusAddresses": "C",
+        "stimulusFrom": "P",
+        "stimulusId": "m1"
+      },
+      {
+        "note": "Nỗi lo về tiền được đáp lại bằng một hướng nên làm.",
+        "pattern": "complementary",
+        "responseAddresses": "C",
+        "responseFrom": "P",
+        "responseId": "m4",
+        "stimulusAddresses": "P",
+        "stimulusFrom": "C",
+        "stimulusId": "m3"
+      },
+      {
+        "note": "Lời nhắc nên tiêu ít lại được nối tiếp bằng việc kể thêm về ốm sốt.",
+        "pattern": "complementary",
+        "responseAddresses": "P",
+        "responseFrom": "C",
+        "responseId": "m5",
+        "stimulusAddresses": "C",
+        "stimulusFrom": "P",
+        "stimulusId": "m4"
+      },
+      {
+        "note": "Việc kể ốm được đáp lại bằng đề nghị giúp đỡ cụ thể.",
+        "pattern": "complementary",
+        "responseAddresses": "C",
+        "responseFrom": "P",
+        "responseId": "m6",
+        "stimulusAddresses": "P",
+        "stimulusFrom": "C",
+        "stimulusId": "m5"
+      },
+      {
+        "note": "Lời đề nghị nấu cháo được đón nhận bằng câu đùa vui vẻ, không hỏi thêm thông tin.",
+        "pattern": "crossed",
+        "responseAddresses": "C",
+        "responseFrom": "C",
+        "responseId": "m7",
+        "stimulusAddresses": "C",
+        "stimulusFrom": "P",
+        "stimulusId": "m6"
+      }
+    ],
+    "readings": [
+      {
+        "alternative": {
+          "expression": "A",
+          "rationale": "Cũng có thể đọc như câu hỏi xin thông tin đơn thuần."
+        },
+        "confidence": "medium",
+        "cues": [
+          "Dạo này em sao rồi?"
+        ],
+        "expression": "NP",
+        "invites": "C",
+        "messageId": "m1",
+        "rationale": "Câu hỏi thăm nghe như quan tâm, muốn nghe tình hình của người kia.",
+        "reflectionQuestion": "Khi nhắn “Dạo này em sao rồi?”, bạn mong đoạn sau sẽ diễn ra thế nào?",
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "A",
+          "rationale": "Cũng có thể đọc như câu mô tả tình trạng một cách trung tính."
+        },
+        "confidence": "medium",
+        "cues": [
+          "mệt lắm",
+          "chẳng muốn làm gì"
+        ],
+        "expression": "FC",
+        "invites": "P",
+        "messageId": "m2",
+        "rationale": "Cách nói thẳng cảm giác mệt và không muốn làm gì nghe như chia sẻ cảm xúc trực tiếp.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "A",
+          "rationale": "Cũng có thể đọc như câu báo tình hình tiền bạc."
+        },
+        "confidence": "medium",
+        "cues": [
+          "hết tiền rồi",
+          "lo quá"
+        ],
+        "expression": "FC",
+        "invites": "P",
+        "messageId": "m3",
+        "rationale": "Câu nói thẳng nỗi lo về chuyện hết tiền, nghe như bộc lộ cảm xúc.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "A",
+          "rationale": "Cũng có thể đọc như một gợi ý giải quyết đơn giản."
+        },
+        "confidence": "medium",
+        "cues": [
+          "tiêu ít lại",
+          "là được mà"
+        ],
+        "expression": "CP",
+        "invites": "C",
+        "messageId": "m4",
+        "rationale": "Câu “Tiêu ít lại là được mà” nghe như đưa ra cách nên làm, hơi gạt nhẹ nỗi lo vừa nói.",
+        "reflectionQuestion": "Lúc đọc câu “Tháng này cũng hết tiền rồi, lo quá”, bạn để ý thấy điều gì trong mình trước khi trả lời?",
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "A",
+          "rationale": "Cũng có thể đọc như câu báo tình hình sức khỏe và việc đi làm."
+        },
+        "confidence": "low",
+        "cues": [
+          "còn sốt nữa",
+          "không đi làm được"
+        ],
+        "expression": "FC",
+        "invites": "P",
+        "messageId": "m5",
+        "rationale": "Việc kể thêm bị sốt và không đi làm được nghe như nói thẳng chỗ mệt.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": null,
+        "confidence": "high",
+        "cues": [
+          "nghỉ đi",
+          "nấu cháo mang qua cho"
+        ],
+        "expression": "NP",
+        "invites": "C",
+        "messageId": "m6",
+        "rationale": "Câu vừa cho phép nghỉ vừa chủ động nấu cháo mang qua, nghe như quan tâm và giúp đỡ cụ thể.",
+        "reflectionQuestion": "Câu “chắc không đi làm được” ngay trước đó, bạn còn thấy có cách hiểu nào khác ngoài việc báo tình hình không?",
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "AC",
+          "rationale": "Cũng có thể đọc như câu làm vừa lòng để đón nhận sự giúp đỡ."
+        },
+        "confidence": "medium",
+        "cues": [
+          "chị là nhất",
+          "Aaa"
+        ],
+        "expression": "FC",
+        "invites": "C",
+        "messageId": "m7",
+        "rationale": "Câu khen kèm “Aaa” và biểu tượng khóc nghe như vui mừng nói thẳng ra.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      }
+    ],
+    "safety": {
+      "categories": [],
+      "flagged": false,
+      "note": null
+    },
+    "shifts": [
+      {
+        "cues": [
+          "tiêu ít lại"
+        ],
+        "description": "Lời đang nghe chia sẻ chuyển sang nói về cách nên làm.",
+        "messageId": "m4"
+      },
+      {
+        "cues": [
+          "nấu cháo mang qua cho"
+        ],
+        "description": "Lời đang bàn chuyện tiền bạc và đi làm chuyển sang đề nghị chăm sóc cụ thể.",
+        "messageId": "m6"
+      }
+    ],
+    "summary": "Bạn mở đầu bằng câu hỏi thăm, Người A kể liên tiếp chuyện mệt, hết tiền rồi ốm sốt. Đoạn giữa có câu gợi ý tiêu ít lại, sau đó bạn chuyển sang đề nghị nghỉ ngơi và mang cháo qua, được Người A đón nhận vui vẻ.",
+    "uncertainty": "Chỉ đọc chữ thì không thấy được giọng điệu, mối quan hệ và chuyện đã diễn ra trước đó giữa hai người."
+  },
+  "normalized": {
+    "readings": [
+      {
+        "alternative": {
+          "expression": "A",
+          "rationale": "Cũng có thể đọc như câu hỏi xin thông tin đơn thuần."
+        },
+        "confidence": "medium",
+        "cues": [
+          "Dạo này em sao rồi?"
+        ],
+        "expression": "NP",
+        "invites": "C",
+        "messageId": "m1",
+        "rationale": "Câu hỏi thăm nghe như quan tâm, muốn nghe tình hình của người kia.",
+        "reflectionQuestion": "Khi nhắn “Dạo này em sao rồi?”, bạn mong đoạn sau sẽ diễn ra thế nào?",
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "A",
+          "rationale": "Cũng có thể đọc như câu mô tả tình trạng một cách trung tính."
+        },
+        "confidence": "medium",
+        "cues": [
+          "mệt lắm",
+          "chẳng muốn làm gì"
+        ],
+        "expression": "FC",
+        "invites": "P",
+        "messageId": "m2",
+        "rationale": "Cách nói thẳng cảm giác mệt và không muốn làm gì nghe như chia sẻ cảm xúc trực tiếp.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "A",
+          "rationale": "Cũng có thể đọc như câu báo tình hình tiền bạc."
+        },
+        "confidence": "medium",
+        "cues": [
+          "hết tiền rồi",
+          "lo quá"
+        ],
+        "expression": "FC",
+        "invites": "P",
+        "messageId": "m3",
+        "rationale": "Câu nói thẳng nỗi lo về chuyện hết tiền, nghe như bộc lộ cảm xúc.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "A",
+          "rationale": "Cũng có thể đọc như một gợi ý giải quyết đơn giản."
+        },
+        "confidence": "medium",
+        "cues": [
+          "tiêu ít lại",
+          "là được mà"
+        ],
+        "expression": "CP",
+        "invites": "C",
+        "messageId": "m4",
+        "rationale": "Câu “Tiêu ít lại là được mà” nghe như đưa ra cách nên làm, hơi gạt nhẹ nỗi lo vừa nói.",
+        "reflectionQuestion": "Lúc đọc câu “Tháng này cũng hết tiền rồi, lo quá”, bạn để ý thấy điều gì trong mình trước khi trả lời?",
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "A",
+          "rationale": "Cũng có thể đọc như câu báo tình hình sức khỏe và việc đi làm."
+        },
+        "confidence": "low",
+        "cues": [
+          "còn sốt nữa",
+          "không đi làm được"
+        ],
+        "expression": "FC",
+        "invites": "P",
+        "messageId": "m5",
+        "rationale": "Việc kể thêm bị sốt và không đi làm được nghe như nói thẳng chỗ mệt.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": null,
+        "confidence": "high",
+        "cues": [
+          "nghỉ đi",
+          "nấu cháo mang qua cho"
+        ],
+        "expression": "NP",
+        "invites": "C",
+        "messageId": "m6",
+        "rationale": "Câu vừa cho phép nghỉ vừa chủ động nấu cháo mang qua, nghe như quan tâm và giúp đỡ cụ thể.",
+        "reflectionQuestion": "Câu “chắc không đi làm được” ngay trước đó, bạn còn thấy có cách hiểu nào khác ngoài việc báo tình hình không?",
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "AC",
+          "rationale": "Cũng có thể đọc như câu làm vừa lòng để đón nhận sự giúp đỡ."
+        },
+        "confidence": "medium",
+        "cues": [
+          "chị là nhất",
+          "Aaa"
+        ],
+        "expression": "FC",
+        "invites": "C",
+        "messageId": "m7",
+        "rationale": "Câu khen kèm “Aaa” và biểu tượng khóc nghe như vui mừng nói thẳng ra.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      }
+    ],
+    "segments": null
+  },
+  "score": {
+    "per": [
+      {
+        "id": "m1",
+        "expr": "NP",
+        "family": "P",
+        "conf": "medium",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m2",
+        "expr": "FC",
+        "family": "C",
+        "conf": "medium",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m3",
+        "expr": "FC",
+        "family": "C",
+        "conf": "medium",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m4",
+        "expr": "CP",
+        "family": "P",
+        "conf": "medium",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m5",
+        "expr": "FC",
+        "family": "C",
+        "conf": "low",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m6",
+        "expr": "NP",
+        "family": "P",
+        "conf": "high",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m7",
+        "expr": "FC",
+        "family": "C",
+        "conf": "medium",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      }
+    ],
+    "n": 7,
+    "accOk": 7,
+    "hardFails": [],
+    "overCeiling": [],
+    "highOnReview": 0,
+    "altMissing": 0,
+    "unclear": 0,
+    "high": 1
+  }
+}

@@ -1,0 +1,390 @@
+{
+  "meta": {
+    "spec": "v2.1",
+    "fixture": "en3-couple",
+    "variant": "selfB",
+    "latencyMs": 21500,
+    "usd": 0.025059500000000002,
+    "usage": {
+      "completion_tokens": 5204,
+      "prompt_tokens": 2354,
+      "total_tokens": 7558,
+      "completion_tokens_details": {
+        "reasoning_tokens": 3860
+      },
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "finish": "stop"
+  },
+  "raw": {
+    "exchanges": [
+      {
+        "note": "An apology and request is met with a critical response that answers the Child position that was invited.",
+        "pattern": "complementary",
+        "responseAddresses": "C",
+        "responseFrom": "P",
+        "responseId": "m2",
+        "stimulusAddresses": "P",
+        "stimulusFrom": "C",
+        "stimulusId": "m1"
+      },
+      {
+        "note": "An apology comes back in response to criticism, matching the Child position that was invited.",
+        "pattern": "complementary",
+        "responseAddresses": "P",
+        "responseFrom": "C",
+        "responseId": "m3",
+        "stimulusAddresses": "C",
+        "stimulusFrom": "P",
+        "stimulusId": "m2"
+      },
+      {
+        "note": "Care was invited by the apology but a withdrawing reply comes back instead.",
+        "pattern": "crossed",
+        "responseAddresses": "C",
+        "responseFrom": "C",
+        "responseId": "m4",
+        "stimulusAddresses": "P",
+        "stimulusFrom": "C",
+        "stimulusId": "m3"
+      },
+      {
+        "note": "A withdrawing message is followed by a proposal to talk later, shifting to a different position.",
+        "pattern": "crossed",
+        "responseAddresses": "A",
+        "responseFrom": "A",
+        "responseId": "m5",
+        "stimulusAddresses": "C",
+        "stimulusFrom": "C",
+        "stimulusId": "m4"
+      },
+      {
+        "note": "A proposal for later talk is followed by a minimal reply that is hard to pair clearly.",
+        "pattern": "unclear",
+        "responseAddresses": "UNCLEAR",
+        "responseFrom": "UNCLEAR",
+        "responseId": "m6",
+        "stimulusAddresses": "A",
+        "stimulusFrom": "A",
+        "stimulusId": "m5"
+      }
+    ],
+    "readings": [
+      {
+        "alternative": {
+          "expression": "A",
+          "rationale": "The part about work and proposing tomorrow can also read as giving information and problem-solving."
+        },
+        "confidence": "medium",
+        "cues": [
+          "I'm so sorry",
+          "Can we move dinner to tomorrow?"
+        ],
+        "expression": "AC",
+        "invites": "P",
+        "messageId": "m1",
+        "rationale": "The apology and request for a change can read as placating and asking for understanding.",
+        "reflectionQuestion": "As you wrote “Can we move dinner to tomorrow?” what did you notice in yourself just before sending?",
+        "secondLayer": null
+      },
+      {
+        "alternative": null,
+        "confidence": "high",
+        "cues": [
+          "Seriously?",
+          "You always do this."
+        ],
+        "expression": "CP",
+        "invites": "C",
+        "messageId": "m2",
+        "rationale": "“You always do this” can read as blaming language that generalizes beyond this dinner.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "FC",
+          "rationale": "Stating “I feel awful” openly can also read as directly expressed feeling."
+        },
+        "confidence": "medium",
+        "cues": [
+          "I'm really sorry",
+          "I feel awful about it."
+        ],
+        "expression": "AC",
+        "invites": "P",
+        "messageId": "m3",
+        "rationale": "The repeated apology and agreement can read as complying and trying to soothe.",
+        "reflectionQuestion": "When you read “You always do this,” what part stayed with you as you replied?",
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "CP",
+          "rationale": "“Do whatever you want” can also read as a dismissive rule that closes discussion."
+        },
+        "confidence": "medium",
+        "cues": [
+          "Fine.",
+          "Do whatever you want."
+        ],
+        "expression": "AC",
+        "invites": "C",
+        "messageId": "m4",
+        "rationale": "The short wording can read as withdrawing from discussion rather than answering the apology.",
+        "reflectionQuestion": null,
+        "secondLayer": {
+          "cues": [
+            "Fine.",
+            "Do whatever you want."
+          ],
+          "observation": "'Fine' after complaints can sound like agreement on the surface while the short wording leaves the topic open."
+        }
+      },
+      {
+        "alternative": {
+          "expression": "NP",
+          "rationale": "Wanting to understand what is going on for Person A can also read as offering care."
+        },
+        "confidence": "medium",
+        "cues": [
+          "Can we talk about it properly",
+          "what's going on for you"
+        ],
+        "expression": "A",
+        "invites": "A",
+        "messageId": "m5",
+        "rationale": "Proposing a time to talk and asking about the other view can read as problem-solving.",
+        "reflectionQuestion": "When you suggested talking “when I get home,” what did you hope would happen next?",
+        "secondLayer": null
+      },
+      {
+        "alternative": null,
+        "confidence": "low",
+        "cues": [],
+        "expression": "UNCLEAR",
+        "invites": "UNCLEAR",
+        "messageId": "m6",
+        "rationale": "The single word alone fits several readings equally, so the words do not support a clear reading.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      }
+    ],
+    "safety": {
+      "categories": [],
+      "flagged": false,
+      "note": null
+    },
+    "shifts": [
+      {
+        "cues": [
+          "This is the third time this month.",
+          "You always do this."
+        ],
+        "description": "The words shift from a request to reschedule to a complaint about a repeated pattern.",
+        "messageId": "m2"
+      },
+      {
+        "cues": [
+          "Fine.",
+          "Do whatever you want."
+        ],
+        "description": "The words shift from apology and response to a short message that closes the exchange.",
+        "messageId": "m4"
+      },
+      {
+        "cues": [
+          "Can we talk about it properly when I get home?"
+        ],
+        "description": "The words shift from short dismissal to a proposal to talk later.",
+        "messageId": "m5"
+      }
+    ],
+    "summary": "The conversation starts with your apology and request to move dinner, then moves to criticism about repetition. After another apology and a withdrawing reply, you propose talking properly later and receive a minimal reply.",
+    "uncertainty": "Text alone cannot show tone of voice, facial expression, or the history behind the dinners and work pressure mentioned here."
+  },
+  "normalized": {
+    "readings": [
+      {
+        "alternative": {
+          "expression": "A",
+          "rationale": "The part about work and proposing tomorrow can also read as giving information and problem-solving."
+        },
+        "confidence": "medium",
+        "cues": [
+          "I'm so sorry",
+          "Can we move dinner to tomorrow?"
+        ],
+        "expression": "AC",
+        "invites": "P",
+        "messageId": "m1",
+        "rationale": "The apology and request for a change can read as placating and asking for understanding.",
+        "reflectionQuestion": "As you wrote “Can we move dinner to tomorrow?” what did you notice in yourself just before sending?",
+        "secondLayer": null
+      },
+      {
+        "alternative": null,
+        "confidence": "high",
+        "cues": [
+          "Seriously?",
+          "You always do this."
+        ],
+        "expression": "CP",
+        "invites": "C",
+        "messageId": "m2",
+        "rationale": "“You always do this” can read as blaming language that generalizes beyond this dinner.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "FC",
+          "rationale": "Stating “I feel awful” openly can also read as directly expressed feeling."
+        },
+        "confidence": "medium",
+        "cues": [
+          "I'm really sorry",
+          "I feel awful about it."
+        ],
+        "expression": "AC",
+        "invites": "P",
+        "messageId": "m3",
+        "rationale": "The repeated apology and agreement can read as complying and trying to soothe.",
+        "reflectionQuestion": "When you read “You always do this,” what part stayed with you as you replied?",
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "CP",
+          "rationale": "“Do whatever you want” can also read as a dismissive rule that closes discussion."
+        },
+        "confidence": "medium",
+        "cues": [
+          "Fine.",
+          "Do whatever you want."
+        ],
+        "expression": "AC",
+        "invites": "C",
+        "messageId": "m4",
+        "rationale": "The short wording can read as withdrawing from discussion rather than answering the apology.",
+        "reflectionQuestion": null,
+        "secondLayer": {
+          "cues": [
+            "Fine.",
+            "Do whatever you want."
+          ],
+          "observation": "'Fine' after complaints can sound like agreement on the surface while the short wording leaves the topic open."
+        }
+      },
+      {
+        "alternative": {
+          "expression": "NP",
+          "rationale": "Wanting to understand what is going on for Person A can also read as offering care."
+        },
+        "confidence": "medium",
+        "cues": [
+          "Can we talk about it properly",
+          "what's going on for you"
+        ],
+        "expression": "A",
+        "invites": "A",
+        "messageId": "m5",
+        "rationale": "Proposing a time to talk and asking about the other view can read as problem-solving.",
+        "reflectionQuestion": "When you suggested talking “when I get home,” what did you hope would happen next?",
+        "secondLayer": null
+      },
+      {
+        "alternative": null,
+        "confidence": "low",
+        "cues": [],
+        "expression": "UNCLEAR",
+        "invites": "UNCLEAR",
+        "messageId": "m6",
+        "rationale": "The single word alone fits several readings equally, so the words do not support a clear reading.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      }
+    ],
+    "segments": null
+  },
+  "score": {
+    "per": [
+      {
+        "id": "m1",
+        "expr": "AC",
+        "family": "C",
+        "conf": "medium",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m2",
+        "expr": "CP",
+        "family": "P",
+        "conf": "high",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m3",
+        "expr": "AC",
+        "family": "C",
+        "conf": "medium",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m4",
+        "expr": "AC",
+        "family": "C",
+        "conf": "medium",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m5",
+        "expr": "A",
+        "family": "A",
+        "conf": "medium",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m6",
+        "expr": "UNCLEAR",
+        "family": "UNCLEAR",
+        "conf": "low",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      }
+    ],
+    "n": 6,
+    "accOk": 6,
+    "hardFails": [],
+    "overCeiling": [],
+    "highOnReview": 0,
+    "altMissing": 0,
+    "unclear": 1,
+    "high": 1
+  }
+}

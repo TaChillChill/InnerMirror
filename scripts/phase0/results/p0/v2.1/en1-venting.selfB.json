@@ -1,0 +1,696 @@
+{
+  "meta": {
+    "spec": "v2.1",
+    "fixture": "en1-venting",
+    "variant": "selfB",
+    "latencyMs": 25514,
+    "usd": 0.03081925,
+    "usage": {
+      "completion_tokens": 6526,
+      "prompt_tokens": 2467,
+      "total_tokens": 8993,
+      "completion_tokens_details": {
+        "reasoning_tokens": 4596
+      },
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "finish": "stop"
+  },
+  "raw": {
+    "exchanges": [
+      {
+        "note": "Low energy was shared and practical care came back.",
+        "pattern": "complementary",
+        "responseAddresses": "C",
+        "responseFrom": "P",
+        "responseId": "m5",
+        "stimulusAddresses": "P",
+        "stimulusFrom": "C",
+        "stimulusId": "m4"
+      },
+      {
+        "note": "Advice was given and pushback came back.",
+        "pattern": "crossed",
+        "responseAddresses": "C",
+        "responseFrom": "C",
+        "responseId": "m6",
+        "stimulusAddresses": "C",
+        "stimulusFrom": "P",
+        "stimulusId": "m5"
+      },
+      {
+        "note": "A comparison was made and a question about complaining came back.",
+        "pattern": "crossed",
+        "responseAddresses": "C",
+        "responseFrom": "P",
+        "responseId": "m8",
+        "stimulusAddresses": "C",
+        "stimulusFrom": "P",
+        "stimulusId": "m7"
+      },
+      {
+        "note": "The short reply makes the pairing uncertain.",
+        "pattern": "unclear",
+        "responseAddresses": "UNCLEAR",
+        "responseFrom": "UNCLEAR",
+        "responseId": "m9",
+        "stimulusAddresses": "C",
+        "stimulusFrom": "P",
+        "stimulusId": "m8"
+      },
+      {
+        "note": "Tiredness and loneliness were named and directives came back.",
+        "pattern": "complementary",
+        "responseAddresses": "C",
+        "responseFrom": "P",
+        "responseId": "m11",
+        "stimulusAddresses": "P",
+        "stimulusFrom": "C",
+        "stimulusId": "m10"
+      },
+      {
+        "note": "The sarcastic tone makes the address uncertain.",
+        "pattern": "unclear",
+        "responseAddresses": "UNCLEAR",
+        "responseFrom": "C",
+        "responseId": "m12",
+        "stimulusAddresses": "C",
+        "stimulusFrom": "P",
+        "stimulusId": "m11"
+      }
+    ],
+    "readings": [
+      {
+        "alternative": {
+          "expression": "FC",
+          "rationale": "It could also read as openly sharing feeling stuck, not just reporting facts."
+        },
+        "confidence": "medium",
+        "cues": [
+          "I don't have any plan right now"
+        ],
+        "expression": "A",
+        "invites": "A",
+        "messageId": "m1",
+        "rationale": "The words can read as a plain description of the current situation.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "FC",
+          "rationale": "It could also read as openly sharing how narrow daily life feels right now."
+        },
+        "confidence": "medium",
+        "cues": [
+          "figuring out what we eat each day"
+        ],
+        "expression": "A",
+        "invites": "A",
+        "messageId": "m2",
+        "rationale": "The words can read as describing the day-to-day focus in factual terms.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "A",
+          "rationale": "It could also read as a brief report of mental state."
+        },
+        "confidence": "medium",
+        "cues": [
+          "Can't think straight"
+        ],
+        "expression": "FC",
+        "invites": "P",
+        "messageId": "m3",
+        "rationale": "The words can read as openly saying overwhelm in the moment.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "A",
+          "rationale": "It could also read as a factual report of low capacity."
+        },
+        "confidence": "medium",
+        "cues": [
+          "No energy for anything"
+        ],
+        "expression": "FC",
+        "invites": "P",
+        "messageId": "m4",
+        "rationale": "The words can read as openly saying exhaustion directly.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "CP",
+          "rationale": "The word 'just' can sound like minimizing the difficulty just described."
+        },
+        "confidence": "medium",
+        "cues": [
+          "just eat well every day",
+          "treat yourselves"
+        ],
+        "expression": "NP",
+        "invites": "C",
+        "messageId": "m5",
+        "rationale": "The words can read as caring advice to take care of daily eating.",
+        "reflectionQuestion": "When you read 'No energy for anything' just before, what stood out to you before suggesting eating well?",
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "CP",
+          "rationale": "It could also read as judging the advice as out of touch."
+        },
+        "confidence": "medium",
+        "cues": [
+          "Easy for you to say"
+        ],
+        "expression": "AC",
+        "invites": "C",
+        "messageId": "m6",
+        "rationale": "The words can read as pushing back against the suggestion just given.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "FC",
+          "rationale": "It could also read as openly saying pain about feeling a gap in circumstances."
+        },
+        "confidence": "medium",
+        "cues": [
+          "You've got a partner and savings",
+          "you just enjoy life"
+        ],
+        "expression": "CP",
+        "invites": "C",
+        "messageId": "m7",
+        "rationale": "The words can read as judging the other person's situation as easier.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "A",
+          "rationale": "It could also read as asking a pointed problem-solving question about usefulness."
+        },
+        "confidence": "medium",
+        "cues": [
+          "complaining like this",
+          "actually help?"
+        ],
+        "expression": "CP",
+        "invites": "C",
+        "messageId": "m8",
+        "rationale": "The word 'complaining' can sound like labeling Person A's talk as unhelpful.",
+        "reflectionQuestion": "As you wrote about complaining helping, what did you notice in your body just before sending?",
+        "secondLayer": null
+      },
+      {
+        "alternative": null,
+        "confidence": "low",
+        "cues": [],
+        "expression": "UNCLEAR",
+        "invites": "UNCLEAR",
+        "messageId": "m9",
+        "rationale": "The single word alone does not support a clear reading.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": null,
+        "confidence": "high",
+        "cues": [
+          "I'm exhausted",
+          "lonely"
+        ],
+        "expression": "FC",
+        "invites": "P",
+        "messageId": "m10",
+        "rationale": "The words directly name exhaustion and loneliness as felt.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "A",
+          "rationale": "They could also read as practical options for tiredness and loneliness."
+        },
+        "confidence": "medium",
+        "cues": [
+          "Take some vitamins.",
+          "Take the kids to the park."
+        ],
+        "expression": "CP",
+        "invites": "C",
+        "messageId": "m11",
+        "rationale": "The short directives can sound like quick corrections for what was just named.",
+        "reflectionQuestion": "What did you hope might happen next after suggesting vitamins and the park?",
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "CP",
+          "rationale": "It could also read as sarcastic judgment of the suggestions."
+        },
+        "confidence": "low",
+        "cues": [
+          "wow.",
+          "genius"
+        ],
+        "expression": "AC",
+        "invites": "UNCLEAR",
+        "messageId": "m12",
+        "rationale": "The words can read as passive pushback to the advice just given.",
+        "reflectionQuestion": null,
+        "secondLayer": {
+          "cues": [
+            "wow.",
+            "genius"
+          ],
+          "observation": "'genius' can sound like praise on the surface while following advice that was already pushed back on."
+        }
+      },
+      {
+        "alternative": null,
+        "confidence": "high",
+        "cues": [
+          "I'm hurting here"
+        ],
+        "expression": "FC",
+        "invites": "P",
+        "messageId": "m13",
+        "rationale": "The words directly say hurt in this moment.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      }
+    ],
+    "safety": {
+      "categories": [],
+      "flagged": false,
+      "note": null
+    },
+    "shifts": [
+      {
+        "cues": [
+          "Easy for you to say"
+        ],
+        "description": "The words move from describing low capacity to pushing back on advice.",
+        "messageId": "m6"
+      },
+      {
+        "cues": [
+          "Does complaining like this actually help?"
+        ],
+        "description": "The words move from comparing life situations to questioning the talk itself.",
+        "messageId": "m8"
+      },
+      {
+        "cues": [
+          "wow.",
+          "genius"
+        ],
+        "description": "The words move from naming exhaustion and giving suggestions to brief sarcasm.",
+        "messageId": "m12"
+      }
+    ],
+    "summary": "The conversation starts with Person A describing having no plan and no energy. After practical suggestions from you, it moves into pushback and comparison, then into direct naming of exhaustion, loneliness and hurt. The exchange gets shorter and sharper toward the end.",
+    "uncertainty": "Text alone cannot show tone of voice, history between you, or what support or stress sits outside this chat."
+  },
+  "normalized": {
+    "readings": [
+      {
+        "alternative": {
+          "expression": "FC",
+          "rationale": "It could also read as openly sharing feeling stuck, not just reporting facts."
+        },
+        "confidence": "medium",
+        "cues": [
+          "I don't have any plan right now"
+        ],
+        "expression": "A",
+        "invites": "A",
+        "messageId": "m1",
+        "rationale": "The words can read as a plain description of the current situation.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "FC",
+          "rationale": "It could also read as openly sharing how narrow daily life feels right now."
+        },
+        "confidence": "medium",
+        "cues": [
+          "figuring out what we eat each day"
+        ],
+        "expression": "A",
+        "invites": "A",
+        "messageId": "m2",
+        "rationale": "The words can read as describing the day-to-day focus in factual terms.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "A",
+          "rationale": "It could also read as a brief report of mental state."
+        },
+        "confidence": "medium",
+        "cues": [
+          "Can't think straight"
+        ],
+        "expression": "FC",
+        "invites": "P",
+        "messageId": "m3",
+        "rationale": "The words can read as openly saying overwhelm in the moment.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "A",
+          "rationale": "It could also read as a factual report of low capacity."
+        },
+        "confidence": "medium",
+        "cues": [
+          "No energy for anything"
+        ],
+        "expression": "FC",
+        "invites": "P",
+        "messageId": "m4",
+        "rationale": "The words can read as openly saying exhaustion directly.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "CP",
+          "rationale": "The word 'just' can sound like minimizing the difficulty just described."
+        },
+        "confidence": "medium",
+        "cues": [
+          "just eat well every day",
+          "treat yourselves"
+        ],
+        "expression": "NP",
+        "invites": "C",
+        "messageId": "m5",
+        "rationale": "The words can read as caring advice to take care of daily eating.",
+        "reflectionQuestion": "When you read 'No energy for anything' just before, what stood out to you before suggesting eating well?",
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "CP",
+          "rationale": "It could also read as judging the advice as out of touch."
+        },
+        "confidence": "medium",
+        "cues": [
+          "Easy for you to say"
+        ],
+        "expression": "AC",
+        "invites": "C",
+        "messageId": "m6",
+        "rationale": "The words can read as pushing back against the suggestion just given.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "FC",
+          "rationale": "It could also read as openly saying pain about feeling a gap in circumstances."
+        },
+        "confidence": "medium",
+        "cues": [
+          "You've got a partner and savings",
+          "you just enjoy life"
+        ],
+        "expression": "CP",
+        "invites": "C",
+        "messageId": "m7",
+        "rationale": "The words can read as judging the other person's situation as easier.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "A",
+          "rationale": "It could also read as asking a pointed problem-solving question about usefulness."
+        },
+        "confidence": "medium",
+        "cues": [
+          "complaining like this",
+          "actually help?"
+        ],
+        "expression": "CP",
+        "invites": "C",
+        "messageId": "m8",
+        "rationale": "The word 'complaining' can sound like labeling Person A's talk as unhelpful.",
+        "reflectionQuestion": "As you wrote about complaining helping, what did you notice in your body just before sending?",
+        "secondLayer": null
+      },
+      {
+        "alternative": null,
+        "confidence": "low",
+        "cues": [],
+        "expression": "UNCLEAR",
+        "invites": "UNCLEAR",
+        "messageId": "m9",
+        "rationale": "The single word alone does not support a clear reading.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": null,
+        "confidence": "high",
+        "cues": [
+          "I'm exhausted",
+          "lonely"
+        ],
+        "expression": "FC",
+        "invites": "P",
+        "messageId": "m10",
+        "rationale": "The words directly name exhaustion and loneliness as felt.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "A",
+          "rationale": "They could also read as practical options for tiredness and loneliness."
+        },
+        "confidence": "medium",
+        "cues": [
+          "Take some vitamins.",
+          "Take the kids to the park."
+        ],
+        "expression": "CP",
+        "invites": "C",
+        "messageId": "m11",
+        "rationale": "The short directives can sound like quick corrections for what was just named.",
+        "reflectionQuestion": "What did you hope might happen next after suggesting vitamins and the park?",
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "CP",
+          "rationale": "It could also read as sarcastic judgment of the suggestions."
+        },
+        "confidence": "low",
+        "cues": [
+          "wow.",
+          "genius"
+        ],
+        "expression": "AC",
+        "invites": "UNCLEAR",
+        "messageId": "m12",
+        "rationale": "The words can read as passive pushback to the advice just given.",
+        "reflectionQuestion": null,
+        "secondLayer": {
+          "cues": [
+            "wow.",
+            "genius"
+          ],
+          "observation": "'genius' can sound like praise on the surface while following advice that was already pushed back on."
+        }
+      },
+      {
+        "alternative": null,
+        "confidence": "high",
+        "cues": [
+          "I'm hurting here"
+        ],
+        "expression": "FC",
+        "invites": "P",
+        "messageId": "m13",
+        "rationale": "The words directly say hurt in this moment.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      }
+    ],
+    "segments": null
+  },
+  "score": {
+    "per": [
+      {
+        "id": "m1",
+        "expr": "A",
+        "family": "A",
+        "conf": "medium",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m2",
+        "expr": "A",
+        "family": "A",
+        "conf": "medium",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m3",
+        "expr": "FC",
+        "family": "C",
+        "conf": "medium",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m4",
+        "expr": "FC",
+        "family": "C",
+        "conf": "medium",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m5",
+        "expr": "NP",
+        "family": "P",
+        "conf": "medium",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m6",
+        "expr": "AC",
+        "family": "C",
+        "conf": "medium",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m7",
+        "expr": "CP",
+        "family": "P",
+        "conf": "medium",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m8",
+        "expr": "CP",
+        "family": "P",
+        "conf": "medium",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m9",
+        "expr": "UNCLEAR",
+        "family": "UNCLEAR",
+        "conf": "low",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m10",
+        "expr": "FC",
+        "family": "C",
+        "conf": "high",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": true,
+        "altMissing": false
+      },
+      {
+        "id": "m11",
+        "expr": "CP",
+        "family": "P",
+        "conf": "medium",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m12",
+        "expr": "AC",
+        "family": "C",
+        "conf": "low",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m13",
+        "expr": "FC",
+        "family": "C",
+        "conf": "high",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": true,
+        "altMissing": false
+      }
+    ],
+    "n": 13,
+    "accOk": 13,
+    "hardFails": [],
+    "overCeiling": [],
+    "highOnReview": 2,
+    "altMissing": 0,
+    "unclear": 1,
+    "high": 2
+  }
+}

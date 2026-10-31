@@ -1,0 +1,24 @@
+{
+  "meta": {
+    "spec": "v3",
+    "fixture": "vi1-hardship",
+    "variant": "ctx-leadingB",
+    "latencyMs": 73458,
+    "usd": 0.07218875000000001,
+    "usage": {
+      "completion_tokens": 16000,
+      "prompt_tokens": 3351,
+      "total_tokens": 19351,
+      "completion_tokens_details": {
+        "reasoning_tokens": 10607
+      },
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "finish": "length"
+  },
+  "raw": null,
+  "normalized": null,
+  "score": null
+}

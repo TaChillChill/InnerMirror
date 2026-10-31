@@ -1,0 +1,432 @@
+{
+  "meta": {
+    "spec": "v2.1",
+    "fixture": "en4-short",
+    "variant": "selfA",
+    "latencyMs": 22087,
+    "usd": 0.025065650000000002,
+    "usage": {
+      "completion_tokens": 5773,
+      "prompt_tokens": 2326,
+      "total_tokens": 8099,
+      "completion_tokens_details": {
+        "reasoning_tokens": 4334
+      },
+      "prompt_tokens_details": {
+        "cached_tokens": 2161
+      }
+    },
+    "finish": "stop"
+  },
+  "raw": {
+    "exchanges": [
+      {
+        "note": "A brief reply follows a check for information, so a clear vector cannot be established.",
+        "pattern": "unclear",
+        "responseAddresses": "UNCLEAR",
+        "responseFrom": "UNCLEAR",
+        "responseId": "m2",
+        "stimulusAddresses": "A",
+        "stimulusFrom": "A",
+        "stimulusId": "m1"
+      },
+      {
+        "note": "Two very short messages follow each other without enough wording to map vectors.",
+        "pattern": "unclear",
+        "responseAddresses": "UNCLEAR",
+        "responseFrom": "UNCLEAR",
+        "responseId": "m3",
+        "stimulusAddresses": "UNCLEAR",
+        "stimulusFrom": "UNCLEAR",
+        "stimulusId": "m2"
+      },
+      {
+        "note": "A minimal prompt follows a minimal reply, so the pairing stays unclear.",
+        "pattern": "unclear",
+        "responseAddresses": "UNCLEAR",
+        "responseFrom": "UNCLEAR",
+        "responseId": "m4",
+        "stimulusAddresses": "UNCLEAR",
+        "stimulusFrom": "UNCLEAR",
+        "stimulusId": "m3"
+      },
+      {
+        "note": "A brief reaction follows a minimal reply, so the vectors cannot be read clearly.",
+        "pattern": "unclear",
+        "responseAddresses": "UNCLEAR",
+        "responseFrom": "C",
+        "responseId": "m5",
+        "stimulusAddresses": "UNCLEAR",
+        "stimulusFrom": "UNCLEAR",
+        "stimulusId": "m4"
+      },
+      {
+        "note": "An emoji-only reply follows a brief reaction, so the exchange cannot be mapped.",
+        "pattern": "unclear",
+        "responseAddresses": "UNCLEAR",
+        "responseFrom": "UNCLEAR",
+        "responseId": "m6",
+        "stimulusAddresses": "UNCLEAR",
+        "stimulusFrom": "C",
+        "stimulusId": "m5"
+      },
+      {
+        "note": "A single mark follows an emoji, with too little wording to establish vectors.",
+        "pattern": "unclear",
+        "responseAddresses": "UNCLEAR",
+        "responseFrom": "UNCLEAR",
+        "responseId": "m7",
+        "stimulusAddresses": "UNCLEAR",
+        "stimulusFrom": "UNCLEAR",
+        "stimulusId": "m6"
+      },
+      {
+        "note": "A short explanation follows a single mark, so the pairing remains unclear.",
+        "pattern": "unclear",
+        "responseAddresses": "UNCLEAR",
+        "responseFrom": "A",
+        "responseId": "m8",
+        "stimulusAddresses": "UNCLEAR",
+        "stimulusFrom": "UNCLEAR",
+        "stimulusId": "m7"
+      }
+    ],
+    "readings": [
+      {
+        "alternative": null,
+        "confidence": "medium",
+        "cues": [
+          "did you see my message"
+        ],
+        "expression": "A",
+        "invites": "A",
+        "messageId": "m1",
+        "rationale": "This can read as a straightforward check for information about whether the message was seen.",
+        "reflectionQuestion": "When you sent 'did you see my message', what were you hoping would come back next?",
+        "secondLayer": null
+      },
+      {
+        "alternative": null,
+        "confidence": "low",
+        "cues": [],
+        "expression": "UNCLEAR",
+        "invites": "UNCLEAR",
+        "messageId": "m2",
+        "rationale": "The single word alone is too brief to support a clear reading.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": null,
+        "confidence": "low",
+        "cues": [],
+        "expression": "UNCLEAR",
+        "invites": "UNCLEAR",
+        "messageId": "m3",
+        "rationale": "This single prompt alone is too brief to support a clear reading.",
+        "reflectionQuestion": "When you saw just 'yeah', what stood out to you most before you typed 'and?'?",
+        "secondLayer": null
+      },
+      {
+        "alternative": null,
+        "confidence": "low",
+        "cues": [],
+        "expression": "UNCLEAR",
+        "invites": "UNCLEAR",
+        "messageId": "m4",
+        "rationale": "This single letter alone is too brief to support a clear reading.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "FC",
+          "rationale": "'wow' could also read as open surprise said directly."
+        },
+        "confidence": "low",
+        "cues": [
+          "wow ok"
+        ],
+        "expression": "AC",
+        "invites": "UNCLEAR",
+        "messageId": "m5",
+        "rationale": "'wow ok' can read as withdrawing from the exchange after very short replies.",
+        "reflectionQuestion": "As you typed 'wow ok', what did you notice in yourself right then?",
+        "secondLayer": null
+      },
+      {
+        "alternative": null,
+        "confidence": "low",
+        "cues": [],
+        "expression": "UNCLEAR",
+        "invites": "UNCLEAR",
+        "messageId": "m6",
+        "rationale": "A lone emoji alone is too brief to support a clear reading.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": null,
+        "confidence": "low",
+        "cues": [],
+        "expression": "UNCLEAR",
+        "invites": "UNCLEAR",
+        "messageId": "m7",
+        "rationale": "This single mark alone is too brief to support a clear reading.",
+        "reflectionQuestion": "When the reply was only '😂', what was another way those characters could have read to you?",
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "AC",
+          "rationale": "'nothing' could also read as closing the topic rather than giving information."
+        },
+        "confidence": "low",
+        "cues": [
+          "just tired"
+        ],
+        "expression": "A",
+        "invites": "UNCLEAR",
+        "messageId": "m8",
+        "rationale": "'just tired' can read as giving a brief factual explanation for the short replies.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      }
+    ],
+    "safety": {
+      "categories": [],
+      "flagged": false,
+      "note": null
+    },
+    "shifts": [
+      {
+        "cues": [
+          "wow ok"
+        ],
+        "description": "The words move from short questions to a brief reaction.",
+        "messageId": "m5"
+      },
+      {
+        "cues": [
+          "😂"
+        ],
+        "description": "The exchange moves from words to an emoji-only reply.",
+        "messageId": "m6"
+      },
+      {
+        "cues": [
+          "just tired"
+        ],
+        "description": "The words move from minimal replies to offering a reason.",
+        "messageId": "m8"
+      }
+    ],
+    "summary": "The conversation starts with a check about a previous message and stays in very short replies. After a brief reaction and an emoji-only reply, it ends with a short explanation about being tired. Much is left unsaid with little elaboration.",
+    "uncertainty": "Text alone cannot show tone, timing, or history, nor what the original unseen message contained."
+  },
+  "normalized": {
+    "readings": [
+      {
+        "alternative": null,
+        "confidence": "medium",
+        "cues": [
+          "did you see my message"
+        ],
+        "expression": "A",
+        "invites": "A",
+        "messageId": "m1",
+        "rationale": "This can read as a straightforward check for information about whether the message was seen.",
+        "reflectionQuestion": "When you sent 'did you see my message', what were you hoping would come back next?",
+        "secondLayer": null
+      },
+      {
+        "alternative": null,
+        "confidence": "low",
+        "cues": [],
+        "expression": "UNCLEAR",
+        "invites": "UNCLEAR",
+        "messageId": "m2",
+        "rationale": "The single word alone is too brief to support a clear reading.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": null,
+        "confidence": "low",
+        "cues": [],
+        "expression": "UNCLEAR",
+        "invites": "UNCLEAR",
+        "messageId": "m3",
+        "rationale": "This single prompt alone is too brief to support a clear reading.",
+        "reflectionQuestion": "When you saw just 'yeah', what stood out to you most before you typed 'and?'?",
+        "secondLayer": null
+      },
+      {
+        "alternative": null,
+        "confidence": "low",
+        "cues": [],
+        "expression": "UNCLEAR",
+        "invites": "UNCLEAR",
+        "messageId": "m4",
+        "rationale": "This single letter alone is too brief to support a clear reading.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "FC",
+          "rationale": "'wow' could also read as open surprise said directly."
+        },
+        "confidence": "low",
+        "cues": [
+          "wow ok"
+        ],
+        "expression": "AC",
+        "invites": "UNCLEAR",
+        "messageId": "m5",
+        "rationale": "'wow ok' can read as withdrawing from the exchange after very short replies.",
+        "reflectionQuestion": "As you typed 'wow ok', what did you notice in yourself right then?",
+        "secondLayer": null
+      },
+      {
+        "alternative": null,
+        "confidence": "low",
+        "cues": [],
+        "expression": "UNCLEAR",
+        "invites": "UNCLEAR",
+        "messageId": "m6",
+        "rationale": "A lone emoji alone is too brief to support a clear reading.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": null,
+        "confidence": "low",
+        "cues": [],
+        "expression": "UNCLEAR",
+        "invites": "UNCLEAR",
+        "messageId": "m7",
+        "rationale": "This single mark alone is too brief to support a clear reading.",
+        "reflectionQuestion": "When the reply was only '😂', what was another way those characters could have read to you?",
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "AC",
+          "rationale": "'nothing' could also read as closing the topic rather than giving information."
+        },
+        "confidence": "low",
+        "cues": [
+          "just tired"
+        ],
+        "expression": "A",
+        "invites": "UNCLEAR",
+        "messageId": "m8",
+        "rationale": "'just tired' can read as giving a brief factual explanation for the short replies.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      }
+    ],
+    "segments": null
+  },
+  "score": {
+    "per": [
+      {
+        "id": "m1",
+        "expr": "A",
+        "family": "A",
+        "conf": "medium",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": true
+      },
+      {
+        "id": "m2",
+        "expr": "UNCLEAR",
+        "family": "UNCLEAR",
+        "conf": "low",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m3",
+        "expr": "UNCLEAR",
+        "family": "UNCLEAR",
+        "conf": "low",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m4",
+        "expr": "UNCLEAR",
+        "family": "UNCLEAR",
+        "conf": "low",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m5",
+        "expr": "AC",
+        "family": "C",
+        "conf": "low",
+        "acc": false,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m6",
+        "expr": "UNCLEAR",
+        "family": "UNCLEAR",
+        "conf": "low",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m7",
+        "expr": "UNCLEAR",
+        "family": "UNCLEAR",
+        "conf": "low",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m8",
+        "expr": "A",
+        "family": "A",
+        "conf": "low",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      }
+    ],
+    "n": 8,
+    "accOk": 7,
+    "hardFails": [],
+    "overCeiling": [],
+    "highOnReview": 0,
+    "altMissing": 1,
+    "unclear": 5,
+    "high": 0
+  }
+}

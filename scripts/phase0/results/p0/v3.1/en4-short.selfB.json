@@ -1,0 +1,1149 @@
+{
+  "meta": {
+    "spec": "v3",
+    "fixture": "en4-short",
+    "variant": "selfB",
+    "latencyMs": 26046,
+    "usd": 0.0322305,
+    "usage": {
+      "completion_tokens": 6721,
+      "prompt_tokens": 2933,
+      "total_tokens": 9654,
+      "completion_tokens_details": {
+        "reasoning_tokens": 5317
+      },
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "finish": "stop"
+  },
+  "raw": {
+    "context": {
+      "dynamics": "Person A sends short follow-up prompts while Person B gives very brief replies. After a minimal acknowledgement the wording briefly shows reaction before Person B mentions tiredness. Both sides stay very short throughout with little detail exchanged.",
+      "register": "No address terms or closeness markers appear; messages are very short neutral English with little indication of relationship.",
+      "turns": [
+        {
+          "act": "asks whether a message was seen",
+          "respondsTo": null,
+          "turnId": "t1"
+        },
+        {
+          "act": "confirms seeing it",
+          "respondsTo": "t1",
+          "turnId": "t2"
+        },
+        {
+          "act": "prompts for a further response",
+          "respondsTo": "t2",
+          "turnId": "t3"
+        },
+        {
+          "act": "gives minimal acknowledgement",
+          "respondsTo": "t3",
+          "turnId": "t4"
+        },
+        {
+          "act": "reacts to the minimal reply",
+          "respondsTo": "t4",
+          "turnId": "t5"
+        },
+        {
+          "act": "sends laughing emoji",
+          "respondsTo": "t5",
+          "turnId": "t6"
+        },
+        {
+          "act": "asks for clarification",
+          "respondsTo": "t6",
+          "turnId": "t7"
+        },
+        {
+          "act": "dismisses and mentions tiredness",
+          "respondsTo": "t7",
+          "turnId": "t8"
+        }
+      ]
+    },
+    "safety": {
+      "categories": [],
+      "flagged": false,
+      "note": null
+    },
+    "segments": [
+      {
+        "alternative": null,
+        "confidence": "high",
+        "contextCues": [],
+        "cues": [
+          "did you see my message"
+        ],
+        "expression": "A",
+        "family": "A",
+        "invites": "A",
+        "messageIds": [
+          "m1"
+        ],
+        "rationale": "This is a direct check for information about the prior message, with no evaluation or comfort in the words.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t1"
+      },
+      {
+        "alternative": null,
+        "confidence": "high",
+        "contextCues": [
+          {
+            "messageId": "m1",
+            "quote": "did you see my message"
+          }
+        ],
+        "cues": [],
+        "expression": "UNCLEAR",
+        "family": "UNCLEAR",
+        "invites": "UNCLEAR",
+        "messageIds": [
+          "m2"
+        ],
+        "rationale": "'yeah' alone confirms receipt but is too brief to show how it functions, so no label fits securely.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t2"
+      },
+      {
+        "alternative": null,
+        "confidence": "high",
+        "contextCues": [
+          {
+            "messageId": "m2",
+            "quote": "yeah"
+          }
+        ],
+        "cues": [],
+        "expression": "UNCLEAR",
+        "family": "UNCLEAR",
+        "invites": "UNCLEAR",
+        "messageIds": [
+          "m3"
+        ],
+        "rationale": "'and?' prompts for more but is too brief to show whether it is neutral information-seeking or carries another stance.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t3"
+      },
+      {
+        "alternative": null,
+        "confidence": "high",
+        "contextCues": [
+          {
+            "messageId": "m3",
+            "quote": "and?"
+          }
+        ],
+        "cues": [],
+        "expression": "UNCLEAR",
+        "family": "UNCLEAR",
+        "invites": "UNCLEAR",
+        "messageIds": [
+          "m4"
+        ],
+        "rationale": "'k' alone acknowledges but is too minimal to support a specific functional label.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t4"
+      },
+      {
+        "alternative": {
+          "expression": "FC",
+          "rationale": "It could also read as a spontaneous flash of surprise or disappointment said directly."
+        },
+        "confidence": "low",
+        "contextCues": [
+          {
+            "messageId": "m4",
+            "quote": "k"
+          }
+        ],
+        "cues": [
+          "wow ok"
+        ],
+        "expression": "AC",
+        "family": "C",
+        "invites": "UNCLEAR",
+        "messageIds": [
+          "m5"
+        ],
+        "rationale": "After the minimal 'k', 'wow ok' can read as pulling back rather than continuing the exchange.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t5"
+      },
+      {
+        "alternative": null,
+        "confidence": "high",
+        "contextCues": [
+          {
+            "messageId": "m5",
+            "quote": "wow ok"
+          }
+        ],
+        "cues": [],
+        "expression": "UNCLEAR",
+        "family": "UNCLEAR",
+        "invites": "UNCLEAR",
+        "messageIds": [
+          "m6"
+        ],
+        "rationale": "A lone laughing emoji is too brief to assign a function securely.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t6"
+      },
+      {
+        "alternative": null,
+        "confidence": "high",
+        "contextCues": [
+          {
+            "messageId": "m6",
+            "quote": "😂"
+          }
+        ],
+        "cues": [],
+        "expression": "UNCLEAR",
+        "family": "UNCLEAR",
+        "invites": "UNCLEAR",
+        "messageIds": [
+          "m7"
+        ],
+        "rationale": "A single '?' asks for clarification but is too minimal to support a specific functional label.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t7"
+      },
+      {
+        "alternative": {
+          "expression": "FC",
+          "rationale": "'just tired' could also read as a direct plain statement of tiredness."
+        },
+        "confidence": "low",
+        "contextCues": [
+          {
+            "messageId": "m7",
+            "quote": "?"
+          }
+        ],
+        "cues": [
+          "nothing,",
+          "just tired"
+        ],
+        "expression": "AC",
+        "family": "C",
+        "invites": "UNCLEAR",
+        "messageIds": [
+          "m8"
+        ],
+        "rationale": "'nothing,' closes the prior question while 'just tired' names tiredness plainly; in this short closing context it can read as holding back from further exchange.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t8"
+      }
+    ],
+    "shifts": [
+      {
+        "cues": [
+          "wow ok"
+        ],
+        "description": "Wording moves from brief checking and acknowledgement to a reactive 'wow ok'.",
+        "messageId": "m5"
+      },
+      {
+        "cues": [
+          "just tired"
+        ],
+        "description": "Wording moves from minimal reactions to naming tiredness as an explanation.",
+        "messageId": "m8"
+      }
+    ],
+    "summary": "Person A sends short prompts and Person B answers very briefly. A reactive exchange follows the minimal replies, then Person B mentions being tired. The exchange stays short with little detail shared.",
+    "uncertainty": "Text alone does not show tone of voice, history between them, or what the earlier unseen message contained."
+  },
+  "normalized": {
+    "readings": [
+      {
+        "splitReason": null,
+        "cues": [
+          "did you see my message"
+        ],
+        "contextCues": [],
+        "rationale": "This is a direct check for information about the prior message, with no evaluation or comfort in the words.",
+        "family": "A",
+        "expression": "A",
+        "confidence": "high",
+        "alternative": null,
+        "invites": "A",
+        "secondLayer": null,
+        "messageId": "m1",
+        "segmentId": "s1"
+      },
+      {
+        "splitReason": null,
+        "cues": [],
+        "contextCues": [
+          {
+            "messageId": "m1",
+            "quote": "did you see my message"
+          }
+        ],
+        "rationale": "'yeah' alone confirms receipt but is too brief to show how it functions, so no label fits securely.",
+        "family": "UNCLEAR",
+        "expression": "UNCLEAR",
+        "confidence": "high",
+        "alternative": null,
+        "invites": "UNCLEAR",
+        "secondLayer": null,
+        "messageId": "m2",
+        "segmentId": "s2"
+      },
+      {
+        "splitReason": null,
+        "cues": [],
+        "contextCues": [
+          {
+            "messageId": "m2",
+            "quote": "yeah"
+          }
+        ],
+        "rationale": "'and?' prompts for more but is too brief to show whether it is neutral information-seeking or carries another stance.",
+        "family": "UNCLEAR",
+        "expression": "UNCLEAR",
+        "confidence": "high",
+        "alternative": null,
+        "invites": "UNCLEAR",
+        "secondLayer": null,
+        "messageId": "m3",
+        "segmentId": "s3"
+      },
+      {
+        "splitReason": null,
+        "cues": [],
+        "contextCues": [
+          {
+            "messageId": "m3",
+            "quote": "and?"
+          }
+        ],
+        "rationale": "'k' alone acknowledges but is too minimal to support a specific functional label.",
+        "family": "UNCLEAR",
+        "expression": "UNCLEAR",
+        "confidence": "high",
+        "alternative": null,
+        "invites": "UNCLEAR",
+        "secondLayer": null,
+        "messageId": "m4",
+        "segmentId": "s4"
+      },
+      {
+        "splitReason": null,
+        "cues": [
+          "wow ok"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m4",
+            "quote": "k"
+          }
+        ],
+        "rationale": "After the minimal 'k', 'wow ok' can read as pulling back rather than continuing the exchange.",
+        "family": "C",
+        "expression": "AC",
+        "confidence": "low",
+        "alternative": {
+          "expression": "FC",
+          "rationale": "It could also read as a spontaneous flash of surprise or disappointment said directly."
+        },
+        "invites": "UNCLEAR",
+        "secondLayer": null,
+        "messageId": "m5",
+        "segmentId": "s5"
+      },
+      {
+        "splitReason": null,
+        "cues": [],
+        "contextCues": [
+          {
+            "messageId": "m5",
+            "quote": "wow ok"
+          }
+        ],
+        "rationale": "A lone laughing emoji is too brief to assign a function securely.",
+        "family": "UNCLEAR",
+        "expression": "UNCLEAR",
+        "confidence": "high",
+        "alternative": null,
+        "invites": "UNCLEAR",
+        "secondLayer": null,
+        "messageId": "m6",
+        "segmentId": "s6"
+      },
+      {
+        "splitReason": null,
+        "cues": [],
+        "contextCues": [
+          {
+            "messageId": "m6",
+            "quote": "😂"
+          }
+        ],
+        "rationale": "A single '?' asks for clarification but is too minimal to support a specific functional label.",
+        "family": "UNCLEAR",
+        "expression": "UNCLEAR",
+        "confidence": "high",
+        "alternative": null,
+        "invites": "UNCLEAR",
+        "secondLayer": null,
+        "messageId": "m7",
+        "segmentId": "s7"
+      },
+      {
+        "splitReason": null,
+        "cues": [
+          "nothing,",
+          "just tired"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m7",
+            "quote": "?"
+          }
+        ],
+        "rationale": "'nothing,' closes the prior question while 'just tired' names tiredness plainly; in this short closing context it can read as holding back from further exchange.",
+        "family": "C",
+        "expression": "AC",
+        "confidence": "low",
+        "alternative": {
+          "expression": "FC",
+          "rationale": "'just tired' could also read as a direct plain statement of tiredness."
+        },
+        "invites": "UNCLEAR",
+        "secondLayer": null,
+        "messageId": "m8",
+        "segmentId": "s8"
+      }
+    ],
+    "segments": [
+      {
+        "turnId": "t1",
+        "messageIds": [
+          "m1"
+        ],
+        "splitReason": null,
+        "cues": [
+          "did you see my message"
+        ],
+        "contextCues": [],
+        "rationale": "This is a direct check for information about the prior message, with no evaluation or comfort in the words.",
+        "family": "A",
+        "expression": "A",
+        "confidence": "high",
+        "alternative": null,
+        "invites": "A",
+        "secondLayer": null,
+        "id": "s1"
+      },
+      {
+        "turnId": "t2",
+        "messageIds": [
+          "m2"
+        ],
+        "splitReason": null,
+        "cues": [],
+        "contextCues": [
+          {
+            "messageId": "m1",
+            "quote": "did you see my message"
+          }
+        ],
+        "rationale": "'yeah' alone confirms receipt but is too brief to show how it functions, so no label fits securely.",
+        "family": "UNCLEAR",
+        "expression": "UNCLEAR",
+        "confidence": "high",
+        "alternative": null,
+        "invites": "UNCLEAR",
+        "secondLayer": null,
+        "id": "s2"
+      },
+      {
+        "turnId": "t3",
+        "messageIds": [
+          "m3"
+        ],
+        "splitReason": null,
+        "cues": [],
+        "contextCues": [
+          {
+            "messageId": "m2",
+            "quote": "yeah"
+          }
+        ],
+        "rationale": "'and?' prompts for more but is too brief to show whether it is neutral information-seeking or carries another stance.",
+        "family": "UNCLEAR",
+        "expression": "UNCLEAR",
+        "confidence": "high",
+        "alternative": null,
+        "invites": "UNCLEAR",
+        "secondLayer": null,
+        "id": "s3"
+      },
+      {
+        "turnId": "t4",
+        "messageIds": [
+          "m4"
+        ],
+        "splitReason": null,
+        "cues": [],
+        "contextCues": [
+          {
+            "messageId": "m3",
+            "quote": "and?"
+          }
+        ],
+        "rationale": "'k' alone acknowledges but is too minimal to support a specific functional label.",
+        "family": "UNCLEAR",
+        "expression": "UNCLEAR",
+        "confidence": "high",
+        "alternative": null,
+        "invites": "UNCLEAR",
+        "secondLayer": null,
+        "id": "s4"
+      },
+      {
+        "turnId": "t5",
+        "messageIds": [
+          "m5"
+        ],
+        "splitReason": null,
+        "cues": [
+          "wow ok"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m4",
+            "quote": "k"
+          }
+        ],
+        "rationale": "After the minimal 'k', 'wow ok' can read as pulling back rather than continuing the exchange.",
+        "family": "C",
+        "expression": "AC",
+        "confidence": "low",
+        "alternative": {
+          "expression": "FC",
+          "rationale": "It could also read as a spontaneous flash of surprise or disappointment said directly."
+        },
+        "invites": "UNCLEAR",
+        "secondLayer": null,
+        "id": "s5"
+      },
+      {
+        "turnId": "t6",
+        "messageIds": [
+          "m6"
+        ],
+        "splitReason": null,
+        "cues": [],
+        "contextCues": [
+          {
+            "messageId": "m5",
+            "quote": "wow ok"
+          }
+        ],
+        "rationale": "A lone laughing emoji is too brief to assign a function securely.",
+        "family": "UNCLEAR",
+        "expression": "UNCLEAR",
+        "confidence": "high",
+        "alternative": null,
+        "invites": "UNCLEAR",
+        "secondLayer": null,
+        "id": "s6"
+      },
+      {
+        "turnId": "t7",
+        "messageIds": [
+          "m7"
+        ],
+        "splitReason": null,
+        "cues": [],
+        "contextCues": [
+          {
+            "messageId": "m6",
+            "quote": "😂"
+          }
+        ],
+        "rationale": "A single '?' asks for clarification but is too minimal to support a specific functional label.",
+        "family": "UNCLEAR",
+        "expression": "UNCLEAR",
+        "confidence": "high",
+        "alternative": null,
+        "invites": "UNCLEAR",
+        "secondLayer": null,
+        "id": "s7"
+      },
+      {
+        "turnId": "t8",
+        "messageIds": [
+          "m8"
+        ],
+        "splitReason": null,
+        "cues": [
+          "nothing,",
+          "just tired"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m7",
+            "quote": "?"
+          }
+        ],
+        "rationale": "'nothing,' closes the prior question while 'just tired' names tiredness plainly; in this short closing context it can read as holding back from further exchange.",
+        "family": "C",
+        "expression": "AC",
+        "confidence": "low",
+        "alternative": {
+          "expression": "FC",
+          "rationale": "'just tired' could also read as a direct plain statement of tiredness."
+        },
+        "invites": "UNCLEAR",
+        "secondLayer": null,
+        "id": "s8"
+      }
+    ],
+    "analysis": {
+      "context": {
+        "register": "No address terms or closeness markers appear; messages are very short neutral English with little indication of relationship.",
+        "turns": [
+          {
+            "turnId": "t1",
+            "act": "asks whether a message was seen",
+            "respondsTo": null
+          },
+          {
+            "turnId": "t2",
+            "act": "confirms seeing it",
+            "respondsTo": "t1"
+          },
+          {
+            "turnId": "t3",
+            "act": "prompts for a further response",
+            "respondsTo": "t2"
+          },
+          {
+            "turnId": "t4",
+            "act": "gives minimal acknowledgement",
+            "respondsTo": "t3"
+          },
+          {
+            "turnId": "t5",
+            "act": "reacts to the minimal reply",
+            "respondsTo": "t4"
+          },
+          {
+            "turnId": "t6",
+            "act": "sends laughing emoji",
+            "respondsTo": "t5"
+          },
+          {
+            "turnId": "t7",
+            "act": "asks for clarification",
+            "respondsTo": "t6"
+          },
+          {
+            "turnId": "t8",
+            "act": "dismisses and mentions tiredness",
+            "respondsTo": "t7"
+          }
+        ],
+        "dynamics": "Person A sends short follow-up prompts while Person B gives very brief replies. After a minimal acknowledgement the wording briefly shows reaction before Person B mentions tiredness. Both sides stay very short throughout with little detail exchanged."
+      },
+      "segments": [
+        {
+          "turnId": "t1",
+          "messageIds": [
+            "m1"
+          ],
+          "splitReason": null,
+          "cues": [
+            "did you see my message"
+          ],
+          "contextCues": [],
+          "rationale": "This is a direct check for information about the prior message, with no evaluation or comfort in the words.",
+          "family": "A",
+          "expression": "A",
+          "confidence": "high",
+          "alternative": null,
+          "invites": "A",
+          "secondLayer": null,
+          "id": "s1"
+        },
+        {
+          "turnId": "t2",
+          "messageIds": [
+            "m2"
+          ],
+          "splitReason": null,
+          "cues": [],
+          "contextCues": [
+            {
+              "messageId": "m1",
+              "quote": "did you see my message"
+            }
+          ],
+          "rationale": "'yeah' alone confirms receipt but is too brief to show how it functions, so no label fits securely.",
+          "family": "UNCLEAR",
+          "expression": "UNCLEAR",
+          "confidence": "high",
+          "alternative": null,
+          "invites": "UNCLEAR",
+          "secondLayer": null,
+          "id": "s2"
+        },
+        {
+          "turnId": "t3",
+          "messageIds": [
+            "m3"
+          ],
+          "splitReason": null,
+          "cues": [],
+          "contextCues": [
+            {
+              "messageId": "m2",
+              "quote": "yeah"
+            }
+          ],
+          "rationale": "'and?' prompts for more but is too brief to show whether it is neutral information-seeking or carries another stance.",
+          "family": "UNCLEAR",
+          "expression": "UNCLEAR",
+          "confidence": "high",
+          "alternative": null,
+          "invites": "UNCLEAR",
+          "secondLayer": null,
+          "id": "s3"
+        },
+        {
+          "turnId": "t4",
+          "messageIds": [
+            "m4"
+          ],
+          "splitReason": null,
+          "cues": [],
+          "contextCues": [
+            {
+              "messageId": "m3",
+              "quote": "and?"
+            }
+          ],
+          "rationale": "'k' alone acknowledges but is too minimal to support a specific functional label.",
+          "family": "UNCLEAR",
+          "expression": "UNCLEAR",
+          "confidence": "high",
+          "alternative": null,
+          "invites": "UNCLEAR",
+          "secondLayer": null,
+          "id": "s4"
+        },
+        {
+          "turnId": "t5",
+          "messageIds": [
+            "m5"
+          ],
+          "splitReason": null,
+          "cues": [
+            "wow ok"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m4",
+              "quote": "k"
+            }
+          ],
+          "rationale": "After the minimal 'k', 'wow ok' can read as pulling back rather than continuing the exchange.",
+          "family": "C",
+          "expression": "AC",
+          "confidence": "low",
+          "alternative": {
+            "expression": "FC",
+            "rationale": "It could also read as a spontaneous flash of surprise or disappointment said directly."
+          },
+          "invites": "UNCLEAR",
+          "secondLayer": null,
+          "id": "s5"
+        },
+        {
+          "turnId": "t6",
+          "messageIds": [
+            "m6"
+          ],
+          "splitReason": null,
+          "cues": [],
+          "contextCues": [
+            {
+              "messageId": "m5",
+              "quote": "wow ok"
+            }
+          ],
+          "rationale": "A lone laughing emoji is too brief to assign a function securely.",
+          "family": "UNCLEAR",
+          "expression": "UNCLEAR",
+          "confidence": "high",
+          "alternative": null,
+          "invites": "UNCLEAR",
+          "secondLayer": null,
+          "id": "s6"
+        },
+        {
+          "turnId": "t7",
+          "messageIds": [
+            "m7"
+          ],
+          "splitReason": null,
+          "cues": [],
+          "contextCues": [
+            {
+              "messageId": "m6",
+              "quote": "😂"
+            }
+          ],
+          "rationale": "A single '?' asks for clarification but is too minimal to support a specific functional label.",
+          "family": "UNCLEAR",
+          "expression": "UNCLEAR",
+          "confidence": "high",
+          "alternative": null,
+          "invites": "UNCLEAR",
+          "secondLayer": null,
+          "id": "s7"
+        },
+        {
+          "turnId": "t8",
+          "messageIds": [
+            "m8"
+          ],
+          "splitReason": null,
+          "cues": [
+            "nothing,",
+            "just tired"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m7",
+              "quote": "?"
+            }
+          ],
+          "rationale": "'nothing,' closes the prior question while 'just tired' names tiredness plainly; in this short closing context it can read as holding back from further exchange.",
+          "family": "C",
+          "expression": "AC",
+          "confidence": "low",
+          "alternative": {
+            "expression": "FC",
+            "rationale": "'just tired' could also read as a direct plain statement of tiredness."
+          },
+          "invites": "UNCLEAR",
+          "secondLayer": null,
+          "id": "s8"
+        }
+      ],
+      "shifts": [
+        {
+          "messageId": "m5",
+          "description": "Wording moves from brief checking and acknowledgement to a reactive 'wow ok'.",
+          "cues": [
+            "wow ok"
+          ]
+        },
+        {
+          "messageId": "m8",
+          "description": "Wording moves from minimal reactions to naming tiredness as an explanation.",
+          "cues": [
+            "just tired"
+          ]
+        }
+      ],
+      "summary": "Person A sends short prompts and Person B answers very briefly. A reactive exchange follows the minimal replies, then Person B mentions being tired. The exchange stays short with little detail shared.",
+      "uncertainty": "Text alone does not show tone of voice, history between them, or what the earlier unseen message contained.",
+      "safety": {
+        "flagged": false,
+        "categories": [],
+        "note": null
+      },
+      "readings": [
+        {
+          "splitReason": null,
+          "cues": [
+            "did you see my message"
+          ],
+          "contextCues": [],
+          "rationale": "This is a direct check for information about the prior message, with no evaluation or comfort in the words.",
+          "family": "A",
+          "expression": "A",
+          "confidence": "high",
+          "alternative": null,
+          "invites": "A",
+          "secondLayer": null,
+          "messageId": "m1",
+          "segmentId": "s1"
+        },
+        {
+          "splitReason": null,
+          "cues": [],
+          "contextCues": [
+            {
+              "messageId": "m1",
+              "quote": "did you see my message"
+            }
+          ],
+          "rationale": "'yeah' alone confirms receipt but is too brief to show how it functions, so no label fits securely.",
+          "family": "UNCLEAR",
+          "expression": "UNCLEAR",
+          "confidence": "high",
+          "alternative": null,
+          "invites": "UNCLEAR",
+          "secondLayer": null,
+          "messageId": "m2",
+          "segmentId": "s2"
+        },
+        {
+          "splitReason": null,
+          "cues": [],
+          "contextCues": [
+            {
+              "messageId": "m2",
+              "quote": "yeah"
+            }
+          ],
+          "rationale": "'and?' prompts for more but is too brief to show whether it is neutral information-seeking or carries another stance.",
+          "family": "UNCLEAR",
+          "expression": "UNCLEAR",
+          "confidence": "high",
+          "alternative": null,
+          "invites": "UNCLEAR",
+          "secondLayer": null,
+          "messageId": "m3",
+          "segmentId": "s3"
+        },
+        {
+          "splitReason": null,
+          "cues": [],
+          "contextCues": [
+            {
+              "messageId": "m3",
+              "quote": "and?"
+            }
+          ],
+          "rationale": "'k' alone acknowledges but is too minimal to support a specific functional label.",
+          "family": "UNCLEAR",
+          "expression": "UNCLEAR",
+          "confidence": "high",
+          "alternative": null,
+          "invites": "UNCLEAR",
+          "secondLayer": null,
+          "messageId": "m4",
+          "segmentId": "s4"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "wow ok"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m4",
+              "quote": "k"
+            }
+          ],
+          "rationale": "After the minimal 'k', 'wow ok' can read as pulling back rather than continuing the exchange.",
+          "family": "C",
+          "expression": "AC",
+          "confidence": "low",
+          "alternative": {
+            "expression": "FC",
+            "rationale": "It could also read as a spontaneous flash of surprise or disappointment said directly."
+          },
+          "invites": "UNCLEAR",
+          "secondLayer": null,
+          "messageId": "m5",
+          "segmentId": "s5"
+        },
+        {
+          "splitReason": null,
+          "cues": [],
+          "contextCues": [
+            {
+              "messageId": "m5",
+              "quote": "wow ok"
+            }
+          ],
+          "rationale": "A lone laughing emoji is too brief to assign a function securely.",
+          "family": "UNCLEAR",
+          "expression": "UNCLEAR",
+          "confidence": "high",
+          "alternative": null,
+          "invites": "UNCLEAR",
+          "secondLayer": null,
+          "messageId": "m6",
+          "segmentId": "s6"
+        },
+        {
+          "splitReason": null,
+          "cues": [],
+          "contextCues": [
+            {
+              "messageId": "m6",
+              "quote": "😂"
+            }
+          ],
+          "rationale": "A single '?' asks for clarification but is too minimal to support a specific functional label.",
+          "family": "UNCLEAR",
+          "expression": "UNCLEAR",
+          "confidence": "high",
+          "alternative": null,
+          "invites": "UNCLEAR",
+          "secondLayer": null,
+          "messageId": "m7",
+          "segmentId": "s7"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "nothing,",
+            "just tired"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m7",
+              "quote": "?"
+            }
+          ],
+          "rationale": "'nothing,' closes the prior question while 'just tired' names tiredness plainly; in this short closing context it can read as holding back from further exchange.",
+          "family": "C",
+          "expression": "AC",
+          "confidence": "low",
+          "alternative": {
+            "expression": "FC",
+            "rationale": "'just tired' could also read as a direct plain statement of tiredness."
+          },
+          "invites": "UNCLEAR",
+          "secondLayer": null,
+          "messageId": "m8",
+          "segmentId": "s8"
+        }
+      ]
+    }
+  },
+  "score": {
+    "per": [
+      {
+        "id": "m1",
+        "expr": "A",
+        "family": "A",
+        "conf": "high",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m2",
+        "expr": "UNCLEAR",
+        "family": "UNCLEAR",
+        "conf": "high",
+        "acc": true,
+        "hard": null,
+        "over": true,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m3",
+        "expr": "UNCLEAR",
+        "family": "UNCLEAR",
+        "conf": "high",
+        "acc": true,
+        "hard": null,
+        "over": true,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m4",
+        "expr": "UNCLEAR",
+        "family": "UNCLEAR",
+        "conf": "high",
+        "acc": true,
+        "hard": "*:high",
+        "over": true,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m5",
+        "expr": "AC",
+        "family": "C",
+        "conf": "low",
+        "acc": false,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m6",
+        "expr": "UNCLEAR",
+        "family": "UNCLEAR",
+        "conf": "high",
+        "acc": true,
+        "hard": "*:high",
+        "over": true,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m7",
+        "expr": "UNCLEAR",
+        "family": "UNCLEAR",
+        "conf": "high",
+        "acc": true,
+        "hard": "*:high",
+        "over": true,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m8",
+        "expr": "AC",
+        "family": "C",
+        "conf": "low",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      }
+    ],
+    "n": 8,
+    "accOk": 7,
+    "hardFails": [
+      "m4 UNCLEAR:high",
+      "m6 UNCLEAR:high",
+      "m7 UNCLEAR:high"
+    ],
+    "overCeiling": [
+      "m2 UNCLEAR:high",
+      "m3 UNCLEAR:high",
+      "m4 UNCLEAR:high",
+      "m6 UNCLEAR:high",
+      "m7 UNCLEAR:high"
+    ],
+    "highOnReview": 0,
+    "altMissing": 0,
+    "unclear": 5,
+    "high": 6
+  }
+}

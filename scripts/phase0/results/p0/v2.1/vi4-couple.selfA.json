@@ -1,0 +1,418 @@
+{
+  "meta": {
+    "spec": "v2.1",
+    "fixture": "vi4-couple",
+    "variant": "selfA",
+    "latencyMs": 16718,
+    "usd": 0.02118275,
+    "usage": {
+      "completion_tokens": 4288,
+      "prompt_tokens": 2367,
+      "total_tokens": 6655,
+      "completion_tokens_details": {
+        "reasoning_tokens": 2789
+      },
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "finish": "stop"
+  },
+  "raw": {
+    "exchanges": [
+      {
+        "note": "Lời nhắc lỗi được đáp lại bằng lời xin lỗi, khớp nhau trên bề mặt trao đổi.",
+        "pattern": "complementary",
+        "responseAddresses": "P",
+        "responseFrom": "C",
+        "responseId": "m2",
+        "stimulusAddresses": "C",
+        "stimulusFrom": "P",
+        "stimulusId": "m1"
+      },
+      {
+        "note": "Lời giải thích được đáp lại bằng câu hỏi khái quát, vẫn nối tiếp nhau trực tiếp.",
+        "pattern": "complementary",
+        "responseAddresses": "C",
+        "responseFrom": "P",
+        "responseId": "m3",
+        "stimulusAddresses": "P",
+        "stimulusFrom": "C",
+        "stimulusId": "m2"
+      },
+      {
+        "note": "Câu nói rõ cảm giác bực được đáp lại bằng câu nhận lo việc, khớp nhau trên bề mặt.",
+        "pattern": "complementary",
+        "responseAddresses": "C",
+        "responseFrom": "P",
+        "responseId": "m5",
+        "stimulusAddresses": "P",
+        "stimulusFrom": "C",
+        "stimulusId": "m4"
+      },
+      {
+        "note": "Đề xuất cách nhắc lịch chung được đáp lại bằng đồng ý và hẹn giờ làm cụ thể.",
+        "pattern": "complementary",
+        "responseAddresses": "A",
+        "responseFrom": "A",
+        "responseId": "m7",
+        "stimulusAddresses": "A",
+        "stimulusFrom": "A",
+        "stimulusId": "m6"
+      }
+    ],
+    "readings": [
+      {
+        "alternative": {
+          "expression": "A",
+          "rationale": "Câu cũng nêu lại việc đã xảy ra, nên có thể nghe như nhắc lại thông tin."
+        },
+        "confidence": "medium",
+        "cues": [
+          "lại quên"
+        ],
+        "expression": "CP",
+        "invites": "C",
+        "messageId": "m1",
+        "rationale": "Chữ “lại quên” nghe như đang nhắc lỗi và nhấn vào việc lặp lại.",
+        "reflectionQuestion": "Trước khi nhắn câu “Hôm qua anh lại quên đón con”, bạn để ý thấy điều gì trong mình?",
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "A",
+          "rationale": "Nửa sau câu đưa ra thông tin về buổi họp, nên có thể nghe như đang giải thích sự việc."
+        },
+        "confidence": "medium",
+        "cues": [
+          "Anh xin lỗi",
+          "họp muộn quá"
+        ],
+        "expression": "AC",
+        "invites": "P",
+        "messageId": "m2",
+        "rationale": "Cụm “Anh xin lỗi” nghe như đang nhận lỗi và xoa dịu câu nhắc vừa rồi.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "FC",
+          "rationale": "Dạng câu hỏi khái quát này cũng có thể nghe như đang bộc lộ sự bực trực tiếp."
+        },
+        "confidence": "medium",
+        "cues": [
+          "lúc nào",
+          "cũng thế"
+        ],
+        "expression": "CP",
+        "invites": "C",
+        "messageId": "m3",
+        "rationale": "Cụm “lúc nào” với “cũng thế” nghe như đang khái quát thành quy luật và xét nét.",
+        "reflectionQuestion": "Trong câu “Anh xin lỗi, hôm qua họp muộn quá”, phần nào đọng lại với bạn nhất khi bạn trả lời?",
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "CP",
+          "rationale": "Nửa sau “hứa rồi lại quên” cũng có thể nghe như đang nhắc lại lỗi đã hứa."
+        },
+        "confidence": "medium",
+        "cues": [
+          "Em bực thật sự đấy",
+          "hứa rồi lại quên"
+        ],
+        "expression": "FC",
+        "invites": "P",
+        "messageId": "m4",
+        "rationale": "Câu “Em bực thật sự đấy” nói thẳng cảm giác, nghe như bộc lộ trực tiếp.",
+        "reflectionQuestion": "Khi viết “Em bực thật sự đấy, hứa rồi lại quên”, bạn mong điều gì sẽ xảy ra tiếp theo?",
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "AC",
+          "rationale": "Chữ “Thôi” cũng có thể nghe như muốn khép lại trao đổi lúc đó."
+        },
+        "confidence": "low",
+        "cues": [
+          "để anh lo"
+        ],
+        "expression": "NP",
+        "invites": "C",
+        "messageId": "m5",
+        "rationale": "Cụm “để anh lo” nghe như đang nhận việc về mình và trấn an.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "FC",
+          "rationale": "Cụm “Em thấy buồn” cũng có thể nghe như đang nói ra cảm giác một cách trực tiếp."
+        },
+        "confidence": "medium",
+        "cues": [
+          "Em thấy buồn",
+          "đặt nhắc lịch chung được không"
+        ],
+        "expression": "A",
+        "invites": "A",
+        "messageId": "m6",
+        "rationale": "Câu hỏi về “đặt nhắc lịch chung” nghe như đang nêu đề xuất cụ thể để cùng giải quyết.",
+        "reflectionQuestion": "Ngoài cách bạn đã hiểu, câu “Thôi để anh lo” còn có thể được nghe theo cách nào khác?",
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "AC",
+          "rationale": "Cụm “Ừ, được” cũng có thể nghe như đang thuận theo đề xuất vừa rồi."
+        },
+        "confidence": "medium",
+        "cues": [
+          "Ừ, được",
+          "anh cài luôn"
+        ],
+        "expression": "A",
+        "invites": "A",
+        "messageId": "m7",
+        "rationale": "Câu “anh cài luôn” nghe như đưa ra việc làm cụ thể và hẹn thời gian.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      }
+    ],
+    "safety": {
+      "categories": [],
+      "flagged": false,
+      "note": null
+    },
+    "shifts": [
+      {
+        "cues": [
+          "Thôi để anh lo"
+        ],
+        "description": "Lời lẽ chuyển sang câu ngắn gọn nhận việc sau mấy câu trách và xin lỗi.",
+        "messageId": "m5"
+      },
+      {
+        "cues": [
+          "đặt nhắc lịch chung được không"
+        ],
+        "description": "Lời lẽ chuyển từ trách móc sang nói cảm nhận kèm đề xuất cách làm chung.",
+        "messageId": "m6"
+      }
+    ],
+    "summary": "Cuộc trò chuyện bắt đầu bằng nhắc lỗi và xin lỗi, rồi qua mấy câu trách qua lại. Sau đó lời lẽ chuyển sang đề xuất nhắc lịch chung và đồng ý làm cụ thể vào tối nay.",
+    "uncertainty": "Chỉ qua chữ viết khó biết giọng điệu, nét mặt và chuyện đã xảy ra ngoài đoạn chat này."
+  },
+  "normalized": {
+    "readings": [
+      {
+        "alternative": {
+          "expression": "A",
+          "rationale": "Câu cũng nêu lại việc đã xảy ra, nên có thể nghe như nhắc lại thông tin."
+        },
+        "confidence": "medium",
+        "cues": [
+          "lại quên"
+        ],
+        "expression": "CP",
+        "invites": "C",
+        "messageId": "m1",
+        "rationale": "Chữ “lại quên” nghe như đang nhắc lỗi và nhấn vào việc lặp lại.",
+        "reflectionQuestion": "Trước khi nhắn câu “Hôm qua anh lại quên đón con”, bạn để ý thấy điều gì trong mình?",
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "A",
+          "rationale": "Nửa sau câu đưa ra thông tin về buổi họp, nên có thể nghe như đang giải thích sự việc."
+        },
+        "confidence": "medium",
+        "cues": [
+          "Anh xin lỗi",
+          "họp muộn quá"
+        ],
+        "expression": "AC",
+        "invites": "P",
+        "messageId": "m2",
+        "rationale": "Cụm “Anh xin lỗi” nghe như đang nhận lỗi và xoa dịu câu nhắc vừa rồi.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "FC",
+          "rationale": "Dạng câu hỏi khái quát này cũng có thể nghe như đang bộc lộ sự bực trực tiếp."
+        },
+        "confidence": "medium",
+        "cues": [
+          "lúc nào",
+          "cũng thế"
+        ],
+        "expression": "CP",
+        "invites": "C",
+        "messageId": "m3",
+        "rationale": "Cụm “lúc nào” với “cũng thế” nghe như đang khái quát thành quy luật và xét nét.",
+        "reflectionQuestion": "Trong câu “Anh xin lỗi, hôm qua họp muộn quá”, phần nào đọng lại với bạn nhất khi bạn trả lời?",
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "CP",
+          "rationale": "Nửa sau “hứa rồi lại quên” cũng có thể nghe như đang nhắc lại lỗi đã hứa."
+        },
+        "confidence": "medium",
+        "cues": [
+          "Em bực thật sự đấy",
+          "hứa rồi lại quên"
+        ],
+        "expression": "FC",
+        "invites": "P",
+        "messageId": "m4",
+        "rationale": "Câu “Em bực thật sự đấy” nói thẳng cảm giác, nghe như bộc lộ trực tiếp.",
+        "reflectionQuestion": "Khi viết “Em bực thật sự đấy, hứa rồi lại quên”, bạn mong điều gì sẽ xảy ra tiếp theo?",
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "AC",
+          "rationale": "Chữ “Thôi” cũng có thể nghe như muốn khép lại trao đổi lúc đó."
+        },
+        "confidence": "low",
+        "cues": [
+          "để anh lo"
+        ],
+        "expression": "NP",
+        "invites": "C",
+        "messageId": "m5",
+        "rationale": "Cụm “để anh lo” nghe như đang nhận việc về mình và trấn an.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "FC",
+          "rationale": "Cụm “Em thấy buồn” cũng có thể nghe như đang nói ra cảm giác một cách trực tiếp."
+        },
+        "confidence": "medium",
+        "cues": [
+          "Em thấy buồn",
+          "đặt nhắc lịch chung được không"
+        ],
+        "expression": "A",
+        "invites": "A",
+        "messageId": "m6",
+        "rationale": "Câu hỏi về “đặt nhắc lịch chung” nghe như đang nêu đề xuất cụ thể để cùng giải quyết.",
+        "reflectionQuestion": "Ngoài cách bạn đã hiểu, câu “Thôi để anh lo” còn có thể được nghe theo cách nào khác?",
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "AC",
+          "rationale": "Cụm “Ừ, được” cũng có thể nghe như đang thuận theo đề xuất vừa rồi."
+        },
+        "confidence": "medium",
+        "cues": [
+          "Ừ, được",
+          "anh cài luôn"
+        ],
+        "expression": "A",
+        "invites": "A",
+        "messageId": "m7",
+        "rationale": "Câu “anh cài luôn” nghe như đưa ra việc làm cụ thể và hẹn thời gian.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      }
+    ],
+    "segments": null
+  },
+  "score": {
+    "per": [
+      {
+        "id": "m1",
+        "expr": "CP",
+        "family": "P",
+        "conf": "medium",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m2",
+        "expr": "AC",
+        "family": "C",
+        "conf": "medium",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m3",
+        "expr": "CP",
+        "family": "P",
+        "conf": "medium",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m4",
+        "expr": "FC",
+        "family": "C",
+        "conf": "medium",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m5",
+        "expr": "NP",
+        "family": "P",
+        "conf": "low",
+        "acc": false,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m6",
+        "expr": "A",
+        "family": "A",
+        "conf": "medium",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m7",
+        "expr": "A",
+        "family": "A",
+        "conf": "medium",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      }
+    ],
+    "n": 7,
+    "accOk": 6,
+    "hardFails": [],
+    "overCeiling": [],
+    "highOnReview": 0,
+    "altMissing": 0,
+    "unclear": 0,
+    "high": 0
+  }
+}

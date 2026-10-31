@@ -1,6 +1,6 @@
 // Automatic checks on an AI Observation (spec v2). They flag mechanical and wording
 // problems for human review; they are not a measure of interpretive correctness.
-import { patternFromVectors } from "../../src/lib/ai/analysis-spec.ts";
+import { patternFromVectors } from "./p0/spec-v2.1.ts";
 
 const FORBIDDEN = [
   "narciss", "toxic", "gaslight", "manipulat", "trauma", "depress", "anxious attachment", "avoidant",

@@ -1,9 +1,9 @@
-// Shared by run.mjs and eval.mjs: fixtures, the v2 analysis request (built from the
+// Shared by run.mjs and eval.mjs (Phase 0 harness, frozen at spec v2.1; the current eval is p0/run.mjs):
 // same spec the app uses) and a Markdown rendering for human review.
 import { readFileSync, readdirSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
-import { SYSTEM_PROMPT, ANALYSIS_JSON_SCHEMA, ANALYSIS_SPEC_VERSION, buildUserPayload, pseudonymLabel, SELF_LABEL } from "../../src/lib/ai/analysis-spec.ts";
+import { SYSTEM_PROMPT, ANALYSIS_JSON_SCHEMA, ANALYSIS_SPEC_VERSION, buildUserPayload, pseudonymLabel, SELF_LABEL } from "./p0/spec-v2.1.ts";
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 export const CONV_DIR = join(HERE, "conversations");

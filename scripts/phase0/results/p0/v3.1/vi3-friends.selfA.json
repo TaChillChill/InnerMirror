@@ -1,0 +1,970 @@
+{
+  "meta": {
+    "spec": "v3",
+    "fixture": "vi3-friends",
+    "variant": "selfA",
+    "latencyMs": 37845,
+    "usd": 0.03425275,
+    "usage": {
+      "completion_tokens": 7193,
+      "prompt_tokens": 2946,
+      "total_tokens": 10139,
+      "completion_tokens_details": {
+        "reasoning_tokens": 3686
+      },
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "finish": "stop"
+  },
+  "raw": {
+    "context": {
+      "dynamics": "Cuộc trò chuyện bắt đầu vui vẻ với lời rủ và nhận lời. Khi Người A báo tới muộn, lời đáp của Người B nghe như đánh giá, rồi Người A chỉ đáp cụt lủn. Cuối cùng Người B nói câu làm hòa và đưa ra cách xử lý.",
+      "register": "Xưng hô mày/tao, không có ạ, lời lẽ ngắn và thân mật. Nghe như bạn bè thân, ngang hàng.",
+      "turns": [
+        {
+          "act": "rủ đi ăn và hỏi có rảnh không",
+          "respondsTo": null,
+          "turnId": "t1"
+        },
+        {
+          "act": "nhận lời vui vẻ và nói sẽ bao",
+          "respondsTo": "t1",
+          "turnId": "t2"
+        },
+        {
+          "act": "báo kẹt xe và có thể tới muộn",
+          "respondsTo": "t2",
+          "turnId": "t3"
+        },
+        {
+          "act": "nhắc giờ hẹn bằng giọng mỉa",
+          "respondsTo": "t3",
+          "turnId": "t4"
+        },
+        {
+          "act": "đáp cụt lủn một chữ",
+          "respondsTo": "t4",
+          "turnId": "t5"
+        },
+        {
+          "act": "xoa dịu và nói sẽ gọi món trước",
+          "respondsTo": "t5",
+          "turnId": "t6"
+        }
+      ]
+    },
+    "safety": {
+      "categories": [],
+      "flagged": false,
+      "note": null
+    },
+    "segments": [
+      {
+        "alternative": {
+          "expression": "FC",
+          "rationale": "Cũng có thể nghe như lời rủ hào hứng, muốn đi chơi chung."
+        },
+        "confidence": "medium",
+        "contextCues": [],
+        "cues": [
+          "Mày rảnh không",
+          "đi ăn ốc đi"
+        ],
+        "expression": "A",
+        "family": "A",
+        "invites": "A",
+        "messageIds": [
+          "m1"
+        ],
+        "rationale": "Câu hỏi về giờ rảnh kèm đề nghị cụ thể cho tối nay. Nghe như kiểm tra thực tế và lên kế hoạch chung.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t1"
+      },
+      {
+        "alternative": null,
+        "confidence": "high",
+        "contextCues": [],
+        "cues": [
+          "Aaa được luôn!!!",
+          "tao bao 🎉"
+        ],
+        "expression": "FC",
+        "family": "C",
+        "invites": "C",
+        "messageIds": [
+          "m2"
+        ],
+        "rationale": "Tiếng reo, dấu chấm than liền nhau và emoji tiệc. Nghe như niềm vui bộc phát khi nhận lương và muốn đãi bạn.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t2"
+      },
+      {
+        "alternative": {
+          "expression": "FC",
+          "rationale": "Chữ Trời ơi và cách than có thể nghe như bộc phát bực bội."
+        },
+        "confidence": "medium",
+        "contextCues": [],
+        "cues": [
+          "lại kẹt xe nữa rồi",
+          "chắc tao tới muộn mất"
+        ],
+        "expression": "A",
+        "family": "A",
+        "invites": "P",
+        "messageIds": [
+          "m3"
+        ],
+        "rationale": "Câu báo tình hình kẹt xe và dự đoán tới muộn. Nghe như cập nhật thực tế, dù có chữ Trời ơi than thở.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t3"
+      },
+      {
+        "alternative": {
+          "expression": "A",
+          "rationale": "Cũng có thể nghe như nhắc lại giờ hẹn và thực tế mới xuất phát."
+        },
+        "confidence": "medium",
+        "contextCues": [
+          {
+            "messageId": "m3",
+            "quote": "chắc tao tới muộn mất"
+          }
+        ],
+        "cues": [
+          "Giỏi quá ha",
+          "hẹn 7h mà giờ mới xuất phát"
+        ],
+        "expression": "CP",
+        "family": "P",
+        "invites": "C",
+        "messageIds": [
+          "m4"
+        ],
+        "rationale": "Câu khen kèm nhắc giờ hẹn và việc mới xuất phát. Không hỏi thông tin mà nghe như đánh giá việc tới muộn vừa báo.",
+        "secondLayer": {
+          "cues": [
+            "Giỏi quá ha",
+            "🙂"
+          ],
+          "observation": "Lời khen Giỏi quá ha đặt cạnh lời nhắc trễ giờ và mặt cười 🙂 nghe trái nhau."
+        },
+        "splitReason": null,
+        "turnId": "t4"
+      },
+      {
+        "alternative": {
+          "expression": "AC",
+          "rationale": "Sau câu nghe như trách, chữ Ok. cụt lủn có thể nghe như rút lại, không muốn nói thêm."
+        },
+        "confidence": "low",
+        "contextCues": [
+          {
+            "messageId": "m4",
+            "quote": "Giỏi quá ha, hẹn 7h mà giờ mới xuất phát 🙂"
+          }
+        ],
+        "cues": [],
+        "expression": "UNCLEAR",
+        "family": "UNCLEAR",
+        "invites": "UNCLEAR",
+        "messageIds": [
+          "m5"
+        ],
+        "rationale": "Chỉ có một chữ Ok. Quá ngắn nên không đủ dấu hiệu để xếp vào trạng thái nào.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t5"
+      },
+      {
+        "alternative": {
+          "expression": "A",
+          "rationale": "Phần gọi món trước cũng có thể nghe như đưa ra cách xử lý thực tế."
+        },
+        "confidence": "medium",
+        "contextCues": [
+          {
+            "messageId": "m5",
+            "quote": "Ok."
+          }
+        ],
+        "cues": [
+          "Thôi không sao",
+          "tao gọi món trước"
+        ],
+        "expression": "NP",
+        "family": "P",
+        "invites": "C",
+        "messageIds": [
+          "m6"
+        ],
+        "rationale": "Câu xoa dịu Thôi không sao kèm việc làm cụ thể cho bạn. Nghe như chăm sóc và cho phép tới muộn.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t6"
+      }
+    ],
+    "shifts": [
+      {
+        "cues": [
+          "lại kẹt xe nữa rồi"
+        ],
+        "description": "Lời lẽ chuyển từ rủ rê vui vẻ sang báo kẹt xe và nguy cơ tới muộn.",
+        "messageId": "m3"
+      },
+      {
+        "cues": [
+          "Giỏi quá ha"
+        ],
+        "description": "Lời lẽ chuyển từ cập nhật tình hình sang nhắc giờ hẹn bằng giọng mỉa.",
+        "messageId": "m4"
+      },
+      {
+        "cues": [
+          "Thôi không sao"
+        ],
+        "description": "Lời lẽ chuyển từ căng cụt lủn sang xoa dịu và đưa cách xử lý.",
+        "messageId": "m6"
+      }
+    ],
+    "summary": "Cuộc trò chuyện mở đầu hào hứng với lời rủ đi ăn ốc và nhận lời bao. Giữa chừng việc báo kẹt xe được đáp lại bằng câu nghe như trách, rồi bên kia chỉ đáp Ok. Cuối cùng có câu xoa dịu và chủ động gọi món trước.",
+    "uncertainty": "Chỉ qua chữ viết khó biết giọng điệu thật, mặt cười là đùa thân hay mỉa, và hai người hay nói kiểu này với nhau ra sao."
+  },
+  "normalized": {
+    "readings": [
+      {
+        "splitReason": null,
+        "cues": [
+          "Mày rảnh không",
+          "đi ăn ốc đi"
+        ],
+        "contextCues": [],
+        "rationale": "Câu hỏi về giờ rảnh kèm đề nghị cụ thể cho tối nay. Nghe như kiểm tra thực tế và lên kế hoạch chung.",
+        "family": "A",
+        "expression": "A",
+        "confidence": "medium",
+        "alternative": {
+          "expression": "FC",
+          "rationale": "Cũng có thể nghe như lời rủ hào hứng, muốn đi chơi chung."
+        },
+        "invites": "A",
+        "secondLayer": null,
+        "messageId": "m1",
+        "segmentId": "s1"
+      },
+      {
+        "splitReason": null,
+        "cues": [
+          "Aaa được luôn!!!",
+          "tao bao 🎉"
+        ],
+        "contextCues": [],
+        "rationale": "Tiếng reo, dấu chấm than liền nhau và emoji tiệc. Nghe như niềm vui bộc phát khi nhận lương và muốn đãi bạn.",
+        "family": "C",
+        "expression": "FC",
+        "confidence": "high",
+        "alternative": null,
+        "invites": "C",
+        "secondLayer": null,
+        "messageId": "m2",
+        "segmentId": "s2"
+      },
+      {
+        "splitReason": null,
+        "cues": [
+          "lại kẹt xe nữa rồi",
+          "chắc tao tới muộn mất"
+        ],
+        "contextCues": [],
+        "rationale": "Câu báo tình hình kẹt xe và dự đoán tới muộn. Nghe như cập nhật thực tế, dù có chữ Trời ơi than thở.",
+        "family": "A",
+        "expression": "A",
+        "confidence": "medium",
+        "alternative": {
+          "expression": "FC",
+          "rationale": "Chữ Trời ơi và cách than có thể nghe như bộc phát bực bội."
+        },
+        "invites": "P",
+        "secondLayer": null,
+        "messageId": "m3",
+        "segmentId": "s3"
+      },
+      {
+        "splitReason": null,
+        "cues": [
+          "Giỏi quá ha",
+          "hẹn 7h mà giờ mới xuất phát"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m3",
+            "quote": "chắc tao tới muộn mất"
+          }
+        ],
+        "rationale": "Câu khen kèm nhắc giờ hẹn và việc mới xuất phát. Không hỏi thông tin mà nghe như đánh giá việc tới muộn vừa báo.",
+        "family": "P",
+        "expression": "CP",
+        "confidence": "medium",
+        "alternative": {
+          "expression": "A",
+          "rationale": "Cũng có thể nghe như nhắc lại giờ hẹn và thực tế mới xuất phát."
+        },
+        "invites": "C",
+        "secondLayer": {
+          "observation": "Lời khen Giỏi quá ha đặt cạnh lời nhắc trễ giờ và mặt cười 🙂 nghe trái nhau.",
+          "cues": [
+            "Giỏi quá ha",
+            "🙂"
+          ]
+        },
+        "messageId": "m4",
+        "segmentId": "s4"
+      },
+      {
+        "splitReason": null,
+        "cues": [],
+        "contextCues": [
+          {
+            "messageId": "m4",
+            "quote": "Giỏi quá ha, hẹn 7h mà giờ mới xuất phát 🙂"
+          }
+        ],
+        "rationale": "Chỉ có một chữ Ok. Quá ngắn nên không đủ dấu hiệu để xếp vào trạng thái nào.",
+        "family": "UNCLEAR",
+        "expression": "UNCLEAR",
+        "confidence": "low",
+        "alternative": {
+          "expression": "AC",
+          "rationale": "Sau câu nghe như trách, chữ Ok. cụt lủn có thể nghe như rút lại, không muốn nói thêm."
+        },
+        "invites": "UNCLEAR",
+        "secondLayer": null,
+        "messageId": "m5",
+        "segmentId": "s5"
+      },
+      {
+        "splitReason": null,
+        "cues": [
+          "Thôi không sao",
+          "tao gọi món trước"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m5",
+            "quote": "Ok."
+          }
+        ],
+        "rationale": "Câu xoa dịu Thôi không sao kèm việc làm cụ thể cho bạn. Nghe như chăm sóc và cho phép tới muộn.",
+        "family": "P",
+        "expression": "NP",
+        "confidence": "medium",
+        "alternative": {
+          "expression": "A",
+          "rationale": "Phần gọi món trước cũng có thể nghe như đưa ra cách xử lý thực tế."
+        },
+        "invites": "C",
+        "secondLayer": null,
+        "messageId": "m6",
+        "segmentId": "s6"
+      }
+    ],
+    "segments": [
+      {
+        "turnId": "t1",
+        "messageIds": [
+          "m1"
+        ],
+        "splitReason": null,
+        "cues": [
+          "Mày rảnh không",
+          "đi ăn ốc đi"
+        ],
+        "contextCues": [],
+        "rationale": "Câu hỏi về giờ rảnh kèm đề nghị cụ thể cho tối nay. Nghe như kiểm tra thực tế và lên kế hoạch chung.",
+        "family": "A",
+        "expression": "A",
+        "confidence": "medium",
+        "alternative": {
+          "expression": "FC",
+          "rationale": "Cũng có thể nghe như lời rủ hào hứng, muốn đi chơi chung."
+        },
+        "invites": "A",
+        "secondLayer": null,
+        "id": "s1"
+      },
+      {
+        "turnId": "t2",
+        "messageIds": [
+          "m2"
+        ],
+        "splitReason": null,
+        "cues": [
+          "Aaa được luôn!!!",
+          "tao bao 🎉"
+        ],
+        "contextCues": [],
+        "rationale": "Tiếng reo, dấu chấm than liền nhau và emoji tiệc. Nghe như niềm vui bộc phát khi nhận lương và muốn đãi bạn.",
+        "family": "C",
+        "expression": "FC",
+        "confidence": "high",
+        "alternative": null,
+        "invites": "C",
+        "secondLayer": null,
+        "id": "s2"
+      },
+      {
+        "turnId": "t3",
+        "messageIds": [
+          "m3"
+        ],
+        "splitReason": null,
+        "cues": [
+          "lại kẹt xe nữa rồi",
+          "chắc tao tới muộn mất"
+        ],
+        "contextCues": [],
+        "rationale": "Câu báo tình hình kẹt xe và dự đoán tới muộn. Nghe như cập nhật thực tế, dù có chữ Trời ơi than thở.",
+        "family": "A",
+        "expression": "A",
+        "confidence": "medium",
+        "alternative": {
+          "expression": "FC",
+          "rationale": "Chữ Trời ơi và cách than có thể nghe như bộc phát bực bội."
+        },
+        "invites": "P",
+        "secondLayer": null,
+        "id": "s3"
+      },
+      {
+        "turnId": "t4",
+        "messageIds": [
+          "m4"
+        ],
+        "splitReason": null,
+        "cues": [
+          "Giỏi quá ha",
+          "hẹn 7h mà giờ mới xuất phát"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m3",
+            "quote": "chắc tao tới muộn mất"
+          }
+        ],
+        "rationale": "Câu khen kèm nhắc giờ hẹn và việc mới xuất phát. Không hỏi thông tin mà nghe như đánh giá việc tới muộn vừa báo.",
+        "family": "P",
+        "expression": "CP",
+        "confidence": "medium",
+        "alternative": {
+          "expression": "A",
+          "rationale": "Cũng có thể nghe như nhắc lại giờ hẹn và thực tế mới xuất phát."
+        },
+        "invites": "C",
+        "secondLayer": {
+          "observation": "Lời khen Giỏi quá ha đặt cạnh lời nhắc trễ giờ và mặt cười 🙂 nghe trái nhau.",
+          "cues": [
+            "Giỏi quá ha",
+            "🙂"
+          ]
+        },
+        "id": "s4"
+      },
+      {
+        "turnId": "t5",
+        "messageIds": [
+          "m5"
+        ],
+        "splitReason": null,
+        "cues": [],
+        "contextCues": [
+          {
+            "messageId": "m4",
+            "quote": "Giỏi quá ha, hẹn 7h mà giờ mới xuất phát 🙂"
+          }
+        ],
+        "rationale": "Chỉ có một chữ Ok. Quá ngắn nên không đủ dấu hiệu để xếp vào trạng thái nào.",
+        "family": "UNCLEAR",
+        "expression": "UNCLEAR",
+        "confidence": "low",
+        "alternative": {
+          "expression": "AC",
+          "rationale": "Sau câu nghe như trách, chữ Ok. cụt lủn có thể nghe như rút lại, không muốn nói thêm."
+        },
+        "invites": "UNCLEAR",
+        "secondLayer": null,
+        "id": "s5"
+      },
+      {
+        "turnId": "t6",
+        "messageIds": [
+          "m6"
+        ],
+        "splitReason": null,
+        "cues": [
+          "Thôi không sao",
+          "tao gọi món trước"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m5",
+            "quote": "Ok."
+          }
+        ],
+        "rationale": "Câu xoa dịu Thôi không sao kèm việc làm cụ thể cho bạn. Nghe như chăm sóc và cho phép tới muộn.",
+        "family": "P",
+        "expression": "NP",
+        "confidence": "medium",
+        "alternative": {
+          "expression": "A",
+          "rationale": "Phần gọi món trước cũng có thể nghe như đưa ra cách xử lý thực tế."
+        },
+        "invites": "C",
+        "secondLayer": null,
+        "id": "s6"
+      }
+    ],
+    "analysis": {
+      "context": {
+        "register": "Xưng hô mày/tao, không có ạ, lời lẽ ngắn và thân mật. Nghe như bạn bè thân, ngang hàng.",
+        "turns": [
+          {
+            "turnId": "t1",
+            "act": "rủ đi ăn và hỏi có rảnh không",
+            "respondsTo": null
+          },
+          {
+            "turnId": "t2",
+            "act": "nhận lời vui vẻ và nói sẽ bao",
+            "respondsTo": "t1"
+          },
+          {
+            "turnId": "t3",
+            "act": "báo kẹt xe và có thể tới muộn",
+            "respondsTo": "t2"
+          },
+          {
+            "turnId": "t4",
+            "act": "nhắc giờ hẹn bằng giọng mỉa",
+            "respondsTo": "t3"
+          },
+          {
+            "turnId": "t5",
+            "act": "đáp cụt lủn một chữ",
+            "respondsTo": "t4"
+          },
+          {
+            "turnId": "t6",
+            "act": "xoa dịu và nói sẽ gọi món trước",
+            "respondsTo": "t5"
+          }
+        ],
+        "dynamics": "Cuộc trò chuyện bắt đầu vui vẻ với lời rủ và nhận lời. Khi Người A báo tới muộn, lời đáp của Người B nghe như đánh giá, rồi Người A chỉ đáp cụt lủn. Cuối cùng Người B nói câu làm hòa và đưa ra cách xử lý."
+      },
+      "segments": [
+        {
+          "turnId": "t1",
+          "messageIds": [
+            "m1"
+          ],
+          "splitReason": null,
+          "cues": [
+            "Mày rảnh không",
+            "đi ăn ốc đi"
+          ],
+          "contextCues": [],
+          "rationale": "Câu hỏi về giờ rảnh kèm đề nghị cụ thể cho tối nay. Nghe như kiểm tra thực tế và lên kế hoạch chung.",
+          "family": "A",
+          "expression": "A",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "FC",
+            "rationale": "Cũng có thể nghe như lời rủ hào hứng, muốn đi chơi chung."
+          },
+          "invites": "A",
+          "secondLayer": null,
+          "id": "s1"
+        },
+        {
+          "turnId": "t2",
+          "messageIds": [
+            "m2"
+          ],
+          "splitReason": null,
+          "cues": [
+            "Aaa được luôn!!!",
+            "tao bao 🎉"
+          ],
+          "contextCues": [],
+          "rationale": "Tiếng reo, dấu chấm than liền nhau và emoji tiệc. Nghe như niềm vui bộc phát khi nhận lương và muốn đãi bạn.",
+          "family": "C",
+          "expression": "FC",
+          "confidence": "high",
+          "alternative": null,
+          "invites": "C",
+          "secondLayer": null,
+          "id": "s2"
+        },
+        {
+          "turnId": "t3",
+          "messageIds": [
+            "m3"
+          ],
+          "splitReason": null,
+          "cues": [
+            "lại kẹt xe nữa rồi",
+            "chắc tao tới muộn mất"
+          ],
+          "contextCues": [],
+          "rationale": "Câu báo tình hình kẹt xe và dự đoán tới muộn. Nghe như cập nhật thực tế, dù có chữ Trời ơi than thở.",
+          "family": "A",
+          "expression": "A",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "FC",
+            "rationale": "Chữ Trời ơi và cách than có thể nghe như bộc phát bực bội."
+          },
+          "invites": "P",
+          "secondLayer": null,
+          "id": "s3"
+        },
+        {
+          "turnId": "t4",
+          "messageIds": [
+            "m4"
+          ],
+          "splitReason": null,
+          "cues": [
+            "Giỏi quá ha",
+            "hẹn 7h mà giờ mới xuất phát"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m3",
+              "quote": "chắc tao tới muộn mất"
+            }
+          ],
+          "rationale": "Câu khen kèm nhắc giờ hẹn và việc mới xuất phát. Không hỏi thông tin mà nghe như đánh giá việc tới muộn vừa báo.",
+          "family": "P",
+          "expression": "CP",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "A",
+            "rationale": "Cũng có thể nghe như nhắc lại giờ hẹn và thực tế mới xuất phát."
+          },
+          "invites": "C",
+          "secondLayer": {
+            "observation": "Lời khen Giỏi quá ha đặt cạnh lời nhắc trễ giờ và mặt cười 🙂 nghe trái nhau.",
+            "cues": [
+              "Giỏi quá ha",
+              "🙂"
+            ]
+          },
+          "id": "s4"
+        },
+        {
+          "turnId": "t5",
+          "messageIds": [
+            "m5"
+          ],
+          "splitReason": null,
+          "cues": [],
+          "contextCues": [
+            {
+              "messageId": "m4",
+              "quote": "Giỏi quá ha, hẹn 7h mà giờ mới xuất phát 🙂"
+            }
+          ],
+          "rationale": "Chỉ có một chữ Ok. Quá ngắn nên không đủ dấu hiệu để xếp vào trạng thái nào.",
+          "family": "UNCLEAR",
+          "expression": "UNCLEAR",
+          "confidence": "low",
+          "alternative": {
+            "expression": "AC",
+            "rationale": "Sau câu nghe như trách, chữ Ok. cụt lủn có thể nghe như rút lại, không muốn nói thêm."
+          },
+          "invites": "UNCLEAR",
+          "secondLayer": null,
+          "id": "s5"
+        },
+        {
+          "turnId": "t6",
+          "messageIds": [
+            "m6"
+          ],
+          "splitReason": null,
+          "cues": [
+            "Thôi không sao",
+            "tao gọi món trước"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m5",
+              "quote": "Ok."
+            }
+          ],
+          "rationale": "Câu xoa dịu Thôi không sao kèm việc làm cụ thể cho bạn. Nghe như chăm sóc và cho phép tới muộn.",
+          "family": "P",
+          "expression": "NP",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "A",
+            "rationale": "Phần gọi món trước cũng có thể nghe như đưa ra cách xử lý thực tế."
+          },
+          "invites": "C",
+          "secondLayer": null,
+          "id": "s6"
+        }
+      ],
+      "shifts": [
+        {
+          "messageId": "m3",
+          "description": "Lời lẽ chuyển từ rủ rê vui vẻ sang báo kẹt xe và nguy cơ tới muộn.",
+          "cues": [
+            "lại kẹt xe nữa rồi"
+          ]
+        },
+        {
+          "messageId": "m4",
+          "description": "Lời lẽ chuyển từ cập nhật tình hình sang nhắc giờ hẹn bằng giọng mỉa.",
+          "cues": [
+            "Giỏi quá ha"
+          ]
+        },
+        {
+          "messageId": "m6",
+          "description": "Lời lẽ chuyển từ căng cụt lủn sang xoa dịu và đưa cách xử lý.",
+          "cues": [
+            "Thôi không sao"
+          ]
+        }
+      ],
+      "summary": "Cuộc trò chuyện mở đầu hào hứng với lời rủ đi ăn ốc và nhận lời bao. Giữa chừng việc báo kẹt xe được đáp lại bằng câu nghe như trách, rồi bên kia chỉ đáp Ok. Cuối cùng có câu xoa dịu và chủ động gọi món trước.",
+      "uncertainty": "Chỉ qua chữ viết khó biết giọng điệu thật, mặt cười là đùa thân hay mỉa, và hai người hay nói kiểu này với nhau ra sao.",
+      "safety": {
+        "flagged": false,
+        "categories": [],
+        "note": null
+      },
+      "readings": [
+        {
+          "splitReason": null,
+          "cues": [
+            "Mày rảnh không",
+            "đi ăn ốc đi"
+          ],
+          "contextCues": [],
+          "rationale": "Câu hỏi về giờ rảnh kèm đề nghị cụ thể cho tối nay. Nghe như kiểm tra thực tế và lên kế hoạch chung.",
+          "family": "A",
+          "expression": "A",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "FC",
+            "rationale": "Cũng có thể nghe như lời rủ hào hứng, muốn đi chơi chung."
+          },
+          "invites": "A",
+          "secondLayer": null,
+          "messageId": "m1",
+          "segmentId": "s1"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "Aaa được luôn!!!",
+            "tao bao 🎉"
+          ],
+          "contextCues": [],
+          "rationale": "Tiếng reo, dấu chấm than liền nhau và emoji tiệc. Nghe như niềm vui bộc phát khi nhận lương và muốn đãi bạn.",
+          "family": "C",
+          "expression": "FC",
+          "confidence": "high",
+          "alternative": null,
+          "invites": "C",
+          "secondLayer": null,
+          "messageId": "m2",
+          "segmentId": "s2"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "lại kẹt xe nữa rồi",
+            "chắc tao tới muộn mất"
+          ],
+          "contextCues": [],
+          "rationale": "Câu báo tình hình kẹt xe và dự đoán tới muộn. Nghe như cập nhật thực tế, dù có chữ Trời ơi than thở.",
+          "family": "A",
+          "expression": "A",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "FC",
+            "rationale": "Chữ Trời ơi và cách than có thể nghe như bộc phát bực bội."
+          },
+          "invites": "P",
+          "secondLayer": null,
+          "messageId": "m3",
+          "segmentId": "s3"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "Giỏi quá ha",
+            "hẹn 7h mà giờ mới xuất phát"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m3",
+              "quote": "chắc tao tới muộn mất"
+            }
+          ],
+          "rationale": "Câu khen kèm nhắc giờ hẹn và việc mới xuất phát. Không hỏi thông tin mà nghe như đánh giá việc tới muộn vừa báo.",
+          "family": "P",
+          "expression": "CP",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "A",
+            "rationale": "Cũng có thể nghe như nhắc lại giờ hẹn và thực tế mới xuất phát."
+          },
+          "invites": "C",
+          "secondLayer": {
+            "observation": "Lời khen Giỏi quá ha đặt cạnh lời nhắc trễ giờ và mặt cười 🙂 nghe trái nhau.",
+            "cues": [
+              "Giỏi quá ha",
+              "🙂"
+            ]
+          },
+          "messageId": "m4",
+          "segmentId": "s4"
+        },
+        {
+          "splitReason": null,
+          "cues": [],
+          "contextCues": [
+            {
+              "messageId": "m4",
+              "quote": "Giỏi quá ha, hẹn 7h mà giờ mới xuất phát 🙂"
+            }
+          ],
+          "rationale": "Chỉ có một chữ Ok. Quá ngắn nên không đủ dấu hiệu để xếp vào trạng thái nào.",
+          "family": "UNCLEAR",
+          "expression": "UNCLEAR",
+          "confidence": "low",
+          "alternative": {
+            "expression": "AC",
+            "rationale": "Sau câu nghe như trách, chữ Ok. cụt lủn có thể nghe như rút lại, không muốn nói thêm."
+          },
+          "invites": "UNCLEAR",
+          "secondLayer": null,
+          "messageId": "m5",
+          "segmentId": "s5"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "Thôi không sao",
+            "tao gọi món trước"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m5",
+              "quote": "Ok."
+            }
+          ],
+          "rationale": "Câu xoa dịu Thôi không sao kèm việc làm cụ thể cho bạn. Nghe như chăm sóc và cho phép tới muộn.",
+          "family": "P",
+          "expression": "NP",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "A",
+            "rationale": "Phần gọi món trước cũng có thể nghe như đưa ra cách xử lý thực tế."
+          },
+          "invites": "C",
+          "secondLayer": null,
+          "messageId": "m6",
+          "segmentId": "s6"
+        }
+      ]
+    }
+  },
+  "score": {
+    "per": [
+      {
+        "id": "m1",
+        "expr": "A",
+        "family": "A",
+        "conf": "medium",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m2",
+        "expr": "FC",
+        "family": "C",
+        "conf": "high",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m3",
+        "expr": "A",
+        "family": "A",
+        "conf": "medium",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m4",
+        "expr": "CP",
+        "family": "P",
+        "conf": "medium",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m5",
+        "expr": "UNCLEAR",
+        "family": "UNCLEAR",
+        "conf": "low",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m6",
+        "expr": "NP",
+        "family": "P",
+        "conf": "medium",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      }
+    ],
+    "n": 6,
+    "accOk": 6,
+    "hardFails": [],
+    "overCeiling": [],
+    "highOnReview": 0,
+    "altMissing": 0,
+    "unclear": 1,
+    "high": 1
+  }
+}

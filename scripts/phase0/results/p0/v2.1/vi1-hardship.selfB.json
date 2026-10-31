@@ -1,0 +1,24 @@
+{
+  "meta": {
+    "spec": "v2.1",
+    "fixture": "vi1-hardship",
+    "variant": "selfB",
+    "latencyMs": 45833,
+    "usd": 0.054453749999999995,
+    "usage": {
+      "completion_tokens": 12000,
+      "prompt_tokens": 2763,
+      "total_tokens": 14763,
+      "completion_tokens_details": {
+        "reasoning_tokens": 9270
+      },
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "finish": "length"
+  },
+  "raw": null,
+  "normalized": null,
+  "score": null
+}

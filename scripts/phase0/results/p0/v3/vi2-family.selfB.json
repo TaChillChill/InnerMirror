@@ -1,0 +1,962 @@
+{
+  "meta": {
+    "spec": "v3",
+    "effort": "low",
+    "fixture": "vi2-family",
+    "variant": "selfB",
+    "latencyMs": 11527,
+    "usd": 0.01537175,
+    "usage": {
+      "completion_tokens": 2736,
+      "prompt_tokens": 2995,
+      "total_tokens": 5731,
+      "completion_tokens_details": {
+        "reasoning_tokens": 1390
+      },
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "finish": "stop"
+  },
+  "raw": {
+    "context": {
+      "dynamics": "Người A đưa ra quan tâm rồi chuyển sang nhắc chuyện gia đình, Người B nói bận và xin lùi lại. Người A nhắc thêm quy định và yêu cầu về Tết, Người B đồng ý và nhường quyết định, Người A xác nhận lại. Trao đổi lặp lại nhịp nhắc rồi nhận và làm theo.",
+      "register": "Cách xưng hô mẹ - con, có \"mẹ ơi\" và \"ạ\". Nghe như quan hệ mẹ và con, gần gũi và có thứ bậc.",
+      "turns": [
+        {
+          "act": "hỏi han sức khỏe rồi nêu chuyện xem mắt",
+          "respondsTo": null,
+          "turnId": "t1"
+        },
+        {
+          "act": "nói bận và xin lùi lại sau Tết",
+          "respondsTo": "t1",
+          "turnId": "t2"
+        },
+        {
+          "act": "nhắc chuyện gia đình và yêu cầu về quê Tết",
+          "respondsTo": "t2",
+          "turnId": "t3"
+        },
+        {
+          "act": "đồng ý và nhường quyết định",
+          "respondsTo": "t3",
+          "turnId": "t4"
+        },
+        {
+          "act": "xác nhận việc nghe lời",
+          "respondsTo": "t4",
+          "turnId": "t5"
+        }
+      ]
+    },
+    "safety": {
+      "categories": [],
+      "flagged": false,
+      "note": null
+    },
+    "segments": [
+      {
+        "alternative": null,
+        "confidence": "high",
+        "contextCues": [],
+        "cues": [
+          "Con ăn gì chưa?",
+          "nhớ mặc ấm vào nhé"
+        ],
+        "expression": "NP",
+        "family": "P",
+        "invites": "C",
+        "messageIds": [
+          "m1"
+        ],
+        "rationale": "Câu hỏi ăn uống và dặn giữ ấm nghe như chăm sóc, lo cho sức khỏe của con.",
+        "secondLayer": null,
+        "splitReason": "hỏi han chăm sóc, khác với nêu yêu cầu ở tin sau",
+        "turnId": "t1"
+      },
+      {
+        "alternative": null,
+        "confidence": "high",
+        "contextCues": [],
+        "cues": [
+          "bao giờ con mới chịu đi xem mắt?"
+        ],
+        "expression": "CP",
+        "family": "P",
+        "invites": "C",
+        "messageIds": [
+          "m2"
+        ],
+        "rationale": "Câu hỏi \"bao giờ... mới chịu\" không hỏi thông tin trống mà nghe như đánh giá việc con đang chần chừ.",
+        "secondLayer": null,
+        "splitReason": "chuyển từ chăm sóc sang nêu yêu cầu có ý đánh giá",
+        "turnId": "t1"
+      },
+      {
+        "alternative": {
+          "expression": "A",
+          "rationale": "Cũng có thể nghe như nêu thực tế bận và đề xuất thời gian khác."
+        },
+        "confidence": "medium",
+        "contextCues": [
+          {
+            "messageId": "m2",
+            "quote": "Mà bao giờ con mới chịu đi xem mắt?"
+          }
+        ],
+        "cues": [
+          "Con bận lắm mẹ ơi",
+          "để sau Tết đi"
+        ],
+        "expression": "AC",
+        "family": "C",
+        "invites": "P",
+        "messageIds": [
+          "m3"
+        ],
+        "rationale": "Câu trả lời nhận lời mẹ rồi xin lùi lại, nghe như làm theo một phần và né yêu cầu hiện tại.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t2"
+      },
+      {
+        "alternative": null,
+        "confidence": "high",
+        "contextCues": [
+          {
+            "messageId": "m3",
+            "quote": "Con bận lắm mẹ ơi, để sau Tết đi."
+          }
+        ],
+        "cues": [
+          "phải nghĩ đến chuyện gia đình chứ con",
+          "Tết này phải về quê đấy, nghe chưa?"
+        ],
+        "expression": "CP",
+        "family": "P",
+        "invites": "C",
+        "messageIds": [
+          "m4",
+          "m5"
+        ],
+        "rationale": "Cả hai câu đều đặt chuẩn phải làm và ra lệnh về Tết, nghe như nhắc quy định và yêu cầu nghe theo.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t3"
+      },
+      {
+        "alternative": null,
+        "confidence": "high",
+        "contextCues": [
+          {
+            "messageId": "m5",
+            "quote": "Tết này phải về quê đấy, nghe chưa?"
+          }
+        ],
+        "cues": [
+          "Vâng ạ.",
+          "Tuỳ mẹ quyết."
+        ],
+        "expression": "AC",
+        "family": "C",
+        "invites": "P",
+        "messageIds": [
+          "m6"
+        ],
+        "rationale": "Câu trả lời ngắn, dạ và nhường quyền quyết định cho mẹ, nghe như thuận theo.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t4"
+      },
+      {
+        "alternative": {
+          "expression": "NP",
+          "rationale": "Chữ \"Ừ\" và khen \"ngoan\" cũng có thể nghe như cưng, vỗ về khi con nghe lời."
+        },
+        "confidence": "medium",
+        "contextCues": [
+          {
+            "messageId": "m6",
+            "quote": "Vâng ạ. Tuỳ mẹ quyết."
+          }
+        ],
+        "cues": [
+          "thế mới ngoan"
+        ],
+        "expression": "CP",
+        "family": "P",
+        "invites": "C",
+        "messageIds": [
+          "m7"
+        ],
+        "rationale": "Câu \"thế mới ngoan\" nghe như đánh giá tốt khi con đồng ý, gắn ngoan với việc nghe theo.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t5"
+      }
+    ],
+    "shifts": [
+      {
+        "cues": [
+          "bao giờ con mới chịu đi xem mắt?"
+        ],
+        "description": "Lời từ hỏi han chuyển sang nêu chuyện xem mắt có ý giục.",
+        "messageId": "m2"
+      },
+      {
+        "cues": [
+          "Tuỳ mẹ quyết."
+        ],
+        "description": "Lời từ bàn lùi thời gian chuyển sang đồng ý và nhường quyết định.",
+        "messageId": "m6"
+      }
+    ],
+    "summary": "Cuộc trò chuyện mở bằng quan tâm rồi chuyển sang nhắc chuyện xem mắt và nghĩa vụ gia đình. Người B nói bận và xin lùi, sau đó nhận về quê và nhường quyền quyết định. Người A khép lại bằng lời xác nhận con nghe lời.",
+    "uncertainty": "Chỉ có chữ viết nên không rõ giọng điệu, nét mặt và chuyện trước đó giữa hai mẹ con. Khó biết các câu ngắn là thoải mái hay đang căng."
+  },
+  "normalized": {
+    "readings": [
+      {
+        "splitReason": "hỏi han chăm sóc, khác với nêu yêu cầu ở tin sau",
+        "cues": [
+          "Con ăn gì chưa?",
+          "nhớ mặc ấm vào nhé"
+        ],
+        "contextCues": [],
+        "rationale": "Câu hỏi ăn uống và dặn giữ ấm nghe như chăm sóc, lo cho sức khỏe của con.",
+        "family": "P",
+        "expression": "NP",
+        "confidence": "high",
+        "alternative": null,
+        "invites": "C",
+        "secondLayer": null,
+        "messageId": "m1",
+        "segmentId": "s1"
+      },
+      {
+        "splitReason": "chuyển từ chăm sóc sang nêu yêu cầu có ý đánh giá",
+        "cues": [
+          "bao giờ con mới chịu đi xem mắt?"
+        ],
+        "contextCues": [],
+        "rationale": "Câu hỏi \"bao giờ... mới chịu\" không hỏi thông tin trống mà nghe như đánh giá việc con đang chần chừ.",
+        "family": "P",
+        "expression": "CP",
+        "confidence": "high",
+        "alternative": null,
+        "invites": "C",
+        "secondLayer": null,
+        "messageId": "m2",
+        "segmentId": "s2"
+      },
+      {
+        "splitReason": null,
+        "cues": [
+          "Con bận lắm mẹ ơi",
+          "để sau Tết đi"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m2",
+            "quote": "Mà bao giờ con mới chịu đi xem mắt?"
+          }
+        ],
+        "rationale": "Câu trả lời nhận lời mẹ rồi xin lùi lại, nghe như làm theo một phần và né yêu cầu hiện tại.",
+        "family": "C",
+        "expression": "AC",
+        "confidence": "medium",
+        "alternative": {
+          "expression": "A",
+          "rationale": "Cũng có thể nghe như nêu thực tế bận và đề xuất thời gian khác."
+        },
+        "invites": "P",
+        "secondLayer": null,
+        "messageId": "m3",
+        "segmentId": "s3"
+      },
+      {
+        "splitReason": null,
+        "cues": [
+          "phải nghĩ đến chuyện gia đình chứ con",
+          "Tết này phải về quê đấy, nghe chưa?"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m3",
+            "quote": "Con bận lắm mẹ ơi, để sau Tết đi."
+          }
+        ],
+        "rationale": "Cả hai câu đều đặt chuẩn phải làm và ra lệnh về Tết, nghe như nhắc quy định và yêu cầu nghe theo.",
+        "family": "P",
+        "expression": "CP",
+        "confidence": "high",
+        "alternative": null,
+        "invites": "C",
+        "secondLayer": null,
+        "messageId": "m4",
+        "segmentId": "s4"
+      },
+      {
+        "splitReason": null,
+        "cues": [
+          "phải nghĩ đến chuyện gia đình chứ con",
+          "Tết này phải về quê đấy, nghe chưa?"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m3",
+            "quote": "Con bận lắm mẹ ơi, để sau Tết đi."
+          }
+        ],
+        "rationale": "Cả hai câu đều đặt chuẩn phải làm và ra lệnh về Tết, nghe như nhắc quy định và yêu cầu nghe theo.",
+        "family": "P",
+        "expression": "CP",
+        "confidence": "high",
+        "alternative": null,
+        "invites": "C",
+        "secondLayer": null,
+        "messageId": "m5",
+        "segmentId": "s4"
+      },
+      {
+        "splitReason": null,
+        "cues": [
+          "Vâng ạ.",
+          "Tuỳ mẹ quyết."
+        ],
+        "contextCues": [
+          {
+            "messageId": "m5",
+            "quote": "Tết này phải về quê đấy, nghe chưa?"
+          }
+        ],
+        "rationale": "Câu trả lời ngắn, dạ và nhường quyền quyết định cho mẹ, nghe như thuận theo.",
+        "family": "C",
+        "expression": "AC",
+        "confidence": "high",
+        "alternative": null,
+        "invites": "P",
+        "secondLayer": null,
+        "messageId": "m6",
+        "segmentId": "s5"
+      },
+      {
+        "splitReason": null,
+        "cues": [
+          "thế mới ngoan"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m6",
+            "quote": "Vâng ạ. Tuỳ mẹ quyết."
+          }
+        ],
+        "rationale": "Câu \"thế mới ngoan\" nghe như đánh giá tốt khi con đồng ý, gắn ngoan với việc nghe theo.",
+        "family": "P",
+        "expression": "CP",
+        "confidence": "medium",
+        "alternative": {
+          "expression": "NP",
+          "rationale": "Chữ \"Ừ\" và khen \"ngoan\" cũng có thể nghe như cưng, vỗ về khi con nghe lời."
+        },
+        "invites": "C",
+        "secondLayer": null,
+        "messageId": "m7",
+        "segmentId": "s6"
+      }
+    ],
+    "segments": [
+      {
+        "turnId": "t1",
+        "messageIds": [
+          "m1"
+        ],
+        "splitReason": "hỏi han chăm sóc, khác với nêu yêu cầu ở tin sau",
+        "cues": [
+          "Con ăn gì chưa?",
+          "nhớ mặc ấm vào nhé"
+        ],
+        "contextCues": [],
+        "rationale": "Câu hỏi ăn uống và dặn giữ ấm nghe như chăm sóc, lo cho sức khỏe của con.",
+        "family": "P",
+        "expression": "NP",
+        "confidence": "high",
+        "alternative": null,
+        "invites": "C",
+        "secondLayer": null,
+        "id": "s1"
+      },
+      {
+        "turnId": "t1",
+        "messageIds": [
+          "m2"
+        ],
+        "splitReason": "chuyển từ chăm sóc sang nêu yêu cầu có ý đánh giá",
+        "cues": [
+          "bao giờ con mới chịu đi xem mắt?"
+        ],
+        "contextCues": [],
+        "rationale": "Câu hỏi \"bao giờ... mới chịu\" không hỏi thông tin trống mà nghe như đánh giá việc con đang chần chừ.",
+        "family": "P",
+        "expression": "CP",
+        "confidence": "high",
+        "alternative": null,
+        "invites": "C",
+        "secondLayer": null,
+        "id": "s2"
+      },
+      {
+        "turnId": "t2",
+        "messageIds": [
+          "m3"
+        ],
+        "splitReason": null,
+        "cues": [
+          "Con bận lắm mẹ ơi",
+          "để sau Tết đi"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m2",
+            "quote": "Mà bao giờ con mới chịu đi xem mắt?"
+          }
+        ],
+        "rationale": "Câu trả lời nhận lời mẹ rồi xin lùi lại, nghe như làm theo một phần và né yêu cầu hiện tại.",
+        "family": "C",
+        "expression": "AC",
+        "confidence": "medium",
+        "alternative": {
+          "expression": "A",
+          "rationale": "Cũng có thể nghe như nêu thực tế bận và đề xuất thời gian khác."
+        },
+        "invites": "P",
+        "secondLayer": null,
+        "id": "s3"
+      },
+      {
+        "turnId": "t3",
+        "messageIds": [
+          "m4",
+          "m5"
+        ],
+        "splitReason": null,
+        "cues": [
+          "phải nghĩ đến chuyện gia đình chứ con",
+          "Tết này phải về quê đấy, nghe chưa?"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m3",
+            "quote": "Con bận lắm mẹ ơi, để sau Tết đi."
+          }
+        ],
+        "rationale": "Cả hai câu đều đặt chuẩn phải làm và ra lệnh về Tết, nghe như nhắc quy định và yêu cầu nghe theo.",
+        "family": "P",
+        "expression": "CP",
+        "confidence": "high",
+        "alternative": null,
+        "invites": "C",
+        "secondLayer": null,
+        "id": "s4"
+      },
+      {
+        "turnId": "t4",
+        "messageIds": [
+          "m6"
+        ],
+        "splitReason": null,
+        "cues": [
+          "Vâng ạ.",
+          "Tuỳ mẹ quyết."
+        ],
+        "contextCues": [
+          {
+            "messageId": "m5",
+            "quote": "Tết này phải về quê đấy, nghe chưa?"
+          }
+        ],
+        "rationale": "Câu trả lời ngắn, dạ và nhường quyền quyết định cho mẹ, nghe như thuận theo.",
+        "family": "C",
+        "expression": "AC",
+        "confidence": "high",
+        "alternative": null,
+        "invites": "P",
+        "secondLayer": null,
+        "id": "s5"
+      },
+      {
+        "turnId": "t5",
+        "messageIds": [
+          "m7"
+        ],
+        "splitReason": null,
+        "cues": [
+          "thế mới ngoan"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m6",
+            "quote": "Vâng ạ. Tuỳ mẹ quyết."
+          }
+        ],
+        "rationale": "Câu \"thế mới ngoan\" nghe như đánh giá tốt khi con đồng ý, gắn ngoan với việc nghe theo.",
+        "family": "P",
+        "expression": "CP",
+        "confidence": "medium",
+        "alternative": {
+          "expression": "NP",
+          "rationale": "Chữ \"Ừ\" và khen \"ngoan\" cũng có thể nghe như cưng, vỗ về khi con nghe lời."
+        },
+        "invites": "C",
+        "secondLayer": null,
+        "id": "s6"
+      }
+    ],
+    "analysis": {
+      "context": {
+        "register": "Cách xưng hô mẹ - con, có \"mẹ ơi\" và \"ạ\". Nghe như quan hệ mẹ và con, gần gũi và có thứ bậc.",
+        "turns": [
+          {
+            "turnId": "t1",
+            "act": "hỏi han sức khỏe rồi nêu chuyện xem mắt",
+            "respondsTo": null
+          },
+          {
+            "turnId": "t2",
+            "act": "nói bận và xin lùi lại sau Tết",
+            "respondsTo": "t1"
+          },
+          {
+            "turnId": "t3",
+            "act": "nhắc chuyện gia đình và yêu cầu về quê Tết",
+            "respondsTo": "t2"
+          },
+          {
+            "turnId": "t4",
+            "act": "đồng ý và nhường quyết định",
+            "respondsTo": "t3"
+          },
+          {
+            "turnId": "t5",
+            "act": "xác nhận việc nghe lời",
+            "respondsTo": "t4"
+          }
+        ],
+        "dynamics": "Người A đưa ra quan tâm rồi chuyển sang nhắc chuyện gia đình, Người B nói bận và xin lùi lại. Người A nhắc thêm quy định và yêu cầu về Tết, Người B đồng ý và nhường quyết định, Người A xác nhận lại. Trao đổi lặp lại nhịp nhắc rồi nhận và làm theo."
+      },
+      "segments": [
+        {
+          "turnId": "t1",
+          "messageIds": [
+            "m1"
+          ],
+          "splitReason": "hỏi han chăm sóc, khác với nêu yêu cầu ở tin sau",
+          "cues": [
+            "Con ăn gì chưa?",
+            "nhớ mặc ấm vào nhé"
+          ],
+          "contextCues": [],
+          "rationale": "Câu hỏi ăn uống và dặn giữ ấm nghe như chăm sóc, lo cho sức khỏe của con.",
+          "family": "P",
+          "expression": "NP",
+          "confidence": "high",
+          "alternative": null,
+          "invites": "C",
+          "secondLayer": null,
+          "id": "s1"
+        },
+        {
+          "turnId": "t1",
+          "messageIds": [
+            "m2"
+          ],
+          "splitReason": "chuyển từ chăm sóc sang nêu yêu cầu có ý đánh giá",
+          "cues": [
+            "bao giờ con mới chịu đi xem mắt?"
+          ],
+          "contextCues": [],
+          "rationale": "Câu hỏi \"bao giờ... mới chịu\" không hỏi thông tin trống mà nghe như đánh giá việc con đang chần chừ.",
+          "family": "P",
+          "expression": "CP",
+          "confidence": "high",
+          "alternative": null,
+          "invites": "C",
+          "secondLayer": null,
+          "id": "s2"
+        },
+        {
+          "turnId": "t2",
+          "messageIds": [
+            "m3"
+          ],
+          "splitReason": null,
+          "cues": [
+            "Con bận lắm mẹ ơi",
+            "để sau Tết đi"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m2",
+              "quote": "Mà bao giờ con mới chịu đi xem mắt?"
+            }
+          ],
+          "rationale": "Câu trả lời nhận lời mẹ rồi xin lùi lại, nghe như làm theo một phần và né yêu cầu hiện tại.",
+          "family": "C",
+          "expression": "AC",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "A",
+            "rationale": "Cũng có thể nghe như nêu thực tế bận và đề xuất thời gian khác."
+          },
+          "invites": "P",
+          "secondLayer": null,
+          "id": "s3"
+        },
+        {
+          "turnId": "t3",
+          "messageIds": [
+            "m4",
+            "m5"
+          ],
+          "splitReason": null,
+          "cues": [
+            "phải nghĩ đến chuyện gia đình chứ con",
+            "Tết này phải về quê đấy, nghe chưa?"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m3",
+              "quote": "Con bận lắm mẹ ơi, để sau Tết đi."
+            }
+          ],
+          "rationale": "Cả hai câu đều đặt chuẩn phải làm và ra lệnh về Tết, nghe như nhắc quy định và yêu cầu nghe theo.",
+          "family": "P",
+          "expression": "CP",
+          "confidence": "high",
+          "alternative": null,
+          "invites": "C",
+          "secondLayer": null,
+          "id": "s4"
+        },
+        {
+          "turnId": "t4",
+          "messageIds": [
+            "m6"
+          ],
+          "splitReason": null,
+          "cues": [
+            "Vâng ạ.",
+            "Tuỳ mẹ quyết."
+          ],
+          "contextCues": [
+            {
+              "messageId": "m5",
+              "quote": "Tết này phải về quê đấy, nghe chưa?"
+            }
+          ],
+          "rationale": "Câu trả lời ngắn, dạ và nhường quyền quyết định cho mẹ, nghe như thuận theo.",
+          "family": "C",
+          "expression": "AC",
+          "confidence": "high",
+          "alternative": null,
+          "invites": "P",
+          "secondLayer": null,
+          "id": "s5"
+        },
+        {
+          "turnId": "t5",
+          "messageIds": [
+            "m7"
+          ],
+          "splitReason": null,
+          "cues": [
+            "thế mới ngoan"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m6",
+              "quote": "Vâng ạ. Tuỳ mẹ quyết."
+            }
+          ],
+          "rationale": "Câu \"thế mới ngoan\" nghe như đánh giá tốt khi con đồng ý, gắn ngoan với việc nghe theo.",
+          "family": "P",
+          "expression": "CP",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "NP",
+            "rationale": "Chữ \"Ừ\" và khen \"ngoan\" cũng có thể nghe như cưng, vỗ về khi con nghe lời."
+          },
+          "invites": "C",
+          "secondLayer": null,
+          "id": "s6"
+        }
+      ],
+      "shifts": [
+        {
+          "messageId": "m2",
+          "description": "Lời từ hỏi han chuyển sang nêu chuyện xem mắt có ý giục.",
+          "cues": [
+            "bao giờ con mới chịu đi xem mắt?"
+          ]
+        },
+        {
+          "messageId": "m6",
+          "description": "Lời từ bàn lùi thời gian chuyển sang đồng ý và nhường quyết định.",
+          "cues": [
+            "Tuỳ mẹ quyết."
+          ]
+        }
+      ],
+      "summary": "Cuộc trò chuyện mở bằng quan tâm rồi chuyển sang nhắc chuyện xem mắt và nghĩa vụ gia đình. Người B nói bận và xin lùi, sau đó nhận về quê và nhường quyền quyết định. Người A khép lại bằng lời xác nhận con nghe lời.",
+      "uncertainty": "Chỉ có chữ viết nên không rõ giọng điệu, nét mặt và chuyện trước đó giữa hai mẹ con. Khó biết các câu ngắn là thoải mái hay đang căng.",
+      "safety": {
+        "flagged": false,
+        "categories": [],
+        "note": null
+      },
+      "readings": [
+        {
+          "splitReason": "hỏi han chăm sóc, khác với nêu yêu cầu ở tin sau",
+          "cues": [
+            "Con ăn gì chưa?",
+            "nhớ mặc ấm vào nhé"
+          ],
+          "contextCues": [],
+          "rationale": "Câu hỏi ăn uống và dặn giữ ấm nghe như chăm sóc, lo cho sức khỏe của con.",
+          "family": "P",
+          "expression": "NP",
+          "confidence": "high",
+          "alternative": null,
+          "invites": "C",
+          "secondLayer": null,
+          "messageId": "m1",
+          "segmentId": "s1"
+        },
+        {
+          "splitReason": "chuyển từ chăm sóc sang nêu yêu cầu có ý đánh giá",
+          "cues": [
+            "bao giờ con mới chịu đi xem mắt?"
+          ],
+          "contextCues": [],
+          "rationale": "Câu hỏi \"bao giờ... mới chịu\" không hỏi thông tin trống mà nghe như đánh giá việc con đang chần chừ.",
+          "family": "P",
+          "expression": "CP",
+          "confidence": "high",
+          "alternative": null,
+          "invites": "C",
+          "secondLayer": null,
+          "messageId": "m2",
+          "segmentId": "s2"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "Con bận lắm mẹ ơi",
+            "để sau Tết đi"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m2",
+              "quote": "Mà bao giờ con mới chịu đi xem mắt?"
+            }
+          ],
+          "rationale": "Câu trả lời nhận lời mẹ rồi xin lùi lại, nghe như làm theo một phần và né yêu cầu hiện tại.",
+          "family": "C",
+          "expression": "AC",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "A",
+            "rationale": "Cũng có thể nghe như nêu thực tế bận và đề xuất thời gian khác."
+          },
+          "invites": "P",
+          "secondLayer": null,
+          "messageId": "m3",
+          "segmentId": "s3"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "phải nghĩ đến chuyện gia đình chứ con",
+            "Tết này phải về quê đấy, nghe chưa?"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m3",
+              "quote": "Con bận lắm mẹ ơi, để sau Tết đi."
+            }
+          ],
+          "rationale": "Cả hai câu đều đặt chuẩn phải làm và ra lệnh về Tết, nghe như nhắc quy định và yêu cầu nghe theo.",
+          "family": "P",
+          "expression": "CP",
+          "confidence": "high",
+          "alternative": null,
+          "invites": "C",
+          "secondLayer": null,
+          "messageId": "m4",
+          "segmentId": "s4"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "phải nghĩ đến chuyện gia đình chứ con",
+            "Tết này phải về quê đấy, nghe chưa?"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m3",
+              "quote": "Con bận lắm mẹ ơi, để sau Tết đi."
+            }
+          ],
+          "rationale": "Cả hai câu đều đặt chuẩn phải làm và ra lệnh về Tết, nghe như nhắc quy định và yêu cầu nghe theo.",
+          "family": "P",
+          "expression": "CP",
+          "confidence": "high",
+          "alternative": null,
+          "invites": "C",
+          "secondLayer": null,
+          "messageId": "m5",
+          "segmentId": "s4"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "Vâng ạ.",
+            "Tuỳ mẹ quyết."
+          ],
+          "contextCues": [
+            {
+              "messageId": "m5",
+              "quote": "Tết này phải về quê đấy, nghe chưa?"
+            }
+          ],
+          "rationale": "Câu trả lời ngắn, dạ và nhường quyền quyết định cho mẹ, nghe như thuận theo.",
+          "family": "C",
+          "expression": "AC",
+          "confidence": "high",
+          "alternative": null,
+          "invites": "P",
+          "secondLayer": null,
+          "messageId": "m6",
+          "segmentId": "s5"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "thế mới ngoan"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m6",
+              "quote": "Vâng ạ. Tuỳ mẹ quyết."
+            }
+          ],
+          "rationale": "Câu \"thế mới ngoan\" nghe như đánh giá tốt khi con đồng ý, gắn ngoan với việc nghe theo.",
+          "family": "P",
+          "expression": "CP",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "NP",
+            "rationale": "Chữ \"Ừ\" và khen \"ngoan\" cũng có thể nghe như cưng, vỗ về khi con nghe lời."
+          },
+          "invites": "C",
+          "secondLayer": null,
+          "messageId": "m7",
+          "segmentId": "s6"
+        }
+      ]
+    }
+  },
+  "score": {
+    "per": [
+      {
+        "id": "m1",
+        "expr": "NP",
+        "family": "P",
+        "conf": "high",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m2",
+        "expr": "CP",
+        "family": "P",
+        "conf": "high",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m3",
+        "expr": "AC",
+        "family": "C",
+        "conf": "medium",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m4",
+        "expr": "CP",
+        "family": "P",
+        "conf": "high",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m5",
+        "expr": "CP",
+        "family": "P",
+        "conf": "high",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m6",
+        "expr": "AC",
+        "family": "C",
+        "conf": "high",
+        "acc": true,
+        "hard": null,
+        "over": true,
+        "highOnReview": true,
+        "altMissing": false
+      },
+      {
+        "id": "m7",
+        "expr": "CP",
+        "family": "P",
+        "conf": "medium",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      }
+    ],
+    "n": 7,
+    "accOk": 7,
+    "hardFails": [],
+    "overCeiling": [
+      "m6 AC:high"
+    ],
+    "highOnReview": 1,
+    "altMissing": 0,
+    "unclear": 0,
+    "high": 5
+  }
+}

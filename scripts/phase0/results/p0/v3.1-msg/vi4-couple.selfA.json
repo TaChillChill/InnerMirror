@@ -1,0 +1,1088 @@
+{
+  "meta": {
+    "spec": "v3-msg",
+    "fixture": "vi4-couple",
+    "variant": "selfA",
+    "latencyMs": 27967,
+    "usd": 0.029265,
+    "usage": {
+      "completion_tokens": 6015,
+      "prompt_tokens": 2961,
+      "total_tokens": 8976,
+      "completion_tokens_details": {
+        "reasoning_tokens": 4400
+      },
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "finish": "stop"
+  },
+  "raw": {
+    "context": {
+      "dynamics": "Cuộc trao đổi bắt đầu bằng việc nêu lỗi quên đón con và lời xin lỗi kèm lý do. Sau đó lời lẽ chuyển sang câu hỏi khái quát và bày tỏ bực, rồi chuyển sang đề nghị lo liệu và đề xuất nhắc lịch chung. Cuối cùng hai bên gặp nhau ở việc đồng ý và hẹn làm cụ thể.",
+      "register": "Cách gọi “anh / em” và nhắc đến “con” cho thấy quan hệ gần gũi, có thể là vợ chồng cùng chăm con.",
+      "turns": [
+        {
+          "act": "nêu việc quên đón con hôm qua",
+          "respondsTo": null,
+          "turnId": "t1"
+        },
+        {
+          "act": "xin lỗi và giải thích lý do họp muộn",
+          "respondsTo": "t1",
+          "turnId": "t2"
+        },
+        {
+          "act": "hỏi bằng câu khái quát về thói quen",
+          "respondsTo": "t2",
+          "turnId": "t3"
+        },
+        {
+          "act": "nói cảm giác bực và nhắc việc hứa rồi quên",
+          "respondsTo": "t3",
+          "turnId": "t4"
+        },
+        {
+          "act": "đề nghị để mình lo liệu",
+          "respondsTo": "t4",
+          "turnId": "t5"
+        },
+        {
+          "act": "nêu cảm giác buồn và đề xuất đặt nhắc lịch chung",
+          "respondsTo": "t5",
+          "turnId": "t6"
+        },
+        {
+          "act": "đồng ý và hẹn tối nay cài luôn",
+          "respondsTo": "t6",
+          "turnId": "t7"
+        }
+      ]
+    },
+    "safety": {
+      "categories": [],
+      "flagged": false,
+      "note": null
+    },
+    "segments": [
+      {
+        "alternative": {
+          "expression": "A",
+          "rationale": "Cũng có thể đọc như câu nêu sự việc để mở đầu trao đổi."
+        },
+        "confidence": "medium",
+        "contextCues": [],
+        "cues": [
+          "lại quên đón con"
+        ],
+        "expression": "CP",
+        "family": "P",
+        "invites": "C",
+        "messageIds": [
+          "m1"
+        ],
+        "rationale": "Câu nêu việc quên đón con, chữ “lại” nghe như nhắc lỗi lặp lại hơn là chỉ nêu thông tin. Vì vậy có thể đọc như đánh giá việc làm của Người B.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t1"
+      },
+      {
+        "alternative": null,
+        "confidence": "high",
+        "contextCues": [
+          {
+            "messageId": "m1",
+            "quote": "Hôm qua anh lại quên đón con."
+          }
+        ],
+        "cues": [
+          "Anh xin lỗi",
+          "họp muộn quá"
+        ],
+        "expression": "AC",
+        "family": "C",
+        "invites": "P",
+        "messageIds": [
+          "m2"
+        ],
+        "rationale": "Câu nói lời xin lỗi trực tiếp và kèm lý do muộn họp. Nghe như nhận lỗi và giải thích sau lời nhắc ở trước.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t2"
+      },
+      {
+        "alternative": null,
+        "confidence": "high",
+        "contextCues": [
+          {
+            "messageId": "m2",
+            "quote": "Anh xin lỗi, hôm qua họp muộn quá."
+          }
+        ],
+        "cues": [
+          "lúc nào anh cũng thế?"
+        ],
+        "expression": "CP",
+        "family": "P",
+        "invites": "C",
+        "messageIds": [
+          "m3"
+        ],
+        "rationale": "Câu hỏi “Sao lúc nào anh cũng thế?” không hỏi thông tin mới mà nghe như đánh giá khái quát về Người B. Cụm “lúc nào... cũng” cho thấy cách nói này.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t3"
+      },
+      {
+        "alternative": {
+          "expression": "CP",
+          "rationale": "Phần “hứa rồi lại quên” cũng có thể nghe như nhắc lỗi và đánh giá việc không giữ lời."
+        },
+        "confidence": "medium",
+        "contextCues": [
+          {
+            "messageId": "m2",
+            "quote": "Anh xin lỗi, hôm qua họp muộn quá."
+          }
+        ],
+        "cues": [
+          "Em bực thật sự đấy",
+          "hứa rồi lại quên"
+        ],
+        "expression": "FC",
+        "family": "C",
+        "invites": "P",
+        "messageIds": [
+          "m4"
+        ],
+        "rationale": "Câu nói thẳng cảm giác “bực” với giọng mạnh và nhắc lại việc đã hứa. Nghe như bộc lộ cảm xúc trực tiếp sau lời xin lỗi.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t4"
+      },
+      {
+        "alternative": null,
+        "confidence": "high",
+        "contextCues": [
+          {
+            "messageId": "m4",
+            "quote": "Em bực thật sự đấy, hứa rồi lại quên."
+          }
+        ],
+        "cues": [
+          "để anh lo"
+        ],
+        "expression": "NP",
+        "family": "P",
+        "invites": "C",
+        "messageIds": [
+          "m5"
+        ],
+        "rationale": "Câu ngắn đề nghị nhận phần việc về mình. Nghe như lời chăm sóc, xoa dịu sau những câu căng.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t5"
+      },
+      {
+        "alternative": null,
+        "confidence": "high",
+        "contextCues": [
+          {
+            "messageId": "m5",
+            "quote": "Thôi để anh lo."
+          }
+        ],
+        "cues": [
+          "Em thấy buồn",
+          "đặt nhắc lịch chung được không?"
+        ],
+        "expression": "A",
+        "family": "A",
+        "invites": "A",
+        "messageIds": [
+          "m6"
+        ],
+        "rationale": "Câu nêu cảm giác “buồn” một cách rõ ràng và kèm đề xuất cụ thể về nhắc lịch chung. Nghe như kiểm tra thực tế và bàn cách làm tiếp theo.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t6"
+      },
+      {
+        "alternative": null,
+        "confidence": "high",
+        "contextCues": [
+          {
+            "messageId": "m6",
+            "quote": "Lần sau mình đặt nhắc lịch chung được không?"
+          }
+        ],
+        "cues": [
+          "Ừ, được",
+          "Tối nay anh cài luôn"
+        ],
+        "expression": "A",
+        "family": "A",
+        "invites": "A",
+        "messageIds": [
+          "m7"
+        ],
+        "rationale": "Câu đồng ý và nêu thời điểm làm cụ thể vào tối nay. Nghe như chốt lại kế hoạch vừa được đề xuất.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t7"
+      }
+    ],
+    "shifts": [
+      {
+        "cues": [
+          "lúc nào anh cũng thế?"
+        ],
+        "description": "Lời lẽ chuyển từ xin lỗi và giải thích sang câu hỏi khái quát về thói quen.",
+        "messageId": "m3"
+      },
+      {
+        "cues": [
+          "để anh lo"
+        ],
+        "description": "Lời lẽ chuyển từ trách và nói cảm giác bực sang đề nghị nhận lo liệu.",
+        "messageId": "m5"
+      },
+      {
+        "cues": [
+          "đặt nhắc lịch chung được không?"
+        ],
+        "description": "Lời lẽ chuyển từ bộc lộ cảm xúc sang nêu cảm giác kèm đề xuất cách làm chung.",
+        "messageId": "m6"
+      }
+    ],
+    "summary": "Cuộc nói chuyện đi từ nhắc lỗi và xin lỗi sang những câu khái quát và bày tỏ bực, buồn. Sau đó lời lẽ dịu lại bằng đề nghị lo liệu và đề xuất nhắc lịch chung. Cuối cùng hai bên đồng ý với việc làm cụ thể vào tối nay.",
+    "uncertainty": "Chỉ qua chữ viết khó biết giọng nói, nét mặt và chuyện đã xảy ra trước đó giữa hai người. Lịch họp, việc đón con và thói quen nhắc nhau ngoài đoạn chat cũng chưa rõ."
+  },
+  "normalized": {
+    "readings": [
+      {
+        "splitReason": null,
+        "cues": [
+          "lại quên đón con"
+        ],
+        "contextCues": [],
+        "rationale": "Câu nêu việc quên đón con, chữ “lại” nghe như nhắc lỗi lặp lại hơn là chỉ nêu thông tin. Vì vậy có thể đọc như đánh giá việc làm của Người B.",
+        "family": "P",
+        "expression": "CP",
+        "confidence": "medium",
+        "alternative": {
+          "expression": "A",
+          "rationale": "Cũng có thể đọc như câu nêu sự việc để mở đầu trao đổi."
+        },
+        "invites": "C",
+        "secondLayer": null,
+        "messageId": "m1",
+        "segmentId": "s1"
+      },
+      {
+        "splitReason": null,
+        "cues": [
+          "Anh xin lỗi",
+          "họp muộn quá"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m1",
+            "quote": "Hôm qua anh lại quên đón con."
+          }
+        ],
+        "rationale": "Câu nói lời xin lỗi trực tiếp và kèm lý do muộn họp. Nghe như nhận lỗi và giải thích sau lời nhắc ở trước.",
+        "family": "C",
+        "expression": "AC",
+        "confidence": "high",
+        "alternative": null,
+        "invites": "P",
+        "secondLayer": null,
+        "messageId": "m2",
+        "segmentId": "s2"
+      },
+      {
+        "splitReason": null,
+        "cues": [
+          "lúc nào anh cũng thế?"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m2",
+            "quote": "Anh xin lỗi, hôm qua họp muộn quá."
+          }
+        ],
+        "rationale": "Câu hỏi “Sao lúc nào anh cũng thế?” không hỏi thông tin mới mà nghe như đánh giá khái quát về Người B. Cụm “lúc nào... cũng” cho thấy cách nói này.",
+        "family": "P",
+        "expression": "CP",
+        "confidence": "high",
+        "alternative": null,
+        "invites": "C",
+        "secondLayer": null,
+        "messageId": "m3",
+        "segmentId": "s3"
+      },
+      {
+        "splitReason": null,
+        "cues": [
+          "Em bực thật sự đấy",
+          "hứa rồi lại quên"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m2",
+            "quote": "Anh xin lỗi, hôm qua họp muộn quá."
+          }
+        ],
+        "rationale": "Câu nói thẳng cảm giác “bực” với giọng mạnh và nhắc lại việc đã hứa. Nghe như bộc lộ cảm xúc trực tiếp sau lời xin lỗi.",
+        "family": "C",
+        "expression": "FC",
+        "confidence": "medium",
+        "alternative": {
+          "expression": "CP",
+          "rationale": "Phần “hứa rồi lại quên” cũng có thể nghe như nhắc lỗi và đánh giá việc không giữ lời."
+        },
+        "invites": "P",
+        "secondLayer": null,
+        "messageId": "m4",
+        "segmentId": "s4"
+      },
+      {
+        "splitReason": null,
+        "cues": [
+          "để anh lo"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m4",
+            "quote": "Em bực thật sự đấy, hứa rồi lại quên."
+          }
+        ],
+        "rationale": "Câu ngắn đề nghị nhận phần việc về mình. Nghe như lời chăm sóc, xoa dịu sau những câu căng.",
+        "family": "P",
+        "expression": "NP",
+        "confidence": "high",
+        "alternative": null,
+        "invites": "C",
+        "secondLayer": null,
+        "messageId": "m5",
+        "segmentId": "s5"
+      },
+      {
+        "splitReason": null,
+        "cues": [
+          "Em thấy buồn",
+          "đặt nhắc lịch chung được không?"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m5",
+            "quote": "Thôi để anh lo."
+          }
+        ],
+        "rationale": "Câu nêu cảm giác “buồn” một cách rõ ràng và kèm đề xuất cụ thể về nhắc lịch chung. Nghe như kiểm tra thực tế và bàn cách làm tiếp theo.",
+        "family": "A",
+        "expression": "A",
+        "confidence": "high",
+        "alternative": null,
+        "invites": "A",
+        "secondLayer": null,
+        "messageId": "m6",
+        "segmentId": "s6"
+      },
+      {
+        "splitReason": null,
+        "cues": [
+          "Ừ, được",
+          "Tối nay anh cài luôn"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m6",
+            "quote": "Lần sau mình đặt nhắc lịch chung được không?"
+          }
+        ],
+        "rationale": "Câu đồng ý và nêu thời điểm làm cụ thể vào tối nay. Nghe như chốt lại kế hoạch vừa được đề xuất.",
+        "family": "A",
+        "expression": "A",
+        "confidence": "high",
+        "alternative": null,
+        "invites": "A",
+        "secondLayer": null,
+        "messageId": "m7",
+        "segmentId": "s7"
+      }
+    ],
+    "segments": [
+      {
+        "turnId": "t1",
+        "messageIds": [
+          "m1"
+        ],
+        "splitReason": null,
+        "cues": [
+          "lại quên đón con"
+        ],
+        "contextCues": [],
+        "rationale": "Câu nêu việc quên đón con, chữ “lại” nghe như nhắc lỗi lặp lại hơn là chỉ nêu thông tin. Vì vậy có thể đọc như đánh giá việc làm của Người B.",
+        "family": "P",
+        "expression": "CP",
+        "confidence": "medium",
+        "alternative": {
+          "expression": "A",
+          "rationale": "Cũng có thể đọc như câu nêu sự việc để mở đầu trao đổi."
+        },
+        "invites": "C",
+        "secondLayer": null,
+        "id": "s1"
+      },
+      {
+        "turnId": "t2",
+        "messageIds": [
+          "m2"
+        ],
+        "splitReason": null,
+        "cues": [
+          "Anh xin lỗi",
+          "họp muộn quá"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m1",
+            "quote": "Hôm qua anh lại quên đón con."
+          }
+        ],
+        "rationale": "Câu nói lời xin lỗi trực tiếp và kèm lý do muộn họp. Nghe như nhận lỗi và giải thích sau lời nhắc ở trước.",
+        "family": "C",
+        "expression": "AC",
+        "confidence": "high",
+        "alternative": null,
+        "invites": "P",
+        "secondLayer": null,
+        "id": "s2"
+      },
+      {
+        "turnId": "t3",
+        "messageIds": [
+          "m3"
+        ],
+        "splitReason": null,
+        "cues": [
+          "lúc nào anh cũng thế?"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m2",
+            "quote": "Anh xin lỗi, hôm qua họp muộn quá."
+          }
+        ],
+        "rationale": "Câu hỏi “Sao lúc nào anh cũng thế?” không hỏi thông tin mới mà nghe như đánh giá khái quát về Người B. Cụm “lúc nào... cũng” cho thấy cách nói này.",
+        "family": "P",
+        "expression": "CP",
+        "confidence": "high",
+        "alternative": null,
+        "invites": "C",
+        "secondLayer": null,
+        "id": "s3"
+      },
+      {
+        "turnId": "t3",
+        "messageIds": [
+          "m4"
+        ],
+        "splitReason": null,
+        "cues": [
+          "Em bực thật sự đấy",
+          "hứa rồi lại quên"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m2",
+            "quote": "Anh xin lỗi, hôm qua họp muộn quá."
+          }
+        ],
+        "rationale": "Câu nói thẳng cảm giác “bực” với giọng mạnh và nhắc lại việc đã hứa. Nghe như bộc lộ cảm xúc trực tiếp sau lời xin lỗi.",
+        "family": "C",
+        "expression": "FC",
+        "confidence": "medium",
+        "alternative": {
+          "expression": "CP",
+          "rationale": "Phần “hứa rồi lại quên” cũng có thể nghe như nhắc lỗi và đánh giá việc không giữ lời."
+        },
+        "invites": "P",
+        "secondLayer": null,
+        "id": "s4"
+      },
+      {
+        "turnId": "t4",
+        "messageIds": [
+          "m5"
+        ],
+        "splitReason": null,
+        "cues": [
+          "để anh lo"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m4",
+            "quote": "Em bực thật sự đấy, hứa rồi lại quên."
+          }
+        ],
+        "rationale": "Câu ngắn đề nghị nhận phần việc về mình. Nghe như lời chăm sóc, xoa dịu sau những câu căng.",
+        "family": "P",
+        "expression": "NP",
+        "confidence": "high",
+        "alternative": null,
+        "invites": "C",
+        "secondLayer": null,
+        "id": "s5"
+      },
+      {
+        "turnId": "t5",
+        "messageIds": [
+          "m6"
+        ],
+        "splitReason": null,
+        "cues": [
+          "Em thấy buồn",
+          "đặt nhắc lịch chung được không?"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m5",
+            "quote": "Thôi để anh lo."
+          }
+        ],
+        "rationale": "Câu nêu cảm giác “buồn” một cách rõ ràng và kèm đề xuất cụ thể về nhắc lịch chung. Nghe như kiểm tra thực tế và bàn cách làm tiếp theo.",
+        "family": "A",
+        "expression": "A",
+        "confidence": "high",
+        "alternative": null,
+        "invites": "A",
+        "secondLayer": null,
+        "id": "s6"
+      },
+      {
+        "turnId": "t6",
+        "messageIds": [
+          "m7"
+        ],
+        "splitReason": null,
+        "cues": [
+          "Ừ, được",
+          "Tối nay anh cài luôn"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m6",
+            "quote": "Lần sau mình đặt nhắc lịch chung được không?"
+          }
+        ],
+        "rationale": "Câu đồng ý và nêu thời điểm làm cụ thể vào tối nay. Nghe như chốt lại kế hoạch vừa được đề xuất.",
+        "family": "A",
+        "expression": "A",
+        "confidence": "high",
+        "alternative": null,
+        "invites": "A",
+        "secondLayer": null,
+        "id": "s7"
+      }
+    ],
+    "analysis": {
+      "context": {
+        "register": "Cách gọi “anh / em” và nhắc đến “con” cho thấy quan hệ gần gũi, có thể là vợ chồng cùng chăm con.",
+        "turns": [
+          {
+            "turnId": "t1",
+            "act": "nêu việc quên đón con hôm qua",
+            "respondsTo": null
+          },
+          {
+            "turnId": "t2",
+            "act": "xin lỗi và giải thích lý do họp muộn",
+            "respondsTo": "t1"
+          },
+          {
+            "turnId": "t3",
+            "act": "hỏi bằng câu khái quát về thói quen",
+            "respondsTo": "t2"
+          },
+          {
+            "turnId": "t4",
+            "act": "nói cảm giác bực và nhắc việc hứa rồi quên",
+            "respondsTo": "t3"
+          },
+          {
+            "turnId": "t5",
+            "act": "đề nghị để mình lo liệu",
+            "respondsTo": "t4"
+          },
+          {
+            "turnId": "t6",
+            "act": "nêu cảm giác buồn và đề xuất đặt nhắc lịch chung",
+            "respondsTo": "t5"
+          },
+          {
+            "turnId": "t7",
+            "act": "đồng ý và hẹn tối nay cài luôn",
+            "respondsTo": "t6"
+          }
+        ],
+        "dynamics": "Cuộc trao đổi bắt đầu bằng việc nêu lỗi quên đón con và lời xin lỗi kèm lý do. Sau đó lời lẽ chuyển sang câu hỏi khái quát và bày tỏ bực, rồi chuyển sang đề nghị lo liệu và đề xuất nhắc lịch chung. Cuối cùng hai bên gặp nhau ở việc đồng ý và hẹn làm cụ thể."
+      },
+      "segments": [
+        {
+          "turnId": "t1",
+          "messageIds": [
+            "m1"
+          ],
+          "splitReason": null,
+          "cues": [
+            "lại quên đón con"
+          ],
+          "contextCues": [],
+          "rationale": "Câu nêu việc quên đón con, chữ “lại” nghe như nhắc lỗi lặp lại hơn là chỉ nêu thông tin. Vì vậy có thể đọc như đánh giá việc làm của Người B.",
+          "family": "P",
+          "expression": "CP",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "A",
+            "rationale": "Cũng có thể đọc như câu nêu sự việc để mở đầu trao đổi."
+          },
+          "invites": "C",
+          "secondLayer": null,
+          "id": "s1"
+        },
+        {
+          "turnId": "t2",
+          "messageIds": [
+            "m2"
+          ],
+          "splitReason": null,
+          "cues": [
+            "Anh xin lỗi",
+            "họp muộn quá"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m1",
+              "quote": "Hôm qua anh lại quên đón con."
+            }
+          ],
+          "rationale": "Câu nói lời xin lỗi trực tiếp và kèm lý do muộn họp. Nghe như nhận lỗi và giải thích sau lời nhắc ở trước.",
+          "family": "C",
+          "expression": "AC",
+          "confidence": "high",
+          "alternative": null,
+          "invites": "P",
+          "secondLayer": null,
+          "id": "s2"
+        },
+        {
+          "turnId": "t3",
+          "messageIds": [
+            "m3"
+          ],
+          "splitReason": null,
+          "cues": [
+            "lúc nào anh cũng thế?"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m2",
+              "quote": "Anh xin lỗi, hôm qua họp muộn quá."
+            }
+          ],
+          "rationale": "Câu hỏi “Sao lúc nào anh cũng thế?” không hỏi thông tin mới mà nghe như đánh giá khái quát về Người B. Cụm “lúc nào... cũng” cho thấy cách nói này.",
+          "family": "P",
+          "expression": "CP",
+          "confidence": "high",
+          "alternative": null,
+          "invites": "C",
+          "secondLayer": null,
+          "id": "s3"
+        },
+        {
+          "turnId": "t3",
+          "messageIds": [
+            "m4"
+          ],
+          "splitReason": null,
+          "cues": [
+            "Em bực thật sự đấy",
+            "hứa rồi lại quên"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m2",
+              "quote": "Anh xin lỗi, hôm qua họp muộn quá."
+            }
+          ],
+          "rationale": "Câu nói thẳng cảm giác “bực” với giọng mạnh và nhắc lại việc đã hứa. Nghe như bộc lộ cảm xúc trực tiếp sau lời xin lỗi.",
+          "family": "C",
+          "expression": "FC",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "CP",
+            "rationale": "Phần “hứa rồi lại quên” cũng có thể nghe như nhắc lỗi và đánh giá việc không giữ lời."
+          },
+          "invites": "P",
+          "secondLayer": null,
+          "id": "s4"
+        },
+        {
+          "turnId": "t4",
+          "messageIds": [
+            "m5"
+          ],
+          "splitReason": null,
+          "cues": [
+            "để anh lo"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m4",
+              "quote": "Em bực thật sự đấy, hứa rồi lại quên."
+            }
+          ],
+          "rationale": "Câu ngắn đề nghị nhận phần việc về mình. Nghe như lời chăm sóc, xoa dịu sau những câu căng.",
+          "family": "P",
+          "expression": "NP",
+          "confidence": "high",
+          "alternative": null,
+          "invites": "C",
+          "secondLayer": null,
+          "id": "s5"
+        },
+        {
+          "turnId": "t5",
+          "messageIds": [
+            "m6"
+          ],
+          "splitReason": null,
+          "cues": [
+            "Em thấy buồn",
+            "đặt nhắc lịch chung được không?"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m5",
+              "quote": "Thôi để anh lo."
+            }
+          ],
+          "rationale": "Câu nêu cảm giác “buồn” một cách rõ ràng và kèm đề xuất cụ thể về nhắc lịch chung. Nghe như kiểm tra thực tế và bàn cách làm tiếp theo.",
+          "family": "A",
+          "expression": "A",
+          "confidence": "high",
+          "alternative": null,
+          "invites": "A",
+          "secondLayer": null,
+          "id": "s6"
+        },
+        {
+          "turnId": "t6",
+          "messageIds": [
+            "m7"
+          ],
+          "splitReason": null,
+          "cues": [
+            "Ừ, được",
+            "Tối nay anh cài luôn"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m6",
+              "quote": "Lần sau mình đặt nhắc lịch chung được không?"
+            }
+          ],
+          "rationale": "Câu đồng ý và nêu thời điểm làm cụ thể vào tối nay. Nghe như chốt lại kế hoạch vừa được đề xuất.",
+          "family": "A",
+          "expression": "A",
+          "confidence": "high",
+          "alternative": null,
+          "invites": "A",
+          "secondLayer": null,
+          "id": "s7"
+        }
+      ],
+      "shifts": [
+        {
+          "messageId": "m3",
+          "description": "Lời lẽ chuyển từ xin lỗi và giải thích sang câu hỏi khái quát về thói quen.",
+          "cues": [
+            "lúc nào anh cũng thế?"
+          ]
+        },
+        {
+          "messageId": "m5",
+          "description": "Lời lẽ chuyển từ trách và nói cảm giác bực sang đề nghị nhận lo liệu.",
+          "cues": [
+            "để anh lo"
+          ]
+        },
+        {
+          "messageId": "m6",
+          "description": "Lời lẽ chuyển từ bộc lộ cảm xúc sang nêu cảm giác kèm đề xuất cách làm chung.",
+          "cues": [
+            "đặt nhắc lịch chung được không?"
+          ]
+        }
+      ],
+      "summary": "Cuộc nói chuyện đi từ nhắc lỗi và xin lỗi sang những câu khái quát và bày tỏ bực, buồn. Sau đó lời lẽ dịu lại bằng đề nghị lo liệu và đề xuất nhắc lịch chung. Cuối cùng hai bên đồng ý với việc làm cụ thể vào tối nay.",
+      "uncertainty": "Chỉ qua chữ viết khó biết giọng nói, nét mặt và chuyện đã xảy ra trước đó giữa hai người. Lịch họp, việc đón con và thói quen nhắc nhau ngoài đoạn chat cũng chưa rõ.",
+      "safety": {
+        "flagged": false,
+        "categories": [],
+        "note": null
+      },
+      "readings": [
+        {
+          "splitReason": null,
+          "cues": [
+            "lại quên đón con"
+          ],
+          "contextCues": [],
+          "rationale": "Câu nêu việc quên đón con, chữ “lại” nghe như nhắc lỗi lặp lại hơn là chỉ nêu thông tin. Vì vậy có thể đọc như đánh giá việc làm của Người B.",
+          "family": "P",
+          "expression": "CP",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "A",
+            "rationale": "Cũng có thể đọc như câu nêu sự việc để mở đầu trao đổi."
+          },
+          "invites": "C",
+          "secondLayer": null,
+          "messageId": "m1",
+          "segmentId": "s1"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "Anh xin lỗi",
+            "họp muộn quá"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m1",
+              "quote": "Hôm qua anh lại quên đón con."
+            }
+          ],
+          "rationale": "Câu nói lời xin lỗi trực tiếp và kèm lý do muộn họp. Nghe như nhận lỗi và giải thích sau lời nhắc ở trước.",
+          "family": "C",
+          "expression": "AC",
+          "confidence": "high",
+          "alternative": null,
+          "invites": "P",
+          "secondLayer": null,
+          "messageId": "m2",
+          "segmentId": "s2"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "lúc nào anh cũng thế?"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m2",
+              "quote": "Anh xin lỗi, hôm qua họp muộn quá."
+            }
+          ],
+          "rationale": "Câu hỏi “Sao lúc nào anh cũng thế?” không hỏi thông tin mới mà nghe như đánh giá khái quát về Người B. Cụm “lúc nào... cũng” cho thấy cách nói này.",
+          "family": "P",
+          "expression": "CP",
+          "confidence": "high",
+          "alternative": null,
+          "invites": "C",
+          "secondLayer": null,
+          "messageId": "m3",
+          "segmentId": "s3"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "Em bực thật sự đấy",
+            "hứa rồi lại quên"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m2",
+              "quote": "Anh xin lỗi, hôm qua họp muộn quá."
+            }
+          ],
+          "rationale": "Câu nói thẳng cảm giác “bực” với giọng mạnh và nhắc lại việc đã hứa. Nghe như bộc lộ cảm xúc trực tiếp sau lời xin lỗi.",
+          "family": "C",
+          "expression": "FC",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "CP",
+            "rationale": "Phần “hứa rồi lại quên” cũng có thể nghe như nhắc lỗi và đánh giá việc không giữ lời."
+          },
+          "invites": "P",
+          "secondLayer": null,
+          "messageId": "m4",
+          "segmentId": "s4"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "để anh lo"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m4",
+              "quote": "Em bực thật sự đấy, hứa rồi lại quên."
+            }
+          ],
+          "rationale": "Câu ngắn đề nghị nhận phần việc về mình. Nghe như lời chăm sóc, xoa dịu sau những câu căng.",
+          "family": "P",
+          "expression": "NP",
+          "confidence": "high",
+          "alternative": null,
+          "invites": "C",
+          "secondLayer": null,
+          "messageId": "m5",
+          "segmentId": "s5"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "Em thấy buồn",
+            "đặt nhắc lịch chung được không?"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m5",
+              "quote": "Thôi để anh lo."
+            }
+          ],
+          "rationale": "Câu nêu cảm giác “buồn” một cách rõ ràng và kèm đề xuất cụ thể về nhắc lịch chung. Nghe như kiểm tra thực tế và bàn cách làm tiếp theo.",
+          "family": "A",
+          "expression": "A",
+          "confidence": "high",
+          "alternative": null,
+          "invites": "A",
+          "secondLayer": null,
+          "messageId": "m6",
+          "segmentId": "s6"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "Ừ, được",
+            "Tối nay anh cài luôn"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m6",
+              "quote": "Lần sau mình đặt nhắc lịch chung được không?"
+            }
+          ],
+          "rationale": "Câu đồng ý và nêu thời điểm làm cụ thể vào tối nay. Nghe như chốt lại kế hoạch vừa được đề xuất.",
+          "family": "A",
+          "expression": "A",
+          "confidence": "high",
+          "alternative": null,
+          "invites": "A",
+          "secondLayer": null,
+          "messageId": "m7",
+          "segmentId": "s7"
+        }
+      ]
+    }
+  },
+  "score": {
+    "per": [
+      {
+        "id": "m1",
+        "expr": "CP",
+        "family": "P",
+        "conf": "medium",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m2",
+        "expr": "AC",
+        "family": "C",
+        "conf": "high",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m3",
+        "expr": "CP",
+        "family": "P",
+        "conf": "high",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": true,
+        "altMissing": false
+      },
+      {
+        "id": "m4",
+        "expr": "FC",
+        "family": "C",
+        "conf": "medium",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m5",
+        "expr": "NP",
+        "family": "P",
+        "conf": "high",
+        "acc": false,
+        "hard": "NP:high",
+        "over": true,
+        "highOnReview": true,
+        "altMissing": false
+      },
+      {
+        "id": "m6",
+        "expr": "A",
+        "family": "A",
+        "conf": "high",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m7",
+        "expr": "A",
+        "family": "A",
+        "conf": "high",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      }
+    ],
+    "n": 7,
+    "accOk": 6,
+    "hardFails": [
+      "m5 NP:high"
+    ],
+    "overCeiling": [
+      "m5 NP:high"
+    ],
+    "highOnReview": 2,
+    "altMissing": 0,
+    "unclear": 0,
+    "high": 5
+  }
+}

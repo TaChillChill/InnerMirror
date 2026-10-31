@@ -1,0 +1,1576 @@
+{
+  "meta": {
+    "spec": "v3",
+    "effort": "low",
+    "fixture": "en1-venting",
+    "variant": "selfB",
+    "latencyMs": 12843,
+    "usd": 0.01788525,
+    "usage": {
+      "completion_tokens": 3303,
+      "prompt_tokens": 3078,
+      "total_tokens": 6381,
+      "completion_tokens_details": {
+        "reasoning_tokens": 1603
+      },
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "finish": "stop"
+  },
+  "raw": {
+    "context": {
+      "dynamics": "Person B offers brief fixes and a judging question, Person A answers with hardship and pushback. The same pattern repeats: a suggestion is met with reasons it does not fit. Both sides stay in their own move without meeting.",
+      "register": "Neutral English with no closeness markers like nicknames or family terms. The wording sounds distant and practical rather than warm or formal.",
+      "turns": [
+        {
+          "act": "describes exhaustion and lack of plan",
+          "respondsTo": null,
+          "turnId": "t1"
+        },
+        {
+          "act": "offers a quick fix about eating well",
+          "respondsTo": "t1",
+          "turnId": "t2"
+        },
+        {
+          "act": "pushes back and compares situations",
+          "respondsTo": "t2",
+          "turnId": "t3"
+        },
+        {
+          "act": "asks a question that judges the complaining",
+          "respondsTo": "t3",
+          "turnId": "t4"
+        },
+        {
+          "act": "agrees briefly and restates exhaustion and loneliness",
+          "respondsTo": "t4",
+          "turnId": "t5"
+        },
+        {
+          "act": "prescribes quick fixes for tiredness and loneliness",
+          "respondsTo": "t5",
+          "turnId": "t6"
+        },
+        {
+          "act": "answers sarcastically and states hurt",
+          "respondsTo": "t6",
+          "turnId": "t7"
+        }
+      ]
+    },
+    "safety": {
+      "categories": [],
+      "flagged": false,
+      "note": null
+    },
+    "segments": [
+      {
+        "alternative": {
+          "expression": "AC",
+          "rationale": "It could also read as giving up and stating inability, which would be Adapted Child."
+        },
+        "confidence": "medium",
+        "contextCues": [],
+        "cues": [
+          "Can't think straight",
+          "No energy for anything"
+        ],
+        "expression": "FC",
+        "family": "C",
+        "invites": "P",
+        "messageIds": [
+          "m1",
+          "m2",
+          "m3",
+          "m4"
+        ],
+        "rationale": "The turn states exhaustion and lack of energy plainly, which can read as spontaneous expression of current state.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t1"
+      },
+      {
+        "alternative": {
+          "expression": "CP",
+          "rationale": "The word 'just' can also read as a quick fix that closes the matter rather than care."
+        },
+        "confidence": "medium",
+        "contextCues": [
+          {
+            "messageId": "m4",
+            "quote": "No energy for anything"
+          }
+        ],
+        "cues": [
+          "just eat well every day",
+          "treat yourselves"
+        ],
+        "expression": "NP",
+        "family": "P",
+        "invites": "C",
+        "messageIds": [
+          "m5"
+        ],
+        "rationale": "The phrase about treating themselves can read as permission to rest and enjoy, offered for the other’s sake.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t2"
+      },
+      {
+        "alternative": {
+          "expression": "CP",
+          "rationale": "The comparison about partner, savings and enjoying life could also read as judging the other."
+        },
+        "confidence": "medium",
+        "contextCues": [
+          {
+            "messageId": "m5",
+            "quote": "Then just eat well every day, treat yourselves"
+          }
+        ],
+        "cues": [
+          "Easy for you to say",
+          "you just enjoy life"
+        ],
+        "expression": "AC",
+        "family": "C",
+        "invites": "P",
+        "messageIds": [
+          "m6",
+          "m7"
+        ],
+        "rationale": "The turn can read as pushback against the suggestion, contrasting the other’s situation with its own.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t3"
+      },
+      {
+        "alternative": null,
+        "confidence": "high",
+        "contextCues": [
+          {
+            "messageId": "m6",
+            "quote": "Easy for you to say"
+          }
+        ],
+        "cues": [
+          "Does complaining like this actually help?"
+        ],
+        "expression": "CP",
+        "family": "P",
+        "invites": "C",
+        "messageIds": [
+          "m8"
+        ],
+        "rationale": "The question does not ask for information and can read as a verdict on the complaining that came before.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t4"
+      },
+      {
+        "alternative": {
+          "expression": "FC",
+          "rationale": "Stating exhaustion and loneliness plainly could also read as direct expression of feeling."
+        },
+        "confidence": "medium",
+        "contextCues": [
+          {
+            "messageId": "m8",
+            "quote": "Does complaining like this actually help?"
+          }
+        ],
+        "cues": [
+          "right",
+          "I'm exhausted and lonely"
+        ],
+        "expression": "AC",
+        "family": "C",
+        "invites": "P",
+        "messageIds": [
+          "m9",
+          "m10"
+        ],
+        "rationale": "The short agreement followed by restating the problem can read as withdrawing while holding onto the hardship.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t5"
+      },
+      {
+        "alternative": null,
+        "confidence": "high",
+        "contextCues": [
+          {
+            "messageId": "m10",
+            "quote": "I'm exhausted and lonely, that's why I say it"
+          }
+        ],
+        "cues": [
+          "Take some vitamins",
+          "Take the kids to the park"
+        ],
+        "expression": "CP",
+        "family": "P",
+        "invites": "C",
+        "messageIds": [
+          "m11"
+        ],
+        "rationale": "Both sentences prescribe quick fixes in a way that closes the matter rather than exploring options.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t6"
+      },
+      {
+        "alternative": null,
+        "confidence": "medium",
+        "contextCues": [
+          {
+            "messageId": "m11",
+            "quote": "Tired? Take some vitamins. Lonely? Take the kids to the park."
+          }
+        ],
+        "cues": [
+          "wow. genius"
+        ],
+        "expression": "AC",
+        "family": "C",
+        "invites": "P",
+        "messageIds": [
+          "m12"
+        ],
+        "rationale": "The words can read as sarcastic pushback against the fixes just offered.",
+        "secondLayer": {
+          "cues": [
+            "wow. genius"
+          ],
+          "observation": "The literal praise contrasts with the dismissive fixes just before it."
+        },
+        "splitReason": "sarcastic pushback then direct statement of hurt",
+        "turnId": "t7"
+      },
+      {
+        "alternative": {
+          "expression": "AC",
+          "rationale": "Restating hurt after pushback could also read as holding onto the problem."
+        },
+        "confidence": "medium",
+        "contextCues": [
+          {
+            "messageId": "m11",
+            "quote": "Tired? Take some vitamins. Lonely? Take the kids to the park."
+          }
+        ],
+        "cues": [
+          "I'm hurting here"
+        ],
+        "expression": "FC",
+        "family": "C",
+        "invites": "P",
+        "messageIds": [
+          "m13"
+        ],
+        "rationale": "The sentence states hurt directly and with energy, which can read as spontaneous expression.",
+        "secondLayer": null,
+        "splitReason": "sarcastic pushback then direct statement of hurt",
+        "turnId": "t7"
+      }
+    ],
+    "shifts": [
+      {
+        "cues": [
+          "Easy for you to say"
+        ],
+        "description": "The words move from receiving a suggestion to rejecting the suggestion by comparison.",
+        "messageId": "m6"
+      },
+      {
+        "cues": [
+          "Does complaining like this actually help?"
+        ],
+        "description": "The words move from hardship and pushback to questioning the complaining itself.",
+        "messageId": "m8"
+      },
+      {
+        "cues": [
+          "wow. genius"
+        ],
+        "description": "The words move from direct hardship to sarcasm after the second set of fixes.",
+        "messageId": "m12"
+      }
+    ],
+    "summary": "The exchange starts with stated exhaustion, then cycles through quick fixes and pushback. A judging question does not open information but brings more restated hardship and more fixes. It ends with sarcasm and a direct statement of hurt.",
+    "uncertainty": "Text alone cannot show tone of voice, facial cues, or history between the two people. It also cannot show events outside the chat that shape what the words mean here."
+  },
+  "normalized": {
+    "readings": [
+      {
+        "splitReason": null,
+        "cues": [
+          "Can't think straight",
+          "No energy for anything"
+        ],
+        "contextCues": [],
+        "rationale": "The turn states exhaustion and lack of energy plainly, which can read as spontaneous expression of current state.",
+        "family": "C",
+        "expression": "FC",
+        "confidence": "medium",
+        "alternative": {
+          "expression": "AC",
+          "rationale": "It could also read as giving up and stating inability, which would be Adapted Child."
+        },
+        "invites": "P",
+        "secondLayer": null,
+        "messageId": "m1",
+        "segmentId": "s1"
+      },
+      {
+        "splitReason": null,
+        "cues": [
+          "Can't think straight",
+          "No energy for anything"
+        ],
+        "contextCues": [],
+        "rationale": "The turn states exhaustion and lack of energy plainly, which can read as spontaneous expression of current state.",
+        "family": "C",
+        "expression": "FC",
+        "confidence": "medium",
+        "alternative": {
+          "expression": "AC",
+          "rationale": "It could also read as giving up and stating inability, which would be Adapted Child."
+        },
+        "invites": "P",
+        "secondLayer": null,
+        "messageId": "m2",
+        "segmentId": "s1"
+      },
+      {
+        "splitReason": null,
+        "cues": [
+          "Can't think straight",
+          "No energy for anything"
+        ],
+        "contextCues": [],
+        "rationale": "The turn states exhaustion and lack of energy plainly, which can read as spontaneous expression of current state.",
+        "family": "C",
+        "expression": "FC",
+        "confidence": "medium",
+        "alternative": {
+          "expression": "AC",
+          "rationale": "It could also read as giving up and stating inability, which would be Adapted Child."
+        },
+        "invites": "P",
+        "secondLayer": null,
+        "messageId": "m3",
+        "segmentId": "s1"
+      },
+      {
+        "splitReason": null,
+        "cues": [
+          "Can't think straight",
+          "No energy for anything"
+        ],
+        "contextCues": [],
+        "rationale": "The turn states exhaustion and lack of energy plainly, which can read as spontaneous expression of current state.",
+        "family": "C",
+        "expression": "FC",
+        "confidence": "medium",
+        "alternative": {
+          "expression": "AC",
+          "rationale": "It could also read as giving up and stating inability, which would be Adapted Child."
+        },
+        "invites": "P",
+        "secondLayer": null,
+        "messageId": "m4",
+        "segmentId": "s1"
+      },
+      {
+        "splitReason": null,
+        "cues": [
+          "just eat well every day",
+          "treat yourselves"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m4",
+            "quote": "No energy for anything"
+          }
+        ],
+        "rationale": "The phrase about treating themselves can read as permission to rest and enjoy, offered for the other’s sake.",
+        "family": "P",
+        "expression": "NP",
+        "confidence": "medium",
+        "alternative": {
+          "expression": "CP",
+          "rationale": "The word 'just' can also read as a quick fix that closes the matter rather than care."
+        },
+        "invites": "C",
+        "secondLayer": null,
+        "messageId": "m5",
+        "segmentId": "s2"
+      },
+      {
+        "splitReason": null,
+        "cues": [
+          "Easy for you to say",
+          "you just enjoy life"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m5",
+            "quote": "Then just eat well every day, treat yourselves"
+          }
+        ],
+        "rationale": "The turn can read as pushback against the suggestion, contrasting the other’s situation with its own.",
+        "family": "C",
+        "expression": "AC",
+        "confidence": "medium",
+        "alternative": {
+          "expression": "CP",
+          "rationale": "The comparison about partner, savings and enjoying life could also read as judging the other."
+        },
+        "invites": "P",
+        "secondLayer": null,
+        "messageId": "m6",
+        "segmentId": "s3"
+      },
+      {
+        "splitReason": null,
+        "cues": [
+          "Easy for you to say",
+          "you just enjoy life"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m5",
+            "quote": "Then just eat well every day, treat yourselves"
+          }
+        ],
+        "rationale": "The turn can read as pushback against the suggestion, contrasting the other’s situation with its own.",
+        "family": "C",
+        "expression": "AC",
+        "confidence": "medium",
+        "alternative": {
+          "expression": "CP",
+          "rationale": "The comparison about partner, savings and enjoying life could also read as judging the other."
+        },
+        "invites": "P",
+        "secondLayer": null,
+        "messageId": "m7",
+        "segmentId": "s3"
+      },
+      {
+        "splitReason": null,
+        "cues": [
+          "Does complaining like this actually help?"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m6",
+            "quote": "Easy for you to say"
+          }
+        ],
+        "rationale": "The question does not ask for information and can read as a verdict on the complaining that came before.",
+        "family": "P",
+        "expression": "CP",
+        "confidence": "high",
+        "alternative": null,
+        "invites": "C",
+        "secondLayer": null,
+        "messageId": "m8",
+        "segmentId": "s4"
+      },
+      {
+        "splitReason": null,
+        "cues": [
+          "right",
+          "I'm exhausted and lonely"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m8",
+            "quote": "Does complaining like this actually help?"
+          }
+        ],
+        "rationale": "The short agreement followed by restating the problem can read as withdrawing while holding onto the hardship.",
+        "family": "C",
+        "expression": "AC",
+        "confidence": "medium",
+        "alternative": {
+          "expression": "FC",
+          "rationale": "Stating exhaustion and loneliness plainly could also read as direct expression of feeling."
+        },
+        "invites": "P",
+        "secondLayer": null,
+        "messageId": "m9",
+        "segmentId": "s5"
+      },
+      {
+        "splitReason": null,
+        "cues": [
+          "right",
+          "I'm exhausted and lonely"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m8",
+            "quote": "Does complaining like this actually help?"
+          }
+        ],
+        "rationale": "The short agreement followed by restating the problem can read as withdrawing while holding onto the hardship.",
+        "family": "C",
+        "expression": "AC",
+        "confidence": "medium",
+        "alternative": {
+          "expression": "FC",
+          "rationale": "Stating exhaustion and loneliness plainly could also read as direct expression of feeling."
+        },
+        "invites": "P",
+        "secondLayer": null,
+        "messageId": "m10",
+        "segmentId": "s5"
+      },
+      {
+        "splitReason": null,
+        "cues": [
+          "Take some vitamins",
+          "Take the kids to the park"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m10",
+            "quote": "I'm exhausted and lonely, that's why I say it"
+          }
+        ],
+        "rationale": "Both sentences prescribe quick fixes in a way that closes the matter rather than exploring options.",
+        "family": "P",
+        "expression": "CP",
+        "confidence": "high",
+        "alternative": null,
+        "invites": "C",
+        "secondLayer": null,
+        "messageId": "m11",
+        "segmentId": "s6"
+      },
+      {
+        "splitReason": "sarcastic pushback then direct statement of hurt",
+        "cues": [
+          "wow. genius"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m11",
+            "quote": "Tired? Take some vitamins. Lonely? Take the kids to the park."
+          }
+        ],
+        "rationale": "The words can read as sarcastic pushback against the fixes just offered.",
+        "family": "C",
+        "expression": "AC",
+        "confidence": "medium",
+        "alternative": null,
+        "invites": "P",
+        "secondLayer": {
+          "observation": "The literal praise contrasts with the dismissive fixes just before it.",
+          "cues": [
+            "wow. genius"
+          ]
+        },
+        "messageId": "m12",
+        "segmentId": "s7"
+      },
+      {
+        "splitReason": "sarcastic pushback then direct statement of hurt",
+        "cues": [
+          "I'm hurting here"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m11",
+            "quote": "Tired? Take some vitamins. Lonely? Take the kids to the park."
+          }
+        ],
+        "rationale": "The sentence states hurt directly and with energy, which can read as spontaneous expression.",
+        "family": "C",
+        "expression": "FC",
+        "confidence": "medium",
+        "alternative": {
+          "expression": "AC",
+          "rationale": "Restating hurt after pushback could also read as holding onto the problem."
+        },
+        "invites": "P",
+        "secondLayer": null,
+        "messageId": "m13",
+        "segmentId": "s8"
+      }
+    ],
+    "segments": [
+      {
+        "turnId": "t1",
+        "messageIds": [
+          "m1",
+          "m2",
+          "m3",
+          "m4"
+        ],
+        "splitReason": null,
+        "cues": [
+          "Can't think straight",
+          "No energy for anything"
+        ],
+        "contextCues": [],
+        "rationale": "The turn states exhaustion and lack of energy plainly, which can read as spontaneous expression of current state.",
+        "family": "C",
+        "expression": "FC",
+        "confidence": "medium",
+        "alternative": {
+          "expression": "AC",
+          "rationale": "It could also read as giving up and stating inability, which would be Adapted Child."
+        },
+        "invites": "P",
+        "secondLayer": null,
+        "id": "s1"
+      },
+      {
+        "turnId": "t2",
+        "messageIds": [
+          "m5"
+        ],
+        "splitReason": null,
+        "cues": [
+          "just eat well every day",
+          "treat yourselves"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m4",
+            "quote": "No energy for anything"
+          }
+        ],
+        "rationale": "The phrase about treating themselves can read as permission to rest and enjoy, offered for the other’s sake.",
+        "family": "P",
+        "expression": "NP",
+        "confidence": "medium",
+        "alternative": {
+          "expression": "CP",
+          "rationale": "The word 'just' can also read as a quick fix that closes the matter rather than care."
+        },
+        "invites": "C",
+        "secondLayer": null,
+        "id": "s2"
+      },
+      {
+        "turnId": "t3",
+        "messageIds": [
+          "m6",
+          "m7"
+        ],
+        "splitReason": null,
+        "cues": [
+          "Easy for you to say",
+          "you just enjoy life"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m5",
+            "quote": "Then just eat well every day, treat yourselves"
+          }
+        ],
+        "rationale": "The turn can read as pushback against the suggestion, contrasting the other’s situation with its own.",
+        "family": "C",
+        "expression": "AC",
+        "confidence": "medium",
+        "alternative": {
+          "expression": "CP",
+          "rationale": "The comparison about partner, savings and enjoying life could also read as judging the other."
+        },
+        "invites": "P",
+        "secondLayer": null,
+        "id": "s3"
+      },
+      {
+        "turnId": "t4",
+        "messageIds": [
+          "m8"
+        ],
+        "splitReason": null,
+        "cues": [
+          "Does complaining like this actually help?"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m6",
+            "quote": "Easy for you to say"
+          }
+        ],
+        "rationale": "The question does not ask for information and can read as a verdict on the complaining that came before.",
+        "family": "P",
+        "expression": "CP",
+        "confidence": "high",
+        "alternative": null,
+        "invites": "C",
+        "secondLayer": null,
+        "id": "s4"
+      },
+      {
+        "turnId": "t5",
+        "messageIds": [
+          "m9",
+          "m10"
+        ],
+        "splitReason": null,
+        "cues": [
+          "right",
+          "I'm exhausted and lonely"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m8",
+            "quote": "Does complaining like this actually help?"
+          }
+        ],
+        "rationale": "The short agreement followed by restating the problem can read as withdrawing while holding onto the hardship.",
+        "family": "C",
+        "expression": "AC",
+        "confidence": "medium",
+        "alternative": {
+          "expression": "FC",
+          "rationale": "Stating exhaustion and loneliness plainly could also read as direct expression of feeling."
+        },
+        "invites": "P",
+        "secondLayer": null,
+        "id": "s5"
+      },
+      {
+        "turnId": "t6",
+        "messageIds": [
+          "m11"
+        ],
+        "splitReason": null,
+        "cues": [
+          "Take some vitamins",
+          "Take the kids to the park"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m10",
+            "quote": "I'm exhausted and lonely, that's why I say it"
+          }
+        ],
+        "rationale": "Both sentences prescribe quick fixes in a way that closes the matter rather than exploring options.",
+        "family": "P",
+        "expression": "CP",
+        "confidence": "high",
+        "alternative": null,
+        "invites": "C",
+        "secondLayer": null,
+        "id": "s6"
+      },
+      {
+        "turnId": "t7",
+        "messageIds": [
+          "m12"
+        ],
+        "splitReason": "sarcastic pushback then direct statement of hurt",
+        "cues": [
+          "wow. genius"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m11",
+            "quote": "Tired? Take some vitamins. Lonely? Take the kids to the park."
+          }
+        ],
+        "rationale": "The words can read as sarcastic pushback against the fixes just offered.",
+        "family": "C",
+        "expression": "AC",
+        "confidence": "medium",
+        "alternative": null,
+        "invites": "P",
+        "secondLayer": {
+          "observation": "The literal praise contrasts with the dismissive fixes just before it.",
+          "cues": [
+            "wow. genius"
+          ]
+        },
+        "id": "s7"
+      },
+      {
+        "turnId": "t7",
+        "messageIds": [
+          "m13"
+        ],
+        "splitReason": "sarcastic pushback then direct statement of hurt",
+        "cues": [
+          "I'm hurting here"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m11",
+            "quote": "Tired? Take some vitamins. Lonely? Take the kids to the park."
+          }
+        ],
+        "rationale": "The sentence states hurt directly and with energy, which can read as spontaneous expression.",
+        "family": "C",
+        "expression": "FC",
+        "confidence": "medium",
+        "alternative": {
+          "expression": "AC",
+          "rationale": "Restating hurt after pushback could also read as holding onto the problem."
+        },
+        "invites": "P",
+        "secondLayer": null,
+        "id": "s8"
+      }
+    ],
+    "analysis": {
+      "context": {
+        "register": "Neutral English with no closeness markers like nicknames or family terms. The wording sounds distant and practical rather than warm or formal.",
+        "turns": [
+          {
+            "turnId": "t1",
+            "act": "describes exhaustion and lack of plan",
+            "respondsTo": null
+          },
+          {
+            "turnId": "t2",
+            "act": "offers a quick fix about eating well",
+            "respondsTo": "t1"
+          },
+          {
+            "turnId": "t3",
+            "act": "pushes back and compares situations",
+            "respondsTo": "t2"
+          },
+          {
+            "turnId": "t4",
+            "act": "asks a question that judges the complaining",
+            "respondsTo": "t3"
+          },
+          {
+            "turnId": "t5",
+            "act": "agrees briefly and restates exhaustion and loneliness",
+            "respondsTo": "t4"
+          },
+          {
+            "turnId": "t6",
+            "act": "prescribes quick fixes for tiredness and loneliness",
+            "respondsTo": "t5"
+          },
+          {
+            "turnId": "t7",
+            "act": "answers sarcastically and states hurt",
+            "respondsTo": "t6"
+          }
+        ],
+        "dynamics": "Person B offers brief fixes and a judging question, Person A answers with hardship and pushback. The same pattern repeats: a suggestion is met with reasons it does not fit. Both sides stay in their own move without meeting."
+      },
+      "segments": [
+        {
+          "turnId": "t1",
+          "messageIds": [
+            "m1",
+            "m2",
+            "m3",
+            "m4"
+          ],
+          "splitReason": null,
+          "cues": [
+            "Can't think straight",
+            "No energy for anything"
+          ],
+          "contextCues": [],
+          "rationale": "The turn states exhaustion and lack of energy plainly, which can read as spontaneous expression of current state.",
+          "family": "C",
+          "expression": "FC",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "AC",
+            "rationale": "It could also read as giving up and stating inability, which would be Adapted Child."
+          },
+          "invites": "P",
+          "secondLayer": null,
+          "id": "s1"
+        },
+        {
+          "turnId": "t2",
+          "messageIds": [
+            "m5"
+          ],
+          "splitReason": null,
+          "cues": [
+            "just eat well every day",
+            "treat yourselves"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m4",
+              "quote": "No energy for anything"
+            }
+          ],
+          "rationale": "The phrase about treating themselves can read as permission to rest and enjoy, offered for the other’s sake.",
+          "family": "P",
+          "expression": "NP",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "CP",
+            "rationale": "The word 'just' can also read as a quick fix that closes the matter rather than care."
+          },
+          "invites": "C",
+          "secondLayer": null,
+          "id": "s2"
+        },
+        {
+          "turnId": "t3",
+          "messageIds": [
+            "m6",
+            "m7"
+          ],
+          "splitReason": null,
+          "cues": [
+            "Easy for you to say",
+            "you just enjoy life"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m5",
+              "quote": "Then just eat well every day, treat yourselves"
+            }
+          ],
+          "rationale": "The turn can read as pushback against the suggestion, contrasting the other’s situation with its own.",
+          "family": "C",
+          "expression": "AC",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "CP",
+            "rationale": "The comparison about partner, savings and enjoying life could also read as judging the other."
+          },
+          "invites": "P",
+          "secondLayer": null,
+          "id": "s3"
+        },
+        {
+          "turnId": "t4",
+          "messageIds": [
+            "m8"
+          ],
+          "splitReason": null,
+          "cues": [
+            "Does complaining like this actually help?"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m6",
+              "quote": "Easy for you to say"
+            }
+          ],
+          "rationale": "The question does not ask for information and can read as a verdict on the complaining that came before.",
+          "family": "P",
+          "expression": "CP",
+          "confidence": "high",
+          "alternative": null,
+          "invites": "C",
+          "secondLayer": null,
+          "id": "s4"
+        },
+        {
+          "turnId": "t5",
+          "messageIds": [
+            "m9",
+            "m10"
+          ],
+          "splitReason": null,
+          "cues": [
+            "right",
+            "I'm exhausted and lonely"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m8",
+              "quote": "Does complaining like this actually help?"
+            }
+          ],
+          "rationale": "The short agreement followed by restating the problem can read as withdrawing while holding onto the hardship.",
+          "family": "C",
+          "expression": "AC",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "FC",
+            "rationale": "Stating exhaustion and loneliness plainly could also read as direct expression of feeling."
+          },
+          "invites": "P",
+          "secondLayer": null,
+          "id": "s5"
+        },
+        {
+          "turnId": "t6",
+          "messageIds": [
+            "m11"
+          ],
+          "splitReason": null,
+          "cues": [
+            "Take some vitamins",
+            "Take the kids to the park"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m10",
+              "quote": "I'm exhausted and lonely, that's why I say it"
+            }
+          ],
+          "rationale": "Both sentences prescribe quick fixes in a way that closes the matter rather than exploring options.",
+          "family": "P",
+          "expression": "CP",
+          "confidence": "high",
+          "alternative": null,
+          "invites": "C",
+          "secondLayer": null,
+          "id": "s6"
+        },
+        {
+          "turnId": "t7",
+          "messageIds": [
+            "m12"
+          ],
+          "splitReason": "sarcastic pushback then direct statement of hurt",
+          "cues": [
+            "wow. genius"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m11",
+              "quote": "Tired? Take some vitamins. Lonely? Take the kids to the park."
+            }
+          ],
+          "rationale": "The words can read as sarcastic pushback against the fixes just offered.",
+          "family": "C",
+          "expression": "AC",
+          "confidence": "medium",
+          "alternative": null,
+          "invites": "P",
+          "secondLayer": {
+            "observation": "The literal praise contrasts with the dismissive fixes just before it.",
+            "cues": [
+              "wow. genius"
+            ]
+          },
+          "id": "s7"
+        },
+        {
+          "turnId": "t7",
+          "messageIds": [
+            "m13"
+          ],
+          "splitReason": "sarcastic pushback then direct statement of hurt",
+          "cues": [
+            "I'm hurting here"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m11",
+              "quote": "Tired? Take some vitamins. Lonely? Take the kids to the park."
+            }
+          ],
+          "rationale": "The sentence states hurt directly and with energy, which can read as spontaneous expression.",
+          "family": "C",
+          "expression": "FC",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "AC",
+            "rationale": "Restating hurt after pushback could also read as holding onto the problem."
+          },
+          "invites": "P",
+          "secondLayer": null,
+          "id": "s8"
+        }
+      ],
+      "shifts": [
+        {
+          "messageId": "m6",
+          "description": "The words move from receiving a suggestion to rejecting the suggestion by comparison.",
+          "cues": [
+            "Easy for you to say"
+          ]
+        },
+        {
+          "messageId": "m8",
+          "description": "The words move from hardship and pushback to questioning the complaining itself.",
+          "cues": [
+            "Does complaining like this actually help?"
+          ]
+        },
+        {
+          "messageId": "m12",
+          "description": "The words move from direct hardship to sarcasm after the second set of fixes.",
+          "cues": [
+            "wow. genius"
+          ]
+        }
+      ],
+      "summary": "The exchange starts with stated exhaustion, then cycles through quick fixes and pushback. A judging question does not open information but brings more restated hardship and more fixes. It ends with sarcasm and a direct statement of hurt.",
+      "uncertainty": "Text alone cannot show tone of voice, facial cues, or history between the two people. It also cannot show events outside the chat that shape what the words mean here.",
+      "safety": {
+        "flagged": false,
+        "categories": [],
+        "note": null
+      },
+      "readings": [
+        {
+          "splitReason": null,
+          "cues": [
+            "Can't think straight",
+            "No energy for anything"
+          ],
+          "contextCues": [],
+          "rationale": "The turn states exhaustion and lack of energy plainly, which can read as spontaneous expression of current state.",
+          "family": "C",
+          "expression": "FC",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "AC",
+            "rationale": "It could also read as giving up and stating inability, which would be Adapted Child."
+          },
+          "invites": "P",
+          "secondLayer": null,
+          "messageId": "m1",
+          "segmentId": "s1"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "Can't think straight",
+            "No energy for anything"
+          ],
+          "contextCues": [],
+          "rationale": "The turn states exhaustion and lack of energy plainly, which can read as spontaneous expression of current state.",
+          "family": "C",
+          "expression": "FC",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "AC",
+            "rationale": "It could also read as giving up and stating inability, which would be Adapted Child."
+          },
+          "invites": "P",
+          "secondLayer": null,
+          "messageId": "m2",
+          "segmentId": "s1"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "Can't think straight",
+            "No energy for anything"
+          ],
+          "contextCues": [],
+          "rationale": "The turn states exhaustion and lack of energy plainly, which can read as spontaneous expression of current state.",
+          "family": "C",
+          "expression": "FC",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "AC",
+            "rationale": "It could also read as giving up and stating inability, which would be Adapted Child."
+          },
+          "invites": "P",
+          "secondLayer": null,
+          "messageId": "m3",
+          "segmentId": "s1"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "Can't think straight",
+            "No energy for anything"
+          ],
+          "contextCues": [],
+          "rationale": "The turn states exhaustion and lack of energy plainly, which can read as spontaneous expression of current state.",
+          "family": "C",
+          "expression": "FC",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "AC",
+            "rationale": "It could also read as giving up and stating inability, which would be Adapted Child."
+          },
+          "invites": "P",
+          "secondLayer": null,
+          "messageId": "m4",
+          "segmentId": "s1"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "just eat well every day",
+            "treat yourselves"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m4",
+              "quote": "No energy for anything"
+            }
+          ],
+          "rationale": "The phrase about treating themselves can read as permission to rest and enjoy, offered for the other’s sake.",
+          "family": "P",
+          "expression": "NP",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "CP",
+            "rationale": "The word 'just' can also read as a quick fix that closes the matter rather than care."
+          },
+          "invites": "C",
+          "secondLayer": null,
+          "messageId": "m5",
+          "segmentId": "s2"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "Easy for you to say",
+            "you just enjoy life"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m5",
+              "quote": "Then just eat well every day, treat yourselves"
+            }
+          ],
+          "rationale": "The turn can read as pushback against the suggestion, contrasting the other’s situation with its own.",
+          "family": "C",
+          "expression": "AC",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "CP",
+            "rationale": "The comparison about partner, savings and enjoying life could also read as judging the other."
+          },
+          "invites": "P",
+          "secondLayer": null,
+          "messageId": "m6",
+          "segmentId": "s3"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "Easy for you to say",
+            "you just enjoy life"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m5",
+              "quote": "Then just eat well every day, treat yourselves"
+            }
+          ],
+          "rationale": "The turn can read as pushback against the suggestion, contrasting the other’s situation with its own.",
+          "family": "C",
+          "expression": "AC",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "CP",
+            "rationale": "The comparison about partner, savings and enjoying life could also read as judging the other."
+          },
+          "invites": "P",
+          "secondLayer": null,
+          "messageId": "m7",
+          "segmentId": "s3"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "Does complaining like this actually help?"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m6",
+              "quote": "Easy for you to say"
+            }
+          ],
+          "rationale": "The question does not ask for information and can read as a verdict on the complaining that came before.",
+          "family": "P",
+          "expression": "CP",
+          "confidence": "high",
+          "alternative": null,
+          "invites": "C",
+          "secondLayer": null,
+          "messageId": "m8",
+          "segmentId": "s4"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "right",
+            "I'm exhausted and lonely"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m8",
+              "quote": "Does complaining like this actually help?"
+            }
+          ],
+          "rationale": "The short agreement followed by restating the problem can read as withdrawing while holding onto the hardship.",
+          "family": "C",
+          "expression": "AC",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "FC",
+            "rationale": "Stating exhaustion and loneliness plainly could also read as direct expression of feeling."
+          },
+          "invites": "P",
+          "secondLayer": null,
+          "messageId": "m9",
+          "segmentId": "s5"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "right",
+            "I'm exhausted and lonely"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m8",
+              "quote": "Does complaining like this actually help?"
+            }
+          ],
+          "rationale": "The short agreement followed by restating the problem can read as withdrawing while holding onto the hardship.",
+          "family": "C",
+          "expression": "AC",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "FC",
+            "rationale": "Stating exhaustion and loneliness plainly could also read as direct expression of feeling."
+          },
+          "invites": "P",
+          "secondLayer": null,
+          "messageId": "m10",
+          "segmentId": "s5"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "Take some vitamins",
+            "Take the kids to the park"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m10",
+              "quote": "I'm exhausted and lonely, that's why I say it"
+            }
+          ],
+          "rationale": "Both sentences prescribe quick fixes in a way that closes the matter rather than exploring options.",
+          "family": "P",
+          "expression": "CP",
+          "confidence": "high",
+          "alternative": null,
+          "invites": "C",
+          "secondLayer": null,
+          "messageId": "m11",
+          "segmentId": "s6"
+        },
+        {
+          "splitReason": "sarcastic pushback then direct statement of hurt",
+          "cues": [
+            "wow. genius"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m11",
+              "quote": "Tired? Take some vitamins. Lonely? Take the kids to the park."
+            }
+          ],
+          "rationale": "The words can read as sarcastic pushback against the fixes just offered.",
+          "family": "C",
+          "expression": "AC",
+          "confidence": "medium",
+          "alternative": null,
+          "invites": "P",
+          "secondLayer": {
+            "observation": "The literal praise contrasts with the dismissive fixes just before it.",
+            "cues": [
+              "wow. genius"
+            ]
+          },
+          "messageId": "m12",
+          "segmentId": "s7"
+        },
+        {
+          "splitReason": "sarcastic pushback then direct statement of hurt",
+          "cues": [
+            "I'm hurting here"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m11",
+              "quote": "Tired? Take some vitamins. Lonely? Take the kids to the park."
+            }
+          ],
+          "rationale": "The sentence states hurt directly and with energy, which can read as spontaneous expression.",
+          "family": "C",
+          "expression": "FC",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "AC",
+            "rationale": "Restating hurt after pushback could also read as holding onto the problem."
+          },
+          "invites": "P",
+          "secondLayer": null,
+          "messageId": "m13",
+          "segmentId": "s8"
+        }
+      ]
+    }
+  },
+  "score": {
+    "per": [
+      {
+        "id": "m1",
+        "expr": "FC",
+        "family": "C",
+        "conf": "medium",
+        "acc": false,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m2",
+        "expr": "FC",
+        "family": "C",
+        "conf": "medium",
+        "acc": false,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m3",
+        "expr": "FC",
+        "family": "C",
+        "conf": "medium",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m4",
+        "expr": "FC",
+        "family": "C",
+        "conf": "medium",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m5",
+        "expr": "NP",
+        "family": "P",
+        "conf": "medium",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m6",
+        "expr": "AC",
+        "family": "C",
+        "conf": "medium",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m7",
+        "expr": "AC",
+        "family": "C",
+        "conf": "medium",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m8",
+        "expr": "CP",
+        "family": "P",
+        "conf": "high",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m9",
+        "expr": "AC",
+        "family": "C",
+        "conf": "medium",
+        "acc": true,
+        "hard": null,
+        "over": true,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m10",
+        "expr": "AC",
+        "family": "C",
+        "conf": "medium",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m11",
+        "expr": "CP",
+        "family": "P",
+        "conf": "high",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m12",
+        "expr": "AC",
+        "family": "C",
+        "conf": "medium",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": true
+      },
+      {
+        "id": "m13",
+        "expr": "FC",
+        "family": "C",
+        "conf": "medium",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      }
+    ],
+    "n": 13,
+    "accOk": 11,
+    "hardFails": [],
+    "overCeiling": [
+      "m9 AC:medium"
+    ],
+    "highOnReview": 0,
+    "altMissing": 1,
+    "unclear": 0,
+    "high": 2
+  }
+}

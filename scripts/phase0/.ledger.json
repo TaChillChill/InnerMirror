@@ -1,9 +1,10 @@
 {
-  "totalUsd": 0.794465,
+  "totalUsd": 3.431818,
   "byPhase": {
     "smoke": 0.007918,
     "eval": 0.050344,
-    "eval-v2": 0.736201
+    "eval-v2": 0.736201,
+    "eval-p0": 2.637355
   },
   "calls": [
     {
@@ -844,6 +845,1938 @@
         }
       },
       "usd": 0.029841,
+      "finishReason": "stop"
+    },
+    {
+      "at": "2026-10-31T07:54:54.752Z",
+      "phase": "eval-p0",
+      "label": "v2.1:vi2-family:selfB",
+      "model": "muse-spark-1.3",
+      "status": 200,
+      "latencyMs": 24246,
+      "usage": {
+        "completion_tokens": 6372,
+        "prompt_tokens": 2379,
+        "total_tokens": 8751,
+        "completion_tokens_details": {
+          "reasoning_tokens": 5084
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "usd": 0.030055,
+      "finishReason": "stop"
+    },
+    {
+      "at": "2026-10-31T07:55:04.839Z",
+      "phase": "eval-p0",
+      "label": "v2.1:vi2-family:selfA",
+      "model": "muse-spark-1.3",
+      "status": 200,
+      "latencyMs": 34330,
+      "usage": {
+        "completion_tokens": 7164,
+        "prompt_tokens": 2379,
+        "total_tokens": 9543,
+        "completion_tokens_details": {
+          "reasoning_tokens": 3802
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "usd": 0.033421,
+      "finishReason": "stop"
+    },
+    {
+      "at": "2026-10-31T07:55:14.440Z",
+      "phase": "eval-p0",
+      "label": "v2.1:vi3-friends:selfA",
+      "model": "muse-spark-1.3",
+      "status": 200,
+      "latencyMs": 19675,
+      "usage": {
+        "completion_tokens": 4671,
+        "prompt_tokens": 2358,
+        "total_tokens": 7029,
+        "completion_tokens_details": {
+          "reasoning_tokens": 3217
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "usd": 0.022799,
+      "finishReason": "stop"
+    },
+    {
+      "at": "2026-10-31T07:55:16.338Z",
+      "phase": "eval-p0",
+      "label": "v2.1:vi1-hardship:selfB",
+      "model": "muse-spark-1.3",
+      "status": 200,
+      "latencyMs": 45833,
+      "usage": {
+        "completion_tokens": 12000,
+        "prompt_tokens": 2763,
+        "total_tokens": 14763,
+        "completion_tokens_details": {
+          "reasoning_tokens": 9270
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "usd": 0.054454,
+      "finishReason": "length"
+    },
+    {
+      "at": "2026-10-31T07:55:17.725Z",
+      "phase": "eval-p0",
+      "label": "v2.1:vi1-hardship:selfA",
+      "model": "muse-spark-1.3",
+      "status": 200,
+      "latencyMs": 47242,
+      "usage": {
+        "completion_tokens": 12000,
+        "prompt_tokens": 2763,
+        "total_tokens": 14763,
+        "completion_tokens_details": {
+          "reasoning_tokens": 8504
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "usd": 0.054454,
+      "finishReason": "length"
+    },
+    {
+      "at": "2026-10-31T07:55:29.883Z",
+      "phase": "eval-p0",
+      "label": "v2.1:vi3-friends:selfB",
+      "model": "muse-spark-1.3",
+      "status": 200,
+      "latencyMs": 25038,
+      "usage": {
+        "completion_tokens": 5429,
+        "prompt_tokens": 2358,
+        "total_tokens": 7787,
+        "completion_tokens_details": {
+          "reasoning_tokens": 3982
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "usd": 0.026021,
+      "finishReason": "stop"
+    },
+    {
+      "at": "2026-10-31T07:55:31.162Z",
+      "phase": "eval-p0",
+      "label": "v2.1:vi4-couple:selfA",
+      "model": "muse-spark-1.3",
+      "status": 200,
+      "latencyMs": 16718,
+      "usage": {
+        "completion_tokens": 4288,
+        "prompt_tokens": 2367,
+        "total_tokens": 6655,
+        "completion_tokens_details": {
+          "reasoning_tokens": 2789
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "usd": 0.021183,
+      "finishReason": "stop"
+    },
+    {
+      "at": "2026-10-31T07:55:39.082Z",
+      "phase": "eval-p0",
+      "label": "v2.1:vi5-work:selfA",
+      "model": "muse-spark-1.3",
+      "status": 200,
+      "latencyMs": 21353,
+      "usage": {
+        "completion_tokens": 5163,
+        "prompt_tokens": 2381,
+        "total_tokens": 7544,
+        "completion_tokens_details": {
+          "reasoning_tokens": 3892
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "usd": 0.024919,
+      "finishReason": "stop"
+    },
+    {
+      "at": "2026-10-31T07:55:41.197Z",
+      "phase": "eval-p0",
+      "label": "v2.1:vi4-couple:selfB",
+      "model": "muse-spark-1.3",
+      "status": 200,
+      "latencyMs": 24856,
+      "usage": {
+        "completion_tokens": 6136,
+        "prompt_tokens": 2367,
+        "total_tokens": 8503,
+        "completion_tokens_details": {
+          "reasoning_tokens": 4572
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "usd": 0.029037,
+      "finishReason": "stop"
+    },
+    {
+      "at": "2026-10-31T07:55:57.227Z",
+      "phase": "eval-p0",
+      "label": "v2.1:vi5-work:selfB",
+      "model": "muse-spark-1.3",
+      "status": 200,
+      "latencyMs": 27332,
+      "usage": {
+        "completion_tokens": 5659,
+        "prompt_tokens": 2381,
+        "total_tokens": 8040,
+        "completion_tokens_details": {
+          "reasoning_tokens": 3958
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "usd": 0.027027,
+      "finishReason": "stop"
+    },
+    {
+      "at": "2026-10-31T07:56:00.897Z",
+      "phase": "eval-p0",
+      "label": "v2.1:vi7-safety:selfA",
+      "model": "muse-spark-1.3",
+      "status": 200,
+      "latencyMs": 19698,
+      "usage": {
+        "completion_tokens": 4279,
+        "prompt_tokens": 2261,
+        "total_tokens": 6540,
+        "completion_tokens_details": {
+          "reasoning_tokens": 3585
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "usd": 0.021012,
+      "finishReason": "stop"
+    },
+    {
+      "at": "2026-10-31T07:56:07.242Z",
+      "phase": "eval-p0",
+      "label": "v2.1:vi6-checkin:selfB",
+      "model": "muse-spark-1.3",
+      "status": 200,
+      "latencyMs": 28156,
+      "usage": {
+        "completion_tokens": 6439,
+        "prompt_tokens": 2371,
+        "total_tokens": 8810,
+        "completion_tokens_details": {
+          "reasoning_tokens": 5060
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "usd": 0.03033,
+      "finishReason": "stop"
+    },
+    {
+      "at": "2026-10-31T07:56:12.281Z",
+      "phase": "eval-p0",
+      "label": "v2.1:vi7-safety:selfB",
+      "model": "muse-spark-1.3",
+      "status": 200,
+      "latencyMs": 15051,
+      "usage": {
+        "completion_tokens": 3411,
+        "prompt_tokens": 2261,
+        "total_tokens": 5672,
+        "completion_tokens_details": {
+          "reasoning_tokens": 2782
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "usd": 0.017323,
+      "finishReason": "stop"
+    },
+    {
+      "at": "2026-10-31T07:56:18.576Z",
+      "phase": "eval-p0",
+      "label": "v2.1:vi6-checkin:selfA",
+      "model": "muse-spark-1.3",
+      "status": 200,
+      "latencyMs": 47411,
+      "usage": {
+        "completion_tokens": 8594,
+        "prompt_tokens": 2371,
+        "total_tokens": 10965,
+        "completion_tokens_details": {
+          "reasoning_tokens": 5216
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "usd": 0.039488,
+      "finishReason": "stop"
+    },
+    {
+      "at": "2026-10-31T07:56:29.247Z",
+      "phase": "eval-p0",
+      "label": "v2.1:en1-venting:selfA",
+      "model": "muse-spark-1.3",
+      "status": 200,
+      "latencyMs": 28343,
+      "usage": {
+        "completion_tokens": 7195,
+        "prompt_tokens": 2467,
+        "total_tokens": 9662,
+        "completion_tokens_details": {
+          "reasoning_tokens": 4998
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "usd": 0.033662,
+      "finishReason": "stop"
+    },
+    {
+      "at": "2026-10-31T07:56:32.767Z",
+      "phase": "eval-p0",
+      "label": "v2.1:en1-venting:selfB",
+      "model": "muse-spark-1.3",
+      "status": 200,
+      "latencyMs": 25514,
+      "usage": {
+        "completion_tokens": 6526,
+        "prompt_tokens": 2467,
+        "total_tokens": 8993,
+        "completion_tokens_details": {
+          "reasoning_tokens": 4596
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "usd": 0.030819,
+      "finishReason": "stop"
+    },
+    {
+      "at": "2026-10-31T07:56:40.967Z",
+      "phase": "eval-p0",
+      "label": "v2.1:en2-sibling:selfA",
+      "model": "muse-spark-1.3",
+      "status": 200,
+      "latencyMs": 28671,
+      "usage": {
+        "completion_tokens": 6264,
+        "prompt_tokens": 2409,
+        "total_tokens": 8673,
+        "completion_tokens_details": {
+          "reasoning_tokens": 4699
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "usd": 0.029633,
+      "finishReason": "stop"
+    },
+    {
+      "at": "2026-10-31T07:56:46.957Z",
+      "phase": "eval-p0",
+      "label": "v2.1:en2-sibling:selfB",
+      "model": "muse-spark-1.3",
+      "status": 200,
+      "latencyMs": 28374,
+      "usage": {
+        "completion_tokens": 6893,
+        "prompt_tokens": 2409,
+        "total_tokens": 9302,
+        "completion_tokens_details": {
+          "reasoning_tokens": 5239
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "usd": 0.032307,
+      "finishReason": "stop"
+    },
+    {
+      "at": "2026-10-31T07:56:50.281Z",
+      "phase": "eval-p0",
+      "label": "v2.1:en3-couple:selfA",
+      "model": "muse-spark-1.3",
+      "status": 200,
+      "latencyMs": 21027,
+      "usage": {
+        "completion_tokens": 5412,
+        "prompt_tokens": 2354,
+        "total_tokens": 7766,
+        "completion_tokens_details": {
+          "reasoning_tokens": 4119
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "usd": 0.025944,
+      "finishReason": "stop"
+    },
+    {
+      "at": "2026-10-31T07:56:54.272Z",
+      "phase": "eval-p0",
+      "label": "v2.1:en3-couple:selfB",
+      "model": "muse-spark-1.3",
+      "status": 200,
+      "latencyMs": 21500,
+      "usage": {
+        "completion_tokens": 5204,
+        "prompt_tokens": 2354,
+        "total_tokens": 7558,
+        "completion_tokens_details": {
+          "reasoning_tokens": 3860
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "usd": 0.02506,
+      "finishReason": "stop"
+    },
+    {
+      "at": "2026-10-31T07:57:03.059Z",
+      "phase": "eval-p0",
+      "label": "v2.1:en4-short:selfA",
+      "model": "muse-spark-1.3",
+      "status": 200,
+      "latencyMs": 22087,
+      "usage": {
+        "completion_tokens": 5773,
+        "prompt_tokens": 2326,
+        "total_tokens": 8099,
+        "completion_tokens_details": {
+          "reasoning_tokens": 4334
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 2161
+        }
+      },
+      "usd": 0.025066,
+      "finishReason": "stop"
+    },
+    {
+      "at": "2026-10-31T07:57:07.780Z",
+      "phase": "eval-p0",
+      "label": "v2.1:en4-short:selfB",
+      "model": "muse-spark-1.3",
+      "status": 200,
+      "latencyMs": 20819,
+      "usage": {
+        "completion_tokens": 5482,
+        "prompt_tokens": 2326,
+        "total_tokens": 7808,
+        "completion_tokens_details": {
+          "reasoning_tokens": 4005
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "usd": 0.026206,
+      "finishReason": "stop"
+    },
+    {
+      "at": "2026-10-31T07:57:48.354Z",
+      "phase": "eval-p0",
+      "label": "v3:vi1-hardship:selfA",
+      "model": "muse-spark-1.3",
+      "status": 200,
+      "latencyMs": 34423,
+      "usage": {
+        "completion_tokens": 10286,
+        "prompt_tokens": 3229,
+        "total_tokens": 13515,
+        "completion_tokens_details": {
+          "reasoning_tokens": 7080
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "usd": 0.047752,
+      "finishReason": "stop"
+    },
+    {
+      "at": "2026-10-31T07:59:54.671Z",
+      "phase": "eval-p0",
+      "label": "v3:vi1-hardship:ctx-leadingA",
+      "model": "muse-spark-1.3",
+      "status": 200,
+      "latencyMs": 47002,
+      "usage": {
+        "completion_tokens": 13466,
+        "prompt_tokens": 3358,
+        "total_tokens": 16824,
+        "completion_tokens_details": {
+          "reasoning_tokens": 9574
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "usd": 0.061428,
+      "finishReason": "stop"
+    },
+    {
+      "at": "2026-10-31T08:00:08.073Z",
+      "phase": "eval-p0",
+      "label": "v3:vi1-hardship:selfA",
+      "model": "muse-spark-1.3",
+      "status": 200,
+      "latencyMs": 60421,
+      "usage": {
+        "completion_tokens": 14083,
+        "prompt_tokens": 3325,
+        "total_tokens": 17408,
+        "completion_tokens_details": {
+          "reasoning_tokens": 7332
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 3313
+        }
+      },
+      "usd": 0.060365,
+      "finishReason": "stop"
+    },
+    {
+      "at": "2026-10-31T08:00:21.993Z",
+      "phase": "eval-p0",
+      "label": "v3:vi1-hardship:ctx-relevant",
+      "model": "muse-spark-1.3",
+      "status": 200,
+      "latencyMs": 74326,
+      "usage": {
+        "completion_tokens": 15742,
+        "prompt_tokens": 3350,
+        "total_tokens": 19092,
+        "completion_tokens_details": {
+          "reasoning_tokens": 8680
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "usd": 0.071091,
+      "finishReason": "stop"
+    },
+    {
+      "at": "2026-10-31T08:00:27.482Z",
+      "phase": "eval-p0",
+      "label": "v3:vi2-family:selfA",
+      "model": "muse-spark-1.3",
+      "status": 200,
+      "latencyMs": 19405,
+      "usage": {
+        "completion_tokens": 4539,
+        "prompt_tokens": 2945,
+        "total_tokens": 7484,
+        "completion_tokens_details": {
+          "reasoning_tokens": 2945
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "usd": 0.022972,
+      "finishReason": "stop"
+    },
+    {
+      "at": "2026-10-31T08:00:28.277Z",
+      "phase": "eval-p0",
+      "label": "v3:vi1-hardship:selfB",
+      "model": "muse-spark-1.3",
+      "status": 200,
+      "latencyMs": 80611,
+      "usage": {
+        "completion_tokens": 16000,
+        "prompt_tokens": 3325,
+        "total_tokens": 19325,
+        "completion_tokens_details": {
+          "reasoning_tokens": 8434
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "usd": 0.072156,
+      "finishReason": "length"
+    },
+    {
+      "at": "2026-10-31T08:00:58.709Z",
+      "phase": "eval-p0",
+      "label": "v3:vi2-family:selfB",
+      "model": "muse-spark-1.3",
+      "status": 200,
+      "latencyMs": 36701,
+      "usage": {
+        "completion_tokens": 7723,
+        "prompt_tokens": 2945,
+        "total_tokens": 10668,
+        "completion_tokens_details": {
+          "reasoning_tokens": 4249
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "usd": 0.036504,
+      "finishReason": "stop"
+    },
+    {
+      "at": "2026-10-31T08:01:03.075Z",
+      "phase": "eval-p0",
+      "label": "v3:vi2-family:ctx-relevant",
+      "model": "muse-spark-1.3",
+      "status": 200,
+      "latencyMs": 35587,
+      "usage": {
+        "completion_tokens": 6872,
+        "prompt_tokens": 2968,
+        "total_tokens": 9840,
+        "completion_tokens_details": {
+          "reasoning_tokens": 3385
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "usd": 0.032916,
+      "finishReason": "stop"
+    },
+    {
+      "at": "2026-10-31T08:01:06.125Z",
+      "phase": "eval-p0",
+      "label": "v3:vi3-friends:selfA",
+      "model": "muse-spark-1.3",
+      "status": 200,
+      "latencyMs": 37845,
+      "usage": {
+        "completion_tokens": 7193,
+        "prompt_tokens": 2946,
+        "total_tokens": 10139,
+        "completion_tokens_details": {
+          "reasoning_tokens": 3686
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "usd": 0.034253,
+      "finishReason": "stop"
+    },
+    {
+      "at": "2026-10-31T08:01:08.205Z",
+      "phase": "eval-p0",
+      "label": "v3:vi1-hardship:ctx-leadingB",
+      "model": "muse-spark-1.3",
+      "status": 200,
+      "latencyMs": 73458,
+      "usage": {
+        "completion_tokens": 16000,
+        "prompt_tokens": 3351,
+        "total_tokens": 19351,
+        "completion_tokens_details": {
+          "reasoning_tokens": 10607
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "usd": 0.072189,
+      "finishReason": "length"
+    },
+    {
+      "at": "2026-10-31T08:01:24.074Z",
+      "phase": "eval-p0",
+      "label": "v3:vi4-couple:selfB",
+      "model": "muse-spark-1.3",
+      "status": 200,
+      "latencyMs": 15866,
+      "usage": {
+        "completion_tokens": 4371,
+        "prompt_tokens": 2946,
+        "total_tokens": 7317,
+        "completion_tokens_details": {
+          "reasoning_tokens": 2969
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "usd": 0.022259,
+      "finishReason": "stop"
+    },
+    {
+      "at": "2026-10-31T08:01:24.179Z",
+      "phase": "eval-p0",
+      "label": "v3:vi4-couple:selfA",
+      "model": "muse-spark-1.3",
+      "status": 200,
+      "latencyMs": 18050,
+      "usage": {
+        "completion_tokens": 4088,
+        "prompt_tokens": 2946,
+        "total_tokens": 7034,
+        "completion_tokens_details": {
+          "reasoning_tokens": 2346
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "usd": 0.021057,
+      "finishReason": "stop"
+    },
+    {
+      "at": "2026-10-31T08:01:37.709Z",
+      "phase": "eval-p0",
+      "label": "v3:vi3-friends:selfB",
+      "model": "muse-spark-1.3",
+      "status": 200,
+      "latencyMs": 38991,
+      "usage": {
+        "completion_tokens": 7864,
+        "prompt_tokens": 2946,
+        "total_tokens": 10810,
+        "completion_tokens_details": {
+          "reasoning_tokens": 4174
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "usd": 0.037104,
+      "finishReason": "stop"
+    },
+    {
+      "at": "2026-10-31T08:01:47.717Z",
+      "phase": "eval-p0",
+      "label": "v3:vi4-couple:ctx-leadingA",
+      "model": "muse-spark-1.3",
+      "status": 200,
+      "latencyMs": 23638,
+      "usage": {
+        "completion_tokens": 4859,
+        "prompt_tokens": 2970,
+        "total_tokens": 7829,
+        "completion_tokens_details": {
+          "reasoning_tokens": 3359
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "usd": 0.024363,
+      "finishReason": "stop"
+    },
+    {
+      "at": "2026-10-31T08:01:47.765Z",
+      "phase": "eval-p0",
+      "label": "v3:vi3-friends:ctx-relevant",
+      "model": "muse-spark-1.3",
+      "status": 200,
+      "latencyMs": 44682,
+      "usage": {
+        "completion_tokens": 8907,
+        "prompt_tokens": 2973,
+        "total_tokens": 11880,
+        "completion_tokens_details": {
+          "reasoning_tokens": 4769
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "usd": 0.041571,
+      "finishReason": "stop"
+    },
+    {
+      "at": "2026-10-31T08:02:00.277Z",
+      "phase": "eval-p0",
+      "label": "v3:vi5-work:selfA",
+      "model": "muse-spark-1.3",
+      "status": 200,
+      "latencyMs": 36094,
+      "usage": {
+        "completion_tokens": 7239,
+        "prompt_tokens": 2966,
+        "total_tokens": 10205,
+        "completion_tokens_details": {
+          "reasoning_tokens": 3727
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "usd": 0.034473,
+      "finishReason": "stop"
+    },
+    {
+      "at": "2026-10-31T08:02:04.383Z",
+      "phase": "eval-p0",
+      "label": "v3:vi5-work:selfB",
+      "model": "muse-spark-1.3",
+      "status": 200,
+      "latencyMs": 26667,
+      "usage": {
+        "completion_tokens": 6049,
+        "prompt_tokens": 2966,
+        "total_tokens": 9015,
+        "completion_tokens_details": {
+          "reasoning_tokens": 4196
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 2929
+        }
+      },
+      "usd": 0.026194,
+      "finishReason": "stop"
+    },
+    {
+      "at": "2026-10-31T08:02:15.457Z",
+      "phase": "eval-p0",
+      "label": "v3:vi5-work:ctx-relevant",
+      "model": "muse-spark-1.3",
+      "status": 200,
+      "latencyMs": 27730,
+      "usage": {
+        "completion_tokens": 6470,
+        "prompt_tokens": 2997,
+        "total_tokens": 9467,
+        "completion_tokens_details": {
+          "reasoning_tokens": 4896
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "usd": 0.031244,
+      "finishReason": "stop"
+    },
+    {
+      "at": "2026-10-31T08:02:26.936Z",
+      "phase": "eval-p0",
+      "label": "v3:vi6-checkin:selfA",
+      "model": "muse-spark-1.3",
+      "status": 200,
+      "latencyMs": 39163,
+      "usage": {
+        "completion_tokens": 7622,
+        "prompt_tokens": 2950,
+        "total_tokens": 10572,
+        "completion_tokens_details": {
+          "reasoning_tokens": 3935
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "usd": 0.036081,
+      "finishReason": "stop"
+    },
+    {
+      "at": "2026-10-31T08:02:36.196Z",
+      "phase": "eval-p0",
+      "label": "v3:vi7-safety:selfA",
+      "model": "muse-spark-1.3",
+      "status": 200,
+      "latencyMs": 31805,
+      "usage": {
+        "completion_tokens": 6310,
+        "prompt_tokens": 2822,
+        "total_tokens": 9132,
+        "completion_tokens_details": {
+          "reasoning_tokens": 3969
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 2673
+        }
+      },
+      "usd": 0.027405,
+      "finishReason": "stop"
+    },
+    {
+      "at": "2026-10-31T08:02:38.403Z",
+      "phase": "eval-p0",
+      "label": "v3:vi6-checkin:selfB",
+      "model": "muse-spark-1.3",
+      "status": 200,
+      "latencyMs": 38119,
+      "usage": {
+        "completion_tokens": 7296,
+        "prompt_tokens": 2950,
+        "total_tokens": 10246,
+        "completion_tokens_details": {
+          "reasoning_tokens": 4105
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "usd": 0.034696,
+      "finishReason": "stop"
+    },
+    {
+      "at": "2026-10-31T08:02:42.727Z",
+      "phase": "eval-p0",
+      "label": "v3:vi7-safety:selfB",
+      "model": "muse-spark-1.3",
+      "status": 200,
+      "latencyMs": 27264,
+      "usage": {
+        "completion_tokens": 5117,
+        "prompt_tokens": 2822,
+        "total_tokens": 7939,
+        "completion_tokens_details": {
+          "reasoning_tokens": 2901
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "usd": 0.025275,
+      "finishReason": "stop"
+    },
+    {
+      "at": "2026-10-31T08:02:55.955Z",
+      "phase": "eval-p0",
+      "label": "v3:en1-venting:selfA",
+      "model": "muse-spark-1.3",
+      "status": 200,
+      "latencyMs": 29003,
+      "usage": {
+        "completion_tokens": 6094,
+        "prompt_tokens": 3028,
+        "total_tokens": 9122,
+        "completion_tokens_details": {
+          "reasoning_tokens": 4263
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "usd": 0.029684,
+      "finishReason": "stop"
+    },
+    {
+      "at": "2026-10-31T08:03:01.101Z",
+      "phase": "eval-p0",
+      "label": "v3:en1-venting:selfB",
+      "model": "muse-spark-1.3",
+      "status": 200,
+      "latencyMs": 24896,
+      "usage": {
+        "completion_tokens": 5812,
+        "prompt_tokens": 3028,
+        "total_tokens": 8840,
+        "completion_tokens_details": {
+          "reasoning_tokens": 4080
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "usd": 0.028486,
+      "finishReason": "stop"
+    },
+    {
+      "at": "2026-10-31T08:03:04.164Z",
+      "phase": "eval-p0",
+      "label": "v3:en2-sibling:selfA",
+      "model": "muse-spark-1.3",
+      "status": 200,
+      "latencyMs": 21425,
+      "usage": {
+        "completion_tokens": 4670,
+        "prompt_tokens": 3013,
+        "total_tokens": 7683,
+        "completion_tokens_details": {
+          "reasoning_tokens": 2971
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "usd": 0.023614,
+      "finishReason": "stop"
+    },
+    {
+      "at": "2026-10-31T08:03:06.980Z",
+      "phase": "eval-p0",
+      "label": "v3:en1-venting:ctx-leadingA",
+      "model": "muse-spark-1.3",
+      "status": 200,
+      "latencyMs": 28570,
+      "usage": {
+        "completion_tokens": 7846,
+        "prompt_tokens": 3044,
+        "total_tokens": 10890,
+        "completion_tokens_details": {
+          "reasoning_tokens": 6033
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "usd": 0.037151,
+      "finishReason": "stop"
+    },
+    {
+      "at": "2026-10-31T08:03:22.847Z",
+      "phase": "eval-p0",
+      "label": "v3:en2-sibling:selfB",
+      "model": "muse-spark-1.3",
+      "status": 200,
+      "latencyMs": 26881,
+      "usage": {
+        "completion_tokens": 5144,
+        "prompt_tokens": 3013,
+        "total_tokens": 8157,
+        "completion_tokens_details": {
+          "reasoning_tokens": 3449
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "usd": 0.025628,
+      "finishReason": "stop"
+    },
+    {
+      "at": "2026-10-31T08:03:26.305Z",
+      "phase": "eval-p0",
+      "label": "v3:en3-couple:selfA",
+      "model": "muse-spark-1.3",
+      "status": 200,
+      "latencyMs": 25196,
+      "usage": {
+        "completion_tokens": 5191,
+        "prompt_tokens": 2939,
+        "total_tokens": 8130,
+        "completion_tokens_details": {
+          "reasoning_tokens": 3771
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "usd": 0.025736,
+      "finishReason": "stop"
+    },
+    {
+      "at": "2026-10-31T08:03:27.261Z",
+      "phase": "eval-p0",
+      "label": "v3:en4-short:selfA",
+      "model": "muse-spark-1.3",
+      "status": 200,
+      "latencyMs": 20274,
+      "usage": {
+        "completion_tokens": 4484,
+        "prompt_tokens": 2933,
+        "total_tokens": 7417,
+        "completion_tokens_details": {
+          "reasoning_tokens": 2974
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "usd": 0.022723,
+      "finishReason": "stop"
+    },
+    {
+      "at": "2026-10-31T08:03:32.460Z",
+      "phase": "eval-p0",
+      "label": "v3:en3-couple:selfB",
+      "model": "muse-spark-1.3",
+      "status": 200,
+      "latencyMs": 28288,
+      "usage": {
+        "completion_tokens": 5954,
+        "prompt_tokens": 2939,
+        "total_tokens": 8893,
+        "completion_tokens_details": {
+          "reasoning_tokens": 4255
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 2929
+        }
+      },
+      "usd": 0.025756,
+      "finishReason": "stop"
+    },
+    {
+      "at": "2026-10-31T08:03:48.903Z",
+      "phase": "eval-p0",
+      "label": "v3:en4-short:selfB",
+      "model": "muse-spark-1.3",
+      "status": 200,
+      "latencyMs": 26046,
+      "usage": {
+        "completion_tokens": 6721,
+        "prompt_tokens": 2933,
+        "total_tokens": 9654,
+        "completion_tokens_details": {
+          "reasoning_tokens": 5317
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "usd": 0.032231,
+      "finishReason": "stop"
+    },
+    {
+      "at": "2026-10-31T08:04:11.297Z",
+      "phase": "eval-p0",
+      "label": "v3-msg:vi3-friends:selfA",
+      "model": "muse-spark-1.3",
+      "status": 200,
+      "latencyMs": 22276,
+      "usage": {
+        "completion_tokens": 5150,
+        "prompt_tokens": 2946,
+        "total_tokens": 8096,
+        "completion_tokens_details": {
+          "reasoning_tokens": 3338
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 2929
+        }
+      },
+      "usd": 0.022348,
+      "finishReason": "stop"
+    },
+    {
+      "at": "2026-10-31T08:04:13.168Z",
+      "phase": "eval-p0",
+      "label": "v3-msg:vi2-family:selfA",
+      "model": "muse-spark-1.3",
+      "status": 200,
+      "latencyMs": 24149,
+      "usage": {
+        "completion_tokens": 5762,
+        "prompt_tokens": 2973,
+        "total_tokens": 8735,
+        "completion_tokens_details": {
+          "reasoning_tokens": 4200
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 2673
+        }
+      },
+      "usd": 0.025264,
+      "finishReason": "stop"
+    },
+    {
+      "at": "2026-10-31T08:04:16.988Z",
+      "phase": "eval-p0",
+      "label": "v3-msg:vi4-couple:selfA",
+      "model": "muse-spark-1.3",
+      "status": 200,
+      "latencyMs": 27967,
+      "usage": {
+        "completion_tokens": 6015,
+        "prompt_tokens": 2961,
+        "total_tokens": 8976,
+        "completion_tokens_details": {
+          "reasoning_tokens": 4400
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "usd": 0.029265,
+      "finishReason": "stop"
+    },
+    {
+      "at": "2026-10-31T08:04:34.582Z",
+      "phase": "eval-p0",
+      "label": "v3-msg:vi5-work:selfA",
+      "model": "muse-spark-1.3",
+      "status": 200,
+      "latencyMs": 23216,
+      "usage": {
+        "completion_tokens": 5031,
+        "prompt_tokens": 2966,
+        "total_tokens": 7997,
+        "completion_tokens_details": {
+          "reasoning_tokens": 3628
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 2929
+        }
+      },
+      "usd": 0.021867,
+      "finishReason": "stop"
+    },
+    {
+      "at": "2026-10-31T08:04:38.240Z",
+      "phase": "eval-p0",
+      "label": "v3-msg:vi1-hardship:selfA",
+      "model": "muse-spark-1.3",
+      "status": 200,
+      "latencyMs": 49244,
+      "usage": {
+        "completion_tokens": 12128,
+        "prompt_tokens": 3504,
+        "total_tokens": 15632,
+        "completion_tokens_details": {
+          "reasoning_tokens": 7837
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "usd": 0.055924,
+      "finishReason": "stop"
+    },
+    {
+      "at": "2026-10-31T08:04:51.228Z",
+      "phase": "eval-p0",
+      "label": "v3-msg:vi7-safety:selfA",
+      "model": "muse-spark-1.3",
+      "status": 200,
+      "latencyMs": 34231,
+      "usage": {
+        "completion_tokens": 6676,
+        "prompt_tokens": 2822,
+        "total_tokens": 9498,
+        "completion_tokens_details": {
+          "reasoning_tokens": 4232
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 2801
+        }
+      },
+      "usd": 0.028819,
+      "finishReason": "stop"
+    },
+    {
+      "at": "2026-10-31T08:04:52.698Z",
+      "phase": "eval-p0",
+      "label": "v3-msg:vi6-checkin:selfA",
+      "model": "muse-spark-1.3",
+      "status": 200,
+      "latencyMs": 39523,
+      "usage": {
+        "completion_tokens": 7909,
+        "prompt_tokens": 2964,
+        "total_tokens": 10873,
+        "completion_tokens_details": {
+          "reasoning_tokens": 4631
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "usd": 0.037318,
+      "finishReason": "stop"
+    },
+    {
+      "at": "2026-10-31T08:05:10.835Z",
+      "phase": "eval-p0",
+      "label": "v3-msg:en2-sibling:selfA",
+      "model": "muse-spark-1.3",
+      "status": 200,
+      "latencyMs": 32589,
+      "usage": {
+        "completion_tokens": 6051,
+        "prompt_tokens": 3013,
+        "total_tokens": 9064,
+        "completion_tokens_details": {
+          "reasoning_tokens": 4410
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "usd": 0.029483,
+      "finishReason": "stop"
+    },
+    {
+      "at": "2026-10-31T08:05:15.266Z",
+      "phase": "eval-p0",
+      "label": "v3-msg:en1-venting:selfA",
+      "model": "muse-spark-1.3",
+      "status": 200,
+      "latencyMs": 40671,
+      "usage": {
+        "completion_tokens": 8888,
+        "prompt_tokens": 3118,
+        "total_tokens": 12006,
+        "completion_tokens_details": {
+          "reasoning_tokens": 6342
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "usd": 0.041672,
+      "finishReason": "stop"
+    },
+    {
+      "at": "2026-10-31T08:05:16.878Z",
+      "phase": "eval-p0",
+      "label": "v3-msg:en3-couple:selfA",
+      "model": "muse-spark-1.3",
+      "status": 200,
+      "latencyMs": 25644,
+      "usage": {
+        "completion_tokens": 5959,
+        "prompt_tokens": 2939,
+        "total_tokens": 8898,
+        "completion_tokens_details": {
+          "reasoning_tokens": 4467
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 2673
+        }
+      },
+      "usd": 0.026059,
+      "finishReason": "stop"
+    },
+    {
+      "at": "2026-10-31T08:05:17.873Z",
+      "phase": "eval-p0",
+      "label": "v3-msg:en4-short:selfA",
+      "model": "muse-spark-1.3",
+      "status": 200,
+      "latencyMs": 25170,
+      "usage": {
+        "completion_tokens": 5632,
+        "prompt_tokens": 2933,
+        "total_tokens": 8565,
+        "completion_tokens_details": {
+          "reasoning_tokens": 4084
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 2929
+        }
+      },
+      "usd": 0.02438,
+      "finishReason": "stop"
+    },
+    {
+      "at": "2026-10-31T08:07:23.387Z",
+      "phase": "eval-p0",
+      "label": "v3:vi6-checkin:selfB",
+      "model": "muse-spark-1.3",
+      "status": 200,
+      "latencyMs": 12295,
+      "usage": {
+        "completion_tokens": 2923,
+        "prompt_tokens": 2950,
+        "total_tokens": 5873,
+        "completion_tokens_details": {
+          "reasoning_tokens": 1513
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "usd": 0.01611,
+      "finishReason": "stop"
+    },
+    {
+      "at": "2026-10-31T08:07:26.902Z",
+      "phase": "eval-p0",
+      "label": "v3:vi6-checkin:selfA",
+      "model": "muse-spark-1.3",
+      "status": 200,
+      "latencyMs": 15813,
+      "usage": {
+        "completion_tokens": 3076,
+        "prompt_tokens": 2950,
+        "total_tokens": 6026,
+        "completion_tokens_details": {
+          "reasoning_tokens": 1661
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "usd": 0.016761,
+      "finishReason": "stop"
+    },
+    {
+      "at": "2026-10-31T08:07:33.241Z",
+      "phase": "eval-p0",
+      "label": "v3:vi1-hardship:selfA",
+      "model": "muse-spark-1.3",
+      "status": 200,
+      "latencyMs": 22179,
+      "usage": {
+        "completion_tokens": 5479,
+        "prompt_tokens": 3325,
+        "total_tokens": 8804,
+        "completion_tokens_details": {
+          "reasoning_tokens": 2473
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "usd": 0.027442,
+      "finishReason": "stop"
+    },
+    {
+      "at": "2026-10-31T08:07:35.809Z",
+      "phase": "eval-p0",
+      "label": "v3:en1-venting:selfA",
+      "model": "muse-spark-1.3",
+      "status": 200,
+      "latencyMs": 12334,
+      "usage": {
+        "completion_tokens": 3194,
+        "prompt_tokens": 3028,
+        "total_tokens": 6222,
+        "completion_tokens_details": {
+          "reasoning_tokens": 1594
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "usd": 0.017359,
+      "finishReason": "stop"
+    },
+    {
+      "at": "2026-10-31T08:07:36.432Z",
+      "phase": "eval-p0",
+      "label": "v3:vi1-hardship:selfB",
+      "model": "muse-spark-1.3",
+      "status": 200,
+      "latencyMs": 25343,
+      "usage": {
+        "completion_tokens": 5836,
+        "prompt_tokens": 3325,
+        "total_tokens": 9161,
+        "completion_tokens_details": {
+          "reasoning_tokens": 3006
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "usd": 0.028959,
+      "finishReason": "stop"
+    },
+    {
+      "at": "2026-10-31T08:07:43.476Z",
+      "phase": "eval-p0",
+      "label": "v3:en1-venting:selfB",
+      "model": "muse-spark-1.3",
+      "status": 200,
+      "latencyMs": 16566,
+      "usage": {
+        "completion_tokens": 3443,
+        "prompt_tokens": 3028,
+        "total_tokens": 6471,
+        "completion_tokens_details": {
+          "reasoning_tokens": 1645
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "usd": 0.018418,
+      "finishReason": "stop"
+    },
+    {
+      "at": "2026-10-31T08:08:40.241Z",
+      "phase": "eval-p0",
+      "label": "v3:vi2-family:selfA",
+      "model": "muse-spark-1.3",
+      "status": 200,
+      "latencyMs": 10917,
+      "usage": {
+        "completion_tokens": 2562,
+        "prompt_tokens": 2995,
+        "total_tokens": 5557,
+        "completion_tokens_details": {
+          "reasoning_tokens": 1204
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "usd": 0.014632,
+      "finishReason": "stop"
+    },
+    {
+      "at": "2026-10-31T08:08:40.851Z",
+      "phase": "eval-p0",
+      "label": "v3:vi2-family:selfB",
+      "model": "muse-spark-1.3",
+      "status": 200,
+      "latencyMs": 11527,
+      "usage": {
+        "completion_tokens": 2736,
+        "prompt_tokens": 2995,
+        "total_tokens": 5731,
+        "completion_tokens_details": {
+          "reasoning_tokens": 1390
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "usd": 0.015372,
+      "finishReason": "stop"
+    },
+    {
+      "at": "2026-10-31T08:08:50.502Z",
+      "phase": "eval-p0",
+      "label": "v3:vi1-hardship:selfB",
+      "model": "muse-spark-1.3",
+      "status": 200,
+      "latencyMs": 21179,
+      "usage": {
+        "completion_tokens": 5236,
+        "prompt_tokens": 3375,
+        "total_tokens": 8611,
+        "completion_tokens_details": {
+          "reasoning_tokens": 2472
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 3313
+        }
+      },
+      "usd": 0.022827,
+      "finishReason": "stop"
+    },
+    {
+      "at": "2026-10-31T08:08:51.082Z",
+      "phase": "eval-p0",
+      "label": "v3:vi3-friends:selfA",
+      "model": "muse-spark-1.3",
+      "status": 200,
+      "latencyMs": 10741,
+      "usage": {
+        "completion_tokens": 2724,
+        "prompt_tokens": 2996,
+        "total_tokens": 5720,
+        "completion_tokens_details": {
+          "reasoning_tokens": 1234
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "usd": 0.015322,
+      "finishReason": "stop"
+    },
+    {
+      "at": "2026-10-31T08:08:51.236Z",
+      "phase": "eval-p0",
+      "label": "v3:vi1-hardship:selfA",
+      "model": "muse-spark-1.3",
+      "status": 200,
+      "latencyMs": 21949,
+      "usage": {
+        "completion_tokens": 5330,
+        "prompt_tokens": 3375,
+        "total_tokens": 8705,
+        "completion_tokens_details": {
+          "reasoning_tokens": 2700
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "usd": 0.026871,
+      "finishReason": "stop"
+    },
+    {
+      "at": "2026-10-31T08:08:54.205Z",
+      "phase": "eval-p0",
+      "label": "v3:vi3-friends:selfB",
+      "model": "muse-spark-1.3",
+      "status": 200,
+      "latencyMs": 13350,
+      "usage": {
+        "completion_tokens": 2874,
+        "prompt_tokens": 2996,
+        "total_tokens": 5870,
+        "completion_tokens_details": {
+          "reasoning_tokens": 1419
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "usd": 0.01596,
+      "finishReason": "stop"
+    },
+    {
+      "at": "2026-10-31T08:09:03.408Z",
+      "phase": "eval-p0",
+      "label": "v3:vi4-couple:selfB",
+      "model": "muse-spark-1.3",
+      "status": 200,
+      "latencyMs": 12320,
+      "usage": {
+        "completion_tokens": 2732,
+        "prompt_tokens": 2996,
+        "total_tokens": 5728,
+        "completion_tokens_details": {
+          "reasoning_tokens": 1285
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "usd": 0.015356,
+      "finishReason": "stop"
+    },
+    {
+      "at": "2026-10-31T08:09:05.194Z",
+      "phase": "eval-p0",
+      "label": "v3:vi4-couple:selfA",
+      "model": "muse-spark-1.3",
+      "status": 200,
+      "latencyMs": 14686,
+      "usage": {
+        "completion_tokens": 2753,
+        "prompt_tokens": 2996,
+        "total_tokens": 5749,
+        "completion_tokens_details": {
+          "reasoning_tokens": 1375
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "usd": 0.015445,
+      "finishReason": "stop"
+    },
+    {
+      "at": "2026-10-31T08:09:16.954Z",
+      "phase": "eval-p0",
+      "label": "v3:vi5-work:selfA",
+      "model": "muse-spark-1.3",
+      "status": 200,
+      "latencyMs": 25711,
+      "usage": {
+        "completion_tokens": 4720,
+        "prompt_tokens": 3016,
+        "total_tokens": 7736,
+        "completion_tokens_details": {
+          "reasoning_tokens": 1469
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "usd": 0.02383,
+      "finishReason": "stop"
+    },
+    {
+      "at": "2026-10-31T08:09:18.228Z",
+      "phase": "eval-p0",
+      "label": "v3:vi6-checkin:selfA",
+      "model": "muse-spark-1.3",
+      "status": 200,
+      "latencyMs": 14813,
+      "usage": {
+        "completion_tokens": 2925,
+        "prompt_tokens": 3000,
+        "total_tokens": 5925,
+        "completion_tokens_details": {
+          "reasoning_tokens": 1501
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "usd": 0.016181,
+      "finishReason": "stop"
+    },
+    {
+      "at": "2026-10-31T08:09:18.785Z",
+      "phase": "eval-p0",
+      "label": "v3:vi6-checkin:selfB",
+      "model": "muse-spark-1.3",
+      "status": 200,
+      "latencyMs": 13588,
+      "usage": {
+        "completion_tokens": 2942,
+        "prompt_tokens": 3000,
+        "total_tokens": 5942,
+        "completion_tokens_details": {
+          "reasoning_tokens": 1602
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 2929
+        }
+      },
+      "usd": 0.013032,
+      "finishReason": "stop"
+    },
+    {
+      "at": "2026-10-31T08:09:22.042Z",
+      "phase": "eval-p0",
+      "label": "v3:vi5-work:selfB",
+      "model": "muse-spark-1.3",
+      "status": 200,
+      "latencyMs": 27835,
+      "usage": {
+        "completion_tokens": 5445,
+        "prompt_tokens": 3016,
+        "total_tokens": 8461,
+        "completion_tokens_details": {
+          "reasoning_tokens": 1980
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "usd": 0.026911,
+      "finishReason": "stop"
+    },
+    {
+      "at": "2026-10-31T08:09:28.518Z",
+      "phase": "eval-p0",
+      "label": "v3:vi7-safety:selfB",
+      "model": "muse-spark-1.3",
+      "status": 200,
+      "latencyMs": 10286,
+      "usage": {
+        "completion_tokens": 2495,
+        "prompt_tokens": 2872,
+        "total_tokens": 5367,
+        "completion_tokens_details": {
+          "reasoning_tokens": 1710
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "usd": 0.014194,
+      "finishReason": "stop"
+    },
+    {
+      "at": "2026-10-31T08:09:29.778Z",
+      "phase": "eval-p0",
+      "label": "v3:vi7-safety:selfA",
+      "model": "muse-spark-1.3",
+      "status": 200,
+      "latencyMs": 12819,
+      "usage": {
+        "completion_tokens": 2739,
+        "prompt_tokens": 2872,
+        "total_tokens": 5611,
+        "completion_tokens_details": {
+          "reasoning_tokens": 1965
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "usd": 0.015231,
+      "finishReason": "stop"
+    },
+    {
+      "at": "2026-10-31T08:09:34.887Z",
+      "phase": "eval-p0",
+      "label": "v3:en1-venting:selfB",
+      "model": "muse-spark-1.3",
+      "status": 200,
+      "latencyMs": 12843,
+      "usage": {
+        "completion_tokens": 3303,
+        "prompt_tokens": 3078,
+        "total_tokens": 6381,
+        "completion_tokens_details": {
+          "reasoning_tokens": 1603
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "usd": 0.017885,
+      "finishReason": "stop"
+    },
+    {
+      "at": "2026-10-31T08:09:34.909Z",
+      "phase": "eval-p0",
+      "label": "v3:en1-venting:selfA",
+      "model": "muse-spark-1.3",
+      "status": 200,
+      "latencyMs": 16122,
+      "usage": {
+        "completion_tokens": 3884,
+        "prompt_tokens": 3078,
+        "total_tokens": 6962,
+        "completion_tokens_details": {
+          "reasoning_tokens": 2130
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "usd": 0.020355,
+      "finishReason": "stop"
+    },
+    {
+      "at": "2026-10-31T08:09:40.822Z",
+      "phase": "eval-p0",
+      "label": "v3:en2-sibling:selfA",
+      "model": "muse-spark-1.3",
+      "status": 200,
+      "latencyMs": 12295,
+      "usage": {
+        "completion_tokens": 2950,
+        "prompt_tokens": 3063,
+        "total_tokens": 6013,
+        "completion_tokens_details": {
+          "reasoning_tokens": 1298
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "usd": 0.016366,
+      "finishReason": "stop"
+    },
+    {
+      "at": "2026-10-31T08:09:41.220Z",
+      "phase": "eval-p0",
+      "label": "v3:en2-sibling:selfB",
+      "model": "muse-spark-1.3",
+      "status": 200,
+      "latencyMs": 11431,
+      "usage": {
+        "completion_tokens": 3273,
+        "prompt_tokens": 3063,
+        "total_tokens": 6336,
+        "completion_tokens_details": {
+          "reasoning_tokens": 1645
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "usd": 0.017739,
+      "finishReason": "stop"
+    },
+    {
+      "at": "2026-10-31T08:09:46.811Z",
+      "phase": "eval-p0",
+      "label": "v3:en3-couple:selfA",
+      "model": "muse-spark-1.3",
+      "status": 200,
+      "latencyMs": 11920,
+      "usage": {
+        "completion_tokens": 2863,
+        "prompt_tokens": 2989,
+        "total_tokens": 5852,
+        "completion_tokens_details": {
+          "reasoning_tokens": 1461
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "usd": 0.015904,
+      "finishReason": "stop"
+    },
+    {
+      "at": "2026-10-31T08:09:46.928Z",
+      "phase": "eval-p0",
+      "label": "v3:en3-couple:selfB",
+      "model": "muse-spark-1.3",
+      "status": 200,
+      "latencyMs": 12016,
+      "usage": {
+        "completion_tokens": 2870,
+        "prompt_tokens": 2989,
+        "total_tokens": 5859,
+        "completion_tokens_details": {
+          "reasoning_tokens": 1496
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "usd": 0.015934,
+      "finishReason": "stop"
+    },
+    {
+      "at": "2026-10-31T08:09:49.496Z",
+      "phase": "eval-p0",
+      "label": "v3:en4-short:selfA",
+      "model": "muse-spark-1.3",
+      "status": 200,
+      "latencyMs": 8666,
+      "usage": {
+        "completion_tokens": 2504,
+        "prompt_tokens": 2983,
+        "total_tokens": 5487,
+        "completion_tokens_details": {
+          "reasoning_tokens": 1122
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "usd": 0.014371,
+      "finishReason": "stop"
+    },
+    {
+      "at": "2026-10-31T08:09:52.802Z",
+      "phase": "eval-p0",
+      "label": "v3:en4-short:selfB",
+      "model": "muse-spark-1.3",
+      "status": 200,
+      "latencyMs": 11576,
+      "usage": {
+        "completion_tokens": 2797,
+        "prompt_tokens": 2983,
+        "total_tokens": 5780,
+        "completion_tokens_details": {
+          "reasoning_tokens": 1460
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "usd": 0.015616,
       "finishReason": "stop"
     }
   ]

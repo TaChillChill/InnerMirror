@@ -1,0 +1,2625 @@
+{
+  "meta": {
+    "spec": "v3-low",
+    "effort": "low",
+    "fixture": "vi1-hardship",
+    "variant": "selfA",
+    "latencyMs": 22179,
+    "usd": 0.027442,
+    "usage": {
+      "completion_tokens": 5479,
+      "prompt_tokens": 3325,
+      "total_tokens": 8804,
+      "completion_tokens_details": {
+        "reasoning_tokens": 2473
+      },
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "finish": "stop"
+  },
+  "raw": {
+    "context": {
+      "dynamics": "Người A nói khó khăn và mệt mỏi nhiều lần. Người B đưa lời chăm sóc rồi chuyển sang đề nghị giúp và cách làm nhanh. Các đề nghị được đáp lại bằng lý do khó làm và nói lại tình trạng.",
+      "register": "Có cách gọi chị/em và bọn em, nghe như quan hệ thân quen. Người A xen lẫn mày/tao và mẹ con tao, nghe như lối nói bộc trực giữa người quen.",
+      "turns": [
+        {
+          "act": "mô tả tình cảnh bế tắc và hết sức",
+          "respondsTo": null,
+          "turnId": "t1"
+        },
+        {
+          "act": "đưa lời chăm sóc về ăn uống",
+          "respondsTo": "t1",
+          "turnId": "t2"
+        },
+        {
+          "act": "nói lại điều kiện khó",
+          "respondsTo": "t2",
+          "turnId": "t3"
+        },
+        {
+          "act": "đề nghị góp giúp khi thiếu",
+          "respondsTo": "t3",
+          "turnId": "t4"
+        },
+        {
+          "act": "từ chối giúp lâu dài và mô tả kiệt sức kèm so sánh",
+          "respondsTo": "t4",
+          "turnId": "t5"
+        },
+        {
+          "act": "hỏi câu đánh giá việc than thở",
+          "respondsTo": "t5",
+          "turnId": "t6"
+        },
+        {
+          "act": "nhận lời rồi nói lý do than",
+          "respondsTo": "t6",
+          "turnId": "t7"
+        },
+        {
+          "act": "đưa cách xử lý nhanh cho mệt và cô đơn",
+          "respondsTo": "t7",
+          "turnId": "t8"
+        },
+        {
+          "act": "phản ứng ngắn và nói đang đau",
+          "respondsTo": "t8",
+          "turnId": "t9"
+        },
+        {
+          "act": "nhắc tụi nhỏ còn bé",
+          "respondsTo": "t9",
+          "turnId": "t10"
+        },
+        {
+          "act": "bác gợi ý đi chơi và nói lại cái khó",
+          "respondsTo": "t10",
+          "turnId": "t11"
+        }
+      ]
+    },
+    "safety": {
+      "categories": [],
+      "flagged": false,
+      "note": null
+    },
+    "segments": [
+      {
+        "alternative": {
+          "expression": "FC",
+          "rationale": "Cũng có thể nghe như nói thẳng cảm giác mệt và bế tắc, nhưng chữ hết sức và buông xuôi nổi hơn."
+        },
+        "confidence": "medium",
+        "contextCues": [],
+        "cues": [
+          "chẳng tính được gì xa",
+          "chẳng còn sức làm gì"
+        ],
+        "expression": "AC",
+        "family": "C",
+        "invites": "P",
+        "messageIds": [
+          "m1",
+          "m2",
+          "m3",
+          "m4"
+        ],
+        "rationale": "Các câu nối nhau nói cái khó trước mắt và hết sức. Nghe như nói lại bế tắc và buông xuôi.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t1"
+      },
+      {
+        "alternative": {
+          "expression": "A",
+          "rationale": "Cũng có thể nghe như gợi ý thực tế, nhưng giọng dỗ dành về ăn no nghe như chăm sóc nhiều hơn."
+        },
+        "confidence": "medium",
+        "contextCues": [
+          {
+            "messageId": "m2",
+            "quote": "Ngày nào biết ngày đó, lo bữa ăn cho qua đã"
+          }
+        ],
+        "cues": [
+          "cứ ăn cho ngon cho no vào đã chị"
+        ],
+        "expression": "NP",
+        "family": "P",
+        "invites": "C",
+        "messageIds": [
+          "m5"
+        ],
+        "rationale": "Câu này tiếp lời bữa ăn và nghe như dỗ dành, lo cho sức khỏe trước mắt.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t2"
+      },
+      {
+        "alternative": {
+          "expression": "A",
+          "rationale": "Cũng có thể nghe như nêu thực tế điều kiện, nhưng đặt sau lời chăm sóc nên nghe như giữ khoảng cách với gợi ý."
+        },
+        "confidence": "medium",
+        "contextCues": [
+          {
+            "messageId": "m5",
+            "quote": "Thế thì cứ ăn cho ngon cho no vào đã chị"
+          }
+        ],
+        "cues": [
+          "Cũng phải xem điều kiện thế nào chứ",
+          "liệu cơm gắp mắm"
+        ],
+        "expression": "AC",
+        "family": "C",
+        "invites": "P",
+        "messageIds": [
+          "m6",
+          "m7"
+        ],
+        "rationale": "Hai câu nghe như nói điều kiện không cho phép, rồi khép lại bằng cách liệu chừng.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t3"
+      },
+      {
+        "alternative": null,
+        "confidence": "high",
+        "contextCues": [
+          {
+            "messageId": "m6",
+            "quote": "Cũng phải xem điều kiện thế nào chứ"
+          }
+        ],
+        "cues": [
+          "Thiếu thì bọn em góp vào"
+        ],
+        "expression": "NP",
+        "family": "P",
+        "invites": "C",
+        "messageIds": [
+          "m8"
+        ],
+        "rationale": "Câu ngắn đề nghị góp giúp khi thiếu. Nghe như che chở cho phía bên kia.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t4"
+      },
+      {
+        "alternative": {
+          "expression": "FC",
+          "rationale": "Cũng có thể nghe như nói thẳng cái mệt trong người, nhưng chữ từ chối giúp và nằm không dậy nổi nghe như buông xuôi."
+        },
+        "confidence": "medium",
+        "contextCues": [
+          {
+            "messageId": "m8",
+            "quote": "Thiếu thì bọn em góp vào"
+          }
+        ],
+        "cues": [
+          "ai lo được cho mẹ con tao mãi",
+          "nằm mãi không dậy nổi"
+        ],
+        "expression": "AC",
+        "family": "C",
+        "invites": "P",
+        "messageIds": [
+          "m9",
+          "m10",
+          "m11"
+        ],
+        "rationale": "Câu đầu gạt đề nghị giúp lâu dài. Hai câu sau nói kiệt sức và nằm không dậy, nghe như nói lại cái khó và chịu đựng.",
+        "secondLayer": null,
+        "splitReason": "tách lời từ chối và mô tả kiệt sức khỏi câu so sánh",
+        "turnId": "t5"
+      },
+      {
+        "alternative": null,
+        "confidence": "high",
+        "contextCues": [
+          {
+            "messageId": "m8",
+            "quote": "Thiếu thì bọn em góp vào"
+          }
+        ],
+        "cues": [
+          "Mày thì cứ thong thả mà hưởng, vì còn có người có của"
+        ],
+        "expression": "CP",
+        "family": "P",
+        "invites": "C",
+        "messageIds": [
+          "m12"
+        ],
+        "rationale": "Câu này so sánh bên kia thong thả, có người có của. Nghe như đánh giá và phân biệt.",
+        "secondLayer": null,
+        "splitReason": "tách câu so sánh khỏi mô tả mệt và tuyệt vọng",
+        "turnId": "t5"
+      },
+      {
+        "alternative": {
+          "expression": "FC",
+          "rationale": "Cũng có thể nghe như nói thẳng cảm giác tuyệt vọng, nhưng chữ cùng đường và hết hy vọng nghe như buông xuôi."
+        },
+        "confidence": "medium",
+        "contextCues": [],
+        "cues": [
+          "cùng đường, chẳng còn hy vọng gì"
+        ],
+        "expression": "AC",
+        "family": "C",
+        "invites": "P",
+        "messageIds": [
+          "m13"
+        ],
+        "rationale": "Câu này nói hết đường và hết hy vọng. Nghe như khép lại trong bất lực.",
+        "secondLayer": null,
+        "splitReason": "tách câu tuyệt vọng khỏi câu so sánh",
+        "turnId": "t5"
+      },
+      {
+        "alternative": null,
+        "confidence": "high",
+        "contextCues": [
+          {
+            "messageId": "m13",
+            "quote": "Nên chị thấy cùng đường, chẳng còn hy vọng gì"
+          }
+        ],
+        "cues": [
+          "Chị than thở thế thì giải quyết được gì không?"
+        ],
+        "expression": "CP",
+        "family": "P",
+        "invites": "C",
+        "messageIds": [
+          "m14"
+        ],
+        "rationale": "Câu hỏi không xin thông tin mà nghe như đánh giá việc than thở vừa rồi.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t6"
+      },
+      {
+        "alternative": {
+          "expression": "FC",
+          "rationale": "Cũng có thể nghe như nói thẳng mệt và cô đơn, nhưng chữ ừ nhỉ rồi than thôi nghe như thuận theo rồi rút lại."
+        },
+        "confidence": "low",
+        "contextCues": [
+          {
+            "messageId": "m14",
+            "quote": "Chị than thở thế thì giải quyết được gì không?"
+          }
+        ],
+        "cues": [
+          "Ừ nhỉ",
+          "Mệt với cô đơn quá thì than thôi"
+        ],
+        "expression": "AC",
+        "family": "C",
+        "invites": "P",
+        "messageIds": [
+          "m15",
+          "m16"
+        ],
+        "rationale": "Chữ ừ nhỉ nghe như nhận câu hỏi trên. Câu sau nói mệt với cô đơn nên than, nghe như giữ lại việc than.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t7"
+      },
+      {
+        "alternative": null,
+        "confidence": "high",
+        "contextCues": [
+          {
+            "messageId": "m16",
+            "quote": "Mệt với cô đơn quá thì than thôi"
+          }
+        ],
+        "cues": [
+          "Mệt thì đi mua thuốc bổ mà uống",
+          "dắt con đi chơi"
+        ],
+        "expression": "CP",
+        "family": "P",
+        "invites": "C",
+        "messageIds": [
+          "m17",
+          "m18"
+        ],
+        "rationale": "Hai câu đưa cách làm nhanh cho mệt và cô đơn. Nghe như ra cách xử lý gọn và khép chuyện lại.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t8"
+      },
+      {
+        "alternative": {
+          "expression": "AC",
+          "rationale": "Nếu chữ Ngu vậy tự trách mình rồi nói đau, thì nghe như rút lại trong bất lực."
+        },
+        "confidence": "low",
+        "contextCues": [
+          {
+            "messageId": "m17",
+            "quote": "Mệt thì đi mua thuốc bổ mà uống"
+          }
+        ],
+        "cues": [
+          "Ngu vậy",
+          "Đang đau đây này"
+        ],
+        "expression": "UNCLEAR",
+        "family": "C",
+        "invites": "UNCLEAR",
+        "messageIds": [
+          "m19",
+          "m20"
+        ],
+        "rationale": "Chữ Ngu vậy quá ngắn, không rõ chê ai. Câu sau nói đang đau, nghe như phản ứng mệt nhưng khó xếp chắc.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t9"
+      },
+      {
+        "alternative": {
+          "expression": "A",
+          "rationale": "Cũng có thể nghe như nêu thực tế tuổi nhỏ, nhưng đặt sau lời khuyên đi chơi nên nghe như lý do khó đi."
+        },
+        "confidence": "low",
+        "contextCues": [
+          {
+            "messageId": "m18",
+            "quote": "Cô đơn thì dắt con đi chơi, nhìn tụi nhỏ vui là vui"
+          }
+        ],
+        "cues": [
+          "Tụi nhỏ còn bé mà"
+        ],
+        "expression": "AC",
+        "family": "C",
+        "invites": "UNCLEAR",
+        "messageIds": [
+          "m21"
+        ],
+        "rationale": "Câu ngắn nhắc con còn bé. Nghe như nói khó làm theo gợi ý đi chơi.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t10"
+      },
+      {
+        "alternative": null,
+        "confidence": "high",
+        "contextCues": [
+          {
+            "messageId": "m18",
+            "quote": "Cô đơn thì dắt con đi chơi, nhìn tụi nhỏ vui là vui"
+          }
+        ],
+        "cues": [
+          "Đi chơi nhìn thiên hạ sung sướng mà chữa lành à"
+        ],
+        "expression": "CP",
+        "family": "P",
+        "invites": "C",
+        "messageIds": [
+          "m22"
+        ],
+        "rationale": "Câu hỏi mà chữa lành à không hỏi thông tin mà nghe như bác gợi ý đi chơi.",
+        "secondLayer": null,
+        "splitReason": "tách câu hỏi đánh giá gợi ý khỏi câu nói lại cái khó",
+        "turnId": "t11"
+      },
+      {
+        "alternative": {
+          "expression": "FC",
+          "rationale": "Cũng có thể nghe như nói thẳng cái mệt và rối, nhưng liệt kê tiền không sức không nghe như lý do không làm được."
+        },
+        "confidence": "medium",
+        "contextCues": [
+          {
+            "messageId": "m18",
+            "quote": "Cô đơn thì dắt con đi chơi, nhìn tụi nhỏ vui là vui"
+          }
+        ],
+        "cues": [
+          "Tiền không, sức không, đầu óc rối bời"
+        ],
+        "expression": "AC",
+        "family": "C",
+        "invites": "P",
+        "messageIds": [
+          "m23"
+        ],
+        "rationale": "Câu liệt kê tiền, sức, đầu óc rồi nói lết đi đâu cho nhục. Nghe như từ chối đi chơi và nói lại bế tắc.",
+        "secondLayer": null,
+        "splitReason": "tách câu hỏi đánh giá gợi ý khỏi câu nói lại cái khó",
+        "turnId": "t11"
+      }
+    ],
+    "shifts": [
+      {
+        "cues": [
+          "Mày còn gia đình riêng"
+        ],
+        "description": "Lời đổi từ chị/em sang mày/tao và nói chỉ giúp lúc khó, không lo mãi.",
+        "messageId": "m9"
+      },
+      {
+        "cues": [
+          "Chị than thở thế thì giải quyết được gì không?"
+        ],
+        "description": "Lời đổi từ đề nghị giúp sang hỏi đánh giá việc than thở.",
+        "messageId": "m14"
+      },
+      {
+        "cues": [
+          "mà chữa lành à"
+        ],
+        "description": "Lời đổi từ bàn cách làm sang hỏi bác gợi ý đi chơi.",
+        "messageId": "m22"
+      }
+    ],
+    "summary": "Cuộc nói chuyện bắt đầu bằng chăm sóc và đề nghị giúp, rồi chuyển sang đánh giá và cách làm nhanh. Phía Người A nói khó nhiều hơn và gạt các gợi ý bằng điều kiện thực tế. Đến cuối hai bên nghe như kẹt ở chỗ một bên đưa cách xử lý, một bên nói không làm được.",
+    "uncertainty": "Chỉ có chữ viết nên không rõ giọng, nét mặt và chuyện trước đó. Chữ mày/tao và Ngu vậy có thể là thân mật hay nặng lời tùy thói quen nói. Lịch sử giúp đỡ và tình trạng sức khỏe ngoài tin nhắn cũng không rõ."
+  },
+  "normalized": {
+    "readings": [
+      {
+        "splitReason": null,
+        "cues": [
+          "chẳng tính được gì xa",
+          "chẳng còn sức làm gì"
+        ],
+        "contextCues": [],
+        "rationale": "Các câu nối nhau nói cái khó trước mắt và hết sức. Nghe như nói lại bế tắc và buông xuôi.",
+        "family": "C",
+        "expression": "AC",
+        "confidence": "medium",
+        "alternative": {
+          "expression": "FC",
+          "rationale": "Cũng có thể nghe như nói thẳng cảm giác mệt và bế tắc, nhưng chữ hết sức và buông xuôi nổi hơn."
+        },
+        "invites": "P",
+        "secondLayer": null,
+        "messageId": "m1",
+        "segmentId": "s1"
+      },
+      {
+        "splitReason": null,
+        "cues": [
+          "chẳng tính được gì xa",
+          "chẳng còn sức làm gì"
+        ],
+        "contextCues": [],
+        "rationale": "Các câu nối nhau nói cái khó trước mắt và hết sức. Nghe như nói lại bế tắc và buông xuôi.",
+        "family": "C",
+        "expression": "AC",
+        "confidence": "medium",
+        "alternative": {
+          "expression": "FC",
+          "rationale": "Cũng có thể nghe như nói thẳng cảm giác mệt và bế tắc, nhưng chữ hết sức và buông xuôi nổi hơn."
+        },
+        "invites": "P",
+        "secondLayer": null,
+        "messageId": "m2",
+        "segmentId": "s1"
+      },
+      {
+        "splitReason": null,
+        "cues": [
+          "chẳng tính được gì xa",
+          "chẳng còn sức làm gì"
+        ],
+        "contextCues": [],
+        "rationale": "Các câu nối nhau nói cái khó trước mắt và hết sức. Nghe như nói lại bế tắc và buông xuôi.",
+        "family": "C",
+        "expression": "AC",
+        "confidence": "medium",
+        "alternative": {
+          "expression": "FC",
+          "rationale": "Cũng có thể nghe như nói thẳng cảm giác mệt và bế tắc, nhưng chữ hết sức và buông xuôi nổi hơn."
+        },
+        "invites": "P",
+        "secondLayer": null,
+        "messageId": "m3",
+        "segmentId": "s1"
+      },
+      {
+        "splitReason": null,
+        "cues": [
+          "chẳng tính được gì xa",
+          "chẳng còn sức làm gì"
+        ],
+        "contextCues": [],
+        "rationale": "Các câu nối nhau nói cái khó trước mắt và hết sức. Nghe như nói lại bế tắc và buông xuôi.",
+        "family": "C",
+        "expression": "AC",
+        "confidence": "medium",
+        "alternative": {
+          "expression": "FC",
+          "rationale": "Cũng có thể nghe như nói thẳng cảm giác mệt và bế tắc, nhưng chữ hết sức và buông xuôi nổi hơn."
+        },
+        "invites": "P",
+        "secondLayer": null,
+        "messageId": "m4",
+        "segmentId": "s1"
+      },
+      {
+        "splitReason": null,
+        "cues": [
+          "cứ ăn cho ngon cho no vào đã chị"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m2",
+            "quote": "Ngày nào biết ngày đó, lo bữa ăn cho qua đã"
+          }
+        ],
+        "rationale": "Câu này tiếp lời bữa ăn và nghe như dỗ dành, lo cho sức khỏe trước mắt.",
+        "family": "P",
+        "expression": "NP",
+        "confidence": "medium",
+        "alternative": {
+          "expression": "A",
+          "rationale": "Cũng có thể nghe như gợi ý thực tế, nhưng giọng dỗ dành về ăn no nghe như chăm sóc nhiều hơn."
+        },
+        "invites": "C",
+        "secondLayer": null,
+        "messageId": "m5",
+        "segmentId": "s2"
+      },
+      {
+        "splitReason": null,
+        "cues": [
+          "Cũng phải xem điều kiện thế nào chứ",
+          "liệu cơm gắp mắm"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m5",
+            "quote": "Thế thì cứ ăn cho ngon cho no vào đã chị"
+          }
+        ],
+        "rationale": "Hai câu nghe như nói điều kiện không cho phép, rồi khép lại bằng cách liệu chừng.",
+        "family": "C",
+        "expression": "AC",
+        "confidence": "medium",
+        "alternative": {
+          "expression": "A",
+          "rationale": "Cũng có thể nghe như nêu thực tế điều kiện, nhưng đặt sau lời chăm sóc nên nghe như giữ khoảng cách với gợi ý."
+        },
+        "invites": "P",
+        "secondLayer": null,
+        "messageId": "m6",
+        "segmentId": "s3"
+      },
+      {
+        "splitReason": null,
+        "cues": [
+          "Cũng phải xem điều kiện thế nào chứ",
+          "liệu cơm gắp mắm"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m5",
+            "quote": "Thế thì cứ ăn cho ngon cho no vào đã chị"
+          }
+        ],
+        "rationale": "Hai câu nghe như nói điều kiện không cho phép, rồi khép lại bằng cách liệu chừng.",
+        "family": "C",
+        "expression": "AC",
+        "confidence": "medium",
+        "alternative": {
+          "expression": "A",
+          "rationale": "Cũng có thể nghe như nêu thực tế điều kiện, nhưng đặt sau lời chăm sóc nên nghe như giữ khoảng cách với gợi ý."
+        },
+        "invites": "P",
+        "secondLayer": null,
+        "messageId": "m7",
+        "segmentId": "s3"
+      },
+      {
+        "splitReason": null,
+        "cues": [
+          "Thiếu thì bọn em góp vào"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m6",
+            "quote": "Cũng phải xem điều kiện thế nào chứ"
+          }
+        ],
+        "rationale": "Câu ngắn đề nghị góp giúp khi thiếu. Nghe như che chở cho phía bên kia.",
+        "family": "P",
+        "expression": "NP",
+        "confidence": "high",
+        "alternative": null,
+        "invites": "C",
+        "secondLayer": null,
+        "messageId": "m8",
+        "segmentId": "s4"
+      },
+      {
+        "splitReason": "tách lời từ chối và mô tả kiệt sức khỏi câu so sánh",
+        "cues": [
+          "ai lo được cho mẹ con tao mãi",
+          "nằm mãi không dậy nổi"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m8",
+            "quote": "Thiếu thì bọn em góp vào"
+          }
+        ],
+        "rationale": "Câu đầu gạt đề nghị giúp lâu dài. Hai câu sau nói kiệt sức và nằm không dậy, nghe như nói lại cái khó và chịu đựng.",
+        "family": "C",
+        "expression": "AC",
+        "confidence": "medium",
+        "alternative": {
+          "expression": "FC",
+          "rationale": "Cũng có thể nghe như nói thẳng cái mệt trong người, nhưng chữ từ chối giúp và nằm không dậy nổi nghe như buông xuôi."
+        },
+        "invites": "P",
+        "secondLayer": null,
+        "messageId": "m9",
+        "segmentId": "s5"
+      },
+      {
+        "splitReason": "tách lời từ chối và mô tả kiệt sức khỏi câu so sánh",
+        "cues": [
+          "ai lo được cho mẹ con tao mãi",
+          "nằm mãi không dậy nổi"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m8",
+            "quote": "Thiếu thì bọn em góp vào"
+          }
+        ],
+        "rationale": "Câu đầu gạt đề nghị giúp lâu dài. Hai câu sau nói kiệt sức và nằm không dậy, nghe như nói lại cái khó và chịu đựng.",
+        "family": "C",
+        "expression": "AC",
+        "confidence": "medium",
+        "alternative": {
+          "expression": "FC",
+          "rationale": "Cũng có thể nghe như nói thẳng cái mệt trong người, nhưng chữ từ chối giúp và nằm không dậy nổi nghe như buông xuôi."
+        },
+        "invites": "P",
+        "secondLayer": null,
+        "messageId": "m10",
+        "segmentId": "s5"
+      },
+      {
+        "splitReason": "tách lời từ chối và mô tả kiệt sức khỏi câu so sánh",
+        "cues": [
+          "ai lo được cho mẹ con tao mãi",
+          "nằm mãi không dậy nổi"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m8",
+            "quote": "Thiếu thì bọn em góp vào"
+          }
+        ],
+        "rationale": "Câu đầu gạt đề nghị giúp lâu dài. Hai câu sau nói kiệt sức và nằm không dậy, nghe như nói lại cái khó và chịu đựng.",
+        "family": "C",
+        "expression": "AC",
+        "confidence": "medium",
+        "alternative": {
+          "expression": "FC",
+          "rationale": "Cũng có thể nghe như nói thẳng cái mệt trong người, nhưng chữ từ chối giúp và nằm không dậy nổi nghe như buông xuôi."
+        },
+        "invites": "P",
+        "secondLayer": null,
+        "messageId": "m11",
+        "segmentId": "s5"
+      },
+      {
+        "splitReason": "tách câu so sánh khỏi mô tả mệt và tuyệt vọng",
+        "cues": [
+          "Mày thì cứ thong thả mà hưởng, vì còn có người có của"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m8",
+            "quote": "Thiếu thì bọn em góp vào"
+          }
+        ],
+        "rationale": "Câu này so sánh bên kia thong thả, có người có của. Nghe như đánh giá và phân biệt.",
+        "family": "P",
+        "expression": "CP",
+        "confidence": "high",
+        "alternative": null,
+        "invites": "C",
+        "secondLayer": null,
+        "messageId": "m12",
+        "segmentId": "s6"
+      },
+      {
+        "splitReason": "tách câu tuyệt vọng khỏi câu so sánh",
+        "cues": [
+          "cùng đường, chẳng còn hy vọng gì"
+        ],
+        "contextCues": [],
+        "rationale": "Câu này nói hết đường và hết hy vọng. Nghe như khép lại trong bất lực.",
+        "family": "C",
+        "expression": "AC",
+        "confidence": "medium",
+        "alternative": {
+          "expression": "FC",
+          "rationale": "Cũng có thể nghe như nói thẳng cảm giác tuyệt vọng, nhưng chữ cùng đường và hết hy vọng nghe như buông xuôi."
+        },
+        "invites": "P",
+        "secondLayer": null,
+        "messageId": "m13",
+        "segmentId": "s7"
+      },
+      {
+        "splitReason": null,
+        "cues": [
+          "Chị than thở thế thì giải quyết được gì không?"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m13",
+            "quote": "Nên chị thấy cùng đường, chẳng còn hy vọng gì"
+          }
+        ],
+        "rationale": "Câu hỏi không xin thông tin mà nghe như đánh giá việc than thở vừa rồi.",
+        "family": "P",
+        "expression": "CP",
+        "confidence": "high",
+        "alternative": null,
+        "invites": "C",
+        "secondLayer": null,
+        "messageId": "m14",
+        "segmentId": "s8"
+      },
+      {
+        "splitReason": null,
+        "cues": [
+          "Ừ nhỉ",
+          "Mệt với cô đơn quá thì than thôi"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m14",
+            "quote": "Chị than thở thế thì giải quyết được gì không?"
+          }
+        ],
+        "rationale": "Chữ ừ nhỉ nghe như nhận câu hỏi trên. Câu sau nói mệt với cô đơn nên than, nghe như giữ lại việc than.",
+        "family": "C",
+        "expression": "AC",
+        "confidence": "low",
+        "alternative": {
+          "expression": "FC",
+          "rationale": "Cũng có thể nghe như nói thẳng mệt và cô đơn, nhưng chữ ừ nhỉ rồi than thôi nghe như thuận theo rồi rút lại."
+        },
+        "invites": "P",
+        "secondLayer": null,
+        "messageId": "m15",
+        "segmentId": "s9"
+      },
+      {
+        "splitReason": null,
+        "cues": [
+          "Ừ nhỉ",
+          "Mệt với cô đơn quá thì than thôi"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m14",
+            "quote": "Chị than thở thế thì giải quyết được gì không?"
+          }
+        ],
+        "rationale": "Chữ ừ nhỉ nghe như nhận câu hỏi trên. Câu sau nói mệt với cô đơn nên than, nghe như giữ lại việc than.",
+        "family": "C",
+        "expression": "AC",
+        "confidence": "low",
+        "alternative": {
+          "expression": "FC",
+          "rationale": "Cũng có thể nghe như nói thẳng mệt và cô đơn, nhưng chữ ừ nhỉ rồi than thôi nghe như thuận theo rồi rút lại."
+        },
+        "invites": "P",
+        "secondLayer": null,
+        "messageId": "m16",
+        "segmentId": "s9"
+      },
+      {
+        "splitReason": null,
+        "cues": [
+          "Mệt thì đi mua thuốc bổ mà uống",
+          "dắt con đi chơi"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m16",
+            "quote": "Mệt với cô đơn quá thì than thôi"
+          }
+        ],
+        "rationale": "Hai câu đưa cách làm nhanh cho mệt và cô đơn. Nghe như ra cách xử lý gọn và khép chuyện lại.",
+        "family": "P",
+        "expression": "CP",
+        "confidence": "high",
+        "alternative": null,
+        "invites": "C",
+        "secondLayer": null,
+        "messageId": "m17",
+        "segmentId": "s10"
+      },
+      {
+        "splitReason": null,
+        "cues": [
+          "Mệt thì đi mua thuốc bổ mà uống",
+          "dắt con đi chơi"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m16",
+            "quote": "Mệt với cô đơn quá thì than thôi"
+          }
+        ],
+        "rationale": "Hai câu đưa cách làm nhanh cho mệt và cô đơn. Nghe như ra cách xử lý gọn và khép chuyện lại.",
+        "family": "P",
+        "expression": "CP",
+        "confidence": "high",
+        "alternative": null,
+        "invites": "C",
+        "secondLayer": null,
+        "messageId": "m18",
+        "segmentId": "s10"
+      },
+      {
+        "splitReason": null,
+        "cues": [
+          "Ngu vậy",
+          "Đang đau đây này"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m17",
+            "quote": "Mệt thì đi mua thuốc bổ mà uống"
+          }
+        ],
+        "rationale": "Chữ Ngu vậy quá ngắn, không rõ chê ai. Câu sau nói đang đau, nghe như phản ứng mệt nhưng khó xếp chắc.",
+        "family": "C",
+        "expression": "UNCLEAR",
+        "confidence": "low",
+        "alternative": {
+          "expression": "AC",
+          "rationale": "Nếu chữ Ngu vậy tự trách mình rồi nói đau, thì nghe như rút lại trong bất lực."
+        },
+        "invites": "UNCLEAR",
+        "secondLayer": null,
+        "messageId": "m19",
+        "segmentId": "s11"
+      },
+      {
+        "splitReason": null,
+        "cues": [
+          "Ngu vậy",
+          "Đang đau đây này"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m17",
+            "quote": "Mệt thì đi mua thuốc bổ mà uống"
+          }
+        ],
+        "rationale": "Chữ Ngu vậy quá ngắn, không rõ chê ai. Câu sau nói đang đau, nghe như phản ứng mệt nhưng khó xếp chắc.",
+        "family": "C",
+        "expression": "UNCLEAR",
+        "confidence": "low",
+        "alternative": {
+          "expression": "AC",
+          "rationale": "Nếu chữ Ngu vậy tự trách mình rồi nói đau, thì nghe như rút lại trong bất lực."
+        },
+        "invites": "UNCLEAR",
+        "secondLayer": null,
+        "messageId": "m20",
+        "segmentId": "s11"
+      },
+      {
+        "splitReason": null,
+        "cues": [
+          "Tụi nhỏ còn bé mà"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m18",
+            "quote": "Cô đơn thì dắt con đi chơi, nhìn tụi nhỏ vui là vui"
+          }
+        ],
+        "rationale": "Câu ngắn nhắc con còn bé. Nghe như nói khó làm theo gợi ý đi chơi.",
+        "family": "C",
+        "expression": "AC",
+        "confidence": "low",
+        "alternative": {
+          "expression": "A",
+          "rationale": "Cũng có thể nghe như nêu thực tế tuổi nhỏ, nhưng đặt sau lời khuyên đi chơi nên nghe như lý do khó đi."
+        },
+        "invites": "UNCLEAR",
+        "secondLayer": null,
+        "messageId": "m21",
+        "segmentId": "s12"
+      },
+      {
+        "splitReason": "tách câu hỏi đánh giá gợi ý khỏi câu nói lại cái khó",
+        "cues": [
+          "Đi chơi nhìn thiên hạ sung sướng mà chữa lành à"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m18",
+            "quote": "Cô đơn thì dắt con đi chơi, nhìn tụi nhỏ vui là vui"
+          }
+        ],
+        "rationale": "Câu hỏi mà chữa lành à không hỏi thông tin mà nghe như bác gợi ý đi chơi.",
+        "family": "P",
+        "expression": "CP",
+        "confidence": "high",
+        "alternative": null,
+        "invites": "C",
+        "secondLayer": null,
+        "messageId": "m22",
+        "segmentId": "s13"
+      },
+      {
+        "splitReason": "tách câu hỏi đánh giá gợi ý khỏi câu nói lại cái khó",
+        "cues": [
+          "Tiền không, sức không, đầu óc rối bời"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m18",
+            "quote": "Cô đơn thì dắt con đi chơi, nhìn tụi nhỏ vui là vui"
+          }
+        ],
+        "rationale": "Câu liệt kê tiền, sức, đầu óc rồi nói lết đi đâu cho nhục. Nghe như từ chối đi chơi và nói lại bế tắc.",
+        "family": "C",
+        "expression": "AC",
+        "confidence": "medium",
+        "alternative": {
+          "expression": "FC",
+          "rationale": "Cũng có thể nghe như nói thẳng cái mệt và rối, nhưng liệt kê tiền không sức không nghe như lý do không làm được."
+        },
+        "invites": "P",
+        "secondLayer": null,
+        "messageId": "m23",
+        "segmentId": "s14"
+      }
+    ],
+    "segments": [
+      {
+        "turnId": "t1",
+        "messageIds": [
+          "m1",
+          "m2",
+          "m3",
+          "m4"
+        ],
+        "splitReason": null,
+        "cues": [
+          "chẳng tính được gì xa",
+          "chẳng còn sức làm gì"
+        ],
+        "contextCues": [],
+        "rationale": "Các câu nối nhau nói cái khó trước mắt và hết sức. Nghe như nói lại bế tắc và buông xuôi.",
+        "family": "C",
+        "expression": "AC",
+        "confidence": "medium",
+        "alternative": {
+          "expression": "FC",
+          "rationale": "Cũng có thể nghe như nói thẳng cảm giác mệt và bế tắc, nhưng chữ hết sức và buông xuôi nổi hơn."
+        },
+        "invites": "P",
+        "secondLayer": null,
+        "id": "s1"
+      },
+      {
+        "turnId": "t2",
+        "messageIds": [
+          "m5"
+        ],
+        "splitReason": null,
+        "cues": [
+          "cứ ăn cho ngon cho no vào đã chị"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m2",
+            "quote": "Ngày nào biết ngày đó, lo bữa ăn cho qua đã"
+          }
+        ],
+        "rationale": "Câu này tiếp lời bữa ăn và nghe như dỗ dành, lo cho sức khỏe trước mắt.",
+        "family": "P",
+        "expression": "NP",
+        "confidence": "medium",
+        "alternative": {
+          "expression": "A",
+          "rationale": "Cũng có thể nghe như gợi ý thực tế, nhưng giọng dỗ dành về ăn no nghe như chăm sóc nhiều hơn."
+        },
+        "invites": "C",
+        "secondLayer": null,
+        "id": "s2"
+      },
+      {
+        "turnId": "t3",
+        "messageIds": [
+          "m6",
+          "m7"
+        ],
+        "splitReason": null,
+        "cues": [
+          "Cũng phải xem điều kiện thế nào chứ",
+          "liệu cơm gắp mắm"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m5",
+            "quote": "Thế thì cứ ăn cho ngon cho no vào đã chị"
+          }
+        ],
+        "rationale": "Hai câu nghe như nói điều kiện không cho phép, rồi khép lại bằng cách liệu chừng.",
+        "family": "C",
+        "expression": "AC",
+        "confidence": "medium",
+        "alternative": {
+          "expression": "A",
+          "rationale": "Cũng có thể nghe như nêu thực tế điều kiện, nhưng đặt sau lời chăm sóc nên nghe như giữ khoảng cách với gợi ý."
+        },
+        "invites": "P",
+        "secondLayer": null,
+        "id": "s3"
+      },
+      {
+        "turnId": "t4",
+        "messageIds": [
+          "m8"
+        ],
+        "splitReason": null,
+        "cues": [
+          "Thiếu thì bọn em góp vào"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m6",
+            "quote": "Cũng phải xem điều kiện thế nào chứ"
+          }
+        ],
+        "rationale": "Câu ngắn đề nghị góp giúp khi thiếu. Nghe như che chở cho phía bên kia.",
+        "family": "P",
+        "expression": "NP",
+        "confidence": "high",
+        "alternative": null,
+        "invites": "C",
+        "secondLayer": null,
+        "id": "s4"
+      },
+      {
+        "turnId": "t5",
+        "messageIds": [
+          "m9",
+          "m10",
+          "m11"
+        ],
+        "splitReason": "tách lời từ chối và mô tả kiệt sức khỏi câu so sánh",
+        "cues": [
+          "ai lo được cho mẹ con tao mãi",
+          "nằm mãi không dậy nổi"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m8",
+            "quote": "Thiếu thì bọn em góp vào"
+          }
+        ],
+        "rationale": "Câu đầu gạt đề nghị giúp lâu dài. Hai câu sau nói kiệt sức và nằm không dậy, nghe như nói lại cái khó và chịu đựng.",
+        "family": "C",
+        "expression": "AC",
+        "confidence": "medium",
+        "alternative": {
+          "expression": "FC",
+          "rationale": "Cũng có thể nghe như nói thẳng cái mệt trong người, nhưng chữ từ chối giúp và nằm không dậy nổi nghe như buông xuôi."
+        },
+        "invites": "P",
+        "secondLayer": null,
+        "id": "s5"
+      },
+      {
+        "turnId": "t5",
+        "messageIds": [
+          "m12"
+        ],
+        "splitReason": "tách câu so sánh khỏi mô tả mệt và tuyệt vọng",
+        "cues": [
+          "Mày thì cứ thong thả mà hưởng, vì còn có người có của"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m8",
+            "quote": "Thiếu thì bọn em góp vào"
+          }
+        ],
+        "rationale": "Câu này so sánh bên kia thong thả, có người có của. Nghe như đánh giá và phân biệt.",
+        "family": "P",
+        "expression": "CP",
+        "confidence": "high",
+        "alternative": null,
+        "invites": "C",
+        "secondLayer": null,
+        "id": "s6"
+      },
+      {
+        "turnId": "t5",
+        "messageIds": [
+          "m13"
+        ],
+        "splitReason": "tách câu tuyệt vọng khỏi câu so sánh",
+        "cues": [
+          "cùng đường, chẳng còn hy vọng gì"
+        ],
+        "contextCues": [],
+        "rationale": "Câu này nói hết đường và hết hy vọng. Nghe như khép lại trong bất lực.",
+        "family": "C",
+        "expression": "AC",
+        "confidence": "medium",
+        "alternative": {
+          "expression": "FC",
+          "rationale": "Cũng có thể nghe như nói thẳng cảm giác tuyệt vọng, nhưng chữ cùng đường và hết hy vọng nghe như buông xuôi."
+        },
+        "invites": "P",
+        "secondLayer": null,
+        "id": "s7"
+      },
+      {
+        "turnId": "t6",
+        "messageIds": [
+          "m14"
+        ],
+        "splitReason": null,
+        "cues": [
+          "Chị than thở thế thì giải quyết được gì không?"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m13",
+            "quote": "Nên chị thấy cùng đường, chẳng còn hy vọng gì"
+          }
+        ],
+        "rationale": "Câu hỏi không xin thông tin mà nghe như đánh giá việc than thở vừa rồi.",
+        "family": "P",
+        "expression": "CP",
+        "confidence": "high",
+        "alternative": null,
+        "invites": "C",
+        "secondLayer": null,
+        "id": "s8"
+      },
+      {
+        "turnId": "t7",
+        "messageIds": [
+          "m15",
+          "m16"
+        ],
+        "splitReason": null,
+        "cues": [
+          "Ừ nhỉ",
+          "Mệt với cô đơn quá thì than thôi"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m14",
+            "quote": "Chị than thở thế thì giải quyết được gì không?"
+          }
+        ],
+        "rationale": "Chữ ừ nhỉ nghe như nhận câu hỏi trên. Câu sau nói mệt với cô đơn nên than, nghe như giữ lại việc than.",
+        "family": "C",
+        "expression": "AC",
+        "confidence": "low",
+        "alternative": {
+          "expression": "FC",
+          "rationale": "Cũng có thể nghe như nói thẳng mệt và cô đơn, nhưng chữ ừ nhỉ rồi than thôi nghe như thuận theo rồi rút lại."
+        },
+        "invites": "P",
+        "secondLayer": null,
+        "id": "s9"
+      },
+      {
+        "turnId": "t8",
+        "messageIds": [
+          "m17",
+          "m18"
+        ],
+        "splitReason": null,
+        "cues": [
+          "Mệt thì đi mua thuốc bổ mà uống",
+          "dắt con đi chơi"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m16",
+            "quote": "Mệt với cô đơn quá thì than thôi"
+          }
+        ],
+        "rationale": "Hai câu đưa cách làm nhanh cho mệt và cô đơn. Nghe như ra cách xử lý gọn và khép chuyện lại.",
+        "family": "P",
+        "expression": "CP",
+        "confidence": "high",
+        "alternative": null,
+        "invites": "C",
+        "secondLayer": null,
+        "id": "s10"
+      },
+      {
+        "turnId": "t9",
+        "messageIds": [
+          "m19",
+          "m20"
+        ],
+        "splitReason": null,
+        "cues": [
+          "Ngu vậy",
+          "Đang đau đây này"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m17",
+            "quote": "Mệt thì đi mua thuốc bổ mà uống"
+          }
+        ],
+        "rationale": "Chữ Ngu vậy quá ngắn, không rõ chê ai. Câu sau nói đang đau, nghe như phản ứng mệt nhưng khó xếp chắc.",
+        "family": "C",
+        "expression": "UNCLEAR",
+        "confidence": "low",
+        "alternative": {
+          "expression": "AC",
+          "rationale": "Nếu chữ Ngu vậy tự trách mình rồi nói đau, thì nghe như rút lại trong bất lực."
+        },
+        "invites": "UNCLEAR",
+        "secondLayer": null,
+        "id": "s11"
+      },
+      {
+        "turnId": "t10",
+        "messageIds": [
+          "m21"
+        ],
+        "splitReason": null,
+        "cues": [
+          "Tụi nhỏ còn bé mà"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m18",
+            "quote": "Cô đơn thì dắt con đi chơi, nhìn tụi nhỏ vui là vui"
+          }
+        ],
+        "rationale": "Câu ngắn nhắc con còn bé. Nghe như nói khó làm theo gợi ý đi chơi.",
+        "family": "C",
+        "expression": "AC",
+        "confidence": "low",
+        "alternative": {
+          "expression": "A",
+          "rationale": "Cũng có thể nghe như nêu thực tế tuổi nhỏ, nhưng đặt sau lời khuyên đi chơi nên nghe như lý do khó đi."
+        },
+        "invites": "UNCLEAR",
+        "secondLayer": null,
+        "id": "s12"
+      },
+      {
+        "turnId": "t11",
+        "messageIds": [
+          "m22"
+        ],
+        "splitReason": "tách câu hỏi đánh giá gợi ý khỏi câu nói lại cái khó",
+        "cues": [
+          "Đi chơi nhìn thiên hạ sung sướng mà chữa lành à"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m18",
+            "quote": "Cô đơn thì dắt con đi chơi, nhìn tụi nhỏ vui là vui"
+          }
+        ],
+        "rationale": "Câu hỏi mà chữa lành à không hỏi thông tin mà nghe như bác gợi ý đi chơi.",
+        "family": "P",
+        "expression": "CP",
+        "confidence": "high",
+        "alternative": null,
+        "invites": "C",
+        "secondLayer": null,
+        "id": "s13"
+      },
+      {
+        "turnId": "t11",
+        "messageIds": [
+          "m23"
+        ],
+        "splitReason": "tách câu hỏi đánh giá gợi ý khỏi câu nói lại cái khó",
+        "cues": [
+          "Tiền không, sức không, đầu óc rối bời"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m18",
+            "quote": "Cô đơn thì dắt con đi chơi, nhìn tụi nhỏ vui là vui"
+          }
+        ],
+        "rationale": "Câu liệt kê tiền, sức, đầu óc rồi nói lết đi đâu cho nhục. Nghe như từ chối đi chơi và nói lại bế tắc.",
+        "family": "C",
+        "expression": "AC",
+        "confidence": "medium",
+        "alternative": {
+          "expression": "FC",
+          "rationale": "Cũng có thể nghe như nói thẳng cái mệt và rối, nhưng liệt kê tiền không sức không nghe như lý do không làm được."
+        },
+        "invites": "P",
+        "secondLayer": null,
+        "id": "s14"
+      }
+    ],
+    "analysis": {
+      "context": {
+        "register": "Có cách gọi chị/em và bọn em, nghe như quan hệ thân quen. Người A xen lẫn mày/tao và mẹ con tao, nghe như lối nói bộc trực giữa người quen.",
+        "turns": [
+          {
+            "turnId": "t1",
+            "act": "mô tả tình cảnh bế tắc và hết sức",
+            "respondsTo": null
+          },
+          {
+            "turnId": "t2",
+            "act": "đưa lời chăm sóc về ăn uống",
+            "respondsTo": "t1"
+          },
+          {
+            "turnId": "t3",
+            "act": "nói lại điều kiện khó",
+            "respondsTo": "t2"
+          },
+          {
+            "turnId": "t4",
+            "act": "đề nghị góp giúp khi thiếu",
+            "respondsTo": "t3"
+          },
+          {
+            "turnId": "t5",
+            "act": "từ chối giúp lâu dài và mô tả kiệt sức kèm so sánh",
+            "respondsTo": "t4"
+          },
+          {
+            "turnId": "t6",
+            "act": "hỏi câu đánh giá việc than thở",
+            "respondsTo": "t5"
+          },
+          {
+            "turnId": "t7",
+            "act": "nhận lời rồi nói lý do than",
+            "respondsTo": "t6"
+          },
+          {
+            "turnId": "t8",
+            "act": "đưa cách xử lý nhanh cho mệt và cô đơn",
+            "respondsTo": "t7"
+          },
+          {
+            "turnId": "t9",
+            "act": "phản ứng ngắn và nói đang đau",
+            "respondsTo": "t8"
+          },
+          {
+            "turnId": "t10",
+            "act": "nhắc tụi nhỏ còn bé",
+            "respondsTo": "t9"
+          },
+          {
+            "turnId": "t11",
+            "act": "bác gợi ý đi chơi và nói lại cái khó",
+            "respondsTo": "t10"
+          }
+        ],
+        "dynamics": "Người A nói khó khăn và mệt mỏi nhiều lần. Người B đưa lời chăm sóc rồi chuyển sang đề nghị giúp và cách làm nhanh. Các đề nghị được đáp lại bằng lý do khó làm và nói lại tình trạng."
+      },
+      "segments": [
+        {
+          "turnId": "t1",
+          "messageIds": [
+            "m1",
+            "m2",
+            "m3",
+            "m4"
+          ],
+          "splitReason": null,
+          "cues": [
+            "chẳng tính được gì xa",
+            "chẳng còn sức làm gì"
+          ],
+          "contextCues": [],
+          "rationale": "Các câu nối nhau nói cái khó trước mắt và hết sức. Nghe như nói lại bế tắc và buông xuôi.",
+          "family": "C",
+          "expression": "AC",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "FC",
+            "rationale": "Cũng có thể nghe như nói thẳng cảm giác mệt và bế tắc, nhưng chữ hết sức và buông xuôi nổi hơn."
+          },
+          "invites": "P",
+          "secondLayer": null,
+          "id": "s1"
+        },
+        {
+          "turnId": "t2",
+          "messageIds": [
+            "m5"
+          ],
+          "splitReason": null,
+          "cues": [
+            "cứ ăn cho ngon cho no vào đã chị"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m2",
+              "quote": "Ngày nào biết ngày đó, lo bữa ăn cho qua đã"
+            }
+          ],
+          "rationale": "Câu này tiếp lời bữa ăn và nghe như dỗ dành, lo cho sức khỏe trước mắt.",
+          "family": "P",
+          "expression": "NP",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "A",
+            "rationale": "Cũng có thể nghe như gợi ý thực tế, nhưng giọng dỗ dành về ăn no nghe như chăm sóc nhiều hơn."
+          },
+          "invites": "C",
+          "secondLayer": null,
+          "id": "s2"
+        },
+        {
+          "turnId": "t3",
+          "messageIds": [
+            "m6",
+            "m7"
+          ],
+          "splitReason": null,
+          "cues": [
+            "Cũng phải xem điều kiện thế nào chứ",
+            "liệu cơm gắp mắm"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m5",
+              "quote": "Thế thì cứ ăn cho ngon cho no vào đã chị"
+            }
+          ],
+          "rationale": "Hai câu nghe như nói điều kiện không cho phép, rồi khép lại bằng cách liệu chừng.",
+          "family": "C",
+          "expression": "AC",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "A",
+            "rationale": "Cũng có thể nghe như nêu thực tế điều kiện, nhưng đặt sau lời chăm sóc nên nghe như giữ khoảng cách với gợi ý."
+          },
+          "invites": "P",
+          "secondLayer": null,
+          "id": "s3"
+        },
+        {
+          "turnId": "t4",
+          "messageIds": [
+            "m8"
+          ],
+          "splitReason": null,
+          "cues": [
+            "Thiếu thì bọn em góp vào"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m6",
+              "quote": "Cũng phải xem điều kiện thế nào chứ"
+            }
+          ],
+          "rationale": "Câu ngắn đề nghị góp giúp khi thiếu. Nghe như che chở cho phía bên kia.",
+          "family": "P",
+          "expression": "NP",
+          "confidence": "high",
+          "alternative": null,
+          "invites": "C",
+          "secondLayer": null,
+          "id": "s4"
+        },
+        {
+          "turnId": "t5",
+          "messageIds": [
+            "m9",
+            "m10",
+            "m11"
+          ],
+          "splitReason": "tách lời từ chối và mô tả kiệt sức khỏi câu so sánh",
+          "cues": [
+            "ai lo được cho mẹ con tao mãi",
+            "nằm mãi không dậy nổi"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m8",
+              "quote": "Thiếu thì bọn em góp vào"
+            }
+          ],
+          "rationale": "Câu đầu gạt đề nghị giúp lâu dài. Hai câu sau nói kiệt sức và nằm không dậy, nghe như nói lại cái khó và chịu đựng.",
+          "family": "C",
+          "expression": "AC",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "FC",
+            "rationale": "Cũng có thể nghe như nói thẳng cái mệt trong người, nhưng chữ từ chối giúp và nằm không dậy nổi nghe như buông xuôi."
+          },
+          "invites": "P",
+          "secondLayer": null,
+          "id": "s5"
+        },
+        {
+          "turnId": "t5",
+          "messageIds": [
+            "m12"
+          ],
+          "splitReason": "tách câu so sánh khỏi mô tả mệt và tuyệt vọng",
+          "cues": [
+            "Mày thì cứ thong thả mà hưởng, vì còn có người có của"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m8",
+              "quote": "Thiếu thì bọn em góp vào"
+            }
+          ],
+          "rationale": "Câu này so sánh bên kia thong thả, có người có của. Nghe như đánh giá và phân biệt.",
+          "family": "P",
+          "expression": "CP",
+          "confidence": "high",
+          "alternative": null,
+          "invites": "C",
+          "secondLayer": null,
+          "id": "s6"
+        },
+        {
+          "turnId": "t5",
+          "messageIds": [
+            "m13"
+          ],
+          "splitReason": "tách câu tuyệt vọng khỏi câu so sánh",
+          "cues": [
+            "cùng đường, chẳng còn hy vọng gì"
+          ],
+          "contextCues": [],
+          "rationale": "Câu này nói hết đường và hết hy vọng. Nghe như khép lại trong bất lực.",
+          "family": "C",
+          "expression": "AC",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "FC",
+            "rationale": "Cũng có thể nghe như nói thẳng cảm giác tuyệt vọng, nhưng chữ cùng đường và hết hy vọng nghe như buông xuôi."
+          },
+          "invites": "P",
+          "secondLayer": null,
+          "id": "s7"
+        },
+        {
+          "turnId": "t6",
+          "messageIds": [
+            "m14"
+          ],
+          "splitReason": null,
+          "cues": [
+            "Chị than thở thế thì giải quyết được gì không?"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m13",
+              "quote": "Nên chị thấy cùng đường, chẳng còn hy vọng gì"
+            }
+          ],
+          "rationale": "Câu hỏi không xin thông tin mà nghe như đánh giá việc than thở vừa rồi.",
+          "family": "P",
+          "expression": "CP",
+          "confidence": "high",
+          "alternative": null,
+          "invites": "C",
+          "secondLayer": null,
+          "id": "s8"
+        },
+        {
+          "turnId": "t7",
+          "messageIds": [
+            "m15",
+            "m16"
+          ],
+          "splitReason": null,
+          "cues": [
+            "Ừ nhỉ",
+            "Mệt với cô đơn quá thì than thôi"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m14",
+              "quote": "Chị than thở thế thì giải quyết được gì không?"
+            }
+          ],
+          "rationale": "Chữ ừ nhỉ nghe như nhận câu hỏi trên. Câu sau nói mệt với cô đơn nên than, nghe như giữ lại việc than.",
+          "family": "C",
+          "expression": "AC",
+          "confidence": "low",
+          "alternative": {
+            "expression": "FC",
+            "rationale": "Cũng có thể nghe như nói thẳng mệt và cô đơn, nhưng chữ ừ nhỉ rồi than thôi nghe như thuận theo rồi rút lại."
+          },
+          "invites": "P",
+          "secondLayer": null,
+          "id": "s9"
+        },
+        {
+          "turnId": "t8",
+          "messageIds": [
+            "m17",
+            "m18"
+          ],
+          "splitReason": null,
+          "cues": [
+            "Mệt thì đi mua thuốc bổ mà uống",
+            "dắt con đi chơi"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m16",
+              "quote": "Mệt với cô đơn quá thì than thôi"
+            }
+          ],
+          "rationale": "Hai câu đưa cách làm nhanh cho mệt và cô đơn. Nghe như ra cách xử lý gọn và khép chuyện lại.",
+          "family": "P",
+          "expression": "CP",
+          "confidence": "high",
+          "alternative": null,
+          "invites": "C",
+          "secondLayer": null,
+          "id": "s10"
+        },
+        {
+          "turnId": "t9",
+          "messageIds": [
+            "m19",
+            "m20"
+          ],
+          "splitReason": null,
+          "cues": [
+            "Ngu vậy",
+            "Đang đau đây này"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m17",
+              "quote": "Mệt thì đi mua thuốc bổ mà uống"
+            }
+          ],
+          "rationale": "Chữ Ngu vậy quá ngắn, không rõ chê ai. Câu sau nói đang đau, nghe như phản ứng mệt nhưng khó xếp chắc.",
+          "family": "C",
+          "expression": "UNCLEAR",
+          "confidence": "low",
+          "alternative": {
+            "expression": "AC",
+            "rationale": "Nếu chữ Ngu vậy tự trách mình rồi nói đau, thì nghe như rút lại trong bất lực."
+          },
+          "invites": "UNCLEAR",
+          "secondLayer": null,
+          "id": "s11"
+        },
+        {
+          "turnId": "t10",
+          "messageIds": [
+            "m21"
+          ],
+          "splitReason": null,
+          "cues": [
+            "Tụi nhỏ còn bé mà"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m18",
+              "quote": "Cô đơn thì dắt con đi chơi, nhìn tụi nhỏ vui là vui"
+            }
+          ],
+          "rationale": "Câu ngắn nhắc con còn bé. Nghe như nói khó làm theo gợi ý đi chơi.",
+          "family": "C",
+          "expression": "AC",
+          "confidence": "low",
+          "alternative": {
+            "expression": "A",
+            "rationale": "Cũng có thể nghe như nêu thực tế tuổi nhỏ, nhưng đặt sau lời khuyên đi chơi nên nghe như lý do khó đi."
+          },
+          "invites": "UNCLEAR",
+          "secondLayer": null,
+          "id": "s12"
+        },
+        {
+          "turnId": "t11",
+          "messageIds": [
+            "m22"
+          ],
+          "splitReason": "tách câu hỏi đánh giá gợi ý khỏi câu nói lại cái khó",
+          "cues": [
+            "Đi chơi nhìn thiên hạ sung sướng mà chữa lành à"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m18",
+              "quote": "Cô đơn thì dắt con đi chơi, nhìn tụi nhỏ vui là vui"
+            }
+          ],
+          "rationale": "Câu hỏi mà chữa lành à không hỏi thông tin mà nghe như bác gợi ý đi chơi.",
+          "family": "P",
+          "expression": "CP",
+          "confidence": "high",
+          "alternative": null,
+          "invites": "C",
+          "secondLayer": null,
+          "id": "s13"
+        },
+        {
+          "turnId": "t11",
+          "messageIds": [
+            "m23"
+          ],
+          "splitReason": "tách câu hỏi đánh giá gợi ý khỏi câu nói lại cái khó",
+          "cues": [
+            "Tiền không, sức không, đầu óc rối bời"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m18",
+              "quote": "Cô đơn thì dắt con đi chơi, nhìn tụi nhỏ vui là vui"
+            }
+          ],
+          "rationale": "Câu liệt kê tiền, sức, đầu óc rồi nói lết đi đâu cho nhục. Nghe như từ chối đi chơi và nói lại bế tắc.",
+          "family": "C",
+          "expression": "AC",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "FC",
+            "rationale": "Cũng có thể nghe như nói thẳng cái mệt và rối, nhưng liệt kê tiền không sức không nghe như lý do không làm được."
+          },
+          "invites": "P",
+          "secondLayer": null,
+          "id": "s14"
+        }
+      ],
+      "shifts": [
+        {
+          "messageId": "m9",
+          "description": "Lời đổi từ chị/em sang mày/tao và nói chỉ giúp lúc khó, không lo mãi.",
+          "cues": [
+            "Mày còn gia đình riêng"
+          ]
+        },
+        {
+          "messageId": "m14",
+          "description": "Lời đổi từ đề nghị giúp sang hỏi đánh giá việc than thở.",
+          "cues": [
+            "Chị than thở thế thì giải quyết được gì không?"
+          ]
+        },
+        {
+          "messageId": "m22",
+          "description": "Lời đổi từ bàn cách làm sang hỏi bác gợi ý đi chơi.",
+          "cues": [
+            "mà chữa lành à"
+          ]
+        }
+      ],
+      "summary": "Cuộc nói chuyện bắt đầu bằng chăm sóc và đề nghị giúp, rồi chuyển sang đánh giá và cách làm nhanh. Phía Người A nói khó nhiều hơn và gạt các gợi ý bằng điều kiện thực tế. Đến cuối hai bên nghe như kẹt ở chỗ một bên đưa cách xử lý, một bên nói không làm được.",
+      "uncertainty": "Chỉ có chữ viết nên không rõ giọng, nét mặt và chuyện trước đó. Chữ mày/tao và Ngu vậy có thể là thân mật hay nặng lời tùy thói quen nói. Lịch sử giúp đỡ và tình trạng sức khỏe ngoài tin nhắn cũng không rõ.",
+      "safety": {
+        "flagged": false,
+        "categories": [],
+        "note": null
+      },
+      "readings": [
+        {
+          "splitReason": null,
+          "cues": [
+            "chẳng tính được gì xa",
+            "chẳng còn sức làm gì"
+          ],
+          "contextCues": [],
+          "rationale": "Các câu nối nhau nói cái khó trước mắt và hết sức. Nghe như nói lại bế tắc và buông xuôi.",
+          "family": "C",
+          "expression": "AC",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "FC",
+            "rationale": "Cũng có thể nghe như nói thẳng cảm giác mệt và bế tắc, nhưng chữ hết sức và buông xuôi nổi hơn."
+          },
+          "invites": "P",
+          "secondLayer": null,
+          "messageId": "m1",
+          "segmentId": "s1"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "chẳng tính được gì xa",
+            "chẳng còn sức làm gì"
+          ],
+          "contextCues": [],
+          "rationale": "Các câu nối nhau nói cái khó trước mắt và hết sức. Nghe như nói lại bế tắc và buông xuôi.",
+          "family": "C",
+          "expression": "AC",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "FC",
+            "rationale": "Cũng có thể nghe như nói thẳng cảm giác mệt và bế tắc, nhưng chữ hết sức và buông xuôi nổi hơn."
+          },
+          "invites": "P",
+          "secondLayer": null,
+          "messageId": "m2",
+          "segmentId": "s1"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "chẳng tính được gì xa",
+            "chẳng còn sức làm gì"
+          ],
+          "contextCues": [],
+          "rationale": "Các câu nối nhau nói cái khó trước mắt và hết sức. Nghe như nói lại bế tắc và buông xuôi.",
+          "family": "C",
+          "expression": "AC",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "FC",
+            "rationale": "Cũng có thể nghe như nói thẳng cảm giác mệt và bế tắc, nhưng chữ hết sức và buông xuôi nổi hơn."
+          },
+          "invites": "P",
+          "secondLayer": null,
+          "messageId": "m3",
+          "segmentId": "s1"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "chẳng tính được gì xa",
+            "chẳng còn sức làm gì"
+          ],
+          "contextCues": [],
+          "rationale": "Các câu nối nhau nói cái khó trước mắt và hết sức. Nghe như nói lại bế tắc và buông xuôi.",
+          "family": "C",
+          "expression": "AC",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "FC",
+            "rationale": "Cũng có thể nghe như nói thẳng cảm giác mệt và bế tắc, nhưng chữ hết sức và buông xuôi nổi hơn."
+          },
+          "invites": "P",
+          "secondLayer": null,
+          "messageId": "m4",
+          "segmentId": "s1"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "cứ ăn cho ngon cho no vào đã chị"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m2",
+              "quote": "Ngày nào biết ngày đó, lo bữa ăn cho qua đã"
+            }
+          ],
+          "rationale": "Câu này tiếp lời bữa ăn và nghe như dỗ dành, lo cho sức khỏe trước mắt.",
+          "family": "P",
+          "expression": "NP",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "A",
+            "rationale": "Cũng có thể nghe như gợi ý thực tế, nhưng giọng dỗ dành về ăn no nghe như chăm sóc nhiều hơn."
+          },
+          "invites": "C",
+          "secondLayer": null,
+          "messageId": "m5",
+          "segmentId": "s2"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "Cũng phải xem điều kiện thế nào chứ",
+            "liệu cơm gắp mắm"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m5",
+              "quote": "Thế thì cứ ăn cho ngon cho no vào đã chị"
+            }
+          ],
+          "rationale": "Hai câu nghe như nói điều kiện không cho phép, rồi khép lại bằng cách liệu chừng.",
+          "family": "C",
+          "expression": "AC",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "A",
+            "rationale": "Cũng có thể nghe như nêu thực tế điều kiện, nhưng đặt sau lời chăm sóc nên nghe như giữ khoảng cách với gợi ý."
+          },
+          "invites": "P",
+          "secondLayer": null,
+          "messageId": "m6",
+          "segmentId": "s3"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "Cũng phải xem điều kiện thế nào chứ",
+            "liệu cơm gắp mắm"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m5",
+              "quote": "Thế thì cứ ăn cho ngon cho no vào đã chị"
+            }
+          ],
+          "rationale": "Hai câu nghe như nói điều kiện không cho phép, rồi khép lại bằng cách liệu chừng.",
+          "family": "C",
+          "expression": "AC",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "A",
+            "rationale": "Cũng có thể nghe như nêu thực tế điều kiện, nhưng đặt sau lời chăm sóc nên nghe như giữ khoảng cách với gợi ý."
+          },
+          "invites": "P",
+          "secondLayer": null,
+          "messageId": "m7",
+          "segmentId": "s3"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "Thiếu thì bọn em góp vào"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m6",
+              "quote": "Cũng phải xem điều kiện thế nào chứ"
+            }
+          ],
+          "rationale": "Câu ngắn đề nghị góp giúp khi thiếu. Nghe như che chở cho phía bên kia.",
+          "family": "P",
+          "expression": "NP",
+          "confidence": "high",
+          "alternative": null,
+          "invites": "C",
+          "secondLayer": null,
+          "messageId": "m8",
+          "segmentId": "s4"
+        },
+        {
+          "splitReason": "tách lời từ chối và mô tả kiệt sức khỏi câu so sánh",
+          "cues": [
+            "ai lo được cho mẹ con tao mãi",
+            "nằm mãi không dậy nổi"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m8",
+              "quote": "Thiếu thì bọn em góp vào"
+            }
+          ],
+          "rationale": "Câu đầu gạt đề nghị giúp lâu dài. Hai câu sau nói kiệt sức và nằm không dậy, nghe như nói lại cái khó và chịu đựng.",
+          "family": "C",
+          "expression": "AC",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "FC",
+            "rationale": "Cũng có thể nghe như nói thẳng cái mệt trong người, nhưng chữ từ chối giúp và nằm không dậy nổi nghe như buông xuôi."
+          },
+          "invites": "P",
+          "secondLayer": null,
+          "messageId": "m9",
+          "segmentId": "s5"
+        },
+        {
+          "splitReason": "tách lời từ chối và mô tả kiệt sức khỏi câu so sánh",
+          "cues": [
+            "ai lo được cho mẹ con tao mãi",
+            "nằm mãi không dậy nổi"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m8",
+              "quote": "Thiếu thì bọn em góp vào"
+            }
+          ],
+          "rationale": "Câu đầu gạt đề nghị giúp lâu dài. Hai câu sau nói kiệt sức và nằm không dậy, nghe như nói lại cái khó và chịu đựng.",
+          "family": "C",
+          "expression": "AC",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "FC",
+            "rationale": "Cũng có thể nghe như nói thẳng cái mệt trong người, nhưng chữ từ chối giúp và nằm không dậy nổi nghe như buông xuôi."
+          },
+          "invites": "P",
+          "secondLayer": null,
+          "messageId": "m10",
+          "segmentId": "s5"
+        },
+        {
+          "splitReason": "tách lời từ chối và mô tả kiệt sức khỏi câu so sánh",
+          "cues": [
+            "ai lo được cho mẹ con tao mãi",
+            "nằm mãi không dậy nổi"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m8",
+              "quote": "Thiếu thì bọn em góp vào"
+            }
+          ],
+          "rationale": "Câu đầu gạt đề nghị giúp lâu dài. Hai câu sau nói kiệt sức và nằm không dậy, nghe như nói lại cái khó và chịu đựng.",
+          "family": "C",
+          "expression": "AC",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "FC",
+            "rationale": "Cũng có thể nghe như nói thẳng cái mệt trong người, nhưng chữ từ chối giúp và nằm không dậy nổi nghe như buông xuôi."
+          },
+          "invites": "P",
+          "secondLayer": null,
+          "messageId": "m11",
+          "segmentId": "s5"
+        },
+        {
+          "splitReason": "tách câu so sánh khỏi mô tả mệt và tuyệt vọng",
+          "cues": [
+            "Mày thì cứ thong thả mà hưởng, vì còn có người có của"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m8",
+              "quote": "Thiếu thì bọn em góp vào"
+            }
+          ],
+          "rationale": "Câu này so sánh bên kia thong thả, có người có của. Nghe như đánh giá và phân biệt.",
+          "family": "P",
+          "expression": "CP",
+          "confidence": "high",
+          "alternative": null,
+          "invites": "C",
+          "secondLayer": null,
+          "messageId": "m12",
+          "segmentId": "s6"
+        },
+        {
+          "splitReason": "tách câu tuyệt vọng khỏi câu so sánh",
+          "cues": [
+            "cùng đường, chẳng còn hy vọng gì"
+          ],
+          "contextCues": [],
+          "rationale": "Câu này nói hết đường và hết hy vọng. Nghe như khép lại trong bất lực.",
+          "family": "C",
+          "expression": "AC",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "FC",
+            "rationale": "Cũng có thể nghe như nói thẳng cảm giác tuyệt vọng, nhưng chữ cùng đường và hết hy vọng nghe như buông xuôi."
+          },
+          "invites": "P",
+          "secondLayer": null,
+          "messageId": "m13",
+          "segmentId": "s7"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "Chị than thở thế thì giải quyết được gì không?"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m13",
+              "quote": "Nên chị thấy cùng đường, chẳng còn hy vọng gì"
+            }
+          ],
+          "rationale": "Câu hỏi không xin thông tin mà nghe như đánh giá việc than thở vừa rồi.",
+          "family": "P",
+          "expression": "CP",
+          "confidence": "high",
+          "alternative": null,
+          "invites": "C",
+          "secondLayer": null,
+          "messageId": "m14",
+          "segmentId": "s8"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "Ừ nhỉ",
+            "Mệt với cô đơn quá thì than thôi"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m14",
+              "quote": "Chị than thở thế thì giải quyết được gì không?"
+            }
+          ],
+          "rationale": "Chữ ừ nhỉ nghe như nhận câu hỏi trên. Câu sau nói mệt với cô đơn nên than, nghe như giữ lại việc than.",
+          "family": "C",
+          "expression": "AC",
+          "confidence": "low",
+          "alternative": {
+            "expression": "FC",
+            "rationale": "Cũng có thể nghe như nói thẳng mệt và cô đơn, nhưng chữ ừ nhỉ rồi than thôi nghe như thuận theo rồi rút lại."
+          },
+          "invites": "P",
+          "secondLayer": null,
+          "messageId": "m15",
+          "segmentId": "s9"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "Ừ nhỉ",
+            "Mệt với cô đơn quá thì than thôi"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m14",
+              "quote": "Chị than thở thế thì giải quyết được gì không?"
+            }
+          ],
+          "rationale": "Chữ ừ nhỉ nghe như nhận câu hỏi trên. Câu sau nói mệt với cô đơn nên than, nghe như giữ lại việc than.",
+          "family": "C",
+          "expression": "AC",
+          "confidence": "low",
+          "alternative": {
+            "expression": "FC",
+            "rationale": "Cũng có thể nghe như nói thẳng mệt và cô đơn, nhưng chữ ừ nhỉ rồi than thôi nghe như thuận theo rồi rút lại."
+          },
+          "invites": "P",
+          "secondLayer": null,
+          "messageId": "m16",
+          "segmentId": "s9"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "Mệt thì đi mua thuốc bổ mà uống",
+            "dắt con đi chơi"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m16",
+              "quote": "Mệt với cô đơn quá thì than thôi"
+            }
+          ],
+          "rationale": "Hai câu đưa cách làm nhanh cho mệt và cô đơn. Nghe như ra cách xử lý gọn và khép chuyện lại.",
+          "family": "P",
+          "expression": "CP",
+          "confidence": "high",
+          "alternative": null,
+          "invites": "C",
+          "secondLayer": null,
+          "messageId": "m17",
+          "segmentId": "s10"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "Mệt thì đi mua thuốc bổ mà uống",
+            "dắt con đi chơi"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m16",
+              "quote": "Mệt với cô đơn quá thì than thôi"
+            }
+          ],
+          "rationale": "Hai câu đưa cách làm nhanh cho mệt và cô đơn. Nghe như ra cách xử lý gọn và khép chuyện lại.",
+          "family": "P",
+          "expression": "CP",
+          "confidence": "high",
+          "alternative": null,
+          "invites": "C",
+          "secondLayer": null,
+          "messageId": "m18",
+          "segmentId": "s10"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "Ngu vậy",
+            "Đang đau đây này"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m17",
+              "quote": "Mệt thì đi mua thuốc bổ mà uống"
+            }
+          ],
+          "rationale": "Chữ Ngu vậy quá ngắn, không rõ chê ai. Câu sau nói đang đau, nghe như phản ứng mệt nhưng khó xếp chắc.",
+          "family": "C",
+          "expression": "UNCLEAR",
+          "confidence": "low",
+          "alternative": {
+            "expression": "AC",
+            "rationale": "Nếu chữ Ngu vậy tự trách mình rồi nói đau, thì nghe như rút lại trong bất lực."
+          },
+          "invites": "UNCLEAR",
+          "secondLayer": null,
+          "messageId": "m19",
+          "segmentId": "s11"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "Ngu vậy",
+            "Đang đau đây này"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m17",
+              "quote": "Mệt thì đi mua thuốc bổ mà uống"
+            }
+          ],
+          "rationale": "Chữ Ngu vậy quá ngắn, không rõ chê ai. Câu sau nói đang đau, nghe như phản ứng mệt nhưng khó xếp chắc.",
+          "family": "C",
+          "expression": "UNCLEAR",
+          "confidence": "low",
+          "alternative": {
+            "expression": "AC",
+            "rationale": "Nếu chữ Ngu vậy tự trách mình rồi nói đau, thì nghe như rút lại trong bất lực."
+          },
+          "invites": "UNCLEAR",
+          "secondLayer": null,
+          "messageId": "m20",
+          "segmentId": "s11"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "Tụi nhỏ còn bé mà"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m18",
+              "quote": "Cô đơn thì dắt con đi chơi, nhìn tụi nhỏ vui là vui"
+            }
+          ],
+          "rationale": "Câu ngắn nhắc con còn bé. Nghe như nói khó làm theo gợi ý đi chơi.",
+          "family": "C",
+          "expression": "AC",
+          "confidence": "low",
+          "alternative": {
+            "expression": "A",
+            "rationale": "Cũng có thể nghe như nêu thực tế tuổi nhỏ, nhưng đặt sau lời khuyên đi chơi nên nghe như lý do khó đi."
+          },
+          "invites": "UNCLEAR",
+          "secondLayer": null,
+          "messageId": "m21",
+          "segmentId": "s12"
+        },
+        {
+          "splitReason": "tách câu hỏi đánh giá gợi ý khỏi câu nói lại cái khó",
+          "cues": [
+            "Đi chơi nhìn thiên hạ sung sướng mà chữa lành à"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m18",
+              "quote": "Cô đơn thì dắt con đi chơi, nhìn tụi nhỏ vui là vui"
+            }
+          ],
+          "rationale": "Câu hỏi mà chữa lành à không hỏi thông tin mà nghe như bác gợi ý đi chơi.",
+          "family": "P",
+          "expression": "CP",
+          "confidence": "high",
+          "alternative": null,
+          "invites": "C",
+          "secondLayer": null,
+          "messageId": "m22",
+          "segmentId": "s13"
+        },
+        {
+          "splitReason": "tách câu hỏi đánh giá gợi ý khỏi câu nói lại cái khó",
+          "cues": [
+            "Tiền không, sức không, đầu óc rối bời"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m18",
+              "quote": "Cô đơn thì dắt con đi chơi, nhìn tụi nhỏ vui là vui"
+            }
+          ],
+          "rationale": "Câu liệt kê tiền, sức, đầu óc rồi nói lết đi đâu cho nhục. Nghe như từ chối đi chơi và nói lại bế tắc.",
+          "family": "C",
+          "expression": "AC",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "FC",
+            "rationale": "Cũng có thể nghe như nói thẳng cái mệt và rối, nhưng liệt kê tiền không sức không nghe như lý do không làm được."
+          },
+          "invites": "P",
+          "secondLayer": null,
+          "messageId": "m23",
+          "segmentId": "s14"
+        }
+      ]
+    }
+  },
+  "score": {
+    "per": [
+      {
+        "id": "m1",
+        "expr": "AC",
+        "family": "C",
+        "conf": "medium",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m2",
+        "expr": "AC",
+        "family": "C",
+        "conf": "medium",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m3",
+        "expr": "AC",
+        "family": "C",
+        "conf": "medium",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m4",
+        "expr": "AC",
+        "family": "C",
+        "conf": "medium",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m5",
+        "expr": "NP",
+        "family": "P",
+        "conf": "medium",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m6",
+        "expr": "AC",
+        "family": "C",
+        "conf": "medium",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m7",
+        "expr": "AC",
+        "family": "C",
+        "conf": "medium",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m8",
+        "expr": "NP",
+        "family": "P",
+        "conf": "high",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m9",
+        "expr": "AC",
+        "family": "C",
+        "conf": "medium",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m10",
+        "expr": "AC",
+        "family": "C",
+        "conf": "medium",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m11",
+        "expr": "AC",
+        "family": "C",
+        "conf": "medium",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m12",
+        "expr": "CP",
+        "family": "P",
+        "conf": "high",
+        "acc": true,
+        "hard": null,
+        "over": true,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m13",
+        "expr": "AC",
+        "family": "C",
+        "conf": "medium",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m14",
+        "expr": "CP",
+        "family": "P",
+        "conf": "high",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m15",
+        "expr": "AC",
+        "family": "C",
+        "conf": "low",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m16",
+        "expr": "AC",
+        "family": "C",
+        "conf": "low",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m17",
+        "expr": "CP",
+        "family": "P",
+        "conf": "high",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m18",
+        "expr": "CP",
+        "family": "P",
+        "conf": "high",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m19",
+        "expr": "UNCLEAR",
+        "family": "C",
+        "conf": "low",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m20",
+        "expr": "UNCLEAR",
+        "family": "C",
+        "conf": "low",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m21",
+        "expr": "AC",
+        "family": "C",
+        "conf": "low",
+        "acc": false,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m22",
+        "expr": "CP",
+        "family": "P",
+        "conf": "high",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": true,
+        "altMissing": false
+      },
+      {
+        "id": "m23",
+        "expr": "AC",
+        "family": "C",
+        "conf": "medium",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      }
+    ],
+    "n": 23,
+    "accOk": 22,
+    "hardFails": [],
+    "overCeiling": [
+      "m12 CP:high"
+    ],
+    "highOnReview": 1,
+    "altMissing": 0,
+    "unclear": 2,
+    "high": 6
+  }
+}

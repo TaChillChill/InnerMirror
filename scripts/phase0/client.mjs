@@ -18,8 +18,9 @@ const PRICES = {
 
 // Approved ceiling is $15 total (CLAUDE.md); the Founder set $5 for the initial
 // evaluation (2026-10-30), so the harness stops there until a new approval.
-// Per-phase caps: smoke $1; eval-v2 = the extra $1 approved for the prompt v2 evaluation.
-export const CAPS = { total: 5.0, phase: { smoke: 1.0, "eval-v2": 1.0 } };
+// Per-phase caps: smoke $1; eval-v2 = the extra $1 approved for the prompt v2 evaluation;
+// eval-p0 = the $3 approved on 2026-10-31 for the P0 classification reliability eval.
+export const CAPS = { total: 5.0, phase: { smoke: 1.0, "eval-v2": 1.0, "eval-p0": 3.0 } };
 
 // Worst-case cost of calls in flight, so parallel calls can't jointly pass the cap.
 const pending = { total: 0, phase: {} };

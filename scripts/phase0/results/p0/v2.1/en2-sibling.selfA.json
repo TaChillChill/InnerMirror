@@ -1,0 +1,483 @@
+{
+  "meta": {
+    "spec": "v2.1",
+    "fixture": "en2-sibling",
+    "variant": "selfA",
+    "latencyMs": 28671,
+    "usd": 0.02963325,
+    "usage": {
+      "completion_tokens": 6264,
+      "prompt_tokens": 2409,
+      "total_tokens": 8673,
+      "completion_tokens_details": {
+        "reasoning_tokens": 4699
+      },
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "finish": "stop"
+  },
+  "raw": {
+    "exchanges": [
+      {
+        "note": "A factual question was followed by an apology rather than an answer.",
+        "pattern": "crossed",
+        "responseAddresses": "P",
+        "responseFrom": "C",
+        "responseId": "m2",
+        "stimulusAddresses": "A",
+        "stimulusFrom": "A",
+        "stimulusId": "m1"
+      },
+      {
+        "note": "An apology inviting reassurance was followed by a general criticism.",
+        "pattern": "complementary",
+        "responseAddresses": "C",
+        "responseFrom": "P",
+        "responseId": "m3",
+        "stimulusAddresses": "P",
+        "stimulusFrom": "C",
+        "stimulusId": "m2"
+      },
+      {
+        "note": "Criticism directed to Child was met with a protest back to Parent.",
+        "pattern": "complementary",
+        "responseAddresses": "P",
+        "responseFrom": "C",
+        "responseId": "m4",
+        "stimulusAddresses": "C",
+        "stimulusFrom": "P",
+        "stimulusId": "m3"
+      },
+      {
+        "note": "A protest was followed by agreement plus sharing of context.",
+        "pattern": "crossed",
+        "responseAddresses": "P",
+        "responseFrom": "C",
+        "responseId": "m5",
+        "stimulusAddresses": "P",
+        "stimulusFrom": "C",
+        "stimulusId": "m4"
+      },
+      {
+        "note": "Sharing stress was met with care and an offer of help.",
+        "pattern": "complementary",
+        "responseAddresses": "C",
+        "responseFrom": "P",
+        "responseId": "m6",
+        "stimulusAddresses": "P",
+        "stimulusFrom": "C",
+        "stimulusId": "m5"
+      },
+      {
+        "note": "An offer of care was met with grateful acceptance.",
+        "pattern": "complementary",
+        "responseAddresses": "P",
+        "responseFrom": "C",
+        "responseId": "m7",
+        "stimulusAddresses": "C",
+        "stimulusFrom": "P",
+        "stimulusId": "m6"
+      },
+      {
+        "note": "Thanks was followed by playful excitement rather than a reply to thanks.",
+        "pattern": "crossed",
+        "responseAddresses": "C",
+        "responseFrom": "C",
+        "responseId": "m8",
+        "stimulusAddresses": "P",
+        "stimulusFrom": "C",
+        "stimulusId": "m7"
+      }
+    ],
+    "readings": [
+      {
+        "alternative": {
+          "expression": "CP",
+          "rationale": "The phrase 'like you said' can also read as a reminder about a promise."
+        },
+        "confidence": "medium",
+        "cues": [
+          "Mum's birthday is Sunday.",
+          "Did you book"
+        ],
+        "expression": "A",
+        "invites": "A",
+        "messageId": "m1",
+        "rationale": "The words give a date and ask for information, which can read as Adult problem-solving.",
+        "reflectionQuestion": "When you wrote 'Did you book the restaurant like you said?', what did you hope would happen next?",
+        "secondLayer": null
+      },
+      {
+        "alternative": null,
+        "confidence": "high",
+        "cues": [
+          "I completely forgot.",
+          "I'm so sorry!!"
+        ],
+        "expression": "AC",
+        "invites": "P",
+        "messageId": "m2",
+        "rationale": "The words admit forgetting and apologize directly, which can sound like Adapted Child.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": null,
+        "confidence": "high",
+        "cues": [
+          "Typical.",
+          "You never follow through"
+        ],
+        "expression": "CP",
+        "invites": "C",
+        "messageId": "m3",
+        "rationale": "The words judge with 'Typical' and 'never', which can read as Critical Parent.",
+        "reflectionQuestion": "After reading 'I'm so sorry!!', what did you notice in yourself just before typing 'Typical'?",
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "A",
+          "rationale": "The second sentence gives factual history, which can also read as Adult information."
+        },
+        "confidence": "medium",
+        "cues": [
+          "That's not fair.",
+          "I organised the last three family things."
+        ],
+        "expression": "AC",
+        "invites": "P",
+        "messageId": "m4",
+        "rationale": "The words push back against the criticism as unfair, which can sound like Adapted Child protest.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "A",
+          "rationale": "The words also give context about work, which can read as Adult describing."
+        },
+        "confidence": "medium",
+        "cues": [
+          "Okay, fair.",
+          "I'm just stressed"
+        ],
+        "expression": "FC",
+        "invites": "P",
+        "messageId": "m5",
+        "rationale": "The words agree briefly then state stress openly, which can read as Free Child.",
+        "reflectionQuestion": "Besides 'That's not fair', how else could 'I organised the last three family things' have read to you in that moment?",
+        "secondLayer": null
+      },
+      {
+        "alternative": null,
+        "confidence": "high",
+        "cues": [
+          "That sounds rough.",
+          "Want me to call"
+        ],
+        "expression": "NP",
+        "invites": "C",
+        "messageId": "m6",
+        "rationale": "The words acknowledge difficulty and offer help, which can sound like Nurturing Parent.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "A",
+          "rationale": "The words also give a clear yes to a practical proposal, which can read as Adult."
+        },
+        "confidence": "medium",
+        "cues": [
+          "Yes please,",
+          "that would help a lot"
+        ],
+        "expression": "AC",
+        "invites": "P",
+        "messageId": "m7",
+        "rationale": "The words accept help gratefully and politely, which can sound like Adapted Child.",
+        "reflectionQuestion": "When you read 'Want me to call a few places tonight', what part stood out to you as you replied 'Yes please'?",
+        "secondLayer": null
+      },
+      {
+        "alternative": null,
+        "confidence": "high",
+        "cues": [
+          "Haha",
+          "best birthday ever!"
+        ],
+        "expression": "FC",
+        "invites": "C",
+        "messageId": "m8",
+        "rationale": "The laugh and excited plan can read as Free Child playfulness.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      }
+    ],
+    "safety": {
+      "categories": [],
+      "flagged": false,
+      "note": null
+    },
+    "shifts": [
+      {
+        "cues": [
+          "Typical.",
+          "You never follow through"
+        ],
+        "description": "The words shift from apology to general criticism.",
+        "messageId": "m3"
+      },
+      {
+        "cues": [
+          "Okay, fair.",
+          "I'm just stressed"
+        ],
+        "description": "The words shift from counter-argument to agreement and sharing context.",
+        "messageId": "m5"
+      },
+      {
+        "cues": [
+          "Want me to call",
+          "send you options?"
+        ],
+        "description": "The words shift from discussing fairness to proposing practical next steps.",
+        "messageId": "m6"
+      }
+    ],
+    "summary": "The conversation starts with checking a plan, moves into apology and criticism with a counter-point, then softens. It ends with an offer of help, grateful acceptance, and shared excitement about the birthday.",
+    "uncertainty": "Text alone cannot show tone of voice, facial expression, or history between you and Person A outside this chat."
+  },
+  "normalized": {
+    "readings": [
+      {
+        "alternative": {
+          "expression": "CP",
+          "rationale": "The phrase 'like you said' can also read as a reminder about a promise."
+        },
+        "confidence": "medium",
+        "cues": [
+          "Mum's birthday is Sunday.",
+          "Did you book"
+        ],
+        "expression": "A",
+        "invites": "A",
+        "messageId": "m1",
+        "rationale": "The words give a date and ask for information, which can read as Adult problem-solving.",
+        "reflectionQuestion": "When you wrote 'Did you book the restaurant like you said?', what did you hope would happen next?",
+        "secondLayer": null
+      },
+      {
+        "alternative": null,
+        "confidence": "high",
+        "cues": [
+          "I completely forgot.",
+          "I'm so sorry!!"
+        ],
+        "expression": "AC",
+        "invites": "P",
+        "messageId": "m2",
+        "rationale": "The words admit forgetting and apologize directly, which can sound like Adapted Child.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": null,
+        "confidence": "high",
+        "cues": [
+          "Typical.",
+          "You never follow through"
+        ],
+        "expression": "CP",
+        "invites": "C",
+        "messageId": "m3",
+        "rationale": "The words judge with 'Typical' and 'never', which can read as Critical Parent.",
+        "reflectionQuestion": "After reading 'I'm so sorry!!', what did you notice in yourself just before typing 'Typical'?",
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "A",
+          "rationale": "The second sentence gives factual history, which can also read as Adult information."
+        },
+        "confidence": "medium",
+        "cues": [
+          "That's not fair.",
+          "I organised the last three family things."
+        ],
+        "expression": "AC",
+        "invites": "P",
+        "messageId": "m4",
+        "rationale": "The words push back against the criticism as unfair, which can sound like Adapted Child protest.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "A",
+          "rationale": "The words also give context about work, which can read as Adult describing."
+        },
+        "confidence": "medium",
+        "cues": [
+          "Okay, fair.",
+          "I'm just stressed"
+        ],
+        "expression": "FC",
+        "invites": "P",
+        "messageId": "m5",
+        "rationale": "The words agree briefly then state stress openly, which can read as Free Child.",
+        "reflectionQuestion": "Besides 'That's not fair', how else could 'I organised the last three family things' have read to you in that moment?",
+        "secondLayer": null
+      },
+      {
+        "alternative": null,
+        "confidence": "high",
+        "cues": [
+          "That sounds rough.",
+          "Want me to call"
+        ],
+        "expression": "NP",
+        "invites": "C",
+        "messageId": "m6",
+        "rationale": "The words acknowledge difficulty and offer help, which can sound like Nurturing Parent.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "A",
+          "rationale": "The words also give a clear yes to a practical proposal, which can read as Adult."
+        },
+        "confidence": "medium",
+        "cues": [
+          "Yes please,",
+          "that would help a lot"
+        ],
+        "expression": "AC",
+        "invites": "P",
+        "messageId": "m7",
+        "rationale": "The words accept help gratefully and politely, which can sound like Adapted Child.",
+        "reflectionQuestion": "When you read 'Want me to call a few places tonight', what part stood out to you as you replied 'Yes please'?",
+        "secondLayer": null
+      },
+      {
+        "alternative": null,
+        "confidence": "high",
+        "cues": [
+          "Haha",
+          "best birthday ever!"
+        ],
+        "expression": "FC",
+        "invites": "C",
+        "messageId": "m8",
+        "rationale": "The laugh and excited plan can read as Free Child playfulness.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      }
+    ],
+    "segments": null
+  },
+  "score": {
+    "per": [
+      {
+        "id": "m1",
+        "expr": "A",
+        "family": "A",
+        "conf": "medium",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m2",
+        "expr": "AC",
+        "family": "C",
+        "conf": "high",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m3",
+        "expr": "CP",
+        "family": "P",
+        "conf": "high",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m4",
+        "expr": "AC",
+        "family": "C",
+        "conf": "medium",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m5",
+        "expr": "FC",
+        "family": "C",
+        "conf": "medium",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m6",
+        "expr": "NP",
+        "family": "P",
+        "conf": "high",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m7",
+        "expr": "AC",
+        "family": "C",
+        "conf": "medium",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m8",
+        "expr": "FC",
+        "family": "C",
+        "conf": "high",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      }
+    ],
+    "n": 8,
+    "accOk": 8,
+    "hardFails": [],
+    "overCeiling": [],
+    "highOnReview": 0,
+    "altMissing": 0,
+    "unclear": 0,
+    "high": 4
+  }
+}

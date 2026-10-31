@@ -1,0 +1,1204 @@
+{
+  "meta": {
+    "spec": "v3",
+    "fixture": "en4-short",
+    "variant": "selfA",
+    "latencyMs": 20274,
+    "usd": 0.02272325,
+    "usage": {
+      "completion_tokens": 4484,
+      "prompt_tokens": 2933,
+      "total_tokens": 7417,
+      "completion_tokens_details": {
+        "reasoning_tokens": 2974
+      },
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "finish": "stop"
+  },
+  "raw": {
+    "context": {
+      "dynamics": "The exchange starts with checking whether a message was seen. Short prompts are answered with very brief replies. The wording then shifts to brief reaction and a closing note about being tired.",
+      "register": "No address terms or closeness markers are visible. The wording is very short and neutral throughout.",
+      "turns": [
+        {
+          "act": "asks whether a message was seen",
+          "respondsTo": null,
+          "turnId": "t1"
+        },
+        {
+          "act": "confirms briefly",
+          "respondsTo": "t1",
+          "turnId": "t2"
+        },
+        {
+          "act": "prompts for more",
+          "respondsTo": "t2",
+          "turnId": "t3"
+        },
+        {
+          "act": "gives a minimal acknowledgement",
+          "respondsTo": "t3",
+          "turnId": "t4"
+        },
+        {
+          "act": "gives a brief reaction",
+          "respondsTo": "t4",
+          "turnId": "t5"
+        },
+        {
+          "act": "responds with an emoji",
+          "respondsTo": "t5",
+          "turnId": "t6"
+        },
+        {
+          "act": "asks for clarification",
+          "respondsTo": "t6",
+          "turnId": "t7"
+        },
+        {
+          "act": "downplays and names tiredness",
+          "respondsTo": "t7",
+          "turnId": "t8"
+        }
+      ]
+    },
+    "safety": {
+      "categories": [],
+      "flagged": false,
+      "note": null
+    },
+    "segments": [
+      {
+        "alternative": null,
+        "confidence": "high",
+        "contextCues": [],
+        "cues": [
+          "did you see my message"
+        ],
+        "expression": "A",
+        "family": "A",
+        "invites": "A",
+        "messageIds": [
+          "m1"
+        ],
+        "rationale": "The question checks a present fact and can read as straightforward information-seeking.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t1"
+      },
+      {
+        "alternative": {
+          "expression": "A",
+          "rationale": "It could also read as a minimal Adult confirmation that the message was seen."
+        },
+        "confidence": "low",
+        "contextCues": [
+          {
+            "messageId": "m1",
+            "quote": "did you see my message"
+          }
+        ],
+        "cues": [],
+        "expression": "UNCLEAR",
+        "family": "UNCLEAR",
+        "invites": "UNCLEAR",
+        "messageIds": [
+          "m2"
+        ],
+        "rationale": "The single word confirms but is too brief to show how it functions, so no label can be settled.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t2"
+      },
+      {
+        "alternative": {
+          "expression": "A",
+          "rationale": "It could also read as an Adult prompt for more information."
+        },
+        "confidence": "low",
+        "contextCues": [
+          {
+            "messageId": "m2",
+            "quote": "yeah"
+          }
+        ],
+        "cues": [],
+        "expression": "UNCLEAR",
+        "family": "UNCLEAR",
+        "invites": "UNCLEAR",
+        "messageIds": [
+          "m3"
+        ],
+        "rationale": "The single word with a question mark prompts a reply but is too brief to settle its function.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t3"
+      },
+      {
+        "alternative": {
+          "expression": "AC",
+          "rationale": "It could also read as Adapted Child withdrawing to a minimal reply."
+        },
+        "confidence": "low",
+        "contextCues": [
+          {
+            "messageId": "m3",
+            "quote": "and?"
+          }
+        ],
+        "cues": [],
+        "expression": "UNCLEAR",
+        "family": "UNCLEAR",
+        "invites": "UNCLEAR",
+        "messageIds": [
+          "m4"
+        ],
+        "rationale": "The single letter acknowledges but is too brief to show how it functions.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t4"
+      },
+      {
+        "alternative": {
+          "expression": "AC",
+          "rationale": "It could also read as Adapted Child withdrawing after minimal answers."
+        },
+        "confidence": "low",
+        "contextCues": [
+          {
+            "messageId": "m4",
+            "quote": "k"
+          }
+        ],
+        "cues": [],
+        "expression": "UNCLEAR",
+        "family": "C",
+        "invites": "UNCLEAR",
+        "messageIds": [
+          "m5"
+        ],
+        "rationale": "The brief reaction can read as coming from Child, but whether it is spontaneous or holding back cannot be told from the words alone.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t5"
+      },
+      {
+        "alternative": {
+          "expression": "FC",
+          "rationale": "It could also read as Free Child spontaneous laughter."
+        },
+        "confidence": "low",
+        "contextCues": [
+          {
+            "messageId": "m5",
+            "quote": "wow ok"
+          }
+        ],
+        "cues": [],
+        "expression": "UNCLEAR",
+        "family": "UNCLEAR",
+        "invites": "UNCLEAR",
+        "messageIds": [
+          "m6"
+        ],
+        "rationale": "A lone emoji is too brief to settle its function in context.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t6"
+      },
+      {
+        "alternative": {
+          "expression": "A",
+          "rationale": "It could also read as an Adult request for clarification."
+        },
+        "confidence": "low",
+        "contextCues": [
+          {
+            "messageId": "m6",
+            "quote": "😂"
+          }
+        ],
+        "cues": [],
+        "expression": "UNCLEAR",
+        "family": "UNCLEAR",
+        "invites": "UNCLEAR",
+        "messageIds": [
+          "m7"
+        ],
+        "rationale": "The single question mark seeks something more but is too brief to settle its function.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t7"
+      },
+      {
+        "alternative": {
+          "expression": "FC",
+          "rationale": "It could also read as Free Child plainly saying tiredness with energy."
+        },
+        "confidence": "low",
+        "contextCues": [
+          {
+            "messageId": "m7",
+            "quote": "?"
+          }
+        ],
+        "cues": [
+          "nothing",
+          "just tired"
+        ],
+        "expression": "AC",
+        "family": "C",
+        "invites": "UNCLEAR",
+        "messageIds": [
+          "m8"
+        ],
+        "rationale": "Saying \"nothing\" and naming tiredness can read as holding back and closing further inquiry.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t8"
+      }
+    ],
+    "shifts": [
+      {
+        "cues": [
+          "wow ok"
+        ],
+        "description": "The words shift from checking for a reply to a brief reaction.",
+        "messageId": "m5"
+      },
+      {
+        "cues": [
+          "nothing, just tired"
+        ],
+        "description": "The words shift from brief prompts and reactions to naming tiredness and closing the topic.",
+        "messageId": "m8"
+      }
+    ],
+    "summary": "Person A asks about a prior message and prompts for more, while Person B answers very briefly. Person A shows a brief reaction to the minimal replies, Person B responds with an emoji, and the exchange closes with Person B naming tiredness.",
+    "uncertainty": "Tone of voice, facial expression, prior history, and what the unseen message contained cannot be known from the text alone, so the brief replies remain open to more than one reading."
+  },
+  "normalized": {
+    "readings": [
+      {
+        "splitReason": null,
+        "cues": [
+          "did you see my message"
+        ],
+        "contextCues": [],
+        "rationale": "The question checks a present fact and can read as straightforward information-seeking.",
+        "family": "A",
+        "expression": "A",
+        "confidence": "high",
+        "alternative": null,
+        "invites": "A",
+        "secondLayer": null,
+        "messageId": "m1",
+        "segmentId": "s1"
+      },
+      {
+        "splitReason": null,
+        "cues": [],
+        "contextCues": [
+          {
+            "messageId": "m1",
+            "quote": "did you see my message"
+          }
+        ],
+        "rationale": "The single word confirms but is too brief to show how it functions, so no label can be settled.",
+        "family": "UNCLEAR",
+        "expression": "UNCLEAR",
+        "confidence": "low",
+        "alternative": {
+          "expression": "A",
+          "rationale": "It could also read as a minimal Adult confirmation that the message was seen."
+        },
+        "invites": "UNCLEAR",
+        "secondLayer": null,
+        "messageId": "m2",
+        "segmentId": "s2"
+      },
+      {
+        "splitReason": null,
+        "cues": [],
+        "contextCues": [
+          {
+            "messageId": "m2",
+            "quote": "yeah"
+          }
+        ],
+        "rationale": "The single word with a question mark prompts a reply but is too brief to settle its function.",
+        "family": "UNCLEAR",
+        "expression": "UNCLEAR",
+        "confidence": "low",
+        "alternative": {
+          "expression": "A",
+          "rationale": "It could also read as an Adult prompt for more information."
+        },
+        "invites": "UNCLEAR",
+        "secondLayer": null,
+        "messageId": "m3",
+        "segmentId": "s3"
+      },
+      {
+        "splitReason": null,
+        "cues": [],
+        "contextCues": [
+          {
+            "messageId": "m3",
+            "quote": "and?"
+          }
+        ],
+        "rationale": "The single letter acknowledges but is too brief to show how it functions.",
+        "family": "UNCLEAR",
+        "expression": "UNCLEAR",
+        "confidence": "low",
+        "alternative": {
+          "expression": "AC",
+          "rationale": "It could also read as Adapted Child withdrawing to a minimal reply."
+        },
+        "invites": "UNCLEAR",
+        "secondLayer": null,
+        "messageId": "m4",
+        "segmentId": "s4"
+      },
+      {
+        "splitReason": null,
+        "cues": [],
+        "contextCues": [
+          {
+            "messageId": "m4",
+            "quote": "k"
+          }
+        ],
+        "rationale": "The brief reaction can read as coming from Child, but whether it is spontaneous or holding back cannot be told from the words alone.",
+        "family": "C",
+        "expression": "UNCLEAR",
+        "confidence": "low",
+        "alternative": {
+          "expression": "AC",
+          "rationale": "It could also read as Adapted Child withdrawing after minimal answers."
+        },
+        "invites": "UNCLEAR",
+        "secondLayer": null,
+        "messageId": "m5",
+        "segmentId": "s5"
+      },
+      {
+        "splitReason": null,
+        "cues": [],
+        "contextCues": [
+          {
+            "messageId": "m5",
+            "quote": "wow ok"
+          }
+        ],
+        "rationale": "A lone emoji is too brief to settle its function in context.",
+        "family": "UNCLEAR",
+        "expression": "UNCLEAR",
+        "confidence": "low",
+        "alternative": {
+          "expression": "FC",
+          "rationale": "It could also read as Free Child spontaneous laughter."
+        },
+        "invites": "UNCLEAR",
+        "secondLayer": null,
+        "messageId": "m6",
+        "segmentId": "s6"
+      },
+      {
+        "splitReason": null,
+        "cues": [],
+        "contextCues": [
+          {
+            "messageId": "m6",
+            "quote": "😂"
+          }
+        ],
+        "rationale": "The single question mark seeks something more but is too brief to settle its function.",
+        "family": "UNCLEAR",
+        "expression": "UNCLEAR",
+        "confidence": "low",
+        "alternative": {
+          "expression": "A",
+          "rationale": "It could also read as an Adult request for clarification."
+        },
+        "invites": "UNCLEAR",
+        "secondLayer": null,
+        "messageId": "m7",
+        "segmentId": "s7"
+      },
+      {
+        "splitReason": null,
+        "cues": [
+          "nothing",
+          "just tired"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m7",
+            "quote": "?"
+          }
+        ],
+        "rationale": "Saying \"nothing\" and naming tiredness can read as holding back and closing further inquiry.",
+        "family": "C",
+        "expression": "AC",
+        "confidence": "low",
+        "alternative": {
+          "expression": "FC",
+          "rationale": "It could also read as Free Child plainly saying tiredness with energy."
+        },
+        "invites": "UNCLEAR",
+        "secondLayer": null,
+        "messageId": "m8",
+        "segmentId": "s8"
+      }
+    ],
+    "segments": [
+      {
+        "turnId": "t1",
+        "messageIds": [
+          "m1"
+        ],
+        "splitReason": null,
+        "cues": [
+          "did you see my message"
+        ],
+        "contextCues": [],
+        "rationale": "The question checks a present fact and can read as straightforward information-seeking.",
+        "family": "A",
+        "expression": "A",
+        "confidence": "high",
+        "alternative": null,
+        "invites": "A",
+        "secondLayer": null,
+        "id": "s1"
+      },
+      {
+        "turnId": "t2",
+        "messageIds": [
+          "m2"
+        ],
+        "splitReason": null,
+        "cues": [],
+        "contextCues": [
+          {
+            "messageId": "m1",
+            "quote": "did you see my message"
+          }
+        ],
+        "rationale": "The single word confirms but is too brief to show how it functions, so no label can be settled.",
+        "family": "UNCLEAR",
+        "expression": "UNCLEAR",
+        "confidence": "low",
+        "alternative": {
+          "expression": "A",
+          "rationale": "It could also read as a minimal Adult confirmation that the message was seen."
+        },
+        "invites": "UNCLEAR",
+        "secondLayer": null,
+        "id": "s2"
+      },
+      {
+        "turnId": "t3",
+        "messageIds": [
+          "m3"
+        ],
+        "splitReason": null,
+        "cues": [],
+        "contextCues": [
+          {
+            "messageId": "m2",
+            "quote": "yeah"
+          }
+        ],
+        "rationale": "The single word with a question mark prompts a reply but is too brief to settle its function.",
+        "family": "UNCLEAR",
+        "expression": "UNCLEAR",
+        "confidence": "low",
+        "alternative": {
+          "expression": "A",
+          "rationale": "It could also read as an Adult prompt for more information."
+        },
+        "invites": "UNCLEAR",
+        "secondLayer": null,
+        "id": "s3"
+      },
+      {
+        "turnId": "t4",
+        "messageIds": [
+          "m4"
+        ],
+        "splitReason": null,
+        "cues": [],
+        "contextCues": [
+          {
+            "messageId": "m3",
+            "quote": "and?"
+          }
+        ],
+        "rationale": "The single letter acknowledges but is too brief to show how it functions.",
+        "family": "UNCLEAR",
+        "expression": "UNCLEAR",
+        "confidence": "low",
+        "alternative": {
+          "expression": "AC",
+          "rationale": "It could also read as Adapted Child withdrawing to a minimal reply."
+        },
+        "invites": "UNCLEAR",
+        "secondLayer": null,
+        "id": "s4"
+      },
+      {
+        "turnId": "t5",
+        "messageIds": [
+          "m5"
+        ],
+        "splitReason": null,
+        "cues": [],
+        "contextCues": [
+          {
+            "messageId": "m4",
+            "quote": "k"
+          }
+        ],
+        "rationale": "The brief reaction can read as coming from Child, but whether it is spontaneous or holding back cannot be told from the words alone.",
+        "family": "C",
+        "expression": "UNCLEAR",
+        "confidence": "low",
+        "alternative": {
+          "expression": "AC",
+          "rationale": "It could also read as Adapted Child withdrawing after minimal answers."
+        },
+        "invites": "UNCLEAR",
+        "secondLayer": null,
+        "id": "s5"
+      },
+      {
+        "turnId": "t6",
+        "messageIds": [
+          "m6"
+        ],
+        "splitReason": null,
+        "cues": [],
+        "contextCues": [
+          {
+            "messageId": "m5",
+            "quote": "wow ok"
+          }
+        ],
+        "rationale": "A lone emoji is too brief to settle its function in context.",
+        "family": "UNCLEAR",
+        "expression": "UNCLEAR",
+        "confidence": "low",
+        "alternative": {
+          "expression": "FC",
+          "rationale": "It could also read as Free Child spontaneous laughter."
+        },
+        "invites": "UNCLEAR",
+        "secondLayer": null,
+        "id": "s6"
+      },
+      {
+        "turnId": "t7",
+        "messageIds": [
+          "m7"
+        ],
+        "splitReason": null,
+        "cues": [],
+        "contextCues": [
+          {
+            "messageId": "m6",
+            "quote": "😂"
+          }
+        ],
+        "rationale": "The single question mark seeks something more but is too brief to settle its function.",
+        "family": "UNCLEAR",
+        "expression": "UNCLEAR",
+        "confidence": "low",
+        "alternative": {
+          "expression": "A",
+          "rationale": "It could also read as an Adult request for clarification."
+        },
+        "invites": "UNCLEAR",
+        "secondLayer": null,
+        "id": "s7"
+      },
+      {
+        "turnId": "t8",
+        "messageIds": [
+          "m8"
+        ],
+        "splitReason": null,
+        "cues": [
+          "nothing",
+          "just tired"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m7",
+            "quote": "?"
+          }
+        ],
+        "rationale": "Saying \"nothing\" and naming tiredness can read as holding back and closing further inquiry.",
+        "family": "C",
+        "expression": "AC",
+        "confidence": "low",
+        "alternative": {
+          "expression": "FC",
+          "rationale": "It could also read as Free Child plainly saying tiredness with energy."
+        },
+        "invites": "UNCLEAR",
+        "secondLayer": null,
+        "id": "s8"
+      }
+    ],
+    "analysis": {
+      "context": {
+        "register": "No address terms or closeness markers are visible. The wording is very short and neutral throughout.",
+        "turns": [
+          {
+            "turnId": "t1",
+            "act": "asks whether a message was seen",
+            "respondsTo": null
+          },
+          {
+            "turnId": "t2",
+            "act": "confirms briefly",
+            "respondsTo": "t1"
+          },
+          {
+            "turnId": "t3",
+            "act": "prompts for more",
+            "respondsTo": "t2"
+          },
+          {
+            "turnId": "t4",
+            "act": "gives a minimal acknowledgement",
+            "respondsTo": "t3"
+          },
+          {
+            "turnId": "t5",
+            "act": "gives a brief reaction",
+            "respondsTo": "t4"
+          },
+          {
+            "turnId": "t6",
+            "act": "responds with an emoji",
+            "respondsTo": "t5"
+          },
+          {
+            "turnId": "t7",
+            "act": "asks for clarification",
+            "respondsTo": "t6"
+          },
+          {
+            "turnId": "t8",
+            "act": "downplays and names tiredness",
+            "respondsTo": "t7"
+          }
+        ],
+        "dynamics": "The exchange starts with checking whether a message was seen. Short prompts are answered with very brief replies. The wording then shifts to brief reaction and a closing note about being tired."
+      },
+      "segments": [
+        {
+          "turnId": "t1",
+          "messageIds": [
+            "m1"
+          ],
+          "splitReason": null,
+          "cues": [
+            "did you see my message"
+          ],
+          "contextCues": [],
+          "rationale": "The question checks a present fact and can read as straightforward information-seeking.",
+          "family": "A",
+          "expression": "A",
+          "confidence": "high",
+          "alternative": null,
+          "invites": "A",
+          "secondLayer": null,
+          "id": "s1"
+        },
+        {
+          "turnId": "t2",
+          "messageIds": [
+            "m2"
+          ],
+          "splitReason": null,
+          "cues": [],
+          "contextCues": [
+            {
+              "messageId": "m1",
+              "quote": "did you see my message"
+            }
+          ],
+          "rationale": "The single word confirms but is too brief to show how it functions, so no label can be settled.",
+          "family": "UNCLEAR",
+          "expression": "UNCLEAR",
+          "confidence": "low",
+          "alternative": {
+            "expression": "A",
+            "rationale": "It could also read as a minimal Adult confirmation that the message was seen."
+          },
+          "invites": "UNCLEAR",
+          "secondLayer": null,
+          "id": "s2"
+        },
+        {
+          "turnId": "t3",
+          "messageIds": [
+            "m3"
+          ],
+          "splitReason": null,
+          "cues": [],
+          "contextCues": [
+            {
+              "messageId": "m2",
+              "quote": "yeah"
+            }
+          ],
+          "rationale": "The single word with a question mark prompts a reply but is too brief to settle its function.",
+          "family": "UNCLEAR",
+          "expression": "UNCLEAR",
+          "confidence": "low",
+          "alternative": {
+            "expression": "A",
+            "rationale": "It could also read as an Adult prompt for more information."
+          },
+          "invites": "UNCLEAR",
+          "secondLayer": null,
+          "id": "s3"
+        },
+        {
+          "turnId": "t4",
+          "messageIds": [
+            "m4"
+          ],
+          "splitReason": null,
+          "cues": [],
+          "contextCues": [
+            {
+              "messageId": "m3",
+              "quote": "and?"
+            }
+          ],
+          "rationale": "The single letter acknowledges but is too brief to show how it functions.",
+          "family": "UNCLEAR",
+          "expression": "UNCLEAR",
+          "confidence": "low",
+          "alternative": {
+            "expression": "AC",
+            "rationale": "It could also read as Adapted Child withdrawing to a minimal reply."
+          },
+          "invites": "UNCLEAR",
+          "secondLayer": null,
+          "id": "s4"
+        },
+        {
+          "turnId": "t5",
+          "messageIds": [
+            "m5"
+          ],
+          "splitReason": null,
+          "cues": [],
+          "contextCues": [
+            {
+              "messageId": "m4",
+              "quote": "k"
+            }
+          ],
+          "rationale": "The brief reaction can read as coming from Child, but whether it is spontaneous or holding back cannot be told from the words alone.",
+          "family": "C",
+          "expression": "UNCLEAR",
+          "confidence": "low",
+          "alternative": {
+            "expression": "AC",
+            "rationale": "It could also read as Adapted Child withdrawing after minimal answers."
+          },
+          "invites": "UNCLEAR",
+          "secondLayer": null,
+          "id": "s5"
+        },
+        {
+          "turnId": "t6",
+          "messageIds": [
+            "m6"
+          ],
+          "splitReason": null,
+          "cues": [],
+          "contextCues": [
+            {
+              "messageId": "m5",
+              "quote": "wow ok"
+            }
+          ],
+          "rationale": "A lone emoji is too brief to settle its function in context.",
+          "family": "UNCLEAR",
+          "expression": "UNCLEAR",
+          "confidence": "low",
+          "alternative": {
+            "expression": "FC",
+            "rationale": "It could also read as Free Child spontaneous laughter."
+          },
+          "invites": "UNCLEAR",
+          "secondLayer": null,
+          "id": "s6"
+        },
+        {
+          "turnId": "t7",
+          "messageIds": [
+            "m7"
+          ],
+          "splitReason": null,
+          "cues": [],
+          "contextCues": [
+            {
+              "messageId": "m6",
+              "quote": "😂"
+            }
+          ],
+          "rationale": "The single question mark seeks something more but is too brief to settle its function.",
+          "family": "UNCLEAR",
+          "expression": "UNCLEAR",
+          "confidence": "low",
+          "alternative": {
+            "expression": "A",
+            "rationale": "It could also read as an Adult request for clarification."
+          },
+          "invites": "UNCLEAR",
+          "secondLayer": null,
+          "id": "s7"
+        },
+        {
+          "turnId": "t8",
+          "messageIds": [
+            "m8"
+          ],
+          "splitReason": null,
+          "cues": [
+            "nothing",
+            "just tired"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m7",
+              "quote": "?"
+            }
+          ],
+          "rationale": "Saying \"nothing\" and naming tiredness can read as holding back and closing further inquiry.",
+          "family": "C",
+          "expression": "AC",
+          "confidence": "low",
+          "alternative": {
+            "expression": "FC",
+            "rationale": "It could also read as Free Child plainly saying tiredness with energy."
+          },
+          "invites": "UNCLEAR",
+          "secondLayer": null,
+          "id": "s8"
+        }
+      ],
+      "shifts": [
+        {
+          "messageId": "m5",
+          "description": "The words shift from checking for a reply to a brief reaction.",
+          "cues": [
+            "wow ok"
+          ]
+        },
+        {
+          "messageId": "m8",
+          "description": "The words shift from brief prompts and reactions to naming tiredness and closing the topic.",
+          "cues": [
+            "nothing, just tired"
+          ]
+        }
+      ],
+      "summary": "Person A asks about a prior message and prompts for more, while Person B answers very briefly. Person A shows a brief reaction to the minimal replies, Person B responds with an emoji, and the exchange closes with Person B naming tiredness.",
+      "uncertainty": "Tone of voice, facial expression, prior history, and what the unseen message contained cannot be known from the text alone, so the brief replies remain open to more than one reading.",
+      "safety": {
+        "flagged": false,
+        "categories": [],
+        "note": null
+      },
+      "readings": [
+        {
+          "splitReason": null,
+          "cues": [
+            "did you see my message"
+          ],
+          "contextCues": [],
+          "rationale": "The question checks a present fact and can read as straightforward information-seeking.",
+          "family": "A",
+          "expression": "A",
+          "confidence": "high",
+          "alternative": null,
+          "invites": "A",
+          "secondLayer": null,
+          "messageId": "m1",
+          "segmentId": "s1"
+        },
+        {
+          "splitReason": null,
+          "cues": [],
+          "contextCues": [
+            {
+              "messageId": "m1",
+              "quote": "did you see my message"
+            }
+          ],
+          "rationale": "The single word confirms but is too brief to show how it functions, so no label can be settled.",
+          "family": "UNCLEAR",
+          "expression": "UNCLEAR",
+          "confidence": "low",
+          "alternative": {
+            "expression": "A",
+            "rationale": "It could also read as a minimal Adult confirmation that the message was seen."
+          },
+          "invites": "UNCLEAR",
+          "secondLayer": null,
+          "messageId": "m2",
+          "segmentId": "s2"
+        },
+        {
+          "splitReason": null,
+          "cues": [],
+          "contextCues": [
+            {
+              "messageId": "m2",
+              "quote": "yeah"
+            }
+          ],
+          "rationale": "The single word with a question mark prompts a reply but is too brief to settle its function.",
+          "family": "UNCLEAR",
+          "expression": "UNCLEAR",
+          "confidence": "low",
+          "alternative": {
+            "expression": "A",
+            "rationale": "It could also read as an Adult prompt for more information."
+          },
+          "invites": "UNCLEAR",
+          "secondLayer": null,
+          "messageId": "m3",
+          "segmentId": "s3"
+        },
+        {
+          "splitReason": null,
+          "cues": [],
+          "contextCues": [
+            {
+              "messageId": "m3",
+              "quote": "and?"
+            }
+          ],
+          "rationale": "The single letter acknowledges but is too brief to show how it functions.",
+          "family": "UNCLEAR",
+          "expression": "UNCLEAR",
+          "confidence": "low",
+          "alternative": {
+            "expression": "AC",
+            "rationale": "It could also read as Adapted Child withdrawing to a minimal reply."
+          },
+          "invites": "UNCLEAR",
+          "secondLayer": null,
+          "messageId": "m4",
+          "segmentId": "s4"
+        },
+        {
+          "splitReason": null,
+          "cues": [],
+          "contextCues": [
+            {
+              "messageId": "m4",
+              "quote": "k"
+            }
+          ],
+          "rationale": "The brief reaction can read as coming from Child, but whether it is spontaneous or holding back cannot be told from the words alone.",
+          "family": "C",
+          "expression": "UNCLEAR",
+          "confidence": "low",
+          "alternative": {
+            "expression": "AC",
+            "rationale": "It could also read as Adapted Child withdrawing after minimal answers."
+          },
+          "invites": "UNCLEAR",
+          "secondLayer": null,
+          "messageId": "m5",
+          "segmentId": "s5"
+        },
+        {
+          "splitReason": null,
+          "cues": [],
+          "contextCues": [
+            {
+              "messageId": "m5",
+              "quote": "wow ok"
+            }
+          ],
+          "rationale": "A lone emoji is too brief to settle its function in context.",
+          "family": "UNCLEAR",
+          "expression": "UNCLEAR",
+          "confidence": "low",
+          "alternative": {
+            "expression": "FC",
+            "rationale": "It could also read as Free Child spontaneous laughter."
+          },
+          "invites": "UNCLEAR",
+          "secondLayer": null,
+          "messageId": "m6",
+          "segmentId": "s6"
+        },
+        {
+          "splitReason": null,
+          "cues": [],
+          "contextCues": [
+            {
+              "messageId": "m6",
+              "quote": "😂"
+            }
+          ],
+          "rationale": "The single question mark seeks something more but is too brief to settle its function.",
+          "family": "UNCLEAR",
+          "expression": "UNCLEAR",
+          "confidence": "low",
+          "alternative": {
+            "expression": "A",
+            "rationale": "It could also read as an Adult request for clarification."
+          },
+          "invites": "UNCLEAR",
+          "secondLayer": null,
+          "messageId": "m7",
+          "segmentId": "s7"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "nothing",
+            "just tired"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m7",
+              "quote": "?"
+            }
+          ],
+          "rationale": "Saying \"nothing\" and naming tiredness can read as holding back and closing further inquiry.",
+          "family": "C",
+          "expression": "AC",
+          "confidence": "low",
+          "alternative": {
+            "expression": "FC",
+            "rationale": "It could also read as Free Child plainly saying tiredness with energy."
+          },
+          "invites": "UNCLEAR",
+          "secondLayer": null,
+          "messageId": "m8",
+          "segmentId": "s8"
+        }
+      ]
+    }
+  },
+  "score": {
+    "per": [
+      {
+        "id": "m1",
+        "expr": "A",
+        "family": "A",
+        "conf": "high",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m2",
+        "expr": "UNCLEAR",
+        "family": "UNCLEAR",
+        "conf": "low",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m3",
+        "expr": "UNCLEAR",
+        "family": "UNCLEAR",
+        "conf": "low",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m4",
+        "expr": "UNCLEAR",
+        "family": "UNCLEAR",
+        "conf": "low",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m5",
+        "expr": "UNCLEAR",
+        "family": "C",
+        "conf": "low",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m6",
+        "expr": "UNCLEAR",
+        "family": "UNCLEAR",
+        "conf": "low",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m7",
+        "expr": "UNCLEAR",
+        "family": "UNCLEAR",
+        "conf": "low",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m8",
+        "expr": "AC",
+        "family": "C",
+        "conf": "low",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      }
+    ],
+    "n": 8,
+    "accOk": 8,
+    "hardFails": [],
+    "overCeiling": [],
+    "highOnReview": 0,
+    "altMissing": 0,
+    "unclear": 6,
+    "high": 1
+  }
+}

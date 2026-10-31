@@ -1,0 +1,1289 @@
+{
+  "meta": {
+    "spec": "v3",
+    "fixture": "en2-sibling",
+    "variant": "selfB",
+    "latencyMs": 26881,
+    "usd": 0.025628249999999998,
+    "usage": {
+      "completion_tokens": 5144,
+      "prompt_tokens": 3013,
+      "total_tokens": 8157,
+      "completion_tokens_details": {
+        "reasoning_tokens": 3449
+      },
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "finish": "stop"
+  },
+  "raw": {
+    "context": {
+      "dynamics": "The exchange starts with a check about a task and an apology for forgetting. A general criticism is answered with a pushback, then followed by acknowledgement, an offer of help, and grateful acceptance.",
+      "register": "Everyday English with no formal markers. Mention of \"Mum's birthday\" suggests a shared family context and close relationship.",
+      "turns": [
+        {
+          "act": "asks whether the restaurant was booked",
+          "respondsTo": null,
+          "turnId": "t1"
+        },
+        {
+          "act": "apologises for forgetting",
+          "respondsTo": "t1",
+          "turnId": "t2"
+        },
+        {
+          "act": "criticises reliability in general terms",
+          "respondsTo": "t2",
+          "turnId": "t3"
+        },
+        {
+          "act": "pushes back and cites past contributions",
+          "respondsTo": "t3",
+          "turnId": "t4"
+        },
+        {
+          "act": "concedes the point and describes stress",
+          "respondsTo": "t4",
+          "turnId": "t5"
+        },
+        {
+          "act": "offers sympathy and proposes help",
+          "respondsTo": "t5",
+          "turnId": "t6"
+        },
+        {
+          "act": "accepts the offer gratefully",
+          "respondsTo": "t6",
+          "turnId": "t7"
+        },
+        {
+          "act": "agrees playfully and closes warmly",
+          "respondsTo": "t7",
+          "turnId": "t8"
+        }
+      ]
+    },
+    "safety": {
+      "categories": [],
+      "flagged": false,
+      "note": null
+    },
+    "segments": [
+      {
+        "alternative": {
+          "expression": "CP",
+          "rationale": "The phrase 'like you said' could also read as holding Person B to a commitment."
+        },
+        "confidence": "medium",
+        "contextCues": [],
+        "cues": [
+          "Mum's birthday is Sunday.",
+          "Did you book the restaurant like you said?"
+        ],
+        "expression": "A",
+        "family": "A",
+        "invites": "A",
+        "messageIds": [
+          "m1"
+        ],
+        "rationale": "Asks for a fact about the booking, can read as straightforward checking of the plan in the present.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t1"
+      },
+      {
+        "alternative": {
+          "expression": "FC",
+          "rationale": "The 'Oh no.' and '!!' also carry spontaneous dismay."
+        },
+        "confidence": "medium",
+        "contextCues": [
+          {
+            "messageId": "m1",
+            "quote": "Did you book the restaurant like you said?"
+          }
+        ],
+        "cues": [
+          "I completely forgot.",
+          "I'm so sorry!!"
+        ],
+        "expression": "AC",
+        "family": "C",
+        "invites": "P",
+        "messageIds": [
+          "m2"
+        ],
+        "rationale": "Admits forgetting and says sorry directly, can read as yielding after the question about the booking.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t2"
+      },
+      {
+        "alternative": null,
+        "confidence": "high",
+        "contextCues": [
+          {
+            "messageId": "m2",
+            "quote": "I completely forgot. I'm so sorry!!"
+          }
+        ],
+        "cues": [
+          "Typical.",
+          "You never follow through on anything."
+        ],
+        "expression": "CP",
+        "family": "P",
+        "invites": "C",
+        "messageIds": [
+          "m3"
+        ],
+        "rationale": "Generalises about the other with 'never' and labels the behaviour, can read as evaluating rather than asking for information.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t3"
+      },
+      {
+        "alternative": {
+          "expression": "A",
+          "rationale": "It also cites checkable history that could read as stating facts."
+        },
+        "confidence": "medium",
+        "contextCues": [
+          {
+            "messageId": "m3",
+            "quote": "You never follow through on anything."
+          }
+        ],
+        "cues": [
+          "That's not fair.",
+          "I organised the last three family things."
+        ],
+        "expression": "AC",
+        "family": "C",
+        "invites": "A",
+        "messageIds": [
+          "m4"
+        ],
+        "rationale": "Protests the previous verdict and counters it, can read as pushing back against the criticism.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t4"
+      },
+      {
+        "alternative": {
+          "expression": "AC",
+          "rationale": "The quick 'Okay, fair.' could also read as giving in to smooth things over."
+        },
+        "confidence": "medium",
+        "contextCues": [
+          {
+            "messageId": "m4",
+            "quote": "That's not fair. I organised the last three family things."
+          }
+        ],
+        "cues": [
+          "Okay, fair.",
+          "I'm just stressed"
+        ],
+        "expression": "A",
+        "family": "A",
+        "invites": "P",
+        "messageIds": [
+          "m5"
+        ],
+        "rationale": "Walks back the previous generalisation and names current pressure plainly, can read as returning to present facts.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t5"
+      },
+      {
+        "alternative": null,
+        "confidence": "high",
+        "contextCues": [
+          {
+            "messageId": "m5",
+            "quote": "I'm just stressed, work has been a lot."
+          }
+        ],
+        "cues": [
+          "That sounds rough.",
+          "Want me to call a few places tonight"
+        ],
+        "expression": "NP",
+        "family": "P",
+        "invites": "A",
+        "messageIds": [
+          "m6"
+        ],
+        "rationale": "Shows care for the stress described and offers practical help for the other's sake, can read as comfort plus support.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t6"
+      },
+      {
+        "alternative": {
+          "expression": "AC",
+          "rationale": "It could also read as grateful going along with the offer."
+        },
+        "confidence": "medium",
+        "contextCues": [
+          {
+            "messageId": "m6",
+            "quote": "Want me to call a few places tonight and send you options?"
+          }
+        ],
+        "cues": [
+          "Yes please,",
+          "that would help a lot"
+        ],
+        "expression": "A",
+        "family": "A",
+        "invites": "A",
+        "messageIds": [
+          "m7"
+        ],
+        "rationale": "Accepts the proposal directly and states it would help, can read as a plain decision about the plan.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t7"
+      },
+      {
+        "alternative": null,
+        "confidence": "high",
+        "contextCues": [
+          {
+            "messageId": "m7",
+            "quote": "Yes please, that would help a lot 🙏"
+          }
+        ],
+        "cues": [
+          "Haha deal.",
+          "best birthday ever!"
+        ],
+        "expression": "FC",
+        "family": "C",
+        "invites": "C",
+        "messageIds": [
+          "m8"
+        ],
+        "rationale": "Laughs and speaks with upbeat energy about the birthday, can read as spontaneous playfulness.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t8"
+      }
+    ],
+    "shifts": [
+      {
+        "cues": [
+          "Typical.",
+          "You never follow through on anything."
+        ],
+        "description": "The words move from apology about forgetting to general criticism.",
+        "messageId": "m3"
+      },
+      {
+        "cues": [
+          "Okay, fair.",
+          "I'm just stressed"
+        ],
+        "description": "The words move from defence and counter-argument to concession and mention of stress.",
+        "messageId": "m5"
+      },
+      {
+        "cues": [
+          "That sounds rough.",
+          "Want me to call a few places"
+        ],
+        "description": "The words move from tension about fairness to sympathy and a practical offer.",
+        "messageId": "m6"
+      }
+    ],
+    "summary": "Person A checks on the booking, Person B apologises for forgetting, and the exchange becomes tense with criticism and pushback. Person A then concedes and mentions stress, Person B offers care and practical help, and both close with agreement and light humour.",
+    "uncertainty": "Text alone cannot show tone of voice, facial expression, or history around family tasks and work stress, which could change how these short messages read."
+  },
+  "normalized": {
+    "readings": [
+      {
+        "splitReason": null,
+        "cues": [
+          "Mum's birthday is Sunday.",
+          "Did you book the restaurant like you said?"
+        ],
+        "contextCues": [],
+        "rationale": "Asks for a fact about the booking, can read as straightforward checking of the plan in the present.",
+        "family": "A",
+        "expression": "A",
+        "confidence": "medium",
+        "alternative": {
+          "expression": "CP",
+          "rationale": "The phrase 'like you said' could also read as holding Person B to a commitment."
+        },
+        "invites": "A",
+        "secondLayer": null,
+        "messageId": "m1",
+        "segmentId": "s1"
+      },
+      {
+        "splitReason": null,
+        "cues": [
+          "I completely forgot.",
+          "I'm so sorry!!"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m1",
+            "quote": "Did you book the restaurant like you said?"
+          }
+        ],
+        "rationale": "Admits forgetting and says sorry directly, can read as yielding after the question about the booking.",
+        "family": "C",
+        "expression": "AC",
+        "confidence": "medium",
+        "alternative": {
+          "expression": "FC",
+          "rationale": "The 'Oh no.' and '!!' also carry spontaneous dismay."
+        },
+        "invites": "P",
+        "secondLayer": null,
+        "messageId": "m2",
+        "segmentId": "s2"
+      },
+      {
+        "splitReason": null,
+        "cues": [
+          "Typical.",
+          "You never follow through on anything."
+        ],
+        "contextCues": [
+          {
+            "messageId": "m2",
+            "quote": "I completely forgot. I'm so sorry!!"
+          }
+        ],
+        "rationale": "Generalises about the other with 'never' and labels the behaviour, can read as evaluating rather than asking for information.",
+        "family": "P",
+        "expression": "CP",
+        "confidence": "high",
+        "alternative": null,
+        "invites": "C",
+        "secondLayer": null,
+        "messageId": "m3",
+        "segmentId": "s3"
+      },
+      {
+        "splitReason": null,
+        "cues": [
+          "That's not fair.",
+          "I organised the last three family things."
+        ],
+        "contextCues": [
+          {
+            "messageId": "m3",
+            "quote": "You never follow through on anything."
+          }
+        ],
+        "rationale": "Protests the previous verdict and counters it, can read as pushing back against the criticism.",
+        "family": "C",
+        "expression": "AC",
+        "confidence": "medium",
+        "alternative": {
+          "expression": "A",
+          "rationale": "It also cites checkable history that could read as stating facts."
+        },
+        "invites": "A",
+        "secondLayer": null,
+        "messageId": "m4",
+        "segmentId": "s4"
+      },
+      {
+        "splitReason": null,
+        "cues": [
+          "Okay, fair.",
+          "I'm just stressed"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m4",
+            "quote": "That's not fair. I organised the last three family things."
+          }
+        ],
+        "rationale": "Walks back the previous generalisation and names current pressure plainly, can read as returning to present facts.",
+        "family": "A",
+        "expression": "A",
+        "confidence": "medium",
+        "alternative": {
+          "expression": "AC",
+          "rationale": "The quick 'Okay, fair.' could also read as giving in to smooth things over."
+        },
+        "invites": "P",
+        "secondLayer": null,
+        "messageId": "m5",
+        "segmentId": "s5"
+      },
+      {
+        "splitReason": null,
+        "cues": [
+          "That sounds rough.",
+          "Want me to call a few places tonight"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m5",
+            "quote": "I'm just stressed, work has been a lot."
+          }
+        ],
+        "rationale": "Shows care for the stress described and offers practical help for the other's sake, can read as comfort plus support.",
+        "family": "P",
+        "expression": "NP",
+        "confidence": "high",
+        "alternative": null,
+        "invites": "A",
+        "secondLayer": null,
+        "messageId": "m6",
+        "segmentId": "s6"
+      },
+      {
+        "splitReason": null,
+        "cues": [
+          "Yes please,",
+          "that would help a lot"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m6",
+            "quote": "Want me to call a few places tonight and send you options?"
+          }
+        ],
+        "rationale": "Accepts the proposal directly and states it would help, can read as a plain decision about the plan.",
+        "family": "A",
+        "expression": "A",
+        "confidence": "medium",
+        "alternative": {
+          "expression": "AC",
+          "rationale": "It could also read as grateful going along with the offer."
+        },
+        "invites": "A",
+        "secondLayer": null,
+        "messageId": "m7",
+        "segmentId": "s7"
+      },
+      {
+        "splitReason": null,
+        "cues": [
+          "Haha deal.",
+          "best birthday ever!"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m7",
+            "quote": "Yes please, that would help a lot 🙏"
+          }
+        ],
+        "rationale": "Laughs and speaks with upbeat energy about the birthday, can read as spontaneous playfulness.",
+        "family": "C",
+        "expression": "FC",
+        "confidence": "high",
+        "alternative": null,
+        "invites": "C",
+        "secondLayer": null,
+        "messageId": "m8",
+        "segmentId": "s8"
+      }
+    ],
+    "segments": [
+      {
+        "turnId": "t1",
+        "messageIds": [
+          "m1"
+        ],
+        "splitReason": null,
+        "cues": [
+          "Mum's birthday is Sunday.",
+          "Did you book the restaurant like you said?"
+        ],
+        "contextCues": [],
+        "rationale": "Asks for a fact about the booking, can read as straightforward checking of the plan in the present.",
+        "family": "A",
+        "expression": "A",
+        "confidence": "medium",
+        "alternative": {
+          "expression": "CP",
+          "rationale": "The phrase 'like you said' could also read as holding Person B to a commitment."
+        },
+        "invites": "A",
+        "secondLayer": null,
+        "id": "s1"
+      },
+      {
+        "turnId": "t2",
+        "messageIds": [
+          "m2"
+        ],
+        "splitReason": null,
+        "cues": [
+          "I completely forgot.",
+          "I'm so sorry!!"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m1",
+            "quote": "Did you book the restaurant like you said?"
+          }
+        ],
+        "rationale": "Admits forgetting and says sorry directly, can read as yielding after the question about the booking.",
+        "family": "C",
+        "expression": "AC",
+        "confidence": "medium",
+        "alternative": {
+          "expression": "FC",
+          "rationale": "The 'Oh no.' and '!!' also carry spontaneous dismay."
+        },
+        "invites": "P",
+        "secondLayer": null,
+        "id": "s2"
+      },
+      {
+        "turnId": "t3",
+        "messageIds": [
+          "m3"
+        ],
+        "splitReason": null,
+        "cues": [
+          "Typical.",
+          "You never follow through on anything."
+        ],
+        "contextCues": [
+          {
+            "messageId": "m2",
+            "quote": "I completely forgot. I'm so sorry!!"
+          }
+        ],
+        "rationale": "Generalises about the other with 'never' and labels the behaviour, can read as evaluating rather than asking for information.",
+        "family": "P",
+        "expression": "CP",
+        "confidence": "high",
+        "alternative": null,
+        "invites": "C",
+        "secondLayer": null,
+        "id": "s3"
+      },
+      {
+        "turnId": "t4",
+        "messageIds": [
+          "m4"
+        ],
+        "splitReason": null,
+        "cues": [
+          "That's not fair.",
+          "I organised the last three family things."
+        ],
+        "contextCues": [
+          {
+            "messageId": "m3",
+            "quote": "You never follow through on anything."
+          }
+        ],
+        "rationale": "Protests the previous verdict and counters it, can read as pushing back against the criticism.",
+        "family": "C",
+        "expression": "AC",
+        "confidence": "medium",
+        "alternative": {
+          "expression": "A",
+          "rationale": "It also cites checkable history that could read as stating facts."
+        },
+        "invites": "A",
+        "secondLayer": null,
+        "id": "s4"
+      },
+      {
+        "turnId": "t5",
+        "messageIds": [
+          "m5"
+        ],
+        "splitReason": null,
+        "cues": [
+          "Okay, fair.",
+          "I'm just stressed"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m4",
+            "quote": "That's not fair. I organised the last three family things."
+          }
+        ],
+        "rationale": "Walks back the previous generalisation and names current pressure plainly, can read as returning to present facts.",
+        "family": "A",
+        "expression": "A",
+        "confidence": "medium",
+        "alternative": {
+          "expression": "AC",
+          "rationale": "The quick 'Okay, fair.' could also read as giving in to smooth things over."
+        },
+        "invites": "P",
+        "secondLayer": null,
+        "id": "s5"
+      },
+      {
+        "turnId": "t6",
+        "messageIds": [
+          "m6"
+        ],
+        "splitReason": null,
+        "cues": [
+          "That sounds rough.",
+          "Want me to call a few places tonight"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m5",
+            "quote": "I'm just stressed, work has been a lot."
+          }
+        ],
+        "rationale": "Shows care for the stress described and offers practical help for the other's sake, can read as comfort plus support.",
+        "family": "P",
+        "expression": "NP",
+        "confidence": "high",
+        "alternative": null,
+        "invites": "A",
+        "secondLayer": null,
+        "id": "s6"
+      },
+      {
+        "turnId": "t7",
+        "messageIds": [
+          "m7"
+        ],
+        "splitReason": null,
+        "cues": [
+          "Yes please,",
+          "that would help a lot"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m6",
+            "quote": "Want me to call a few places tonight and send you options?"
+          }
+        ],
+        "rationale": "Accepts the proposal directly and states it would help, can read as a plain decision about the plan.",
+        "family": "A",
+        "expression": "A",
+        "confidence": "medium",
+        "alternative": {
+          "expression": "AC",
+          "rationale": "It could also read as grateful going along with the offer."
+        },
+        "invites": "A",
+        "secondLayer": null,
+        "id": "s7"
+      },
+      {
+        "turnId": "t8",
+        "messageIds": [
+          "m8"
+        ],
+        "splitReason": null,
+        "cues": [
+          "Haha deal.",
+          "best birthday ever!"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m7",
+            "quote": "Yes please, that would help a lot 🙏"
+          }
+        ],
+        "rationale": "Laughs and speaks with upbeat energy about the birthday, can read as spontaneous playfulness.",
+        "family": "C",
+        "expression": "FC",
+        "confidence": "high",
+        "alternative": null,
+        "invites": "C",
+        "secondLayer": null,
+        "id": "s8"
+      }
+    ],
+    "analysis": {
+      "context": {
+        "register": "Everyday English with no formal markers. Mention of \"Mum's birthday\" suggests a shared family context and close relationship.",
+        "turns": [
+          {
+            "turnId": "t1",
+            "act": "asks whether the restaurant was booked",
+            "respondsTo": null
+          },
+          {
+            "turnId": "t2",
+            "act": "apologises for forgetting",
+            "respondsTo": "t1"
+          },
+          {
+            "turnId": "t3",
+            "act": "criticises reliability in general terms",
+            "respondsTo": "t2"
+          },
+          {
+            "turnId": "t4",
+            "act": "pushes back and cites past contributions",
+            "respondsTo": "t3"
+          },
+          {
+            "turnId": "t5",
+            "act": "concedes the point and describes stress",
+            "respondsTo": "t4"
+          },
+          {
+            "turnId": "t6",
+            "act": "offers sympathy and proposes help",
+            "respondsTo": "t5"
+          },
+          {
+            "turnId": "t7",
+            "act": "accepts the offer gratefully",
+            "respondsTo": "t6"
+          },
+          {
+            "turnId": "t8",
+            "act": "agrees playfully and closes warmly",
+            "respondsTo": "t7"
+          }
+        ],
+        "dynamics": "The exchange starts with a check about a task and an apology for forgetting. A general criticism is answered with a pushback, then followed by acknowledgement, an offer of help, and grateful acceptance."
+      },
+      "segments": [
+        {
+          "turnId": "t1",
+          "messageIds": [
+            "m1"
+          ],
+          "splitReason": null,
+          "cues": [
+            "Mum's birthday is Sunday.",
+            "Did you book the restaurant like you said?"
+          ],
+          "contextCues": [],
+          "rationale": "Asks for a fact about the booking, can read as straightforward checking of the plan in the present.",
+          "family": "A",
+          "expression": "A",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "CP",
+            "rationale": "The phrase 'like you said' could also read as holding Person B to a commitment."
+          },
+          "invites": "A",
+          "secondLayer": null,
+          "id": "s1"
+        },
+        {
+          "turnId": "t2",
+          "messageIds": [
+            "m2"
+          ],
+          "splitReason": null,
+          "cues": [
+            "I completely forgot.",
+            "I'm so sorry!!"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m1",
+              "quote": "Did you book the restaurant like you said?"
+            }
+          ],
+          "rationale": "Admits forgetting and says sorry directly, can read as yielding after the question about the booking.",
+          "family": "C",
+          "expression": "AC",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "FC",
+            "rationale": "The 'Oh no.' and '!!' also carry spontaneous dismay."
+          },
+          "invites": "P",
+          "secondLayer": null,
+          "id": "s2"
+        },
+        {
+          "turnId": "t3",
+          "messageIds": [
+            "m3"
+          ],
+          "splitReason": null,
+          "cues": [
+            "Typical.",
+            "You never follow through on anything."
+          ],
+          "contextCues": [
+            {
+              "messageId": "m2",
+              "quote": "I completely forgot. I'm so sorry!!"
+            }
+          ],
+          "rationale": "Generalises about the other with 'never' and labels the behaviour, can read as evaluating rather than asking for information.",
+          "family": "P",
+          "expression": "CP",
+          "confidence": "high",
+          "alternative": null,
+          "invites": "C",
+          "secondLayer": null,
+          "id": "s3"
+        },
+        {
+          "turnId": "t4",
+          "messageIds": [
+            "m4"
+          ],
+          "splitReason": null,
+          "cues": [
+            "That's not fair.",
+            "I organised the last three family things."
+          ],
+          "contextCues": [
+            {
+              "messageId": "m3",
+              "quote": "You never follow through on anything."
+            }
+          ],
+          "rationale": "Protests the previous verdict and counters it, can read as pushing back against the criticism.",
+          "family": "C",
+          "expression": "AC",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "A",
+            "rationale": "It also cites checkable history that could read as stating facts."
+          },
+          "invites": "A",
+          "secondLayer": null,
+          "id": "s4"
+        },
+        {
+          "turnId": "t5",
+          "messageIds": [
+            "m5"
+          ],
+          "splitReason": null,
+          "cues": [
+            "Okay, fair.",
+            "I'm just stressed"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m4",
+              "quote": "That's not fair. I organised the last three family things."
+            }
+          ],
+          "rationale": "Walks back the previous generalisation and names current pressure plainly, can read as returning to present facts.",
+          "family": "A",
+          "expression": "A",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "AC",
+            "rationale": "The quick 'Okay, fair.' could also read as giving in to smooth things over."
+          },
+          "invites": "P",
+          "secondLayer": null,
+          "id": "s5"
+        },
+        {
+          "turnId": "t6",
+          "messageIds": [
+            "m6"
+          ],
+          "splitReason": null,
+          "cues": [
+            "That sounds rough.",
+            "Want me to call a few places tonight"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m5",
+              "quote": "I'm just stressed, work has been a lot."
+            }
+          ],
+          "rationale": "Shows care for the stress described and offers practical help for the other's sake, can read as comfort plus support.",
+          "family": "P",
+          "expression": "NP",
+          "confidence": "high",
+          "alternative": null,
+          "invites": "A",
+          "secondLayer": null,
+          "id": "s6"
+        },
+        {
+          "turnId": "t7",
+          "messageIds": [
+            "m7"
+          ],
+          "splitReason": null,
+          "cues": [
+            "Yes please,",
+            "that would help a lot"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m6",
+              "quote": "Want me to call a few places tonight and send you options?"
+            }
+          ],
+          "rationale": "Accepts the proposal directly and states it would help, can read as a plain decision about the plan.",
+          "family": "A",
+          "expression": "A",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "AC",
+            "rationale": "It could also read as grateful going along with the offer."
+          },
+          "invites": "A",
+          "secondLayer": null,
+          "id": "s7"
+        },
+        {
+          "turnId": "t8",
+          "messageIds": [
+            "m8"
+          ],
+          "splitReason": null,
+          "cues": [
+            "Haha deal.",
+            "best birthday ever!"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m7",
+              "quote": "Yes please, that would help a lot 🙏"
+            }
+          ],
+          "rationale": "Laughs and speaks with upbeat energy about the birthday, can read as spontaneous playfulness.",
+          "family": "C",
+          "expression": "FC",
+          "confidence": "high",
+          "alternative": null,
+          "invites": "C",
+          "secondLayer": null,
+          "id": "s8"
+        }
+      ],
+      "shifts": [
+        {
+          "messageId": "m3",
+          "description": "The words move from apology about forgetting to general criticism.",
+          "cues": [
+            "Typical.",
+            "You never follow through on anything."
+          ]
+        },
+        {
+          "messageId": "m5",
+          "description": "The words move from defence and counter-argument to concession and mention of stress.",
+          "cues": [
+            "Okay, fair.",
+            "I'm just stressed"
+          ]
+        },
+        {
+          "messageId": "m6",
+          "description": "The words move from tension about fairness to sympathy and a practical offer.",
+          "cues": [
+            "That sounds rough.",
+            "Want me to call a few places"
+          ]
+        }
+      ],
+      "summary": "Person A checks on the booking, Person B apologises for forgetting, and the exchange becomes tense with criticism and pushback. Person A then concedes and mentions stress, Person B offers care and practical help, and both close with agreement and light humour.",
+      "uncertainty": "Text alone cannot show tone of voice, facial expression, or history around family tasks and work stress, which could change how these short messages read.",
+      "safety": {
+        "flagged": false,
+        "categories": [],
+        "note": null
+      },
+      "readings": [
+        {
+          "splitReason": null,
+          "cues": [
+            "Mum's birthday is Sunday.",
+            "Did you book the restaurant like you said?"
+          ],
+          "contextCues": [],
+          "rationale": "Asks for a fact about the booking, can read as straightforward checking of the plan in the present.",
+          "family": "A",
+          "expression": "A",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "CP",
+            "rationale": "The phrase 'like you said' could also read as holding Person B to a commitment."
+          },
+          "invites": "A",
+          "secondLayer": null,
+          "messageId": "m1",
+          "segmentId": "s1"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "I completely forgot.",
+            "I'm so sorry!!"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m1",
+              "quote": "Did you book the restaurant like you said?"
+            }
+          ],
+          "rationale": "Admits forgetting and says sorry directly, can read as yielding after the question about the booking.",
+          "family": "C",
+          "expression": "AC",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "FC",
+            "rationale": "The 'Oh no.' and '!!' also carry spontaneous dismay."
+          },
+          "invites": "P",
+          "secondLayer": null,
+          "messageId": "m2",
+          "segmentId": "s2"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "Typical.",
+            "You never follow through on anything."
+          ],
+          "contextCues": [
+            {
+              "messageId": "m2",
+              "quote": "I completely forgot. I'm so sorry!!"
+            }
+          ],
+          "rationale": "Generalises about the other with 'never' and labels the behaviour, can read as evaluating rather than asking for information.",
+          "family": "P",
+          "expression": "CP",
+          "confidence": "high",
+          "alternative": null,
+          "invites": "C",
+          "secondLayer": null,
+          "messageId": "m3",
+          "segmentId": "s3"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "That's not fair.",
+            "I organised the last three family things."
+          ],
+          "contextCues": [
+            {
+              "messageId": "m3",
+              "quote": "You never follow through on anything."
+            }
+          ],
+          "rationale": "Protests the previous verdict and counters it, can read as pushing back against the criticism.",
+          "family": "C",
+          "expression": "AC",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "A",
+            "rationale": "It also cites checkable history that could read as stating facts."
+          },
+          "invites": "A",
+          "secondLayer": null,
+          "messageId": "m4",
+          "segmentId": "s4"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "Okay, fair.",
+            "I'm just stressed"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m4",
+              "quote": "That's not fair. I organised the last three family things."
+            }
+          ],
+          "rationale": "Walks back the previous generalisation and names current pressure plainly, can read as returning to present facts.",
+          "family": "A",
+          "expression": "A",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "AC",
+            "rationale": "The quick 'Okay, fair.' could also read as giving in to smooth things over."
+          },
+          "invites": "P",
+          "secondLayer": null,
+          "messageId": "m5",
+          "segmentId": "s5"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "That sounds rough.",
+            "Want me to call a few places tonight"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m5",
+              "quote": "I'm just stressed, work has been a lot."
+            }
+          ],
+          "rationale": "Shows care for the stress described and offers practical help for the other's sake, can read as comfort plus support.",
+          "family": "P",
+          "expression": "NP",
+          "confidence": "high",
+          "alternative": null,
+          "invites": "A",
+          "secondLayer": null,
+          "messageId": "m6",
+          "segmentId": "s6"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "Yes please,",
+            "that would help a lot"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m6",
+              "quote": "Want me to call a few places tonight and send you options?"
+            }
+          ],
+          "rationale": "Accepts the proposal directly and states it would help, can read as a plain decision about the plan.",
+          "family": "A",
+          "expression": "A",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "AC",
+            "rationale": "It could also read as grateful going along with the offer."
+          },
+          "invites": "A",
+          "secondLayer": null,
+          "messageId": "m7",
+          "segmentId": "s7"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "Haha deal.",
+            "best birthday ever!"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m7",
+              "quote": "Yes please, that would help a lot 🙏"
+            }
+          ],
+          "rationale": "Laughs and speaks with upbeat energy about the birthday, can read as spontaneous playfulness.",
+          "family": "C",
+          "expression": "FC",
+          "confidence": "high",
+          "alternative": null,
+          "invites": "C",
+          "secondLayer": null,
+          "messageId": "m8",
+          "segmentId": "s8"
+        }
+      ]
+    }
+  },
+  "score": {
+    "per": [
+      {
+        "id": "m1",
+        "expr": "A",
+        "family": "A",
+        "conf": "medium",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m2",
+        "expr": "AC",
+        "family": "C",
+        "conf": "medium",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m3",
+        "expr": "CP",
+        "family": "P",
+        "conf": "high",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m4",
+        "expr": "AC",
+        "family": "C",
+        "conf": "medium",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m5",
+        "expr": "A",
+        "family": "A",
+        "conf": "medium",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m6",
+        "expr": "NP",
+        "family": "P",
+        "conf": "high",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m7",
+        "expr": "A",
+        "family": "A",
+        "conf": "medium",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m8",
+        "expr": "FC",
+        "family": "C",
+        "conf": "high",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      }
+    ],
+    "n": 8,
+    "accOk": 8,
+    "hardFails": [],
+    "overCeiling": [],
+    "highOnReview": 0,
+    "altMissing": 0,
+    "unclear": 0,
+    "high": 3
+  }
+}

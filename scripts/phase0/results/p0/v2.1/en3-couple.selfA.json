@@ -1,0 +1,382 @@
+{
+  "meta": {
+    "spec": "v2.1",
+    "fixture": "en3-couple",
+    "variant": "selfA",
+    "latencyMs": 21027,
+    "usd": 0.0259435,
+    "usage": {
+      "completion_tokens": 5412,
+      "prompt_tokens": 2354,
+      "total_tokens": 7766,
+      "completion_tokens_details": {
+        "reasoning_tokens": 4119
+      },
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "finish": "stop"
+  },
+  "raw": {
+    "exchanges": [
+      {
+        "note": "A practical request is followed by a general criticism about past behavior.",
+        "pattern": "crossed",
+        "responseAddresses": "C",
+        "responseFrom": "P",
+        "responseId": "m2",
+        "stimulusAddresses": "A",
+        "stimulusFrom": "A",
+        "stimulusId": "m1"
+      },
+      {
+        "note": "Criticism about past behavior is followed by an apology.",
+        "pattern": "complementary",
+        "responseAddresses": "P",
+        "responseFrom": "C",
+        "responseId": "m3",
+        "stimulusAddresses": "C",
+        "stimulusFrom": "P",
+        "stimulusId": "m2"
+      },
+      {
+        "note": "An apology is followed by a brief reply that leaves the next step unclear.",
+        "pattern": "unclear",
+        "responseAddresses": "UNCLEAR",
+        "responseFrom": "C",
+        "responseId": "m4",
+        "stimulusAddresses": "P",
+        "stimulusFrom": "C",
+        "stimulusId": "m3"
+      },
+      {
+        "note": "A brief closing reply is followed by a proposal to talk later.",
+        "pattern": "unclear",
+        "responseAddresses": "A",
+        "responseFrom": "P",
+        "responseId": "m5",
+        "stimulusAddresses": "UNCLEAR",
+        "stimulusFrom": "C",
+        "stimulusId": "m4"
+      },
+      {
+        "note": "An invitation to talk later is followed by a one-word reply.",
+        "pattern": "unclear",
+        "responseAddresses": "UNCLEAR",
+        "responseFrom": "UNCLEAR",
+        "responseId": "m6",
+        "stimulusAddresses": "A",
+        "stimulusFrom": "P",
+        "stimulusId": "m5"
+      }
+    ],
+    "readings": [
+      {
+        "alternative": {
+          "expression": "AC",
+          "rationale": "'I'm so sorry' can also read as apologizing and seeking forgiveness."
+        },
+        "confidence": "medium",
+        "cues": [
+          "work blew up",
+          "Can we move dinner to tomorrow?"
+        ],
+        "expression": "A",
+        "invites": "A",
+        "messageId": "m1",
+        "rationale": "The words describe what happened and propose another time, which can read as Adult problem-solving.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": null,
+        "confidence": "high",
+        "cues": [
+          "This is the third time this month.",
+          "You always do this."
+        ],
+        "expression": "CP",
+        "invites": "C",
+        "messageId": "m2",
+        "rationale": "Counting past events with 'third time' and 'always' can sound like blaming, which fits Critical Parent.",
+        "reflectionQuestion": "When you read 'Can we move dinner to tomorrow?' what did you notice in yourself just before you replied?",
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "FC",
+          "rationale": "'I feel awful about it' can also read as openly stated hurt, which fits Free Child."
+        },
+        "confidence": "medium",
+        "cues": [
+          "I'm really sorry",
+          "I feel awful about it."
+        ],
+        "expression": "AC",
+        "invites": "P",
+        "messageId": "m3",
+        "rationale": "The words apologize and agree with the complaint, which can read as Adapted Child placating.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "CP",
+          "rationale": "'Do whatever you want' can also read as a sharp limit, which fits Critical Parent."
+        },
+        "confidence": "low",
+        "cues": [
+          "Fine.",
+          "Do whatever you want."
+        ],
+        "expression": "AC",
+        "invites": "UNCLEAR",
+        "messageId": "m4",
+        "rationale": "Brief agreement plus handing over the decision can read as withdrawing, which fits Adapted Child.",
+        "reflectionQuestion": "When you read 'I feel awful about it' what stood out to you most as you wrote 'Fine'?",
+        "secondLayer": {
+          "cues": [
+            "Fine.",
+            "Do whatever you want."
+          ],
+          "observation": "'Fine' sounds like agreement on the surface, while 'Do whatever you want' leaves what happens next open."
+        }
+      },
+      {
+        "alternative": {
+          "expression": "A",
+          "rationale": "Proposing a time to talk and solve it can also read as Adult problem-solving."
+        },
+        "confidence": "medium",
+        "cues": [
+          "Can we talk about it properly when I get home?",
+          "I want to understand what's going on for you."
+        ],
+        "expression": "NP",
+        "invites": "A",
+        "messageId": "m5",
+        "rationale": "Suggesting a calmer talk and showing interest in your experience can read as caring, which fits Nurturing Parent.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": null,
+        "confidence": "low",
+        "cues": [],
+        "expression": "UNCLEAR",
+        "invites": "UNCLEAR",
+        "messageId": "m6",
+        "rationale": "The single word 'ok' alone can fit several states equally, so the words alone don't support a reading.",
+        "reflectionQuestion": "As you sent 'ok,' what did you hope would happen next?",
+        "secondLayer": null
+      }
+    ],
+    "safety": {
+      "categories": [],
+      "flagged": false,
+      "note": null
+    },
+    "shifts": [
+      {
+        "cues": [
+          "This is the third time this month.",
+          "You always do this."
+        ],
+        "description": "The words shift from a request to reschedule to tallying past cancellations.",
+        "messageId": "m2"
+      },
+      {
+        "cues": [
+          "Can we talk about it properly when I get home?"
+        ],
+        "description": "The words shift from short back-and-forth to proposing a longer talk later.",
+        "messageId": "m5"
+      }
+    ],
+    "summary": "The conversation starts with a request to move dinner and moves into criticism about repeated cancellations. After an apology and a brief withdrawal, Person A proposes talking properly later, followed by a one-word reply from you.",
+    "uncertainty": "Text alone cannot show tone of voice, facial expression, history between you, or what happened outside the chat."
+  },
+  "normalized": {
+    "readings": [
+      {
+        "alternative": {
+          "expression": "AC",
+          "rationale": "'I'm so sorry' can also read as apologizing and seeking forgiveness."
+        },
+        "confidence": "medium",
+        "cues": [
+          "work blew up",
+          "Can we move dinner to tomorrow?"
+        ],
+        "expression": "A",
+        "invites": "A",
+        "messageId": "m1",
+        "rationale": "The words describe what happened and propose another time, which can read as Adult problem-solving.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": null,
+        "confidence": "high",
+        "cues": [
+          "This is the third time this month.",
+          "You always do this."
+        ],
+        "expression": "CP",
+        "invites": "C",
+        "messageId": "m2",
+        "rationale": "Counting past events with 'third time' and 'always' can sound like blaming, which fits Critical Parent.",
+        "reflectionQuestion": "When you read 'Can we move dinner to tomorrow?' what did you notice in yourself just before you replied?",
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "FC",
+          "rationale": "'I feel awful about it' can also read as openly stated hurt, which fits Free Child."
+        },
+        "confidence": "medium",
+        "cues": [
+          "I'm really sorry",
+          "I feel awful about it."
+        ],
+        "expression": "AC",
+        "invites": "P",
+        "messageId": "m3",
+        "rationale": "The words apologize and agree with the complaint, which can read as Adapted Child placating.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "CP",
+          "rationale": "'Do whatever you want' can also read as a sharp limit, which fits Critical Parent."
+        },
+        "confidence": "low",
+        "cues": [
+          "Fine.",
+          "Do whatever you want."
+        ],
+        "expression": "AC",
+        "invites": "UNCLEAR",
+        "messageId": "m4",
+        "rationale": "Brief agreement plus handing over the decision can read as withdrawing, which fits Adapted Child.",
+        "reflectionQuestion": "When you read 'I feel awful about it' what stood out to you most as you wrote 'Fine'?",
+        "secondLayer": {
+          "cues": [
+            "Fine.",
+            "Do whatever you want."
+          ],
+          "observation": "'Fine' sounds like agreement on the surface, while 'Do whatever you want' leaves what happens next open."
+        }
+      },
+      {
+        "alternative": {
+          "expression": "A",
+          "rationale": "Proposing a time to talk and solve it can also read as Adult problem-solving."
+        },
+        "confidence": "medium",
+        "cues": [
+          "Can we talk about it properly when I get home?",
+          "I want to understand what's going on for you."
+        ],
+        "expression": "NP",
+        "invites": "A",
+        "messageId": "m5",
+        "rationale": "Suggesting a calmer talk and showing interest in your experience can read as caring, which fits Nurturing Parent.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": null,
+        "confidence": "low",
+        "cues": [],
+        "expression": "UNCLEAR",
+        "invites": "UNCLEAR",
+        "messageId": "m6",
+        "rationale": "The single word 'ok' alone can fit several states equally, so the words alone don't support a reading.",
+        "reflectionQuestion": "As you sent 'ok,' what did you hope would happen next?",
+        "secondLayer": null
+      }
+    ],
+    "segments": null
+  },
+  "score": {
+    "per": [
+      {
+        "id": "m1",
+        "expr": "A",
+        "family": "A",
+        "conf": "medium",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m2",
+        "expr": "CP",
+        "family": "P",
+        "conf": "high",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m3",
+        "expr": "AC",
+        "family": "C",
+        "conf": "medium",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m4",
+        "expr": "AC",
+        "family": "C",
+        "conf": "low",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m5",
+        "expr": "NP",
+        "family": "P",
+        "conf": "medium",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m6",
+        "expr": "UNCLEAR",
+        "family": "UNCLEAR",
+        "conf": "low",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      }
+    ],
+    "n": 6,
+    "accOk": 6,
+    "hardFails": [],
+    "overCeiling": [],
+    "highOnReview": 0,
+    "altMissing": 0,
+    "unclear": 1,
+    "high": 1
+  }
+}

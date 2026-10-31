@@ -1,0 +1,437 @@
+{
+  "meta": {
+    "spec": "v2.1",
+    "fixture": "en4-short",
+    "variant": "selfB",
+    "latencyMs": 20819,
+    "usd": 0.026206,
+    "usage": {
+      "completion_tokens": 5482,
+      "prompt_tokens": 2326,
+      "total_tokens": 7808,
+      "completion_tokens_details": {
+        "reasoning_tokens": 4005
+      },
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "finish": "stop"
+  },
+  "raw": {
+    "exchanges": [
+      {
+        "note": "A question checking about the earlier message is followed by a minimal reply.",
+        "pattern": "unclear",
+        "responseAddresses": "UNCLEAR",
+        "responseFrom": "UNCLEAR",
+        "responseId": "m2",
+        "stimulusAddresses": "A",
+        "stimulusFrom": "A",
+        "stimulusId": "m1"
+      },
+      {
+        "note": "A minimal reply is followed by a short prompt asking for more.",
+        "pattern": "unclear",
+        "responseAddresses": "A",
+        "responseFrom": "UNCLEAR",
+        "responseId": "m3",
+        "stimulusAddresses": "UNCLEAR",
+        "stimulusFrom": "UNCLEAR",
+        "stimulusId": "m2"
+      },
+      {
+        "note": "A short prompt for more is followed by a minimal reply.",
+        "pattern": "unclear",
+        "responseAddresses": "UNCLEAR",
+        "responseFrom": "UNCLEAR",
+        "responseId": "m4",
+        "stimulusAddresses": "A",
+        "stimulusFrom": "UNCLEAR",
+        "stimulusId": "m3"
+      },
+      {
+        "note": "A minimal reply is followed by a brief closing reaction.",
+        "pattern": "unclear",
+        "responseAddresses": "UNCLEAR",
+        "responseFrom": "C",
+        "responseId": "m5",
+        "stimulusAddresses": "UNCLEAR",
+        "stimulusFrom": "UNCLEAR",
+        "stimulusId": "m4"
+      },
+      {
+        "note": "A brief closing reaction is followed by an emoji alone.",
+        "pattern": "unclear",
+        "responseAddresses": "UNCLEAR",
+        "responseFrom": "UNCLEAR",
+        "responseId": "m6",
+        "stimulusAddresses": "UNCLEAR",
+        "stimulusFrom": "C",
+        "stimulusId": "m5"
+      },
+      {
+        "note": "An emoji alone is followed by a single question mark.",
+        "pattern": "unclear",
+        "responseAddresses": "UNCLEAR",
+        "responseFrom": "UNCLEAR",
+        "responseId": "m7",
+        "stimulusAddresses": "UNCLEAR",
+        "stimulusFrom": "UNCLEAR",
+        "stimulusId": "m6"
+      },
+      {
+        "note": "A single question mark is followed by a short explanation.",
+        "pattern": "unclear",
+        "responseAddresses": "UNCLEAR",
+        "responseFrom": "A",
+        "responseId": "m8",
+        "stimulusAddresses": "UNCLEAR",
+        "stimulusFrom": "UNCLEAR",
+        "stimulusId": "m7"
+      }
+    ],
+    "readings": [
+      {
+        "alternative": null,
+        "confidence": "medium",
+        "cues": [
+          "did you see my message"
+        ],
+        "expression": "A",
+        "invites": "A",
+        "messageId": "m1",
+        "rationale": "The words ask for information about whether a message was seen, which can read as Adult.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": null,
+        "confidence": "low",
+        "cues": [],
+        "expression": "UNCLEAR",
+        "invites": "UNCLEAR",
+        "messageId": "m2",
+        "rationale": "The single word “yeah” alone gives too little wording to fit one state.",
+        "reflectionQuestion": "When you read \"did you see my message\", what did you notice in yourself before typing \"yeah\"?",
+        "secondLayer": null
+      },
+      {
+        "alternative": null,
+        "confidence": "low",
+        "cues": [],
+        "expression": "UNCLEAR",
+        "invites": "A",
+        "messageId": "m3",
+        "rationale": "The single word “and?” alone gives too little wording to fit one state.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": null,
+        "confidence": "low",
+        "cues": [],
+        "expression": "UNCLEAR",
+        "invites": "UNCLEAR",
+        "messageId": "m4",
+        "rationale": "The single letter “k” alone gives too little wording to fit one state.",
+        "reflectionQuestion": "When you typed \"k\" just then, what did you hope would happen next?",
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "FC",
+          "rationale": "\"wow ok\" could also carry an open flash of surprise, which can read as Free Child."
+        },
+        "confidence": "low",
+        "cues": [
+          "wow ok"
+        ],
+        "expression": "AC",
+        "invites": "UNCLEAR",
+        "messageId": "m5",
+        "rationale": "The brief \"wow ok\" after short replies can read as withdrawing from the exchange, which may sound like Adapted Child.",
+        "reflectionQuestion": null,
+        "secondLayer": {
+          "cues": [
+            "wow ok"
+          ],
+          "observation": "\"wow ok\" can sound like agreement on the surface while the earlier question stays open."
+        }
+      },
+      {
+        "alternative": null,
+        "confidence": "low",
+        "cues": [],
+        "expression": "UNCLEAR",
+        "invites": "UNCLEAR",
+        "messageId": "m6",
+        "rationale": "A lone emoji alone gives too little wording to fit one state.",
+        "reflectionQuestion": "When you saw \"wow ok\" just before, what other way could those words be read besides how you first took them?",
+        "secondLayer": null
+      },
+      {
+        "alternative": null,
+        "confidence": "low",
+        "cues": [],
+        "expression": "UNCLEAR",
+        "invites": "UNCLEAR",
+        "messageId": "m7",
+        "rationale": "The single mark \"?\" alone gives too little wording to fit one state.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "AC",
+          "rationale": "\"nothing\" after minimal replies could also read as closing the topic, which can sound like Adapted Child."
+        },
+        "confidence": "low",
+        "cues": [
+          "nothing",
+          "just tired"
+        ],
+        "expression": "A",
+        "invites": "UNCLEAR",
+        "messageId": "m8",
+        "rationale": "The words give a brief explanation about being tired, which can read as Adult information.",
+        "reflectionQuestion": "When you replied \"nothing, just tired\" to \"?\", what part of that \"?\" stayed with you as you typed?",
+        "secondLayer": null
+      }
+    ],
+    "safety": {
+      "categories": [],
+      "flagged": false,
+      "note": null
+    },
+    "shifts": [
+      {
+        "cues": [
+          "wow ok"
+        ],
+        "description": "The words move from short prompts for information to a brief closing reaction.",
+        "messageId": "m5"
+      },
+      {
+        "cues": [
+          "just tired"
+        ],
+        "description": "The words move from single-character replies to a short explanation.",
+        "messageId": "m8"
+      }
+    ],
+    "summary": "The exchange starts with a check about an earlier message and stays in very short replies. A brief \"wow ok\" marks a cooler moment, followed by an emoji and a short explanation about being tired.",
+    "uncertainty": "Text alone cannot show tone of voice, facial expression, history between you and Person A, or what happened outside the chat."
+  },
+  "normalized": {
+    "readings": [
+      {
+        "alternative": null,
+        "confidence": "medium",
+        "cues": [
+          "did you see my message"
+        ],
+        "expression": "A",
+        "invites": "A",
+        "messageId": "m1",
+        "rationale": "The words ask for information about whether a message was seen, which can read as Adult.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": null,
+        "confidence": "low",
+        "cues": [],
+        "expression": "UNCLEAR",
+        "invites": "UNCLEAR",
+        "messageId": "m2",
+        "rationale": "The single word “yeah” alone gives too little wording to fit one state.",
+        "reflectionQuestion": "When you read \"did you see my message\", what did you notice in yourself before typing \"yeah\"?",
+        "secondLayer": null
+      },
+      {
+        "alternative": null,
+        "confidence": "low",
+        "cues": [],
+        "expression": "UNCLEAR",
+        "invites": "A",
+        "messageId": "m3",
+        "rationale": "The single word “and?” alone gives too little wording to fit one state.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": null,
+        "confidence": "low",
+        "cues": [],
+        "expression": "UNCLEAR",
+        "invites": "UNCLEAR",
+        "messageId": "m4",
+        "rationale": "The single letter “k” alone gives too little wording to fit one state.",
+        "reflectionQuestion": "When you typed \"k\" just then, what did you hope would happen next?",
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "FC",
+          "rationale": "\"wow ok\" could also carry an open flash of surprise, which can read as Free Child."
+        },
+        "confidence": "low",
+        "cues": [
+          "wow ok"
+        ],
+        "expression": "AC",
+        "invites": "UNCLEAR",
+        "messageId": "m5",
+        "rationale": "The brief \"wow ok\" after short replies can read as withdrawing from the exchange, which may sound like Adapted Child.",
+        "reflectionQuestion": null,
+        "secondLayer": {
+          "cues": [
+            "wow ok"
+          ],
+          "observation": "\"wow ok\" can sound like agreement on the surface while the earlier question stays open."
+        }
+      },
+      {
+        "alternative": null,
+        "confidence": "low",
+        "cues": [],
+        "expression": "UNCLEAR",
+        "invites": "UNCLEAR",
+        "messageId": "m6",
+        "rationale": "A lone emoji alone gives too little wording to fit one state.",
+        "reflectionQuestion": "When you saw \"wow ok\" just before, what other way could those words be read besides how you first took them?",
+        "secondLayer": null
+      },
+      {
+        "alternative": null,
+        "confidence": "low",
+        "cues": [],
+        "expression": "UNCLEAR",
+        "invites": "UNCLEAR",
+        "messageId": "m7",
+        "rationale": "The single mark \"?\" alone gives too little wording to fit one state.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "AC",
+          "rationale": "\"nothing\" after minimal replies could also read as closing the topic, which can sound like Adapted Child."
+        },
+        "confidence": "low",
+        "cues": [
+          "nothing",
+          "just tired"
+        ],
+        "expression": "A",
+        "invites": "UNCLEAR",
+        "messageId": "m8",
+        "rationale": "The words give a brief explanation about being tired, which can read as Adult information.",
+        "reflectionQuestion": "When you replied \"nothing, just tired\" to \"?\", what part of that \"?\" stayed with you as you typed?",
+        "secondLayer": null
+      }
+    ],
+    "segments": null
+  },
+  "score": {
+    "per": [
+      {
+        "id": "m1",
+        "expr": "A",
+        "family": "A",
+        "conf": "medium",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": true
+      },
+      {
+        "id": "m2",
+        "expr": "UNCLEAR",
+        "family": "UNCLEAR",
+        "conf": "low",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m3",
+        "expr": "UNCLEAR",
+        "family": "UNCLEAR",
+        "conf": "low",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m4",
+        "expr": "UNCLEAR",
+        "family": "UNCLEAR",
+        "conf": "low",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m5",
+        "expr": "AC",
+        "family": "C",
+        "conf": "low",
+        "acc": false,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m6",
+        "expr": "UNCLEAR",
+        "family": "UNCLEAR",
+        "conf": "low",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m7",
+        "expr": "UNCLEAR",
+        "family": "UNCLEAR",
+        "conf": "low",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m8",
+        "expr": "A",
+        "family": "A",
+        "conf": "low",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      }
+    ],
+    "n": 8,
+    "accOk": 7,
+    "hardFails": [],
+    "overCeiling": [],
+    "highOnReview": 0,
+    "altMissing": 1,
+    "unclear": 5,
+    "high": 0
+  }
+}

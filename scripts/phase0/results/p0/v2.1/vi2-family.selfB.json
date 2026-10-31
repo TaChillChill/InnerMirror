@@ -1,0 +1,414 @@
+{
+  "meta": {
+    "spec": "v2.1",
+    "fixture": "vi2-family",
+    "variant": "selfB",
+    "latencyMs": 24246,
+    "usd": 0.03005475,
+    "usage": {
+      "completion_tokens": 6372,
+      "prompt_tokens": 2379,
+      "total_tokens": 8751,
+      "completion_tokens_details": {
+        "reasoning_tokens": 5084
+      },
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "finish": "stop"
+  },
+  "raw": {
+    "exchanges": [
+      {
+        "note": "Câu giục có sức ép được đáp lại bằng lý do bận và đề xuất lùi thời gian.",
+        "pattern": "crossed",
+        "responseAddresses": "A",
+        "responseFrom": "A",
+        "responseId": "m3",
+        "stimulusAddresses": "C",
+        "stimulusFrom": "P",
+        "stimulusId": "m2"
+      },
+      {
+        "note": "Lời đề xuất lùi thời gian được tiếp nối bằng câu nhắc quy tắc chung về gia đình.",
+        "pattern": "crossed",
+        "responseAddresses": "C",
+        "responseFrom": "P",
+        "responseId": "m4",
+        "stimulusAddresses": "A",
+        "stimulusFrom": "A",
+        "stimulusId": "m3"
+      },
+      {
+        "note": "Yêu cầu về quê được đáp lại bằng câu nhận lời ngắn gọn và nhường quyền quyết.",
+        "pattern": "complementary",
+        "responseAddresses": "P",
+        "responseFrom": "C",
+        "responseId": "m6",
+        "stimulusAddresses": "C",
+        "stimulusFrom": "P",
+        "stimulusId": "m5"
+      },
+      {
+        "note": "Câu nhận lời và nhường quyền quyết được tiếp nối bằng lời đánh giá là ngoan.",
+        "pattern": "complementary",
+        "responseAddresses": "C",
+        "responseFrom": "P",
+        "responseId": "m7",
+        "stimulusAddresses": "P",
+        "stimulusFrom": "C",
+        "stimulusId": "m6"
+      }
+    ],
+    "readings": [
+      {
+        "alternative": null,
+        "confidence": "high",
+        "cues": [
+          "Con ăn gì chưa?",
+          "nhớ mặc ấm vào nhé."
+        ],
+        "expression": "NP",
+        "invites": "C",
+        "messageId": "m1",
+        "rationale": "Câu hỏi thăm và lời dặn giữ ấm nghe như quan tâm, muốn che chở.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "A",
+          "rationale": "Nếu đọc trung tính thì đây cũng có thể nghe như câu hỏi về thời gian."
+        },
+        "confidence": "medium",
+        "cues": [
+          "bao giờ",
+          "mới chịu đi xem mắt?"
+        ],
+        "expression": "CP",
+        "invites": "C",
+        "messageId": "m2",
+        "rationale": "Cụm “mới chịu” nghe như nhắc và gây sức ép, hơn là hỏi thông tin đơn thuần.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "AC",
+          "rationale": "Chữ “mẹ ơi” nghe mềm lại, nên cũng có thể đọc như cách xoa dịu để hoãn."
+        },
+        "confidence": "medium",
+        "cues": [
+          "Con bận lắm",
+          "để sau Tết đi."
+        ],
+        "expression": "A",
+        "invites": "A",
+        "messageId": "m3",
+        "rationale": "Câu này nêu lý do bận và đề xuất thời gian khác, nghe như trao đổi thông tin và sắp xếp.",
+        "reflectionQuestion": "Lúc đọc câu “bao giờ con mới chịu đi xem mắt?”, bạn để ý thấy điều gì trong mình trước khi trả lời?",
+        "secondLayer": null
+      },
+      {
+        "alternative": null,
+        "confidence": "high",
+        "cues": [
+          "Có làm thì mới có ăn,",
+          "phải nghĩ đến"
+        ],
+        "expression": "CP",
+        "invites": "C",
+        "messageId": "m4",
+        "rationale": "Câu tục ngữ và chữ “phải” nghe như nhắc quy tắc và đánh giá cách sống.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": null,
+        "confidence": "high",
+        "cues": [
+          "phải về quê đấy,",
+          "nghe chưa?"
+        ],
+        "expression": "CP",
+        "invites": "C",
+        "messageId": "m5",
+        "rationale": "Chữ “phải” cùng “nghe chưa” nghe như mệnh lệnh trực tiếp, cần làm theo.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "A",
+          "rationale": "Cũng có thể đọc như cách giao quyền quyết định một cách gọn nhẹ."
+        },
+        "confidence": "medium",
+        "cues": [
+          "Vâng ạ.",
+          "Tuỳ mẹ quyết."
+        ],
+        "expression": "AC",
+        "invites": "P",
+        "messageId": "m6",
+        "rationale": "Câu trả lời ngắn, nhận lời và nhường quyền quyết nghe như thuận theo để tránh bàn thêm.",
+        "reflectionQuestion": "Khi viết “Tuỳ mẹ quyết” sau mấy câu giục liên tiếp, bạn mong cuộc trò chuyện sẽ đi tiếp thế nào?",
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "NP",
+          "rationale": "Cũng có thể đọc như lời vỗ về, ghi nhận khi con nhận lời."
+        },
+        "confidence": "medium",
+        "cues": [
+          "Ừ,",
+          "thế mới ngoan."
+        ],
+        "expression": "CP",
+        "invites": "C",
+        "messageId": "m7",
+        "rationale": "Lời khen gắn với việc nghe lời nghe như đánh giá ngoan hay chưa ngoan.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      }
+    ],
+    "safety": {
+      "categories": [],
+      "flagged": false,
+      "note": null
+    },
+    "shifts": [
+      {
+        "cues": [
+          "bao giờ",
+          "mới chịu đi xem mắt?"
+        ],
+        "description": "Lời lẽ chuyển từ hỏi thăm, dặn dò sang giục chuyện xem mắt.",
+        "messageId": "m2"
+      },
+      {
+        "cues": [
+          "phải về quê đấy,",
+          "nghe chưa?"
+        ],
+        "description": "Lời lẽ chuyển từ nhắc chung chuyện gia đình sang yêu cầu cụ thể về việc về quê.",
+        "messageId": "m5"
+      },
+      {
+        "cues": [
+          "Vâng ạ.",
+          "Tuỳ mẹ quyết."
+        ],
+        "description": "Lời lẽ chuyển từ trao đổi qua lại sang câu nhận lời ngắn gọn, nhường quyền quyết.",
+        "messageId": "m6"
+      }
+    ],
+    "summary": "Cuộc trò chuyện mở đầu bằng hỏi thăm rồi chuyển sang giục chuyện xem mắt và về quê. Bạn đề xuất lùi thời gian rồi nhận lời ngắn gọn. Cuối cùng Người A khép lại bằng lời khen khi bạn thuận theo.",
+    "uncertainty": "Chỉ qua chữ viết khó biết giọng nói, nét mặt và thói quen trò chuyện trước đây của hai người. Cũng chưa rõ chuyện bận rộn hay kế hoạch Tết ngoài đoạn chat này."
+  },
+  "normalized": {
+    "readings": [
+      {
+        "alternative": null,
+        "confidence": "high",
+        "cues": [
+          "Con ăn gì chưa?",
+          "nhớ mặc ấm vào nhé."
+        ],
+        "expression": "NP",
+        "invites": "C",
+        "messageId": "m1",
+        "rationale": "Câu hỏi thăm và lời dặn giữ ấm nghe như quan tâm, muốn che chở.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "A",
+          "rationale": "Nếu đọc trung tính thì đây cũng có thể nghe như câu hỏi về thời gian."
+        },
+        "confidence": "medium",
+        "cues": [
+          "bao giờ",
+          "mới chịu đi xem mắt?"
+        ],
+        "expression": "CP",
+        "invites": "C",
+        "messageId": "m2",
+        "rationale": "Cụm “mới chịu” nghe như nhắc và gây sức ép, hơn là hỏi thông tin đơn thuần.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "AC",
+          "rationale": "Chữ “mẹ ơi” nghe mềm lại, nên cũng có thể đọc như cách xoa dịu để hoãn."
+        },
+        "confidence": "medium",
+        "cues": [
+          "Con bận lắm",
+          "để sau Tết đi."
+        ],
+        "expression": "A",
+        "invites": "A",
+        "messageId": "m3",
+        "rationale": "Câu này nêu lý do bận và đề xuất thời gian khác, nghe như trao đổi thông tin và sắp xếp.",
+        "reflectionQuestion": "Lúc đọc câu “bao giờ con mới chịu đi xem mắt?”, bạn để ý thấy điều gì trong mình trước khi trả lời?",
+        "secondLayer": null
+      },
+      {
+        "alternative": null,
+        "confidence": "high",
+        "cues": [
+          "Có làm thì mới có ăn,",
+          "phải nghĩ đến"
+        ],
+        "expression": "CP",
+        "invites": "C",
+        "messageId": "m4",
+        "rationale": "Câu tục ngữ và chữ “phải” nghe như nhắc quy tắc và đánh giá cách sống.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": null,
+        "confidence": "high",
+        "cues": [
+          "phải về quê đấy,",
+          "nghe chưa?"
+        ],
+        "expression": "CP",
+        "invites": "C",
+        "messageId": "m5",
+        "rationale": "Chữ “phải” cùng “nghe chưa” nghe như mệnh lệnh trực tiếp, cần làm theo.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "A",
+          "rationale": "Cũng có thể đọc như cách giao quyền quyết định một cách gọn nhẹ."
+        },
+        "confidence": "medium",
+        "cues": [
+          "Vâng ạ.",
+          "Tuỳ mẹ quyết."
+        ],
+        "expression": "AC",
+        "invites": "P",
+        "messageId": "m6",
+        "rationale": "Câu trả lời ngắn, nhận lời và nhường quyền quyết nghe như thuận theo để tránh bàn thêm.",
+        "reflectionQuestion": "Khi viết “Tuỳ mẹ quyết” sau mấy câu giục liên tiếp, bạn mong cuộc trò chuyện sẽ đi tiếp thế nào?",
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "NP",
+          "rationale": "Cũng có thể đọc như lời vỗ về, ghi nhận khi con nhận lời."
+        },
+        "confidence": "medium",
+        "cues": [
+          "Ừ,",
+          "thế mới ngoan."
+        ],
+        "expression": "CP",
+        "invites": "C",
+        "messageId": "m7",
+        "rationale": "Lời khen gắn với việc nghe lời nghe như đánh giá ngoan hay chưa ngoan.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      }
+    ],
+    "segments": null
+  },
+  "score": {
+    "per": [
+      {
+        "id": "m1",
+        "expr": "NP",
+        "family": "P",
+        "conf": "high",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m2",
+        "expr": "CP",
+        "family": "P",
+        "conf": "medium",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m3",
+        "expr": "A",
+        "family": "A",
+        "conf": "medium",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m4",
+        "expr": "CP",
+        "family": "P",
+        "conf": "high",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m5",
+        "expr": "CP",
+        "family": "P",
+        "conf": "high",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m6",
+        "expr": "AC",
+        "family": "C",
+        "conf": "medium",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m7",
+        "expr": "CP",
+        "family": "P",
+        "conf": "medium",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      }
+    ],
+    "n": 7,
+    "accOk": 7,
+    "hardFails": [],
+    "overCeiling": [],
+    "highOnReview": 0,
+    "altMissing": 0,
+    "unclear": 0,
+    "high": 3
+  }
+}

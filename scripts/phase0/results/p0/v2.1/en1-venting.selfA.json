@@ -1,0 +1,708 @@
+{
+  "meta": {
+    "spec": "v2.1",
+    "fixture": "en1-venting",
+    "variant": "selfA",
+    "latencyMs": 28343,
+    "usd": 0.0336625,
+    "usage": {
+      "completion_tokens": 7195,
+      "prompt_tokens": 2467,
+      "total_tokens": 9662,
+      "completion_tokens_details": {
+        "reasoning_tokens": 4998
+      },
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "finish": "stop"
+  },
+  "raw": {
+    "exchanges": [
+      {
+        "note": "Words describing low energy are followed by caring eating advice.",
+        "pattern": "complementary",
+        "responseAddresses": "C",
+        "responseFrom": "P",
+        "responseId": "m5",
+        "stimulusAddresses": "P",
+        "stimulusFrom": "C",
+        "stimulusId": "m4"
+      },
+      {
+        "note": "Advice to enjoy is followed by pushback about it being easy to say.",
+        "pattern": "complementary",
+        "responseAddresses": "P",
+        "responseFrom": "C",
+        "responseId": "m6",
+        "stimulusAddresses": "C",
+        "stimulusFrom": "P",
+        "stimulusId": "m5"
+      },
+      {
+        "note": "A comparison about advantages is followed by a question about complaining.",
+        "pattern": "crossed",
+        "responseAddresses": "C",
+        "responseFrom": "P",
+        "responseId": "m8",
+        "stimulusAddresses": "C",
+        "stimulusFrom": "P",
+        "stimulusId": "m7"
+      },
+      {
+        "note": "The pairing is uncertain because the short reply has no clear address.",
+        "pattern": "unclear",
+        "responseAddresses": "UNCLEAR",
+        "responseFrom": "UNCLEAR",
+        "responseId": "m9",
+        "stimulusAddresses": "C",
+        "stimulusFrom": "P",
+        "stimulusId": "m8"
+      },
+      {
+        "note": "Openly named exhaustion and loneliness are followed by quick directives.",
+        "pattern": "complementary",
+        "responseAddresses": "C",
+        "responseFrom": "P",
+        "responseId": "m11",
+        "stimulusAddresses": "P",
+        "stimulusFrom": "C",
+        "stimulusId": "m10"
+      },
+      {
+        "note": "Quick-fix directives are followed by a brief sarcastic pushback.",
+        "pattern": "complementary",
+        "responseAddresses": "P",
+        "responseFrom": "C",
+        "responseId": "m12",
+        "stimulusAddresses": "C",
+        "stimulusFrom": "P",
+        "stimulusId": "m11"
+      }
+    ],
+    "readings": [
+      {
+        "alternative": {
+          "expression": "FC",
+          "rationale": "It could also read as Free Child openly admitting uncertainty."
+        },
+        "confidence": "medium",
+        "cues": [
+          "don't have any plan"
+        ],
+        "expression": "A",
+        "invites": "A",
+        "messageId": "m1",
+        "rationale": "The words plainly describe the current situation, which can read as Adult information-sharing.",
+        "reflectionQuestion": "When you started with having no plan right now, what were you noticing in yourself just before you wrote it?",
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "FC",
+          "rationale": "It could also read as Free Child sharing overwhelm about daily life."
+        },
+        "confidence": "medium",
+        "cues": [
+          "figuring out what we eat each day"
+        ],
+        "expression": "A",
+        "invites": "A",
+        "messageId": "m2",
+        "rationale": "The words describe the day-to-day focus, which can read as Adult giving information.",
+        "reflectionQuestion": "As you added that detail about figuring out meals each day, what did you hope Person A would pick up from it?",
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "A",
+          "rationale": "It could also read as Adult simply reporting current capacity."
+        },
+        "confidence": "low",
+        "cues": [
+          "Can't think straight"
+        ],
+        "expression": "FC",
+        "invites": "P",
+        "messageId": "m3",
+        "rationale": "The words openly state feeling overwhelmed, which can read as Free Child expression.",
+        "reflectionQuestion": "When you wrote 'Can't think straight', what part of the day was most on your mind to convey?",
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "A",
+          "rationale": "It could also read as Adult reporting low capacity."
+        },
+        "confidence": "medium",
+        "cues": [
+          "No energy for anything"
+        ],
+        "expression": "FC",
+        "invites": "P",
+        "messageId": "m4",
+        "rationale": "The words openly state exhaustion, which can read as Free Child direct expression.",
+        "reflectionQuestion": "When you wrote 'No energy for anything', how else could Person A have read those first few messages besides as advice?",
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "A",
+          "rationale": "It could also read as Adult offering a practical option."
+        },
+        "confidence": "medium",
+        "cues": [
+          "eat well",
+          "treat yourselves"
+        ],
+        "expression": "NP",
+        "invites": "C",
+        "messageId": "m5",
+        "rationale": "The words offer a caring suggestion, which can read as Nurturing Parent.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "CP",
+          "rationale": "It could also read as Critical Parent judging the advice as naive."
+        },
+        "confidence": "medium",
+        "cues": [
+          "Easy for you to say"
+        ],
+        "expression": "AC",
+        "invites": "P",
+        "messageId": "m6",
+        "rationale": "The words push back on the advice just given, which can read as Adapted Child resistance.",
+        "reflectionQuestion": "After reading 'treat yourselves', what did you notice in yourself right before replying 'Easy for you to say'?",
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "FC",
+          "rationale": "It could also read as Free Child openly voicing hurt about feeling different."
+        },
+        "confidence": "medium",
+        "cues": [
+          "You've got a partner and savings",
+          "you just enjoy life"
+        ],
+        "expression": "CP",
+        "invites": "C",
+        "messageId": "m7",
+        "rationale": "The words point to the other's advantages, which can read as Critical Parent comparison.",
+        "reflectionQuestion": "When you mentioned partner and savings, what in Person A's 'treat yourselves' stood out to you most?",
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "A",
+          "rationale": "It could also read as Adult asking a direct problem-solving question."
+        },
+        "confidence": "medium",
+        "cues": [
+          "complaining like this",
+          "actually help?"
+        ],
+        "expression": "CP",
+        "invites": "C",
+        "messageId": "m8",
+        "rationale": "The words label prior talk as complaining and question its use, which can read as Critical Parent judgment.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": null,
+        "confidence": "low",
+        "cues": [],
+        "expression": "UNCLEAR",
+        "invites": "UNCLEAR",
+        "messageId": "m9",
+        "rationale": "A single word alone does not support a clear reading.",
+        "reflectionQuestion": "After the question 'Does complaining like this actually help?', what ran through you as you typed the single word 'right'?",
+        "secondLayer": {
+          "cues": [
+            "right"
+          ],
+          "observation": "'right' after a challenging question can read as agreement on the surface while keeping the stance unclear."
+        }
+      },
+      {
+        "alternative": null,
+        "confidence": "high",
+        "cues": [
+          "I'm exhausted",
+          "lonely"
+        ],
+        "expression": "FC",
+        "invites": "P",
+        "messageId": "m10",
+        "rationale": "The words openly name tiredness and loneliness, which can read as Free Child direct expression.",
+        "reflectionQuestion": "When you wrote that you're exhausted and lonely, what did you hope would land differently this time?",
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "A",
+          "rationale": "They could also read as Adult listing practical ideas."
+        },
+        "confidence": "medium",
+        "cues": [
+          "Take some vitamins.",
+          "Take the kids to the park."
+        ],
+        "expression": "CP",
+        "invites": "C",
+        "messageId": "m11",
+        "rationale": "The words give quick directives in reply to stated feelings, which can read as Critical Parent correction.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "CP",
+          "rationale": "It could also read as Critical Parent dismissive judgment of the advice."
+        },
+        "confidence": "low",
+        "cues": [
+          "wow.",
+          "genius"
+        ],
+        "expression": "AC",
+        "invites": "P",
+        "messageId": "m12",
+        "rationale": "The brief reply can read as Adapted Child pushback that does not state a need plainly.",
+        "reflectionQuestion": "When you wrote 'wow. genius' after the vitamins and park suggestion, what else in that moment felt unsaid for you?",
+        "secondLayer": {
+          "cues": [
+            "wow.",
+            "genius"
+          ],
+          "observation": "'wow. genius' can read as praise on the surface while pushing back on the advice just given."
+        }
+      },
+      {
+        "alternative": null,
+        "confidence": "high",
+        "cues": [
+          "I'm hurting here"
+        ],
+        "expression": "FC",
+        "invites": "P",
+        "messageId": "m13",
+        "rationale": "The words state hurt openly and directly, which can read as Free Child expression.",
+        "reflectionQuestion": "As you closed with 'I'm hurting here', what did you most want Person A to hear in those three words?",
+        "secondLayer": null
+      }
+    ],
+    "safety": {
+      "categories": [],
+      "flagged": false,
+      "note": null
+    },
+    "shifts": [
+      {
+        "cues": [
+          "Then just eat well",
+          "treat yourselves"
+        ],
+        "description": "The words move from describing difficulty to offering general eating advice.",
+        "messageId": "m5"
+      },
+      {
+        "cues": [
+          "Does complaining",
+          "actually help?"
+        ],
+        "description": "The words shift from personal comparison to questioning the value of the prior talk.",
+        "messageId": "m8"
+      },
+      {
+        "cues": [
+          "wow.",
+          "genius"
+        ],
+        "description": "The words shift from openly naming exhaustion and loneliness to a brief sarcastic reply.",
+        "messageId": "m12"
+      }
+    ],
+    "summary": "The conversation starts with you describing having no plan and low energy, followed by general encouragement to eat well. After comparison and a question about complaining, you name exhaustion and loneliness more directly, which is met with quick fixes and ends with sarcasm and a direct statement of hurt.",
+    "uncertainty": "Text alone cannot show tone of voice, history, or what support has already been tried outside the chat, so these readings are only hypotheses about how the words could sound."
+  },
+  "normalized": {
+    "readings": [
+      {
+        "alternative": {
+          "expression": "FC",
+          "rationale": "It could also read as Free Child openly admitting uncertainty."
+        },
+        "confidence": "medium",
+        "cues": [
+          "don't have any plan"
+        ],
+        "expression": "A",
+        "invites": "A",
+        "messageId": "m1",
+        "rationale": "The words plainly describe the current situation, which can read as Adult information-sharing.",
+        "reflectionQuestion": "When you started with having no plan right now, what were you noticing in yourself just before you wrote it?",
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "FC",
+          "rationale": "It could also read as Free Child sharing overwhelm about daily life."
+        },
+        "confidence": "medium",
+        "cues": [
+          "figuring out what we eat each day"
+        ],
+        "expression": "A",
+        "invites": "A",
+        "messageId": "m2",
+        "rationale": "The words describe the day-to-day focus, which can read as Adult giving information.",
+        "reflectionQuestion": "As you added that detail about figuring out meals each day, what did you hope Person A would pick up from it?",
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "A",
+          "rationale": "It could also read as Adult simply reporting current capacity."
+        },
+        "confidence": "low",
+        "cues": [
+          "Can't think straight"
+        ],
+        "expression": "FC",
+        "invites": "P",
+        "messageId": "m3",
+        "rationale": "The words openly state feeling overwhelmed, which can read as Free Child expression.",
+        "reflectionQuestion": "When you wrote 'Can't think straight', what part of the day was most on your mind to convey?",
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "A",
+          "rationale": "It could also read as Adult reporting low capacity."
+        },
+        "confidence": "medium",
+        "cues": [
+          "No energy for anything"
+        ],
+        "expression": "FC",
+        "invites": "P",
+        "messageId": "m4",
+        "rationale": "The words openly state exhaustion, which can read as Free Child direct expression.",
+        "reflectionQuestion": "When you wrote 'No energy for anything', how else could Person A have read those first few messages besides as advice?",
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "A",
+          "rationale": "It could also read as Adult offering a practical option."
+        },
+        "confidence": "medium",
+        "cues": [
+          "eat well",
+          "treat yourselves"
+        ],
+        "expression": "NP",
+        "invites": "C",
+        "messageId": "m5",
+        "rationale": "The words offer a caring suggestion, which can read as Nurturing Parent.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "CP",
+          "rationale": "It could also read as Critical Parent judging the advice as naive."
+        },
+        "confidence": "medium",
+        "cues": [
+          "Easy for you to say"
+        ],
+        "expression": "AC",
+        "invites": "P",
+        "messageId": "m6",
+        "rationale": "The words push back on the advice just given, which can read as Adapted Child resistance.",
+        "reflectionQuestion": "After reading 'treat yourselves', what did you notice in yourself right before replying 'Easy for you to say'?",
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "FC",
+          "rationale": "It could also read as Free Child openly voicing hurt about feeling different."
+        },
+        "confidence": "medium",
+        "cues": [
+          "You've got a partner and savings",
+          "you just enjoy life"
+        ],
+        "expression": "CP",
+        "invites": "C",
+        "messageId": "m7",
+        "rationale": "The words point to the other's advantages, which can read as Critical Parent comparison.",
+        "reflectionQuestion": "When you mentioned partner and savings, what in Person A's 'treat yourselves' stood out to you most?",
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "A",
+          "rationale": "It could also read as Adult asking a direct problem-solving question."
+        },
+        "confidence": "medium",
+        "cues": [
+          "complaining like this",
+          "actually help?"
+        ],
+        "expression": "CP",
+        "invites": "C",
+        "messageId": "m8",
+        "rationale": "The words label prior talk as complaining and question its use, which can read as Critical Parent judgment.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": null,
+        "confidence": "low",
+        "cues": [],
+        "expression": "UNCLEAR",
+        "invites": "UNCLEAR",
+        "messageId": "m9",
+        "rationale": "A single word alone does not support a clear reading.",
+        "reflectionQuestion": "After the question 'Does complaining like this actually help?', what ran through you as you typed the single word 'right'?",
+        "secondLayer": {
+          "cues": [
+            "right"
+          ],
+          "observation": "'right' after a challenging question can read as agreement on the surface while keeping the stance unclear."
+        }
+      },
+      {
+        "alternative": null,
+        "confidence": "high",
+        "cues": [
+          "I'm exhausted",
+          "lonely"
+        ],
+        "expression": "FC",
+        "invites": "P",
+        "messageId": "m10",
+        "rationale": "The words openly name tiredness and loneliness, which can read as Free Child direct expression.",
+        "reflectionQuestion": "When you wrote that you're exhausted and lonely, what did you hope would land differently this time?",
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "A",
+          "rationale": "They could also read as Adult listing practical ideas."
+        },
+        "confidence": "medium",
+        "cues": [
+          "Take some vitamins.",
+          "Take the kids to the park."
+        ],
+        "expression": "CP",
+        "invites": "C",
+        "messageId": "m11",
+        "rationale": "The words give quick directives in reply to stated feelings, which can read as Critical Parent correction.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "CP",
+          "rationale": "It could also read as Critical Parent dismissive judgment of the advice."
+        },
+        "confidence": "low",
+        "cues": [
+          "wow.",
+          "genius"
+        ],
+        "expression": "AC",
+        "invites": "P",
+        "messageId": "m12",
+        "rationale": "The brief reply can read as Adapted Child pushback that does not state a need plainly.",
+        "reflectionQuestion": "When you wrote 'wow. genius' after the vitamins and park suggestion, what else in that moment felt unsaid for you?",
+        "secondLayer": {
+          "cues": [
+            "wow.",
+            "genius"
+          ],
+          "observation": "'wow. genius' can read as praise on the surface while pushing back on the advice just given."
+        }
+      },
+      {
+        "alternative": null,
+        "confidence": "high",
+        "cues": [
+          "I'm hurting here"
+        ],
+        "expression": "FC",
+        "invites": "P",
+        "messageId": "m13",
+        "rationale": "The words state hurt openly and directly, which can read as Free Child expression.",
+        "reflectionQuestion": "As you closed with 'I'm hurting here', what did you most want Person A to hear in those three words?",
+        "secondLayer": null
+      }
+    ],
+    "segments": null
+  },
+  "score": {
+    "per": [
+      {
+        "id": "m1",
+        "expr": "A",
+        "family": "A",
+        "conf": "medium",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m2",
+        "expr": "A",
+        "family": "A",
+        "conf": "medium",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m3",
+        "expr": "FC",
+        "family": "C",
+        "conf": "low",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m4",
+        "expr": "FC",
+        "family": "C",
+        "conf": "medium",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m5",
+        "expr": "NP",
+        "family": "P",
+        "conf": "medium",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m6",
+        "expr": "AC",
+        "family": "C",
+        "conf": "medium",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m7",
+        "expr": "CP",
+        "family": "P",
+        "conf": "medium",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m8",
+        "expr": "CP",
+        "family": "P",
+        "conf": "medium",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m9",
+        "expr": "UNCLEAR",
+        "family": "UNCLEAR",
+        "conf": "low",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m10",
+        "expr": "FC",
+        "family": "C",
+        "conf": "high",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": true,
+        "altMissing": false
+      },
+      {
+        "id": "m11",
+        "expr": "CP",
+        "family": "P",
+        "conf": "medium",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m12",
+        "expr": "AC",
+        "family": "C",
+        "conf": "low",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m13",
+        "expr": "FC",
+        "family": "C",
+        "conf": "high",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": true,
+        "altMissing": false
+      }
+    ],
+    "n": 13,
+    "accOk": 13,
+    "hardFails": [],
+    "overCeiling": [],
+    "highOnReview": 2,
+    "altMissing": 0,
+    "unclear": 1,
+    "high": 2
+  }
+}

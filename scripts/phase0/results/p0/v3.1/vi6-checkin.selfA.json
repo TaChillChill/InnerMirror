@@ -1,0 +1,1053 @@
+{
+  "meta": {
+    "spec": "v3",
+    "fixture": "vi6-checkin",
+    "variant": "selfA",
+    "latencyMs": 39163,
+    "usd": 0.036081,
+    "usage": {
+      "completion_tokens": 7622,
+      "prompt_tokens": 2950,
+      "total_tokens": 10572,
+      "completion_tokens_details": {
+        "reasoning_tokens": 3935
+      },
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "finish": "stop"
+  },
+  "raw": {
+    "context": {
+      "dynamics": "Người A mở đầu bằng câu hỏi thăm, Người B kể các khó khăn dồn dập. Cách xử lý nhanh của Người A được nối tiếp bằng khó khăn khác từ Người B, sau đó Người A chuyển sang cho phép nghỉ và đề nghị giúp cụ thể, Người B đáp lại bằng lời vui vẻ, quý mến.",
+      "register": "Cách xưng hô “chị/em” kèm “ạ” cho thấy quen thân và có lệch tuổi hoặc vai. Giọng ngắn, đời thường.",
+      "turns": [
+        {
+          "act": "hỏi thăm tình hình",
+          "respondsTo": null,
+          "turnId": "t1"
+        },
+        {
+          "act": "kể mệt, không muốn làm gì và lo hết tiền",
+          "respondsTo": "t1",
+          "turnId": "t2"
+        },
+        {
+          "act": "đưa cách xử lý nhanh về chi tiêu",
+          "respondsTo": "t2",
+          "turnId": "t3"
+        },
+        {
+          "act": "kể thêm bị sốt và không đi làm được",
+          "respondsTo": "t3",
+          "turnId": "t4"
+        },
+        {
+          "act": "cho phép nghỉ và đề nghị nấu cháo mang qua",
+          "respondsTo": "t4",
+          "turnId": "t5"
+        },
+        {
+          "act": "bày tỏ vui và quý mến",
+          "respondsTo": "t5",
+          "turnId": "t6"
+        }
+      ]
+    },
+    "safety": {
+      "categories": [],
+      "flagged": false,
+      "note": null
+    },
+    "segments": [
+      {
+        "alternative": {
+          "expression": "NP",
+          "rationale": "Cũng có thể nghe như hỏi thăm quan tâm, nhưng chữ chưa cho thấy chăm sóc rõ."
+        },
+        "confidence": "medium",
+        "contextCues": [],
+        "cues": [
+          "Dạo này em sao rồi?"
+        ],
+        "expression": "A",
+        "family": "A",
+        "invites": "A",
+        "messageIds": [
+          "m1"
+        ],
+        "rationale": "Câu hỏi mở, hỏi thông tin hiện tại. Nghe như kiểm tra thực tế ở đây-và-bây giờ, chưa có lời đánh giá hay dỗ dành rõ rệt.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t1"
+      },
+      {
+        "alternative": {
+          "expression": "AC",
+          "rationale": "Cũng có thể nghe như buông xuôi, nhấn mạnh “chẳng muốn” và “lo”."
+        },
+        "confidence": "medium",
+        "contextCues": [
+          {
+            "messageId": "m1",
+            "quote": "Dạo này em sao rồi?"
+          }
+        ],
+        "cues": [
+          "mệt lắm",
+          "chẳng muốn làm gì",
+          "lo quá"
+        ],
+        "expression": "FC",
+        "family": "C",
+        "invites": "P",
+        "messageIds": [
+          "m2",
+          "m3"
+        ],
+        "rationale": "Người B nói thẳng mệt, hết tiền và lo. Nghe như bộc lộ trực tiếp cảm giác, chưa từ chối giúp đỡ nào.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t2"
+      },
+      {
+        "alternative": {
+          "expression": "A",
+          "rationale": "Cũng có thể nghe như gợi ý thực tế, nhưng chữ “Thì … là được mà” nghe gọn và khép lại."
+        },
+        "confidence": "medium",
+        "contextCues": [
+          {
+            "messageId": "m3",
+            "quote": "Tháng này cũng hết tiền rồi, lo quá."
+          }
+        ],
+        "cues": [
+          "tiêu ít lại là được mà"
+        ],
+        "expression": "CP",
+        "family": "P",
+        "invites": "C",
+        "messageIds": [
+          "m4"
+        ],
+        "rationale": "Câu đưa ra cách sửa nhanh cho chuyện hết tiền, không hỏi thêm. Nghe như khép lại nỗi lo bằng một quy tắc chi tiêu.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t3"
+      },
+      {
+        "alternative": {
+          "expression": "A",
+          "rationale": "Cũng có thể nghe như báo việc ốm và nghỉ làm, nhưng đặt sau lời khuyên nên nghe như né tránh."
+        },
+        "confidence": "low",
+        "contextCues": [
+          {
+            "messageId": "m4",
+            "quote": "Thì tiêu ít lại là được mà."
+          }
+        ],
+        "cues": [
+          "còn sốt nữa",
+          "không đi làm được"
+        ],
+        "expression": "AC",
+        "family": "C",
+        "invites": "P",
+        "messageIds": [
+          "m5"
+        ],
+        "rationale": "Người B kể thêm bệnh và nói không đi làm được, không bàn lại cách tiêu ít lại. Nghe như rút về phía khó khăn và “không làm được”.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t4"
+      },
+      {
+        "alternative": null,
+        "confidence": "high",
+        "contextCues": [
+          {
+            "messageId": "m5",
+            "quote": "Hôm nay em còn sốt nữa, chắc không đi làm được."
+          }
+        ],
+        "cues": [
+          "nghỉ đi",
+          "để chị nấu cháo mang qua cho"
+        ],
+        "expression": "NP",
+        "family": "P",
+        "invites": "C",
+        "messageIds": [
+          "m6"
+        ],
+        "rationale": "Câu cho phép nghỉ và đề nghị giúp cụ thể vì người kia ốm. Nghe như chăm sóc và bảo vệ rõ rệt.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t5"
+      },
+      {
+        "alternative": null,
+        "confidence": "high",
+        "contextCues": [
+          {
+            "messageId": "m6",
+            "quote": "Thế thì nghỉ đi, để chị nấu cháo mang qua cho."
+          }
+        ],
+        "cues": [
+          "Aaa",
+          "chị là nhất"
+        ],
+        "expression": "FC",
+        "family": "C",
+        "invites": "P",
+        "messageIds": [
+          "m7"
+        ],
+        "rationale": "Câu nói ngắn, reo vui và khen quý mến ngay sau lời giúp. Nghe như bày tỏ vui, thích một cách tự nhiên.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t6"
+      }
+    ],
+    "shifts": [
+      {
+        "cues": [
+          "tiêu ít lại là được mà"
+        ],
+        "description": "Lời nói chuyển từ kể mệt và lo sang đưa cách xử lý gọn về chi tiêu.",
+        "messageId": "m4"
+      },
+      {
+        "cues": [
+          "nghỉ đi",
+          "để chị nấu cháo mang qua cho"
+        ],
+        "description": "Lời nói chuyển từ cách xử lý gọn sang cho phép nghỉ và đề nghị giúp cụ thể.",
+        "messageId": "m6"
+      },
+      {
+        "cues": [
+          "chị là nhất"
+        ],
+        "description": "Lời nói chuyển từ kể khó khăn sang reo vui và khen quý mến.",
+        "messageId": "m7"
+      }
+    ],
+    "summary": "Người A hỏi thăm, Người B kể mệt, hết tiền rồi sốt. Sau cách xử lý nhanh về chi tiêu, Người A chuyển sang cho nghỉ và mang cháo qua, Người B đáp lại vui vẻ, quý mến.",
+    "uncertainty": "Chỉ qua chữ không thấy được giọng, nét mặt, hay chuyện ngoài đoạn chat. Lịch sử quan hệ và mức độ ốm, thiếu tiền thực tế cũng chưa rõ."
+  },
+  "normalized": {
+    "readings": [
+      {
+        "splitReason": null,
+        "cues": [
+          "Dạo này em sao rồi?"
+        ],
+        "contextCues": [],
+        "rationale": "Câu hỏi mở, hỏi thông tin hiện tại. Nghe như kiểm tra thực tế ở đây-và-bây giờ, chưa có lời đánh giá hay dỗ dành rõ rệt.",
+        "family": "A",
+        "expression": "A",
+        "confidence": "medium",
+        "alternative": {
+          "expression": "NP",
+          "rationale": "Cũng có thể nghe như hỏi thăm quan tâm, nhưng chữ chưa cho thấy chăm sóc rõ."
+        },
+        "invites": "A",
+        "secondLayer": null,
+        "messageId": "m1",
+        "segmentId": "s1"
+      },
+      {
+        "splitReason": null,
+        "cues": [
+          "mệt lắm",
+          "chẳng muốn làm gì",
+          "lo quá"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m1",
+            "quote": "Dạo này em sao rồi?"
+          }
+        ],
+        "rationale": "Người B nói thẳng mệt, hết tiền và lo. Nghe như bộc lộ trực tiếp cảm giác, chưa từ chối giúp đỡ nào.",
+        "family": "C",
+        "expression": "FC",
+        "confidence": "medium",
+        "alternative": {
+          "expression": "AC",
+          "rationale": "Cũng có thể nghe như buông xuôi, nhấn mạnh “chẳng muốn” và “lo”."
+        },
+        "invites": "P",
+        "secondLayer": null,
+        "messageId": "m2",
+        "segmentId": "s2"
+      },
+      {
+        "splitReason": null,
+        "cues": [
+          "mệt lắm",
+          "chẳng muốn làm gì",
+          "lo quá"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m1",
+            "quote": "Dạo này em sao rồi?"
+          }
+        ],
+        "rationale": "Người B nói thẳng mệt, hết tiền và lo. Nghe như bộc lộ trực tiếp cảm giác, chưa từ chối giúp đỡ nào.",
+        "family": "C",
+        "expression": "FC",
+        "confidence": "medium",
+        "alternative": {
+          "expression": "AC",
+          "rationale": "Cũng có thể nghe như buông xuôi, nhấn mạnh “chẳng muốn” và “lo”."
+        },
+        "invites": "P",
+        "secondLayer": null,
+        "messageId": "m3",
+        "segmentId": "s2"
+      },
+      {
+        "splitReason": null,
+        "cues": [
+          "tiêu ít lại là được mà"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m3",
+            "quote": "Tháng này cũng hết tiền rồi, lo quá."
+          }
+        ],
+        "rationale": "Câu đưa ra cách sửa nhanh cho chuyện hết tiền, không hỏi thêm. Nghe như khép lại nỗi lo bằng một quy tắc chi tiêu.",
+        "family": "P",
+        "expression": "CP",
+        "confidence": "medium",
+        "alternative": {
+          "expression": "A",
+          "rationale": "Cũng có thể nghe như gợi ý thực tế, nhưng chữ “Thì … là được mà” nghe gọn và khép lại."
+        },
+        "invites": "C",
+        "secondLayer": null,
+        "messageId": "m4",
+        "segmentId": "s3"
+      },
+      {
+        "splitReason": null,
+        "cues": [
+          "còn sốt nữa",
+          "không đi làm được"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m4",
+            "quote": "Thì tiêu ít lại là được mà."
+          }
+        ],
+        "rationale": "Người B kể thêm bệnh và nói không đi làm được, không bàn lại cách tiêu ít lại. Nghe như rút về phía khó khăn và “không làm được”.",
+        "family": "C",
+        "expression": "AC",
+        "confidence": "low",
+        "alternative": {
+          "expression": "A",
+          "rationale": "Cũng có thể nghe như báo việc ốm và nghỉ làm, nhưng đặt sau lời khuyên nên nghe như né tránh."
+        },
+        "invites": "P",
+        "secondLayer": null,
+        "messageId": "m5",
+        "segmentId": "s4"
+      },
+      {
+        "splitReason": null,
+        "cues": [
+          "nghỉ đi",
+          "để chị nấu cháo mang qua cho"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m5",
+            "quote": "Hôm nay em còn sốt nữa, chắc không đi làm được."
+          }
+        ],
+        "rationale": "Câu cho phép nghỉ và đề nghị giúp cụ thể vì người kia ốm. Nghe như chăm sóc và bảo vệ rõ rệt.",
+        "family": "P",
+        "expression": "NP",
+        "confidence": "high",
+        "alternative": null,
+        "invites": "C",
+        "secondLayer": null,
+        "messageId": "m6",
+        "segmentId": "s5"
+      },
+      {
+        "splitReason": null,
+        "cues": [
+          "Aaa",
+          "chị là nhất"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m6",
+            "quote": "Thế thì nghỉ đi, để chị nấu cháo mang qua cho."
+          }
+        ],
+        "rationale": "Câu nói ngắn, reo vui và khen quý mến ngay sau lời giúp. Nghe như bày tỏ vui, thích một cách tự nhiên.",
+        "family": "C",
+        "expression": "FC",
+        "confidence": "high",
+        "alternative": null,
+        "invites": "P",
+        "secondLayer": null,
+        "messageId": "m7",
+        "segmentId": "s6"
+      }
+    ],
+    "segments": [
+      {
+        "turnId": "t1",
+        "messageIds": [
+          "m1"
+        ],
+        "splitReason": null,
+        "cues": [
+          "Dạo này em sao rồi?"
+        ],
+        "contextCues": [],
+        "rationale": "Câu hỏi mở, hỏi thông tin hiện tại. Nghe như kiểm tra thực tế ở đây-và-bây giờ, chưa có lời đánh giá hay dỗ dành rõ rệt.",
+        "family": "A",
+        "expression": "A",
+        "confidence": "medium",
+        "alternative": {
+          "expression": "NP",
+          "rationale": "Cũng có thể nghe như hỏi thăm quan tâm, nhưng chữ chưa cho thấy chăm sóc rõ."
+        },
+        "invites": "A",
+        "secondLayer": null,
+        "id": "s1"
+      },
+      {
+        "turnId": "t2",
+        "messageIds": [
+          "m2",
+          "m3"
+        ],
+        "splitReason": null,
+        "cues": [
+          "mệt lắm",
+          "chẳng muốn làm gì",
+          "lo quá"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m1",
+            "quote": "Dạo này em sao rồi?"
+          }
+        ],
+        "rationale": "Người B nói thẳng mệt, hết tiền và lo. Nghe như bộc lộ trực tiếp cảm giác, chưa từ chối giúp đỡ nào.",
+        "family": "C",
+        "expression": "FC",
+        "confidence": "medium",
+        "alternative": {
+          "expression": "AC",
+          "rationale": "Cũng có thể nghe như buông xuôi, nhấn mạnh “chẳng muốn” và “lo”."
+        },
+        "invites": "P",
+        "secondLayer": null,
+        "id": "s2"
+      },
+      {
+        "turnId": "t3",
+        "messageIds": [
+          "m4"
+        ],
+        "splitReason": null,
+        "cues": [
+          "tiêu ít lại là được mà"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m3",
+            "quote": "Tháng này cũng hết tiền rồi, lo quá."
+          }
+        ],
+        "rationale": "Câu đưa ra cách sửa nhanh cho chuyện hết tiền, không hỏi thêm. Nghe như khép lại nỗi lo bằng một quy tắc chi tiêu.",
+        "family": "P",
+        "expression": "CP",
+        "confidence": "medium",
+        "alternative": {
+          "expression": "A",
+          "rationale": "Cũng có thể nghe như gợi ý thực tế, nhưng chữ “Thì … là được mà” nghe gọn và khép lại."
+        },
+        "invites": "C",
+        "secondLayer": null,
+        "id": "s3"
+      },
+      {
+        "turnId": "t4",
+        "messageIds": [
+          "m5"
+        ],
+        "splitReason": null,
+        "cues": [
+          "còn sốt nữa",
+          "không đi làm được"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m4",
+            "quote": "Thì tiêu ít lại là được mà."
+          }
+        ],
+        "rationale": "Người B kể thêm bệnh và nói không đi làm được, không bàn lại cách tiêu ít lại. Nghe như rút về phía khó khăn và “không làm được”.",
+        "family": "C",
+        "expression": "AC",
+        "confidence": "low",
+        "alternative": {
+          "expression": "A",
+          "rationale": "Cũng có thể nghe như báo việc ốm và nghỉ làm, nhưng đặt sau lời khuyên nên nghe như né tránh."
+        },
+        "invites": "P",
+        "secondLayer": null,
+        "id": "s4"
+      },
+      {
+        "turnId": "t5",
+        "messageIds": [
+          "m6"
+        ],
+        "splitReason": null,
+        "cues": [
+          "nghỉ đi",
+          "để chị nấu cháo mang qua cho"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m5",
+            "quote": "Hôm nay em còn sốt nữa, chắc không đi làm được."
+          }
+        ],
+        "rationale": "Câu cho phép nghỉ và đề nghị giúp cụ thể vì người kia ốm. Nghe như chăm sóc và bảo vệ rõ rệt.",
+        "family": "P",
+        "expression": "NP",
+        "confidence": "high",
+        "alternative": null,
+        "invites": "C",
+        "secondLayer": null,
+        "id": "s5"
+      },
+      {
+        "turnId": "t6",
+        "messageIds": [
+          "m7"
+        ],
+        "splitReason": null,
+        "cues": [
+          "Aaa",
+          "chị là nhất"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m6",
+            "quote": "Thế thì nghỉ đi, để chị nấu cháo mang qua cho."
+          }
+        ],
+        "rationale": "Câu nói ngắn, reo vui và khen quý mến ngay sau lời giúp. Nghe như bày tỏ vui, thích một cách tự nhiên.",
+        "family": "C",
+        "expression": "FC",
+        "confidence": "high",
+        "alternative": null,
+        "invites": "P",
+        "secondLayer": null,
+        "id": "s6"
+      }
+    ],
+    "analysis": {
+      "context": {
+        "register": "Cách xưng hô “chị/em” kèm “ạ” cho thấy quen thân và có lệch tuổi hoặc vai. Giọng ngắn, đời thường.",
+        "turns": [
+          {
+            "turnId": "t1",
+            "act": "hỏi thăm tình hình",
+            "respondsTo": null
+          },
+          {
+            "turnId": "t2",
+            "act": "kể mệt, không muốn làm gì và lo hết tiền",
+            "respondsTo": "t1"
+          },
+          {
+            "turnId": "t3",
+            "act": "đưa cách xử lý nhanh về chi tiêu",
+            "respondsTo": "t2"
+          },
+          {
+            "turnId": "t4",
+            "act": "kể thêm bị sốt và không đi làm được",
+            "respondsTo": "t3"
+          },
+          {
+            "turnId": "t5",
+            "act": "cho phép nghỉ và đề nghị nấu cháo mang qua",
+            "respondsTo": "t4"
+          },
+          {
+            "turnId": "t6",
+            "act": "bày tỏ vui và quý mến",
+            "respondsTo": "t5"
+          }
+        ],
+        "dynamics": "Người A mở đầu bằng câu hỏi thăm, Người B kể các khó khăn dồn dập. Cách xử lý nhanh của Người A được nối tiếp bằng khó khăn khác từ Người B, sau đó Người A chuyển sang cho phép nghỉ và đề nghị giúp cụ thể, Người B đáp lại bằng lời vui vẻ, quý mến."
+      },
+      "segments": [
+        {
+          "turnId": "t1",
+          "messageIds": [
+            "m1"
+          ],
+          "splitReason": null,
+          "cues": [
+            "Dạo này em sao rồi?"
+          ],
+          "contextCues": [],
+          "rationale": "Câu hỏi mở, hỏi thông tin hiện tại. Nghe như kiểm tra thực tế ở đây-và-bây giờ, chưa có lời đánh giá hay dỗ dành rõ rệt.",
+          "family": "A",
+          "expression": "A",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "NP",
+            "rationale": "Cũng có thể nghe như hỏi thăm quan tâm, nhưng chữ chưa cho thấy chăm sóc rõ."
+          },
+          "invites": "A",
+          "secondLayer": null,
+          "id": "s1"
+        },
+        {
+          "turnId": "t2",
+          "messageIds": [
+            "m2",
+            "m3"
+          ],
+          "splitReason": null,
+          "cues": [
+            "mệt lắm",
+            "chẳng muốn làm gì",
+            "lo quá"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m1",
+              "quote": "Dạo này em sao rồi?"
+            }
+          ],
+          "rationale": "Người B nói thẳng mệt, hết tiền và lo. Nghe như bộc lộ trực tiếp cảm giác, chưa từ chối giúp đỡ nào.",
+          "family": "C",
+          "expression": "FC",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "AC",
+            "rationale": "Cũng có thể nghe như buông xuôi, nhấn mạnh “chẳng muốn” và “lo”."
+          },
+          "invites": "P",
+          "secondLayer": null,
+          "id": "s2"
+        },
+        {
+          "turnId": "t3",
+          "messageIds": [
+            "m4"
+          ],
+          "splitReason": null,
+          "cues": [
+            "tiêu ít lại là được mà"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m3",
+              "quote": "Tháng này cũng hết tiền rồi, lo quá."
+            }
+          ],
+          "rationale": "Câu đưa ra cách sửa nhanh cho chuyện hết tiền, không hỏi thêm. Nghe như khép lại nỗi lo bằng một quy tắc chi tiêu.",
+          "family": "P",
+          "expression": "CP",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "A",
+            "rationale": "Cũng có thể nghe như gợi ý thực tế, nhưng chữ “Thì … là được mà” nghe gọn và khép lại."
+          },
+          "invites": "C",
+          "secondLayer": null,
+          "id": "s3"
+        },
+        {
+          "turnId": "t4",
+          "messageIds": [
+            "m5"
+          ],
+          "splitReason": null,
+          "cues": [
+            "còn sốt nữa",
+            "không đi làm được"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m4",
+              "quote": "Thì tiêu ít lại là được mà."
+            }
+          ],
+          "rationale": "Người B kể thêm bệnh và nói không đi làm được, không bàn lại cách tiêu ít lại. Nghe như rút về phía khó khăn và “không làm được”.",
+          "family": "C",
+          "expression": "AC",
+          "confidence": "low",
+          "alternative": {
+            "expression": "A",
+            "rationale": "Cũng có thể nghe như báo việc ốm và nghỉ làm, nhưng đặt sau lời khuyên nên nghe như né tránh."
+          },
+          "invites": "P",
+          "secondLayer": null,
+          "id": "s4"
+        },
+        {
+          "turnId": "t5",
+          "messageIds": [
+            "m6"
+          ],
+          "splitReason": null,
+          "cues": [
+            "nghỉ đi",
+            "để chị nấu cháo mang qua cho"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m5",
+              "quote": "Hôm nay em còn sốt nữa, chắc không đi làm được."
+            }
+          ],
+          "rationale": "Câu cho phép nghỉ và đề nghị giúp cụ thể vì người kia ốm. Nghe như chăm sóc và bảo vệ rõ rệt.",
+          "family": "P",
+          "expression": "NP",
+          "confidence": "high",
+          "alternative": null,
+          "invites": "C",
+          "secondLayer": null,
+          "id": "s5"
+        },
+        {
+          "turnId": "t6",
+          "messageIds": [
+            "m7"
+          ],
+          "splitReason": null,
+          "cues": [
+            "Aaa",
+            "chị là nhất"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m6",
+              "quote": "Thế thì nghỉ đi, để chị nấu cháo mang qua cho."
+            }
+          ],
+          "rationale": "Câu nói ngắn, reo vui và khen quý mến ngay sau lời giúp. Nghe như bày tỏ vui, thích một cách tự nhiên.",
+          "family": "C",
+          "expression": "FC",
+          "confidence": "high",
+          "alternative": null,
+          "invites": "P",
+          "secondLayer": null,
+          "id": "s6"
+        }
+      ],
+      "shifts": [
+        {
+          "messageId": "m4",
+          "description": "Lời nói chuyển từ kể mệt và lo sang đưa cách xử lý gọn về chi tiêu.",
+          "cues": [
+            "tiêu ít lại là được mà"
+          ]
+        },
+        {
+          "messageId": "m6",
+          "description": "Lời nói chuyển từ cách xử lý gọn sang cho phép nghỉ và đề nghị giúp cụ thể.",
+          "cues": [
+            "nghỉ đi",
+            "để chị nấu cháo mang qua cho"
+          ]
+        },
+        {
+          "messageId": "m7",
+          "description": "Lời nói chuyển từ kể khó khăn sang reo vui và khen quý mến.",
+          "cues": [
+            "chị là nhất"
+          ]
+        }
+      ],
+      "summary": "Người A hỏi thăm, Người B kể mệt, hết tiền rồi sốt. Sau cách xử lý nhanh về chi tiêu, Người A chuyển sang cho nghỉ và mang cháo qua, Người B đáp lại vui vẻ, quý mến.",
+      "uncertainty": "Chỉ qua chữ không thấy được giọng, nét mặt, hay chuyện ngoài đoạn chat. Lịch sử quan hệ và mức độ ốm, thiếu tiền thực tế cũng chưa rõ.",
+      "safety": {
+        "flagged": false,
+        "categories": [],
+        "note": null
+      },
+      "readings": [
+        {
+          "splitReason": null,
+          "cues": [
+            "Dạo này em sao rồi?"
+          ],
+          "contextCues": [],
+          "rationale": "Câu hỏi mở, hỏi thông tin hiện tại. Nghe như kiểm tra thực tế ở đây-và-bây giờ, chưa có lời đánh giá hay dỗ dành rõ rệt.",
+          "family": "A",
+          "expression": "A",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "NP",
+            "rationale": "Cũng có thể nghe như hỏi thăm quan tâm, nhưng chữ chưa cho thấy chăm sóc rõ."
+          },
+          "invites": "A",
+          "secondLayer": null,
+          "messageId": "m1",
+          "segmentId": "s1"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "mệt lắm",
+            "chẳng muốn làm gì",
+            "lo quá"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m1",
+              "quote": "Dạo này em sao rồi?"
+            }
+          ],
+          "rationale": "Người B nói thẳng mệt, hết tiền và lo. Nghe như bộc lộ trực tiếp cảm giác, chưa từ chối giúp đỡ nào.",
+          "family": "C",
+          "expression": "FC",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "AC",
+            "rationale": "Cũng có thể nghe như buông xuôi, nhấn mạnh “chẳng muốn” và “lo”."
+          },
+          "invites": "P",
+          "secondLayer": null,
+          "messageId": "m2",
+          "segmentId": "s2"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "mệt lắm",
+            "chẳng muốn làm gì",
+            "lo quá"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m1",
+              "quote": "Dạo này em sao rồi?"
+            }
+          ],
+          "rationale": "Người B nói thẳng mệt, hết tiền và lo. Nghe như bộc lộ trực tiếp cảm giác, chưa từ chối giúp đỡ nào.",
+          "family": "C",
+          "expression": "FC",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "AC",
+            "rationale": "Cũng có thể nghe như buông xuôi, nhấn mạnh “chẳng muốn” và “lo”."
+          },
+          "invites": "P",
+          "secondLayer": null,
+          "messageId": "m3",
+          "segmentId": "s2"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "tiêu ít lại là được mà"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m3",
+              "quote": "Tháng này cũng hết tiền rồi, lo quá."
+            }
+          ],
+          "rationale": "Câu đưa ra cách sửa nhanh cho chuyện hết tiền, không hỏi thêm. Nghe như khép lại nỗi lo bằng một quy tắc chi tiêu.",
+          "family": "P",
+          "expression": "CP",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "A",
+            "rationale": "Cũng có thể nghe như gợi ý thực tế, nhưng chữ “Thì … là được mà” nghe gọn và khép lại."
+          },
+          "invites": "C",
+          "secondLayer": null,
+          "messageId": "m4",
+          "segmentId": "s3"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "còn sốt nữa",
+            "không đi làm được"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m4",
+              "quote": "Thì tiêu ít lại là được mà."
+            }
+          ],
+          "rationale": "Người B kể thêm bệnh và nói không đi làm được, không bàn lại cách tiêu ít lại. Nghe như rút về phía khó khăn và “không làm được”.",
+          "family": "C",
+          "expression": "AC",
+          "confidence": "low",
+          "alternative": {
+            "expression": "A",
+            "rationale": "Cũng có thể nghe như báo việc ốm và nghỉ làm, nhưng đặt sau lời khuyên nên nghe như né tránh."
+          },
+          "invites": "P",
+          "secondLayer": null,
+          "messageId": "m5",
+          "segmentId": "s4"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "nghỉ đi",
+            "để chị nấu cháo mang qua cho"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m5",
+              "quote": "Hôm nay em còn sốt nữa, chắc không đi làm được."
+            }
+          ],
+          "rationale": "Câu cho phép nghỉ và đề nghị giúp cụ thể vì người kia ốm. Nghe như chăm sóc và bảo vệ rõ rệt.",
+          "family": "P",
+          "expression": "NP",
+          "confidence": "high",
+          "alternative": null,
+          "invites": "C",
+          "secondLayer": null,
+          "messageId": "m6",
+          "segmentId": "s5"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "Aaa",
+            "chị là nhất"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m6",
+              "quote": "Thế thì nghỉ đi, để chị nấu cháo mang qua cho."
+            }
+          ],
+          "rationale": "Câu nói ngắn, reo vui và khen quý mến ngay sau lời giúp. Nghe như bày tỏ vui, thích một cách tự nhiên.",
+          "family": "C",
+          "expression": "FC",
+          "confidence": "high",
+          "alternative": null,
+          "invites": "P",
+          "secondLayer": null,
+          "messageId": "m7",
+          "segmentId": "s6"
+        }
+      ]
+    }
+  },
+  "score": {
+    "per": [
+      {
+        "id": "m1",
+        "expr": "A",
+        "family": "A",
+        "conf": "medium",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m2",
+        "expr": "FC",
+        "family": "C",
+        "conf": "medium",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m3",
+        "expr": "FC",
+        "family": "C",
+        "conf": "medium",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m4",
+        "expr": "CP",
+        "family": "P",
+        "conf": "medium",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m5",
+        "expr": "AC",
+        "family": "C",
+        "conf": "low",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m6",
+        "expr": "NP",
+        "family": "P",
+        "conf": "high",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m7",
+        "expr": "FC",
+        "family": "C",
+        "conf": "high",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      }
+    ],
+    "n": 7,
+    "accOk": 7,
+    "hardFails": [],
+    "overCeiling": [],
+    "highOnReview": 0,
+    "altMissing": 0,
+    "unclear": 0,
+    "high": 2
+  }
+}

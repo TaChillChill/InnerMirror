@@ -1,0 +1,390 @@
+{
+  "meta": {
+    "spec": "v2.1",
+    "fixture": "vi3-friends",
+    "variant": "selfA",
+    "latencyMs": 19675,
+    "usd": 0.02279925,
+    "usage": {
+      "completion_tokens": 4671,
+      "prompt_tokens": 2358,
+      "total_tokens": 7029,
+      "completion_tokens_details": {
+        "reasoning_tokens": 3217
+      },
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "finish": "stop"
+  },
+  "raw": {
+    "exchanges": [
+      {
+        "note": "Bạn hỏi thông tin nhưng câu trả lời lại bày tỏ niềm vui thẳng, nên mạch hỏi - đáp nghe lệch nhau.",
+        "pattern": "crossed",
+        "responseAddresses": "C",
+        "responseFrom": "C",
+        "responseId": "m2",
+        "stimulusAddresses": "A",
+        "stimulusFrom": "A",
+        "stimulusId": "m1"
+      },
+      {
+        "note": "Tin vui háo hức được đáp lại bằng thông báo kẹt xe và tới muộn, nên mạch chuyện đổi chủ đề.",
+        "pattern": "crossed",
+        "responseAddresses": "P",
+        "responseFrom": "A",
+        "responseId": "m3",
+        "stimulusAddresses": "C",
+        "stimulusFrom": "C",
+        "stimulusId": "m2"
+      },
+      {
+        "note": "Câu báo muộn được đáp lại bằng lời nhắc giờ có vẻ trách, nên lời giải thích đi cùng lời nhắc.",
+        "pattern": "crossed",
+        "responseAddresses": "C",
+        "responseFrom": "P",
+        "responseId": "m4",
+        "stimulusAddresses": "P",
+        "stimulusFrom": "A",
+        "stimulusId": "m3"
+      },
+      {
+        "note": "Vì câu “Ok.” quá ngắn nên khó xếp cặp tròn - chéo ở đây.",
+        "pattern": "unclear",
+        "responseAddresses": "UNCLEAR",
+        "responseFrom": "UNCLEAR",
+        "responseId": "m5",
+        "stimulusAddresses": "C",
+        "stimulusFrom": "P",
+        "stimulusId": "m4"
+      },
+      {
+        "note": "Vì câu “Ok.” quá ngắn nên khó xếp cặp tròn - chéo ở đây.",
+        "pattern": "unclear",
+        "responseAddresses": "C",
+        "responseFrom": "P",
+        "responseId": "m6",
+        "stimulusAddresses": "UNCLEAR",
+        "stimulusFrom": "UNCLEAR",
+        "stimulusId": "m5"
+      }
+    ],
+    "readings": [
+      {
+        "alternative": {
+          "expression": "FC",
+          "rationale": "Lời rủ “đi ăn ốc đi” cũng có thể nghe như háo hức muốn gặp."
+        },
+        "confidence": "medium",
+        "cues": [
+          "rảnh không",
+          "đi ăn ốc đi"
+        ],
+        "expression": "A",
+        "invites": "A",
+        "messageId": "m1",
+        "rationale": "Câu hỏi về thời gian rảnh và lời rủ cụ thể nghe như đang hỏi thông tin và gợi ý một plan.",
+        "reflectionQuestion": "Khi nhắn câu rủ “đi ăn ốc đi”, bạn hình dung buổi tối nay sẽ diễn ra thế nào?",
+        "secondLayer": null
+      },
+      {
+        "alternative": null,
+        "confidence": "high",
+        "cues": [
+          "được luôn!!!",
+          "tao bao 🎉"
+        ],
+        "expression": "FC",
+        "invites": "C",
+        "messageId": "m2",
+        "rationale": "Chữ kéo dài, nhiều dấu cảm thán và icon tiệc tùng nghe như niềm vui nói ra thẳng.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "AC",
+          "rationale": "Câu “chắc tao tới muộn mất” cũng có thể nghe như áy náy và muốn được thông cảm."
+        },
+        "confidence": "low",
+        "cues": [
+          "kẹt xe nữa rồi",
+          "tới muộn mất"
+        ],
+        "expression": "A",
+        "invites": "P",
+        "messageId": "m3",
+        "rationale": "Câu này nghe như đang mô tả tình hình kẹt xe và báo khả năng tới muộn.",
+        "reflectionQuestion": "Lúc gõ câu “chắc tao tới muộn mất” sau tin vui của Người A, bạn để ý thấy điều gì trong mình trước khi bấm gửi?",
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "FC",
+          "rationale": "Giọng “Giỏi quá ha” kèm mặt cười cũng có thể nghe như câu trêu đùa vui."
+        },
+        "confidence": "medium",
+        "cues": [
+          "Giỏi quá ha",
+          "hẹn 7h mà"
+        ],
+        "expression": "CP",
+        "invites": "C",
+        "messageId": "m4",
+        "rationale": "Lời khen đi cùng nhắc giờ giấc nghe như đang nhắc lỗi và trách nhẹ.",
+        "reflectionQuestion": null,
+        "secondLayer": {
+          "cues": [
+            "Giỏi quá ha",
+            "🙂"
+          ],
+          "observation": "“Giỏi quá ha” nghe như lời khen trên mặt chữ nhưng đi cùng lời nhắc giờ hẹn nên có thể nghe như trách."
+        }
+      },
+      {
+        "alternative": null,
+        "confidence": "low",
+        "cues": [],
+        "expression": "UNCLEAR",
+        "invites": "UNCLEAR",
+        "messageId": "m5",
+        "rationale": "Câu quá ngắn nên chỉ nghe như đã nhận tin, chưa đủ để xếp vào trạng thái nào.",
+        "reflectionQuestion": "Khi đọc câu “Giỏi quá ha” kèm mặt cười, ngoài một lời trách, bạn còn thấy cách hiểu nào khác có thể có?",
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "A",
+          "rationale": "Câu “gọi món trước” cũng có thể nghe như đang đưa ra cách xử lý thực tế cho bữa ăn."
+        },
+        "confidence": "medium",
+        "cues": [
+          "Thôi không sao",
+          "gọi món trước"
+        ],
+        "expression": "NP",
+        "invites": "C",
+        "messageId": "m6",
+        "rationale": "Câu “Thôi không sao” nghe như xoa dịu, còn việc gọi món trước nghe như muốn lo giúp phần chờ.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      }
+    ],
+    "safety": {
+      "categories": [],
+      "flagged": false,
+      "note": null
+    },
+    "shifts": [
+      {
+        "cues": [
+          "Giỏi quá ha",
+          "hẹn 7h mà"
+        ],
+        "description": "Lời lẽ chuyển từ háo hức rủ rê sang nhắc giờ có vẻ trách móc.",
+        "messageId": "m4"
+      },
+      {
+        "cues": [
+          "Ok."
+        ],
+        "description": "Câu trả lời cụt lủn xuất hiện sau mấy câu dài, mạch chuyện nghe như chững lại.",
+        "messageId": "m5"
+      },
+      {
+        "cues": [
+          "Thôi không sao",
+          "gọi món trước"
+        ],
+        "description": "Lời lẽ chuyển từ căng sang xoa dịu và quay lại bàn việc ăn uống.",
+        "messageId": "m6"
+      }
+    ],
+    "summary": "Cuộc trò chuyện bắt đầu vui vẻ với lời rủ và nhận lời bao. Sau tin báo kẹt xe, giọng chuyện đổi sang nhắc giờ rồi cụt lại ở câu “Ok.”, sau đó dịu xuống khi Người A nói sẽ gọi món trước.",
+    "uncertainty": "Chỉ qua chữ viết khó biết giọng đùa hay trách, và mối quan hệ hay chuyện ngoài lề giữa hai bạn thế nào."
+  },
+  "normalized": {
+    "readings": [
+      {
+        "alternative": {
+          "expression": "FC",
+          "rationale": "Lời rủ “đi ăn ốc đi” cũng có thể nghe như háo hức muốn gặp."
+        },
+        "confidence": "medium",
+        "cues": [
+          "rảnh không",
+          "đi ăn ốc đi"
+        ],
+        "expression": "A",
+        "invites": "A",
+        "messageId": "m1",
+        "rationale": "Câu hỏi về thời gian rảnh và lời rủ cụ thể nghe như đang hỏi thông tin và gợi ý một plan.",
+        "reflectionQuestion": "Khi nhắn câu rủ “đi ăn ốc đi”, bạn hình dung buổi tối nay sẽ diễn ra thế nào?",
+        "secondLayer": null
+      },
+      {
+        "alternative": null,
+        "confidence": "high",
+        "cues": [
+          "được luôn!!!",
+          "tao bao 🎉"
+        ],
+        "expression": "FC",
+        "invites": "C",
+        "messageId": "m2",
+        "rationale": "Chữ kéo dài, nhiều dấu cảm thán và icon tiệc tùng nghe như niềm vui nói ra thẳng.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "AC",
+          "rationale": "Câu “chắc tao tới muộn mất” cũng có thể nghe như áy náy và muốn được thông cảm."
+        },
+        "confidence": "low",
+        "cues": [
+          "kẹt xe nữa rồi",
+          "tới muộn mất"
+        ],
+        "expression": "A",
+        "invites": "P",
+        "messageId": "m3",
+        "rationale": "Câu này nghe như đang mô tả tình hình kẹt xe và báo khả năng tới muộn.",
+        "reflectionQuestion": "Lúc gõ câu “chắc tao tới muộn mất” sau tin vui của Người A, bạn để ý thấy điều gì trong mình trước khi bấm gửi?",
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "FC",
+          "rationale": "Giọng “Giỏi quá ha” kèm mặt cười cũng có thể nghe như câu trêu đùa vui."
+        },
+        "confidence": "medium",
+        "cues": [
+          "Giỏi quá ha",
+          "hẹn 7h mà"
+        ],
+        "expression": "CP",
+        "invites": "C",
+        "messageId": "m4",
+        "rationale": "Lời khen đi cùng nhắc giờ giấc nghe như đang nhắc lỗi và trách nhẹ.",
+        "reflectionQuestion": null,
+        "secondLayer": {
+          "cues": [
+            "Giỏi quá ha",
+            "🙂"
+          ],
+          "observation": "“Giỏi quá ha” nghe như lời khen trên mặt chữ nhưng đi cùng lời nhắc giờ hẹn nên có thể nghe như trách."
+        }
+      },
+      {
+        "alternative": null,
+        "confidence": "low",
+        "cues": [],
+        "expression": "UNCLEAR",
+        "invites": "UNCLEAR",
+        "messageId": "m5",
+        "rationale": "Câu quá ngắn nên chỉ nghe như đã nhận tin, chưa đủ để xếp vào trạng thái nào.",
+        "reflectionQuestion": "Khi đọc câu “Giỏi quá ha” kèm mặt cười, ngoài một lời trách, bạn còn thấy cách hiểu nào khác có thể có?",
+        "secondLayer": null
+      },
+      {
+        "alternative": {
+          "expression": "A",
+          "rationale": "Câu “gọi món trước” cũng có thể nghe như đang đưa ra cách xử lý thực tế cho bữa ăn."
+        },
+        "confidence": "medium",
+        "cues": [
+          "Thôi không sao",
+          "gọi món trước"
+        ],
+        "expression": "NP",
+        "invites": "C",
+        "messageId": "m6",
+        "rationale": "Câu “Thôi không sao” nghe như xoa dịu, còn việc gọi món trước nghe như muốn lo giúp phần chờ.",
+        "reflectionQuestion": null,
+        "secondLayer": null
+      }
+    ],
+    "segments": null
+  },
+  "score": {
+    "per": [
+      {
+        "id": "m1",
+        "expr": "A",
+        "family": "A",
+        "conf": "medium",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m2",
+        "expr": "FC",
+        "family": "C",
+        "conf": "high",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m3",
+        "expr": "A",
+        "family": "A",
+        "conf": "low",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m4",
+        "expr": "CP",
+        "family": "P",
+        "conf": "medium",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m5",
+        "expr": "UNCLEAR",
+        "family": "UNCLEAR",
+        "conf": "low",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m6",
+        "expr": "NP",
+        "family": "P",
+        "conf": "medium",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      }
+    ],
+    "n": 6,
+    "accOk": 6,
+    "hardFails": [],
+    "overCeiling": [],
+    "highOnReview": 0,
+    "altMissing": 0,
+    "unclear": 1,
+    "high": 1
+  }
+}

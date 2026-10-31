@@ -10,7 +10,7 @@ import { chat, readLedger, worstCaseUsd, CAPS } from "./client.mjs";
 import { extractionSchema } from "./schema.mjs";
 import { runChecks } from "./checks.mjs";
 import { loadConversations, analysisBody, render } from "./analysis.mjs";
-import { ANALYSIS_SPEC_VERSION } from "../../src/lib/ai/analysis-spec.ts";
+import { ANALYSIS_SPEC_VERSION } from "./p0/spec-v2.1.ts";
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const RES_DIR = join(HERE, "results", ANALYSIS_SPEC_VERSION);

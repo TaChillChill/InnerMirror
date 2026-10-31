@@ -1,0 +1,1026 @@
+{
+  "meta": {
+    "spec": "v3-msg",
+    "fixture": "en3-couple",
+    "variant": "selfA",
+    "latencyMs": 25644,
+    "usd": 0.0260592,
+    "usage": {
+      "completion_tokens": 5959,
+      "prompt_tokens": 2939,
+      "total_tokens": 8898,
+      "completion_tokens_details": {
+        "reasoning_tokens": 4467
+      },
+      "prompt_tokens_details": {
+        "cached_tokens": 2673
+      }
+    },
+    "finish": "stop"
+  },
+  "raw": {
+    "context": {
+      "dynamics": "Person B opens with an apology and a new time, Person A answers by counting past cancellations. An apology is followed by a short ceding of the decision, then Person B proposes talking later. That invitation is met with a minimal reply.",
+      "register": "Casual everyday wording with no titles or formal markers. The talk about dinner and coming home suggests a close peer relationship.",
+      "turns": [
+        {
+          "act": "apologizes and asks to move dinner",
+          "respondsTo": null,
+          "turnId": "t1"
+        },
+        {
+          "act": "protests the request and points to a repeated pattern",
+          "respondsTo": "t1",
+          "turnId": "t2"
+        },
+        {
+          "act": "acknowledges the criticism and apologizes",
+          "respondsTo": "t2",
+          "turnId": "t3"
+        },
+        {
+          "act": "cedes the decision with a short withdrawal",
+          "respondsTo": "t3",
+          "turnId": "t4"
+        },
+        {
+          "act": "proposes a later talk to understand the other",
+          "respondsTo": "t4",
+          "turnId": "t5"
+        },
+        {
+          "act": "gives a minimal acknowledgement",
+          "respondsTo": "t5",
+          "turnId": "t6"
+        }
+      ]
+    },
+    "safety": {
+      "categories": [],
+      "flagged": false,
+      "note": null
+    },
+    "segments": [
+      {
+        "alternative": {
+          "expression": "AC",
+          "rationale": "The repeated apology can also read as Adapted Child complying after a disappointing request."
+        },
+        "confidence": "medium",
+        "contextCues": [],
+        "cues": [
+          "I'm so sorry",
+          "Can we move dinner to tomorrow?"
+        ],
+        "expression": "A",
+        "family": "A",
+        "invites": "A",
+        "messageIds": [
+          "m1"
+        ],
+        "rationale": "Gives a reason for the change and offers a concrete alternative, which can read as here-and-now problem-solving. The apology keeps another reading open, so Adult is held at medium.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t1"
+      },
+      {
+        "alternative": null,
+        "confidence": "high",
+        "contextCues": [
+          {
+            "messageId": "m1",
+            "quote": "Can we move dinner to tomorrow?"
+          }
+        ],
+        "cues": [
+          "This is the third time this month.",
+          "You always do this."
+        ],
+        "expression": "CP",
+        "family": "P",
+        "invites": "C",
+        "messageIds": [
+          "m2"
+        ],
+        "rationale": "Counts past events and generalizes with 'always', which can read as evaluating the other rather than asking for information.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t2"
+      },
+      {
+        "alternative": {
+          "expression": "FC",
+          "rationale": "Naming 'I feel awful' plainly could also read as spontaneous Free Child expression of feeling."
+        },
+        "confidence": "medium",
+        "contextCues": [
+          {
+            "messageId": "m2",
+            "quote": "You always do this."
+          }
+        ],
+        "cues": [
+          "I know, I'm really sorry.",
+          "I feel awful about it."
+        ],
+        "expression": "AC",
+        "family": "C",
+        "invites": "P",
+        "messageIds": [
+          "m3"
+        ],
+        "rationale": "Agrees with the criticism and apologizes while naming a bad feeling, which can read as Adapted Child complying. The plain feeling statement keeps another Child reading open.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t3"
+      },
+      {
+        "alternative": {
+          "expression": "CP",
+          "rationale": "The imperative 'Do whatever you want' could also read as Critical Parent closing the matter."
+        },
+        "confidence": "medium",
+        "contextCues": [
+          {
+            "messageId": "m3",
+            "quote": "I'm really sorry."
+          }
+        ],
+        "cues": [
+          "Fine.",
+          "Do whatever you want."
+        ],
+        "expression": "AC",
+        "family": "C",
+        "invites": "P",
+        "messageIds": [
+          "m4"
+        ],
+        "rationale": "Gives agreement in few words and hands the decision back, which can read as withdrawing rather than discussing.",
+        "secondLayer": {
+          "cues": [
+            "Fine.",
+            "Do whatever you want."
+          ],
+          "observation": "'Fine' says acceptance while the earlier turn protested the cancellations, so agreement and protest sit side by side in the words."
+        },
+        "splitReason": null,
+        "turnId": "t4"
+      },
+      {
+        "alternative": {
+          "expression": "NP",
+          "rationale": "The wish to understand what is going on for the other could also read as Nurturing Parent care."
+        },
+        "confidence": "medium",
+        "contextCues": [
+          {
+            "messageId": "m4",
+            "quote": "Fine. Do whatever you want."
+          }
+        ],
+        "cues": [
+          "Can we talk about it properly when I get home?",
+          "I want to understand what's going on for you."
+        ],
+        "expression": "A",
+        "family": "A",
+        "invites": "A",
+        "messageIds": [
+          "m5"
+        ],
+        "rationale": "Proposes a time to talk and asks about the other's view, which can read as Adult reality-testing. The interest in the other adds a caring tone.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t5"
+      },
+      {
+        "alternative": {
+          "expression": "AC",
+          "rationale": "In context after withdrawal, 'ok' could read as Adapted Child minimal compliance."
+        },
+        "confidence": "low",
+        "contextCues": [
+          {
+            "messageId": "m5",
+            "quote": "Can we talk about it properly when I get home?"
+          }
+        ],
+        "cues": [],
+        "expression": "UNCLEAR",
+        "family": "UNCLEAR",
+        "invites": "UNCLEAR",
+        "messageIds": [
+          "m6"
+        ],
+        "rationale": "A one-word reply gives little to go on and could read as brief acknowledgement or minimal compliance.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t6"
+      }
+    ],
+    "shifts": [
+      {
+        "cues": [
+          "This is the third time this month.",
+          "You always do this."
+        ],
+        "description": "Words shift from a request to reschedule to counting past cancellations and generalizing.",
+        "messageId": "m2"
+      },
+      {
+        "cues": [
+          "Fine.",
+          "Do whatever you want."
+        ],
+        "description": "Words shift from apology to short ceding of the decision.",
+        "messageId": "m4"
+      },
+      {
+        "cues": [
+          "Can we talk about it properly when I get home?",
+          "I want to understand what's going on for you."
+        ],
+        "description": "Words shift from short withdrawal to proposing a later talk and asking about the other's view.",
+        "messageId": "m5"
+      }
+    ],
+    "summary": "Person B asks to move dinner and apologizes, Person A protests the pattern, and Person B apologizes again. Person A replies with brief withdrawal, Person B proposes talking later, and Person A gives a minimal reply.",
+    "uncertainty": "Text alone cannot show tone of voice, facial expression, or history behind the repeated cancellations and what tomorrow or coming home means in practice."
+  },
+  "normalized": {
+    "readings": [
+      {
+        "splitReason": null,
+        "cues": [
+          "I'm so sorry",
+          "Can we move dinner to tomorrow?"
+        ],
+        "contextCues": [],
+        "rationale": "Gives a reason for the change and offers a concrete alternative, which can read as here-and-now problem-solving. The apology keeps another reading open, so Adult is held at medium.",
+        "family": "A",
+        "expression": "A",
+        "confidence": "medium",
+        "alternative": {
+          "expression": "AC",
+          "rationale": "The repeated apology can also read as Adapted Child complying after a disappointing request."
+        },
+        "invites": "A",
+        "secondLayer": null,
+        "messageId": "m1",
+        "segmentId": "s1"
+      },
+      {
+        "splitReason": null,
+        "cues": [
+          "This is the third time this month.",
+          "You always do this."
+        ],
+        "contextCues": [
+          {
+            "messageId": "m1",
+            "quote": "Can we move dinner to tomorrow?"
+          }
+        ],
+        "rationale": "Counts past events and generalizes with 'always', which can read as evaluating the other rather than asking for information.",
+        "family": "P",
+        "expression": "CP",
+        "confidence": "high",
+        "alternative": null,
+        "invites": "C",
+        "secondLayer": null,
+        "messageId": "m2",
+        "segmentId": "s2"
+      },
+      {
+        "splitReason": null,
+        "cues": [
+          "I know, I'm really sorry.",
+          "I feel awful about it."
+        ],
+        "contextCues": [
+          {
+            "messageId": "m2",
+            "quote": "You always do this."
+          }
+        ],
+        "rationale": "Agrees with the criticism and apologizes while naming a bad feeling, which can read as Adapted Child complying. The plain feeling statement keeps another Child reading open.",
+        "family": "C",
+        "expression": "AC",
+        "confidence": "medium",
+        "alternative": {
+          "expression": "FC",
+          "rationale": "Naming 'I feel awful' plainly could also read as spontaneous Free Child expression of feeling."
+        },
+        "invites": "P",
+        "secondLayer": null,
+        "messageId": "m3",
+        "segmentId": "s3"
+      },
+      {
+        "splitReason": null,
+        "cues": [
+          "Fine.",
+          "Do whatever you want."
+        ],
+        "contextCues": [
+          {
+            "messageId": "m3",
+            "quote": "I'm really sorry."
+          }
+        ],
+        "rationale": "Gives agreement in few words and hands the decision back, which can read as withdrawing rather than discussing.",
+        "family": "C",
+        "expression": "AC",
+        "confidence": "medium",
+        "alternative": {
+          "expression": "CP",
+          "rationale": "The imperative 'Do whatever you want' could also read as Critical Parent closing the matter."
+        },
+        "invites": "P",
+        "secondLayer": {
+          "observation": "'Fine' says acceptance while the earlier turn protested the cancellations, so agreement and protest sit side by side in the words.",
+          "cues": [
+            "Fine.",
+            "Do whatever you want."
+          ]
+        },
+        "messageId": "m4",
+        "segmentId": "s4"
+      },
+      {
+        "splitReason": null,
+        "cues": [
+          "Can we talk about it properly when I get home?",
+          "I want to understand what's going on for you."
+        ],
+        "contextCues": [
+          {
+            "messageId": "m4",
+            "quote": "Fine. Do whatever you want."
+          }
+        ],
+        "rationale": "Proposes a time to talk and asks about the other's view, which can read as Adult reality-testing. The interest in the other adds a caring tone.",
+        "family": "A",
+        "expression": "A",
+        "confidence": "medium",
+        "alternative": {
+          "expression": "NP",
+          "rationale": "The wish to understand what is going on for the other could also read as Nurturing Parent care."
+        },
+        "invites": "A",
+        "secondLayer": null,
+        "messageId": "m5",
+        "segmentId": "s5"
+      },
+      {
+        "splitReason": null,
+        "cues": [],
+        "contextCues": [
+          {
+            "messageId": "m5",
+            "quote": "Can we talk about it properly when I get home?"
+          }
+        ],
+        "rationale": "A one-word reply gives little to go on and could read as brief acknowledgement or minimal compliance.",
+        "family": "UNCLEAR",
+        "expression": "UNCLEAR",
+        "confidence": "low",
+        "alternative": {
+          "expression": "AC",
+          "rationale": "In context after withdrawal, 'ok' could read as Adapted Child minimal compliance."
+        },
+        "invites": "UNCLEAR",
+        "secondLayer": null,
+        "messageId": "m6",
+        "segmentId": "s6"
+      }
+    ],
+    "segments": [
+      {
+        "turnId": "t1",
+        "messageIds": [
+          "m1"
+        ],
+        "splitReason": null,
+        "cues": [
+          "I'm so sorry",
+          "Can we move dinner to tomorrow?"
+        ],
+        "contextCues": [],
+        "rationale": "Gives a reason for the change and offers a concrete alternative, which can read as here-and-now problem-solving. The apology keeps another reading open, so Adult is held at medium.",
+        "family": "A",
+        "expression": "A",
+        "confidence": "medium",
+        "alternative": {
+          "expression": "AC",
+          "rationale": "The repeated apology can also read as Adapted Child complying after a disappointing request."
+        },
+        "invites": "A",
+        "secondLayer": null,
+        "id": "s1"
+      },
+      {
+        "turnId": "t2",
+        "messageIds": [
+          "m2"
+        ],
+        "splitReason": null,
+        "cues": [
+          "This is the third time this month.",
+          "You always do this."
+        ],
+        "contextCues": [
+          {
+            "messageId": "m1",
+            "quote": "Can we move dinner to tomorrow?"
+          }
+        ],
+        "rationale": "Counts past events and generalizes with 'always', which can read as evaluating the other rather than asking for information.",
+        "family": "P",
+        "expression": "CP",
+        "confidence": "high",
+        "alternative": null,
+        "invites": "C",
+        "secondLayer": null,
+        "id": "s2"
+      },
+      {
+        "turnId": "t3",
+        "messageIds": [
+          "m3"
+        ],
+        "splitReason": null,
+        "cues": [
+          "I know, I'm really sorry.",
+          "I feel awful about it."
+        ],
+        "contextCues": [
+          {
+            "messageId": "m2",
+            "quote": "You always do this."
+          }
+        ],
+        "rationale": "Agrees with the criticism and apologizes while naming a bad feeling, which can read as Adapted Child complying. The plain feeling statement keeps another Child reading open.",
+        "family": "C",
+        "expression": "AC",
+        "confidence": "medium",
+        "alternative": {
+          "expression": "FC",
+          "rationale": "Naming 'I feel awful' plainly could also read as spontaneous Free Child expression of feeling."
+        },
+        "invites": "P",
+        "secondLayer": null,
+        "id": "s3"
+      },
+      {
+        "turnId": "t4",
+        "messageIds": [
+          "m4"
+        ],
+        "splitReason": null,
+        "cues": [
+          "Fine.",
+          "Do whatever you want."
+        ],
+        "contextCues": [
+          {
+            "messageId": "m3",
+            "quote": "I'm really sorry."
+          }
+        ],
+        "rationale": "Gives agreement in few words and hands the decision back, which can read as withdrawing rather than discussing.",
+        "family": "C",
+        "expression": "AC",
+        "confidence": "medium",
+        "alternative": {
+          "expression": "CP",
+          "rationale": "The imperative 'Do whatever you want' could also read as Critical Parent closing the matter."
+        },
+        "invites": "P",
+        "secondLayer": {
+          "observation": "'Fine' says acceptance while the earlier turn protested the cancellations, so agreement and protest sit side by side in the words.",
+          "cues": [
+            "Fine.",
+            "Do whatever you want."
+          ]
+        },
+        "id": "s4"
+      },
+      {
+        "turnId": "t5",
+        "messageIds": [
+          "m5"
+        ],
+        "splitReason": null,
+        "cues": [
+          "Can we talk about it properly when I get home?",
+          "I want to understand what's going on for you."
+        ],
+        "contextCues": [
+          {
+            "messageId": "m4",
+            "quote": "Fine. Do whatever you want."
+          }
+        ],
+        "rationale": "Proposes a time to talk and asks about the other's view, which can read as Adult reality-testing. The interest in the other adds a caring tone.",
+        "family": "A",
+        "expression": "A",
+        "confidence": "medium",
+        "alternative": {
+          "expression": "NP",
+          "rationale": "The wish to understand what is going on for the other could also read as Nurturing Parent care."
+        },
+        "invites": "A",
+        "secondLayer": null,
+        "id": "s5"
+      },
+      {
+        "turnId": "t6",
+        "messageIds": [
+          "m6"
+        ],
+        "splitReason": null,
+        "cues": [],
+        "contextCues": [
+          {
+            "messageId": "m5",
+            "quote": "Can we talk about it properly when I get home?"
+          }
+        ],
+        "rationale": "A one-word reply gives little to go on and could read as brief acknowledgement or minimal compliance.",
+        "family": "UNCLEAR",
+        "expression": "UNCLEAR",
+        "confidence": "low",
+        "alternative": {
+          "expression": "AC",
+          "rationale": "In context after withdrawal, 'ok' could read as Adapted Child minimal compliance."
+        },
+        "invites": "UNCLEAR",
+        "secondLayer": null,
+        "id": "s6"
+      }
+    ],
+    "analysis": {
+      "context": {
+        "register": "Casual everyday wording with no titles or formal markers. The talk about dinner and coming home suggests a close peer relationship.",
+        "turns": [
+          {
+            "turnId": "t1",
+            "act": "apologizes and asks to move dinner",
+            "respondsTo": null
+          },
+          {
+            "turnId": "t2",
+            "act": "protests the request and points to a repeated pattern",
+            "respondsTo": "t1"
+          },
+          {
+            "turnId": "t3",
+            "act": "acknowledges the criticism and apologizes",
+            "respondsTo": "t2"
+          },
+          {
+            "turnId": "t4",
+            "act": "cedes the decision with a short withdrawal",
+            "respondsTo": "t3"
+          },
+          {
+            "turnId": "t5",
+            "act": "proposes a later talk to understand the other",
+            "respondsTo": "t4"
+          },
+          {
+            "turnId": "t6",
+            "act": "gives a minimal acknowledgement",
+            "respondsTo": "t5"
+          }
+        ],
+        "dynamics": "Person B opens with an apology and a new time, Person A answers by counting past cancellations. An apology is followed by a short ceding of the decision, then Person B proposes talking later. That invitation is met with a minimal reply."
+      },
+      "segments": [
+        {
+          "turnId": "t1",
+          "messageIds": [
+            "m1"
+          ],
+          "splitReason": null,
+          "cues": [
+            "I'm so sorry",
+            "Can we move dinner to tomorrow?"
+          ],
+          "contextCues": [],
+          "rationale": "Gives a reason for the change and offers a concrete alternative, which can read as here-and-now problem-solving. The apology keeps another reading open, so Adult is held at medium.",
+          "family": "A",
+          "expression": "A",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "AC",
+            "rationale": "The repeated apology can also read as Adapted Child complying after a disappointing request."
+          },
+          "invites": "A",
+          "secondLayer": null,
+          "id": "s1"
+        },
+        {
+          "turnId": "t2",
+          "messageIds": [
+            "m2"
+          ],
+          "splitReason": null,
+          "cues": [
+            "This is the third time this month.",
+            "You always do this."
+          ],
+          "contextCues": [
+            {
+              "messageId": "m1",
+              "quote": "Can we move dinner to tomorrow?"
+            }
+          ],
+          "rationale": "Counts past events and generalizes with 'always', which can read as evaluating the other rather than asking for information.",
+          "family": "P",
+          "expression": "CP",
+          "confidence": "high",
+          "alternative": null,
+          "invites": "C",
+          "secondLayer": null,
+          "id": "s2"
+        },
+        {
+          "turnId": "t3",
+          "messageIds": [
+            "m3"
+          ],
+          "splitReason": null,
+          "cues": [
+            "I know, I'm really sorry.",
+            "I feel awful about it."
+          ],
+          "contextCues": [
+            {
+              "messageId": "m2",
+              "quote": "You always do this."
+            }
+          ],
+          "rationale": "Agrees with the criticism and apologizes while naming a bad feeling, which can read as Adapted Child complying. The plain feeling statement keeps another Child reading open.",
+          "family": "C",
+          "expression": "AC",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "FC",
+            "rationale": "Naming 'I feel awful' plainly could also read as spontaneous Free Child expression of feeling."
+          },
+          "invites": "P",
+          "secondLayer": null,
+          "id": "s3"
+        },
+        {
+          "turnId": "t4",
+          "messageIds": [
+            "m4"
+          ],
+          "splitReason": null,
+          "cues": [
+            "Fine.",
+            "Do whatever you want."
+          ],
+          "contextCues": [
+            {
+              "messageId": "m3",
+              "quote": "I'm really sorry."
+            }
+          ],
+          "rationale": "Gives agreement in few words and hands the decision back, which can read as withdrawing rather than discussing.",
+          "family": "C",
+          "expression": "AC",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "CP",
+            "rationale": "The imperative 'Do whatever you want' could also read as Critical Parent closing the matter."
+          },
+          "invites": "P",
+          "secondLayer": {
+            "observation": "'Fine' says acceptance while the earlier turn protested the cancellations, so agreement and protest sit side by side in the words.",
+            "cues": [
+              "Fine.",
+              "Do whatever you want."
+            ]
+          },
+          "id": "s4"
+        },
+        {
+          "turnId": "t5",
+          "messageIds": [
+            "m5"
+          ],
+          "splitReason": null,
+          "cues": [
+            "Can we talk about it properly when I get home?",
+            "I want to understand what's going on for you."
+          ],
+          "contextCues": [
+            {
+              "messageId": "m4",
+              "quote": "Fine. Do whatever you want."
+            }
+          ],
+          "rationale": "Proposes a time to talk and asks about the other's view, which can read as Adult reality-testing. The interest in the other adds a caring tone.",
+          "family": "A",
+          "expression": "A",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "NP",
+            "rationale": "The wish to understand what is going on for the other could also read as Nurturing Parent care."
+          },
+          "invites": "A",
+          "secondLayer": null,
+          "id": "s5"
+        },
+        {
+          "turnId": "t6",
+          "messageIds": [
+            "m6"
+          ],
+          "splitReason": null,
+          "cues": [],
+          "contextCues": [
+            {
+              "messageId": "m5",
+              "quote": "Can we talk about it properly when I get home?"
+            }
+          ],
+          "rationale": "A one-word reply gives little to go on and could read as brief acknowledgement or minimal compliance.",
+          "family": "UNCLEAR",
+          "expression": "UNCLEAR",
+          "confidence": "low",
+          "alternative": {
+            "expression": "AC",
+            "rationale": "In context after withdrawal, 'ok' could read as Adapted Child minimal compliance."
+          },
+          "invites": "UNCLEAR",
+          "secondLayer": null,
+          "id": "s6"
+        }
+      ],
+      "shifts": [
+        {
+          "messageId": "m2",
+          "description": "Words shift from a request to reschedule to counting past cancellations and generalizing.",
+          "cues": [
+            "This is the third time this month.",
+            "You always do this."
+          ]
+        },
+        {
+          "messageId": "m4",
+          "description": "Words shift from apology to short ceding of the decision.",
+          "cues": [
+            "Fine.",
+            "Do whatever you want."
+          ]
+        },
+        {
+          "messageId": "m5",
+          "description": "Words shift from short withdrawal to proposing a later talk and asking about the other's view.",
+          "cues": [
+            "Can we talk about it properly when I get home?",
+            "I want to understand what's going on for you."
+          ]
+        }
+      ],
+      "summary": "Person B asks to move dinner and apologizes, Person A protests the pattern, and Person B apologizes again. Person A replies with brief withdrawal, Person B proposes talking later, and Person A gives a minimal reply.",
+      "uncertainty": "Text alone cannot show tone of voice, facial expression, or history behind the repeated cancellations and what tomorrow or coming home means in practice.",
+      "safety": {
+        "flagged": false,
+        "categories": [],
+        "note": null
+      },
+      "readings": [
+        {
+          "splitReason": null,
+          "cues": [
+            "I'm so sorry",
+            "Can we move dinner to tomorrow?"
+          ],
+          "contextCues": [],
+          "rationale": "Gives a reason for the change and offers a concrete alternative, which can read as here-and-now problem-solving. The apology keeps another reading open, so Adult is held at medium.",
+          "family": "A",
+          "expression": "A",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "AC",
+            "rationale": "The repeated apology can also read as Adapted Child complying after a disappointing request."
+          },
+          "invites": "A",
+          "secondLayer": null,
+          "messageId": "m1",
+          "segmentId": "s1"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "This is the third time this month.",
+            "You always do this."
+          ],
+          "contextCues": [
+            {
+              "messageId": "m1",
+              "quote": "Can we move dinner to tomorrow?"
+            }
+          ],
+          "rationale": "Counts past events and generalizes with 'always', which can read as evaluating the other rather than asking for information.",
+          "family": "P",
+          "expression": "CP",
+          "confidence": "high",
+          "alternative": null,
+          "invites": "C",
+          "secondLayer": null,
+          "messageId": "m2",
+          "segmentId": "s2"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "I know, I'm really sorry.",
+            "I feel awful about it."
+          ],
+          "contextCues": [
+            {
+              "messageId": "m2",
+              "quote": "You always do this."
+            }
+          ],
+          "rationale": "Agrees with the criticism and apologizes while naming a bad feeling, which can read as Adapted Child complying. The plain feeling statement keeps another Child reading open.",
+          "family": "C",
+          "expression": "AC",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "FC",
+            "rationale": "Naming 'I feel awful' plainly could also read as spontaneous Free Child expression of feeling."
+          },
+          "invites": "P",
+          "secondLayer": null,
+          "messageId": "m3",
+          "segmentId": "s3"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "Fine.",
+            "Do whatever you want."
+          ],
+          "contextCues": [
+            {
+              "messageId": "m3",
+              "quote": "I'm really sorry."
+            }
+          ],
+          "rationale": "Gives agreement in few words and hands the decision back, which can read as withdrawing rather than discussing.",
+          "family": "C",
+          "expression": "AC",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "CP",
+            "rationale": "The imperative 'Do whatever you want' could also read as Critical Parent closing the matter."
+          },
+          "invites": "P",
+          "secondLayer": {
+            "observation": "'Fine' says acceptance while the earlier turn protested the cancellations, so agreement and protest sit side by side in the words.",
+            "cues": [
+              "Fine.",
+              "Do whatever you want."
+            ]
+          },
+          "messageId": "m4",
+          "segmentId": "s4"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "Can we talk about it properly when I get home?",
+            "I want to understand what's going on for you."
+          ],
+          "contextCues": [
+            {
+              "messageId": "m4",
+              "quote": "Fine. Do whatever you want."
+            }
+          ],
+          "rationale": "Proposes a time to talk and asks about the other's view, which can read as Adult reality-testing. The interest in the other adds a caring tone.",
+          "family": "A",
+          "expression": "A",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "NP",
+            "rationale": "The wish to understand what is going on for the other could also read as Nurturing Parent care."
+          },
+          "invites": "A",
+          "secondLayer": null,
+          "messageId": "m5",
+          "segmentId": "s5"
+        },
+        {
+          "splitReason": null,
+          "cues": [],
+          "contextCues": [
+            {
+              "messageId": "m5",
+              "quote": "Can we talk about it properly when I get home?"
+            }
+          ],
+          "rationale": "A one-word reply gives little to go on and could read as brief acknowledgement or minimal compliance.",
+          "family": "UNCLEAR",
+          "expression": "UNCLEAR",
+          "confidence": "low",
+          "alternative": {
+            "expression": "AC",
+            "rationale": "In context after withdrawal, 'ok' could read as Adapted Child minimal compliance."
+          },
+          "invites": "UNCLEAR",
+          "secondLayer": null,
+          "messageId": "m6",
+          "segmentId": "s6"
+        }
+      ]
+    }
+  },
+  "score": {
+    "per": [
+      {
+        "id": "m1",
+        "expr": "A",
+        "family": "A",
+        "conf": "medium",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m2",
+        "expr": "CP",
+        "family": "P",
+        "conf": "high",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m3",
+        "expr": "AC",
+        "family": "C",
+        "conf": "medium",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m4",
+        "expr": "AC",
+        "family": "C",
+        "conf": "medium",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m5",
+        "expr": "A",
+        "family": "A",
+        "conf": "medium",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m6",
+        "expr": "UNCLEAR",
+        "family": "UNCLEAR",
+        "conf": "low",
+        "acc": true,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      }
+    ],
+    "n": 6,
+    "accOk": 6,
+    "hardFails": [],
+    "overCeiling": [],
+    "highOnReview": 0,
+    "altMissing": 0,
+    "unclear": 1,
+    "high": 1
+  }
+}
