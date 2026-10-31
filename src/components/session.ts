@@ -3,6 +3,7 @@
 import type { Analysis, Reading } from "@/lib/ai/analysis";
 import type { Transcript } from "@/lib/conversation";
 import type { NoteCode } from "@/lib/ai/extract-spec";
+import { resolveState } from "@/lib/ai/scenario";
 import type { ExKey } from "@/lib/i18n";
 import type { BadgeState } from "./ui";
 
@@ -40,11 +41,17 @@ export function badgeOf(ai: ExKey | "unsure", mine: Choice | undefined): { ex: E
   return { ex: mine, state: mine === ai ? "agreed" : "changed" };
 }
 
-/** Replaces the model's neutral labels ("Person A", "You") with the names typed on this device. */
-export function withNames(text: string, s: Session): string {
+/** The label a message carries now (my choice wins), as sent to What if?. */
+export const effectiveState = (s: Session, id: string) => resolveState(readingFor(s.analysis!, id), s.choices[id]);
+
+/**
+ * Replaces the model's neutral labels ("Person A", "You") with the names typed on this
+ * device. Each AI call numbers people on its own, so a call can pass its own label map.
+ */
+export function withNames(text: string, s: Session, labels: Record<string, string> = s.labels): string {
   if (!s.transcript) return text;
   let out = text;
-  for (const [label, pid] of Object.entries(s.labels)) {
+  for (const [label, pid] of Object.entries(labels)) {
     if (pid === s.selfId) continue; // "you"/"bạn" already reads right
     const name = s.transcript.participants.find((p) => p.id === pid)?.name;
     if (name) out = out.split(label).join(name);

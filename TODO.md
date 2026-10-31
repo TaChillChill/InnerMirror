@@ -14,17 +14,19 @@ Session state and next actions. Stable rules live in `CLAUDE.md`. Overwrite this
 - Spend: harness $0.79 + app dev $0.05 + M3 tests ≈ $0.08 (of the $1 M3 allowance) ≈ **$0.92** of $5.
 
 ## Next actions (max 5)
-1. **Founder:** review the M5 plan (Scenario Explorer) and answer its open decisions. No M5 code until approved.
-2. M5: What if? (`/api/scenario`) after plan approval. Transcript ids and `source` are untouched by M3, so scenarios can reference message ids as before.
-3. Before any deploy: wire `ACCESS_CODE` in the UI (analyze and extract both check it), finalize F6 copy, review D10 resources (Q10).
+1. **Founder:** UAT M5 What if? (`npm run dev`: Replay → "What if?" beside my messages, EN and VI), then decide next milestone.
+2. "Your Turn" (pick next state, explore plausible receiver states) deferred; reuse `scenario.ts` and `/api/scenario`.
+3. Before any deploy: wire `ACCESS_CODE` in the UI (analyze, extract, scenario all check it), finalize F6 copy, review D10 resources (Q10).
 4. Bake D12 mascot sizing into `design/brand/mascots/build_variants.py`; VI reader pass on prompt output and UI copy.
-5. Optional: eval harness for extraction (more synthetic screenshots, real-app styles) if M3 accuracy matters for the demo.
+5. Optional: extraction eval harness (more synthetic screenshots, real-app styles).
 
 ## Blockers
 - Meta publishes no retention period → F6 keeps "may keep it for a period it decides".
 - D10 safety resources (Q10) still need content review.
 
 ## Last validation result
-2026-10-31 M3 UX: `npm test` 22/22, lint, typecheck, build clean. Headless-Chrome interaction test (DOM-dispatched drag/drop/paste events) passes on 1280 px and 390 px, 0 API calls. Not verified: real OS drag from Finder, real clipboard paste, touch pinch, iOS Safari.
+2026-10-31 M5: `npm test` 38/38, lint, typecheck, build clean. Live: 16 scenario calls, **$0.222 of the $0.30 M5 budget** (avg $0.014, median 14 s, range 6–34 s). Browser e2e (live scenario calls, analyze mocked) on 1280 px VI and 390 px EN. Limits: the first possibility is the receiver's own history pattern, so it repeats across explored characters; only the second varies. Not tested: real-app screenshots end to end, iOS Safari.
+
+Previous: 2026-10-31 M3 UX: `npm test` 22/22, lint, typecheck, build clean. Headless-Chrome interaction test (DOM-dispatched drag/drop/paste events) passes on 1280 px and 390 px, 0 API calls. Not verified: real OS drag from Finder, real clipboard paste, touch pinch, iOS Safari.
 
 Previous: 2026-10-30 M3: `npm test` 17/17, lint, typecheck and `next build` clean. Live extraction on synthetic screenshots (~$0.005–0.01 per call, 4–14 s): EN exact match; VI 1 diacritic error on full image, 2 on a cropped one; cropped edges flagged (`cropped_top/bottom`, one `partial`, one empty `unreadable`). Route rejects no-consent, non-JPEG, 0 or 4 images, junk base64, oversize body without calling Meta. Headless-Chrome e2e (390 px, EN UI and VI UI): non-image rejected, consent gate, extract → Review with notices, edit text/speaker, self + consent → analyze → Replay; no analyze call before confirmation; nothing image-related in localStorage; server log has metadata only.

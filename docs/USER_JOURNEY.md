@@ -30,8 +30,8 @@ Tap a mascot badge → sheet with:
 - The user's own messages are prompted first (gentle reflection questions); others' messages can be challenged too.
 - After a change, the badge shows the user's choice with a "you chose" marker; the AI suggestion stays viewable, never overwritten.
 
-## 4. Scenario Explorer (optional, Phase 2)
-Pick one turning point (user's own message) → pick a mascot/approach → AI returns an alternative message, one possible reaction, and how the transaction might change. Shown as a **dashed, branched "what if" path**, clearly separate from the real conversation. "One possibility, not a prediction."
+## 4. Scenario Explorer: "What if?" (state-only, Founder 2026-10-31)
+Beside each of my messages: pick one of the five characters you might have spoken from → **Explore** (explicit tap, one call) → up to two plausible **receiver characters** with the words they rest on, or an honest "not enough earlier evidence". No generated messages or dialogue, no probabilities, no ranking of characters. Evidence is only what came **before** the message; the reply that really followed is shown as context and never used. Dashed "what if" branch, headed "Possible response patterns based on earlier interactions", with the disclaimer "Possible interaction patterns, not predictions." Results stay in memory while Replay is open (compare characters without new calls) and are never saved. Off for safety-flagged conversations. "Your Turn" (choose the next state before replying) is deferred.
 
 ## 5. My Mirror
 Explicit **Save to this device**. Sections: *What the AI noticed* / *What I chose* / *My context* / *My insight* (user-written, prompted by "What do I notice about myself?") / *What I might try next time*. Transcript stored only if the user opts in. List + delete on this device.

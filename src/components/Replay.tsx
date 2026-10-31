@@ -5,6 +5,9 @@ import { Fragment, useEffect, useRef, useState, type ReactNode } from "react";
 import { EX_ORDER } from "@/lib/i18n";
 import type { Update } from "./App";
 import { Selector, badgeFor } from "./Selector";
+import { WhatIf } from "./WhatIf";
+import { useScenarios } from "./use-scenarios";
+import { scenarioContext } from "@/lib/ai/scenario";
 import { nameOf, readingFor, withNames, type Session } from "./session";
 import { Avatar, Badge, Chip, Icon, toKey, useT } from "./ui";
 
@@ -38,8 +41,13 @@ function highlight(text: string, cues: string[], ex: string | undefined): ReactN
 export function Replay({ s, update, onContinue, onRestart }: { s: Session; update: Update; onContinue: () => void; onRestart: () => void }) {
   const { t } = useT();
   const R = t.replay;
+  const R_wi = t.whatIf;
   const desktop = useIsDesktop();
   const opener = useRef<HTMLButtonElement | null>(null);
+  const whatIfOpener = useRef<HTMLButtonElement | null>(null);
+  const [whatIf, setWhatIf] = useState<string | null>(null);
+  // Explored scenarios live here, so they vanish when Replay unmounts.
+  const scenarios = useScenarios();
   const a = s.analysis!;
   const T = s.transcript!;
   const others = T.participants.filter((p) => p.id !== s.selfId);
@@ -50,10 +58,11 @@ export function Replay({ s, update, onContinue, onRestart }: { s: Session; updat
     else opener.current?.focus();
   }, [s.selected]);
   useEffect(() => {
-    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") update({ selected: null }); };
+    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") { update({ selected: null }); setWhatIf(null); } };
     document.addEventListener("keydown", onKey);
     return () => document.removeEventListener("keydown", onKey);
   }, [update]);
+  useEffect(() => { if (!whatIf) whatIfOpener.current?.focus(); }, [whatIf]);
 
   if (a.safety.flagged) return <Safety note={a.safety.note} onBack={onRestart} />;
 
@@ -79,6 +88,7 @@ export function Replay({ s, update, onContinue, onRestart }: { s: Session; updat
           const b = badgeFor(s, m.id);
           const open = s.selected === m.id;
           const shift = a.shifts.find((x) => x.messageId === m.id);
+          const ctx = mine ? scenarioContext(T.messages, s.selfId, m.id) : null;
           const label = b.state === "suggested" ? R.aiSuggestion : b.state === "unsure" ? R.youUnsure : b.state === "agreed" ? R.youAgreed : R.youChose;
           return (
             <Fragment key={m.id}>
@@ -95,8 +105,13 @@ export function Replay({ s, update, onContinue, onRestart }: { s: Session; updat
                     <Badge ex={b.ex} state={b.state} size={28} />
                     <span className="app-meta-label">{b.state !== "suggested" && <span className="app-you">{label}</span>}<Chip ex={b.ex} /></span>
                   </button>
+                  {ctx && (
+                    <button className="im-btn im-btn--ghost im-btn--sm app-wi-btn" aria-expanded={whatIf === m.id} aria-label={R_wi.buttonAria}
+                      onClick={(e) => { whatIfOpener.current = e.currentTarget; setWhatIf(whatIf === m.id ? null : m.id); }}>{R_wi.button}</button>
+                  )}
                 </div>
               </div>
+              {ctx && whatIf === m.id && <div className="app-inline"><WhatIf s={s} ctx={ctx} scenarios={scenarios} onClose={() => setWhatIf(null)} /></div>}
               {desktop && open && <div className="app-inline"><Selector s={s} update={update} id={m.id} /></div>}
             </Fragment>
           );

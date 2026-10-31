@@ -1,0 +1,27 @@
+/* ---------- What if? ---------- */
+.app-wi { display: grid; gap: var(--im-space-3); padding: var(--im-space-4); background: var(--im-surface); border: 1.5px solid var(--im-border-strong); border-radius: var(--im-radius-lg); }
+.app-wi p { margin: 0; }
+.app-wi__head { display: flex; align-items: center; justify-content: space-between; }
+.app-wi__title { font: var(--im-text-h3); margin: 0; }
+.app-wi__title:focus { outline: none; }
+.app-wi__sub { font: var(--im-text-label); font-size: 1rem; margin: 0; }
+.app-wi__followed { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; color: var(--im-text-muted); }
+.app-wi__go { display: grid; gap: var(--im-space-2); justify-items: start; }
+.app-wi__branch { display: grid; gap: var(--im-space-3); padding: var(--im-space-4); border: 2px dashed var(--im-border-strong); border-radius: var(--im-radius-lg); background: var(--im-surface-tint); }
+.app-wi__tag { display: inline-flex; align-items: center; gap: 6px; justify-self: start; padding: 2px var(--im-space-3); border-radius: var(--im-radius-pill); border: 1.5px dashed var(--im-primary); color: var(--im-primary-ink); font: var(--im-text-caption); font-weight: 700; }
+.app-wi__tag svg { width: 16px; height: 16px; }
+.app-wi__from .im-chip { vertical-align: middle; }
+.app-wi__list { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--im-space-2); }
+.app-wi__poss { all: unset; box-sizing: border-box; width: 100%; display: flex; align-items: center; gap: var(--im-space-3); min-height: var(--im-tap-min); padding: var(--im-space-2) var(--im-space-3); border: 1.5px dashed var(--im-border-strong); border-radius: var(--im-radius-md); background: var(--im-surface); cursor: pointer; }
+.app-wi__poss:hover, .app-wi__poss[aria-expanded="true"] { border-color: var(--im-primary); }
+.app-wi__poss:focus-visible { outline: 2px solid var(--im-focus); outline-offset: 2px; }
+.app-wi__poss small { display: block; color: var(--im-text-muted); font: var(--im-text-caption); }
+.app-wi__detail { display: grid; gap: var(--im-space-2); margin-top: var(--im-space-2); padding: var(--im-space-3); border-inline-start: 3px solid var(--im-ex-ink, var(--im-primary)); background: var(--im-surface); border-radius: var(--im-radius-md); }
+.app-wi__detail q { font-style: italic; }
+.app-wi__q { display: flex; gap: var(--im-space-2); align-items: start; }
+.app-wi__q svg { width: 20px; height: 20px; flex: none; margin-top: 2px; color: var(--im-primary-ink); }
+.app-wi__compare ul { list-style: none; margin: var(--im-space-2) 0 0; padding: 0; display: grid; gap: var(--im-space-2); }
+.app-wi__compare button { all: unset; box-sizing: border-box; display: inline-flex; align-items: center; gap: var(--im-space-2); min-height: var(--im-tap-min); padding: 0 var(--im-space-3); border: 1.5px solid var(--im-border-strong); border-radius: var(--im-radius-pill); cursor: pointer; }
+.app-wi__compare button[aria-pressed="true"] { border-color: var(--im-primary); background: var(--im-surface-tint); }
+.app-wi__compare button:focus-visible { outline: 2px solid var(--im-focus); outline-offset: 2px; }
+.app-wi-btn { margin-inline-start: var(--im-space-2); border: 1.5px solid var(--im-border-strong); background: var(--im-surface); }

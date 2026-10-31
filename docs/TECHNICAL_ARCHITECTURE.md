@@ -48,7 +48,7 @@ user reflects (client only)
 |---|---|---|---|
 | `POST /api/extract` | JPEG data URL (≤ ~1.5 MB), `lang` | `Extraction` | `muse-spark-1.3`, low reasoning effort |
 | `POST /api/analyze` | `Transcript`, `selfId`, `lang` | `Analysis` | `muse-spark-1.3`, medium reasoning effort |
-| `POST /api/scenario` | trimmed transcript, `turnId`, `targetState`, `lang` | `Scenario` | `muse-spark-1.3`, low–medium |
+| `POST /api/scenario` | messages up to and including the explored own message (never later ones), each with its current label (user's choice wins), `receiverId`, explored `state`, `lang` | `Scenario` (up to 2 plausible receiver states + evidence; answered locally when the receiver has no readable earlier message) | `muse-spark-1.3`, medium |
 
 Each route: validate input (zod) → if `AI_MODE=fixtures`, return fixture → call Meta with `response_format: json_schema` → validate output → one retry on invalid JSON → typed error. Never log request/response bodies.
 
@@ -88,7 +88,8 @@ interface Analysis {
   uncertainty: string;
   safety: { flagged: boolean; categories: ("abuse" | "coercion" | "threat" | "self_harm" | "harassment")[]; note: string | null };
 }
-interface Scenario { alternativeMessage: string; possibleReactions: { participantId: string; text: string }[]; explanation: string }
+// State-only (Founder, 2026-10-31): no generated messages. See src/lib/ai/scenario.ts.
+interface Scenario { evidence: "enough" | "thin" | "insufficient"; ranked: boolean; possibilities: { state: EgoState; basis: "pattern" | "context"; rationale: string; evidenceMessageIds: string[]; cues: string[] }[]; note: string | null; reflectionQuestion: string | null; flagged: boolean }
 
 interface Mirror {               // saved locally; AI and user fields never merged
   id: string; createdAt: string; lang: "en" | "vi";
