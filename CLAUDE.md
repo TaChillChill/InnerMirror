@@ -86,3 +86,4 @@ Live commands spend from the approved budget: run them only with the Founder's g
 | `docs/CLASSIFICATION_EVAL_SET.md` | Vietnamese eval cases (reference sets are hypotheses) |
 | `docs/PERFORMANCE_AUDIT.md` | Latency breakdown and optimization plan (proposed) |
 | `docs/RELATIONSHIP_AND_STORY.md` | Relationship context and story analysis (proposed) |
+| `docs/INPUT_EXPERIENCE_AUDIT.md` | Text/voice/screenshot input, story vs conversation (proposed) |

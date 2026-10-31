@@ -14,6 +14,9 @@ Session state and next actions. Stable rules live in `CLAUDE.md`. Overwrite this
 - `scripts/phase0/prompt.mjs` was deleted on purpose in commit 0f1ffb4 (v1 prompt, replaced by `src/lib/ai/analysis-spec.ts`); nothing references it. No recovery needed.
 - Spend: harness $0.79 + app dev $0.05 + M3 tests ≈ $0.08 (of the $1 M3 allowance) ≈ **$0.92** of $5.
 
+- **Core stabilization (Founder decision 2026-10-31, ~24 h window):** input audit approved in direction (`docs/INPUT_EXPERIENCE_AUDIT.md`). Done, local, not committed: **narrative guard** (`looksLikeStory` + `parsePasted({ keepLines })` in `src/lib/conversation.ts`; story text shows a notice and never opens Review automatically; "continue" puts each untagged line under "Unknown"; speech-verb prefixes like "Mẹ nói:" never become names) and **keyboard-dictation hint** (Add screen). Input UX simplification skipped (kept M3 UI, regression risk). Deferred post-hackathon: story extraction, Web Speech button, server STT, `form` schema, story prompt.
+- P0 offline recheck (saved v3 low runs, $0): 2/7 sarcasm (`secondLayer`) segments still marked high ("Giỏi quá ha", "Fine. Do whatever you want."); run-to-run label change 16/105 messages (7 FC↔AC, 9 family changes). Proposed $0 code cap (secondLayer → max medium) awaiting Founder approval; prompt fixes need approval + eval budget.
+
 ## Next actions (max 5)
 - **Founder UAT build ready (local):** perf quick wins Q1–Q5 done (`docs/PERFORMANCE_AUDIT.md` §6). Relationship eval: no bias, no useful sensitivity → no UI (`docs/RELATIONSHIP_AND_STORY.md` §6). Spend: eval-rel $0.23 of $0.75; harness ledger $3.67; known project total ≈ $4.15 + Founder Preview UAT.
 0. **Founder:** UAT of P0 on a local build (or approve a Preview deploy); re-run the real UAT conversation from both perspectives; review `docs/CLASSIFICATION_EVAL_SET.md` + flagged review items with a VI reader. Decide: ≈ $0.5 for the split-rule fix + 3-run stability eval (eval-p0 has $0.36 left of $3). Check Vercel env `ANALYZE_EFFORT` (overrides the new low default).
@@ -28,6 +31,8 @@ Session state and next actions. Stable rules live in `CLAUDE.md`. Overwrite this
 - Meta auto-charge after credits run out: unverified (needs console check).
 
 ## Last validation result
+2026-10-31 Narrative guard: `npm test` 56/56, lint, typecheck, `next build` clean. Headless Chrome on a local prod build (all /api/* blocked, 0 requests) at 390 px VI and 1280 px EN: story text → notice, stays on Add; editing hides it; "continue" → Review with the narrator line under "Chưa rõ/Unknown"; normal chat (incl. name "Bảo") → Review as before; no horizontal scroll. $0 spent. Not verified: real iPhone keyboard dictation, screenshot flow re-run (code untouched).
+
 2026-10-31 P0: `npm test` 47/47, lint, typecheck, `next build` clean. Live eval (synthetic, 11 fixtures VI+EN): eval-p0 $2.64 of $3; harness total $3.43; project ≈ $3.9 + Founder Preview UAT. Mocked UI check (all /api/* intercepted in headless Chrome) at 390 and 1280 px: 23 bubbles → 13 characters, uncertainty prefixes, panel quotes whole segment. Not verified: real iOS Safari, VI native-reader review of new rationales.
 
 Previous: 2026-10-31 Firewall: rule "API rate limit" now blocks (429) at 10 req/60 s per IP on path prefix /api/ (analyze, extract, scenario; one shared counter). Verified free on Preview innermirror-o36h8tt4s: 10x 400 then 429 on /api/scenario, 429 on /api/analyze. Emergency deny rule still disabled. Protection unchanged ("all"). Proposed beta access: one Vercel Shareable Link for the Preview deployment (Founder approval pending). Known UX gap: the app shows the generic error for Vercel's 429 (body is an object, not a string).

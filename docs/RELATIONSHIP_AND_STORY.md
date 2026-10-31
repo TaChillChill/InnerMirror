@@ -1,6 +1,6 @@
 # Relationship Context & Story Analysis — requirements and assessment
 
-Status: **proposed, not approved.** Founder requirements of 2026-10-31, assessed by Claude. Nothing implemented; $0 spent. The immediate priority stays v3.2 Founder UAT and classification reliability (`docs/CLASSIFICATION_AUDIT.md` §9).
+Status: **proposed, not approved.** Founder requirements of 2026-10-31, assessed by Claude. Input methods (voice, single text box, story detection) and a refined story pipeline: `docs/INPUT_EXPERIENCE_AUDIT.md`. Nothing implemented; $0 spent. The immediate priority stays v3.2 Founder UAT and classification reliability (`docs/CLASSIFICATION_AUDIT.md` §9).
 
 ## TL;DR
 - **Relationship + "Other" (MVP candidate):** small and low-risk *if* it is sent as a role-neutral pair fact ("Người A – Người B: former manager") and treated as context, not truth. The spec already has a `context` slot (harness only). Evidence so far: no bias, but also no measurable gain (n=7, medium effort). Ship only after a ≈ $0.25 eval at v3.2 / low effort.

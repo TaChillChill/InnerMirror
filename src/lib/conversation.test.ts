@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { parsePasted, analyzeRequestSchema, analysisKey, toAnalyzeRequest, reviewProblem } from "./conversation.ts";
+import { parsePasted, looksLikeStory, analyzeRequestSchema, analysisKey, toAnalyzeRequest, reviewProblem } from "./conversation.ts";
 
 test("parsePasted: names, continuation lines and timestamps", () => {
   const t = parsePasted("[21:14] Linh: Why are the dishes left for me?\nMe: Sorry.\nI'll do them now.\n30/10/2026, 21:15 - Linh: ok", "Unknown");
@@ -19,6 +19,44 @@ test("parsePasted: Vietnamese names and a leading line without a speaker", () =>
 test("parsePasted: a sentence with a colon is not a speaker", () => {
   const t = parsePasted("A: Note this. Remember: tomorrow.\nB: ok", "?");
   assert.equal(t.messages.length, 2);
+});
+
+// Synthetic stories from docs/INPUT_EXPERIENCE_AUDIT.md §1.
+const STORY_VI = "Tối qua mình về muộn.\nMẹ nói: Sao giờ này mới về?\nMình đáp: Con bận việc mà.\nRồi chị Lan bảo: Nó lúc nào cũng vậy đó mẹ.\nMình thấy chị ấy luôn bênh mẹ.";
+
+test("looksLikeStory: retold VI/EN stories are caught", () => {
+  assert.ok(looksLikeStory(STORY_VI));
+  assert.ok(looksLikeStory("Tối qua mình về muộn. Mẹ hỏi sao giờ mới về, mình bảo con bận việc."));
+  assert.ok(looksLikeStory("Mẹ hỏi \"Sao giờ này mới về?\" Mình nói \"Con bận\"."));
+  assert.ok(looksLikeStory("Mom said: Why are you so late?\nMe: I was busy."));
+  assert.ok(looksLikeStory("Linh: The dishes again?\nI felt she was blaming me."));
+  // Clean names, but the narrator's comment would be glued onto chị Lan's message.
+  assert.ok(looksLikeStory("Mẹ: Sao giờ này mới về?\nChị Lan: Nó lúc nào cũng vậy.\nMình thấy chị ấy luôn bênh mẹ."));
+});
+
+test("looksLikeStory: pasted chats are not stories", () => {
+  assert.ok(!looksLikeStory("[21:14] Linh: Why are the dishes left for me?\nMe: Sorry.\nI'll do them now.\n30/10/2026, 21:15 - Linh: ok"));
+  assert.ok(!looksLikeStory("Mẹ: Con ăn cơm chưa?\nMinh: Con ăn rồi mẹ ạ."));
+  // "Bảo" is a name; only the lowercase verb "bảo" marks a retelling.
+  assert.ok(!looksLikeStory("Bảo: Mai đi cà phê không?\nChị Lan: Ok em, mình nói chuyện sau nhé."));
+  assert.ok(!looksLikeStory("A: Note this. Remember: tomorrow.\nB: ok"));
+  assert.ok(!looksLikeStory("Mé: Con đi đây\nMẹ: Ừ")); // decomposed accents (macOS paste)
+});
+
+test("parsePasted: speech verbs never become speaker names", () => {
+  const t = parsePasted(STORY_VI, "Chưa rõ");
+  assert.deepEqual(t.participants.map((p) => p.name), ["Chưa rõ"]);
+});
+
+test("parsePasted keepLines: no narrator line is attributed to someone else", () => {
+  const t = parsePasted("Mẹ: Sao giờ này mới về?\nChị Lan: Nó lúc nào cũng vậy.\nMình thấy chị ấy luôn bênh mẹ.", "Chưa rõ", { keepLines: true });
+  assert.deepEqual(t.participants.map((p) => p.name), ["Mẹ", "Chị Lan", "Chưa rõ"]);
+  assert.equal(t.messages.length, 3);
+  assert.equal(t.messages[1].text, "Nó lúc nào cũng vậy.");
+  assert.equal(t.participants.find((p) => p.id === t.messages[2].speakerId)?.name, "Chưa rõ");
+  const s = parsePasted(STORY_VI, "Chưa rõ", { keepLines: true });
+  assert.equal(s.messages.length, 5);
+  assert.ok(s.messages.every((m) => m.speakerId === s.participants[0].id));
 });
 
 test("analyze request carries ids and text only, never names", () => {

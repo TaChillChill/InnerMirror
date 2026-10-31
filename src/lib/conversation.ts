@@ -18,12 +18,46 @@ export const newId = (prefix: string) => `${prefix}${Date.now().toString(36)}${(
 const TIMESTAMP = /^\s*(\[[^\]]{1,40}\]|\d{1,4}[/.-]\d{1,2}[/.-]\d{1,4},?\s+\d{1,2}:\d{2}(:\d{2})?\s*(am|pm|AM|PM)?\s*-|\d{1,2}:\d{2}(:\d{2})?\s*(am|pm|AM|PM)?\s*-?)\s*/;
 const SPEAKER = new RegExp(`^([^:\\n]{1,${LIMITS.maxNameChars}}):\\s*(.*)$`);
 
+// Words that mark someone retelling events rather than pasting a chat: "Mẹ nói: …",
+// "Mom said: …", "Mình thấy chị ấy…". In a "Name:" prefix only lowercase counts, so
+// "Bảo: …" (a name) stays a speaker while "Mẹ bảo: …" does not.
+const NARRATION_WORDS = new Set([
+  "nói", "bảo", "hỏi", "đáp", "kêu", "mắng", "quát", "gắt", "hét", "cãi", "nhắn", "kể", "than", "nghĩ", "thấy",
+  "said", "says", "asked", "asks", "told", "tells", "replied", "answered", "yelled", "shouted", "texted", "thought", "felt",
+]);
+const narrates = (s: string, caseSensitive: boolean) => s.split(/\s+/)
+  .map((w) => w.replace(/[^\p{L}\p{M}]/gu, ""))
+  .some((w) => NARRATION_WORDS.has(caseSensitive ? w : w.toLowerCase()));
+
+const pastedLines = (raw: string) => raw.normalize("NFC").replace(/\r\n?/g, "\n").split("\n").map((l) => l.replace(TIMESTAMP, "").trim()).filter(Boolean);
+
+function speakerLine(line: string): { name: string; text: string } | null {
+  const m = SPEAKER.exec(line);
+  // A colon inside a sentence ("Note: ...") also matches; names with spaces are fine,
+  // but a "name" ending in a sentence's punctuation or holding a speech verb is text.
+  if (!m || !m[2].trim() || /[.!?]$/.test(m[1]) || narrates(m[1], true)) return null;
+  return { name: m[1].trim(), text: m[2].trim() };
+}
+
+/**
+ * True when the text reads like a retold story instead of "Name: message" lines. Story
+ * analysis isn't supported yet, and the line parser would otherwise glue the narrator's
+ * own comments onto someone else's message (docs/INPUT_EXPERIENCE_AUDIT.md §1).
+ */
+export function looksLikeStory(raw: string): boolean {
+  const lines = pastedLines(raw);
+  const untagged = lines.filter((l) => !speakerLine(l));
+  return untagged.length === lines.length || untagged.some((l) => narrates(l, false));
+}
+
 /**
  * Turns pasted lines ("Name: message") into a transcript. Lines without a speaker
  * continue the previous message; a leading line without one gets an "Unknown" speaker
- * the user can fix in review.
+ * the user can fix in review. With keepLines (a story the user chose to continue with),
+ * every such line becomes its own "Unknown" message instead, so nothing is attributed
+ * to a person the user didn't pick.
  */
-export function parsePasted(raw: string, unknownName: string): Transcript {
+export function parsePasted(raw: string, unknownName: string, opts: { keepLines?: boolean } = {}): Transcript {
   const participants: Participant[] = [];
   const messages: Message[] = [];
   const idFor = (name: string) => {
@@ -33,18 +67,14 @@ export function parsePasted(raw: string, unknownName: string): Transcript {
     participants.push(p);
     return p.id;
   };
-  for (const line of raw.replace(/\r\n?/g, "\n").split("\n")) {
-    const clean = line.replace(TIMESTAMP, "").trim();
-    if (!clean) continue;
-    const m = SPEAKER.exec(clean);
-    // A colon inside a sentence ("Note: ...") also matches; names with spaces are fine,
-    // but a "name" ending in a sentence's punctuation is treated as text.
-    if (m && m[2].trim() && !/[.!?]$/.test(m[1])) {
-      messages.push({ id: `m${messages.length + 1}`, speakerId: idFor(m[1].trim()), text: m[2].trim() });
-    } else if (messages.length) {
-      messages[messages.length - 1].text += `\n${clean}`;
+  for (const line of pastedLines(raw)) {
+    const s = speakerLine(line);
+    if (s) {
+      messages.push({ id: `m${messages.length + 1}`, speakerId: idFor(s.name), text: s.text });
+    } else if (messages.length && !opts.keepLines) {
+      messages[messages.length - 1].text += `\n${line}`;
     } else {
-      messages.push({ id: `m1`, speakerId: idFor(unknownName), text: clean });
+      messages.push({ id: `m${messages.length + 1}`, speakerId: idFor(unknownName), text: line });
     }
   }
   return { source: "paste", participants, messages };
