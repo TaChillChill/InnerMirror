@@ -2,6 +2,7 @@
 // drops the conversation; only an explicit Save writes labels to My Mirror.
 import type { Analysis, Reading } from "@/lib/ai/analysis";
 import type { Transcript } from "@/lib/conversation";
+import type { NoteCode } from "@/lib/ai/extract-spec";
 import type { ExKey } from "@/lib/i18n";
 import type { BadgeState } from "./ui";
 
@@ -21,11 +22,13 @@ export type Session = {
   title: string;
   note: string;
   savedId: string | null;
+  shots: string[]; // screenshots kept in browser memory only, to compare while reviewing
+  extractNotes: NoteCode[];
 };
 
 export const freshSession = (): Session => ({
   screen: "landing", transcript: null, selfId: null, consent: false, analysis: null, labels: {},
-  choices: {}, selected: null, error: null, title: "", note: "", savedId: null,
+  choices: {}, selected: null, error: null, title: "", note: "", savedId: null, shots: [], extractNotes: [],
 });
 
 export const readingFor = (a: Analysis, id: string): Reading | undefined => a.readings.find((r) => r.messageId === id);

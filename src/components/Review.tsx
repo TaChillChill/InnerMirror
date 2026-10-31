@@ -1,6 +1,6 @@
 "use client";
 // Transcript review as a chat: bubbles first, editing only when a bubble is tapped.
-// The same editor will serve screenshot extraction (M3), pasting and typing.
+// One editor for pasted, typed and screenshot-extracted transcripts.
 import { useState } from "react";
 import { newId, reviewProblem, type Message, type Transcript } from "@/lib/conversation";
 import type { Update } from "./App";
@@ -19,7 +19,11 @@ export function Review({ s, update, onAnalyze, onBack }: Props) {
   const [draft, setDraft] = useState("");
 
   const setT = (patch: Partial<Transcript>) => update((cur) => ({ transcript: { ...(cur.transcript as Transcript), ...patch } }));
-  const setMsg = (id: string, patch: Partial<Message>) => setT({ messages: T.messages.map((m) => (m.id === id ? { ...m, ...patch } : m)) });
+  // Editing the text means the user has looked at it, so the "may be cut off" mark goes away.
+  const setMsg = (id: string, patch: Partial<Message>) => setT({ messages: T.messages.map((m) => (m.id === id ? { ...m, ...(patch.text !== undefined ? { legibility: "clear" as const } : {}), ...patch } : m)) });
+  const fromShot = T.source === "screenshot";
+  const X = R.extracted;
+  const attention = T.messages.filter((m) => m.legibility === "partial" || m.legibility === "unreadable").length;
   const others = T.participants.filter((p) => p.id !== s.selfId);
   const avatar = (pid: string, size: number) => {
     const p = T.participants.find((x) => x.id === pid);
@@ -46,8 +50,27 @@ export function Review({ s, update, onAnalyze, onBack }: Props) {
 
   return (
     <div className="app-page">
-      <h1 className="app-h1">{T.messages.length ? R.titleCheck : R.titleWrite}</h1>
-      <p className="app-lead">{T.messages.length ? R.leadCheck : R.leadWrite}</p>
+      <h1 className="app-h1">{fromShot ? X.title : T.messages.length ? R.titleCheck : R.titleWrite}</h1>
+      <p className="app-lead">{fromShot ? X.lead : T.messages.length ? R.leadCheck : R.leadWrite}</p>
+      {fromShot && (
+        <>
+          {(attention > 0 || s.extractNotes.length > 0) && (
+            <div className="im-notice" role="status"><Icon name="alert" /><div>
+              {attention > 0 && <p>{X.attention(attention)}</p>}
+              {s.extractNotes.map((n) => <p key={n}>{X.notes[n]}</p>)}
+            </div></div>
+          )}
+          {s.shots.length > 0 && (
+            <details className="app-more">
+              <summary>{X.compare}</summary>
+              <div className="app-shots app-shots--compare">
+                {/* eslint-disable-next-line @next/next/no-img-element -- local data URLs */}
+                {s.shots.map((src, i) => <img key={i} src={src} alt={R.shotAlt(i + 1)} />)}
+              </div>
+            </details>
+          )}
+        </>
+      )}
 
       <section className="app-who" aria-labelledby="who">
         <h2 id="who" className="app-who__q">{R.whoIsYou}</h2>
@@ -83,7 +106,7 @@ export function Review({ s, update, onAnalyze, onBack }: Props) {
                     <textarea id={`edit-${m.id}`} className="im-textarea" rows={3} autoFocus value={m.text} onChange={(e) => setMsg(m.id, { text: e.target.value })} />
                     <div className="app-row-wrap"><span className="im-label">{R.sentBy}</span>{speakerChips(m.speakerId, (pid) => setMsg(m.id, { speakerId: pid }))}</div>
                     <div className="app-actions">
-                      <button className="im-btn im-btn--primary im-btn--sm" onClick={() => setEditing(null)}>{R.done}</button>
+                      <button className="im-btn im-btn--primary im-btn--sm" onClick={() => { setMsg(m.id, { legibility: "clear" }); setEditing(null); }}>{R.done}</button>
                       <button className="im-btn im-btn--ghost im-btn--sm" onClick={() => { setT({ messages: T.messages.filter((x) => x.id !== m.id) }); setEditing(null); }}><Icon name="trash" /> {R.delete}</button>
                     </div>
                   </div>
@@ -92,8 +115,9 @@ export function Review({ s, update, onAnalyze, onBack }: Props) {
               return (
                 <li key={m.id} className={`app-rv-msg ${isRight(m) ? "is-right" : ""}`}>
                   {!isRight(m) && avatar(m.speakerId, 32)}
-                  <button className={`im-bubble app-rv-bubble${m.legibility === "partial" ? " is-partial" : ""}`} onClick={() => setEditing(m.id)} aria-label={`${name}: ${m.text}. ${R.editHint}`}>
-                    <span className="app-rv-name">{name}</span>{m.text}
+                  <button className={`im-bubble app-rv-bubble${m.legibility === "partial" ? " is-partial" : ""}`} onClick={() => setEditing(m.id)} aria-label={`${name}: ${m.text || X.unreadable}. ${R.editHint}`}>
+                    <span className="app-rv-name">{name}{m.legibility === "partial" && <em className="app-rv-tag"> · {X.partialTag}</em>}</span>
+                    {m.text || (m.legibility === "unreadable" ? <em>{X.unreadable}</em> : "")}
                   </button>
                 </li>
               );

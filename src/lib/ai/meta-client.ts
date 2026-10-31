@@ -22,10 +22,14 @@ export const spentUsd = () => spend.usd;
 
 type Body = { messages: unknown[]; max_completion_tokens: number; reasoning_effort: string; response_format?: unknown };
 
-export async function callMeta(route: string, body: Body, timeoutMs = 90_000): Promise<{ content: string; latencyMs: number }> {
+// Base64 image data would inflate the text-based estimate ~100x, so it is stripped and the
+// caller passes an explicit per-image token allowance instead (image tokens are undocumented).
+const DATA_URL = /data:image\/[a-z]+;base64,[A-Za-z0-9+/=]+/g;
+
+export async function callMeta(route: string, body: Body, timeoutMs = 90_000, extraInputTokens = 0): Promise<{ content: string; latencyMs: number }> {
   const key = process.env.META_API_KEY;
   if (!key) throw new MetaError("not_configured");
-  const inputBound = Math.ceil(JSON.stringify(body.messages).length / 3);
+  const inputBound = Math.ceil(JSON.stringify(body.messages).replace(DATA_URL, "").length / 3) + extraInputTokens;
   const worst = inputBound * PRICE.input + body.max_completion_tokens * PRICE.output;
   if (spend.usd + worst > capUsd()) throw new MetaError("budget");
 

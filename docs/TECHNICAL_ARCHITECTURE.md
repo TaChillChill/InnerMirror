@@ -2,7 +2,7 @@
 
 Status: **stack approved 2026-10-30.** Schemas below are refined by Phase 0 results (`docs/PHASE0_REPORT.md`).
 
-Build order: paste-text flow first (Phase 1); screenshot extraction (`/api/extract`) is Phase 3.
+Build order: paste-text flow first (Phase 1); screenshot extraction (`/api/extract`) is Phase 3 (built in Phase 1 M3, 2026-10-30: up to 3 images, `low` effort, schema in `src/lib/ai/extract-spec.ts`).
 
 ## Recommendation
 **One Next.js (App Router, TypeScript) app on Vercel. No database, no auth.** Three server routes call the Meta Model API; everything else is client-side state + localStorage.

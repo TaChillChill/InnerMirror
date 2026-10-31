@@ -36,7 +36,7 @@ export function App() {
     if (!s.transcript || !s.selfId) return;
     const controller = new AbortController();
     abort.current = controller;
-    update({ screen: "analyzing", error: null, analysis: null, choices: {}, selected: null, savedId: null });
+    update({ screen: "analyzing", error: null, analysis: null, choices: {}, selected: null, savedId: null, shots: [], extractNotes: [] });
     try {
       const res = await fetch("/api/analyze", {
         method: "POST",
@@ -81,7 +81,7 @@ export function App() {
       <main id="main">
         {s.screen === "landing" && <Landing savedCount={saved.length} onStart={() => go("add")} onMirror={() => go("mirror")} />}
         {s.screen === "add" && <AddConversation update={update} />}
-        {s.screen === "review" && s.transcript && <Review s={s} update={update} onAnalyze={analyze} onBack={() => go("add")} />}
+        {s.screen === "review" && s.transcript && <Review s={s} update={update} onAnalyze={analyze} onBack={() => { update({ shots: [], extractNotes: [] }); go("add"); }} />}
         {s.screen === "analyzing" && <Analyzing onCancel={() => abort.current?.abort()} />}
         {s.screen === "error" && <AnalyzeError code={s.error ?? "unknown"} onRetry={analyze} onEdit={() => go("review")} />}
         {s.screen === "replay" && s.analysis && <Replay s={s} update={update} onContinue={() => go("mirror")} onRestart={() => setS(freshSession())} />}

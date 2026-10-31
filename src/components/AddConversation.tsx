@@ -1,16 +1,18 @@
 "use client";
 // Input methods. Each one only has to produce a Transcript; review, analysis and
-// My Mirror are shared. Screenshots plug in here in M3.
+// My Mirror are shared.
 import { useState } from "react";
 import { parsePasted, type Transcript } from "@/lib/conversation";
 import type { Update } from "./App";
 import { Icon, useT } from "./ui";
+import { ShotUpload } from "./ShotUpload";
 
 export function AddConversation({ update }: { update: Update }) {
   const { t } = useT();
   const A = t.add;
   const [text, setText] = useState("");
   const [empty, setEmpty] = useState(false);
+  const [method, setMethod] = useState<"shot" | "paste">("shot");
 
   const openReview = (transcript: Transcript) => update({ screen: "review", transcript, selfId: null, consent: false });
 
@@ -30,13 +32,14 @@ export function AddConversation({ update }: { update: Update }) {
       <h1 className="app-h1">{A.title}</h1>
       <p className="app-lead">{A.lead}</p>
       <div className="app-methods" role="radiogroup" aria-label={A.methods}>
-        <button className="app-method" role="radio" aria-checked="false" disabled aria-describedby="shot-sub">
+        <button className="app-method" role="radio" aria-checked={method === "shot"} aria-describedby="shot-sub" onClick={() => setMethod("shot")}>
           <Icon name="image" /><span><strong>{A.shot}</strong><small id="shot-sub">{A.shotSub}</small></span>
         </button>
-        <button className="app-method" role="radio" aria-checked="true">
+        <button className="app-method" role="radio" aria-checked={method === "paste"} onClick={() => setMethod("paste")}>
           <Icon name="text" /><span><strong>{A.paste}</strong><small>{A.pasteSub}</small></span>
         </button>
       </div>
+      {method === "shot" ? <ShotUpload update={update} /> : (
       <div className="app-panel">
         <div className={`im-field${empty ? " im-field--error" : ""}`}>
           <label className="im-label" htmlFor="paste">{A.pasteLabel}</label>
@@ -49,6 +52,7 @@ export function AddConversation({ update }: { update: Update }) {
           <button className="im-btn im-btn--ghost" onClick={typeFromScratch}>{A.typeInstead}</button>
         </div>
       </div>
+      )}
     </div>
   );
 }
