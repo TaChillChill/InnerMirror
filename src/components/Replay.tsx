@@ -152,7 +152,7 @@ function Safety({ note, onBack }: { note: string | null; onBack: () => void }) {
         {note && <p>{note}</p>}
         <p>{S.body}</p>
         <p><strong>{S.emergency}</strong></p>
-        <p className="im-hint">{S.resourcesPending}</p>
+        <p className="im-hint">{S.scope}</p>
         <button className="im-btn im-btn--ghost" onClick={onBack}>{S.back}</button>
       </div></div>
     </div>

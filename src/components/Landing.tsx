@@ -22,6 +22,7 @@ export function Landing({ savedCount, onStart, onMirror, onContinue }: { savedCo
           {onContinue && <button className="im-btn im-btn--secondary" onClick={onContinue}>{L.continueSession}</button>}
         </div>
         <p className="im-hint">{L.notTherapy}</p>
+        <p className="im-hint">{L.ageNote} <a href="/privacy" target="_blank" rel="noopener">{L.privacyLink}</a></p>
       </section>
       <section aria-labelledby="cast">
         <h2 id="cast" className="app-h2">{L.castTitle}</h2>

@@ -255,3 +255,8 @@ html:has(.app-sheet-open), html:has(.app-modal) { overflow: hidden; }
 .app-shots--compare { margin-top: var(--im-space-3); }
 .app-shots--compare img { width: min(100%, 320px); max-height: 560px; object-fit: contain; border: 1.5px solid var(--im-border); border-radius: var(--im-radius-md); }
 .app-rv-tag { font-style: normal; color: var(--im-ex-fc-ink); }
+
+/* Privacy policy page: a calm reading column. */
+.app-policy { max-width: 42rem; }
+.app-policy section { margin-top: 1.5rem; }
+.app-policy p { line-height: 1.6; }

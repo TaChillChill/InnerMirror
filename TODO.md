@@ -14,18 +14,19 @@ Session state and next actions. Stable rules live in `CLAUDE.md`. Overwrite this
 - Spend: harness $0.79 + app dev $0.05 + M3 tests ≈ $0.08 (of the $1 M3 allowance) ≈ **$0.92** of $5.
 
 ## Next actions (max 5)
-1. **Founder:** UAT M5 round 3 (`npm run dev`): What if? layers (observed strip / what happened / another possibility), My Mirror navigation (Explore another, Back, Home, Continue), collection cards. Then decide M5 closure. If the demo uses an iPhone, run the 7 iOS Safari checks on a real device.
-2. "Your Turn" (pick next state, explore plausible receiver states) deferred; reuse `scenario.ts` and `/api/scenario`.
-3. Before any deploy: wire `ACCESS_CODE` in the UI (analyze, extract, scenario all check it), finalize F6 copy, review D10 resources (Q10).
-4. Bake D12 mascot sizing into `design/brand/mascots/build_variants.py`; VI reader pass on prompt output and UI copy.
-5. Optional: extraction eval harness (more synthetic screenshots, real-app styles).
+1. **Founder:** UAT M5 round 3 accepted; send final UI/UX comments (not yet implemented). Release-prep changes (18+ note, scope disclaimer, `/privacy` EN/VI, safety copy) are committed locally; review copy.
+2. **Founder (Vercel/Meta, ~15 min):** link project, set `META_API_KEY` and `APP_SPEND_CAP_USD` (suggest 5), enable Deployment Protection for Founder UAT, add Firewall rate-limit rule on `/api/*`; confirm in Meta console whether a payment method is attached (ToS 13.2: auto-charge; credit exhaustion behavior undocumented).
+3. Then: preview deploy (approval), smoke test with synthetic conversation (~$0.05, approval), real-iPhone Safari checks, turn protection off for external beta only after rate limit is verified.
+4. Deferred: "Your Turn", D12 mascot sizing, extraction eval harness, access-code UI (server checks `ACCESS_CODE` if set; no client sends it, so leave it unset).
 
 ## Blockers
-- Meta publishes no retention period → F6 keeps "may keep it for a period it decides".
-- D10 safety resources (Q10) still need content review.
+- Meta publishes no retention period; copy says "may keep it for a period it decides".
+- Privacy page has no contact method (Founder to decide whether to add one).
 
 ## Last validation result
-2026-10-31 M5 round 3 (Impeccable My Mirror critique 21/40 → fixes): `npm test` 39/39, lint, typecheck, build, detector clean. Mocked acceptance e2e passes at 1280, 1000, 390 px (layers, navigation without re-analysis, confirm on unsaved new, scroll lock behind sheet/dialog, dialog Esc + focus return, card 340 px / 40 px badges). $0 live spend this round (M5 total stays $0.253 of $0.30). Not verified: real iOS Safari. Deferred: 960–1199 px layout (judged readable), sheet drag.
+2026-10-31 release prep: `npm test` 41/41, lint, typecheck, build clean; `/privacy` and landing 18+ note confirmed in server HTML. $0 live spend. Not verified: visual check of `/privacy` in a browser, VI native-reader pass, real iOS Safari.
+
+Previous: 2026-10-31 M5 round 3 (Impeccable My Mirror critique 21/40 → fixes): `npm test` 39/39, lint, typecheck, build, detector clean. Mocked acceptance e2e passes at 1280, 1000, 390 px (layers, navigation without re-analysis, confirm on unsaved new, scroll lock behind sheet/dialog, dialog Esc + focus return, card 340 px / 40 px badges). $0 live spend this round (M5 total stays $0.253 of $0.30). Not verified: real iOS Safari. Deferred: 960–1199 px layout (judged readable), sheet drag.
 
 Previous: 2026-10-31 M5 UX revision (Impeccable critique 23/40 → redesign): `npm test` 39/39, lint, typecheck, build, detector clean. Mocked UI e2e passes at 1280, 1000 and 390 px; one live e2e at 1280 px: 2 calls, $0.031 (15 s, 21 s). **M5 live spend total $0.253 of $0.30.** Brand voice: Mirror/Gương in UI; "AI" kept only where it names Meta's model or technical errors.
 
