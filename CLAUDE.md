@@ -82,3 +82,7 @@ Live commands spend from the approved budget: run them only with the Founder's g
 | `docs/PHASE0_REPORT.md` | Feasibility results (after Phase 0) |
 | `docs/CONVERSATION_REPLAY.md` | Proposed feature spec (not approved) |
 | `docs/ARCHITECTURE_REVIEW.md` | Whole-project review and recommendations (awaiting approval) |
+| `docs/CLASSIFICATION_AUDIT.md` | P0 classification audit, v3.2 changes and eval results |
+| `docs/CLASSIFICATION_EVAL_SET.md` | Vietnamese eval cases (reference sets are hypotheses) |
+| `docs/PERFORMANCE_AUDIT.md` | Latency breakdown and optimization plan (proposed) |
+| `docs/RELATIONSHIP_AND_STORY.md` | Relationship context and story analysis (proposed) |

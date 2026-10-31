@@ -15,6 +15,7 @@ Session state and next actions. Stable rules live in `CLAUDE.md`. Overwrite this
 - Spend: harness $0.79 + app dev $0.05 + M3 tests ≈ $0.08 (of the $1 M3 allowance) ≈ **$0.92** of $5.
 
 ## Next actions (max 5)
+- **Founder:** confirm priorities in `docs/RELATIONSHIP_AND_STORY.md` §5 (relationship chips + Other = MVP candidate after ≈ $0.25 eval; story analysis = future).
 - **Founder:** review `docs/PERFORMANCE_AUDIT.md` (audit only, $0): approve quick wins Q1–Q3/Q5 (free) and/or ≈ $0.5 paid batch (token diet S1, long-chat test S4, streaming check).
 0. **Founder:** UAT of P0 on a local build (or approve a Preview deploy); re-run the real UAT conversation from both perspectives; review `docs/CLASSIFICATION_EVAL_SET.md` + flagged review items with a VI reader. Decide: ≈ $0.5 for the split-rule fix + 3-run stability eval (eval-p0 has $0.36 left of $3). Check Vercel env `ANALYZE_EFFORT` (overrides the new low default).
 1. **Founder:** UAT on the protected Preview (Vercel login required): https://innermirror-b0w6iup36-tachillchills-projects.vercel.app . Paid end-to-end smoke test (~$0.05) needs separate approval. Send final UI/UX comments.
