@@ -47,7 +47,7 @@ user reflects (client only)
 | Route | Input | Output | Model settings (to tune) |
 |---|---|---|---|
 | `POST /api/extract` | JPEG data URL (≤ ~1.5 MB), `lang` | `Extraction` | `muse-spark-1.3`, low reasoning effort |
-| `POST /api/analyze` | `Transcript`, `selfId`, `lang` | `Analysis` | `muse-spark-1.3`, medium reasoning effort |
+| `POST /api/analyze` | messages, participant ids, `lang` (`selfId` is accepted but never sent to the model) | `Analysis` (spec v3.2) | `muse-spark-1.3`, low reasoning effort (P0 eval: as accurate as medium, more stable, ~2x faster; medium truncated long conversations) |
 | `POST /api/scenario` | messages up to and including the explored own message (never later ones), each with its current label (user's choice wins), `receiverId`, explored `state`, `lang` | `Scenario` (up to 2 plausible receiver states + evidence; answered locally when the receiver has no readable earlier message) | `muse-spark-1.3`, medium |
 
 Each route: validate input (zod) → if `AI_MODE=fixtures`, return fixture → call Meta with `response_format: json_schema` → validate output → one retry on invalid JSON → typed error. Never log request/response bodies.
@@ -64,26 +64,28 @@ interface Extraction extends Transcript { notes: string[] }        // e.g. "2 li
 
 type Structural = "P" | "A" | "C";
 
-interface MessageReading {
-  messageId: string;
-  expression: EgoState | "UNCLEAR"; // functional expression of this message (mascot)
-  source: Structural | "UNCLEAR";   // where the message seems to come from
-  target: Structural | "UNCLEAR";   // which state in the other it seems to address/invite
-  cues: string[];                   // quoted spans: observable language only
-  rationale: string;                // hedged interpretation
-  confidence: Confidence;
-  alternative: EgoState | null;     // required when confidence != "high"
-  reflectionQuestion: string | null;// only for the user's own messages
-}
-interface Transaction {
-  stimulusId: string; responseId: string;
-  type: "complementary" | "crossed" | "ulterior" | "unclear";
-  explanation: string; confidence: Confidence;
+// Spec v3.2 (P0, 2026-10-31). Source of truth: src/lib/ai/analysis-spec.ts and analysis.ts.
+// Code groups consecutive messages of one speaker into turns; every participant gets a
+// neutral label ("Người A"), so the model never knows who the user is (role reversal by design).
+// The model writes conversation context first, then readings per segment (a whole turn
+// unless it clearly changes function). analysis.ts expands segments to per-message readings.
+interface Segment {
+  id: string; turnId: string; messageIds: string[]; splitReason: string | null;
+  cues: string[];                                   // exact quotes from the segment
+  contextCues: { messageId: string; quote: string }[]; // exact quotes it relies on elsewhere
+  rationale: string;                                // what the words do in context, hedged
+  family: Structural | "UNCLEAR";                   // P/A/C; stands alone only when expression is UNCLEAR
+  expression: EgoState | "UNCLEAR";
+  confidence: Confidence;                           // UNCLEAR is stored as low
+  alternative: { expression: EgoState; rationale: string } | null;
+  invites: Structural | "UNCLEAR";                  // target state; with family = source (transactions, not shown)
+  secondLayer: { observation: string; cues: string[] } | null;
 }
 interface Analysis {
-  readings: MessageReading[];
-  transactions: Transaction[];
-  turningPoints: { messageId: string; why: string }[];
+  context: { register: string; turns: { turnId: string; act: string; respondsTo: string | null }[]; dynamics: string };
+  segments: Segment[];
+  readings: (Omit<Segment, "id" | "turnId" | "messageIds"> & { messageId: string; segmentId: string })[];
+  shifts: { messageId: string; description: string; cues: string[] }[];
   summary: string;
   uncertainty: string;
   safety: { flagged: boolean; categories: ("abuse" | "coercion" | "threat" | "self_harm" | "harassment")[]; note: string | null };

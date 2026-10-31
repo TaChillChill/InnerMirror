@@ -51,7 +51,7 @@ InnerMirror uses the **five-part functional model** (Layer 2) as its product voc
 1. **Five functional labels as product vocabulary.** We use CP, NP, A, FC, AC because they are concrete and illustratable. In UI they are "characters", with a footnote: *"Inspired by Transactional Analysis. The five-character split comes from later TA, not directly from Berne."*
 2. **Labels attach to messages, not people.** "This message *sounds like* Critical Parent", never "Person A *is* Critical Parent".
 3. **Text gives only partial evidence.** Of Berne's four diagnostic methods, a screenshot offers only weak behavioral and social cues (words, punctuation, emoji, timing). No tone, history, or inner experience. Hence every reading is a hypothesis with a confidence level, and the user's own experience (the phenomenological view) outranks the AI.
-4. **Linguistic cue heuristics** (prompt guidance, not science):
+4. **Linguistic cue heuristics** (prompt guidance, not science). Superseded in the prompt by spec v3.2 (`src/lib/ai/analysis-spec.ts`, P0 audit `docs/CLASSIFICATION_AUDIT.md`): a state follows from what a message *does in context*, never from emotion words, sentence form, register, or the speaker's age/role; cues below are starting points, each with "not enough on its own" limits there.
    | Label | Possible text cues |
    |---|---|
    | Critical Parent | "should/must/always/never", judgment, commands, blame |
