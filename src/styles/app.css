@@ -260,3 +260,6 @@ html:has(.app-sheet-open), html:has(.app-modal) { overflow: hidden; }
 .app-policy { max-width: 42rem; }
 .app-policy section { margin-top: 1.5rem; }
 .app-policy p { line-height: 1.6; }
+
+.app-credit { text-align: center; padding: var(--im-space-5) var(--im-gutter) var(--im-space-6); font-size: 0.8125rem; color: var(--im-text-muted); }
+.app-credit a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }

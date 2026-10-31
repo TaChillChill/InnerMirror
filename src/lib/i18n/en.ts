@@ -247,6 +247,7 @@ export const en = {
     you: "You",
     startOver: "Start over",
   },
+  footer: { createdBy: "Created by" },
   safety: {
     title: "This conversation mentions something that may not be safe.",
     body: "You deserve support. We won't suggest characters or alternative replies here.",
@@ -308,6 +309,7 @@ export const en = {
     title: "Privacy policy",
     updated: "Last updated: 31 October 2026",
     back: "Back to InnerMirror",
+    contact: ["Who runs InnerMirror", "InnerMirror is created and operated by HeoCoin Family. For questions about this policy or your data, write to"],
     sections: [
       ["Who this is for", "InnerMirror is for people 18 and older. It is a self-awareness game, not a mental-health or therapy service, and it doesn't diagnose anyone."],
       ["What is sent to Meta", "When you tap Read my screenshot or Look at this conversation, InnerMirror sends your screenshot or the conversation text to Meta's AI model so it can be read. A screenshot is sent as it is, including any names, photos or numbers visible in it, so crop them first if you can. Names you type stay in your browser: the model sees neutral labels. When you use What if?, the conversation up to that message is sent again."],

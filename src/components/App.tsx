@@ -6,6 +6,7 @@ import { DICTS } from "@/lib/i18n";
 import { toAnalyzeRequest } from "@/lib/conversation";
 import type { Analysis } from "@/lib/ai/analysis";
 import { LangContext, Icon } from "./ui";
+import { SiteFooter } from "./SiteFooter";
 import { useCollections, useLang, useStorageOk } from "./use-browser-state";
 import { freshSession, type Session } from "./session";
 import { Landing } from "./Landing";
@@ -98,6 +99,7 @@ export function App() {
             onNew={startNew} onBack={() => go("replay")} onHome={() => go("landing")} onOpenMessage={(id) => update({ screen: "replay", selected: id })} />
         )}
       </main>
+      <SiteFooter />
     </LangContext.Provider>
   );
 }

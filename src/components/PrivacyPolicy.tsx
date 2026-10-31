@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useEffect } from "react";
 import { DICTS } from "@/lib/i18n";
 import { LangContext } from "./ui";
+import { SiteFooter } from "./SiteFooter";
 import { useLang } from "./use-browser-state";
 
 export function PrivacyPolicy() {
@@ -27,9 +28,11 @@ export function PrivacyPolicy() {
           {P.sections.map(([heading, body]) => (
             <section key={heading}><h2 className="app-h2">{heading}</h2><p>{body}</p></section>
           ))}
+          <section><h2 className="app-h2">{P.contact[0]}</h2><p>{P.contact[1]} <a href="mailto:hello@heocoinfamily.com">hello@heocoinfamily.com</a>.</p></section>
           <p><Link className="im-btn im-btn--secondary" href="/">{P.back}</Link></p>
         </article>
       </main>
+      <SiteFooter />
     </LangContext.Provider>
   );
 }

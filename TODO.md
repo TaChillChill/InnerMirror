@@ -14,14 +14,14 @@ Session state and next actions. Stable rules live in `CLAUDE.md`. Overwrite this
 - Spend: harness $0.79 + app dev $0.05 + M3 tests ≈ $0.08 (of the $1 M3 allowance) ≈ **$0.92** of $5.
 
 ## Next actions (max 5)
-1. **Founder:** UAT M5 round 3 accepted; send final UI/UX comments (not yet implemented). Release-prep changes (18+ note, scope disclaimer, `/privacy` EN/VI, safety copy) are committed locally; review copy.
-2. **Founder (Vercel/Meta, ~15 min):** link project, set `META_API_KEY` and `APP_SPEND_CAP_USD` (suggest 5), enable Deployment Protection for Founder UAT, add Firewall rate-limit rule on `/api/*`; confirm in Meta console whether a payment method is attached (ToS 13.2: auto-charge; credit exhaustion behavior undocumented).
-3. Then: preview deploy (approval), smoke test with synthetic conversation (~$0.05, approval), real-iPhone Safari checks, turn protection off for external beta only after rate limit is verified.
-4. Deferred: "Your Turn", D12 mascot sizing, extraction eval harness, access-code UI (server checks `ACCESS_CODE` if set; no client sends it, so leave it unset).
+1. **Founder:** final UI/UX comments (not yet implemented); review privacy/footer copy.
+2. **Founder (Vercel/Meta):** link project, set `META_API_KEY` and `APP_SPEND_CAP_USD=5`; Vercel Authentication for Founder UAT (Password Protection is Pro only, $20/mo/project); one Firewall rate-limit rule on `/api/` (Hobby: 1 rate-limit rule of 3 custom rules; changes apply without redeploy); check Meta console for a payment method (ToS 13.2 auto-charge; credit exhaustion undocumented).
+3. Then: preview deploy (approval), smoke test with synthetic conversation (~$0.05, approval), real-iPhone Safari checks. Before external beta: rate-limit rule verified, Meta auto-charge risk accepted or card removed.
+4. Deferred: "Your Turn", D12 mascot sizing, extraction eval harness, access-code UI (leave `ACCESS_CODE` unset).
 
 ## Blockers
 - Meta publishes no retention period; copy says "may keep it for a period it decides".
-- Privacy page has no contact method (Founder to decide whether to add one).
+- Meta auto-charge after credits run out: unverified (needs console check).
 
 ## Last validation result
 2026-10-31 release prep: `npm test` 41/41, lint, typecheck, build clean; `/privacy` and landing 18+ note confirmed in server HTML. $0 live spend. Not verified: visual check of `/privacy` in a browser, VI native-reader pass, real iOS Safari.

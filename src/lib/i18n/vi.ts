@@ -249,6 +249,7 @@ export const vi: Dict = {
     you: "Bạn",
     startOver: "Bắt đầu lại",
   },
+  footer: { createdBy: "Tạo bởi" },
   safety: {
     title: "Cuộc trò chuyện này có nhắc đến điều có thể không an toàn.",
     body: "Bạn xứng đáng được hỗ trợ. Ở đây chúng tôi sẽ không gợi ý nhân vật hay cách trả lời khác.",
@@ -310,6 +311,7 @@ export const vi: Dict = {
     title: "Chính sách quyền riêng tư",
     updated: "Cập nhật lần cuối: 31 tháng 10 năm 2026",
     back: "Quay lại InnerMirror",
+    contact: ["Ai vận hành InnerMirror", "InnerMirror được tạo ra và vận hành bởi HeoCoin Family. Nếu có câu hỏi về chính sách này hoặc dữ liệu của bạn, hãy viết đến"],
     sections: [
       ["Dành cho ai", "InnerMirror dành cho người từ 18 tuổi trở lên. Đây là một trò chơi tự nhận biết, không phải dịch vụ sức khoẻ tâm thần hay trị liệu, và không chẩn đoán ai."],
       ["Những gì được gửi đến Meta", "Khi bạn bấm Đọc ảnh chụp hoặc Xem cuộc trò chuyện này, InnerMirror gửi ảnh chụp màn hình hoặc nội dung cuộc trò chuyện đến mô hình AI của Meta để đọc. Ảnh được gửi nguyên vẹn, kể cả tên, ảnh đại diện hay số điện thoại có trong ảnh, nên nếu được, hãy cắt bỏ trước. Tên bạn gõ vào vẫn ở trong trình duyệt: mô hình chỉ thấy nhãn trung tính. Khi bạn dùng What if?, phần cuộc trò chuyện tính đến tin nhắn đó sẽ được gửi lại."],
