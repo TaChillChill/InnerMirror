@@ -16,7 +16,8 @@ Read `TODO.md` first: current phase, status, next actions, blockers. It holds al
 Next.js (App Router) + TypeScript on Vercel. Meta Model API called server-side only. No database, no auth. Reflections in browser localStorage. Basic access protection, rate limiting, spend safeguards. See `docs/TECHNICAL_ARCHITECTURE.md`.
 
 ## Product rules (non-negotiable)
-- Awareness before change. AI output is a **hypothesis**, never a diagnosis or clinically validated assessment.
+- **Awareness before change. Reflection enables choice.** Gương helps users observe, understand and explore options; it never decides for them. AI output is a **hypothesis**, never a diagnosis or clinically validated assessment.
+- Conversation Direction may suggest up to two ego states per goal from a fixed, reviewed table ("Với hướng đi này, bạn có thể thử…"), describing what a state does, never promising outcomes, never ranking states, never presented as personalised, and always with "choose another" (Founder, 2026-11-01).
 - Three layers stay separate in UI and data: **AI Observation** / **My Interpretation** (user) / **My Mirror** (saved). The AI never pre-selects or overwrites the user's interpretation.
 - Ego-state suggestions attach to **messages**, never to people. A participant's mascot may change from message to message.
 - Separate observable language (quoted cues) from inference. Never infer sensitive characteristics (health, mental health conditions, identity, demographics) or motives of other participants as fact.
@@ -34,7 +35,7 @@ The five octopus mascots are the **Founder's own brand assets**. Use them as pro
 - Never log conversation content server-side. Don't store screenshots or transcripts on the server.
 
 ## Approved exceptions
-- **Live API testing budget (approved by Founder 2026-10-30):** max **$1** for initial API verification; max **$15 total** for prompt evaluation, including initial tests. Hackathon credits. Standard models only. Synthetic conversations only. Tracked in `scripts/phase0/.ledger.json`; scripts refuse calls that could exceed the cap. Exceeding requires new approval. **Current working cap (Founder, 2026-10-30): $5** for the initial evaluation (Milestone 1 + eval suite); the harness enforces it. Stop and ask before going past it.
+- **Live API testing budget (approved by Founder 2026-10-30):** max **$1** for initial API verification; max **$15 total** for prompt evaluation, including initial tests. Hackathon credits. Standard models only. Synthetic conversations only. Tracked in `scripts/phase0/.ledger.json`; scripts refuse calls that could exceed the cap. Exceeding requires new approval. **Current working cap (Founder, 2026-11-01): $6** total project spend (raised from $5), monitored: report spend against it after every live run. Stop and ask before going past it.
 
 ## Workflow
 - Small, verifiable steps; targeted tests; clear error handling.
@@ -87,3 +88,5 @@ Live commands spend from the approved budget: run them only with the Founder's g
 | `docs/PERFORMANCE_AUDIT.md` | Latency breakdown and optimization plan (proposed) |
 | `docs/RELATIONSHIP_AND_STORY.md` | Relationship context and story analysis (proposed) |
 | `docs/INPUT_EXPERIENCE_AUDIT.md` | Text/voice/screenshot input, story vs conversation (proposed) |
+| `docs/FOUNDER_UAT_AUDIT.md` | Founder UAT brief 2026-11-01: audit, UX flow, P0/P1/P2, decisions (proposed) |
+| `docs/UAT_EXECUTION_PLAN.md` | Round 3: gap analysis, full roadmap, execution order to submission (proposed; supersedes the audit where they differ) |
