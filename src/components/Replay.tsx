@@ -3,11 +3,11 @@
 // thought sent as several bubbles reads as one), shifts between messages, and the selector
 // for the open segment. The AI's cues are highlighted in the bubbles themselves.
 import { Fragment, useCallback, useEffect, useRef, useState, type ReactNode } from "react";
-import { EX_ORDER } from "@/lib/i18n";
 import type { Update } from "./App";
 import { aiChip, badgeFor } from "./Selector";
 import { MessagePanel, type PanelTab } from "./MessagePanel";
 import { useScenarios } from "./use-scenarios";
+import { Observation, WhoPicker } from "./Observation";
 import { scenarioContext } from "@/lib/ai/scenario";
 import { segmentOf } from "@/lib/ai/analysis";
 import { nameOf, readingFor, safetyHold, whatIfOff, withNames, type Session } from "./session";
@@ -112,17 +112,7 @@ export function Replay({ s, update, onContinue, onEdit, onRestart }: { s: Sessio
         {/* The backstop adds support on top of the readings; the model's own flag replaces Replay (Safety). */}
         {safetyHold(s) && <div className="im-notice im-notice--safety" role="alert"><Icon name="alert" /><div>
           <strong>{t.safety.holdTitle}</strong><p>{t.safety.holdBody}</p><p><strong>{t.safety.emergency}</strong></p></div></div>}
-        <section className="im-layer im-layer--ai">
-          <div className="im-layer__head"><Icon name="eye" /> {R.aiObservation}</div>
-          <p>{withNames(a.summary, s)}</p>
-          <p className="im-hint">{withNames(a.uncertainty, s)}</p>
-          <details className="app-more">
-            <summary>{R.learn}</summary>
-            <ul className="app-legend">{EX_ORDER.map((ex) => <li key={ex}><Badge ex={ex} state="plain" size={40} /><span><strong>{t.ex[ex].name}</strong> {t.ex[ex].desc}</span></li>)}</ul>
-            <p className="im-hint">{R.theory}</p>
-          </details>
-        </section>
-        <p className="app-tip">{R.tip}</p>
+        <Observation s={s} />
 
         <div className="im-thread app-thread">
           {T.messages.map((m) => {
@@ -153,6 +143,7 @@ export function Replay({ s, update, onContinue, onEdit, onRestart }: { s: Sessio
           })}
         </div>
 
+        <WhoPicker s={s} update={update} />
         <div className="app-continue">
           <button className="im-btn im-btn--primary" onClick={onContinue}>{R.continue}</button>
           <span className="im-hint">{R.continueHint}</span>

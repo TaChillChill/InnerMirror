@@ -60,7 +60,7 @@ export function App() {
   };
 
   const analyze = useCallback(async () => {
-    if (!s.transcript || !s.selfId) return;
+    if (!s.transcript) return;
     const req = toAnalyzeRequest(s.transcript, s.selfId, lang);
     const key = analysisKey(req);
     const last = s.lastResult;

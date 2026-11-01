@@ -114,24 +114,26 @@ export function rereadPlan(transcript: Transcript | null, readFrom: string | nul
 const id = z.string().regex(/^[A-Za-z0-9_-]{1,32}$/);
 export const analyzeRequestSchema = z.object({
   language: z.enum(["en", "vi"]),
-  selfId: id,
+  // Optional since 2026-11-01: "Who are you?" moved after the observation. The model never
+  // sees it anyway (speaker-blind); What if? sends its own.
+  selfId: id.optional(),
   participantIds: z.array(id).min(2).max(LIMITS.maxParticipants),
   messages: z.array(z.object({ id, speakerId: id, text: z.string().trim().min(1).max(LIMITS.maxMessageChars) }))
     .min(LIMITS.minMessages).max(LIMITS.maxMessages),
   consent: z.literal(true),
 }).superRefine((req, ctx) => {
   const known = new Set(req.participantIds);
-  if (!known.has(req.selfId)) ctx.addIssue({ code: "custom", message: "selfId is not a participant" });
+  if (req.selfId && !known.has(req.selfId)) ctx.addIssue({ code: "custom", message: "selfId is not a participant" });
   if (req.messages.some((m) => !known.has(m.speakerId))) ctx.addIssue({ code: "custom", message: "unknown speaker" });
   if (new Set(req.messages.map((m) => m.id)).size !== req.messages.length) ctx.addIssue({ code: "custom", message: "duplicate message id" });
   if (req.messages.reduce((n, m) => n + m.text.length, 0) > LIMITS.maxTotalChars) ctx.addIssue({ code: "custom", message: "conversation too long" });
 });
 export type AnalyzeRequest = z.infer<typeof analyzeRequestSchema>;
 
-export function toAnalyzeRequest(t: Transcript, selfId: string, language: Lang): AnalyzeRequest {
-  const used = new Set(t.messages.map((m) => m.speakerId).concat(selfId));
+export function toAnalyzeRequest(t: Transcript, selfId: string | null, language: Lang): AnalyzeRequest {
+  const used = new Set(t.messages.map((m) => m.speakerId).concat(selfId ?? []));
   return {
-    language, selfId, consent: true,
+    language, consent: true, ...(selfId ? { selfId } : {}),
     participantIds: t.participants.map((p) => p.id).filter((pid) => used.has(pid)),
     messages: t.messages.map(({ id, speakerId, text }) => ({ id, speakerId, text: text.trim() })).filter((m) => m.text),
   };
@@ -147,12 +149,11 @@ export function analysisKey(req: AnalyzeRequest): string {
   return JSON.stringify([req.language, req.participantIds.filter((p) => speaking.has(p)), req.messages.map((m) => [m.id, m.speakerId, m.text])]);
 }
 
-export type ReviewProblem = "noSelf" | "tooFew" | "tooMany" | "tooLong" | "emptyMessage" | null;
-export function reviewProblem(t: Transcript, selfId: string | null): ReviewProblem {
+export type ReviewProblem = "tooFew" | "tooMany" | "tooLong" | "emptyMessage" | null;
+export function reviewProblem(t: Transcript): ReviewProblem {
   if (t.messages.length < LIMITS.minMessages) return "tooFew";
   if (t.messages.length > LIMITS.maxMessages) return "tooMany";
   if (t.messages.some((m) => !m.text.trim())) return "emptyMessage";
   if (t.messages.some((m) => m.text.length > LIMITS.maxMessageChars) || t.messages.reduce((n, m) => n + m.text.length, 0) > LIMITS.maxTotalChars) return "tooLong";
-  if (!selfId) return "noSelf";
   return null;
 }

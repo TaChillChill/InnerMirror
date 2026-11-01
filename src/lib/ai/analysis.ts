@@ -134,3 +134,20 @@ export function cleanAnalysis(raw: unknown, messages: SourceMessage[]): Analysis
 export const segmentOf = (a: Analysis, messageId: string): Segment | undefined => a.segments.find((s) => s.messageIds.includes(messageId));
 /** The message a segment is anchored to in the UI (its last one), so choices and What if? use one id. */
 export const anchorOf = (a: Analysis, messageId: string): string => segmentOf(a, messageId)?.messageIds.at(-1) ?? messageId;
+
+/**
+ * A short "how it moved" line for the overview: what the first turn does, then what the turns
+ * at Mirror's shift points do, from the model's own neutral `context.turns[].act` phrases.
+ * No new model output; at most `max` phrases, duplicates dropped. Empty when acts are missing.
+ */
+export function arcOf(a: Analysis, max = 3): string[] {
+  const act = new Map(a.context.turns.map((t) => [t.turnId, t.act.trim()]));
+  const turnOfMessage = (id: string) => a.segments.find((s) => s.messageIds.includes(id))?.turnId;
+  const ids = [a.context.turns[0]?.turnId, ...a.shifts.map((s) => turnOfMessage(s.messageId))];
+  const out: string[] = [];
+  for (const id of ids) {
+    const phrase = id ? act.get(id) : undefined;
+    if (phrase && !out.includes(phrase)) out.push(phrase);
+  }
+  return out.slice(0, max);
+}

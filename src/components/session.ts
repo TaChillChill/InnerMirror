@@ -34,7 +34,7 @@ export type Session = {
   extractNotes: NoteCode[];
   // The last reading and what it was made from, so an unchanged conversation isn't sent
   // again. In memory only, like everything here; a new conversation drops it.
-  lastResult: { key: string; selfId: string; analysis: Analysis; labels: Record<string, string> } | null;
+  lastResult: { key: string; selfId: string | null; analysis: Analysis; labels: Record<string, string> } | null;
 };
 
 export const freshSession = (): Session => ({

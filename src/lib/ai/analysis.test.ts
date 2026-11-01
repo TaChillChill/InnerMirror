@@ -1,6 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { anchorOf, cleanAnalysis } from "./analysis.ts";
+import { anchorOf, arcOf, cleanAnalysis } from "./analysis.ts";
+import { SAMPLES } from "../samples.ts";
 import { buildAnalysisBody, groupTurns } from "./analysis-spec.ts";
 
 const messages = [
@@ -103,4 +104,14 @@ test("safety output passes through the confidence cap untouched", () => {
 test("rejects wrong shapes and outputs covering under half the messages", () => {
   assert.equal(cleanAnalysis({ segments: "nope" }, messages), null);
   assert.equal(cleanAnalysis(base([seg("t3", ["m4"])]), messages), null);
+});
+
+test("arcOf: first turn's act, then the acts at shift points, capped and de-duplicated", () => {
+  const s = SAMPLES.en;
+  const a = cleanAnalysis(s.raw, s.messages)!;
+  const arc = arcOf(a);
+  assert.ok(arc.length >= 2 && arc.length <= 3, String(arc.length));
+  assert.equal(arc[0], a.context.turns[0].act.trim());
+  assert.equal(new Set(arc).size, arc.length);
+  assert.deepEqual(arcOf({ ...a, context: { ...a.context, turns: [] }, shifts: [] }), []);
 });

@@ -30,11 +30,11 @@ try {
   await step(`$click("[role=radio]", "Paste or type"); $wait(200)`);
   await step(`$type("#paste", ${JSON.stringify(chat)}); $wait(100)`);
   await step(`$click("button", "Show as a chat"); $wait(300)`);
-  await step(`$click(".app-who__btn", "Alex"); $wait(100)`);
   await step(`document.querySelector(".im-check input").click(); $wait(100)`);
   await step(`$click("button", "Look at this conversation"); $wait(1200)`);
   check("analysis shown on Replay", await step(`document.querySelectorAll(".app-meta-btn").length > 0`));
-  // No panel is opened: every observation stays Mirror's.
+  // No panel is opened: every observation stays Mirror's. "Who are you?" is answered at the end of Replay.
+  await step(`$click(".app-whopick .app-chip-btn", "Alex"); $wait(200)`);
   await step(`document.querySelector(".app-continue .im-btn--primary").click(); $wait(500)`);
   await step(`$click("button", "Save"); $wait(400)`);
   const stored = JSON.parse(await step(`localStorage.getItem("innermirror.collections.v1")`));

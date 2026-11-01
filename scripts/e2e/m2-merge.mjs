@@ -30,10 +30,9 @@ try {
   await step(`document.querySelector("[aria-label='Rename Chị Phương']").click(); $wait(200)`);
   await step(`$click(".app-person-edit .app-chip-btn", "Phương"); $wait(200)`);
   await step(`$click(".app-person-edit button", "Merge"); $wait(300)`);
-  await step(`$click(".app-who__btn", "Phương"); $wait(100)`);
   await step(`document.querySelector(".im-check input").click(); $wait(100)`);
   await step(`$click("button", "Look at this conversation"); $wait(800)`);
-  check("analysis request: 2 speakers, 5 messages, merged speaker ids", analyzeBody && analyzeBody.participantIds.length === 2 && analyzeBody.messages.length === 5 && analyzeBody.messages[2].speakerId === analyzeBody.messages[1].speakerId, JSON.stringify(analyzeBody?.participantIds));
+  check("analysis request: 2 speakers, 5 messages, merged speaker ids, no self needed", analyzeBody && analyzeBody.participantIds.length === 2 && analyzeBody.selfId === undefined && analyzeBody.messages.length === 5 && analyzeBody.messages[2].speakerId === analyzeBody.messages[1].speakerId, JSON.stringify(analyzeBody?.participantIds));
   check("no horizontal scroll", await step(`document.documentElement.scrollWidth <= innerWidth`));
 } catch (e) {
   results.push(`ERROR ${e.message}`);

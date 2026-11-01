@@ -13,6 +13,7 @@ import { Stickers, Tally } from "./Stickers";
 import { SavedRail, titleOf } from "./SavedRail";
 import { PersonalMirror, StateRows } from "./PersonalMirror";
 import { StateCloud } from "./StateCloud";
+import { WhoPicker } from "./Observation";
 import { countsOf } from "@/lib/mirror-stats";
 import { Icon, useT } from "./ui";
 
@@ -68,7 +69,10 @@ export function Mirror({ s, update, saved, storageOk, onSavedChange, onNew, onBa
       {s.savedId && <div className="im-notice im-notice--success" role="status" tabIndex={-1} ref={notice}><Icon name="saved" /><div><strong>{M.savedTitle}</strong>{M.savedBody}</div></div>}
       {!storageOk && <div className="im-notice im-notice--error"><Icon name="alert" /><div><strong>{M.storageBlockedTitle}</strong>{M.storageBlocked}</div></div>}
 
-      {showCurrent && (
+      {/* My turns need a "who are you"; it is asked here if Replay was skipped. */}
+      {showCurrent && !s.selfId && <WhoPicker s={s} update={update} />}
+
+      {showCurrent && s.selfId && (
         <section className="app-current" aria-labelledby="cur">
           <h2 id="cur" className="app-h2">{M.fromThis}</h2>
           <Stickers mine={mine} onOpen={onOpenMessage} />

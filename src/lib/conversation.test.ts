@@ -74,12 +74,11 @@ test("analyze request rejects unknown speakers, missing consent and oversize tex
   assert.ok(!analyzeRequestSchema.safeParse({ ...base, messages: [{ id: "m1", speakerId: "p1", text: "x".repeat(2001) }, base.messages[1]] }).success);
 });
 
-test("reviewProblem: asks for self last, after content issues", () => {
+test("reviewProblem: content issues only; who the user is is asked later", () => {
   const t = parsePasted("A: hi", "?");
-  assert.equal(reviewProblem(t, null), "tooFew");
+  assert.equal(reviewProblem(t), "tooFew");
   const t2 = parsePasted("A: hi\nB: hey", "?");
-  assert.equal(reviewProblem(t2, null), "noSelf");
-  assert.equal(reviewProblem(t2, "p1"), null);
+  assert.equal(reviewProblem(t2), null);
 });
 
 test("analysis key ignores who the user is, and changes with any edit or the language", () => {
@@ -114,4 +113,13 @@ test("merging two names for one person moves every message and loses none", () =
   assert.deepEqual(m.messages.map((x) => x.speakerId), [minh, phuong, phuong, phuong, minh]);
   assert.equal(mergeParticipants(t, phuong, phuong), t, "merging into itself is a no-op");
   assert.equal(mergeParticipants(t, "nope", phuong), t, "unknown ids are a no-op");
+});
+
+test("analysis request works without a self, and the key ignores it", () => {
+  const t = parsePasted("A: hi\nB: hello", "?");
+  const req = toAnalyzeRequest(t, null, "en");
+  assert.equal(req.selfId, undefined);
+  assert.ok(analyzeRequestSchema.safeParse(req).success);
+  assert.equal(analysisKey(req), analysisKey(toAnalyzeRequest(t, "p1", "en")));
+  assert.ok(!analyzeRequestSchema.safeParse({ ...req, selfId: "p9" }).success, "an unknown self is still rejected");
 });

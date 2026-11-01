@@ -54,7 +54,7 @@ export function Review({ s, update, onAnalyze, onBack }: Props) {
     setRenaming(id);
   };
 
-  const problem = reviewProblem(T, s.selfId) ?? (s.consent ? null : "consent");
+  const problem = reviewProblem(T) ?? (s.consent ? null : "consent");
   const speakerChips = (current: string, onPick: (pid: string) => void) => T.participants.map((p) => (
     <button key={p.id} className="app-chip-btn" aria-pressed={current === p.id} onClick={() => onPick(p.id)}>{avatar(p.id, 24)}{p.name}</button>
   ));
@@ -84,14 +84,13 @@ export function Review({ s, update, onAnalyze, onBack }: Props) {
       )}
 
       <section className="app-who" aria-labelledby="who">
-        <h2 id="who" className="app-who__q">{R.whoIsYou}</h2>
+        <h2 id="who" className="app-who__q">{R.whoIsIn}</h2>
         <div className="app-who__opts">
           {T.participants.map((p) => (
             <div key={p.id} className="app-who__opt">
-              <button className="app-who__btn" aria-pressed={s.selfId === p.id} onClick={() => update({ selfId: p.id })}>
-                {avatar(p.id, 40)}<span>{p.name}</span>
-                {s.selfId === p.id && <span className="app-who__me"><Icon name="check" /> {R.you}</span>}
-              </button>
+              <span className="app-who__btn app-person">
+                {avatar(p.id, 40)}<span>{p.name}</span><small className="app-person__n">{R.messagesN(T.messages.filter((m) => m.speakerId === p.id).length)}</small>
+              </span>
               <button className="app-icon-btn" aria-expanded={renaming === p.id} onClick={() => { setMergeInto(null); setRenaming(renaming === p.id ? null : p.id); }} aria-label={R.rename(p.name)}><Icon name="edit" /></button>
               {renaming === p.id && (
                 <div className="app-person-edit">
