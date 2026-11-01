@@ -233,3 +233,23 @@ Known miss: "chẳng còn hy vọng gì" (vi1 m13) is not flagged in either v3.2
 | Nov 4 | UAT fixes only · README · demo video · submit by 22:00 |
 
 Spend plan against $6: known ≈ $4.2 · story eval ≈ $0.2 · U9 eval ≈ $0.3 · Preview smoke ≈ $0.05 · total ≈ $4.75, leaving ≈ $1.25 margin. Reported after every live run.
+
+### 7.7 U6 addition — "choose a conversation" copy (Founder, 2026-11-01)
+Wording only: no flow, UI-architecture, prompt, schema or API change. Shipped with U6.
+
+**Placement (avoids repeating the hero):** the landing hero stays as it is. The landing start button takes the new CTA label + helper. The headline and supporting text open the **Add screen** (where the input method is chosen), replacing "Thêm một cuộc trò chuyện".
+
+| Slot | VI (Founder) | EN (proposed, natural rather than literal) |
+|---|---|---|
+| Headline | Có cuộc trò chuyện nào bỗng rẽ sang hướng bạn không ngờ? | Has a conversation ever taken a turn you didn't see coming? |
+| Supporting 1 | Hãy mang đến Gương một đoạn hội thoại khiến bạn tự hỏi: “Ủa, sao tự nhiên lại thành ra thế này?” | Bring Mirror one that left you wondering, “Wait, how did we end up here?” |
+| Supporting 2 | Cùng soi lại điều đã xảy ra, và khám phá những hướng đi khác. | Look back at what happened together, and explore where else it could have gone. |
+| CTA | Soi một cuộc trò chuyện | Look into a conversation |
+| Helper | Có thể dùng ảnh chụp tin nhắn hoặc kể lại câu chuyện. | Use a screenshot of your messages, or tell it in your own words. |
+
+Checks: neutral about *why* it turned (no "went wrong", no one at fault); an invitation, not a requirement; "Gương"/"Mirror" as the voice, consistent with D4/D5.
+
+### 7.8 Progress (2026-11-01 evening)
+Wave 0 done as local commits: M3, M4, M5, M1, M2 (merge + undo), M6. Checks: 67 unit tests; mocked e2e at 390/1280 px, 0 paid calls. One item moved: taking "Bạn là ai?" off Review ships with U5/U8, so there's never a build where the user can't pick a self before What if? or Save.
+
+S1 offline result: the eval set has only 3 conversations with danger signals. vi7 (explicit) is flagged in 4/4 runs; the hopelessness line in vi1 is missed in 9/9; en1 has none. Next: Founder reviews the backstop phrase list, plus ~8 VI/EN probes (passive ideation, threat, coercion/control, harassment, and a joking "kill you" false-positive check), ≈ $0.3.
