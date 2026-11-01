@@ -62,6 +62,44 @@ test("family follows the label, and only stands alone when the label is UNCLEAR"
   assert.equal(a.readings[2].family, "C");
 });
 
+// Shapes taken from saved v3 eval runs (vi3-friends, en3-couple), plus sincere controls.
+const banter = [
+  { id: "m1", speakerId: "p1", text: "Tụi mình hẹn 7h mà giờ mới xuất phát" },
+  { id: "m2", speakerId: "p2", text: "Giỏi quá ha 🙂" },
+  { id: "m3", speakerId: "p1", text: "Fine. Do whatever you want." },
+  { id: "m4", speakerId: "p2", text: "Giỏi quá, em làm tốt lắm!" },
+];
+const layer = (cues: string[]) => ({ observation: "praise words next to a reminder about being late", cues });
+
+test("a grounded second layer caps high at medium and keeps the label", () => {
+  const a = cleanAnalysis(base([
+    seg("t1", ["m1"], { cues: ["hẹn 7h"], expression: "A", confidence: "medium" }),
+    seg("t2", ["m2"], { cues: ["Giỏi quá ha"], secondLayer: layer(["Giỏi quá ha", "🙂"]) }),
+    seg("t3", ["m3"], { cues: ["Fine."], expression: "AC", secondLayer: layer(["Fine.", "Do whatever you want."]) }),
+    seg("t4", ["m4"], { cues: ["Giỏi quá"], expression: "NP" }),
+  ]), banter)!;
+  assert.deepEqual(a.readings.map((r) => [r.expression, r.confidence]), [["A", "medium"], ["CP", "medium"], ["AC", "medium"], ["NP", "high"]]);
+});
+
+test("sincere praise, ungrounded layers and lower confidence are left alone", () => {
+  const a = cleanAnalysis(base([
+    seg("t1", ["m1"], { cues: ["hẹn 7h"], expression: "A" }),
+    // The model claims a layer but none of its cues is in the message: not enough to cap.
+    seg("t2", ["m2"], { cues: ["Giỏi quá ha"], secondLayer: layer(["made up"]) }),
+    seg("t3", ["m3"], { cues: ["Fine."], expression: "AC", confidence: "low", secondLayer: layer(["Fine."]) }),
+    seg("t4", ["m4"], { cues: ["làm tốt lắm"], expression: "NP" }),
+  ]), banter)!;
+  assert.deepEqual(a.readings.map((r) => r.confidence), ["high", "high", "low", "high"]);
+  assert.deepEqual(a.readings[1].secondLayer?.cues, []);
+});
+
+test("safety output passes through the confidence cap untouched", () => {
+  const safety = { flagged: true, categories: ["threat"], note: "support is available" };
+  const a = cleanAnalysis(base([seg("t1", ["m1"], { cues: ["hẹn 7h"], secondLayer: layer(["hẹn 7h"]) }), seg("t2", ["m2"], { cues: ["Giỏi quá ha"] })], { safety }), banter.slice(0, 2))!;
+  assert.deepEqual(a.safety, safety);
+  assert.equal(a.readings[0].confidence, "medium");
+});
+
 test("rejects wrong shapes and outputs covering under half the messages", () => {
   assert.equal(cleanAnalysis({ segments: "nope" }, messages), null);
   assert.equal(cleanAnalysis(base([seg("t3", ["m4"])]), messages), null);

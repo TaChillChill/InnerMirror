@@ -84,6 +84,11 @@ export function cleanAnalysis(raw: unknown, messages: SourceMessage[]): Analysis
     const texts = ids.map((id) => byId.get(id)!.text);
     const quoted = (c: string) => c.trim() !== "" && texts.some((t) => contains(t, c));
     const cues = s.cues.filter(quoted);
+    const secondLayer = s.secondLayer ? { ...s.secondLayer, cues: s.secondLayer.cues.filter(quoted) } : null;
+    // A second layer the model grounded in an exact quote (sarcasm, "fine" after a complaint)
+    // means the literal reading is contested, which the spec says rules out high. Only the
+    // confidence moves; the label stays. An ungrounded second layer isn't evidence enough.
+    const contested = !!secondLayer?.cues.length;
     const fields: ReadingFields = {
       ...s,
       cues,
@@ -92,8 +97,8 @@ export function cleanAnalysis(raw: unknown, messages: SourceMessage[]): Analysis
       family: s.expression === "UNCLEAR" ? s.family : SOURCE_OF[s.expression],
       // A reading whose evidence didn't survive is a guess: keep it, but never above low.
       // "Unclear" is shown without a confidence, so it is stored as low.
-      confidence: cues.length && s.expression !== "UNCLEAR" ? s.confidence : "low",
-      secondLayer: s.secondLayer ? { ...s.secondLayer, cues: s.secondLayer.cues.filter(quoted) } : null,
+      confidence: !cues.length || s.expression === "UNCLEAR" ? "low" : contested && s.confidence === "high" ? "medium" : s.confidence,
+      secondLayer,
     };
     // A segment that strays across turns or skips messages is cut into valid runs.
     for (const run of runs(ids, index, turnOf)) {
