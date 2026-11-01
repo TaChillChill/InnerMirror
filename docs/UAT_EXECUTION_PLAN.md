@@ -269,3 +269,6 @@ Prototype v2 (same link): https://claude.ai/artifact/Uubz2avWVAe73C2n9e7mEm. The
 | R2 | Brand octopus in the centre is lavender | The same hue as Nurturing Parent, so it can read as "you are NP" | Uses the app icon. Needs a transparent mirror-mascot file (open item D2); a neutral ring around it is an option |
 | R3 | Rows sorted by count | The order changes with every filter, so periods are hard to compare | Fixed order CP, NP, A, FC, AC (Founder can choose sorted) |
 | R4 | Mascots with expressions (hearts, magnifier, "!") | Our assets are the five provided PNGs; the variants would need new art from the Founder | Uses the provided PNGs as they are |
+
+### 7.10 U7 approved and built (2026-11-01)
+Founder approved prototype v2 and the four §7.9 decisions (neutral summary; app icon as donut placeholder; fixed order CP→NP→A→FC→AC; the five existing PNGs). Built as `StateCloud`, `SavedRail`, `PersonalMirror` + `lib/mirror-stats.ts`; commit d7d5802. Still open for later waves: the pre-save "this conversation" view in Nhìn lại mình (U5/U8), the vocabulary/rename sweep (U6), and the transparent brand mascot (D2).
