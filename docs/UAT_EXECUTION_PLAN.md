@@ -289,3 +289,10 @@ Founder approved the backstop and ≤ $0.3 eval. Spent **$0.091** (7 calls, v3.2
 Offline: backstop over all 105 P0 fixture messages fires only on the two real self-harm lines (vi1 m13 "chẳng còn hy vọng gì", missed by the model in 9/9 runs; vi7 m2), 0 elsewhere. Unit tests hold 14 hyperbole/look-alike negatives.
 
 Behaviour: model flag → the existing Safety screen replaces Replay (resources, no What if?). Backstop only → a support card above the readings and What if? off; readings stay. Limits: one run per probe (no stability measure); the phrase list is short by design and will miss paraphrases the model also misses; a joking marker excuses only threat phrases, never self-harm. Recommendation: acceptable for Founder UAT and judges; before any public release, add ≈ 10 more probes × 2 runs (≈ $0.4).
+
+### 7.12 Judge-access test plan (prepared, nothing deployed or opened)
+Waits for Q15 (official rules: is a public URL required? Is a login acceptable? Is a demo video enough?). Then, with Founder approval at each step:
+1. `vercel deploy --target=preview` of the latest green commit (no `--prod`).
+2. Choose the access method the rules allow, least open first: a Vercel Shareable Link for that Preview (protection stays on for everything else) → access code via `ACCESS_CODE` → protection off for Preview only. Rate limit (10 req/min/IP) and the emergency deny rule stay as they are.
+3. Check in a private window, no Vercel login: landing EN/VI → sample conversation (0 API calls) → one live analyze on a synthetic chat (≈ $0.02, approved separately) → My Reflection save/reload.
+4. Record the URL and steps for judges in README; revert the access change after judging if the rules allow.
