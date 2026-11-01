@@ -1,5 +1,7 @@
 # Release readiness — completion sprint, 2026-11-01
 
+> **Update 2026-11-01 evening:** the Founder UAT fix sprint changed input, Review, observation, Direction, the cloud and the logo. Its status, evidence and re-test guide are in `docs/UAT_FIX_SPRINT.md`; §5 steps 4 and 7 below are updated to match.
+
 Status: **local commits only. Nothing pushed or deployed. Deployment Protection unchanged.** Covers commits `cb293e6` → `c35358c` on top of Wave 1. Sources: the code at `c35358c`, test runs listed in §3, `scripts/phase0/.ledger.json` and server logs.
 
 ## TL;DR
@@ -146,14 +148,14 @@ Use synthetic or your own chats. Each analysis costs ≈ $0.02, each What if? �
    - Allow the permission and tell a short story aloud: "mẹ nói con lại về muộn à", pause, "mình bảo con xin lỗi".
    - Text appears, one phrase per line, and stays editable.
    - Stop, deny the permission once in Settings, and check that the denied message appears.
-4. **Story:** Hiện thành khung chat → "Gương đã tách câu chuyện của bạn". Grey lines are narration.
+4. **Story:** Tiếp tục → "Gương đã tách câu chuyện của bạn". Grey lines are narration.
    - Tap one and choose who said it; tap a bubble and choose "Đây là lời kể".
    - Fix a speaker name with the pencil.
 5. **Analysis:**
    - Tick consent → Xem.
    - The loading text is honest; the Replay note says "Câu chuyện kể lại"; no "cao" confidence anywhere.
 6. **What if? on someone else's message:** the title names them, not "bạn"; Khám phá returns states or an honest "chưa đủ".
-7. **Bạn là ai? + Hướng đi:** pick yourself → pick "Giảm bớt căng thẳng" → two cards → "Chọn trạng thái khác" → "Thử hướng này" → What if? opens with the state already chosen.
+7. **Bạn là ai? + Hướng đi:** pick yourself → pick "Giảm bớt căng thẳng" → two reference cards, nothing to select, and the line "Đây là những hướng đi để bạn tham khảo…" (reference only since the UAT fix sprint).
 8. **Save + reload:** Nhìn lại mình → Lưu → close the tab → reopen → the card and Personal Mirror counts are still there.
 9. **Dark mode:**
    - Tap the half-moon button: Sáng → Tối → Theo hệ thống.

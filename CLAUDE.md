@@ -17,7 +17,7 @@ Next.js (App Router) + TypeScript on Vercel. Meta Model API called server-side o
 
 ## Product rules (non-negotiable)
 - **Awareness before change. Reflection enables choice.** Gương helps users observe, understand and explore options; it never decides for them. AI output is a **hypothesis**, never a diagnosis or clinically validated assessment.
-- Conversation Direction may suggest up to two ego states per goal from a fixed, reviewed table ("Với hướng đi này, bạn có thể thử…"), describing what a state does, never promising outcomes, never ranking states, never presented as personalised, and always with "choose another" (Founder, 2026-11-01).
+- Conversation Direction may suggest up to two ego states per goal from a fixed, reviewed table ("Với hướng đi này, bạn có thể thử…"), describing what a state does, never promising outcomes, never ranking states, never presented as personalised. Since Founder UAT 2026-11-01 (#09/#10) Direction is **reference only**: nothing to pick, try or complete there, with the line "Đây là những hướng đi để bạn tham khảo. Bạn vẫn là người quyết định điều mình muốn làm tiếp theo."
 - Three layers stay separate in UI and data: **AI Observation** / **My Interpretation** (user) / **My Mirror** (saved). The AI never pre-selects or overwrites the user's interpretation.
 - Ego-state suggestions attach to **messages**, never to people. A participant's mascot may change from message to message.
 - Separate observable language (quoted cues) from inference. Never infer sensitive characteristics (health, mental health conditions, identity, demographics) or motives of other participants as fact.
@@ -95,4 +95,5 @@ Live commands spend from the approved budget: run them only with the Founder's g
 | `docs/INPUT_EXPERIENCE_AUDIT.md` | Text/voice/screenshot input, story vs conversation (proposed) |
 | `docs/FOUNDER_UAT_AUDIT.md` | Founder UAT brief 2026-11-01: audit, UX flow, P0/P1/P2, decisions (proposed) |
 | `docs/RELEASE_READINESS.md` | Completion sprint: feature matrix, test evidence, risks, spend, iPhone UAT checklist, Preview GO/NO-GO |
+| `docs/UAT_FIX_SPRINT.md` | Founder UAT fix sprint (12 issues): status, why approved feedback was missed, evidence, re-test guide |
 | `docs/UAT_EXECUTION_PLAN.md` | Round 3: gap analysis, full roadmap, execution order to submission (proposed; supersedes the audit where they differ) |

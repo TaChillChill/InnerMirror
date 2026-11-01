@@ -5,21 +5,17 @@ Session state and next actions. Stable rules live in `CLAUDE.md`. Overwrite this
 ## Current phase
 **Phase 1 — Functional MVP, UAT round 4 (CONDITIONAL GO, 2026-11-01).** Plan and decisions: `docs/UAT_EXECUTION_PLAN.md` §7. Feature freeze Nov 3, 18:00 ICT; internal submit Nov 4, 22:00 ICT. Everything is local commits: nothing pushed or deployed since the protected Preview.
 
-## Current status (2026-11-01, completion sprint)
-- **All approved pre-submission items built (local commits, not pushed):** Wave 0, Wave 1, U7, S1, U8 Direction (`84c6d8a`), U9 What if? any speaker + C1 (`6d0ee0e`), U3 story v1 (`f379c19`), Light/Dark/System (`be099a0`), firewall 429 message (`35120d6`), My Reflection picture (`cb293e6`).
-- **Evidence and Founder iPhone checklist:** `docs/RELEASE_READINESS.md`.
-  - Unit tests: 96/96.
-  - Mocked e2e: 215/215.
-  - Live evals: U9 16/16, story 10/10.
-  - Live UAT: 23/23.
-- **Recommendation:** GO for a Preview deploy (needs approval); not yet for judge/public access.
-- **Spend:** ledger $4.11 + app/Preview ≈ $0.75 (Founder UAT $0.108, live UAT $0.101, earlier ≈ $0.54 est.) ≈ **$4.86 of $6**.
-- **Local server:** `npx next start -p 3123` reads `.env.local` (live calls). For mocked e2e, run it with `META_API_KEY=` (empty). Live UAT: `APP_SPEND_CAP_USD=0.4 npx next start -p 3123` + `node scripts/e2e/live-uat.mjs`.
+## Current status (2026-11-01, Founder UAT fix sprint)
+- **Founder UAT 12 issues fixed (local commits, not pushed):** logo `791ee7b`, cloud `810a381`, input/review/observation/title/Direction `28253fa`. Status per issue, why approved feedback was missed, re-test guide: `docs/UAT_FIX_SPRINT.md`.
+- **Earlier sprint** (all approved pre-submission items): `docs/RELEASE_READINESS.md` (§5 iPhone checklist updated for the fixes).
+- **Recommendation:** Founder re-tests the three journeys (`UAT_FIX_SPRINT.md` §6); then Preview deploy (needs approval).
+- **Spend:** this sprint $0. Project ≈ **$4.86 of $6** (ledger $4.11 + app/Preview ≈ $0.75, partly estimated).
+- **Local server:** `npx next start -p 3123` reads `.env.local` (live calls). For mocked e2e, run it with `META_API_KEY=` (empty). Live UAT: `APP_SPEND_CAP_USD=0.4 npx next start -p 3123` + `node scripts/e2e/live-uat.mjs` (updated for reference-only Direction, not re-run).
 
 ## Next actions (max 5)
-1. **Founder:** approve the Preview deploy (`vercel deploy --target=preview`), then run the iPhone checklist in `docs/RELEASE_READINESS.md` §5 (mic needs HTTPS).
+1. **Founder:** re-test the 3 journeys (`docs/UAT_FIX_SPRINT.md` §6); approve the Preview deploy (`vercel deploy --target=preview`), then the iPhone checklist (`docs/RELEASE_READINESS.md` §5; mic needs HTTPS).
 2. **Founder:** Q15 rules → judge-access method (UAT plan §7.12); decide the in-app rate limit for judging (R2: 8 per 10 min per IP).
-3. VI native-reader pass: Direction table, story copy, What if? copy for other speakers.
+3. VI native-reader pass: Direction table + reference line, title template "Từ … đến …", story copy, What if? copy for other speakers. Decide whether a model-written title is worth a prompt change (≈ $0.3 eval).
 4. Fix UAT findings only (feature freeze Nov 3, 18:00 ICT).
 5. Submission: README, demo video, submit by Nov 4, 22:00 ICT.
 
@@ -32,9 +28,14 @@ Session state and next actions. Stable rules live in `CLAUDE.md`. Overwrite this
 - Turn-split instability and FC/AC coin flip on distress (`docs/CLASSIFICATION_AUDIT.md` §9.5); prompt fix ≈ $0.5, not approved.
 - VI stacked diacritics sometimes misread in screenshots (mitigated by review copy).
 - Rate-limit rule must block (not log) before an external beta; emergency deny rule documented in `docs/IMPLEMENTATION_PLAN.md`.
-- Brand mascot for the donut is the app icon placeholder (D2). Enhancements E1–E10 after submission.
+- Brand mascot for the donut is the app icon placeholder (D2); logo is the interim art with its matte removed (needs a proper transparent/SVG file). Free-text direction = E3. Enhancements E1–E10 after submission.
 
 ## Last validation result
+2026-11-01 Founder UAT fix sprint (`28253fa`):
+- `npm test` 101/101; lint, typecheck and `next build` clean.
+- `sh scripts/e2e/run-all.sh`: 24 runs, 361/361 PASS, all /api/* mocked; new `f1-uat-fixes` (3 journeys, VI) at 360 dark, 390 light/dark, 1280 light.
+- $0 spent. Not verified: real iPhone Safari, VI native-reader pass of the new copy.
+
 2026-11-01 completion sprint (`c35358c`):
 - `npm test` 96/96; lint, typecheck and `next build` clean.
 - `sh scripts/e2e/run-all.sh`: 20 runs, 215/215 PASS at 360/390/1280 px, EN/VI, light/dark, all /api/* mocked.
