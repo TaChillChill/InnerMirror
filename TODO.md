@@ -5,19 +5,23 @@ Session state and next actions. Stable rules live in `CLAUDE.md`. Overwrite this
 ## Current phase
 **Phase 1 — Functional MVP, UAT round 4 (CONDITIONAL GO, 2026-11-01).** Plan and decisions: `docs/UAT_EXECUTION_PLAN.md` §7. Feature freeze Nov 3, 18:00 ICT; internal submit Nov 4, 22:00 ICT. Everything is local commits: nothing pushed or deployed since the protected Preview.
 
-## Current status (2026-11-01)
-- **Done (local commits):** Wave 0 (M1–M6), U7 My Mirror, S1 safety backstop (report §7.11), Wave 1 (U1 two starts, U2 mic, U4 panel, U5 observation, U6 vocabulary + landing copy), untouched-observation regression. Founder QA of Wave 1: OK (2026-11-01).
-- **cb293e6:** My Reflection pre-save and just-saved views use the state cloud + rows (old tally removed).
-- **84c6d8a U8 Direction v1:** goal → up to two states from the fixed table (`src/lib/direction.ts`, wording in `i18n/direction.*.ts`) → "Thử hướng này" opens What if? on my latest answered message, state preselected, no call until Explore. Not yet read by a VI native reader.
-- **Spend:** harness ledger $3.76; known project ≈ $4.3 of the $6 working cap, plus Founder's live UAT analyses on the local build (not metered here).
-- Local server for UAT: `npx next start -p 3123` reads `.env.local` (live calls). For mocked e2e, start it with `META_API_KEY=` (empty), otherwise analyses cost money.
+## Current status (2026-11-01, completion sprint)
+- **All approved pre-submission items built (local commits, not pushed):** Wave 0, Wave 1, U7, S1, U8 Direction (`84c6d8a`), U9 What if? any speaker + C1 (`6d0ee0e`), U3 story v1 (`f379c19`), Light/Dark/System (`be099a0`), firewall 429 message (`35120d6`), My Reflection picture (`cb293e6`).
+- **Evidence and Founder iPhone checklist:** `docs/RELEASE_READINESS.md`.
+  - Unit tests: 96/96.
+  - Mocked e2e: 215/215.
+  - Live evals: U9 16/16, story 10/10.
+  - Live UAT: 23/23.
+- **Recommendation:** GO for a Preview deploy (needs approval); not yet for judge/public access.
+- **Spend:** ledger $4.11 + app/Preview ≈ $0.75 (Founder UAT $0.108, live UAT $0.101, earlier ≈ $0.54 est.) ≈ **$4.86 of $6**.
+- **Local server:** `npx next start -p 3123` reads `.env.local` (live calls). For mocked e2e, run it with `META_API_KEY=` (empty). Live UAT: `APP_SPEND_CAP_USD=0.4 npx next start -p 3123` + `node scripts/e2e/live-uat.mjs`.
 
 ## Next actions (max 5)
-1. **U9** What if? for any character + C1 state names (N3 approved, ≈ $0.3 eval).
-2. **U3** Story v1: narration → `context` (§7.1); story eval ≈ $0.2 before build.
-3. Integration buffer Nov 3 12:00–18:00: full mocked e2e, fixes, then Founder UAT (Preview deploy needs approval).
-4. **Founder:** copy the official rules (Q15) into `docs/IMPLEMENTATION_PLAN.md`; judge-access plan is §7.12 (nothing opened yet).
-5. Submission: README, demo video, real-iPhone Safari check (mic, sheet), VI native-reader pass.
+1. **Founder:** approve the Preview deploy (`vercel deploy --target=preview`), then run the iPhone checklist in `docs/RELEASE_READINESS.md` §5 (mic needs HTTPS).
+2. **Founder:** Q15 rules → judge-access method (UAT plan §7.12); decide the in-app rate limit for judging (R2: 8 per 10 min per IP).
+3. VI native-reader pass: Direction table, story copy, What if? copy for other speakers.
+4. Fix UAT findings only (feature freeze Nov 3, 18:00 ICT).
+5. Submission: README, demo video, submit by Nov 4, 22:00 ICT.
 
 ## Blockers
 - Meta publishes no retention period; copy says "may keep it for a period it decides".
@@ -31,6 +35,15 @@ Session state and next actions. Stable rules live in `CLAUDE.md`. Overwrite this
 - Brand mascot for the donut is the app icon placeholder (D2). Enhancements E1–E10 after submission.
 
 ## Last validation result
+2026-11-01 completion sprint (`c35358c`):
+- `npm test` 96/96; lint, typecheck and `next build` clean.
+- `sh scripts/e2e/run-all.sh`: 20 runs, 215/215 PASS at 360/390/1280 px, EN/VI, light/dark, all /api/* mocked.
+- Live, synthetic only:
+  - U9 eval: 16 calls, $0.2296, 16/16.
+  - Story eval: 10 calls, $0.1248, 10/10 valid, 0 leaks in readings.
+  - Live UAT: 7 calls, $0.1007, 23/23.
+- Not verified: real iPhone Safari, real microphone, screen reader, VI native-reader pass.
+
 2026-11-01 Direction + My Reflection picture: `npm test` 85/85, lint, typecheck, `next build` clean. Mocked e2e suite (`sh scripts/e2e/run-all.sh`, all /api/* intercepted): 175 checks pass, 0 fail, at 390 and 1280 px, incl. U8 (self first, 2 suggestions, choose another, preselected What if?, no /api/scenario call, focus return). $0 spent. Not verified: real iPhone Safari, VI native-reader pass of the direction wording.
 
 2026-11-01 Wave 1: `npm test` 82/82, lint, typecheck, `next build` clean. Mocked e2e suite (`sh scripts/e2e/run-all.sh`, all /api/* intercepted): 143 checks pass at 390 and 1280 px, EN and VI (Back, merge, sample, My Mirror, untouched-observation regression, panel/observation, input + mic with a stubbed recognizer incl. denied/unsupported). $0 app spend; S1 eval $0.091 (harness ledger $3.76; known project ≈ $4.3 of $6). Not verified: real iPhone Safari (mic, sheet), real microphone, VI native-reader pass.

@@ -296,3 +296,6 @@ Waits for Q15 (official rules: is a public URL required? Is a login acceptable? 
 2. Choose the access method the rules allow, least open first: a Vercel Shareable Link for that Preview (protection stays on for everything else) → access code via `ACCESS_CODE` → protection off for Preview only. Rate limit (10 req/min/IP) and the emergency deny rule stay as they are.
 3. Check in a private window, no Vercel login: landing EN/VI → sample conversation (0 API calls) → one live analyze on a synthetic chat (≈ $0.02, approved separately) → My Reflection save/reload.
 4. Record the URL and steps for judges in README; revert the access change after judging if the rules allow.
+
+### 7.13 Completion sprint (2026-11-01)
+Founder: completeness over cost, within $6; add Light/Dark/System. Built U8, U9 + C1, U3 v1 and dark mode; replaced the old My Reflection tally; fixed the firewall-429 message. Evidence, risks, spend (≈ $4.86 of $6) and the iPhone UAT checklist: `docs/RELEASE_READINESS.md`. Recommendation: GO for a Preview deploy after approval; judge access still waits for Q15.

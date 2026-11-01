@@ -57,6 +57,9 @@ node scripts/phase0/p0/run.mjs --spec=v3 --variants=selfA,selfB [--only=vi1] --d
 node scripts/phase0/p0/run.mjs --report                     # rebuild scripts/phase0/results/p0/REPORT.md, no calls
 npm run build && META_API_KEY= npx next start -p 3123 &   # local prod build for e2e
 sh scripts/e2e/run-all.sh                                   # mocked e2e, all /api/* intercepted, $0
+node scripts/phase0/u9/run.mjs --dry                       # What if? s2.0 eval (live without --dry)
+node scripts/phase0/story/run.mjs --dry                    # story eval (live without --dry)
+APP_SPEND_CAP_USD=0.4 npx next start -p 3123 && node scripts/e2e/live-uat.mjs   # live UAT journeys (paid, synthetic)
 ```
 Live commands spend from the approved budget: run them only with the Founder's go-ahead in that session. App commands (dev, build, lint, typecheck, test) are added in Phase 1.
 
@@ -91,4 +94,5 @@ Live commands spend from the approved budget: run them only with the Founder's g
 | `docs/RELATIONSHIP_AND_STORY.md` | Relationship context and story analysis (proposed) |
 | `docs/INPUT_EXPERIENCE_AUDIT.md` | Text/voice/screenshot input, story vs conversation (proposed) |
 | `docs/FOUNDER_UAT_AUDIT.md` | Founder UAT brief 2026-11-01: audit, UX flow, P0/P1/P2, decisions (proposed) |
+| `docs/RELEASE_READINESS.md` | Completion sprint: feature matrix, test evidence, risks, spend, iPhone UAT checklist, Preview GO/NO-GO |
 | `docs/UAT_EXECUTION_PLAN.md` | Round 3: gap analysis, full roadmap, execution order to submission (proposed; supersedes the audit where they differ) |
