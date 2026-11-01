@@ -88,3 +88,31 @@ Local: `npm run build && npx next start -p 3123`, then on the same Wi‑Fi open 
 13. Switch to Tối: no white frame around the logo (header and bottom of the landing page).
 
 Report failures with the step number and a screenshot.
+
+---
+
+# Batch 2 — 2026-11-01 (iPhone, dark mode)
+
+Commit `408419e`, local only. API spend **$0** (all mocked). **Not verified on a real iPhone**: #04 is fixed and proven on an emulated non-secure origin, and stays "awaiting Founder confirmation" until it passes on the device.
+
+| # | Issue | Status | Root cause / change | Evidence |
+|---|---|---|---|---|
+| 04 (P0) | Save does nothing on iPhone | FIXED, awaiting iPhone confirmation | `makeCollection` called `crypto.randomUUID()`, which browsers expose **only in secure contexts** (HTTPS or localhost). The iPhone opened the local build at `http://192.168.1.2:3123`: not secure, so the call threw `TypeError`, nothing was written and nothing was shown. Desktop used `localhost`, which counts as secure. Fix: id falls back to `crypto.getRandomValues` (available everywhere); a failed save now shows an error and keeps the screen as it was. HTTPS Preview would not have shown the bug. | Repro before the fix in Chrome on the LAN origin: `isSecureContext false`, 0 saved, `TypeError`. After: saved. Unit test without `randomUUID`. e2e `f2` on the LAN origin: confirmation, card listed, reload, reopen with title + note + picture |
+| 01 | Landing logo differs from header | DONE | The batch-1 light/dark logo copies were new artwork variants; removed. The landing uses the header's own mark (`app-mark.png` + "Inner**Mirror**" text), larger. | e2e `f1`: same file as header, transparent corner, both themes |
+| 02 | Privacy before upload | DONE | Order: switch → upload area → thumbnails → privacy notice (full text) → consent → Tiếp tục. | e2e `f2`: order + upload area in view |
+| 03 | No scroll to added screenshots | DONE | After each pick: thumbnails at the top, or Continue at the bottom with the newest thumbnails above it if both don't fit; a failed pick scrolls to its error; "Đã thêm n/3 ảnh."; earlier images kept; nothing sent. Thumbnails two per row on phones (was one 310 px row each). | e2e `f2`: 1 → broken file → 2 more → 3; newest thumbnail and Continue in view at 360/390 |
+| 05 | Long intro on "Gương thấy gì?" | DONE | Title kept; "Một góc nhìn khác, để hiểu nhau hơn." with a +/− button; collapsed by default; full text when open. | e2e `f2`: observation starts at 353/844 px on 390 |
+| A | Desktop wording on phones | DONE | `(pointer: coarse)` → "Thêm ảnh chụp tin nhắn / Chọn ảnh chụp màn hình từ thư viện ảnh". Upload itself unchanged. | e2e `f2` with touch emulation |
+| B | Title quality | Unchanged by decision | No prompt change or call; title stays editable. | — |
+
+**Tests:** `npm test` 102/102; lint, typecheck, build clean; `run-all.sh` 28 runs, 445 PASS / 0 FAIL (one run re-done after a Chrome launch flake). `f2` asserts exactly one extract and one analyze call per journey.
+
+**Remaining risks:** real iPhone not tested (Safari scroll behaviour, photo picker, storage in Private Browsing); thumbnails scroll target computed from the header height; any other secure-context-only API would fail the same way on the LAN link (none found in client code: `randomUUID` was the only one; the mic needs HTTPS anyway).
+
+**Founder re-test (iPhone, `http://192.168.1.2:3123` or Preview):**
+1. Soi → **Có sẵn cuộc trò chuyện**: upload area right under the switch, privacy note below it, wording about the photo library.
+2. Choose 1 screenshot → the page shows it, "Đã thêm 1/3 ảnh.", and Tiếp tục. Add 2 more → the newest and Tiếp tục in view. Tick consent → Tiếp tục → Review.
+3. "Gương thấy gì?": one short line with ⊕; tap → full text, ⊖ closes it; "Quan sát của Gương" visible on the first screen.
+4. Pick yourself → Tiếp tục nhìn lại mình → change title and note → **Lưu vào thiết bị này** → green confirmation, the card appears in the list.
+5. Reload → Nhìn lại mình → the card is there → tap it → title, note and mascots.
+6. Landing (scroll to bottom), light and dark: the logo is the same as the header's.
