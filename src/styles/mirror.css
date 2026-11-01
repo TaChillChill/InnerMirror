@@ -20,9 +20,6 @@ button.app-sticker:hover { border-color: var(--im-primary); }
 .app-sticker[data-ex="unsure"] strong, .app-sticker[data-ex="UNCLEAR"] strong { color: var(--im-text); }
 @media (max-width: 559.98px) { .app-stickers { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--im-space-2); } .app-sticker .app-mascot, .app-sticker__q { max-width: 64px; width: 64px; } }
 @keyframes app-settle { from { opacity: 0; transform: translateY(6px) scale(0.96); } }
-.app-tally { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: var(--im-space-2); }
-.app-tally li { display: inline-flex; gap: 6px; align-items: center; padding: 4px 12px 4px 4px; background: var(--im-surface); border-radius: var(--im-radius-pill); font: var(--im-text-caption); }
-.app-tally strong { font-weight: 800; }
 
 .app-current { display: grid; gap: var(--im-space-4); padding: var(--im-space-5); background: var(--im-surface-tint); border-radius: var(--im-radius-xl); }
 .app-current .im-notice { background: var(--im-surface); }

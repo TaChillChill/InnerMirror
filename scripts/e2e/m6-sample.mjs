@@ -21,7 +21,7 @@ try {
   await step(`document.querySelectorAll(".app-sel__opt")[2].click(); $wait(200)`);
   await step(`document.querySelector(".app-sheet .app-icon-btn, .app-sheet-bar .app-icon-btn")?.click(); $wait(200)`);
   await step(`document.querySelector(".app-continue .im-btn--primary").click(); $wait(400)`);
-  check("Mirror: stickers, no Save", await step(`document.querySelectorAll(".app-sticker").length > 0 && ![...document.querySelectorAll("button")].some((x) => x.textContent.trim() === ${JSON.stringify(lang === "vi" ? "Lưu" : "Save")})`));
+  check("Mirror: state cloud + rows, no Save", await step(`document.querySelectorAll(".app-current .app-cloud__puff").length > 0 && document.querySelectorAll(".app-current .app-staterow").length > 0 && ![...document.querySelectorAll("button")].some((x) => x.textContent.trim() === ${JSON.stringify(lang === "vi" ? "Lưu" : "Save")})`));
   // Edit transcript, unchanged → analyze reuses the saved result (no call).
   await step(`document.querySelector(".app-mirror-nav .im-btn--ghost")?.click(); $wait(300)`);
   await step(`document.querySelector(".app-replay__edit").click(); $wait(300)`);

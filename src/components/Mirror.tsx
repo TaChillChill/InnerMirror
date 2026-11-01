@@ -1,20 +1,20 @@
 "use client";
-// My Mirror: one sticker per segment of mine (Mirror's observation until I review it), an
-// optional note to my future self, Save, and the collections saved in this browser.
-// After Save the just-saved stickers stay in view with the ways forward: another
-// conversation (primary), back to this one (still in memory), or home.
+// My Reflection: this conversation's state cloud and counts (the same picture a saved card
+// gets), each turn of mine one tap away, an optional note to my future self, Save, and the
+// collections saved in this browser. After Save the just-saved picture stays in view with
+// the ways forward: another conversation (primary), back to this one, or home.
 import { useEffect, useRef, useState } from "react";
 import { addCollection, clearCollections, makeCollection, removeCollection, restoreCollection, type Collection, type MineEntry } from "@/lib/mirror-store";
 import type { ExKey } from "@/lib/i18n";
 import type { Update } from "./App";
 import { anchorOf } from "@/lib/ai/analysis";
 import { readingFor, type Session } from "./session";
-import { Stickers, Tally } from "./Stickers";
+import { Stickers } from "./Stickers";
 import { SavedRail, titleOf } from "./SavedRail";
 import { PersonalMirror, StateRows } from "./PersonalMirror";
 import { StateCloud } from "./StateCloud";
 import { WhoPicker } from "./Observation";
-import { countsOf } from "@/lib/mirror-stats";
+import { countsOf, type Counts } from "@/lib/mirror-stats";
 import { Icon, useT } from "./ui";
 
 type Props = { s: Session; update: Update; saved: Collection[]; storageOk: boolean; onSavedChange: () => void; onNew: () => void; onBack: () => void; onHome: () => void; onOpenMessage: (id: string) => void };
@@ -39,6 +39,7 @@ export function Mirror({ s, update, saved, storageOk, onSavedChange, onNew, onBa
   const canGoBack = !!s.analysis && !!s.transcript && !s.analysis.safety.flagged;
   const justSaved = s.savedId ? saved.find((c) => c.id === s.savedId) : undefined;
   const mine = currentMine(s);
+  const mineCounts = countsOf([{ mine }]);
   const viewingCounts = viewing ? countsOf([viewing]) : null;
   const notice = useRef<HTMLDivElement>(null);
   const opener = useRef<HTMLButtonElement | null>(null);
@@ -75,8 +76,11 @@ export function Mirror({ s, update, saved, storageOk, onSavedChange, onNew, onBa
       {showCurrent && s.selfId && (
         <section className="app-current" aria-labelledby="cur">
           <h2 id="cur" className="app-h2">{M.fromThis}</h2>
-          <Stickers mine={mine} onOpen={onOpenMessage} />
-          <Tally mine={mine} tapHint />
+          <Picture counts={mineCounts} />
+          <details className="app-more"><summary>{M.perTurn(mine.length)}</summary>
+            <Stickers mine={mine} onOpen={onOpenMessage} />
+            <p className="im-hint">{M.tapHint}</p>
+          </details>
           <div className="im-field">
             <label className="im-label" htmlFor="title">{M.titleLabel}</label>
             <input id="title" className="im-input" maxLength={120} value={s.title} placeholder={M.titlePlaceholder} onChange={(e) => update({ title: e.target.value })} />
@@ -100,7 +104,7 @@ export function Mirror({ s, update, saved, storageOk, onSavedChange, onNew, onBa
       {justSaved && (
         <section className="app-current" aria-labelledby="just">
           <h2 id="just" className="app-h2">{M.justSaved}: {titleOf(justSaved, saved, M.numbered)}</h2>
-          <Stickers mine={justSaved.mine} />
+          <Picture counts={countsOf([justSaved])} />
           {canGoBack && <p className="im-hint">{M.afterSaveHint}</p>}
         </section>
       )}
@@ -138,15 +142,27 @@ export function Mirror({ s, update, saved, storageOk, onSavedChange, onNew, onBa
             <h2 id="coll-title" className="app-h2">{titleOf(viewing, saved, M.numbered)}</h2>
             <p className="im-hint">{new Date(viewing.createdAt).toLocaleDateString(lang === "vi" ? "vi-VN" : "en-GB", { day: "numeric", month: "short", year: "numeric" })}</p>
             {viewing.note && <div className="app-note-saved"><span className="im-label">{M.noteLabel.replace(/ \(.*\)$/, "")}</span><p>{viewing.note}</p></div>}
-            <StateCloud counts={viewingCounts!} large />
-            <StateRows counts={viewingCounts!} />
-            {M.outside(viewingCounts!.unclear, viewingCounts!.unsure) && <p className="app-pm__aside">{M.outside(viewingCounts!.unclear, viewingCounts!.unsure)}.</p>}
-            <p className="im-hint">{M.cloudNote}</p>
+            <Picture counts={viewingCounts!} />
             <p className="im-hint">{M.notEditable}</p>
             <button className="im-btn im-btn--ghost" onClick={() => remove(viewing)}><Icon name="trash" /> {M.deleteOne}</button>
           </section>
         </>
       )}
     </div>
+  );
+}
+
+/** One conversation's picture: the state cloud, a row per state that appeared, what stayed outside. */
+function Picture({ counts }: { counts: Counts }) {
+  const { t } = useT();
+  const M = t.mirror;
+  const outside = M.outside(counts.unclear, counts.unsure);
+  return (
+    <>
+      <StateCloud counts={counts} large />
+      <StateRows counts={counts} />
+      {outside && <p className="app-pm__aside">{outside}.</p>}
+      <p className="im-hint">{M.cloudNote}</p>
+    </>
   );
 }

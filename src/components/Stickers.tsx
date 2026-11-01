@@ -2,8 +2,8 @@
 // Stickers: one per message of mine. The artwork is never dimmed or recoloured (UX-11);
 // "not reviewed" lives in the tile: recessed, dashed, labelled "AI suggested".
 import { useState } from "react";
-import { EX_ORDER, type ExKey } from "@/lib/i18n";
-import { shownOf, tallyOf, type MineEntry, type Shown } from "@/lib/mirror-store";
+import type { ExKey } from "@/lib/i18n";
+import { shownOf, type MineEntry, type Shown } from "@/lib/mirror-store";
 import { Badge, Icon, Mascot, exName, useT } from "./ui";
 
 type StickerState = "suggested" | "agreed" | "changed" | "unsure";
@@ -45,23 +45,6 @@ export function Stickers({ mine, onOpen }: { mine: (MineEntry & { id?: string })
         })}
       </ul>
       {mine.length > VISIBLE && !all && <button className="im-btn im-btn--ghost im-btn--sm" onClick={() => setAll(true)}>{M.showAll(mine.length)}</button>}
-    </>
-  );
-}
-
-// Per-character count. Plain numbers, no goals or completion: not a game.
-export function Tally({ mine, tapHint }: { mine: MineEntry[]; tapHint?: boolean }) {
-  const { t } = useT();
-  const count = tallyOf(mine);
-  const open = mine.filter((m) => !m.chosen).length;
-  return (
-    <>
-      <ul className="app-tally">
-        {[...EX_ORDER, "unsure" as const, "unclear" as const].filter((k) => count[k]).map((k) => (
-          <li key={k}><Badge ex={badgeKey(k)} state={k === "unsure" || k === "unclear" ? "unsure" : "plain"} size={24} />{k === "unclear" ? t.mirror.mirrorUnclear : exName(t, k)} <strong>{count[k]}</strong></li>
-        ))}
-      </ul>
-      <p className="im-hint">{t.mirror.count(mine.length, open)}{tapHint ? ` ${t.mirror.tapHint}` : ""}</p>
     </>
   );
 }
