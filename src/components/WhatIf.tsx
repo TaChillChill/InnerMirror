@@ -1,5 +1,5 @@
 "use client";
-// "What if?" for one of my messages, in time order: what Mirror observed in their earlier
+// "What if?" for one message (mine or anyone's, U9), in time order: what Mirror observed in their earlier
 // messages (evidence, computed here, no call), what happened (solid), and what else could
 // happen (dashed). Only "context" possibilities go in the dashed row: a "pattern" one just
 // restates the earlier messages, which the observed strip already shows per message.
@@ -41,6 +41,8 @@ export function WhatIf({ s, ctx, scenarios, preset }: Props) {
   const [picked, setPicked] = useState<ExKey | null>(preset ?? null);
   const [open, setOpen] = useState<string | null>(null);
   const receiver = nameOf(s, ctx.receiverId, t.replay.you);
+  // The explored speaker: "you" for my own messages, else their name (U9).
+  const actor = ctx.target.speakerId === s.selfId ? null : nameOf(s, ctx.target.speakerId, t.replay.you);
   const entryFor = (k: ExKey): Entry | undefined => scenarios.entries[scenarioKey(lang, ctx.target.id, asState(k))];
   const tried = EX_ORDER.filter((k) => entryFor(k)?.status === "done");
   const entry = picked ? entryFor(picked) : undefined;
@@ -61,8 +63,8 @@ export function WhatIf({ s, ctx, scenarios, preset }: Props) {
 
   return (
     <section className="app-wi" aria-labelledby={`wi-${ctx.target.id}`}>
-      <h2 id={`wi-${ctx.target.id}`} ref={heading} tabIndex={-1} className="app-wi__title">{W.title}</h2>
-      <p className="app-wi__intro">{W.intro(receiver)}</p>
+      <h2 id={`wi-${ctx.target.id}`} ref={heading} tabIndex={-1} className="app-wi__title">{W.title(actor)}</h2>
+      <p className="app-wi__intro">{W.intro(actor, receiver)}</p>
 
       <div className="app-wi__observed">
         <p className="app-wi__label">{W.observedTitle}</p>
@@ -82,7 +84,7 @@ export function WhatIf({ s, ctx, scenarios, preset }: Props) {
         <div className="app-wi__row">
           <p className="app-wi__label">{W.happened}</p>
           <div className="app-wi__pair">
-            <Who ex={toKey(effectiveState(s, ctx.target.id).state)} name={t.replay.you} />
+            <Who ex={toKey(effectiveState(s, ctx.target.id).state)} name={actor ?? t.replay.you} />
             <Arrow />
             {ctx.reply ? <Who ex={toKey(effectiveState(s, ctx.reply.id).state)} name={receiver} /> : <span className="app-wi__none">{W.noReply}</span>}
           </div>
@@ -90,7 +92,7 @@ export function WhatIf({ s, ctx, scenarios, preset }: Props) {
         <div className="app-wi__row is-whatif">
           <p className="app-wi__label">{W.whatIfRow} <span className="app-wi__caveat">{W.caveat}</span></p>
           <div className="app-wi__pair">
-            {picked ? <Who ex={picked} name={t.replay.you} dashed waiting={entry?.status === "loading"} /> : <span className="app-wi__slot" aria-hidden>?</span>}
+            {picked ? <Who ex={picked} name={actor ?? t.replay.you} dashed waiting={entry?.status === "loading"} /> : <span className="app-wi__slot" aria-hidden>?</span>}
             <Arrow dashed />
             {!picked && <span className="app-wi__none">{W.pickFirst}</span>}
             {picked && !entry && <span className="app-wi__slot" aria-hidden>?</span>}
@@ -102,12 +104,12 @@ export function WhatIf({ s, ctx, scenarios, preset }: Props) {
             )}
             {picked && entry?.status === "done" && <Results result={entry.result} receiver={receiver} open={open} onOpen={setOpen} />}
           </div>
-          {picked && entry?.status === "done" && <Details s={s} entry={entry} picked={picked} receiver={receiver} open={open} />}
+          {picked && entry?.status === "done" && <Details s={s} entry={entry} picked={picked} actor={actor} receiver={receiver} open={open} />}
         </div>
       </div>
 
       <div className="app-wi__picker">
-        <p className="app-wi__prompt" id={`wi-pick-${ctx.target.id}`}>{W.prompt}</p>
+        <p className="app-wi__prompt" id={`wi-pick-${ctx.target.id}`}>{W.prompt(actor)}</p>
         <div className="app-wi__opts" role="group" aria-labelledby={`wi-pick-${ctx.target.id}`}>
           {EX_ORDER.map((k) => (
             <button key={k} className="app-wi__opt im-ex" data-ex={k} aria-pressed={picked === k} onClick={() => pick(k)}>
@@ -170,13 +172,13 @@ function Results({ result, receiver, open, onOpen }: { result: ScenarioResult; r
   );
 }
 
-function Details({ s, entry, picked, receiver, open }: { s: Session; entry: Done; picked: ExKey; receiver: string; open: string | null }) {
+function Details({ s, entry, picked, actor, receiver, open }: { s: Session; entry: Done; picked: ExKey; actor: string | null; receiver: string; open: string | null }) {
   const { t } = useT();
   const W = t.whatIf;
   const { result } = entry;
   const others = otherWays(result);
   if (result.flagged || !others.length) return <p className="im-hint">{t.whatIf.manyReasons}</p>;
-  const [pre, post] = W.resultTitle(receiver);
+  const [pre, post] = W.resultTitle(actor, receiver);
   const p = others.find((x) => x.state === open);
   const words = (text: string) => withNames(text, s, entry.labels);
   return (

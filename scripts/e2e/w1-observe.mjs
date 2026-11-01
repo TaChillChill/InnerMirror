@@ -1,5 +1,6 @@
 // Wave 1 (U4 + U5): overview arc, method collapsible, ego-state sheet, instant choose / tap-again
-// clear with only ✕ to close, and "Who are you?" at the end of Replay enabling What if?.
+// clear with only ✕ to close, "Who are you?" at the end of Replay, and What if? on any
+// speaker's message (U9).
 // /api/analyze is mocked with a real saved v3.2 result; nothing is paid for.
 import { launch, HELPERS } from "./cdp.mjs";
 
@@ -26,7 +27,12 @@ try {
   await step(`$click("button", "Look at this conversation"); $wait(1200)`);
   const arc = await step(`document.querySelector(".app-obs__arc")?.textContent ?? ""`);
   check("overview shows a short arc", /^From .+ → .+/.test(arc), arc.slice(0, 120));
-  check("no What if? before a self is chosen", await step(`document.querySelectorAll(".app-wi-pill").length === 0`));
+  // U9: What if? works on anyone's message, before or without a self.
+  const pills = await step(`document.querySelectorAll(".app-wi-pill").length`);
+  check("What if? on every answered message, no self needed (U9)", pills >= 4, String(pills));
+  await step(`document.querySelectorAll(".app-wi-pill")[0].click(); $wait(300)`);
+  check("What if? on Sam's message names Sam, not 'you'", await step(`(() => { const h = document.querySelector(".app-wi__title")?.textContent ?? ""; return h === "What if Sam had said it differently?"; })()`), await step(`document.querySelector(".app-wi__title")?.textContent`));
+  await step(`document.querySelector(".app-sheet-bar .app-icon-btn").click(); $wait(200)`);
   await step(`$click(".app-obs summary", "How does Mirror observe?"); $wait(150)`);
   await step(`$click(".app-obs .app-textlink", "Collapse"); $wait(150)`);
   check("method opens and its Collapse closes it, focus on its summary", await step(`![...document.querySelectorAll(".app-obs details")].some((d) => d.open && d.textContent.includes("How does Mirror")) && document.activeElement?.tagName === "SUMMARY"`));
@@ -46,7 +52,8 @@ try {
   await step(`document.querySelector(".app-sheet-bar .app-icon-btn").click(); $wait(200)`);
   check("✕ keeps the choice and returns focus to the message", await step(`document.querySelectorAll(".app-meta-btn")[1].textContent.includes("Adapted Child") && document.activeElement?.classList.contains("app-meta-btn")`));
   await step(`$click(".app-whopick .app-chip-btn", "Alex"); $wait(300)`);
-  check("choosing a self turns on What if? for that person's messages", await step(`document.querySelectorAll(".app-wi-pill").length > 0`));
+  check("after choosing a self, What if? on my message says 'you'", await step(`(() => { document.querySelectorAll(".app-msg--me, .im-msg--me")[0]?.querySelector(".app-wi-pill")?.click(); return true; })()`) && await step(`$wait(300); /you'd answered/.test(document.querySelector(".app-wi__title")?.textContent ?? "")`));
+  await step(`document.querySelector(".app-sheet-bar .app-icon-btn")?.click(); $wait(200)`);
   check("nothing wider than the screen", await step(`[".app-page", ".app-obs", ".app-whopick"].every((q) => document.querySelector(q).getBoundingClientRect().right <= innerWidth + 0.5)`));
 } catch (e) {
   results.push(`ERROR ${e.message}`);

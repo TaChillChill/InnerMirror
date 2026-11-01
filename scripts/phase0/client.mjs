@@ -22,9 +22,10 @@ const PRICES = {
 // eval-p0 = the $3 approved on 2026-10-31 for the P0 classification reliability eval;
 // eval-rel = up to $0.75 approved on 2026-10-31 for the relationship eval (and later checks).
 // eval-safety = up to $0.3 approved on 2026-11-01 for the S1 safety probes.
+// eval-u9 / eval-story = U9 and U3 evals inside the $6 working cap (Founder, 2026-11-01).
 // The working cap is $6 total project spend (Founder, 2026-11-01).
 // "total" only sees harness calls: app spend (dev, Preview UAT) is outside this ledger.
-export const CAPS = { total: 6.0, phase: { smoke: 1.0, "eval-v2": 1.0, "eval-p0": 3.0, "eval-rel": 0.75, "eval-safety": 0.3 } };
+export const CAPS = { total: 6.0, phase: { smoke: 1.0, "eval-v2": 1.0, "eval-p0": 3.0, "eval-rel": 0.75, "eval-safety": 0.3, "eval-u9": 0.35, "eval-story": 0.3 } };
 
 // Worst-case cost of calls in flight, so parallel calls can't jointly pass the cap.
 const pending = { total: 0, phase: {} };

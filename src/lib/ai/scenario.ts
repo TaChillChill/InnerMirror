@@ -12,7 +12,8 @@ const stateOrUnclear = z.enum([...STATES, "UNCLEAR"]);
 // bias), including the reply that really followed.
 export const scenarioRequestSchema = z.object({
   language: z.enum(["en", "vi"]),
-  selfId: id,
+  actorId: id, // whose message is explored: the user or anyone else (U9)
+  selfId: id.nullable(), // who the user is, if chosen; only used to call them "you"
   receiverId: id,
   state: z.enum(STATES),
   participantIds: z.array(id).min(2).max(LIMITS.maxParticipants),
@@ -27,9 +28,9 @@ export const scenarioRequestSchema = z.object({
 }).superRefine((req, ctx) => {
   const known = new Set(req.participantIds);
   const last = req.messages[req.messages.length - 1];
-  if (!known.has(req.selfId) || !known.has(req.receiverId)) ctx.addIssue({ code: "custom", message: "unknown participant" });
-  if (req.selfId === req.receiverId) ctx.addIssue({ code: "custom", message: "receiver is the user" });
-  if (last.speakerId !== req.selfId) ctx.addIssue({ code: "custom", message: "last message must be the user's" });
+  if (!known.has(req.actorId) || !known.has(req.receiverId) || (req.selfId && !known.has(req.selfId))) ctx.addIssue({ code: "custom", message: "unknown participant" });
+  if (req.actorId === req.receiverId) ctx.addIssue({ code: "custom", message: "receiver is the actor" });
+  if (last.speakerId !== req.actorId) ctx.addIssue({ code: "custom", message: "last message must be the actor's" });
   if (req.messages.some((m) => !known.has(m.speakerId))) ctx.addIssue({ code: "custom", message: "unknown speaker" });
   if (new Set(req.messages.map((m) => m.id)).size !== req.messages.length) ctx.addIssue({ code: "custom", message: "duplicate message id" });
   if (req.messages.reduce((n, m) => n + m.text.length, 0) > LIMITS.maxTotalChars) ctx.addIssue({ code: "custom", message: "conversation too long" });
@@ -40,16 +41,24 @@ type Msg = { id: string; speakerId: string };
 export type ScenarioContext<M extends Msg> = { target: M; history: M[]; reply: M | null; receiverId: string };
 
 /**
- * The receiver is whoever answered next; with no answer yet, the last other person who
- * spoke. Returns null when the message isn't the user's or nobody else has spoken.
+ * The receiver is whoever answered the actor next; with no answer yet, the last other person
+ * who spoke. Returns null when the message isn't the actor's or nobody else has spoken.
  */
-export function scenarioContext<M extends Msg>(messages: M[], selfId: string | null, targetId: string): ScenarioContext<M> | null {
+export function scenarioContext<M extends Msg>(messages: M[], actorId: string | null, targetId: string): ScenarioContext<M> | null {
   const at = messages.findIndex((m) => m.id === targetId);
-  if (at < 0 || !selfId || messages[at].speakerId !== selfId) return null;
+  if (at < 0 || !actorId || messages[at].speakerId !== actorId) return null;
   const history = messages.slice(0, at);
-  const reply = messages.slice(at + 1).find((m) => m.speakerId !== selfId) ?? null;
-  const receiverId = reply?.speakerId ?? [...history].reverse().find((m) => m.speakerId !== selfId)?.speakerId;
+  const reply = messages.slice(at + 1).find((m) => m.speakerId !== actorId) ?? null;
+  const receiverId = reply?.speakerId ?? [...history].reverse().find((m) => m.speakerId !== actorId)?.speakerId;
   return receiverId ? { target: messages[at], history, reply, receiverId } : null;
+}
+
+/** Neutral labels for the model: the user (if chosen) is "You", everyone else "Person A/B…". */
+export function scenarioParticipants(input: { participantIds: string[]; selfId: string | null; actorId: string; receiverId: string; messages: readonly { speakerId: string }[] }, selfLabel: string, pseudonym: (i: number) => string) {
+  let n = 0;
+  const used = new Set([input.actorId, input.receiverId, ...input.messages.map((m) => m.speakerId)]);
+  return input.participantIds.filter((pid) => used.has(pid))
+    .map((pid) => ({ id: pid, label: pid === input.selfId ? selfLabel : pseudonym(n++) }));
 }
 
 /** How a message is labelled right now: my choice wins; no choice or "not sure" falls back to the AI's reading. */

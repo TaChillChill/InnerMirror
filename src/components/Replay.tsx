@@ -86,7 +86,8 @@ export function Replay({ s, update, onContinue, onEdit, onRestart }: { s: Sessio
     const ai = b.state === "suggested" && r ? aiChip(t, r) : {};
     const name = ai.text ?? `${ai.prefix ? `${ai.prefix} ` : ""}${b.ex === "unsure" ? t.unsure : t.ex[b.ex].name}`;
     const label = b.state === "suggested" ? R.aiSuggestion : b.state === "unsure" ? R.youUnsure : b.state === "agreed" ? R.youAgreed : R.youChose;
-    const canWhatIf = mine && !whatIfOff(s) && !!scenarioContext(T.messages, s.selfId, id);
+    // Any speaker's message can be explored (U9); it needs someone else in the chat to answer.
+    const canWhatIf = !whatIfOff(s) && !!scenarioContext(T.messages, T.messages.find((x) => x.id === id)?.speakerId ?? null, id);
     const open = s.selected === id;
     return (
       <div className="im-msg__meta">
@@ -97,7 +98,7 @@ export function Replay({ s, update, onContinue, onEdit, onRestart }: { s: Sessio
           <span className="app-meta-chev"><Icon name="chev" /></span>
         </button>
         {canWhatIf && (
-          <button className="app-wi-pill" aria-expanded={open && tab === "whatif"} aria-label={W.buttonAria}
+          <button className="app-wi-pill" aria-expanded={open && tab === "whatif"} aria-label={W.buttonAria(mine ? null : nameOf(s, T.messages.find((x) => x.id === id)!.speakerId, R.you))}
             onClick={(e) => openPanel(e.currentTarget, id, "whatif")}><Icon name="swap" />{W.button}</button>
         )}
       </div>

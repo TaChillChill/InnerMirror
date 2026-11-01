@@ -26,7 +26,7 @@ export function MessagePanel({ s, update, id, tab, onTab, scenarios, onClose, pr
   // A character can cover several messages of one turn; the panel quotes all of them.
   const ids = segmentOf(s.analysis!, id)?.messageIds ?? [id];
   const quote = ids.map((x) => s.transcript!.messages.find((y) => y.id === x)?.text).filter(Boolean).join(" · ");
-  const ctx = whatIfOff(s) ? null : scenarioContext(s.transcript!.messages, s.selfId, id);
+  const ctx = whatIfOff(s) ? null : scenarioContext(s.transcript!.messages, m.speakerId, id);
   const active = ctx ? tab : "reading";
 
   // Arrow keys move between the two tabs (WAI-ARIA tabs pattern).

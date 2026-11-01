@@ -1,8 +1,8 @@
-// POST /api/scenario — "what if I had spoken from another character?". Returns up to two
-// plausible receiver STATES with evidence; never messages. The conversation (up to the
+// POST /api/scenario — "what if this message had come from another ego state?", for any
+// speaker's message. Returns up to two plausible receiver STATES with evidence; never messages. The conversation (up to the
 // explored message only) exists for the duration of this request: not stored, not logged.
-import { buildScenarioPayload, SCENARIO_JSON_SCHEMA, SCENARIO_SPEC_VERSION, SCENARIO_SYSTEM_PROMPT } from "@/lib/ai/scenario-spec";
-import { cleanScenario, localAnswer, receiverPrior, scenarioRequestSchema } from "@/lib/ai/scenario";
+import { buildScenarioBody, SCENARIO_SPEC_VERSION } from "@/lib/ai/scenario-spec";
+import { cleanScenario, localAnswer, receiverPrior, scenarioParticipants, scenarioRequestSchema } from "@/lib/ai/scenario";
 import { pseudonymLabel, SELF_LABEL } from "@/lib/ai/analysis-spec";
 import { callUntilValid, logRequest, MetaError, rateLimited } from "@/lib/ai/meta-client";
 
@@ -33,20 +33,9 @@ export async function POST(req: Request) {
   const local = localAnswer(prior);
   if (local) return Response.json({ scenario: local, labels: {}, meta: { spec: SCENARIO_SPEC_VERSION, local: true } });
 
-  // Names never leave the browser; the model sees "You" and neutral labels.
-  let n = 0;
-  const used = new Set([input.selfId, input.receiverId, ...input.messages.map((m) => m.speakerId)]);
-  const participants = input.participantIds.filter((pid) => used.has(pid))
-    .map((pid) => ({ id: pid, label: pid === input.selfId ? SELF_LABEL[input.language] : pseudonymLabel(n++, input.language) }));
-  const body = {
-    reasoning_effort: "medium",
-    max_completion_tokens: 6_000,
-    messages: [
-      { role: "system", content: SCENARIO_SYSTEM_PROMPT },
-      { role: "user", content: buildScenarioPayload({ ...input, participants }) },
-    ],
-    response_format: { type: "json_schema", json_schema: { name: `Scenario_${SCENARIO_SPEC_VERSION.replace(".", "_")}`, strict: true, schema: SCENARIO_JSON_SCHEMA } },
-  };
+  // Names never leave the browser; the model sees "You" (if a self is chosen) and neutral labels.
+  const participants = scenarioParticipants(input, SELF_LABEL[input.language], (i) => pseudonymLabel(i, input.language));
+  const body = buildScenarioBody({ ...input, participants });
 
   const sizes = { messages: input.messages.length };
   try {

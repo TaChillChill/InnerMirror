@@ -28,11 +28,22 @@ test("What if? copy has the same keys in EN and VI and no evaluative wording", (
   };
   for (const [lang, d] of Object.entries(dicts) as ["en" | "vi", typeof en][]) {
     for (const v of Object.values(d.whatIf)) {
-      const out = typeof v === "function" ? v("X") : v;
-      const text = Array.isArray(out) ? out.join(" ") : out;
-      assert.doesNotMatch(text, bad[lang], `${lang}: ${text}`);
+      // Speaker-aware strings take (actor | null, receiver); check both forms.
+      const outs = typeof v === "function" ? [(v as (...a: unknown[]) => unknown)("X", "Y"), (v as (...a: unknown[]) => unknown)(null, "Y")] : [v];
+      for (const out of outs) {
+        const text = Array.isArray(out) ? out.join(" ") : String(out);
+        assert.doesNotMatch(text, bad[lang], `${lang}: ${text}`);
+      }
     }
   }
+});
+
+test("What if? on someone else's message names them and never calls them 'you' (U9)", () => {
+  assert.equal(en.whatIf.title("Linh"), "What if Linh had said it differently?");
+  assert.equal(vi.whatIf.title("Linh"), "Nếu lúc đó Linh nói khác đi?");
+  assert.doesNotMatch(en.whatIf.intro("Linh", "Sam"), /\byou\b/i);
+  assert.doesNotMatch(vi.whatIf.resultTitle("Linh", "Sam").join(" "), /\bbạn\b/);
+  assert.match(vi.whatIf.title(null), /bạn/);
 });
 
 test("the caveat sits on the What if row in both languages", () => {

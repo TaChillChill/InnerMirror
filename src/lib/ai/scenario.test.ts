@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { cleanScenario, localAnswer, receiverPrior, resolveState, scenarioContext, scenarioRequestSchema } from "./scenario.ts";
+import { cleanScenario, localAnswer, receiverPrior, resolveState, scenarioContext, scenarioParticipants, scenarioRequestSchema } from "./scenario.ts";
 
 // p1 = the user, p2 = the receiver
 const msgs = [
@@ -9,7 +9,7 @@ const msgs = [
   { id: "m3", speakerId: "p2", text: "What is the amount? I can check the account.", state: "A", stateSource: "ai", confidence: "medium" },
   { id: "m4", speakerId: "p1", text: "I'm tired of being told off.", state: "FC", stateSource: "user", confidence: null },
 ] as const;
-const base = { language: "en", selfId: "p1", receiverId: "p2", state: "A", participantIds: ["p1", "p2"], messages: msgs, consent: true };
+const base = { language: "en", actorId: "p1", selfId: "p1", receiverId: "p2", state: "A", participantIds: ["p1", "p2"], messages: msgs, consent: true };
 const req = { messages: [...msgs], receiverId: "p2" };
 
 const possibility = (extra = {}) => ({
@@ -17,7 +17,7 @@ const possibility = (extra = {}) => ({
 });
 const model = (extra = {}) => ({ flagged: false, evidence: "enough", possibilities: [possibility(), possibility({ state: "A", evidenceMessageIds: ["m3"], cues: ["What is the amount"] })], note: "n", reflectionQuestion: "What do you notice?", ...extra });
 
-test("receiver is whoever answered next, else the last other speaker; never for others' messages", () => {
+test("receiver is whoever answered the actor next, else the last other speaker; only on the actor's own messages", () => {
   const list = [{ id: "a", speakerId: "p2" }, { id: "b", speakerId: "p1" }, { id: "c", speakerId: "p3" }, { id: "d", speakerId: "p1" }];
   assert.equal(scenarioContext(list, "p1", "b")?.receiverId, "p3");
   assert.equal(scenarioContext(list, "p1", "b")?.reply?.id, "c");
@@ -42,13 +42,26 @@ test("my label wins; 'not sure' or no choice falls back to the AI's reading", ()
   assert.equal(resolveState(undefined, undefined).state, "UNCLEAR");
 });
 
-test("request schema: needs consent, the user's message last, a receiver who isn't the user", () => {
+test("request schema: needs consent, the actor's message last, a receiver who isn't the actor; self is optional (U9)", () => {
   assert.ok(scenarioRequestSchema.safeParse(base).success);
   assert.ok(!scenarioRequestSchema.safeParse({ ...base, consent: false }).success);
   assert.ok(!scenarioRequestSchema.safeParse({ ...base, messages: msgs.slice(0, 3) }).success);
   assert.ok(!scenarioRequestSchema.safeParse({ ...base, receiverId: "p1" }).success);
   assert.ok(!scenarioRequestSchema.safeParse({ ...base, state: "UNCLEAR" }).success);
   assert.ok(!scenarioRequestSchema.safeParse({ ...base, receiverId: "p9" }).success);
+  // Someone else's message: p2 is the actor, p1 answers; works with or without a self.
+  const theirs = { ...base, actorId: "p2", receiverId: "p1", messages: msgs.slice(0, 3) };
+  assert.ok(scenarioRequestSchema.safeParse(theirs).success);
+  assert.ok(scenarioRequestSchema.safeParse({ ...theirs, selfId: null }).success);
+  assert.ok(!scenarioRequestSchema.safeParse({ ...theirs, actorId: "p1" }).success, "last message isn't p1's");
+  assert.ok(!scenarioRequestSchema.safeParse({ ...theirs, selfId: "p9" }).success);
+});
+
+test("participants: only the chosen self is 'You'; the actor otherwise gets a neutral label", () => {
+  const ps = scenarioParticipants({ ...base, actorId: "p2", receiverId: "p1", messages: [...msgs.slice(0, 3)] }, "You", (i) => `Person ${"AB"[i]}`);
+  assert.deepEqual(ps, [{ id: "p1", label: "You" }, { id: "p2", label: "Person A" }]);
+  const none = scenarioParticipants({ ...base, selfId: null }, "You", (i) => `Person ${"AB"[i]}`);
+  assert.ok(none.every((p) => p.label !== "You"));
 });
 
 test("no readable earlier receiver messages: answered locally, no model call", () => {

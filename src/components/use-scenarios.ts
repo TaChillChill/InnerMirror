@@ -17,8 +17,9 @@ export const scenarioKey = (lang: Lang, messageId: string, state: State) => `${l
 /** Only the messages before and including the explored one leave the browser, never the reply that followed. */
 export function buildRequest(s: Session, ctx: ScenarioContext<Msg>, state: State, language: Lang): ScenarioRequest {
   const messages = [...ctx.history, ctx.target].map((m) => ({ id: m.id, speakerId: m.speakerId, text: m.text.trim(), ...effectiveState(s, m.id) }));
-  const participantIds = [...new Set([s.selfId as string, ctx.receiverId, ...messages.map((m) => m.speakerId)])];
-  return { language, selfId: s.selfId as string, receiverId: ctx.receiverId, state, participantIds, messages, consent: true };
+  const actorId = ctx.target.speakerId;
+  const participantIds = [...new Set([...(s.selfId ? [s.selfId] : []), actorId, ctx.receiverId, ...messages.map((m) => m.speakerId)])];
+  return { language, actorId, selfId: s.selfId, receiverId: ctx.receiverId, state, participantIds, messages, consent: true };
 }
 
 export function useScenarios() {
