@@ -3,40 +3,36 @@
 Session state and next actions. Stable rules live in `CLAUDE.md`. Overwrite this file whenever a meaningful task is completed or blocked; keep it short (no history, no "done" list — outcomes go to the relevant doc or git).
 
 ## Current phase
-**Phase 1 — Functional MVP** (Founder go-ahead 2026-10-30), in milestones: M1 API smoke → M2 paste/type analysis + Replay → M3 screenshot import → M4 My Mirror → M5 What if?. Report after each milestone. Local only: no commit, push or deploy without Founder approval.
+**Phase 1 — Functional MVP, UAT round 4 (CONDITIONAL GO, 2026-11-01).** Plan and decisions: `docs/UAT_EXECUTION_PLAN.md` §7. Feature freeze Nov 3, 18:00 ICT; internal submit Nov 4, 22:00 ICT. Everything is local commits: nothing pushed or deployed since the protected Preview.
 
-## Current status (2026-10-30)
-- **P0 classification fix implemented (2026-10-31), committed locally, not deployed.** Spec v3.2 at low effort: speaker-blind (model never told who the user is), turn grouping, context-first schema, new TA definitions, family fallback, uncertainty on chips. Before/after in `docs/CLASSIFICATION_AUDIT.md` §9: invalid outputs 2/22 → 0/22, safety probe 0/2 → 2/2, within-turn label changes 60% → 16%, 27 s → 14.5 s. **Not production-ready:** open items §9.5 (turn split instability, FC/AC coin flip on distress). Context UI not added (no measurable gain, no bias found).
-- M2 approved by Founder for continued development (not for public release). Backlog: AI sometimes infers others' intentions; analysis latency 20–33 s (don't optimize yet); transactions stay hidden; safety resources, access control and privacy (F6, D10) must be settled before any public deploy.
-- **M3 APPROVED by Founder (UAT round 2, 2026-10-31), committed locally, not pushed.** Built: up to 3 screenshots → client resize/JPEG (EXIF dropped) → `/api/extract` (`src/lib/ai/extract-spec.ts`, `extraction.ts`) → same Review screen → analyze only after the user confirms. Unreadable/cut-off messages are marked, never filled in; user's identity is not preselected. Compare-with-screenshot panel; screenshots dropped from memory on analyze/back.
-- M3 UX refinements (accepted): bigger numbered thumbnails open a lightbox (`ShotLightbox.tsx`, native dialog: zoom 100–300%, prev/next, Esc, arrows); picker, drag & drop and paste share `addFiles` (limit 3, same compression and consent; adding never starts extraction; paste inside text fields untouched). Pure rules in `src/lib/image-intake.ts`. Extraction/analysis prompts unchanged.
-- Known M3 limit: Vietnamese stacked diacritics are sometimes misread and still marked "clear" (e.g. "Bận" → "Bạn"); medium effort did not help. Mitigated by review copy only.
-- `scripts/phase0/prompt.mjs` was deleted on purpose in commit 0f1ffb4 (v1 prompt, replaced by `src/lib/ai/analysis-spec.ts`); nothing references it. No recovery needed.
-- Spend: harness $0.79 + app dev $0.05 + M3 tests ≈ $0.08 (of the $1 M3 allowance) ≈ **$0.92** of $5.
-
-- **Core stabilization (Founder decision 2026-10-31, ~24 h window):** input audit approved in direction (`docs/INPUT_EXPERIENCE_AUDIT.md`). Done, local, not committed: **narrative guard** (`looksLikeStory` + `parsePasted({ keepLines })` in `src/lib/conversation.ts`; story text shows a notice and never opens Review automatically; "continue" puts each untagged line under "Unknown"; speech-verb prefixes like "Mẹ nói:" never become names) and **keyboard-dictation hint** (Add screen). Input UX simplification skipped (kept M3 UI, regression risk). Deferred post-hackathon: story extraction, Web Speech button, server STT, `form` schema, story prompt.
-- Phase A committed locally (b5e5a67). **Sarcasm cap (Founder-approved, uncommitted):** `cleanAnalysis` lowers high → medium only when the model's `secondLayer` has a cue that is an exact quote of the segment; labels never change. Replayed on all saved v3/v3.1 outputs: 3 of 553 readings change (all genuine sarcasm), 0 labels. All 24 saved second-layer segments are real contrast cases, 0 sincere praise.
-- **Stability (offline, saved v3.2 low selfA vs selfB):** 16/105 messages differ = 7 FC↔AC (3 decisions), 5 cross-family, 4 vs UNCLEAR. Every flip is ≤ medium and 14/16 show the other label as "also possible"; 0 high-confidence flips. Most material: vi1 m13 "chẳng còn hy vọng gì" read CP/low when merged into a CP turn (§9.5 #1). Not judged a release blocker; prompt fix (≈ $0.5) deferred. Note: neither vi1 run flags safety for that hopelessness line (Founder decision whether it should).
+## Current status (2026-11-01)
+- **Done (local commits):** Wave 0 (M1–M6), U7 My Mirror, S1 safety backstop (report §7.11), Wave 1 (U1 two starts, U2 mic, U4 panel, U5 observation, U6 vocabulary + landing copy), untouched-observation regression. Founder QA of Wave 1: OK (2026-11-01).
+- **cb293e6:** My Reflection pre-save and just-saved views use the state cloud + rows (old tally removed).
+- **84c6d8a U8 Direction v1:** goal → up to two states from the fixed table (`src/lib/direction.ts`, wording in `i18n/direction.*.ts`) → "Thử hướng này" opens What if? on my latest answered message, state preselected, no call until Explore. Not yet read by a VI native reader.
+- **Spend:** harness ledger $3.76; known project ≈ $4.3 of the $6 working cap, plus Founder's live UAT analyses on the local build (not metered here).
+- Local server for UAT: `npx next start -p 3123` reads `.env.local` (live calls). For mocked e2e, start it with `META_API_KEY=` (empty), otherwise analyses cost money.
 
 ## Next actions (max 5)
-- **UAT round 4 — CONDITIONAL GO (2026-11-01).** Plan: `docs/UAT_EXECUTION_PLAN.md` §7 (decisions N1–N10, story narration → `context`, safety S1, timeline with buffer, U6 landing copy §7.7). **Wave 0 done, local commits, not pushed:** M3 Mirror unclear≠unsure (0e6093b), M4 honest loading (f5e5211), M5 privacy copy (efd73a5), M1 Back persistence (a28a4ed), M2 alias merge + undo (cbc3085), M6 sample mode (4281675). Deferred inside M2: removing "Bạn là ai?" from Review ships with U5/U8 (self is then asked in Direction and Nhìn lại mình). Mirror visual prototype for N7: https://claude.ai/artifact/Uubz2avWVAe73C2n9e7mEm (Founder review pending).
-- **S1 safety (offline, $0):** only 3 eval fixtures carry danger signals; "chẳng còn hy vọng gì" (vi1 m13) unflagged in 9/9 saved runs; vi7 probe flagged 4/4. Coverage too thin to judge. Proposed: code backstop phrase list (needs Founder review of the list) + ~8 VI/EN safety probes (≈ $0.3, needs approval) before outside access.
-- **U7 My Mirror done (d7d5802, local):** approved two-level design: conversation cards with state clouds + Personal Mirror (donut, five fixed-order rows, 7/30/all + two-thumb range). Rules in `src/lib/mirror-stats.ts` (tested). The pre-save "from this conversation" block still uses the old stickers/tally until U5/U8 rework Nhìn lại mình. Brand mascot in the donut is the app icon (placeholder, D2).
-- **Wave 1 ready for Founder UAT (2026-11-01, local commits, not pushed):** U4 panel + U5 observation (efd9ab3), U1 two starts + U2 mic (eb83fbf), U6 vocabulary + landing copy (this commit). "Bạn là ai?" now at the end of Replay (and in Nhìn lại mình if skipped); analysis no longer needs it. Not yet: U3 story v1 (needs story eval ≈ $0.2), U8 Direction, U9 What if? for any character (≈ $0.3), judge access (waits for Q15).
-- **S1 done (a893661):** code backstop + 7 live probes ($0.091 of $0.3): model 5/5 dangerous probes flagged, 0/2 false alarms; backstop 0 false positives (after excusing joking threats like "I'll kill you 😂"), 0 over 103 benign fixture messages, catches the 2 self-harm lines the model can miss. Report before release: `docs/UAT_EXECUTION_PLAN.md` §7.11.
-- **Founder UAT build ready (local):** perf quick wins Q1–Q5 done (`docs/PERFORMANCE_AUDIT.md` §6). Relationship eval: no bias, no useful sensitivity → no UI (`docs/RELATIONSHIP_AND_STORY.md` §6). Spend: eval-rel $0.23 of $0.75; harness ledger $3.67; known project total ≈ $4.15 + Founder Preview UAT.
-0. **Founder:** UAT of P0 on a local build (or approve a Preview deploy); re-run the real UAT conversation from both perspectives; review `docs/CLASSIFICATION_EVAL_SET.md` + flagged review items with a VI reader. Decide: ≈ $0.5 for the split-rule fix + 3-run stability eval (eval-p0 has $0.36 left of $3). Check Vercel env `ANALYZE_EFFORT` (overrides the new low default).
-1. **Founder:** UAT on the protected Preview (Vercel login required): https://innermirror-b0w6iup36-tachillchills-projects.vercel.app . Paid end-to-end smoke test (~$0.05) needs separate approval. Send final UI/UX comments.
-2. Before external beta: switch rate-limit rule from Log to block (`vercel firewall rules edit "API rate limit (log)" --rate-limit-action rate_limit` then `vercel firewall publish --yes`); decide how to open access (protection is "All Deployments" now; external testers need it relaxed or a Preview-target alias); resolve or accept Meta auto-charge risk (credit exhaustion undocumented).
-3. Vercel: project `innermirror` (prj_ZR9aFyXYyPN6IksqoCxhMg72Ly4A). First deploy of a new project is always Production (docs); one such deployment exists (no env vars, protected, no API key). Later deploys: `vercel deploy --target=preview`. Never `--prod` without approval. Emergency stop: `vercel firewall rules enable "EMERGENCY deny API" && vercel firewall publish --yes`.
-4. Real-iPhone Safari checks; VI native-reader pass.
-5. Deferred: "Your Turn", D12 mascot sizing, extraction eval harness, access-code UI.
+1. **U9** What if? for any character + C1 state names (N3 approved, ≈ $0.3 eval).
+2. **U3** Story v1: narration → `context` (§7.1); story eval ≈ $0.2 before build.
+3. Integration buffer Nov 3 12:00–18:00: full mocked e2e, fixes, then Founder UAT (Preview deploy needs approval).
+4. **Founder:** copy the official rules (Q15) into `docs/IMPLEMENTATION_PLAN.md`; judge-access plan is §7.12 (nothing opened yet).
+5. Submission: README, demo video, real-iPhone Safari check (mic, sheet), VI native-reader pass.
 
 ## Blockers
 - Meta publishes no retention period; copy says "may keep it for a period it decides".
 - Meta auto-charge after credits run out: unverified (needs console check).
+- Judge access waits for Q15.
+
+## Deferred / known limits
+- Turn-split instability and FC/AC coin flip on distress (`docs/CLASSIFICATION_AUDIT.md` §9.5); prompt fix ≈ $0.5, not approved.
+- VI stacked diacritics sometimes misread in screenshots (mitigated by review copy).
+- Rate-limit rule must block (not log) before an external beta; emergency deny rule documented in `docs/IMPLEMENTATION_PLAN.md`.
+- Brand mascot for the donut is the app icon placeholder (D2). Enhancements E1–E10 after submission.
 
 ## Last validation result
+2026-11-01 Direction + My Reflection picture: `npm test` 85/85, lint, typecheck, `next build` clean. Mocked e2e suite (`sh scripts/e2e/run-all.sh`, all /api/* intercepted): 175 checks pass, 0 fail, at 390 and 1280 px, incl. U8 (self first, 2 suggestions, choose another, preselected What if?, no /api/scenario call, focus return). $0 spent. Not verified: real iPhone Safari, VI native-reader pass of the direction wording.
+
 2026-11-01 Wave 1: `npm test` 82/82, lint, typecheck, `next build` clean. Mocked e2e suite (`sh scripts/e2e/run-all.sh`, all /api/* intercepted): 143 checks pass at 390 and 1280 px, EN and VI (Back, merge, sample, My Mirror, untouched-observation regression, panel/observation, input + mic with a stubbed recognizer incl. denied/unsupported). $0 app spend; S1 eval $0.091 (harness ledger $3.76; known project ≈ $4.3 of $6). Not verified: real iPhone Safari (mic, sheet), real microphone, VI native-reader pass.
 
 2026-11-01 U7 My Mirror: `npm test` 74/74, lint, typecheck, `next build` clean. Headless Chrome with 8 seeded v1 collections at 390 (VI) and 1280 (EN): 8 cards, numbered defaults, cloud badges 5/2/1; 30 days 46 turns / 8 conversations, % sum 100, unclear 2 + not-sure 1 listed apart; 7 days 14/2; slider from #3 → 38/6; detail dialog + Esc focus return; edges inside the screen; 0 API requests. Regression M1/M2/M6 e2e still pass. Found and fixed during the check: viewport media queries inside the narrow app column, and the card row widening the page grid (hidden by body overflow).
