@@ -80,6 +80,19 @@ export function parsePasted(raw: string, unknownName: string, opts: { keepLines?
   return { source: "paste", participants, messages };
 }
 
+// ---------- Going back to the Add screen ----------
+// What a transcript was read from, so Back + Continue can tell "nothing changed, keep my
+// edits" from "new input". Screenshots are compared by a cheap fingerprint, not the full data.
+export const textKey = (text: string) => `t:${text.normalize("NFC").trim()}`;
+export const imagesKey = (images: string[]) => `i:${images.map((s) => `${s.length}.${s.slice(-32)}`).join(",")}`;
+
+/** reuse: same input, go back to the edited transcript; ask: new input would replace edits; read: nothing to lose. */
+export function rereadPlan(transcript: Transcript | null, readFrom: string | null, key: string): "reuse" | "ask" | "read" {
+  if (!transcript) return "read";
+  if (readFrom === key) return "reuse";
+  return transcript.messages.length ? "ask" : "read";
+}
+
 // ---------- What leaves the browser ----------
 // Only ids, the user's id and message text. Names are replaced server-side by neutral
 // labels; the browser never sends them.

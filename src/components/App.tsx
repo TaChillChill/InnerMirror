@@ -50,13 +50,13 @@ export function App() {
     if (last?.key === key) {
       // Unchanged conversation (only "Who am I?" may differ): same reading, my choices kept.
       // A save belongs to the perspective it was made from.
-      update({ screen: "replay", analysis: last.analysis, labels: last.labels, error: null, selected: null, shots: [], extractNotes: [], savedId: last.selfId === s.selfId ? s.savedId : null });
+      update({ screen: "replay", analysis: last.analysis, labels: last.labels, error: null, selected: null, shots: [], draft: { ...s.draft, images: [] }, extractNotes: [], savedId: last.selfId === s.selfId ? s.savedId : null });
       window.scrollTo({ top: 0 });
       return;
     }
     const controller = new AbortController();
     abort.current = controller;
-    update({ screen: "analyzing", error: null, analysis: null, choices: {}, selected: null, savedId: null, shots: [], extractNotes: [] });
+    update({ screen: "analyzing", error: null, analysis: null, choices: {}, selected: null, savedId: null, shots: [], draft: { ...s.draft, images: [] }, extractNotes: [] });
     try {
       const res = await fetch("/api/analyze", {
         method: "POST",
@@ -73,7 +73,7 @@ export function App() {
       if (e instanceof DOMException && e.name === "AbortError") return update({ screen: "review" });
       update({ screen: "error", error: "network" });
     }
-  }, [s.transcript, s.selfId, s.lastResult, s.savedId, lang, update]);
+  }, [s.transcript, s.selfId, s.lastResult, s.savedId, s.draft, lang, update]);
 
   const stepIndex = { add: 0, review: 0, analyzing: 0, error: 0, replay: 1, mirror: s.analysis ? 2 : -1, landing: -1 }[s.screen];
 
@@ -101,8 +101,8 @@ export function App() {
       </StickyHeader>
       <main id="main">
         {s.screen === "landing" && <Landing savedCount={saved.length} onStart={startNew} onMirror={() => go("mirror")} onContinue={hasSession ? () => go("replay") : undefined} />}
-        {s.screen === "add" && <AddConversation update={update} />}
-        {s.screen === "review" && s.transcript && <Review s={s} update={update} onAnalyze={analyze} onBack={() => { update({ shots: [], extractNotes: [] }); go("add"); }} />}
+        {s.screen === "add" && <AddConversation s={s} update={update} />}
+        {s.screen === "review" && s.transcript && <Review s={s} update={update} onAnalyze={analyze} onBack={() => go("add")} />}
         {s.screen === "analyzing" && s.transcript && <Analyzing estimate={analyzeEstimate(s.transcript.messages)} onCancel={() => abort.current?.abort()} />}
         {s.screen === "error" && <AnalyzeError code={s.error ?? "unknown"} onRetry={analyze} onEdit={() => go("review")} />}
         {s.screen === "replay" && s.analysis && <Replay s={s} update={update} onContinue={() => go("mirror")} onEdit={() => go("review")} onRestart={() => setS(freshSession())} />}

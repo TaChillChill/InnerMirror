@@ -40,6 +40,10 @@ export const vi: Dict = {
     storyTitle: "Có vẻ đây là một câu chuyện bạn kể lại",
     storyBody: "Gương đọc lời trò chuyện, còn việc đọc chuyện kể lại thì chưa được hỗ trợ đầy đủ. Hãy viết lại vài câu chính, mỗi dòng là lời của một người (Tên: lời họ nói), và bỏ phần bạn nghĩ hay cảm nhận. Hoặc tiếp tục và tự chọn ai nói từng dòng.",
     storyContinue: "Tiếp tục, mình tự chọn ai nói",
+    replaceTitle: "Bạn đã sửa cuộc trò chuyện ở bước sau.",
+    replaceBody: "Đọc lại từ đầu sẽ thay bản đang sửa bằng nội dung mới.",
+    replaceYes: "Đọc lại từ đầu",
+    replaceKeep: "Giữ bản đang sửa",
     unknown: "Chưa rõ",
     otherPerson: "Người kia",
     me: "Mình",
@@ -125,6 +129,7 @@ export const vi: Dict = {
     remove: (n: number) => `Bỏ ảnh ${n}`,
     read: "Đọc ảnh của mình",
     reading: "Đang đọc…",
+    continueRead: "Tiếp tục với bản đã đọc",
     wait: (lo, hi) => `Đọc chữ trong ảnh thường mất khoảng ${lo}–${hi} giây. Chưa có gì được phân tích.`,
     slow: "Lâu hơn thường lệ một chút, vẫn đang đọc ảnh.",
     problems: {

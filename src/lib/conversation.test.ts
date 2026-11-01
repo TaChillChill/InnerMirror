@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { parsePasted, looksLikeStory, analyzeRequestSchema, analysisKey, toAnalyzeRequest, reviewProblem } from "./conversation.ts";
+import { parsePasted, looksLikeStory, analyzeRequestSchema, analysisKey, toAnalyzeRequest, reviewProblem, rereadPlan, textKey, imagesKey } from "./conversation.ts";
 
 test("parsePasted: names, continuation lines and timestamps", () => {
   const t = parsePasted("[21:14] Linh: Why are the dishes left for me?\nMe: Sorry.\nI'll do them now.\n30/10/2026, 21:15 - Linh: ok", "Unknown");
@@ -93,3 +93,13 @@ test("analysis key ignores who the user is, and changes with any edit or the lan
   assert.notEqual(analysisKey(toAnalyzeRequest(moved, "p1", "vi")), key);
 });
 
+
+test("Back + Continue keeps edits when the input didn't change, and asks before replacing them", () => {
+  const t = { source: "paste" as const, participants: [{ id: "p1", name: "A" }], messages: [{ id: "m1", speakerId: "p1", text: "edited" }] };
+  assert.equal(rereadPlan(null, null, textKey("A: hi")), "read");
+  assert.equal(rereadPlan(t, textKey("A: hi"), textKey("A: hi  ")), "reuse");
+  assert.equal(rereadPlan(t, textKey("A: hi"), textKey("A: hello")), "ask");
+  assert.equal(rereadPlan({ ...t, messages: [] }, textKey("x"), textKey("y")), "read");
+  assert.notEqual(imagesKey(["data:a", "data:b"]), imagesKey(["data:b", "data:a"]), "order matters");
+  assert.equal(rereadPlan(t, imagesKey(["data:a"]), imagesKey(["data:a"])), "reuse");
+});

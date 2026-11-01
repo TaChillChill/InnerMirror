@@ -39,6 +39,10 @@ export const en = {
     storyTitle: "This looks like a story told in your own words",
     storyBody: "Mirror reads conversations, and reading retold stories isn't fully supported yet. Write the key moments as one line per person (Name: what they said), and leave out what you thought or felt about it. Or continue and choose who said each line yourself.",
     storyContinue: "Continue, I'll choose who said each line",
+    replaceTitle: "You've edited this conversation in the next step.",
+    replaceBody: "Reading it again will replace your edited version with the new input.",
+    replaceYes: "Read it again",
+    replaceKeep: "Keep my edited version",
     unknown: "Unknown",
     otherPerson: "Other person",
     me: "Me",
@@ -124,6 +128,7 @@ export const en = {
     remove: (n: number) => `Remove screenshot ${n}`,
     read: "Read my screenshots",
     reading: "Reading…",
+    continueRead: "Continue with what was read",
     wait: (lo: number, hi: number) => `Reading the text usually takes about ${lo}–${hi} seconds. Nothing is analyzed yet.`,
     slow: "Taking a little longer than usual. Still reading the screenshots.",
     problems: {

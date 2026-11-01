@@ -1,21 +1,27 @@
 "use client";
 // Screenshot → extract. Produces the same Transcript as pasting; the user always lands on
 // Review and nothing is analyzed until they confirm it there. Images arrive by picker,
-// drag and drop or paste, all through one `addFiles` so the same limits apply.
+// drag and drop or paste, all through one `addFiles` so the same limits apply. They live
+// in the session draft, so Back from Review keeps them and their order.
 import { useCallback, useEffect, useRef, useState } from "react";
 import { MAX_IMAGES, prepareImage, type ImageError } from "@/lib/image";
 import { hasFiles, isEditableTarget, planIntake } from "@/lib/image-intake";
 import { toTranscript, type Extraction } from "@/lib/ai/extraction";
+import { imagesKey, rereadPlan } from "@/lib/conversation";
 import type { Update } from "./App";
+import type { Session } from "./session";
+import { ReplaceNotice } from "./ReplaceNotice";
 import { ShotLightbox } from "./ShotLightbox";
 import { Icon, useT } from "./ui";
 import { WaitHint } from "./Analyzing";
 import { extractEstimate } from "@/lib/wait";
 
-export function ShotUpload({ update }: { update: Update }) {
+export function ShotUpload({ s, update }: { s: Session; update: Update }) {
   const { t, lang } = useT();
   const S = t.shot;
-  const [images, setImages] = useState<string[]>([]);
+  const images = s.draft.images;
+  const setImages = useCallback((next: (cur: string[]) => string[]) => update((cur) => ({ draft: { ...cur.draft, images: next(cur.draft.images) } })), [update]);
+  const [confirmReplace, setConfirmReplace] = useState(false);
   const [consent, setConsent] = useState(false);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -38,7 +44,7 @@ export function ShotUpload({ update }: { update: Update }) {
       catch (e) { setError(e instanceof Error && ["format", "decode", "large"].includes(e.message) ? (e.message as ImageError) : "decode"); }
     }
     setImages((cur) => [...cur, ...next].slice(0, MAX_IMAGES));
-  }, []);
+  }, [setImages]);
 
   // Paste anywhere on the page, but never take over text paste in a field.
   useEffect(() => {
@@ -68,7 +74,17 @@ export function ShotUpload({ update }: { update: Update }) {
   });
   const remove = (i: number) => { setError(null); setImages((cur) => cur.filter((_, j) => j !== i)); };
 
+  // The same screenshots as last time go straight back to the edited transcript, with no
+  // new call; different ones would replace those edits, so the user is asked first.
+  const plan = rereadPlan(s.transcript, s.readFrom, imagesKey(images));
+  const onRead = () => {
+    if (plan === "reuse") return update({ screen: "review", shots: images });
+    if (plan === "ask") return setConfirmReplace(true);
+    void extract();
+  };
+
   const extract = async () => {
+    setConfirmReplace(false);
     const controller = new AbortController();
     abort.current = controller;
     setBusy(true);
@@ -83,7 +99,7 @@ export function ShotUpload({ update }: { update: Update }) {
       const extraction = json.extraction as Extraction;
       const transcript = toTranscript(extraction, { me: t.add.me, unknown: t.add.unknown, other: (n) => (n === 1 ? t.add.otherPerson : `${t.add.otherPerson} ${n}`) });
       if (!transcript.messages.length) return setError("not_a_chat");
-      update({ screen: "review", transcript, selfId: null, consent: false, shots: images, extractNotes: extraction.notes });
+      update({ screen: "review", transcript, selfId: null, consent: false, shots: images, extractNotes: extraction.notes, readFrom: imagesKey(images) });
     } catch (e) {
       if (!(e instanceof DOMException && e.name === "AbortError")) setError("network");
     } finally {
@@ -129,9 +145,10 @@ export function ShotUpload({ update }: { update: Update }) {
               </li>
             ))}
           </ol>
+          {confirmReplace && <ReplaceNotice onReplace={() => void extract()} onKeep={() => { setConfirmReplace(false); update({ screen: "review", shots: images }); }} />}
           <label className="im-check"><input type="checkbox" checked={consent} onChange={(e) => setConsent(e.target.checked)} /> {t.review.consent}</label>
           <div className="app-actions">
-            <button className="im-btn im-btn--primary" disabled={!consent || busy} onClick={extract}>{busy ? S.reading : S.read}</button>
+            <button className="im-btn im-btn--primary" disabled={(!consent && plan !== "reuse") || busy} onClick={onRead}>{busy ? S.reading : plan === "reuse" ? S.continueRead : S.read}</button>
             {busy && <button className="im-btn im-btn--ghost" onClick={() => abort.current?.abort()}>{t.analyzing.cancel}</button>}
           </div>
         </>
