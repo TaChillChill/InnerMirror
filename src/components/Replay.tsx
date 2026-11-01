@@ -12,6 +12,7 @@ import { Direction } from "./Direction";
 import type { ExKey } from "@/lib/i18n";
 import { scenarioContext } from "@/lib/ai/scenario";
 import { segmentOf } from "@/lib/ai/analysis";
+import { narrationBefore } from "@/lib/story";
 import { nameOf, readingFor, safetyHold, whatIfOff, withNames, type Session } from "./session";
 import { Avatar, Badge, Chip, Icon, toKey, useT } from "./ui";
 
@@ -122,6 +123,7 @@ export function Replay({ s, update, onContinue, onEdit, onRestart }: { s: Sessio
         {/* Back to the transcript; an unchanged conversation is not analyzed again (App). */}
         <button className="app-textlink app-replay__edit" onClick={onEdit}><Icon name="edit" /> {R.editTranscript}</button>
         {s.sample && <div className="im-notice" role="status"><Icon name="eye" /><div>{R.sampleNote}</div></div>}
+        {T.source === "story" && <div className="im-notice" role="status"><Icon name="text" /><div>{R.storyNote}</div></div>}
         {/* The backstop adds support on top of the readings; the model's own flag replaces Replay (Safety). */}
         {safetyHold(s) && <div className="im-notice im-notice--safety" role="alert"><Icon name="alert" /><div>
           <strong>{t.safety.holdTitle}</strong><p>{t.safety.holdBody}</p><p><strong>{t.safety.emergency}</strong></p></div></div>}
@@ -140,6 +142,7 @@ export function Replay({ s, update, onContinue, onEdit, onRestart }: { s: Sessio
             const shift = a.shifts.find((x) => x.messageId === m.id);
             return (
               <Fragment key={m.id}>
+                {narrationBefore(T, m.id).map((n) => <p key={n.id} className="app-narr app-narr--replay"><span className="app-narr__tag">{t.review.story.narration}</span>{n.text}</p>)}
                 {shift && <p className="app-shift"><Icon name="swap" /><span><strong>{R.shift}.</strong> {withNames(shift.description, s)}</span></p>}
                 <div className={`im-msg${mine ? " im-msg--me" : ""}${isAnchor ? "" : " app-msg--cont"}`} aria-current={open ? "true" : undefined}>
                   {!mine && (first
@@ -154,6 +157,7 @@ export function Replay({ s, update, onContinue, onEdit, onRestart }: { s: Sessio
               </Fragment>
             );
           })}
+          {narrationBefore(T, null).map((n) => <p key={n.id} className="app-narr app-narr--replay"><span className="app-narr__tag">{t.review.story.narration}</span>{n.text}</p>)}
         </div>
 
         <WhoPicker s={s} update={update} />

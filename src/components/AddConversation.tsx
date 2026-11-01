@@ -4,6 +4,7 @@
 // Back from Review returns here with everything intact.
 import { useCallback, useRef, useState } from "react";
 import { looksLikeStory, parsePasted, rereadPlan, textKey, type Transcript } from "@/lib/conversation";
+import { parseStory } from "@/lib/story";
 import type { Update } from "./App";
 import type { Session } from "./session";
 import { Icon, useT } from "./ui";
@@ -17,13 +18,13 @@ export function AddConversation({ s, update }: { s: Session; update: Update }) {
   const panel = useRef<HTMLDivElement>(null);
   const { method, text } = s.draft;
   const [empty, setEmpty] = useState(false);
-  const [story, setStory] = useState(false);
   // An action that would replace edits made on Review; it runs only after the user agrees.
   const [pending, setPending] = useState<(() => void) | null>(null);
   const setDraft = (patch: Partial<Session["draft"]>) => update((cur) => ({ draft: { ...cur.draft, ...patch } }));
-  // Spoken phrases are appended to the story box, where they stay editable.
+  // Spoken phrases are appended to the story box, one per line (a pause usually ends what
+  // one person said), where they stay editable.
   const appendSpoken = useCallback((phrase: string) => {
-    if (phrase) update((cur) => ({ draft: { ...cur.draft, text: cur.draft.text.trim() ? `${cur.draft.text.trimEnd()} ${phrase}` : phrase } }));
+    if (phrase) update((cur) => ({ draft: { ...cur.draft, text: cur.draft.text.trim() ? `${cur.draft.text.trimEnd()}\n${phrase}` : phrase } }));
   }, [update]);
   const mic = useDictation(lang, appendSpoken);
   // Choosing a way to start brings its input into view, so it never sits below the fold.
@@ -43,13 +44,11 @@ export function AddConversation({ s, update }: { s: Session; update: Update }) {
   const applyPaste = () => {
     if (!text.trim()) return setEmpty(true);
     guard(textKey(text), () => {
-      // Retold stories stop here: analysing them as a chat would treat the narrator's
-      // account as other people's own words. Continuing is the user's explicit choice.
-      if (looksLikeStory(text)) return setStory(true);
-      openReview(parsePasted(text, A.unknown), textKey(text));
+      // A retold story is split into dialogue and narration (U3); Review lets the user fix it.
+      // Read as a chat, the narrator's account would become other people's own words.
+      openReview(looksLikeStory(text) ? parseStory(text, { unknown: A.unknown, me: A.me }) : parsePasted(text, A.unknown), textKey(text));
     });
   };
-  const continueStory = () => openReview(parsePasted(text, A.unknown, { keepLines: true }), textKey(text));
   // Typing from scratch: two people, the user on the right, no messages yet.
   const typeFromScratch = () => guard(null, () => {
     openReview({ source: "paste", participants: [{ id: "p1", name: A.otherPerson }, { id: "p2", name: A.me }], messages: [] }, null);
@@ -74,7 +73,7 @@ export function AddConversation({ s, update }: { s: Session; update: Update }) {
         <div className={`im-field${empty ? " im-field--error" : ""}`}>
           <label className="im-label" htmlFor="paste">{A.pasteLabel}</label>
           <textarea id="paste" className="im-textarea" rows={8} value={text} placeholder={A.pastePlaceholder}
-            onChange={(e) => { setDraft({ text: e.target.value }); setEmpty(false); setStory(false); setPending(null); }} />
+            onChange={(e) => { setDraft({ text: e.target.value }); setEmpty(false); setPending(null); }} />
           {empty && <p className="im-error" role="alert"><Icon name="alert" />{A.pasteEmpty}</p>}
           {mic.listening && mic.interim && <p className="app-mic__live" aria-hidden="true">{mic.interim}</p>}
         </div>
@@ -87,13 +86,6 @@ export function AddConversation({ s, update }: { s: Session; update: Update }) {
             <p className="im-hint">{A.micPrivacy}</p>
           </div>
         ) : <p className="im-hint">{A.dictationHint}</p>}
-        {story && (
-          <div className="im-notice" role="status"><Icon name="alert" /><div>
-            <p><strong>{A.storyTitle}</strong></p>
-            <p>{A.storyBody}</p>
-            <button className="im-btn im-btn--ghost im-btn--sm" onClick={continueStory}>{A.storyContinue}</button>
-          </div></div>
-        )}
         {pending && <ReplaceNotice onReplace={() => { setPending(null); pending(); }} onKeep={() => { setPending(null); update({ screen: "review" }); }} />}
         <div className="app-actions">
           <button className="im-btn im-btn--primary" onClick={applyPaste}>{A.pasteApply}</button>

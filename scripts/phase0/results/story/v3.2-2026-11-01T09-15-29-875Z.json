@@ -1,0 +1,2579 @@
+[
+  {
+    "id": "vi-mom",
+    "run": 1,
+    "latencyMs": 10224,
+    "usd": 0.01436225,
+    "leaked": [
+      "khó tính"
+    ],
+    "highRaw": 3,
+    "checks": {
+      "valid": true,
+      "noLeak": false,
+      "noHighShown": true,
+      "safetyFlag": false
+    },
+    "analysis": {
+      "context": {
+        "register": "Cách xưng hô \"Mẹ / Con\" và từ \"Dạ\" cho thấy quan hệ mẹ - con trong gia đình, có thứ bậc quen thuộc.",
+        "turns": [
+          {
+            "turnId": "t1",
+            "act": "nhắc chuyện về muộn kèm nhắc đã dặn nhiều lần",
+            "respondsTo": null
+          },
+          {
+            "turnId": "t2",
+            "act": "xin lỗi và nêu lý do tắc đường",
+            "respondsTo": "t1"
+          },
+          {
+            "turnId": "t3",
+            "act": "gạt lý do và đưa ra yêu cầu ăn rồi đi ngủ",
+            "respondsTo": "t2"
+          },
+          {
+            "turnId": "t4",
+            "act": "nhận lời ngắn gọn",
+            "respondsTo": "t3"
+          }
+        ],
+        "dynamics": "Người A nhắc chuyện về muộn và đưa ra yêu cầu. Người B xin lỗi, nêu lý do kẹt xe rồi nhận lời. Các gợi ý hay lời giải thích đều được đáp lại bằng một câu gọn và khép lại."
+      },
+      "segments": [
+        {
+          "turnId": "t1",
+          "messageIds": [
+            "m1"
+          ],
+          "splitReason": null,
+          "cues": [
+            "lại về muộn nữa à?",
+            "Mẹ dặn bao nhiêu lần rồi."
+          ],
+          "contextCues": [],
+          "rationale": "Câu hỏi không hỏi thêm thông tin mà nghe như đánh giá việc về muộn. Câu sau nhắc lại quy định đã dặn.",
+          "family": "P",
+          "expression": "CP",
+          "confidence": "medium",
+          "alternative": null,
+          "invites": "C",
+          "secondLayer": null,
+          "id": "s1"
+        },
+        {
+          "turnId": "t2",
+          "messageIds": [
+            "m2"
+          ],
+          "splitReason": null,
+          "cues": [
+            "Con xin lỗi",
+            "tại tắc đường quá."
+          ],
+          "contextCues": [
+            {
+              "messageId": "m1",
+              "quote": "Con lại về muộn nữa à? Mẹ dặn bao nhiêu lần rồi."
+            }
+          ],
+          "rationale": "Câu này xin lỗi trực tiếp và đưa ra lý do sau lời nhắc ở trên. Nghe như thuận theo và muốn xoa dịu.",
+          "family": "C",
+          "expression": "AC",
+          "confidence": "medium",
+          "alternative": null,
+          "invites": "P",
+          "secondLayer": null,
+          "id": "s2"
+        },
+        {
+          "turnId": "t3",
+          "messageIds": [
+            "m3"
+          ],
+          "splitReason": null,
+          "cues": [
+            "Lúc nào cũng có lý do.",
+            "Ăn đi rồi đi ngủ."
+          ],
+          "contextCues": [
+            {
+              "messageId": "m2",
+              "quote": "Con xin lỗi, tại tắc đường quá."
+            }
+          ],
+          "rationale": "Cụm \"Lúc nào cũng\" nghe như gạt lời giải thích vừa rồi. Câu sau là mệnh lệnh ngắn, khép câu chuyện lại.",
+          "family": "P",
+          "expression": "CP",
+          "confidence": "medium",
+          "alternative": null,
+          "invites": "C",
+          "secondLayer": null,
+          "id": "s3"
+        },
+        {
+          "turnId": "t4",
+          "messageIds": [
+            "m4"
+          ],
+          "splitReason": null,
+          "cues": [
+            "Dạ con biết rồi."
+          ],
+          "contextCues": [
+            {
+              "messageId": "m3",
+              "quote": "Lúc nào cũng có lý do. Ăn đi rồi đi ngủ."
+            }
+          ],
+          "rationale": "Câu trả lời ngắn, có \"Dạ\" và nhận lời. Nghe như thuận theo yêu cầu ở trên.",
+          "family": "C",
+          "expression": "UNCLEAR",
+          "confidence": "low",
+          "alternative": {
+            "expression": "AC",
+            "rationale": "Chữ \"Dạ\" và \"biết rồi\" vẫn nghe như thuận theo, nhưng câu quá ngắn nên chưa loại hẳn cách đọc khác."
+          },
+          "invites": "UNCLEAR",
+          "secondLayer": null,
+          "id": "s4"
+        }
+      ],
+      "shifts": [
+        {
+          "messageId": "m3",
+          "description": "Lời nói chuyển từ trách chuyện về muộn sang ra việc cần làm tiếp theo.",
+          "cues": [
+            "Ăn đi rồi đi ngủ."
+          ]
+        }
+      ],
+      "summary": "Người A mở đầu bằng lời nhắc chuyện về muộn, Người B xin lỗi và nói do tắc đường. Người A gạt lý do rồi dặn ăn và đi ngủ, Người B nhận lời ngắn gọn. Trao đổi khép lại nhanh sau đó.",
+      "uncertainty": "Chỉ có chữ viết lại nên không rõ giọng điệu, nét mặt và chuyện đã xảy ra trước đó. Phần ghi chú về mẹ khó tính hay giận là góc nhìn của một bên, không dùng để kết luận.",
+      "safety": {
+        "flagged": false,
+        "categories": [],
+        "note": null
+      },
+      "readings": [
+        {
+          "splitReason": null,
+          "cues": [
+            "lại về muộn nữa à?",
+            "Mẹ dặn bao nhiêu lần rồi."
+          ],
+          "contextCues": [],
+          "rationale": "Câu hỏi không hỏi thêm thông tin mà nghe như đánh giá việc về muộn. Câu sau nhắc lại quy định đã dặn.",
+          "family": "P",
+          "expression": "CP",
+          "confidence": "medium",
+          "alternative": null,
+          "invites": "C",
+          "secondLayer": null,
+          "messageId": "m1",
+          "segmentId": "s1"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "Con xin lỗi",
+            "tại tắc đường quá."
+          ],
+          "contextCues": [
+            {
+              "messageId": "m1",
+              "quote": "Con lại về muộn nữa à? Mẹ dặn bao nhiêu lần rồi."
+            }
+          ],
+          "rationale": "Câu này xin lỗi trực tiếp và đưa ra lý do sau lời nhắc ở trên. Nghe như thuận theo và muốn xoa dịu.",
+          "family": "C",
+          "expression": "AC",
+          "confidence": "medium",
+          "alternative": null,
+          "invites": "P",
+          "secondLayer": null,
+          "messageId": "m2",
+          "segmentId": "s2"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "Lúc nào cũng có lý do.",
+            "Ăn đi rồi đi ngủ."
+          ],
+          "contextCues": [
+            {
+              "messageId": "m2",
+              "quote": "Con xin lỗi, tại tắc đường quá."
+            }
+          ],
+          "rationale": "Cụm \"Lúc nào cũng\" nghe như gạt lời giải thích vừa rồi. Câu sau là mệnh lệnh ngắn, khép câu chuyện lại.",
+          "family": "P",
+          "expression": "CP",
+          "confidence": "medium",
+          "alternative": null,
+          "invites": "C",
+          "secondLayer": null,
+          "messageId": "m3",
+          "segmentId": "s3"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "Dạ con biết rồi."
+          ],
+          "contextCues": [
+            {
+              "messageId": "m3",
+              "quote": "Lúc nào cũng có lý do. Ăn đi rồi đi ngủ."
+            }
+          ],
+          "rationale": "Câu trả lời ngắn, có \"Dạ\" và nhận lời. Nghe như thuận theo yêu cầu ở trên.",
+          "family": "C",
+          "expression": "UNCLEAR",
+          "confidence": "low",
+          "alternative": {
+            "expression": "AC",
+            "rationale": "Chữ \"Dạ\" và \"biết rồi\" vẫn nghe như thuận theo, nhưng câu quá ngắn nên chưa loại hẳn cách đọc khác."
+          },
+          "invites": "UNCLEAR",
+          "secondLayer": null,
+          "messageId": "m4",
+          "segmentId": "s4"
+        }
+      ]
+    }
+  },
+  {
+    "id": "vi-mom",
+    "run": 2,
+    "latencyMs": 9067,
+    "usd": 0.01056235,
+    "leaked": [
+      "khó tính",
+      "tức giận"
+    ],
+    "highRaw": 2,
+    "checks": {
+      "valid": true,
+      "noLeak": false,
+      "noHighShown": true,
+      "safetyFlag": false
+    },
+    "analysis": {
+      "context": {
+        "register": "Cách xưng hô \"Mẹ\" - \"Con\" cho thấy quan hệ mẹ - con, gần gũi nhưng có thứ bậc. Lời lẽ ngắn, trực tiếp.",
+        "turns": [
+          {
+            "turnId": "t1",
+            "act": "nhắc việc về muộn và nhắc lại lời đã dặn",
+            "respondsTo": null
+          },
+          {
+            "turnId": "t2",
+            "act": "xin lỗi và nêu lý do kẹt xe",
+            "respondsTo": "t1"
+          },
+          {
+            "turnId": "t3",
+            "act": "gạt lý do và bảo ăn rồi đi ngủ",
+            "respondsTo": "t2"
+          },
+          {
+            "turnId": "t4",
+            "act": "vâng lời ngắn gọn",
+            "respondsTo": "t3"
+          }
+        ],
+        "dynamics": "Trao đổi đi từ nhắc việc về muộn sang lời xin lỗi và giải thích, rồi lại bị gạt đi. Sau đó lời nhắc chuyển sang việc ăn và ngủ, và câu trả lời cuối là vâng lời ngắn gọn. Hai bên giữ vị trí khá cố định, không mở ra trao đổi thêm."
+      },
+      "segments": [
+        {
+          "turnId": "t1",
+          "messageIds": [
+            "m1"
+          ],
+          "splitReason": null,
+          "cues": [
+            "lại về muộn nữa à?",
+            "Mẹ dặn bao nhiêu lần rồi."
+          ],
+          "contextCues": [],
+          "rationale": "Câu hỏi không hỏi thông tin mà nghe như đánh giá việc về muộn. Cụm \"bao nhiêu lần rồi\" nghe như nhắc lỗi cũ và đặt ra chuẩn.",
+          "family": "P",
+          "expression": "CP",
+          "confidence": "medium",
+          "alternative": null,
+          "invites": "C",
+          "secondLayer": null,
+          "id": "s1"
+        },
+        {
+          "turnId": "t2",
+          "messageIds": [
+            "m2"
+          ],
+          "splitReason": null,
+          "cues": [
+            "Con xin lỗi",
+            "tại tắc đường quá."
+          ],
+          "contextCues": [
+            {
+              "messageId": "m1",
+              "quote": "Con lại về muộn nữa à? Mẹ dặn bao nhiêu lần rồi."
+            }
+          ],
+          "rationale": "Lời xin lỗi trực tiếp và nhận lỗi sau lời nhắc nghe như thuận theo. Phần giải thích đi kèm nhưng không phản bác.",
+          "family": "C",
+          "expression": "AC",
+          "confidence": "medium",
+          "alternative": null,
+          "invites": "P",
+          "secondLayer": null,
+          "id": "s2"
+        },
+        {
+          "turnId": "t3",
+          "messageIds": [
+            "m3"
+          ],
+          "splitReason": null,
+          "cues": [
+            "Lúc nào cũng có lý do.",
+            "Ăn đi rồi đi ngủ."
+          ],
+          "contextCues": [
+            {
+              "messageId": "m2",
+              "quote": "tại tắc đường quá."
+            }
+          ],
+          "rationale": "Cụm \"Lúc nào cũng\" nghe như gạt lời giải thích vừa rồi thành thói quen. Câu sau nghe như chốt lại, khép chủ đề.",
+          "family": "P",
+          "expression": "CP",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "NP",
+            "rationale": " Riêng câu \"Ăn đi rồi đi ngủ\" cũng có thể nghe như lo việc ăn ngủ cơ bản."
+          },
+          "invites": "C",
+          "secondLayer": null,
+          "id": "s3"
+        },
+        {
+          "turnId": "t4",
+          "messageIds": [
+            "m4"
+          ],
+          "splitReason": null,
+          "cues": [
+            "Dạ con biết rồi."
+          ],
+          "contextCues": [
+            {
+              "messageId": "m3",
+              "quote": "Ăn đi rồi đi ngủ."
+            }
+          ],
+          "rationale": "Chữ \"Dạ\" cùng câu trả lời ngắn sau lời nhắc nghe như thuận theo, không mở thêm ý mới.",
+          "family": "C",
+          "expression": "AC",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "A",
+            "rationale": "Câu chữ ngắn cũng có thể chỉ là xác nhận thông tin, không rõ thuận theo hay chỉ ghi nhận."
+          },
+          "invites": "P",
+          "secondLayer": null,
+          "id": "s4"
+        }
+      ],
+      "shifts": [
+        {
+          "messageId": "m3",
+          "description": "Lời lẽ chuyển từ nhắc lỗi sang dặn việc ăn và ngủ.",
+          "cues": [
+            "Ăn đi rồi đi ngủ."
+          ]
+        }
+      ],
+      "summary": "Người A nhắc việc về muộn, Người B xin lỗi và nói do tắc đường. Lời giải thích không được chấp nhận, câu chuyện khép lại bằng dặn ăn ngủ và lời vâng ngắn gọn. Trao đổi ngắn, mỗi bên giữ một giọng từ đầu đến cuối.",
+      "uncertainty": "Chỉ qua chữ viết nên không rõ giọng điệu, nét mặt và chuyện đã xảy ra trước đó. Phần ghi chú về mẹ khó tính hay tức giận là góc nhìn của một bên nên không dùng để kết luận.",
+      "safety": {
+        "flagged": false,
+        "categories": [],
+        "note": null
+      },
+      "readings": [
+        {
+          "splitReason": null,
+          "cues": [
+            "lại về muộn nữa à?",
+            "Mẹ dặn bao nhiêu lần rồi."
+          ],
+          "contextCues": [],
+          "rationale": "Câu hỏi không hỏi thông tin mà nghe như đánh giá việc về muộn. Cụm \"bao nhiêu lần rồi\" nghe như nhắc lỗi cũ và đặt ra chuẩn.",
+          "family": "P",
+          "expression": "CP",
+          "confidence": "medium",
+          "alternative": null,
+          "invites": "C",
+          "secondLayer": null,
+          "messageId": "m1",
+          "segmentId": "s1"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "Con xin lỗi",
+            "tại tắc đường quá."
+          ],
+          "contextCues": [
+            {
+              "messageId": "m1",
+              "quote": "Con lại về muộn nữa à? Mẹ dặn bao nhiêu lần rồi."
+            }
+          ],
+          "rationale": "Lời xin lỗi trực tiếp và nhận lỗi sau lời nhắc nghe như thuận theo. Phần giải thích đi kèm nhưng không phản bác.",
+          "family": "C",
+          "expression": "AC",
+          "confidence": "medium",
+          "alternative": null,
+          "invites": "P",
+          "secondLayer": null,
+          "messageId": "m2",
+          "segmentId": "s2"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "Lúc nào cũng có lý do.",
+            "Ăn đi rồi đi ngủ."
+          ],
+          "contextCues": [
+            {
+              "messageId": "m2",
+              "quote": "tại tắc đường quá."
+            }
+          ],
+          "rationale": "Cụm \"Lúc nào cũng\" nghe như gạt lời giải thích vừa rồi thành thói quen. Câu sau nghe như chốt lại, khép chủ đề.",
+          "family": "P",
+          "expression": "CP",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "NP",
+            "rationale": " Riêng câu \"Ăn đi rồi đi ngủ\" cũng có thể nghe như lo việc ăn ngủ cơ bản."
+          },
+          "invites": "C",
+          "secondLayer": null,
+          "messageId": "m3",
+          "segmentId": "s3"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "Dạ con biết rồi."
+          ],
+          "contextCues": [
+            {
+              "messageId": "m3",
+              "quote": "Ăn đi rồi đi ngủ."
+            }
+          ],
+          "rationale": "Chữ \"Dạ\" cùng câu trả lời ngắn sau lời nhắc nghe như thuận theo, không mở thêm ý mới.",
+          "family": "C",
+          "expression": "AC",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "A",
+            "rationale": "Câu chữ ngắn cũng có thể chỉ là xác nhận thông tin, không rõ thuận theo hay chỉ ghi nhận."
+          },
+          "invites": "P",
+          "secondLayer": null,
+          "messageId": "m4",
+          "segmentId": "s4"
+        }
+      ]
+    }
+  },
+  {
+    "id": "vi-couple",
+    "run": 1,
+    "latencyMs": 8996,
+    "usd": 0.01245525,
+    "leaked": [],
+    "highRaw": 2,
+    "checks": {
+      "valid": true,
+      "noLeak": true,
+      "noHighShown": true,
+      "safetyFlag": false
+    },
+    "analysis": {
+      "context": {
+        "register": "Cách gọi \"anh / em\" nghe như quan hệ thân mật, gần gũi. Câu ngắn, trực tiếp, không có dạ thưa hay từ trang trọng.",
+        "turns": [
+          {
+            "turnId": "t1",
+            "act": "nhắc ngày kỷ niệm một năm",
+            "respondsTo": null
+          },
+          {
+            "turnId": "t2",
+            "act": "xác nhận đã biết và hẹn tối nói",
+            "respondsTo": "t1"
+          },
+          {
+            "turnId": "t3",
+            "act": "đánh giá khái quát về người kia",
+            "respondsTo": "t2"
+          },
+          {
+            "turnId": "t4",
+            "act": "nêu đang bận và muốn dừng chuyện lúc đó",
+            "respondsTo": "t3"
+          }
+        ],
+        "dynamics": "Người A nhắc một mốc kỷ niệm, Người B hẹn để tối nói. Sau đó Người A nói khái quát về cách của Người B, và Người B nói đang bận và muốn dừng chủ đề lúc đó. Trao đổi đi từ việc nhắc chuyện sang đánh giá nhau rồi khép lại tạm thời."
+      },
+      "segments": [
+        {
+          "turnId": "t1",
+          "messageIds": [
+            "m1"
+          ],
+          "splitReason": null,
+          "cues": [
+            "Hôm nay là kỷ niệm một năm đó anh."
+          ],
+          "contextCues": [],
+          "rationale": "Câu nói nêu một mốc thực tế ở hiện tại, nghe như nhắc thông tin để cùng biết.",
+          "family": "A",
+          "expression": "A",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "FC",
+            "rationale": "Câu nhắc ngày vui cũng có thể nghe như mong được nhớ và quan tâm."
+          },
+          "invites": "A",
+          "secondLayer": null,
+          "id": "s1"
+        },
+        {
+          "turnId": "t2",
+          "messageIds": [
+            "m2"
+          ],
+          "splitReason": null,
+          "cues": [
+            "anh biết rồi.",
+            "Tối về nói nhé."
+          ],
+          "contextCues": [
+            {
+              "messageId": "m1",
+              "quote": "Hôm nay là kỷ niệm một năm đó anh."
+            }
+          ],
+          "rationale": "Câu nói đưa ra thông tin và một hẹn cụ thể vào buổi tối, nghe như dời việc trao đổi sang lúc khác.",
+          "family": "A",
+          "expression": "A",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "AC",
+            "rationale": "\"Ừ, anh biết rồi\" nghe cụt, có thể đọc như rút khỏi chuyện đang nói."
+          },
+          "invites": "A",
+          "secondLayer": null,
+          "id": "s2"
+        },
+        {
+          "turnId": "t3",
+          "messageIds": [
+            "m3"
+          ],
+          "splitReason": null,
+          "cues": [
+            "Anh lúc nào cũng vậy."
+          ],
+          "contextCues": [
+            {
+              "messageId": "m2",
+              "quote": "Ừ, anh biết rồi. Tối về nói nhé."
+            }
+          ],
+          "rationale": "Cụm \"lúc nào cũng vậy\" không nói việc cụ thể mà nghe như đánh giá chung về người kia.",
+          "family": "P",
+          "expression": "CP",
+          "confidence": "medium",
+          "alternative": null,
+          "invites": "C",
+          "secondLayer": null,
+          "id": "s3"
+        },
+        {
+          "turnId": "t4",
+          "messageIds": [
+            "m4"
+          ],
+          "splitReason": null,
+          "cues": [
+            "Anh đang họp,",
+            "em đừng làm to chuyện."
+          ],
+          "contextCues": [
+            {
+              "messageId": "m3",
+              "quote": "Anh lúc nào cũng vậy."
+            }
+          ],
+          "rationale": "Cụm \"đừng làm to chuyện\" nghe như dán nhãn cho cách nói vừa rồi và ra lệnh dừng lại.",
+          "family": "P",
+          "expression": "CP",
+          "confidence": "medium",
+          "alternative": null,
+          "invites": "C",
+          "secondLayer": null,
+          "id": "s4"
+        }
+      ],
+      "shifts": [
+        {
+          "messageId": "m3",
+          "description": "Lời nói chuyển từ chuyện ngày kỷ niệm sang đánh giá chung về người kia.",
+          "cues": [
+            "Anh lúc nào cũng vậy."
+          ]
+        },
+        {
+          "messageId": "m4",
+          "description": "Lời nói chuyển sang nêu bận và khép chủ đề tại đó.",
+          "cues": [
+            "em đừng làm to chuyện."
+          ]
+        }
+      ],
+      "summary": "Người A nhắc ngày kỷ niệm, Người B hẹn tối nói. Sau câu hẹn, Người A nói khái quát \"lúc nào cũng vậy\", rồi Người B nói đang họp và muốn dừng chuyện. Cuộc trao đổi ngắn và dừng lại khi hai bên chưa nói về ngày kỷ niệm.",
+      "uncertainty": "Chỉ có chữ trong tin nhắn nên không thấy giọng, mặt, hoàn cảnh họp hay lịch sử của hai người. Phần ghi chú kèm theo là góc nhìn một phía nên không dùng để kết luận.",
+      "safety": {
+        "flagged": false,
+        "categories": [],
+        "note": null
+      },
+      "readings": [
+        {
+          "splitReason": null,
+          "cues": [
+            "Hôm nay là kỷ niệm một năm đó anh."
+          ],
+          "contextCues": [],
+          "rationale": "Câu nói nêu một mốc thực tế ở hiện tại, nghe như nhắc thông tin để cùng biết.",
+          "family": "A",
+          "expression": "A",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "FC",
+            "rationale": "Câu nhắc ngày vui cũng có thể nghe như mong được nhớ và quan tâm."
+          },
+          "invites": "A",
+          "secondLayer": null,
+          "messageId": "m1",
+          "segmentId": "s1"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "anh biết rồi.",
+            "Tối về nói nhé."
+          ],
+          "contextCues": [
+            {
+              "messageId": "m1",
+              "quote": "Hôm nay là kỷ niệm một năm đó anh."
+            }
+          ],
+          "rationale": "Câu nói đưa ra thông tin và một hẹn cụ thể vào buổi tối, nghe như dời việc trao đổi sang lúc khác.",
+          "family": "A",
+          "expression": "A",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "AC",
+            "rationale": "\"Ừ, anh biết rồi\" nghe cụt, có thể đọc như rút khỏi chuyện đang nói."
+          },
+          "invites": "A",
+          "secondLayer": null,
+          "messageId": "m2",
+          "segmentId": "s2"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "Anh lúc nào cũng vậy."
+          ],
+          "contextCues": [
+            {
+              "messageId": "m2",
+              "quote": "Ừ, anh biết rồi. Tối về nói nhé."
+            }
+          ],
+          "rationale": "Cụm \"lúc nào cũng vậy\" không nói việc cụ thể mà nghe như đánh giá chung về người kia.",
+          "family": "P",
+          "expression": "CP",
+          "confidence": "medium",
+          "alternative": null,
+          "invites": "C",
+          "secondLayer": null,
+          "messageId": "m3",
+          "segmentId": "s3"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "Anh đang họp,",
+            "em đừng làm to chuyện."
+          ],
+          "contextCues": [
+            {
+              "messageId": "m3",
+              "quote": "Anh lúc nào cũng vậy."
+            }
+          ],
+          "rationale": "Cụm \"đừng làm to chuyện\" nghe như dán nhãn cho cách nói vừa rồi và ra lệnh dừng lại.",
+          "family": "P",
+          "expression": "CP",
+          "confidence": "medium",
+          "alternative": null,
+          "invites": "C",
+          "secondLayer": null,
+          "messageId": "m4",
+          "segmentId": "s4"
+        }
+      ]
+    }
+  },
+  {
+    "id": "vi-couple",
+    "run": 2,
+    "latencyMs": 10371,
+    "usd": 0.0103936,
+    "leaked": [],
+    "highRaw": 2,
+    "checks": {
+      "valid": true,
+      "noLeak": true,
+      "noHighShown": true,
+      "safetyFlag": false
+    },
+    "analysis": {
+      "context": {
+        "register": "Cách gọi \"anh / em\" nghe gần gũi, kiểu đôi lứa hoặc người quen thân. Câu chữ ngắn, không có \"ạ\" hay vai vế rõ ràng.",
+        "turns": [
+          {
+            "turnId": "t1",
+            "act": "nhắc mốc kỷ niệm một năm",
+            "respondsTo": null
+          },
+          {
+            "turnId": "t2",
+            "act": "xác nhận đã biết và hẹn tối nói",
+            "respondsTo": "t1"
+          },
+          {
+            "turnId": "t3",
+            "act": "nhận xét khái quát về đối phương",
+            "respondsTo": "t2"
+          },
+          {
+            "turnId": "t4",
+            "act": "nêu đang bận và yêu cầu dừng chủ đề",
+            "respondsTo": "t3"
+          }
+        ],
+        "dynamics": "Người A nhắc một mốc chung, Người B lùi cuộc trò chuyện sang buổi tối. Người A chuyển sang nhận xét khái quát, Người B nêu việc đang bận và muốn dừng chủ đề lúc đó."
+      },
+      "segments": [
+        {
+          "turnId": "t1",
+          "messageIds": [
+            "m1"
+          ],
+          "splitReason": null,
+          "cues": [
+            "Hôm nay là kỷ niệm một năm đó anh."
+          ],
+          "contextCues": [],
+          "rationale": "Câu nêu một sự kiện ở hiện tại, chưa thấy đánh giá hay dỗ dành. Nghe như nhắc thông tin chung.",
+          "family": "A",
+          "expression": "A",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "FC",
+            "rationale": "Cũng có thể nghe như bày tỏ mong muốn được nhớ tới, nhưng chữ trong tin chưa thể hiện rõ cảm xúc."
+          },
+          "invites": "P",
+          "secondLayer": null,
+          "id": "s1"
+        },
+        {
+          "turnId": "t2",
+          "messageIds": [
+            "m2"
+          ],
+          "splitReason": null,
+          "cues": [
+            "anh biết rồi.",
+            "Tối về nói nhé."
+          ],
+          "contextCues": [
+            {
+              "messageId": "m1",
+              "quote": "Hôm nay là kỷ niệm một năm đó anh."
+            }
+          ],
+          "rationale": "Câu đưa ra thông tin và hẹn thời điểm khác để nói. Nghe như sắp xếp lại cuộc trò chuyện.",
+          "family": "A",
+          "expression": "A",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "AC",
+            "rationale": "Trong mạch bị nhắc, câu hẹn lại cũng có thể nghe như lảng sang chuyện khác, nhưng chữ không thể hiện rõ sự né tránh."
+          },
+          "invites": "A",
+          "secondLayer": null,
+          "id": "s2"
+        },
+        {
+          "turnId": "t3",
+          "messageIds": [
+            "m3"
+          ],
+          "splitReason": null,
+          "cues": [
+            "lúc nào cũng vậy"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m2",
+              "quote": "Tối về nói nhé."
+            }
+          ],
+          "rationale": "Cụm \"lúc nào cũng\" khái quát cách ứng xử của Người B, không còn bàn việc cụ thể. Nghe như đánh giá.",
+          "family": "P",
+          "expression": "CP",
+          "confidence": "medium",
+          "alternative": null,
+          "invites": "C",
+          "secondLayer": null,
+          "id": "s3"
+        },
+        {
+          "turnId": "t4",
+          "messageIds": [
+            "m4"
+          ],
+          "splitReason": null,
+          "cues": [
+            "Anh đang họp,",
+            "đừng làm to chuyện"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m3",
+              "quote": "Anh lúc nào cũng vậy."
+            }
+          ],
+          "rationale": "Nửa đầu nêu việc đang bận, nửa sau gọi việc vừa rồi là \"làm to chuyện\" và yêu cầu dừng. Nghe như đặt chuẩn và khép chủ đề lại.",
+          "family": "P",
+          "expression": "CP",
+          "confidence": "medium",
+          "alternative": null,
+          "invites": "C",
+          "secondLayer": null,
+          "id": "s4"
+        }
+      ],
+      "shifts": [
+        {
+          "messageId": "m3",
+          "description": "Lời nói chuyển từ việc cụ thể sang nhận xét khái quát về đối phương.",
+          "cues": [
+            "lúc nào cũng vậy"
+          ]
+        },
+        {
+          "messageId": "m4",
+          "description": "Lời nói chuyển sang nêu bận và yêu cầu dừng bàn lúc đó.",
+          "cues": [
+            "đừng làm to chuyện"
+          ]
+        }
+      ],
+      "summary": "Cuộc trò chuyện bắt đầu bằng việc nhắc ngày kỷ niệm, rồi chuyển sang hẹn lại. Sau đó lời nói chuyển sang đánh giá khái quát và yêu cầu dừng lại. Mạch chung nghe như nhắc việc, hoãn lại, rồi khép lại trong căng thẳng.",
+      "uncertainty": "Chỉ có chữ viết nên không rõ giọng điệu, nét mặt và chuyện xảy ra trước đó. Phần ghi chú kèm theo là góc nhìn một phía nên không dùng để kết luận về ai.",
+      "safety": {
+        "flagged": false,
+        "categories": [],
+        "note": null
+      },
+      "readings": [
+        {
+          "splitReason": null,
+          "cues": [
+            "Hôm nay là kỷ niệm một năm đó anh."
+          ],
+          "contextCues": [],
+          "rationale": "Câu nêu một sự kiện ở hiện tại, chưa thấy đánh giá hay dỗ dành. Nghe như nhắc thông tin chung.",
+          "family": "A",
+          "expression": "A",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "FC",
+            "rationale": "Cũng có thể nghe như bày tỏ mong muốn được nhớ tới, nhưng chữ trong tin chưa thể hiện rõ cảm xúc."
+          },
+          "invites": "P",
+          "secondLayer": null,
+          "messageId": "m1",
+          "segmentId": "s1"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "anh biết rồi.",
+            "Tối về nói nhé."
+          ],
+          "contextCues": [
+            {
+              "messageId": "m1",
+              "quote": "Hôm nay là kỷ niệm một năm đó anh."
+            }
+          ],
+          "rationale": "Câu đưa ra thông tin và hẹn thời điểm khác để nói. Nghe như sắp xếp lại cuộc trò chuyện.",
+          "family": "A",
+          "expression": "A",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "AC",
+            "rationale": "Trong mạch bị nhắc, câu hẹn lại cũng có thể nghe như lảng sang chuyện khác, nhưng chữ không thể hiện rõ sự né tránh."
+          },
+          "invites": "A",
+          "secondLayer": null,
+          "messageId": "m2",
+          "segmentId": "s2"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "lúc nào cũng vậy"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m2",
+              "quote": "Tối về nói nhé."
+            }
+          ],
+          "rationale": "Cụm \"lúc nào cũng\" khái quát cách ứng xử của Người B, không còn bàn việc cụ thể. Nghe như đánh giá.",
+          "family": "P",
+          "expression": "CP",
+          "confidence": "medium",
+          "alternative": null,
+          "invites": "C",
+          "secondLayer": null,
+          "messageId": "m3",
+          "segmentId": "s3"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "Anh đang họp,",
+            "đừng làm to chuyện"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m3",
+              "quote": "Anh lúc nào cũng vậy."
+            }
+          ],
+          "rationale": "Nửa đầu nêu việc đang bận, nửa sau gọi việc vừa rồi là \"làm to chuyện\" và yêu cầu dừng. Nghe như đặt chuẩn và khép chủ đề lại.",
+          "family": "P",
+          "expression": "CP",
+          "confidence": "medium",
+          "alternative": null,
+          "invites": "C",
+          "secondLayer": null,
+          "messageId": "m4",
+          "segmentId": "s4"
+        }
+      ]
+    }
+  },
+  {
+    "id": "vi-work-spoken",
+    "run": 1,
+    "latencyMs": 13586,
+    "usd": 0.01739675,
+    "leaked": [],
+    "highRaw": 1,
+    "checks": {
+      "valid": true,
+      "noLeak": true,
+      "noHighShown": true,
+      "safetyFlag": false
+    },
+    "analysis": {
+      "context": {
+        "register": "Người B xưng \"em\", nói \"vâng\", Người A nói ngắn và ra lệnh. Cách nói nghe như quan hệ cấp trên - cấp dưới ở chỗ làm.",
+        "turns": [
+          {
+            "turnId": "t1",
+            "act": "đánh giá báo cáo và yêu cầu làm lại",
+            "respondsTo": null
+          },
+          {
+            "turnId": "t2",
+            "act": "nhận sửa và hẹn làm trong chiều nay",
+            "respondsTo": "t1"
+          },
+          {
+            "turnId": "t3",
+            "act": "bác thời hạn chiều nay là muộn",
+            "respondsTo": "t2"
+          },
+          {
+            "turnId": "t4",
+            "act": "nhận làm ngay",
+            "respondsTo": "t3"
+          }
+        ],
+        "dynamics": "Người A đưa đánh giá và yêu cầu, Người B nhận và đưa thời hạn. Khi thời hạn bị bác, Người B rút lại và nhận làm ngay. Các đề xuất thời gian đều được đáp lại bằng chuẩn mới và sự tuân theo."
+      },
+      "segments": [
+        {
+          "turnId": "t1",
+          "messageIds": [
+            "m1"
+          ],
+          "splitReason": null,
+          "cues": [
+            "sai hết rồi",
+            "làm lại đi"
+          ],
+          "contextCues": [],
+          "rationale": "Câu này vừa chê kết quả vừa ra lệnh làm lại. Nghe như đặt chuẩn và đóng lại, không hỏi thêm thông tin.",
+          "family": "P",
+          "expression": "CP",
+          "confidence": "medium",
+          "alternative": null,
+          "invites": "C",
+          "secondLayer": null,
+          "id": "s1"
+        },
+        {
+          "turnId": "t2",
+          "messageIds": [
+            "m2"
+          ],
+          "splitReason": null,
+          "cues": [
+            "em sẽ sửa trong chiều nay"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m1",
+              "quote": "báo cáo này sai hết rồi làm lại đi"
+            }
+          ],
+          "rationale": "Câu này nghe như chấp nhận yêu cầu ở trên và đưa ra thời hạn. Có vẻ điều chỉnh theo mong đợi của người kia.",
+          "family": "C",
+          "expression": "AC",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "A",
+            "rationale": "Câu này cũng có thể đọc như nêu kế hoạch thực tế trong chiều nay."
+          },
+          "invites": "A",
+          "secondLayer": null,
+          "id": "s2"
+        },
+        {
+          "turnId": "t3",
+          "messageIds": [
+            "m3"
+          ],
+          "splitReason": null,
+          "cues": [
+            "muộn rồi"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m2",
+              "quote": "em sẽ sửa trong chiều nay"
+            }
+          ],
+          "rationale": "Câu này không đưa thông tin mới mà nghe như đánh giá thời hạn vừa đề xuất là không đạt.",
+          "family": "P",
+          "expression": "CP",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "A",
+            "rationale": "Câu này cũng có thể đọc như báo thông tin về hạn thời gian."
+          },
+          "invites": "C",
+          "secondLayer": null,
+          "id": "s3"
+        },
+        {
+          "turnId": "t4",
+          "messageIds": [
+            "m4"
+          ],
+          "splitReason": null,
+          "cues": [
+            "vâng",
+            "em làm ngay"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m3",
+              "quote": "chiều nay là muộn rồi"
+            }
+          ],
+          "rationale": "Câu này nghe như rút lại hẹn cũ và tuân theo ngay. Từ \"vâng\" và \"làm ngay\" cho thấy sự chiều theo.",
+          "family": "C",
+          "expression": "AC",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "A",
+            "rationale": "Câu này cũng có thể đọc như báo kế hoạch làm ngay lúc này."
+          },
+          "invites": "P",
+          "secondLayer": null,
+          "id": "s4"
+        }
+      ],
+      "shifts": [
+        {
+          "messageId": "m3",
+          "description": "Lời nói chuyển từ nhận sửa theo hẹn sang việc hẹn đó bị coi là muộn.",
+          "cues": [
+            "muộn rồi"
+          ]
+        },
+        {
+          "messageId": "m4",
+          "description": "Lời nói chuyển từ hẹn trong chiều sang nhận làm ngay.",
+          "cues": [
+            "em làm ngay"
+          ]
+        }
+      ],
+      "summary": "Người A liên tục đánh giá và đặt chuẩn thời gian. Người B liên tục nhận và rút ngắn thời hạn từ chiều nay sang làm ngay. Cuộc trao đổi đi theo vòng yêu cầu - tuân theo.",
+      "uncertainty": "Chỉ có chữ viết nên không rõ giọng nói, mặt mũi và việc thật sự có hạn gấp hay không. Lịch sử làm việc trước đó cũng không rõ.",
+      "safety": {
+        "flagged": false,
+        "categories": [],
+        "note": null
+      },
+      "readings": [
+        {
+          "splitReason": null,
+          "cues": [
+            "sai hết rồi",
+            "làm lại đi"
+          ],
+          "contextCues": [],
+          "rationale": "Câu này vừa chê kết quả vừa ra lệnh làm lại. Nghe như đặt chuẩn và đóng lại, không hỏi thêm thông tin.",
+          "family": "P",
+          "expression": "CP",
+          "confidence": "medium",
+          "alternative": null,
+          "invites": "C",
+          "secondLayer": null,
+          "messageId": "m1",
+          "segmentId": "s1"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "em sẽ sửa trong chiều nay"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m1",
+              "quote": "báo cáo này sai hết rồi làm lại đi"
+            }
+          ],
+          "rationale": "Câu này nghe như chấp nhận yêu cầu ở trên và đưa ra thời hạn. Có vẻ điều chỉnh theo mong đợi của người kia.",
+          "family": "C",
+          "expression": "AC",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "A",
+            "rationale": "Câu này cũng có thể đọc như nêu kế hoạch thực tế trong chiều nay."
+          },
+          "invites": "A",
+          "secondLayer": null,
+          "messageId": "m2",
+          "segmentId": "s2"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "muộn rồi"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m2",
+              "quote": "em sẽ sửa trong chiều nay"
+            }
+          ],
+          "rationale": "Câu này không đưa thông tin mới mà nghe như đánh giá thời hạn vừa đề xuất là không đạt.",
+          "family": "P",
+          "expression": "CP",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "A",
+            "rationale": "Câu này cũng có thể đọc như báo thông tin về hạn thời gian."
+          },
+          "invites": "C",
+          "secondLayer": null,
+          "messageId": "m3",
+          "segmentId": "s3"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "vâng",
+            "em làm ngay"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m3",
+              "quote": "chiều nay là muộn rồi"
+            }
+          ],
+          "rationale": "Câu này nghe như rút lại hẹn cũ và tuân theo ngay. Từ \"vâng\" và \"làm ngay\" cho thấy sự chiều theo.",
+          "family": "C",
+          "expression": "AC",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "A",
+            "rationale": "Câu này cũng có thể đọc như báo kế hoạch làm ngay lúc này."
+          },
+          "invites": "P",
+          "secondLayer": null,
+          "messageId": "m4",
+          "segmentId": "s4"
+        }
+      ]
+    }
+  },
+  {
+    "id": "vi-work-spoken",
+    "run": 2,
+    "latencyMs": 8876,
+    "usd": 0.0122075,
+    "leaked": [],
+    "highRaw": 3,
+    "checks": {
+      "valid": true,
+      "noLeak": true,
+      "noHighShown": true,
+      "safetyFlag": false
+    },
+    "analysis": {
+      "context": {
+        "register": "Người B xưng \"em\", nói ngắn và vâng dạ. Cách nói nghe như quan hệ công việc có cấp bậc. Không thấy từ thân mật khác.",
+        "turns": [
+          {
+            "turnId": "t1",
+            "act": "đánh giá báo cáo và yêu cầu làm lại",
+            "respondsTo": null
+          },
+          {
+            "turnId": "t2",
+            "act": "nhận sửa và đưa ra thời hạn trong chiều",
+            "respondsTo": "t1"
+          },
+          {
+            "turnId": "t3",
+            "act": "chê thời hạn đưa ra là muộn",
+            "respondsTo": "t2"
+          },
+          {
+            "turnId": "t4",
+            "act": "nhận làm ngay",
+            "respondsTo": "t3"
+          }
+        ],
+        "dynamics": "Người A đưa ra yêu cầu và đánh giá thời hạn. Người B nhận sửa và rút ngắn thời hạn sau mỗi lượt. Trao đổi đi theo vòng yêu cầu rồi nhận làm, không có thương lượng thêm."
+      },
+      "segments": [
+        {
+          "turnId": "t1",
+          "messageIds": [
+            "m1"
+          ],
+          "splitReason": null,
+          "cues": [
+            "sai hết rồi",
+            "làm lại đi"
+          ],
+          "contextCues": [],
+          "rationale": "Câu này vừa chê kết quả vừa ra lệnh làm lại, nghe như đặt chuẩn và đóng lại việc đánh giá.",
+          "family": "P",
+          "expression": "CP",
+          "confidence": "medium",
+          "alternative": null,
+          "invites": "C",
+          "secondLayer": null,
+          "id": "s1"
+        },
+        {
+          "turnId": "t2",
+          "messageIds": [
+            "m2"
+          ],
+          "splitReason": null,
+          "cues": [
+            "em sẽ sửa trong chiều nay"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m1",
+              "quote": "báo cáo này sai hết rồi làm lại đi"
+            }
+          ],
+          "rationale": "Câu này nghe như thuận theo yêu cầu vừa rồi và nhận làm theo, có xưng \"em\" dạ vâng.",
+          "family": "C",
+          "expression": "AC",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "A",
+            "rationale": "Câu cũng đưa mốc thời gian cụ thể trong chiều nay, nên có thể nghe như nêu kế hoạch."
+          },
+          "invites": "P",
+          "secondLayer": null,
+          "id": "s2"
+        },
+        {
+          "turnId": "t3",
+          "messageIds": [
+            "m3"
+          ],
+          "splitReason": null,
+          "cues": [
+            "muộn rồi"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m2",
+              "quote": "em sẽ sửa trong chiều nay"
+            }
+          ],
+          "rationale": "Câu không hỏi thêm mà nghe như gạt đi mốc thời gian vừa đề xuất vì cho là trễ.",
+          "family": "P",
+          "expression": "CP",
+          "confidence": "medium",
+          "alternative": null,
+          "invites": "C",
+          "secondLayer": null,
+          "id": "s3"
+        },
+        {
+          "turnId": "t4",
+          "messageIds": [
+            "m4"
+          ],
+          "splitReason": null,
+          "cues": [
+            "vâng",
+            "em làm ngay"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m3",
+              "quote": "chiều nay là muộn rồi"
+            }
+          ],
+          "rationale": "Câu nghe như thuận theo ngay sau lời chê muộn, rút lại mốc cũ và nhận làm luôn.",
+          "family": "C",
+          "expression": "AC",
+          "confidence": "medium",
+          "alternative": null,
+          "invites": "P",
+          "secondLayer": null,
+          "id": "s4"
+        }
+      ],
+      "shifts": [
+        {
+          "messageId": "m3",
+          "description": "Từ nhận mốc chiều nay, lời nói chuyển sang chê mốc đó là muộn.",
+          "cues": [
+            "muộn rồi"
+          ]
+        }
+      ],
+      "summary": "Người A yêu cầu làm lại rồi bác thời hạn chiều nay. Người B từ hẹn chiều chuyển sang nhận làm ngay. Cuộc trao đổi ngắn, đi thẳng từ yêu cầu đến nhận làm.",
+      "uncertainty": "Chỉ có chữ trong tin nhắn nên không rõ giọng nói, mặt mũi lúc họp sáng nay và việc gấp đến mức nào.",
+      "safety": {
+        "flagged": false,
+        "categories": [],
+        "note": null
+      },
+      "readings": [
+        {
+          "splitReason": null,
+          "cues": [
+            "sai hết rồi",
+            "làm lại đi"
+          ],
+          "contextCues": [],
+          "rationale": "Câu này vừa chê kết quả vừa ra lệnh làm lại, nghe như đặt chuẩn và đóng lại việc đánh giá.",
+          "family": "P",
+          "expression": "CP",
+          "confidence": "medium",
+          "alternative": null,
+          "invites": "C",
+          "secondLayer": null,
+          "messageId": "m1",
+          "segmentId": "s1"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "em sẽ sửa trong chiều nay"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m1",
+              "quote": "báo cáo này sai hết rồi làm lại đi"
+            }
+          ],
+          "rationale": "Câu này nghe như thuận theo yêu cầu vừa rồi và nhận làm theo, có xưng \"em\" dạ vâng.",
+          "family": "C",
+          "expression": "AC",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "A",
+            "rationale": "Câu cũng đưa mốc thời gian cụ thể trong chiều nay, nên có thể nghe như nêu kế hoạch."
+          },
+          "invites": "P",
+          "secondLayer": null,
+          "messageId": "m2",
+          "segmentId": "s2"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "muộn rồi"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m2",
+              "quote": "em sẽ sửa trong chiều nay"
+            }
+          ],
+          "rationale": "Câu không hỏi thêm mà nghe như gạt đi mốc thời gian vừa đề xuất vì cho là trễ.",
+          "family": "P",
+          "expression": "CP",
+          "confidence": "medium",
+          "alternative": null,
+          "invites": "C",
+          "secondLayer": null,
+          "messageId": "m3",
+          "segmentId": "s3"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "vâng",
+            "em làm ngay"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m3",
+              "quote": "chiều nay là muộn rồi"
+            }
+          ],
+          "rationale": "Câu nghe như thuận theo ngay sau lời chê muộn, rút lại mốc cũ và nhận làm luôn.",
+          "family": "C",
+          "expression": "AC",
+          "confidence": "medium",
+          "alternative": null,
+          "invites": "P",
+          "secondLayer": null,
+          "messageId": "m4",
+          "segmentId": "s4"
+        }
+      ]
+    }
+  },
+  {
+    "id": "en-roommate",
+    "run": 1,
+    "latencyMs": 11575,
+    "usd": 0.0145675,
+    "leaked": [],
+    "highRaw": 0,
+    "checks": {
+      "valid": true,
+      "noLeak": true,
+      "noHighShown": true,
+      "safetyFlag": false
+    },
+    "analysis": {
+      "context": {
+        "register": "No familiar address or closeness markers are visible. Wording is short and polite on the surface, which fits roommates speaking in neutral terms.",
+        "turns": [
+          {
+            "turnId": "t1",
+            "act": "makes a polite request about cleaning",
+            "respondsTo": null
+          },
+          {
+            "turnId": "t2",
+            "act": "answers with a fact about past cleaning",
+            "respondsTo": "t1"
+          },
+          {
+            "turnId": "t3",
+            "act": "states how long the mess has lasted",
+            "respondsTo": "t2"
+          },
+          {
+            "turnId": "t4",
+            "act": "gives a very short closing reply",
+            "respondsTo": "t3"
+          }
+        ],
+        "dynamics": "Person A makes a request about the kitchen and follows it with a fact about timing. Person B answers with a fact about past cleaning and then with a very short reply. The exchange moves from a specific request to countering facts and then to a brief closing."
+      },
+      "segments": [
+        {
+          "turnId": "t1",
+          "messageIds": [
+            "m1"
+          ],
+          "splitReason": null,
+          "cues": [
+            "Could you please clean the kitchen tonight?"
+          ],
+          "contextCues": [],
+          "rationale": "Can read as a plain here-and-now proposal about cleaning, without evaluation of the other person.",
+          "family": "A",
+          "expression": "A",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "CP",
+            "rationale": "It also tells the other person what to do, which can read as setting a standard."
+          },
+          "invites": "C",
+          "secondLayer": null,
+          "id": "s1"
+        },
+        {
+          "turnId": "t2",
+          "messageIds": [
+            "m2"
+          ],
+          "splitReason": null,
+          "cues": [
+            "I cleaned it last week."
+          ],
+          "contextCues": [
+            {
+              "messageId": "m1",
+              "quote": "Could you please clean the kitchen tonight?"
+            }
+          ],
+          "rationale": "Can read as giving a factual reply that is relevant to who should clean.",
+          "family": "A",
+          "expression": "A",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "AC",
+            "rationale": "In context it can also read as pushback against the request by giving a reason it should not apply."
+          },
+          "invites": "A",
+          "secondLayer": null,
+          "id": "s2"
+        },
+        {
+          "turnId": "t3",
+          "messageIds": [
+            "m3"
+          ],
+          "splitReason": null,
+          "cues": [
+            "It's been a mess since Monday."
+          ],
+          "contextCues": [
+            {
+              "messageId": "m2",
+              "quote": "I cleaned it last week."
+            }
+          ],
+          "rationale": "Can read as adding a timeline fact about the kitchen, without naming the other person.",
+          "family": "A",
+          "expression": "A",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "CP",
+            "rationale": "Placed after the claim of past cleaning, it can also read as correcting that claim."
+          },
+          "invites": "A",
+          "secondLayer": null,
+          "id": "s3"
+        },
+        {
+          "turnId": "t4",
+          "messageIds": [
+            "m4"
+          ],
+          "splitReason": null,
+          "cues": [
+            "Fine.",
+            "Whatever"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m3",
+              "quote": "It's been a mess since Monday."
+            }
+          ],
+          "rationale": "Can read as going along in words while withdrawing from discussion.",
+          "family": "C",
+          "expression": "AC",
+          "confidence": "low",
+          "alternative": {
+            "expression": "A",
+            "rationale": "The words alone could be plain agreement, without more text to settle it."
+          },
+          "invites": "UNCLEAR",
+          "secondLayer": {
+            "observation": "Agreement in \"Fine.\" sits next to dismissal in \"Whatever\" within the same short reply.",
+            "cues": [
+              "Fine.",
+              "Whatever"
+            ]
+          },
+          "id": "s4"
+        }
+      ],
+      "shifts": [
+        {
+          "messageId": "m4",
+          "description": "The wording shifts from back-and-forth facts to a very short reply that closes the topic.",
+          "cues": [
+            "Fine.",
+            "Whatever"
+          ]
+        }
+      ],
+      "summary": "A request about the kitchen is met with countering facts about when it was cleaned and how long it has been messy. The exchange then ends with a brief reply that agrees in words but does not continue discussion. Text alone leaves the tone of that closing unsettled.",
+      "uncertainty": "Tone of voice, facial cues, roommate history, and what happened around the kitchen are not visible in the text, so firmer readings would need more context.",
+      "safety": {
+        "flagged": false,
+        "categories": [],
+        "note": null
+      },
+      "readings": [
+        {
+          "splitReason": null,
+          "cues": [
+            "Could you please clean the kitchen tonight?"
+          ],
+          "contextCues": [],
+          "rationale": "Can read as a plain here-and-now proposal about cleaning, without evaluation of the other person.",
+          "family": "A",
+          "expression": "A",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "CP",
+            "rationale": "It also tells the other person what to do, which can read as setting a standard."
+          },
+          "invites": "C",
+          "secondLayer": null,
+          "messageId": "m1",
+          "segmentId": "s1"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "I cleaned it last week."
+          ],
+          "contextCues": [
+            {
+              "messageId": "m1",
+              "quote": "Could you please clean the kitchen tonight?"
+            }
+          ],
+          "rationale": "Can read as giving a factual reply that is relevant to who should clean.",
+          "family": "A",
+          "expression": "A",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "AC",
+            "rationale": "In context it can also read as pushback against the request by giving a reason it should not apply."
+          },
+          "invites": "A",
+          "secondLayer": null,
+          "messageId": "m2",
+          "segmentId": "s2"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "It's been a mess since Monday."
+          ],
+          "contextCues": [
+            {
+              "messageId": "m2",
+              "quote": "I cleaned it last week."
+            }
+          ],
+          "rationale": "Can read as adding a timeline fact about the kitchen, without naming the other person.",
+          "family": "A",
+          "expression": "A",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "CP",
+            "rationale": "Placed after the claim of past cleaning, it can also read as correcting that claim."
+          },
+          "invites": "A",
+          "secondLayer": null,
+          "messageId": "m3",
+          "segmentId": "s3"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "Fine.",
+            "Whatever"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m3",
+              "quote": "It's been a mess since Monday."
+            }
+          ],
+          "rationale": "Can read as going along in words while withdrawing from discussion.",
+          "family": "C",
+          "expression": "AC",
+          "confidence": "low",
+          "alternative": {
+            "expression": "A",
+            "rationale": "The words alone could be plain agreement, without more text to settle it."
+          },
+          "invites": "UNCLEAR",
+          "secondLayer": {
+            "observation": "Agreement in \"Fine.\" sits next to dismissal in \"Whatever\" within the same short reply.",
+            "cues": [
+              "Fine.",
+              "Whatever"
+            ]
+          },
+          "messageId": "m4",
+          "segmentId": "s4"
+        }
+      ]
+    }
+  },
+  {
+    "id": "en-roommate",
+    "run": 2,
+    "latencyMs": 8926,
+    "usd": 0.01001535,
+    "leaked": [],
+    "highRaw": 1,
+    "checks": {
+      "valid": true,
+      "noLeak": true,
+      "noHighShown": true,
+      "safetyFlag": false
+    },
+    "analysis": {
+      "context": {
+        "register": "No closeness markers or address terms are visible. Wording is brief and polite in t1 (\"Could you please\"), which suggests a distant or roommate-style exchange.",
+        "turns": [
+          {
+            "turnId": "t1",
+            "act": "requests cleaning for tonight",
+            "respondsTo": null
+          },
+          {
+            "turnId": "t2",
+            "act": "states past cleaning",
+            "respondsTo": "t1"
+          },
+          {
+            "turnId": "t3",
+            "act": "notes how long the mess has lasted",
+            "respondsTo": "t2"
+          },
+          {
+            "turnId": "t4",
+            "act": "gives a brief closing reply",
+            "respondsTo": "t3"
+          }
+        ],
+        "dynamics": "Person A makes a request about the kitchen, and Person B answers with a past fact. Person A then adds another fact about the timing, and Person B replies with a short closing. Suggestions and facts are followed by brief counter-facts rather than joint planning."
+      },
+      "segments": [
+        {
+          "turnId": "t1",
+          "messageIds": [
+            "m1"
+          ],
+          "splitReason": null,
+          "cues": [
+            "Could you please clean the kitchen tonight?"
+          ],
+          "contextCues": [],
+          "rationale": "The words make a specific, here-and-now request with time and task, which can read as Adult planning.",
+          "family": "A",
+          "expression": "A",
+          "confidence": "medium",
+          "alternative": null,
+          "invites": "A",
+          "secondLayer": null,
+          "id": "s1"
+        },
+        {
+          "turnId": "t2",
+          "messageIds": [
+            "m2"
+          ],
+          "splitReason": null,
+          "cues": [
+            "I cleaned it last week."
+          ],
+          "contextCues": [
+            {
+              "messageId": "m1",
+              "quote": "Could you please clean the kitchen tonight?"
+            }
+          ],
+          "rationale": "The words state a past fact about cleaning, which can read as Adult reality-testing in answer to the request.",
+          "family": "A",
+          "expression": "A",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "AC",
+            "rationale": "In context of a request, stating past cleaning could also read as pushback that resists the request."
+          },
+          "invites": "A",
+          "secondLayer": null,
+          "id": "s2"
+        },
+        {
+          "turnId": "t3",
+          "messageIds": [
+            "m3"
+          ],
+          "splitReason": null,
+          "cues": [
+            "It's been a mess since Monday."
+          ],
+          "contextCues": [
+            {
+              "messageId": "m2",
+              "quote": "I cleaned it last week."
+            }
+          ],
+          "rationale": "The words add a time-anchored fact about the kitchen, which can read as Adult information.",
+          "family": "A",
+          "expression": "A",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "CP",
+            "rationale": "Placed after the claim of past cleaning, it could also read as pointing out a fault."
+          },
+          "invites": "A",
+          "secondLayer": null,
+          "id": "s3"
+        },
+        {
+          "turnId": "t4",
+          "messageIds": [
+            "m4"
+          ],
+          "splitReason": null,
+          "cues": [
+            "Fine.",
+            "Whatever"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m3",
+              "quote": "It's been a mess since Monday."
+            }
+          ],
+          "rationale": "The brief reply can read as reluctant going-along with withdrawal after the prior exchange.",
+          "family": "C",
+          "expression": "AC",
+          "confidence": "low",
+          "alternative": {
+            "expression": "FC",
+            "rationale": "If read without deference to the request, the same short words could read as blunt dismissal."
+          },
+          "invites": "UNCLEAR",
+          "secondLayer": {
+            "observation": "An agreeing word \"Fine.\" sits next to a dismissive word \"Whatever\" in the same short reply.",
+            "cues": [
+              "Fine.",
+              "Whatever"
+            ]
+          },
+          "id": "s4"
+        }
+      ],
+      "shifts": [
+        {
+          "messageId": "m2",
+          "description": "The words move from a request for tonight to a statement about last week.",
+          "cues": [
+            "I cleaned it last week."
+          ]
+        },
+        {
+          "messageId": "m4",
+          "description": "The words move from factual exchange to a short closing reply.",
+          "cues": [
+            "Fine.",
+            "Whatever"
+          ]
+        }
+      ],
+      "summary": "The conversation starts with a clear request and continues with two opposing facts about cleaning. It ends with a very short reply that does not add information or a plan. The exchange stays brief throughout, with no joint next step stated in the words.",
+      "uncertainty": "Text alone cannot show tone of voice, facial expression, or history between roommates. It also cannot show what happened in the kitchen or who usually cleans.",
+      "safety": {
+        "flagged": false,
+        "categories": [],
+        "note": null
+      },
+      "readings": [
+        {
+          "splitReason": null,
+          "cues": [
+            "Could you please clean the kitchen tonight?"
+          ],
+          "contextCues": [],
+          "rationale": "The words make a specific, here-and-now request with time and task, which can read as Adult planning.",
+          "family": "A",
+          "expression": "A",
+          "confidence": "medium",
+          "alternative": null,
+          "invites": "A",
+          "secondLayer": null,
+          "messageId": "m1",
+          "segmentId": "s1"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "I cleaned it last week."
+          ],
+          "contextCues": [
+            {
+              "messageId": "m1",
+              "quote": "Could you please clean the kitchen tonight?"
+            }
+          ],
+          "rationale": "The words state a past fact about cleaning, which can read as Adult reality-testing in answer to the request.",
+          "family": "A",
+          "expression": "A",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "AC",
+            "rationale": "In context of a request, stating past cleaning could also read as pushback that resists the request."
+          },
+          "invites": "A",
+          "secondLayer": null,
+          "messageId": "m2",
+          "segmentId": "s2"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "It's been a mess since Monday."
+          ],
+          "contextCues": [
+            {
+              "messageId": "m2",
+              "quote": "I cleaned it last week."
+            }
+          ],
+          "rationale": "The words add a time-anchored fact about the kitchen, which can read as Adult information.",
+          "family": "A",
+          "expression": "A",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "CP",
+            "rationale": "Placed after the claim of past cleaning, it could also read as pointing out a fault."
+          },
+          "invites": "A",
+          "secondLayer": null,
+          "messageId": "m3",
+          "segmentId": "s3"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "Fine.",
+            "Whatever"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m3",
+              "quote": "It's been a mess since Monday."
+            }
+          ],
+          "rationale": "The brief reply can read as reluctant going-along with withdrawal after the prior exchange.",
+          "family": "C",
+          "expression": "AC",
+          "confidence": "low",
+          "alternative": {
+            "expression": "FC",
+            "rationale": "If read without deference to the request, the same short words could read as blunt dismissal."
+          },
+          "invites": "UNCLEAR",
+          "secondLayer": {
+            "observation": "An agreeing word \"Fine.\" sits next to a dismissive word \"Whatever\" in the same short reply.",
+            "cues": [
+              "Fine.",
+              "Whatever"
+            ]
+          },
+          "messageId": "m4",
+          "segmentId": "s4"
+        }
+      ]
+    }
+  },
+  {
+    "id": "en-dad",
+    "run": 1,
+    "latencyMs": 9847,
+    "usd": 0.013726750000000001,
+    "leaked": [],
+    "highRaw": 0,
+    "checks": {
+      "valid": true,
+      "noLeak": true,
+      "noHighShown": true,
+      "safetyFlag": false
+    },
+    "analysis": {
+      "context": {
+        "register": "No kin terms or softeners are visible in the words, only short direct sentences. The background note says the exchange involves a dad and an exam result, which can help place the questions and the request to delay.",
+        "turns": [
+          {
+            "turnId": "t1",
+            "act": "asks how it happened and notes the earlier claim of studying",
+            "respondsTo": null
+          },
+          {
+            "turnId": "t2",
+            "act": "says study happened and describes the questions as hard",
+            "respondsTo": "t1"
+          },
+          {
+            "turnId": "t3",
+            "act": "asks a question that questions the hardship claim",
+            "respondsTo": "t2"
+          },
+          {
+            "turnId": "t4",
+            "act": "asks to postpone the talk until tomorrow",
+            "respondsTo": "t3"
+          }
+        ],
+        "dynamics": "Person A asks questions that check Person B's account, and Person B gives brief explanations. After two rounds of question and answer, Person B asks to pause until tomorrow. Both sides stay short and no plan or new information is developed."
+      },
+      "segments": [
+        {
+          "turnId": "t1",
+          "messageIds": [
+            "m1"
+          ],
+          "splitReason": null,
+          "cues": [
+            "How did this happen?",
+            "You told me you studied."
+          ],
+          "contextCues": [],
+          "rationale": "The second sentence does not only ask for facts, it can read as checking Person B against a prior statement.",
+          "family": "P",
+          "expression": "CP",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "A",
+            "rationale": "It could also read as information-seeking about what happened, but the second sentence points back to an inconsistency."
+          },
+          "invites": "C",
+          "secondLayer": null,
+          "id": "s1"
+        },
+        {
+          "turnId": "t2",
+          "messageIds": [
+            "m2"
+          ],
+          "splitReason": null,
+          "cues": [
+            "I did study,",
+            "the questions were really hard."
+          ],
+          "contextCues": [
+            {
+              "messageId": "m1",
+              "quote": "You told me you studied."
+            }
+          ],
+          "rationale": "The words give a short counter-statement and a reason tied to the exam itself, which can read as Adult reality-testing.",
+          "family": "A",
+          "expression": "A",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "AC",
+            "rationale": "It could also read as justifying under questioning, but the wording itself stays as a brief factual account."
+          },
+          "invites": "A",
+          "secondLayer": null,
+          "id": "s2"
+        },
+        {
+          "turnId": "t3",
+          "messageIds": [
+            "m3"
+          ],
+          "splitReason": null,
+          "cues": [
+            "Hard for everyone, or just for you?"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m2",
+              "quote": "the questions were really hard."
+            }
+          ],
+          "rationale": "The question does not ask what was hard, it can read as evaluating whether the hardship claim applies.",
+          "family": "P",
+          "expression": "CP",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "A",
+            "rationale": "It is shaped as a choice question, but the contrast can read as doubt rather than neutral information-seeking."
+          },
+          "invites": "C",
+          "secondLayer": null,
+          "id": "s3"
+        },
+        {
+          "turnId": "t4",
+          "messageIds": [
+            "m4"
+          ],
+          "splitReason": null,
+          "cues": [
+            "Can we talk about it tomorrow?"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m3",
+              "quote": "Hard for everyone, or just for you?"
+            }
+          ],
+          "rationale": "The words step back from answering and ask for delay, which can read as withdrawing from the exchange.",
+          "family": "C",
+          "expression": "AC",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "A",
+            "rationale": "It is also a plain proposal about timing, but it follows critical questions and holds back from the current topic."
+          },
+          "invites": "P",
+          "secondLayer": null,
+          "id": "s4"
+        }
+      ],
+      "shifts": [
+        {
+          "messageId": "m3",
+          "description": "The words move from asking about the result to questioning Person B's explanation.",
+          "cues": [
+            "Hard for everyone, or just for you?"
+          ]
+        },
+        {
+          "messageId": "m4",
+          "description": "The words move from answering the question to asking to pause the discussion.",
+          "cues": [
+            "Can we talk about it tomorrow?"
+          ]
+        }
+      ],
+      "summary": "Person A keeps asking pointed questions about studying and difficulty, and Person B keeps answers short. No details, options, or next steps are discussed. The exchange ends with Person B asking to continue another day.",
+      "uncertainty": "Text alone cannot show tone of voice, facial cues, past history around exams, or what happened outside this short exchange.",
+      "safety": {
+        "flagged": false,
+        "categories": [],
+        "note": null
+      },
+      "readings": [
+        {
+          "splitReason": null,
+          "cues": [
+            "How did this happen?",
+            "You told me you studied."
+          ],
+          "contextCues": [],
+          "rationale": "The second sentence does not only ask for facts, it can read as checking Person B against a prior statement.",
+          "family": "P",
+          "expression": "CP",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "A",
+            "rationale": "It could also read as information-seeking about what happened, but the second sentence points back to an inconsistency."
+          },
+          "invites": "C",
+          "secondLayer": null,
+          "messageId": "m1",
+          "segmentId": "s1"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "I did study,",
+            "the questions were really hard."
+          ],
+          "contextCues": [
+            {
+              "messageId": "m1",
+              "quote": "You told me you studied."
+            }
+          ],
+          "rationale": "The words give a short counter-statement and a reason tied to the exam itself, which can read as Adult reality-testing.",
+          "family": "A",
+          "expression": "A",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "AC",
+            "rationale": "It could also read as justifying under questioning, but the wording itself stays as a brief factual account."
+          },
+          "invites": "A",
+          "secondLayer": null,
+          "messageId": "m2",
+          "segmentId": "s2"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "Hard for everyone, or just for you?"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m2",
+              "quote": "the questions were really hard."
+            }
+          ],
+          "rationale": "The question does not ask what was hard, it can read as evaluating whether the hardship claim applies.",
+          "family": "P",
+          "expression": "CP",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "A",
+            "rationale": "It is shaped as a choice question, but the contrast can read as doubt rather than neutral information-seeking."
+          },
+          "invites": "C",
+          "secondLayer": null,
+          "messageId": "m3",
+          "segmentId": "s3"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "Can we talk about it tomorrow?"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m3",
+              "quote": "Hard for everyone, or just for you?"
+            }
+          ],
+          "rationale": "The words step back from answering and ask for delay, which can read as withdrawing from the exchange.",
+          "family": "C",
+          "expression": "AC",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "A",
+            "rationale": "It is also a plain proposal about timing, but it follows critical questions and holds back from the current topic."
+          },
+          "invites": "P",
+          "secondLayer": null,
+          "messageId": "m4",
+          "segmentId": "s4"
+        }
+      ]
+    }
+  },
+  {
+    "id": "en-dad",
+    "run": 2,
+    "latencyMs": 8348,
+    "usd": 0.0090811,
+    "leaked": [],
+    "highRaw": 2,
+    "checks": {
+      "valid": true,
+      "noLeak": true,
+      "noHighShown": true,
+      "safetyFlag": false
+    },
+    "analysis": {
+      "context": {
+        "register": "No closeness markers or address terms are visible; wording is short and neutral with \"you\" and \"I\". The factual note mentions an exam talk and disappointment from a father.",
+        "turns": [
+          {
+            "turnId": "t1",
+            "act": "asks what happened and points to prior statement about studying",
+            "respondsTo": null
+          },
+          {
+            "turnId": "t2",
+            "act": "confirms effort and points to hard questions",
+            "respondsTo": "t1"
+          },
+          {
+            "turnId": "t3",
+            "act": "asks a pointed question about the difficulty",
+            "respondsTo": "t2"
+          },
+          {
+            "turnId": "t4",
+            "act": "requests to postpone the talk",
+            "respondsTo": "t3"
+          }
+        ],
+        "dynamics": "Person A asks pointed questions about the exam, Person B gives short explanations and then asks to pause. Each answer is met with another questioning turn, and the exchange moves toward postponement."
+      },
+      "segments": [
+        {
+          "turnId": "t1",
+          "messageIds": [
+            "m1"
+          ],
+          "splitReason": null,
+          "cues": [
+            "How did this happen?",
+            "You told me you studied."
+          ],
+          "contextCues": [],
+          "rationale": "The second sentence points back to what was said before and can read as checking consistency rather than asking for new information.",
+          "family": "P",
+          "expression": "CP",
+          "confidence": "medium",
+          "alternative": null,
+          "invites": "C",
+          "secondLayer": null,
+          "id": "s1"
+        },
+        {
+          "turnId": "t2",
+          "messageIds": [
+            "m2"
+          ],
+          "splitReason": null,
+          "cues": [
+            "I did study",
+            "the questions were really hard."
+          ],
+          "contextCues": [
+            {
+              "messageId": "m1",
+              "quote": "You told me you studied."
+            }
+          ],
+          "rationale": "It answers the prior question with a brief justification and points to outside difficulty, which can read as defending under questioning.",
+          "family": "C",
+          "expression": "AC",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "A",
+            "rationale": "It could also read as a plain factual report about effort and the test."
+          },
+          "invites": "P",
+          "secondLayer": null,
+          "id": "s2"
+        },
+        {
+          "turnId": "t3",
+          "messageIds": [
+            "m3"
+          ],
+          "splitReason": null,
+          "cues": [
+            "Hard for everyone, or just for you?"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m2",
+              "quote": "the questions were really hard."
+            }
+          ],
+          "rationale": "The question does not ask for information about the test and can read as doubting the prior explanation.",
+          "family": "P",
+          "expression": "CP",
+          "confidence": "medium",
+          "alternative": null,
+          "invites": "C",
+          "secondLayer": null,
+          "id": "s3"
+        },
+        {
+          "turnId": "t4",
+          "messageIds": [
+            "m4"
+          ],
+          "splitReason": null,
+          "cues": [
+            "Can we talk about it tomorrow?"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m3",
+              "quote": "Hard for everyone, or just for you?"
+            }
+          ],
+          "rationale": "After two pointed questions, asking to delay can read as holding back and stepping out of the exchange for now.",
+          "family": "C",
+          "expression": "AC",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "A",
+            "rationale": "It could also read as a neutral proposal to choose a later time to talk."
+          },
+          "invites": "P",
+          "secondLayer": null,
+          "id": "s4"
+        }
+      ],
+      "shifts": [
+        {
+          "messageId": "m3",
+          "description": "The wording shifts from asking what happened to directly questioning the explanation.",
+          "cues": [
+            "Hard for everyone, or just for you?"
+          ]
+        },
+        {
+          "messageId": "m4",
+          "description": "The wording shifts from answering to requesting a pause.",
+          "cues": [
+            "Can we talk about it tomorrow?"
+          ]
+        }
+      ],
+      "summary": "Person A questions Person B about the exam result and then about the claim that questions were hard. Person B briefly defends the effort and then asks to continue tomorrow. The exchange narrows from explanation to postponement.",
+      "uncertainty": "Text alone cannot show tone of voice, facial expression, history between them, or what happened in the exam itself.",
+      "safety": {
+        "flagged": false,
+        "categories": [],
+        "note": null
+      },
+      "readings": [
+        {
+          "splitReason": null,
+          "cues": [
+            "How did this happen?",
+            "You told me you studied."
+          ],
+          "contextCues": [],
+          "rationale": "The second sentence points back to what was said before and can read as checking consistency rather than asking for new information.",
+          "family": "P",
+          "expression": "CP",
+          "confidence": "medium",
+          "alternative": null,
+          "invites": "C",
+          "secondLayer": null,
+          "messageId": "m1",
+          "segmentId": "s1"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "I did study",
+            "the questions were really hard."
+          ],
+          "contextCues": [
+            {
+              "messageId": "m1",
+              "quote": "You told me you studied."
+            }
+          ],
+          "rationale": "It answers the prior question with a brief justification and points to outside difficulty, which can read as defending under questioning.",
+          "family": "C",
+          "expression": "AC",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "A",
+            "rationale": "It could also read as a plain factual report about effort and the test."
+          },
+          "invites": "P",
+          "secondLayer": null,
+          "messageId": "m2",
+          "segmentId": "s2"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "Hard for everyone, or just for you?"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m2",
+              "quote": "the questions were really hard."
+            }
+          ],
+          "rationale": "The question does not ask for information about the test and can read as doubting the prior explanation.",
+          "family": "P",
+          "expression": "CP",
+          "confidence": "medium",
+          "alternative": null,
+          "invites": "C",
+          "secondLayer": null,
+          "messageId": "m3",
+          "segmentId": "s3"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "Can we talk about it tomorrow?"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m3",
+              "quote": "Hard for everyone, or just for you?"
+            }
+          ],
+          "rationale": "After two pointed questions, asking to delay can read as holding back and stepping out of the exchange for now.",
+          "family": "C",
+          "expression": "AC",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "A",
+            "rationale": "It could also read as a neutral proposal to choose a later time to talk."
+          },
+          "invites": "P",
+          "secondLayer": null,
+          "messageId": "m4",
+          "segmentId": "s4"
+        }
+      ]
+    }
+  }
+]

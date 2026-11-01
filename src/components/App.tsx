@@ -4,7 +4,8 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { DICTS } from "@/lib/i18n";
 import { analysisKey, toAnalyzeRequest } from "@/lib/conversation";
-import { cleanAnalysis } from "@/lib/ai/analysis";
+import { capForStory, cleanAnalysis } from "@/lib/ai/analysis";
+import { storyContext } from "@/lib/story";
 import { analysisLabels } from "@/lib/ai/analysis-spec";
 import { SAMPLES } from "@/lib/samples";
 import { analyzeEstimate } from "@/lib/wait";
@@ -62,7 +63,7 @@ export function App() {
 
   const analyze = useCallback(async () => {
     if (!s.transcript) return;
-    const req = toAnalyzeRequest(s.transcript, s.selfId, lang);
+    const req = toAnalyzeRequest(s.transcript, s.selfId, lang, storyContext(s.transcript, lang));
     const key = analysisKey(req);
     const last = s.lastResult;
     if (last?.key === key) {
@@ -84,7 +85,8 @@ export function App() {
       });
       const json = await res.json().catch(() => ({}));
       if (!res.ok) return update({ screen: "error", error: errorCode(res.status, json) });
-      const analysis = json.analysis as Analysis, labels = json.labels ?? {};
+      const raw = json.analysis as Analysis, labels = json.labels ?? {};
+      const analysis = s.transcript.source === "story" ? capForStory(raw) : raw;
       update({ screen: "replay", analysis, labels, sample: false, lastResult: { key, selfId: s.selfId, analysis, labels } });
       window.scrollTo({ top: 0 });
     } catch (e) {

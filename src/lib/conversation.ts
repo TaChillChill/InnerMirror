@@ -7,7 +7,11 @@ export type Lang = "en" | "vi";
 export type Legibility = "clear" | "partial" | "unreadable";
 export type Participant = { id: string; name: string };
 export type Message = { id: string; speakerId: string; text: string; legibility?: Legibility };
-export type Transcript = { source: "paste" | "screenshot"; participants: Participant[]; messages: Message[] };
+// A retold story (U3) keeps the narrator's own lines apart from what people said: only
+// messages are read for ego states; narration goes to the model as background context.
+// `before` is the id of the message the line comes before (null = after the last one).
+export type Narration = { id: string; text: string; before: string | null };
+export type Transcript = { source: "paste" | "screenshot" | "story"; participants: Participant[]; messages: Message[]; narration?: Narration[] };
 
 export const LIMITS = { minMessages: 2, maxMessages: 80, maxMessageChars: 2000, maxTotalChars: 20000, maxParticipants: 8, maxNameChars: 40 };
 
@@ -121,6 +125,8 @@ export const analyzeRequestSchema = z.object({
   messages: z.array(z.object({ id, speakerId: id, text: z.string().trim().min(1).max(LIMITS.maxMessageChars) }))
     .min(LIMITS.minMessages).max(LIMITS.maxMessages),
   consent: z.literal(true),
+  // A retold story's narration (U3), sent as the analysis input's background context.
+  context: z.object({ relationship: z.literal("other"), note: z.string().trim().min(1).max(2000) }).optional(),
 }).superRefine((req, ctx) => {
   const known = new Set(req.participantIds);
   if (req.selfId && !known.has(req.selfId)) ctx.addIssue({ code: "custom", message: "selfId is not a participant" });
@@ -130,10 +136,11 @@ export const analyzeRequestSchema = z.object({
 });
 export type AnalyzeRequest = z.infer<typeof analyzeRequestSchema>;
 
-export function toAnalyzeRequest(t: Transcript, selfId: string | null, language: Lang): AnalyzeRequest {
+export function toAnalyzeRequest(t: Transcript, selfId: string | null, language: Lang, narration: string | null = null): AnalyzeRequest {
   const used = new Set(t.messages.map((m) => m.speakerId).concat(selfId ?? []));
   return {
     language, consent: true, ...(selfId ? { selfId } : {}),
+    ...(narration ? { context: { relationship: "other" as const, note: narration } } : {}),
     participantIds: t.participants.map((p) => p.id).filter((pid) => used.has(pid)),
     messages: t.messages.map(({ id, speakerId, text }) => ({ id, speakerId, text: text.trim() })).filter((m) => m.text),
   };
@@ -146,7 +153,7 @@ export function toAnalyzeRequest(t: Transcript, selfId: string | null, language:
  */
 export function analysisKey(req: AnalyzeRequest): string {
   const speaking = new Set(req.messages.map((m) => m.speakerId));
-  return JSON.stringify([req.language, req.participantIds.filter((p) => speaking.has(p)), req.messages.map((m) => [m.id, m.speakerId, m.text])]);
+  return JSON.stringify([req.language, req.participantIds.filter((p) => speaking.has(p)), req.messages.map((m) => [m.id, m.speakerId, m.text]), req.context?.note ?? null]);
 }
 
 export type ReviewProblem = "tooFew" | "tooMany" | "tooLong" | "emptyMessage" | null;

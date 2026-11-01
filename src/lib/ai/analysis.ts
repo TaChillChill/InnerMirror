@@ -151,3 +151,12 @@ export function arcOf(a: Analysis, max = 3): string[] {
   }
   return out.slice(0, max);
 }
+
+/**
+ * A retold story is the narrator's memory of what was said, not the words themselves, so no
+ * reading of it is shown as high confidence (U3, N4). Labels never change.
+ */
+export function capForStory(a: Analysis): Analysis {
+  const cap = <T extends { confidence: "low" | "medium" | "high" }>(x: T): T => (x.confidence === "high" ? { ...x, confidence: "medium" } : x);
+  return { ...a, segments: a.segments.map(cap), readings: a.readings.map(cap) };
+}
