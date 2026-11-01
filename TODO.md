@@ -6,6 +6,7 @@ Session state and next actions. Stable rules live in `CLAUDE.md`. Overwrite this
 **Phase 1 — Functional MVP, UAT round 4 (CONDITIONAL GO, 2026-11-01).** Plan and decisions: `docs/UAT_EXECUTION_PLAN.md` §7. Feature freeze Nov 3, 18:00 ICT; internal submit Nov 4, 22:00 ICT. Everything is local commits: nothing pushed or deployed since the protected Preview.
 
 ## Current status (2026-11-01, Founder UAT fix sprint)
+- **Preview deployed (Founder GO, 2026-11-02):** `289a1e4` → https://innermirror-jbj4lc6gz-tachillchills-projects.vercel.app, protected (SSO). Next: Founder iPhone UAT (`docs/RELEASE_READINESS.md` §7.1), Q15 → judge access (§7.2). Production NO-GO until then.
 - **Founder UAT batch 3 fixed (`72d439a`, `1d13015`):** screenshot Review advice folds, title = people + number (privacy copy updated: names can be saved inside a title), device language on first visit. Details: `docs/UAT_FIX_SPRINT.md` (Batch 3). Release gate: Founder iPhone UAT (incl. batch 2 #04 Save) → release decision.
 - **Founder UAT batch 2 (5 issues) fixed, `408419e`:** P0 Save on iPhone = `crypto.randomUUID` missing on the plain-HTTP LAN link (not a secure context); fixed with a fallback, reproduced and verified on an emulated LAN origin, **awaiting real-iPhone confirmation**. Details: `docs/UAT_FIX_SPRINT.md` (Batch 2).
 - **Founder UAT 12 issues fixed (local commits, not pushed):** logo `791ee7b`, cloud `810a381`, input/review/observation/title/Direction `28253fa`. Status per issue, why approved feedback was missed, re-test guide: `docs/UAT_FIX_SPRINT.md`.
@@ -19,7 +20,7 @@ Session state and next actions. Stable rules live in `CLAUDE.md`. Overwrite this
 2. **Founder:** Q15 rules → judge-access method (UAT plan §7.12); decide the in-app rate limit for judging (R2: 8 per 10 min per IP).
 3. VI native-reader pass: Direction table + reference line, title template "Từ … đến …", story copy, What if? copy for other speakers. Decide whether a model-written title is worth a prompt change (≈ $0.3 eval).
 4. Fix UAT findings only (feature freeze Nov 3, 18:00 ICT).
-5. Submission: README, demo video, submit by Nov 4, 22:00 ICT.
+5. Submission: README, demo video, submit by Nov 4, 22:00 ICT. Video Phase A done (2026-11-02): screenplay V2 `docs/DEMO_VIDEO_SCREENPLAY.md` + animatic `design/film/` (`npm run dev`, port 5174). **Founder:** pick conversation A/B/C and review the animatic; Phase C (live take ≤ $0.15, recording, render) only after that approval.
 
 ## Blockers
 - Meta publishes no retention period; copy says "may keep it for a period it decides".

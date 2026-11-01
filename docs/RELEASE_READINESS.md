@@ -177,3 +177,35 @@ Report any failure with the step number and a screenshot.
 1. Founder iPhone UAT (§5) passes.
 2. Q15 decides the access method (§7.12 of the UAT plan).
 3. R2 is decided.
+
+## 7. Preview release — 2026-11-02 (Founder GO for Preview, not Production)
+**Deployed:** `289a1e4` → https://innermirror-jbj4lc6gz-tachillchills-projects.vercel.app (target preview, Ready). Supersedes `jp5dd2fog` (`b79025e`, same code minus the privacy copy fix below). No `--prod`; Deployment Protection unchanged: anonymous page and `/api/*` requests → 302 to Vercel SSO.
+
+**Configuration checked (names only, values not read):** Preview has `META_API_KEY` and `APP_SPEND_CAP_USD`; `ANALYZE_EFFORT` unset (defaults to low); `ACCESS_CODE` unset. Production has no variables. Firewall rule "API rate limit" (10 req / 60 s per IP on `/api/`, blocks) from Oct 31. In-app: analyze and extract 8 per 10 min per IP, What if? 20 per 10 min, per instance. The app spend cap is per instance and resets on restart, so the real ceiling is the Founder's budget (≈ $1.14 left of $6) and Meta credits.
+
+**Not verified by Claude:** no live call on Preview (protected; using `vercel curl` to bypass needs Founder approval). The Founder's iPhone run is the smoke test.
+
+**Privacy copy audit (names in titles):** `/privacy` "stored" and "never saved", the "what is saved" list and the saved-card note now say names are kept only inside a title, on this device. Fixed in `289a1e4`: the privacy page still named the old "Read my screenshot" button, and the saved-card note said only labels and "your own words" are kept. A release test guards both. Unchanged and accurate: Review names note (names are not sent to Meta, names written inside messages are), screenshot privacy note, landing.
+
+### 7.1 iPhone UAT on Preview (short)
+Log in to Vercel in Safari first (Preview is protected). Each analysis ≈ $0.02, What if? ≈ $0.015.
+1. **Language:** iPhone in Vietnamese, first visit (or clear website data) → Vietnamese. EN → reload → stays EN; back to VI.
+2. **Mic (HTTPS):** Soi → Kể lại → mic → allow → say two short lines → text appears line by line, editable. Deny once in Settings → clear message.
+3. **Screenshot:** Có sẵn cuộc trò chuyện → upload area at the top → choose 1–3 screenshots → the newest and Tiếp tục in view → consent → Tiếp tục → Review with one advice line (⊕), people right below; check diacritics.
+4. **Analyze:** tick consent → Xem → title "names – 01" → ⊕/⊖ intro → tap a mascot (tab "Trạng thái bản ngã") → Nếu khác đi? on one message.
+5. **Save → Reload → Reopen (batch 2 #04):** pick yourself → Nhìn lại mình → edit note → Lưu vào thiết bị này → green confirmation, card listed → reload → card still there → open it: title, note, mascots.
+6. **Dark mode:** Tối → logo the same as the header, no white frame.
+Report failures with the step number and a screenshot.
+
+### 7.2 Judge access (not opened; needs Q15 and Founder approval)
+| Option | Openness | Work | Note |
+|---|---|---|---|
+| A. Vercel Shareable Link for this Preview | Only link holders; protection stays for everything else | Dashboard → deployment → Share (Founder) | **Recommended** if the rules accept a link. Revoke after judging |
+| B. `ACCESS_CODE` | — | Needs new UI (code entry) | **Not usable now:** the API checks the code but the app has no way to send it; setting it would make every analysis fail with 403 |
+| C. Protection off for Preview | Anyone with the URL | Dashboard setting | Most open; the firewall and in-app limits stay |
+| D. Demo video only | None | — | If the rules allow |
+
+Rate limit for judging (R2): 8 analyses / 10 min per IP is fine for one judge; several judges behind one NAT could hit it. Raise to ~20 only if Q15 implies shared access (one-line change + redeploy, approval). Budget: ≈ $1.14 left ≈ 50 analyses; decide a judging budget before opening access.
+
+### 7.3 Production
+NO-GO until the iPhone UAT (7.1) passes, Q15 is known and the access option is chosen. The Production release checklist and GO/NO-GO are prepared after the Founder confirms the UAT.
