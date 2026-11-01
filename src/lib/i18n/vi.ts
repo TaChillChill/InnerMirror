@@ -351,7 +351,7 @@ export const vi: Dict = {
     },
     emptyTitle: "Chưa có cuộc trò chuyện nào được lưu",
     emptyBody: "Khi bạn lưu một cuộc trò chuyện, nó sẽ hiện ở đây thành một thẻ với các trạng thái bản ngã trong lượt nói của bạn.",
-    notEditable: "Nội dung cuộc trò chuyện chưa bao giờ được lưu, nên không thể mở lại hay đổi các sticker đã lưu. Chỉ các nhãn này và lời của chính bạn được giữ lại.",
+    notEditable: "Nội dung cuộc trò chuyện chưa bao giờ được lưu, nên không thể mở lại hay đổi các sticker đã lưu. Chỉ các nhãn này, tiêu đề (có thể chứa tên) và ghi chú của bạn được giữ lại.",
     deleteOne: "Xoá bộ sưu tập này",
     deleted: "Đã xoá bộ sưu tập.",
     undo: "Hoàn tác",

@@ -351,7 +351,7 @@ export const en = {
     },
     emptyTitle: "No saved conversations yet",
     emptyBody: "When you save a conversation, it appears here as a card showing the ego states in your turns.",
-    notEditable: "The conversation text was never saved, so saved stickers can't be reopened or changed. Only these labels and your own words are kept.",
+    notEditable: "The conversation text was never saved, so saved stickers can't be reopened or changed. Only these labels, the title (which may include names) and your note are kept.",
     deleteOne: "Delete this collection",
     deleted: "Collection deleted.",
     undo: "Undo",

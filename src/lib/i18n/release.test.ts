@@ -69,3 +69,16 @@ test("approved UAT wording: Tiếp tục, Trạng thái bản ngã, value line; 
     assert.ok(!all.includes(gone), gone);
   }
 });
+
+// Batch 3: default titles hold names, so no copy may promise that names are never saved.
+test("privacy copy: names are saved only inside a title, and buttons are named as they are now", () => {
+  for (const d of [en, vi]) {
+    const never = d.privacyPage.sections.find(([h]) => /Never saved|không bao giờ lưu/.test(h))![1];
+    assert.match(never, /title|tiêu đề/);
+    assert.match(JSON.stringify(d.mirror.savedList), /title|tiêu đề/);
+    assert.match(d.mirror.notEditable, /title|tiêu đề/);
+    const sent = d.privacyPage.sections.find(([h]) => /sent to Meta|gửi đến Meta/.test(h))![1];
+    assert.ok(sent.includes(d.shot.read), "names the screenshot button as it reads now");
+    assert.ok(!/Read my screenshot|Đọc ảnh chụp/.test(sent));
+  }
+});
