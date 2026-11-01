@@ -74,11 +74,11 @@ try {
   await step(`$click("button", "Xem cuộc trò chuyện này"); $wait(1200)`);
 
   // Journey 2: observation.
-  check("#06 value line first, then Mirror's observation", await step(`(() => { const v = document.querySelector(".app-replay__value"); return !!v && v.textContent.startsWith("Một góc nhìn khác, để hiểu nhau hơn.") && v.getBoundingClientRect().top < document.querySelector(".app-obs").getBoundingClientRect().top; })()`));
+  check("#06 value line first, then Mirror's observation", await step(`(() => { const v = document.querySelector(".app-moreline"); return !!v && v.textContent.startsWith("Một góc nhìn khác, để hiểu nhau hơn.") && v.getBoundingClientRect().top < document.querySelector(".app-obs").getBoundingClientRect().top; })()`));
   check("#06 limits kept in the method details", await step(`[...document.querySelectorAll(".app-obs details")].some((d) => d.textContent.includes("không nghe được giọng nói"))`));
   check("#06 uncertainty still shown", await step(`document.querySelector(".app-obs").textContent.includes(${JSON.stringify(analysis.uncertainty.slice(0, 30))})`));
   const title = await step(`document.querySelector(".app-obs__title-row strong")?.textContent ?? ""`);
-  check("#07 Mirror suggests a short, neutral title", title === "Từ hỏi thăm tình hình đến bày tỏ vui", title);
+  check("#07 default title: people + number (batch 3 #02)", title === "Chị – Em – 01", title);
   await step(`document.querySelector(".app-obs__title .app-icon-btn").click(); $wait(150)`);
   await step(`$type(".app-obs__title input", "Chuyện ốm của em"); document.querySelector(".app-obs__title input").dispatchEvent(new KeyboardEvent("keydown", { key: "Enter", bubbles: true })); $wait(150)`);
   check("#07 the title can be edited", await step(`document.querySelector(".app-obs__title-row strong")?.textContent === "Chuyện ốm của em"`));

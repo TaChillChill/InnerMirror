@@ -125,12 +125,13 @@ main:focus { outline: none; }
 .app-obs__title-row { display: flex; align-items: center; gap: var(--im-space-1); margin: 0; font: var(--im-text-h3); }
 .app-obs__title-row strong { min-width: 0; overflow-wrap: anywhere; }
 .app-obs__title-row .app-icon-btn { flex: none; }
-.app-replay__value { display: grid; gap: var(--im-space-1); margin-top: calc(-1 * var(--im-space-2)); }
-.app-replay__value-btn { all: unset; box-sizing: border-box; display: flex; align-items: center; justify-content: space-between; gap: var(--im-space-2); min-height: var(--im-tap-min); cursor: pointer; color: var(--im-text); font: 600 1.0625rem/1.4 var(--im-font); }
-.app-replay__value-btn:focus-visible { outline: 2px solid var(--im-focus); outline-offset: 2px; border-radius: var(--im-radius-sm); }
-.app-replay__value-icon { flex: none; display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; border: 1.5px solid var(--im-border-strong); color: var(--im-primary-ink); }
-.app-replay__value-icon svg { width: 16px; height: 16px; }
-.app-replay__value-body { margin: 0; color: var(--im-text-muted); font: var(--im-text-body); }
+.app-moreline { display: grid; gap: var(--im-space-1); margin-top: calc(-1 * var(--im-space-2)); }
+.app-moreline__btn { all: unset; box-sizing: border-box; display: flex; align-items: center; justify-content: space-between; gap: var(--im-space-2); min-height: var(--im-tap-min); cursor: pointer; color: var(--im-text); font: 600 1.0625rem/1.4 var(--im-font); }
+.app-moreline__btn:focus-visible { outline: 2px solid var(--im-focus); outline-offset: 2px; border-radius: var(--im-radius-sm); }
+.app-moreline__icon { flex: none; display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; border: 1.5px solid var(--im-border-strong); color: var(--im-primary-ink); }
+.app-moreline__icon svg { width: 16px; height: 16px; }
+.app-moreline__body { color: var(--im-text-muted); font: var(--im-text-body); }
+.app-moreline__body p { margin: 0; }
 .app-person-edit { flex-basis: 100%; display: grid; gap: var(--im-space-2); padding: var(--im-space-3); border-radius: var(--im-radius-md); background: var(--im-surface-sunken); }
 .app-rv-thread { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--im-space-3); }
 .app-rv-msg { display: flex; gap: var(--im-space-2); align-items: end; max-width: 88%; }

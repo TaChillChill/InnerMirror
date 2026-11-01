@@ -68,7 +68,7 @@ export function Mirror({ s, update, saved, storageOk, onSavedChange, onNew, onBa
     }
   };
   // Not saving also drops the conversation from memory: nothing lingers in the tab.
-  const dontSave = () => update({ analysis: null, transcript: null, choices: {}, title: "", note: "" });
+  const dontSave = () => update({ analysis: null, transcript: null, choices: {}, title: "", titleAuto: true, note: "" });
   const remove = (c: Collection) => { if (removeCollection(c.id)) { setViewing(null); setUndo(c); onSavedChange(); } };
   const removeAll = () => { if (window.confirm(M.confirmDeleteAll) && clearCollections()) onSavedChange(); };
 
@@ -92,7 +92,7 @@ export function Mirror({ s, update, saved, storageOk, onSavedChange, onNew, onBa
           </details>
           <div className="im-field">
             <label className="im-label" htmlFor="title">{M.titleLabel}</label>
-            <input id="title" className="im-input" maxLength={120} value={s.title} placeholder={M.titlePlaceholder} onChange={(e) => update({ title: e.target.value })} />
+            <input id="title" className="im-input" maxLength={120} value={s.title} placeholder={M.titlePlaceholder} onChange={(e) => update({ title: e.target.value, titleAuto: false })} />
             <span className="im-hint">{M.titleHint}</span>
           </div>
           <div className="im-field">

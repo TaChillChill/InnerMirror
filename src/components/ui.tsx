@@ -1,7 +1,7 @@
 "use client";
 // Shared presentational pieces. Markup and class names follow the design system
 // (design/showcase/components.css) and prototype v2, so the app can't drift from them.
-import { createContext, useContext, type CSSProperties, type ReactNode } from "react";
+import { createContext, useContext, useState, type CSSProperties, type ReactNode } from "react";
 import { DICTS, type Dict, type ExKey } from "@/lib/i18n";
 import type { Lang } from "@/lib/conversation";
 
@@ -84,4 +84,22 @@ export function Chip({ ex, prefix, text }: { ex: ExKey | "unsure"; prefix?: stri
   return ex === "unsure"
     ? <span className="im-chip im-chip--unsure">{q}{text ?? t.unsure}</span>
     : <span className="im-chip im-ex" data-ex={ex}>{q}{t.ex[ex].name}</span>;
+}
+
+/**
+ * A short line that opens the full explanation with a +/− button, closed by default, so the
+ * content a screen is for comes first on a phone (UAT batch 2 #05, batch 3 #01).
+ */
+export function MoreLine({ id, line, body }: { id: string; line: ReactNode; body: ReactNode }) {
+  const { t } = useT();
+  const [open, setOpen] = useState(false);
+  return (
+    <div className="app-moreline">
+      <button className="app-moreline__btn" aria-expanded={open} aria-controls={id} onClick={() => setOpen(!open)}>
+        <strong>{line}</strong><span className="app-moreline__icon" aria-hidden><Icon name={open ? "minus" : "plus"} /></span>
+        <span className="app-visually-hidden">{open ? t.replay.valueLess : t.replay.valueMore}</span>
+      </button>
+      {open && <div id={id} className="app-moreline__body">{body}</div>}
+    </div>
+  );
 }

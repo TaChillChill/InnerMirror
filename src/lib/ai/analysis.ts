@@ -153,18 +153,6 @@ export function arcOf(a: Analysis, max = 3): string[] {
 }
 
 /**
- * A short title from how the conversation opened and how it ended (Founder UAT #07), built
- * from the model's own neutral turn phrases, so it describes what was done, never motives or
- * feelings, and costs no call. Each phrase keeps its first clause, at most 7 words.
- */
-export function titlePhrases(a: Analysis): string[] {
-  const clip = (p: string) => p.split(/\s+(?:và|kèm|nhưng|and|but|while)\s+|[,;:.]/)[0].trim().split(/\s+/).slice(0, 7).join(" ");
-  const turns = a.context.turns.map((t) => clip(t.act)).filter(Boolean);
-  const first = turns[0], last = turns.at(-1);
-  return !first ? [] : last && last !== first ? [first, last] : [first];
-}
-
-/**
  * A retold story is the narrator's memory of what was said, not the words themselves, so no
  * reading of it is shown as high confidence (U3, N4). Labels never change.
  */

@@ -78,11 +78,11 @@ try {
   // Journey 2: observation.
   await step(`document.querySelector(".im-check input").click(); $wait(100)`);
   await step(`$click("button", ${JSON.stringify(L.look)}); $wait(1300)`);
-  check("#05 intro collapsed: short line only, + button", await step(`(() => { const b = document.querySelector(".app-replay__value-btn"); return b.getAttribute("aria-expanded") === "false" && b.textContent.includes(${JSON.stringify(L.value)}) && !document.querySelector("#value-body"); })()`));
+  check("#05 intro collapsed: short line only, + button", await step(`(() => { const b = document.querySelector(".app-moreline__btn"); return b.getAttribute("aria-expanded") === "false" && b.textContent.includes(${JSON.stringify(L.value)}) && !document.querySelector("#value-body"); })()`));
   check("#05 Mirror's observation starts in the first screen", await step(`document.querySelector(".app-obs").getBoundingClientRect().top < innerHeight * 0.6`), await step(`String(Math.round(document.querySelector(".app-obs").getBoundingClientRect().top)) + "/" + innerHeight`));
-  await step(`document.querySelector(".app-replay__value-btn").click(); $wait(150)`);
-  check("#05 + opens the full text, button shows −", await step(`document.querySelector(".app-replay__value-btn").getAttribute("aria-expanded") === "true" && document.querySelector("#value-body")?.textContent.length > 100`));
-  await step(`document.querySelector(".app-replay__value-btn").click(); $wait(150)`);
+  await step(`document.querySelector(".app-moreline__btn").click(); $wait(150)`);
+  check("#05 + opens the full text, button shows −", await step(`document.querySelector(".app-moreline__btn").getAttribute("aria-expanded") === "true" && document.querySelector("#value-body")?.textContent.length > 100`));
+  await step(`document.querySelector(".app-moreline__btn").click(); $wait(150)`);
   check("#05 − closes it again", await step(`!document.querySelector("#value-body")`));
 
   // Journey 3: save.

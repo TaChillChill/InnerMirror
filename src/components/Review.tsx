@@ -6,7 +6,7 @@ import { Fragment, useEffect, useState } from "react";
 import { mergeParticipants, newId, reviewProblem, type Message, type Transcript } from "@/lib/conversation";
 import type { Update } from "./App";
 import type { Session } from "./session";
-import { Avatar, Icon, useT } from "./ui";
+import { Avatar, Icon, MoreLine, useT } from "./ui";
 import { NarrationLines } from "./StoryLines";
 import { dropMessage, dropNarration, narrationBefore, toDialogue, toNarration } from "@/lib/story";
 
@@ -66,7 +66,9 @@ export function Review({ s, update, onAnalyze, onBack }: Props) {
   return (
     <div className="app-page">
       <h1 className="app-h1">{fromShot ? X.title : story ? S.title : R.titleCheck}</h1>
-      <p className="app-lead">{fromShot ? X.lead : story ? S.body : R.leadCheck}</p>
+      {/* After screenshots the checking advice folds into one line, so the people and the
+          messages come first on a phone (UAT batch 3, #01); the cut-off count stays visible. */}
+      {fromShot ? <MoreLine id="shot-lead" line={X.short} body={<p>{X.lead}</p>} /> : <p className="app-lead">{story ? S.body : R.leadCheck}</p>}
       {fromShot && (
         <>
           {(attention > 0 || s.extractNotes.length > 0) && (

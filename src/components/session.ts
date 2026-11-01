@@ -1,12 +1,13 @@
 // In-memory state for one conversation. Nothing here is persisted: closing the tab
 // drops the conversation; only an explicit Save writes labels to My Mirror.
-import { anchorOf, titlePhrases, type Analysis, type Reading } from "@/lib/ai/analysis";
-import { SELF_LABEL } from "@/lib/ai/analysis-spec";
-import type { Transcript } from "@/lib/conversation";
+import { anchorOf, type Analysis, type Reading } from "@/lib/ai/analysis";
+import { pseudonymLabel, SELF_LABEL } from "@/lib/ai/analysis-spec";
+import { defaultTitle, titleNames } from "@/lib/conversation-title";
+import type { Lang, Transcript } from "@/lib/conversation";
 import type { NoteCode } from "@/lib/ai/extract-spec";
 import { resolveState } from "@/lib/ai/scenario";
 import { safetyHits } from "@/lib/safety-backstop";
-import type { ExKey } from "@/lib/i18n";
+import { DICTS, type ExKey } from "@/lib/i18n";
 import type { BadgeState } from "./ui";
 
 export type Screen = "landing" | "add" | "review" | "analyzing" | "error" | "replay" | "mirror";
@@ -23,6 +24,7 @@ export type Session = {
   selected: string | null; // message whose selector is open
   error: string | null;
   title: string;
+  titleAuto: boolean; // the title is still the default, so it may be refreshed; false once I edit it
   note: string;
   savedId: string | null;
   shots: string[]; // screenshots kept in browser memory only, to compare while reviewing
@@ -39,7 +41,7 @@ export type Session = {
 
 export const freshSession = (): Session => ({
   screen: "landing", transcript: null, selfId: null, consent: false, analysis: null, labels: {},
-  choices: {}, selected: null, error: null, title: "", note: "", savedId: null, shots: [], extractNotes: [], lastResult: null,
+  choices: {}, selected: null, error: null, title: "", titleAuto: true, note: "", savedId: null, shots: [], extractNotes: [], lastResult: null,
   draft: { method: null, text: "", images: [] }, readFrom: null, sample: false,
 });
 
@@ -71,10 +73,15 @@ export function withNames(text: string, s: Pick<Session, "transcript" | "labels"
   return out;
 }
 
-/** Mirror's suggested title (UAT #07) with the names typed on this device; "" if there is nothing to go on. */
-export function suggestedTitle(a: Analysis, s: Pick<Session, "transcript">, labels: Record<string, string>, from: (a: string, b?: string) => string): string {
-  const [first, last] = titlePhrases(a);
-  return first ? withNames(from(first, last), { transcript: s.transcript, labels }).slice(0, 120) : "";
+/**
+ * The default title (UAT batch 3, #02): the people who spoke, in order, and a number per group
+ * among the conversations saved here. No model call; nothing about the reading is in it.
+ */
+export function autoTitle(t: Transcript, lang: Lang, saved: { title: string }[]): string {
+  const speaking = t.participants.filter((p) => t.messages.some((m) => m.speakerId === p.id)).map((p) => p.name);
+  // Names the app filled in itself ("Unknown", "Other person 2") count as no name.
+  const placeholders = (["en", "vi"] as const).flatMap((l) => [DICTS[l].add.unknown, DICTS[l].add.otherPerson, ...[2, 3, 4, 5, 6, 7, 8].map((n) => `${DICTS[l].add.otherPerson} ${n}`)]);
+  return defaultTitle(titleNames(speaking, placeholders, (i) => pseudonymLabel(i, lang)), saved);
 }
 
 /** Display name: "You" for me, the typed name for others. */

@@ -14,7 +14,7 @@ import { LangContext, Icon } from "./ui";
 import { SiteFooter } from "./SiteFooter";
 import { BrandMark, LangToggle, StickyHeader, ThemeToggle } from "./BrandBits";
 import { useCollections, useLang, useStorageOk } from "./use-browser-state";
-import { freshSession, suggestedTitle, type Session } from "./session";
+import { autoTitle, freshSession, type Session } from "./session";
 import { Landing } from "./Landing";
 import { AddConversation } from "./AddConversation";
 import { Review } from "./Review";
@@ -57,10 +57,14 @@ export function App() {
     const req = toAnalyzeRequest(transcript, sm.selfId, lang);
     const labels = Object.fromEntries(Object.entries(analysisLabels(req)).map(([pid, label]) => [label, pid]));
     setS({ ...freshSession(), screen: "replay", sample: true, transcript, selfId: sm.selfId, consent: true, analysis, labels,
-      title: suggestedTitle(analysis, { transcript }, labels, t.replay.titleFrom),
+      title: autoTitle(transcript, lang, saved), titleAuto: true,
       lastResult: { key: analysisKey(req), selfId: sm.selfId, analysis, labels } });
     window.scrollTo({ top: 0 });
   };
+
+  // The default title follows the people in the conversation (names may have changed on
+  // Review); a title I wrote is never replaced.
+  const titleFor = useCallback((tr: NonNullable<Session["transcript"]>) => (s.titleAuto || !s.title.trim() ? { title: autoTitle(tr, lang, saved), titleAuto: true } : {}), [s.titleAuto, s.title, lang, saved]);
 
   const analyze = useCallback(async () => {
     if (!s.transcript) return;
@@ -70,7 +74,7 @@ export function App() {
     if (last?.key === key) {
       // Unchanged conversation (only "Who am I?" may differ): same reading, my choices kept.
       // A save belongs to the perspective it was made from.
-      update({ screen: "replay", analysis: last.analysis, labels: last.labels, error: null, selected: null, shots: [], draft: { ...s.draft, images: [] }, extractNotes: [], savedId: last.selfId === s.selfId ? s.savedId : null });
+      update({ screen: "replay", analysis: last.analysis, labels: last.labels, ...titleFor(s.transcript), error: null, selected: null, shots: [], draft: { ...s.draft, images: [] }, extractNotes: [], savedId: last.selfId === s.selfId ? s.savedId : null });
       window.scrollTo({ top: 0 });
       return;
     }
@@ -89,16 +93,13 @@ export function App() {
       const raw = json.analysis as Analysis, labels = json.labels ?? {};
       const analysis = s.transcript.source === "story" ? capForStory(raw) : raw;
       // Mirror's title replaces the old suggestion, never a title the user wrote.
-      const at = { transcript: s.transcript };
-      const before = last ? suggestedTitle(last.analysis, at, last.labels, t.replay.titleFrom) : "";
-      const title = !s.title.trim() || s.title === before ? suggestedTitle(analysis, at, labels, t.replay.titleFrom) : s.title;
-      update({ screen: "replay", analysis, labels, title, sample: false, lastResult: { key, selfId: s.selfId, analysis, labels } });
+      update({ screen: "replay", analysis, labels, ...titleFor(s.transcript), sample: false, lastResult: { key, selfId: s.selfId, analysis, labels } });
       window.scrollTo({ top: 0 });
     } catch (e) {
       if (e instanceof DOMException && e.name === "AbortError") return update({ screen: "review" });
       update({ screen: "error", error: "network" });
     }
-  }, [s.transcript, s.selfId, s.lastResult, s.savedId, s.draft, s.title, lang, t, update]);
+  }, [s.transcript, s.selfId, s.lastResult, s.savedId, s.draft, lang, titleFor, update]);
 
   const stepIndex = { add: 0, review: 0, analyzing: 0, error: 0, replay: 1, mirror: s.analysis ? 2 : -1, landing: -1 }[s.screen];
 
