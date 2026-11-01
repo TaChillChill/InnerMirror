@@ -276,3 +276,14 @@ html:has(.app-sheet-open), html:has(.app-modal) { overflow: hidden; }
 .im-msg__meta .im-chip { white-space: nowrap; }
 .app-replay__edit { display: inline-flex; align-items: center; gap: 6px; margin-bottom: var(--im-space-3); font-size: 0.9375rem; min-height: var(--im-tap-min); }
 .app-replay__edit svg { width: 16px; height: 16px; }
+
+/* ---------- Story input: in-app mic (N5) ---------- */
+.app-add-panel { scroll-margin-top: calc(var(--app-header-h, 64px) + 12px); }
+.app-mic { display: grid; gap: var(--im-space-2); justify-items: start; }
+.app-mic__btn { gap: var(--im-space-2); }
+.app-mic__dot { width: 12px; height: 12px; border-radius: 50%; background: var(--im-border-strong); flex: none; }
+.app-mic__btn.is-on { border-color: var(--im-error-ink); color: var(--im-error-ink); }
+.app-mic__btn.is-on .app-mic__dot { background: var(--im-error-ink); animation: app-pulse 1.2s ease-in-out infinite; }
+.app-mic__live { margin: 0; font: var(--im-text-caption); color: var(--im-text-muted); font-style: italic; }
+@keyframes app-pulse { 50% { opacity: .35; } }
+@media (prefers-reduced-motion: reduce) { .app-mic__btn.is-on .app-mic__dot { animation: none; } }

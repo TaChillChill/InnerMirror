@@ -39,10 +39,12 @@ export async function launch({ width = 390, height = 844, mocks = {} } = {}) {
     if (r.exceptionDetails) throw new Error(r.exceptionDetails.exception?.description ?? r.exceptionDetails.text);
     return r.result.value;
   };
+  // Runs before any page script on every navigation (e.g. to stub browser APIs).
+  const addInit = (source) => send("Page.addScriptToEvaluateOnNewDocument", { source });
   const goto = async (url) => { await send("Page.enable"); await send("Page.navigate", { url }); await sleep(1500); };
   const screenshot = async () => Buffer.from((await send("Page.captureScreenshot", { format: "png" })).data, "base64");
   const close = () => { ws.close(); proc.kill(); };
-  return { evaluate, goto, screenshot, close, api, sleep };
+  return { evaluate, goto, addInit, screenshot, close, api, sleep };
 }
 
 // In-page helpers, injected as a string.

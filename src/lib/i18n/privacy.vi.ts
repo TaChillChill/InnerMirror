@@ -16,6 +16,7 @@ export const privacyVi: typeof privacyEn = {
     ["Xoá dữ liệu", "Bạn có thể xoá từng bộ sưu tập hoặc xoá tất cả trong Tấm gương của mình bất cứ lúc nào."],
     ["Không theo dõi", "Không tài khoản, không công cụ phân tích, không trình theo dõi quảng cáo."],
     ["Những người khác trong cuộc trò chuyện", "Hãy chỉ chia sẻ những cuộc trò chuyện mà bạn thoải mái gửi đến một dịch vụ AI. Hãy nghĩ đến những người khác trong đó và cắt bỏ những chi tiết bạn không cần."],
+    ["Nói thay vì gõ", "Nếu bạn bấm mic trong ô kể chuyện, trình duyệt sẽ chuyển giọng nói thành chữ bằng dịch vụ nhận giọng nói của chính nó (của Apple với Safari, của Google với Chrome), theo cài đặt của thiết bị và trình duyệt. InnerMirror không bao giờ nhận âm thanh: chỉ nhận phần chữ hiện trong ô, và chỉ khi bạn bấm tiếp tục. Nút mic được ẩn ở những trình duyệt không hỗ trợ."],
     ["Thay đổi", "Nếu nội dung này thay đổi, ngày ở trên sẽ thay đổi theo."],
   ],
 };

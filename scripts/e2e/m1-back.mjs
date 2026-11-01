@@ -10,7 +10,7 @@ try {
   await b.goto("http://localhost:3123/");
   const step = async (js) => { await b.evaluate(HELPERS); return b.evaluate(js); };
   await step(`$click(".lp-cta"); $wait(300)`);
-  await step(`$click("[role=radio]", "Paste or type"); $wait(200)`);
+  await step(`$click("[role=radio]", "Tell it"); $wait(200)`);
   const chat = "Linh: Did you book the restaurant?\nMe: I forgot, sorry.\nLinh: You always forget.";
   await step(`$type("#paste", ${JSON.stringify(chat)}); $wait(100)`);
   await step(`$click("button", "Show as a chat"); $wait(300)`);
@@ -36,7 +36,7 @@ try {
 
   // Screenshot path: two images dropped, reorder, read (mocked), Back, continue without a call.
   await step(`$click("button", "Back"); $wait(300)`);
-  await step(`$click("[role=radio]", "Upload screenshots"); $wait(200)`);
+  await step(`$click("[role=radio]", "I have the chat"); $wait(200)`);
   await step(`(async () => {
     const mk = async (color) => { const c = document.createElement("canvas"); c.width = 300; c.height = 600; const g = c.getContext("2d"); g.fillStyle = color; g.fillRect(0, 0, 300, 600); return new File([await new Promise((r) => c.toBlob(r, "image/png"))], color + ".png", { type: "image/png" }); };
     const dt = new DataTransfer(); dt.items.add(await mk("red")); dt.items.add(await mk("blue"));

@@ -15,6 +15,7 @@ export const privacyEn = {
     ["Deleting", "You can delete one collection or everything from My Mirror at any time."],
     ["No tracking", "No accounts, no analytics, no advertising trackers."],
     ["Other people in your conversations", "Please share only conversations you are comfortable sending to an AI service. Think about the other people in them, and crop out details you don't need."],
+    ["Speaking instead of typing", "If you tap the mic in the story box, your browser turns your speech into text using its own speech service (Apple's for Safari, Google's for Chrome), under your device and browser settings. InnerMirror never receives the audio: only the text that appears in the box, and only when you continue. The mic button is hidden where the browser can't do this."],
     ["Changes", "If this changes, the date above changes with it."],
   ],
 };

@@ -12,7 +12,7 @@ try {
   await b.goto("http://localhost:3123/");
   const step = async (js) => { await b.evaluate(HELPERS); return b.evaluate(js); };
   await step(`$click(".lp-cta"); $wait(300)`);
-  await step(`$click("[role=radio]", "Paste or type"); $wait(200)`);
+  await step(`$click("[role=radio]", "Tell it"); $wait(200)`);
   await step(`$type("#paste", ${JSON.stringify(chat)}); $wait(100)`);
   await step(`$click("button", "Show as a chat"); $wait(300)`);
   const people = () => step(`[...document.querySelectorAll(".app-who__btn")].map((x) => x.textContent.trim()).join("|")`);
