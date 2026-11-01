@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { parsePasted, looksLikeStory, analyzeRequestSchema, analysisKey, toAnalyzeRequest, reviewProblem, rereadPlan, textKey, imagesKey } from "./conversation.ts";
+import { parsePasted, looksLikeStory, analyzeRequestSchema, analysisKey, toAnalyzeRequest, reviewProblem, rereadPlan, textKey, imagesKey, mergeParticipants } from "./conversation.ts";
 
 test("parsePasted: names, continuation lines and timestamps", () => {
   const t = parsePasted("[21:14] Linh: Why are the dishes left for me?\nMe: Sorry.\nI'll do them now.\n30/10/2026, 21:15 - Linh: ok", "Unknown");
@@ -102,4 +102,16 @@ test("Back + Continue keeps edits when the input didn't change, and asks before 
   assert.equal(rereadPlan({ ...t, messages: [] }, textKey("x"), textKey("y")), "read");
   assert.notEqual(imagesKey(["data:a", "data:b"]), imagesKey(["data:b", "data:a"]), "order matters");
   assert.equal(rereadPlan(t, imagesKey(["data:a"]), imagesKey(["data:a"])), "reuse");
+});
+
+test("merging two names for one person moves every message and loses none", () => {
+  const t = parsePasted("Minh: Về muộn quá.\nPhương: Dự án gấp.\nChị Phương: Anh nói thì dễ.\nPhương: Thôi kệ đi.\nMinh: Anh lo thôi.", "?");
+  const [minh, phuong, chiPhuong] = t.participants.map((p) => p.id);
+  const m = mergeParticipants(t, chiPhuong, phuong);
+  assert.deepEqual(m.participants.map((p) => p.name), ["Minh", "Phương"]);
+  assert.equal(m.messages.length, t.messages.length);
+  assert.deepEqual(m.messages.map((x) => x.text), t.messages.map((x) => x.text), "order and text unchanged");
+  assert.deepEqual(m.messages.map((x) => x.speakerId), [minh, phuong, phuong, phuong, minh]);
+  assert.equal(mergeParticipants(t, phuong, phuong), t, "merging into itself is a no-op");
+  assert.equal(mergeParticipants(t, "nope", phuong), t, "unknown ids are a no-op");
 });

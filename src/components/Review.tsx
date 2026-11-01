@@ -2,7 +2,7 @@
 // Transcript review as a chat: bubbles first, editing only when a bubble is tapped.
 // One editor for pasted, typed and screenshot-extracted transcripts.
 import { useState } from "react";
-import { newId, reviewProblem, type Message, type Transcript } from "@/lib/conversation";
+import { mergeParticipants, newId, reviewProblem, type Message, type Transcript } from "@/lib/conversation";
 import type { Update } from "./App";
 import type { Session } from "./session";
 import { Avatar, Icon, useT } from "./ui";
@@ -17,8 +17,19 @@ export function Review({ s, update, onAnalyze, onBack }: Props) {
   const [renaming, setRenaming] = useState<string | null>(null);
   const [speaker, setSpeaker] = useState(T.participants[0]?.id ?? "p1");
   const [draft, setDraft] = useState("");
+  const [mergeInto, setMergeInto] = useState<string | null>(null);
+  // The state before the last merge, offered as Undo until the next edit.
+  const [undo, setUndo] = useState<{ transcript: Transcript; selfId: string | null; to: string } | null>(null);
 
-  const setT = (patch: Partial<Transcript>) => update((cur) => ({ transcript: { ...(cur.transcript as Transcript), ...patch } }));
+  const setT = (patch: Partial<Transcript>) => { setUndo(null); update((cur) => ({ transcript: { ...(cur.transcript as Transcript), ...patch } })); };
+  const nameOf = (pid: string) => T.participants.find((p) => p.id === pid)?.name ?? "?";
+  const merge = (from: string, to: string) => {
+    setUndo({ transcript: T, selfId: s.selfId, to: nameOf(to) });
+    update({ transcript: mergeParticipants(T, from, to), selfId: s.selfId === from ? to : s.selfId });
+    if (speaker === from) setSpeaker(to);
+    setRenaming(null);
+    setMergeInto(null);
+  };
   // Editing the text means the user has looked at it, so the "may be cut off" mark goes away.
   const setMsg = (id: string, patch: Partial<Message>) => setT({ messages: T.messages.map((m) => (m.id === id ? { ...m, ...(patch.text !== undefined ? { legibility: "clear" as const } : {}), ...patch } : m)) });
   const fromShot = T.source === "screenshot";
@@ -81,16 +92,40 @@ export function Review({ s, update, onAnalyze, onBack }: Props) {
                 {avatar(p.id, 40)}<span>{p.name}</span>
                 {s.selfId === p.id && <span className="app-who__me"><Icon name="check" /> {R.you}</span>}
               </button>
-              <button className="app-icon-btn" onClick={() => setRenaming(renaming === p.id ? null : p.id)} aria-label={R.rename(p.name)}><Icon name="edit" /></button>
+              <button className="app-icon-btn" aria-expanded={renaming === p.id} onClick={() => { setMergeInto(null); setRenaming(renaming === p.id ? null : p.id); }} aria-label={R.rename(p.name)}><Icon name="edit" /></button>
               {renaming === p.id && (
-                <input className="im-input app-rename" aria-label={R.nameLabel} value={p.name} maxLength={40} autoFocus
-                  onChange={(e) => setT({ participants: T.participants.map((x) => (x.id === p.id ? { ...x, name: e.target.value } : x)) })}
-                  onKeyDown={(e) => { if (e.key === "Enter" || e.key === "Escape") setRenaming(null); }} onBlur={() => setRenaming(null)} />
+                <div className="app-person-edit">
+                  <input className="im-input app-rename" aria-label={R.nameLabel} value={p.name} maxLength={40} autoFocus
+                    onChange={(e) => setT({ participants: T.participants.map((x) => (x.id === p.id ? { ...x, name: e.target.value } : x)) })}
+                    onKeyDown={(e) => { if (e.key === "Enter" || e.key === "Escape") setRenaming(null); }} />
+                  {T.participants.length > 1 && (
+                    <div className="app-row-wrap" role="group" aria-label={R.sameAs}>
+                      <span className="im-label">{R.sameAs}</span>
+                      {T.participants.filter((o) => o.id !== p.id).map((o) => (
+                        <button key={o.id} className="app-chip-btn" aria-pressed={mergeInto === o.id} onClick={() => setMergeInto(o.id)}>{avatar(o.id, 24)}{o.name}</button>
+                      ))}
+                    </div>
+                  )}
+                  {mergeInto && (
+                    <div className="im-notice" role="alert"><Icon name="alert" /><div>
+                      <p>{R.mergeConfirm(p.name, nameOf(mergeInto), T.messages.filter((m) => m.speakerId === p.id).length)}</p>
+                      <div className="app-actions">
+                        <button className="im-btn im-btn--primary im-btn--sm" onClick={() => merge(p.id, mergeInto)}>{R.mergeYes}</button>
+                        <button className="im-btn im-btn--ghost im-btn--sm" onClick={() => setMergeInto(null)}>{R.mergeNo}</button>
+                      </div>
+                    </div></div>
+                  )}
+                  <div><button className="im-btn im-btn--secondary im-btn--sm" onClick={() => setRenaming(null)}>{R.done}</button></div>
+                </div>
               )}
             </div>
           ))}
           {T.participants.length < 8 && <button className="im-btn im-btn--ghost im-btn--sm" onClick={addPerson}><Icon name="plus" /> {R.addPerson}</button>}
         </div>
+        {undo && (
+          <p className="im-notice im-notice--success" role="status">{R.merged(undo.to)}{" "}
+            <button className="app-textlink" onClick={() => { update({ transcript: undo.transcript, selfId: undo.selfId }); setUndo(null); }}>{R.undo}</button></p>
+        )}
         <p className="im-hint">{R.namesNote}</p>
       </section>
 

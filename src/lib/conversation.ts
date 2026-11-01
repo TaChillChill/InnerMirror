@@ -80,6 +80,21 @@ export function parsePasted(raw: string, unknownName: string, opts: { keepLines?
   return { source: "paste", participants, messages };
 }
 
+/**
+ * Folds one participant into another (two names for the same person, e.g. "Phương" and
+ * "Chị Phương"): every message of `from` moves to `to`, in place, and nothing else changes.
+ * Back-to-back messages then form one turn, as they should for the analysis.
+ */
+export function mergeParticipants(t: Transcript, from: string, to: string): Transcript {
+  const ids = new Set(t.participants.map((p) => p.id));
+  if (from === to || !ids.has(from) || !ids.has(to)) return t;
+  return {
+    ...t,
+    participants: t.participants.filter((p) => p.id !== from),
+    messages: t.messages.map((m) => (m.speakerId === from ? { ...m, speakerId: to } : m)),
+  };
+}
+
 // ---------- Going back to the Add screen ----------
 // What a transcript was read from, so Back + Continue can tell "nothing changed, keep my
 // edits" from "new input". Screenshots are compared by a cheap fingerprint, not the full data.

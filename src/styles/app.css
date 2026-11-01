@@ -102,6 +102,7 @@ main:focus { outline: none; }
 .app-who__me { display: inline-flex; gap: 4px; align-items: center; font: var(--im-text-caption); font-weight: 700; }
 .app-who__me svg { width: 14px; height: 14px; }
 .app-rename { max-width: 200px; }
+.app-person-edit { flex-basis: 100%; display: grid; gap: var(--im-space-2); padding: var(--im-space-3); border-radius: var(--im-radius-md); background: var(--im-surface-sunken); }
 .app-rv-thread { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--im-space-3); }
 .app-rv-msg { display: flex; gap: var(--im-space-2); align-items: end; max-width: 88%; }
 .app-rv-msg.is-right { justify-self: end; margin-left: auto; flex-direction: row-reverse; }
