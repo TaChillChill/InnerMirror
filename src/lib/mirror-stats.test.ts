@@ -55,3 +55,15 @@ test("untitled conversations are numbered by save order", () => {
   assert.equal(defaultNumber(list, "old"), 1);
   assert.equal(defaultNumber(list, "new"), 2);
 });
+
+test("untouched observations still give full stats: every turn counts as Mirror's, unclear stays apart", () => {
+  // Saved without opening a single panel: chosen is null everywhere.
+  const saved = coll("x", "2026-11-01T09:00:00Z", [e("cp"), e("ac"), e("UNCLEAR"), e("cp")]);
+  const c = countsOf([saved]);
+  assert.deepEqual(c.byState.cp, { mine: 0, mirror: 2 });
+  assert.deepEqual(c.byState.ac, { mine: 0, mirror: 1 });
+  assert.equal(c.unclear, 1);
+  assert.equal(stateTurns(c), 3);
+  assert.deepEqual(percentages(c), { cp: 67, np: 0, a: 0, fc: 0, ac: 33 });
+  assert.deepEqual(mostFrequent(c), ["cp"]);
+});

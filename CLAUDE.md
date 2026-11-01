@@ -55,6 +55,8 @@ node scripts/phase0/run.mjs analyze <id|all> [--effort=low|medium|high]  # live:
 node scripts/phase0/run.mjs check <id|all>                   # re-run automatic checks offline (Phase 0 harness, frozen at spec v2.1)
 node scripts/phase0/p0/run.mjs --spec=v3 --variants=selfA,selfB [--only=vi1] --dry   # P0 classification eval (current spec)
 node scripts/phase0/p0/run.mjs --report                     # rebuild scripts/phase0/results/p0/REPORT.md, no calls
+npm run build && META_API_KEY= npx next start -p 3123 &   # local prod build for e2e
+sh scripts/e2e/run-all.sh                                   # mocked e2e, all /api/* intercepted, $0
 ```
 Live commands spend from the approved budget: run them only with the Founder's go-ahead in that session. App commands (dev, build, lint, typecheck, test) are added in Phase 1.
 
