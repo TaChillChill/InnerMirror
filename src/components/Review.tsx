@@ -136,7 +136,9 @@ export function Review({ s, update, onAnalyze, onBack }: Props) {
       </div>
 
       <label className="im-check"><input type="checkbox" checked={s.consent} onChange={(e) => update({ consent: e.target.checked })} /> {R.consent}</label>
-      <div className="im-notice"><Icon name="lock" /><div>{R.privacy}</div></div>
+      <div className="im-notice"><Icon name="lock" /><div>{R.privacy}{" "}
+        {/* A new tab: leaving this page would drop the conversation, which lives only in memory. */}
+        <a href="/privacy" target="_blank" rel="noopener">{R.privacyLink}</a></div></div>
       <div className="app-actions">
         <button className="im-btn im-btn--primary" disabled={!!problem} onClick={onAnalyze}>{R.cta}</button>
         <button className="im-btn im-btn--ghost" onClick={onBack}>{R.back}</button>

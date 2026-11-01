@@ -85,7 +85,8 @@ export const en = {
     },
     namesNote: "Names stay on this device. Mirror sees “You”, “Person A”, “Person B” instead, but names written inside messages are sent as they are.",
     consent: "This is a conversation I'm part of, and I'm using it for my own reflection.",
-    privacy: "When you continue, the messages are sent to Meta's AI model to be read. We don't save or log them.",
+    privacy: "The conversation is processed by Meta's AI model to create the observation. InnerMirror doesn't store it on its servers; Meta handles it under its own terms.",
+    privacyLink: "Privacy policy",
     cta: "Look at this conversation",
     back: "Back",
     problems: {

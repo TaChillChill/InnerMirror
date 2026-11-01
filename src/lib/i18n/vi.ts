@@ -86,7 +86,8 @@ export const vi: Dict = {
     },
     namesNote: "Tên chỉ nằm trên thiết bị này. Gương chỉ thấy “Bạn”, “Người A”, “Người B”, nhưng tên được viết bên trong tin nhắn vẫn được gửi nguyên văn.",
     consent: "Đây là cuộc trò chuyện mình có tham gia, và mình dùng nó để tự suy ngẫm.",
-    privacy: "Khi bạn tiếp tục, các tin nhắn được gửi đến mô hình AI của Meta để đọc. Chúng tôi không lưu và không ghi lại nội dung.",
+    privacy: "Nội dung cuộc trò chuyện sẽ được mô hình AI của Meta xử lý để tạo phần quan sát. InnerMirror không lưu nội dung này trên máy chủ; Meta xử lý theo điều khoản của họ.",
+    privacyLink: "Chính sách quyền riêng tư",
     cta: "Xem cuộc trò chuyện này",
     back: "Quay lại",
     problems: {

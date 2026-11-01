@@ -40,3 +40,11 @@ test("Berne is named only in the secondary methodology line of the landing", () 
 test("each demo voice shows two possible replies from the other person", () => {
   for (const d of [en, vi]) for (const line of Object.values(d.landing.demo.lines)) assert.equal(line.replies.length, 2);
 });
+
+test("privacy claims match the code: What if? leaves nothing on the device, Meta is named on Review", () => {
+  for (const d of [en, vi]) {
+    const stored = d.privacyPage.sections[4][1];
+    assert.ok(!stored.includes("What if"), "use-scenarios keeps explored scenarios in memory only");
+    assert.match(d.review.privacy, /Meta/);
+  }
+});
