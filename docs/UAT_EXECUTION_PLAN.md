@@ -253,3 +253,19 @@ Checks: neutral about *why* it turned (no "went wrong", no one at fault); an inv
 Wave 0 done as local commits: M3, M4, M5, M1, M2 (merge + undo), M6. Checks: 67 unit tests; mocked e2e at 390/1280 px, 0 paid calls. One item moved: taking "Bạn là ai?" off Review ships with U5/U8, so there's never a build where the user can't pick a self before What if? or Save.
 
 S1 offline result: the eval set has only 3 conversations with danger signals. vi7 (explicit) is flagged in 4/4 runs; the hopelessness line in vi1 is missed in 9/9; en1 has none. Next: Founder reviews the backstop phrase list, plus ~8 VI/EN probes (passive ideation, threat, coercion/control, harassment, and a joking "kill you" false-positive check), ≈ $0.3.
+
+### 7.9 My Mirror redesign (Founder, 2026-11-01): two levels
+Prototype v2 (same link): https://claude.ai/artifact/Uubz2avWVAe73C2n9e7mEm. The Founder brief arrived cut off after "B. Tổng quan giao tiếp: Donut chart + năm…"; built from the received text + mockup.
+
+- **A. Saved conversations:** square cards, newest first, in a horizontal scroll-snap row (arrow buttons on desktop). Each card: user title or "Cuộc trò chuyện #N" (numbered by save order), date, and a state cloud. Only states that appear are shown, sized by area ∝ count, each with a count badge. No mirror in the card. Tapping a card opens a detail dialog (✕/Esc, focus returns).
+- **B. Personal Mirror:** donut with the brand mascot in the centre; total turns + number of conversations; five rows with mascot, name, %, count, bar, and a "bạn chọn / Gương quan sát" split. Unclear and the user's own "Chưa chắc" are listed apart, outside the %. Percentages use largest-remainder rounding, so they always add up to 100.
+- **Time:** 7 ngày / 30 ngày / Tất cả presets + a two-thumb slider that snaps to saved conversations. Donut, rows and summary update together. "Last 5/10" left out: the slider already covers it.
+- **Data:** derived from the saved v1 collections (`{ai, chosen}`, `createdAt`). No migration; counts follow N6 (Gương's suggestion is the default, the user's choice wins).
+
+**Where the mockup and the product rules differ (Founder decision):**
+| # | Mockup | Concern | Prototype does |
+|---|---|---|---|
+| R1 | "Trong 30 ngày qua, bạn thường xuất hiện với Người trưởng thành (42%) — bình tĩnh, nhìn vào sự việc và cân nhắc lựa chọn." | "Bạn thường…" describes the person, and the praise ranks Adult as the good state (D8, no-judgment rule) | "Trong khoảng này, Người trưởng thành xuất hiện nhiều nhất: 17 trên 46 lượt nói." + "không phải đánh giá tính cách hay sự tiến bộ"; fewer than 10 turns or fewer than 3 conversations → "Còn ít dữ liệu" |
+| R2 | Brand octopus in the centre is lavender | The same hue as Nurturing Parent, so it can read as "you are NP" | Uses the app icon. Needs a transparent mirror-mascot file (open item D2); a neutral ring around it is an option |
+| R3 | Rows sorted by count | The order changes with every filter, so periods are hard to compare | Fixed order CP, NP, A, FC, AC (Founder can choose sorted) |
+| R4 | Mascots with expressions (hearts, magnifier, "!") | Our assets are the five provided PNGs; the variants would need new art from the Founder | Uses the provided PNGs as they are |
