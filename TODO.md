@@ -6,6 +6,7 @@ Session state and next actions. Stable rules live in `CLAUDE.md`. Overwrite this
 **Phase 1 — Functional MVP, UAT round 4 (CONDITIONAL GO, 2026-11-01).** Plan and decisions: `docs/UAT_EXECUTION_PLAN.md` §7. Feature freeze Nov 3, 18:00 ICT; internal submit Nov 4, 22:00 ICT. Everything is local commits: nothing pushed or deployed since the protected Preview.
 
 ## Current status (2026-11-01, Founder UAT fix sprint)
+- **Founder UAT batch 3 fixed (`72d439a`, `1d13015`):** screenshot Review advice folds, title = people + number (privacy copy updated: names can be saved inside a title), device language on first visit. Details: `docs/UAT_FIX_SPRINT.md` (Batch 3). Release gate: Founder iPhone UAT (incl. batch 2 #04 Save) → release decision.
 - **Founder UAT batch 2 (5 issues) fixed, `408419e`:** P0 Save on iPhone = `crypto.randomUUID` missing on the plain-HTTP LAN link (not a secure context); fixed with a fallback, reproduced and verified on an emulated LAN origin, **awaiting real-iPhone confirmation**. Details: `docs/UAT_FIX_SPRINT.md` (Batch 2).
 - **Founder UAT 12 issues fixed (local commits, not pushed):** logo `791ee7b`, cloud `810a381`, input/review/observation/title/Direction `28253fa`. Status per issue, why approved feedback was missed, re-test guide: `docs/UAT_FIX_SPRINT.md`.
 - **Earlier sprint** (all approved pre-submission items): `docs/RELEASE_READINESS.md` (§5 iPhone checklist updated for the fixes).
@@ -32,6 +33,8 @@ Session state and next actions. Stable rules live in `CLAUDE.md`. Overwrite this
 - Brand mascot for the donut is the app icon placeholder (D2); logo is the interim art with its matte removed (needs a proper transparent/SVG file). Free-text direction = E3. Enhancements E1–E10 after submission.
 
 ## Last validation result
+2026-11-01 UAT batch 3 (`1d13015`): `npm test` 108/108; lint, typecheck, build clean; `run-all.sh` 31 runs, 511/511 PASS. $0. Not verified: real iPhone.
+
 2026-11-01 UAT batch 2 (`408419e`): `npm test` 102/102; lint, typecheck, build clean; `run-all.sh` 28 runs, 445/445 PASS incl. `f2-batch2` on the plain-HTTP LAN origin. $0. Not verified: real iPhone.
 
 2026-11-01 Founder UAT fix sprint (`28253fa`):

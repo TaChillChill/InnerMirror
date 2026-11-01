@@ -116,3 +116,27 @@ Commit `408419e`, local only. API spend **$0** (all mocked). **Not verified on a
 4. Pick yourself → Tiếp tục nhìn lại mình → change title and note → **Lưu vào thiết bị này** → green confirmation, the card appears in the list.
 5. Reload → Nhìn lại mình → the card is there → tap it → title, note and mascots.
 6. Landing (scroll to bottom), light and dark: the logo is the same as the header's.
+
+---
+
+# Batch 3 — 2026-11-01 (final fixes)
+
+Commits `72d439a`, `1d13015`, local only. API spend **$0** (all mocked; no prompt, schema or model change).
+
+| # | Issue | Status | Change | Evidence |
+|---|---|---|---|---|
+| 01 | Long advice on screenshot Review | DONE | One line "So từng tin nhắn với ảnh chụp và sửa chỗ chưa đúng." with +/− (shared `MoreLine`, also used by "Gương thấy gì?"), closed by default; full advice inside. Kept visible: cut-off warning, "So với ảnh chụp của mình", privacy line and consent. | e2e `f3`: collapsed, opens/closes, warning shown; "Có những ai" in the first screen at 360/390 |
+| 02 | Title rule | DONE | The model-phrase title is removed. Default = people who spoke, in order, " – " and a two-digit number per group among saved conversations, order- and case-insensitive (read back from saved titles: collections store nothing else). App placeholders ("Chưa rõ", "Người kia") → "Người A/B". Edited titles are never replaced (`titleAuto` flag); older saved titles untouched; no AI call. | Unit `conversation-title` ×5; e2e `f3`: Người A – Mình – 01, Chị Phương – Mình – 01 → (other order) – 02, edited title kept across a new reading, old title kept, after reload |
+| 03 | Device language | DONE | No stored choice → first preferred browser language: vi → VI, everything else → EN. Read once per page load (no mid-session switch); the toggle's choice is stored and wins. Same on /privacy. | Unit `lang` ×2; e2e `f3`: vi-VN, vi → VI; en-GB, ja-JP, ko-KR, fr-FR → EN; JA device + VI choice survives reload; VI device + EN choice survives reload |
+
+**Privacy consequence of #02 (Founder decision applied, copy corrected):** saved collections now hold names when the title contains them (by default it does). Before, the app promised "names are never saved". `/privacy`, the "what is saved" list in Nhìn lại mình and `PRIVACY_SAFETY.md` A5 now say names are saved only inside a title, on this device only. Nothing new leaves the device.
+
+**Known limits:** the server renders EN, so a Vietnamese device sees EN for a moment before VI on first paint (as before for a stored VI choice; no mixed text after load). At 390×844 the first message on screenshot Review starts at the bottom edge of the first screen; the people section is fully in view.
+
+**Tests:** `npm test` 108/108; lint, typecheck, build clean; `run-all.sh` 31 runs, 511/511 PASS (batch 1 `f1`, batch 2 `f2` incl. Save on a plain-HTTP LAN origin, batch 3 `f3`).
+
+**Founder re-test (iPhone):**
+1. Phone in Vietnamese, fresh visit (or after clearing site data) → app in Vietnamese. Tap EN, reload → stays EN.
+2. Có sẵn cuộc trò chuyện → 1 screenshot → Tiếp tục → Review: one advice line with ⊕, people right below.
+3. Analyze → "Quan sát của Gương" title = names + 01. Save; analyze the same people again → – 02. Edit a title → it stays after changing a message and analyzing again.
+4. **Batch 2 #04 still open:** Lưu → confirmation → card listed → reload → reopen, on the real iPhone.

@@ -1,5 +1,6 @@
 // My Mirror collections in localStorage. By design (F3) a collection holds labels only:
-// no message text, no names, no AI explanations. Everything is validated on load so a
+// no message text, no AI explanations, and no names except inside the title (whose default
+// is the people's names + a number since Founder UAT batch 3, #02; the user can edit it). Everything is validated on load so a
 // corrupted or older entry can't break the page.
 import { z } from "zod";
 import type { Lang } from "./conversation";
