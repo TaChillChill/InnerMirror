@@ -5,6 +5,7 @@
 import { useCallback, useSyncExternalStore } from "react";
 import { loadCollections, storageAvailable, type Collection } from "@/lib/mirror-store";
 import type { Lang } from "@/lib/conversation";
+import { pickLang } from "@/lib/lang";
 
 const LANG_KEY = "innermirror.lang";
 const listeners = new Set<() => void>();
@@ -18,9 +19,17 @@ function subscribe(cb: () => void) {
   return () => { listeners.delete(cb); if (listeners.size === 0) window.removeEventListener("storage", notify); };
 }
 
-// The in-memory choice wins so switching works even where storage is blocked.
+// The in-memory choice wins so switching works even where storage is blocked. Without a
+// stored choice the device language decides (lib/lang), read once per page load so the
+// language never changes on its own mid-session.
 let chosenLang: Lang | null = null;
-const readLang = (): Lang => { if (chosenLang) return chosenLang; try { return localStorage.getItem(LANG_KEY) === "vi" ? "vi" : "en"; } catch { return "en"; } };
+let deviceLang: Lang | null = null;
+const readLang = (): Lang => {
+  if (chosenLang) return chosenLang;
+  let stored: string | null = null;
+  try { stored = localStorage.getItem(LANG_KEY); } catch { /* storage blocked: device language */ }
+  return stored === "vi" || stored === "en" ? stored : (deviceLang ??= pickLang(null, navigator.languages?.length ? navigator.languages : [navigator.language]));
+};
 
 export function useLang(): [Lang, (l: Lang) => void] {
   const lang = useSyncExternalStore(subscribe, readLang, () => "en" as Lang);
