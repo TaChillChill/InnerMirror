@@ -74,7 +74,8 @@ button.app-sticker:hover { border-color: var(--im-primary); }
 .app-rail { position: relative; contain: inline-size; } /* the card row must not widen the page grid */
 .app-rail__list { list-style: none; margin: 0; padding: 4px 2px var(--im-space-3); display: grid; grid-auto-flow: column; grid-auto-columns: min(236px, 72%); gap: var(--im-space-3); overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: thin; }
 .app-rail__list > li { scroll-snap-align: start; }
-.app-card { width: 100%; aspect-ratio: 1 / 1.08; display: grid; grid-template-rows: auto auto minmax(0, 1fr); gap: 2px; padding: var(--im-space-4); text-align: start; background: var(--im-surface); border: 1.5px solid var(--im-border); border-radius: var(--im-radius-xl); color: var(--im-text); cursor: pointer; font: inherit; }
+/* Height follows the one-row cloud (UAT #11); cards in a row still share the tallest height. */
+.app-card { width: 100%; height: 100%; display: grid; grid-template-rows: auto auto 1fr; gap: 2px; padding: var(--im-space-4); text-align: start; background: var(--im-surface); border: 1.5px solid var(--im-border); border-radius: var(--im-radius-xl); color: var(--im-text); cursor: pointer; font: inherit; }
 .app-card:hover { border-color: var(--im-primary); }
 .app-card__title { font: 800 1rem/1.3 var(--im-font); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .app-card__title.is-default { color: var(--im-text-muted); }
@@ -84,12 +85,14 @@ button.app-sticker:hover { border-color: var(--im-primary); }
 .app-rail__arrow:disabled { opacity: 0; pointer-events: none; }
 @media (hover: hover) and (min-width: 720px) { .app-rail__arrow { display: block; } }
 
-.app-cloud { position: relative; display: block; container-type: inline-size; aspect-ratio: 1.1; }
-.app-card .app-cloud { aspect-ratio: auto; height: 100%; min-height: 0; }
-.app-cloud--large { width: min(100%, 300px); margin: 0 auto; aspect-ratio: 1.15; }
-.app-cloud__puff { position: absolute; transform: translate(-50%, -50%); width: var(--d); height: var(--d); border-radius: 50%; background: radial-gradient(circle, var(--ex-tint) 0 62%, transparent 63%); }
+.app-cloud { display: flex; align-items: center; justify-content: center; container-type: inline-size; min-height: 0; }
+.app-card .app-cloud { padding-top: var(--im-space-3); min-height: 96px; }
+.app-card .app-cloud__n { min-width: 20px; height: 20px; padding: 0 4px; font-size: 0.75rem; }
+.app-cloud--large { width: min(100%, 420px); margin: 0 auto; padding-block: var(--im-space-2); }
+.app-cloud__puff { position: relative; flex: none; width: var(--d); height: var(--d); margin-inline-start: calc(-1 * var(--overlap)); border-radius: 50%; background: radial-gradient(circle, var(--ex-tint) 0 62%, transparent 63%); }
 .app-cloud__puff img { width: 100%; height: 100%; object-fit: contain; display: block; }
 .app-cloud__n { position: absolute; right: -2px; bottom: -2px; min-width: 24px; height: 24px; padding: 0 6px; display: grid; place-items: center; border-radius: var(--im-radius-pill); background: var(--im-surface); border: 1.5px solid var(--ex-fill); color: var(--ex-ink); font: 800 0.8125rem/1 var(--im-font); font-variant-numeric: tabular-nums; }
+.app-cloud__puff.is-left .app-cloud__n { right: auto; left: -2px; }
 
 /* ---------- Personal Mirror: donut, five rows, time ---------- */
 .app-pm { container-type: inline-size; display: grid; gap: var(--im-space-3); padding: var(--im-space-5); background: var(--im-surface); border-radius: var(--im-radius-xl); box-shadow: var(--im-shadow-1); }

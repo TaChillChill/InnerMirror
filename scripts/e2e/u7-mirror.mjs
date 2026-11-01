@@ -41,7 +41,8 @@ try {
   check("8 cards", await step(`document.querySelectorAll(".app-card").length`) === 8);
   const titles = await step(`[...document.querySelectorAll(".app-card__title")].map((x) => x.textContent).join("|")`);
   check("untitled cards are numbered by save order", titles.includes("#3") && titles.includes("#1") && titles.indexOf("#3") < titles.indexOf("#1"), titles);
-  check("first card cloud: 5 / 2 / 1 badges", await step(`[...document.querySelector(".app-card .app-cloud").querySelectorAll(".app-cloud__n")].map((x) => x.textContent).join(",")`) === "5,2,1");
+  // One row (UAT #11): the 5 in the middle, 2 to its right, 1 to its left.
+  check("first card cloud: 1 / 5 / 2 badges, largest in the middle", await step(`[...document.querySelector(".app-card .app-cloud").querySelectorAll(".app-cloud__n")].map((x) => x.textContent).join(",")`) === "1,5,2");
   const r30 = JSON.parse(await read());
   check("30 days: 46 turns, 8 conversations", /46/.test(r30.turns) && /8/.test(r30.convs), JSON.stringify(r30));
   check("percentages add to 100", r30.rows.map((x) => parseInt(x)).reduce((a, x) => a + x, 0) === 100);
