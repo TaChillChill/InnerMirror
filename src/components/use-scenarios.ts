@@ -7,6 +7,7 @@ import type { Lang } from "@/lib/conversation";
 import type { ScenarioContext, ScenarioRequest, ScenarioResult } from "@/lib/ai/scenario";
 import type { State } from "@/lib/ai/scenario-spec";
 import { effectiveState, type Session } from "./session";
+import { errorCode } from "@/lib/api-error";
 
 export type Entry = { status: "loading" } | { status: "done"; result: ScenarioResult; labels: Record<string, string> } | { status: "error"; code: string };
 type Msg = NonNullable<Session["transcript"]>["messages"][number];
@@ -39,7 +40,7 @@ export function useScenarios() {
     try {
       const res = await fetch("/api/scenario", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(request), signal: controller.signal });
       const json = await res.json().catch(() => ({}));
-      settle(res.ok ? { status: "done", result: json.scenario, labels: json.labels ?? {} } : { status: "error", code: typeof json.error === "string" ? json.error : "unknown" });
+      settle(res.ok ? { status: "done", result: json.scenario, labels: json.labels ?? {} } : { status: "error", code: errorCode(res.status, json) });
     } catch (e) {
       if (!(e instanceof DOMException && e.name === "AbortError")) settle({ status: "error", code: "network" });
     } finally {

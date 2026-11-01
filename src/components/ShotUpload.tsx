@@ -15,6 +15,7 @@ import { ShotLightbox } from "./ShotLightbox";
 import { Icon, useT } from "./ui";
 import { WaitHint } from "./Analyzing";
 import { extractEstimate } from "@/lib/wait";
+import { errorCode } from "@/lib/api-error";
 
 export function ShotUpload({ s, update }: { s: Session; update: Update }) {
   const { t, lang } = useT();
@@ -95,7 +96,7 @@ export function ShotUpload({ s, update }: { s: Session; update: Update }) {
         body: JSON.stringify({ language: lang, images, consent: true }),
       });
       const json = await res.json().catch(() => ({}));
-      if (!res.ok) return setError(typeof json.error === "string" ? json.error : "unknown");
+      if (!res.ok) return setError(errorCode(res.status, json));
       const extraction = json.extraction as Extraction;
       const transcript = toTranscript(extraction, { me: t.add.me, unknown: t.add.unknown, other: (n) => (n === 1 ? t.add.otherPerson : `${t.add.otherPerson} ${n}`) });
       if (!transcript.messages.length) return setError("not_a_chat");

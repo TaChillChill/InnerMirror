@@ -20,6 +20,7 @@ import { Review } from "./Review";
 import { Analyzing, AnalyzeError } from "./Analyzing";
 import { Replay } from "./Replay";
 import { Mirror } from "./Mirror";
+import { errorCode } from "@/lib/api-error";
 
 export type Update = (patch: Partial<Session> | ((s: Session) => Partial<Session>)) => void;
 
@@ -82,7 +83,7 @@ export function App() {
         signal: controller.signal,
       });
       const json = await res.json().catch(() => ({}));
-      if (!res.ok) return update({ screen: "error", error: typeof json.error === "string" ? json.error : "unknown" });
+      if (!res.ok) return update({ screen: "error", error: errorCode(res.status, json) });
       const analysis = json.analysis as Analysis, labels = json.labels ?? {};
       update({ screen: "replay", analysis, labels, sample: false, lastResult: { key, selfId: s.selfId, analysis, labels } });
       window.scrollTo({ top: 0 });
