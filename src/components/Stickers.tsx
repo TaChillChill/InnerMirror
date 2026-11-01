@@ -3,7 +3,7 @@
 // "not reviewed" lives in the tile: recessed, dashed, labelled "AI suggested".
 import { useState } from "react";
 import { EX_ORDER, type ExKey } from "@/lib/i18n";
-import { shownOf, tallyOf, type Collection, type MineEntry, type Shown } from "@/lib/mirror-store";
+import { shownOf, tallyOf, type MineEntry, type Shown } from "@/lib/mirror-store";
 import { Badge, Icon, Mascot, exName, useT } from "./ui";
 
 type StickerState = "suggested" | "agreed" | "changed" | "unsure";
@@ -63,27 +63,5 @@ export function Tally({ mine, tapHint }: { mine: MineEntry[]; tapHint?: boolean 
       </ul>
       <p className="im-hint">{t.mirror.count(mine.length, open)}{tapHint ? ` ${t.mirror.tapHint}` : ""}</p>
     </>
-  );
-}
-
-// A saved conversation as a small keepsake: my stickers first (dashed = Mirror noticed,
-// solid = mine), then the title, my note, and when.
-export function CollectionCard({ c, onOpen }: { c: Collection; onOpen: (el: HTMLButtonElement) => void }) {
-  const { t, lang } = useT();
-  const M = t.mirror;
-  const max = 6;
-  const title = c.title || M.untitled;
-  const date = new Date(c.createdAt).toLocaleDateString(lang === "vi" ? "vi-VN" : "en-GB", { day: "numeric", month: "short", year: "numeric" });
-  const label = M.cardLabel(title, date, c.mine.length, c.mine.filter((m) => m.chosen && m.chosen !== "unsure").length);
-  return (
-    <button className="app-coll" onClick={(e) => onOpen(e.currentTarget)} aria-label={label}>
-      <span className="app-coll__badges" aria-hidden="true">
-        {c.mine.slice(0, max).map((m) => <Badge key={m.order} ex={badgeKey(shownOf(m))} state={stateOf(m)} />)}
-        {c.mine.length > max && <span className="app-coll__more">+{c.mine.length - max}</span>}
-      </span>
-      <strong className="app-coll__title">{title}</strong>
-      {c.note && <span className="app-coll__note">“{c.note}”</span>}
-      <span className="app-coll__meta">{date} · {M.messages(c.mine.length)}</span>
-    </button>
   );
 }

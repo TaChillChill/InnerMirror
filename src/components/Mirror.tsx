@@ -9,7 +9,11 @@ import type { ExKey } from "@/lib/i18n";
 import type { Update } from "./App";
 import { anchorOf } from "@/lib/ai/analysis";
 import { readingFor, type Session } from "./session";
-import { Stickers, Tally, CollectionCard } from "./Stickers";
+import { Stickers, Tally } from "./Stickers";
+import { SavedRail, titleOf } from "./SavedRail";
+import { PersonalMirror, StateRows } from "./PersonalMirror";
+import { StateCloud } from "./StateCloud";
+import { countsOf } from "@/lib/mirror-stats";
 import { Icon, useT } from "./ui";
 
 type Props = { s: Session; update: Update; saved: Collection[]; storageOk: boolean; onSavedChange: () => void; onNew: () => void; onBack: () => void; onHome: () => void; onOpenMessage: (id: string) => void };
@@ -34,6 +38,7 @@ export function Mirror({ s, update, saved, storageOk, onSavedChange, onNew, onBa
   const canGoBack = !!s.analysis && !!s.transcript && !s.analysis.safety.flagged;
   const justSaved = s.savedId ? saved.find((c) => c.id === s.savedId) : undefined;
   const mine = currentMine(s);
+  const viewingCounts = viewing ? countsOf([viewing]) : null;
   const notice = useRef<HTMLDivElement>(null);
   const opener = useRef<HTMLButtonElement | null>(null);
 
@@ -90,7 +95,7 @@ export function Mirror({ s, update, saved, storageOk, onSavedChange, onNew, onBa
 
       {justSaved && (
         <section className="app-current" aria-labelledby="just">
-          <h2 id="just" className="app-h2">{M.justSaved}: {justSaved.title || M.untitled}</h2>
+          <h2 id="just" className="app-h2">{M.justSaved}: {titleOf(justSaved, saved, M.numbered)}</h2>
           <Stickers mine={justSaved.mine} />
           {canGoBack && <p className="im-hint">{M.afterSaveHint}</p>}
         </section>
@@ -104,16 +109,15 @@ export function Mirror({ s, update, saved, storageOk, onSavedChange, onNew, onBa
       </nav>
 
       <section aria-labelledby="colls">
-        <h2 id="colls" className="app-h2">{M.collections}{saved.length > 0 && <span className="app-count">{saved.length}</span>}</h2>
+        <h2 id="colls" className="app-h2">{M.collections}{saved.length > 0 && <span className="app-count" aria-label={M.savedCount(saved.length)}>{saved.length}</span>}</h2>
         {saved.length ? (
-          <>
-            <p className="app-legend-line"><span className="app-swatch is-dashed" aria-hidden="true" />{M.legend[0]}<span className="app-swatch is-solid" aria-hidden="true" />{M.legend[1]}</p>
-            <ul className="app-colls">{saved.map((c) => <li key={c.id}><CollectionCard c={c} onOpen={(el) => { opener.current = el; setViewing(c); }} /></li>)}</ul>
-          </>
+          <SavedRail saved={saved} onOpen={(c, el) => { opener.current = el; setViewing(c); }} />
         ) : (
           <div className="app-empty"><h3 className="app-empty__title">{M.emptyTitle}</h3><p>{M.emptyBody}</p></div>
         )}
       </section>
+
+      {saved.length > 0 && <PersonalMirror saved={saved} />}
 
       {undo && <div className="app-toast" role="status">{M.deleted} <button className="app-textlink" onClick={() => { restoreCollection(undo); setUndo(null); onSavedChange(); }}>{M.undo}</button></div>}
 
@@ -127,11 +131,13 @@ export function Mirror({ s, update, saved, storageOk, onSavedChange, onNew, onBa
           <div className="app-modal-backdrop" onClick={() => setViewing(null)} aria-hidden="true" />
           <section className="app-modal" role="dialog" aria-modal="true" aria-labelledby="coll-title">
             <div className="app-sheet-bar"><button className="app-icon-btn" autoFocus onClick={() => setViewing(null)} aria-label={t.replay.close}><Icon name="close" /></button></div>
-            <h2 id="coll-title" className="app-h2">{viewing.title || M.untitled}</h2>
+            <h2 id="coll-title" className="app-h2">{titleOf(viewing, saved, M.numbered)}</h2>
             <p className="im-hint">{new Date(viewing.createdAt).toLocaleDateString(lang === "vi" ? "vi-VN" : "en-GB", { day: "numeric", month: "short", year: "numeric" })}</p>
             {viewing.note && <div className="app-note-saved"><span className="im-label">{M.noteLabel.replace(/ \(.*\)$/, "")}</span><p>{viewing.note}</p></div>}
-            <Stickers mine={viewing.mine} />
-            <Tally mine={viewing.mine} />
+            <StateCloud counts={viewingCounts!} large />
+            <StateRows counts={viewingCounts!} />
+            {M.outside(viewingCounts!.unclear, viewingCounts!.unsure) && <p className="app-pm__aside">{M.outside(viewingCounts!.unclear, viewingCounts!.unsure)}.</p>}
+            <p className="im-hint">{M.cloudNote}</p>
             <p className="im-hint">{M.notEditable}</p>
             <button className="im-btn im-btn--ghost" onClick={() => remove(viewing)}><Icon name="trash" /> {M.deleteOne}</button>
           </section>
