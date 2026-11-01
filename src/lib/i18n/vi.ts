@@ -1,4 +1,5 @@
 // Vietnamese UI strings. Terminology follows D6 (design/OPEN_DECISIONS.md).
+import { directionVi } from "./direction.vi.ts";
 import type { Dict } from "./en";
 import { landingVi } from "./landing.vi.ts";
 import { privacyVi } from "./privacy.vi.ts";
@@ -351,6 +352,7 @@ export const vi: Dict = {
     confirmNew: "Cuộc trò chuyện này chưa được lưu. Vẫn bắt đầu cuộc mới chứ?",
     navLabel: "Tiếp theo",
   },
+  direction: directionVi,
   privacyPage: privacyVi,
 
 };

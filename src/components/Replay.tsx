@@ -8,6 +8,8 @@ import { aiChip, badgeFor } from "./Selector";
 import { MessagePanel, type PanelTab } from "./MessagePanel";
 import { useScenarios } from "./use-scenarios";
 import { Observation, WhoPicker } from "./Observation";
+import { Direction } from "./Direction";
+import type { ExKey } from "@/lib/i18n";
 import { scenarioContext } from "@/lib/ai/scenario";
 import { segmentOf } from "@/lib/ai/analysis";
 import { nameOf, readingFor, safetyHold, whatIfOff, withNames, type Session } from "./session";
@@ -47,6 +49,8 @@ export function Replay({ s, update, onContinue, onEdit, onRestart }: { s: Sessio
   const desktop = useIsDesktop();
   const opener = useRef<HTMLButtonElement | null>(null);
   const [tab, setTab] = useState<PanelTab>("reading");
+  // A state picked in Direction, preselected in What if? until the panel is opened another way.
+  const [preset, setPreset] = useState<ExKey | null>(null);
   // Explored scenarios live here, so they vanish when Replay unmounts.
   const scenarios = useScenarios();
   const a = s.analysis!;
@@ -57,6 +61,7 @@ export function Replay({ s, update, onContinue, onEdit, onRestart }: { s: Sessio
   const openPanel = (el: HTMLButtonElement, id: string, which: PanelTab) => {
     opener.current = el;
     if (s.selected === id && tab === which) return close();
+    setPreset(null);
     setTab(which);
     update({ selected: id });
   };
@@ -97,6 +102,13 @@ export function Replay({ s, update, onContinue, onEdit, onRestart }: { s: Sessio
         )}
       </div>
     );
+  };
+
+  const tryDirection = (id: string, state: ExKey, from: HTMLButtonElement) => {
+    opener.current = from;
+    setPreset(state);
+    setTab("whatif");
+    update({ selected: id });
   };
 
   if (a.safety.flagged) return <Safety note={a.safety.note} onBack={onRestart} />;
@@ -144,6 +156,7 @@ export function Replay({ s, update, onContinue, onEdit, onRestart }: { s: Sessio
         </div>
 
         <WhoPicker s={s} update={update} />
+        {!safetyHold(s) && <Direction s={s} onTry={tryDirection} />}
         <div className="app-continue">
           <button className="im-btn im-btn--primary" onClick={onContinue}>{R.continue}</button>
           <span className="im-hint">{R.continueHint}</span>
@@ -153,7 +166,7 @@ export function Replay({ s, update, onContinue, onEdit, onRestart }: { s: Sessio
       {!desktop && <div className="app-sheet-backdrop" onClick={close} aria-hidden="true" />}
       <aside className={`app-sheet${s.selected ? " is-open" : ""}`} aria-label={R.panelLabel} role={sheetOpen ? "dialog" : undefined} aria-modal={sheetOpen || undefined}>
         {s.selected
-          ? <MessagePanel s={s} update={update} id={s.selected} tab={tab} onTab={setTab} scenarios={scenarios} onClose={close} />
+          ? <MessagePanel s={s} update={update} id={s.selected} tab={tab} preset={preset} onTab={setTab} scenarios={scenarios} onClose={close} />
           : desktop && <p className="app-panel-empty"><Icon name="eye" /><span>{R.panelEmpty}</span></p>}
       </aside>
     </div>

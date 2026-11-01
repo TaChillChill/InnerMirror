@@ -10,14 +10,15 @@ import { Selector } from "./Selector";
 import { WhatIf } from "./WhatIf";
 import { nameOf, whatIfOff, type Session } from "./session";
 import type { useScenarios } from "./use-scenarios";
+import type { ExKey } from "@/lib/i18n";
 import { Icon, useT } from "./ui";
 
 export type PanelTab = "reading" | "whatif";
 const TABS: PanelTab[] = ["reading", "whatif"];
 
-type Props = { s: Session; update: Update; id: string; tab: PanelTab; onTab: (t: PanelTab) => void; scenarios: ReturnType<typeof useScenarios>; onClose: () => void };
+type Props = { s: Session; update: Update; id: string; tab: PanelTab; onTab: (t: PanelTab) => void; scenarios: ReturnType<typeof useScenarios>; onClose: () => void; preset?: ExKey | null };
 
-export function MessagePanel({ s, update, id, tab, onTab, scenarios, onClose }: Props) {
+export function MessagePanel({ s, update, id, tab, onTab, scenarios, onClose, preset }: Props) {
   const { t } = useT();
   const R = t.replay;
   const m = s.transcript?.messages.find((x) => x.id === id);
@@ -53,7 +54,7 @@ export function MessagePanel({ s, update, id, tab, onTab, scenarios, onClose }: 
       )}
       <div id={`tabpanel-${active}`} role={ctx ? "tabpanel" : undefined} aria-labelledby={ctx ? `tab-${active}` : undefined}>
         {active === "whatif" && ctx
-          ? <WhatIf key={id} s={s} ctx={ctx} scenarios={scenarios} />
+          ? <WhatIf key={`${id}:${preset ?? ""}`} s={s} ctx={ctx} scenarios={scenarios} preset={preset ?? null} />
           : <Selector s={s} update={update} id={id} />}
       </div>
     </>

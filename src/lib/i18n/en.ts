@@ -1,4 +1,5 @@
 // English UI strings. The shape of this object is the dictionary type.
+import { directionEn } from "./direction.en.ts";
 import { landingEn } from "./landing.en.ts";
 import { privacyEn } from "./privacy.en.ts";
 export const en = {
@@ -350,6 +351,7 @@ export const en = {
     confirmNew: "This conversation isn't saved. Start a new one anyway?",
     navLabel: "What next",
   },
+  direction: directionEn,
   privacyPage: privacyEn,
 
 };
