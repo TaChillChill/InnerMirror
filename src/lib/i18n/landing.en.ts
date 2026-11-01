@@ -9,6 +9,7 @@ export const landingEn = {
   h1: { before: "What really happens when ", who: "two egos", mid: " ", meet: "meet", after: "?" },
   lead: "Behind every message there may be a different ego state. When they meet, a conversation can click, misfire or grow tense. Try looking back at one of your conversations from a new angle.",
   start: "Try it with a real conversation",
+  sample: "See a sample conversation",
   howLink: "How it works",
   fine: "No account · Nothing is saved unless you tap Save",
   demo: {

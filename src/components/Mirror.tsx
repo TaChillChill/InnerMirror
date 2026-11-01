@@ -82,7 +82,7 @@ export function Mirror({ s, update, saved, storageOk, onSavedChange, onNew, onBa
             <ul className="app-saved-list">{M.savedList.map(([k, v]) => <li key={k}><strong>{k}</strong> {v}</li>)}</ul>
           </details>
           <div className="app-actions">
-            <button className="im-btn im-btn--primary" onClick={save}><Icon name="saved" /> {M.save}</button>
+            {s.sample ? <p className="im-hint">{M.sampleNoSave}</p> : <button className="im-btn im-btn--primary" onClick={save}><Icon name="saved" /> {M.save}</button>}
             <button className="im-btn im-btn--ghost" onClick={dontSave}>{M.dontSave}</button>
           </div>
         </section>

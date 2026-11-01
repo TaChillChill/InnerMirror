@@ -29,6 +29,7 @@ export type Session = {
   // screenshots are dropped once the conversation is analyzed, like `shots`.
   draft: { method: "shot" | "paste"; text: string; images: string[] };
   readFrom: string | null; // textKey/imagesKey of what the current transcript was read from
+  sample: boolean; // the built-in sample: no API calls, nothing saved
   extractNotes: NoteCode[];
   // The last reading and what it was made from, so an unchanged conversation isn't sent
   // again. In memory only, like everything here; a new conversation drops it.
@@ -38,7 +39,7 @@ export type Session = {
 export const freshSession = (): Session => ({
   screen: "landing", transcript: null, selfId: null, consent: false, analysis: null, labels: {},
   choices: {}, selected: null, error: null, title: "", note: "", savedId: null, shots: [], extractNotes: [], lastResult: null,
-  draft: { method: "shot", text: "", images: [] }, readFrom: null,
+  draft: { method: "shot", text: "", images: [] }, readFrom: null, sample: false,
 });
 
 export const readingFor = (a: Analysis, id: string): Reading | undefined => a.readings.find((r) => r.messageId === id);

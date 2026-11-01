@@ -4,6 +4,9 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { DICTS } from "@/lib/i18n";
 import { analysisKey, toAnalyzeRequest } from "@/lib/conversation";
+import { cleanAnalysis } from "@/lib/ai/analysis";
+import { analysisLabels } from "@/lib/ai/analysis-spec";
+import { SAMPLES } from "@/lib/samples";
 import { analyzeEstimate } from "@/lib/wait";
 import type { Analysis } from "@/lib/ai/analysis";
 import { LangContext, Icon } from "./ui";
@@ -42,6 +45,20 @@ export function App() {
     window.scrollTo({ top: 0 });
   };
 
+  // The built-in sample opens straight on Replay from a saved observation: no call, and the
+  // same validation as a live answer. Re-analyzing it unchanged reuses that result.
+  const openSample = () => {
+    const sm = SAMPLES[lang];
+    const transcript = { source: "paste" as const, participants: sm.names.map((name, i) => ({ id: `p${i + 1}`, name })), messages: sm.messages };
+    const analysis = cleanAnalysis(sm.raw, sm.messages);
+    if (!analysis) return;
+    const req = toAnalyzeRequest(transcript, sm.selfId, lang);
+    const labels = Object.fromEntries(Object.entries(analysisLabels(req)).map(([pid, label]) => [label, pid]));
+    setS({ ...freshSession(), screen: "replay", sample: true, transcript, selfId: sm.selfId, consent: true, analysis, labels,
+      lastResult: { key: analysisKey(req), selfId: sm.selfId, analysis, labels } });
+    window.scrollTo({ top: 0 });
+  };
+
   const analyze = useCallback(async () => {
     if (!s.transcript || !s.selfId) return;
     const req = toAnalyzeRequest(s.transcript, s.selfId, lang);
@@ -67,7 +84,7 @@ export function App() {
       const json = await res.json().catch(() => ({}));
       if (!res.ok) return update({ screen: "error", error: typeof json.error === "string" ? json.error : "unknown" });
       const analysis = json.analysis as Analysis, labels = json.labels ?? {};
-      update({ screen: "replay", analysis, labels, lastResult: { key, selfId: s.selfId, analysis, labels } });
+      update({ screen: "replay", analysis, labels, sample: false, lastResult: { key, selfId: s.selfId, analysis, labels } });
       window.scrollTo({ top: 0 });
     } catch (e) {
       if (e instanceof DOMException && e.name === "AbortError") return update({ screen: "review" });
@@ -100,7 +117,7 @@ export function App() {
         </div>
       </StickyHeader>
       <main id="main">
-        {s.screen === "landing" && <Landing savedCount={saved.length} onStart={startNew} onMirror={() => go("mirror")} onContinue={hasSession ? () => go("replay") : undefined} />}
+        {s.screen === "landing" && <Landing savedCount={saved.length} onStart={startNew} onSample={openSample} onMirror={() => go("mirror")} onContinue={hasSession ? () => go("replay") : undefined} />}
         {s.screen === "add" && <AddConversation s={s} update={update} />}
         {s.screen === "review" && s.transcript && <Review s={s} update={update} onAnalyze={analyze} onBack={() => go("add")} />}
         {s.screen === "analyzing" && s.transcript && <Analyzing estimate={analyzeEstimate(s.transcript.messages)} onCancel={() => abort.current?.abort()} />}

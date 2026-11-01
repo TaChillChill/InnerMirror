@@ -207,6 +207,7 @@ export const vi: Dict = {
     retry: "Thử lại",
   },
   replay: {
+    sampleNote: "Cuộc trò chuyện mẫu: hội thoại được viết sẵn, phần quan sát là kết quả thật của Gương đã lưu từ trước. Không có gì được gửi đi. Nếu khác đi? cần kết nối trực tiếp nên tạm tắt ở đây.",
     editTranscript: "Sửa cuộc trò chuyện hoặc đổi người là bạn",
     title: "Gương thấy gì?",
     aiObservation: "Quan sát của Gương",
@@ -283,6 +284,7 @@ export const vi: Dict = {
       ["Ở đâu:", "chỉ trong trình duyệt này, trên thiết bị này. Không tài khoản, không sao lưu."],
     ],
     save: "Lưu vào thiết bị này",
+    sampleNoSave: "Bản mẫu không được lưu vào bộ sưu tập của bạn.",
     dontSave: "Không lưu",
     savedTitle: "Đã lưu trong trình duyệt này",
     savedBody: "Nó vẫn còn khi bạn đóng rồi mở lại InnerMirror ở đây, trừ khi trình duyệt xoá đi.",

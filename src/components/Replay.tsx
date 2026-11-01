@@ -81,7 +81,7 @@ export function Replay({ s, update, onContinue, onEdit, onRestart }: { s: Sessio
     const ai = b.state === "suggested" && r ? aiChip(t, r) : {};
     const name = ai.text ?? `${ai.prefix ? `${ai.prefix} ` : ""}${b.ex === "unsure" ? t.unsure : t.ex[b.ex].name}`;
     const label = b.state === "suggested" ? R.aiSuggestion : b.state === "unsure" ? R.youUnsure : b.state === "agreed" ? R.youAgreed : R.youChose;
-    const canWhatIf = mine && !!scenarioContext(T.messages, s.selfId, id);
+    const canWhatIf = mine && !s.sample && !!scenarioContext(T.messages, s.selfId, id);
     const open = s.selected === id;
     return (
       <div className="im-msg__meta">
@@ -108,6 +108,7 @@ export function Replay({ s, update, onContinue, onEdit, onRestart }: { s: Sessio
         <h1 className="app-h1">{R.title}</h1>
         {/* Back to the transcript; an unchanged conversation is not analyzed again (App). */}
         <button className="app-textlink app-replay__edit" onClick={onEdit}><Icon name="edit" /> {R.editTranscript}</button>
+        {s.sample && <div className="im-notice" role="status"><Icon name="eye" /><div>{R.sampleNote}</div></div>}
         <section className="im-layer im-layer--ai">
           <div className="im-layer__head"><Icon name="eye" /> {R.aiObservation}</div>
           <p>{withNames(a.summary, s)}</p>

@@ -206,6 +206,7 @@ export const en = {
     retry: "Try again",
   },
   replay: {
+    sampleNote: "Sample conversation: the chat is made up, and the observation is a real Mirror result saved earlier. Nothing is sent anywhere. What if? needs a live connection, so it is off here.",
     editTranscript: "Edit the conversation or who you are",
     title: "What Mirror sees",
     aiObservation: "Mirror's observation",
@@ -282,6 +283,7 @@ export const en = {
       ["Where:", "only in this browser on this device. No account, no backup."],
     ],
     save: "Save to this device",
+    sampleNoSave: "The sample isn't saved to your collections.",
     dontSave: "Don't save",
     savedTitle: "Saved in this browser",
     savedBody: "It stays when you close and reopen InnerMirror here, unless the browser clears it.",

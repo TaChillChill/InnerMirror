@@ -10,6 +10,7 @@ export const landingVi: LandingDict = {
   h1: { before: "Khi ", who: "hai cái tôi", mid: " ", meet: "gặp nhau", after: ", điều gì thật sự xảy ra?" },
   lead: "Đằng sau mỗi lời nói có thể là một trạng thái cái tôi khác nhau. Khi chúng tương tác, cuộc trò chuyện có thể trở nên ăn ý, lệch nhịp hoặc căng thẳng. Hãy thử nhìn lại một cuộc trò chuyện của bạn qua một góc nhìn mới.",
   start: "Thử với một cuộc trò chuyện thật",
+  sample: "Xem một cuộc trò chuyện mẫu",
   howLink: "Cách hoạt động",
   fine: "Không cần tài khoản · Không lưu gì trừ khi bạn bấm Lưu",
   demo: {

@@ -7,12 +7,12 @@ import { Badge, Icon, Mascot, useT } from "./ui";
 import { VoiceDemo, type DemoPick } from "./VoiceDemo";
 import { DiagramLegend, InteractionDiagram } from "./InteractionDiagram";
 
-type Props = { savedCount: number; onStart: () => void; onMirror: () => void; onContinue?: () => void };
+type Props = { savedCount: number; onStart: () => void; onSample: () => void; onMirror: () => void; onContinue?: () => void };
 // Berne's three ego states, with the five functional styles grouped under them.
 const ROOTS: ["P" | "A" | "C", ExKey[]][] = [["P", ["cp", "np"]], ["A", ["a"]], ["C", ["fc", "ac"]]];
 const STEP_ART: ExKey[][] = [[], ["a", "cp", "fc"], ["np", "ac"], ["a", "np", "fc"]];
 
-export function Landing({ savedCount, onStart, onMirror, onContinue }: Props) {
+export function Landing({ savedCount, onStart, onSample, onMirror, onContinue }: Props) {
   const { t } = useT();
   const L = t.landing;
   const [pick, setPick] = useState<DemoPick>("a");
@@ -40,6 +40,7 @@ export function Landing({ savedCount, onStart, onMirror, onContinue }: Props) {
           <div className="lp-ctas">
             <button className="im-btn im-btn--primary lp-cta" onClick={onStart}>{L.start}</button>
             {onContinue && <button className="im-btn im-btn--secondary" onClick={onContinue}>{L.continueSession}</button>}
+            <button className="im-btn im-btn--ghost lp-sample" onClick={onSample}>{L.sample}</button>
             <button className="app-textlink" onClick={scrollToHow}>{L.howLink} ↓</button>
           </div>
           <p className="lp-fine">{L.fine}</p>
