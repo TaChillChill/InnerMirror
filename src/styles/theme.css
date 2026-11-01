@@ -1,0 +1,87 @@
+/* Light / Dark / System (Founder, 2026-11-01). The light values live in design tokens;
+   this file adds the few colors that were hard-coded in app CSS, and the dark theme from
+   design/DESIGN_SYSTEM.md appendix A (contrast re-checked, see docs/RELEASE_READINESS.md).
+   No attribute = follow the system; data-theme="light" | "dark" = the user's choice. */
+:root {
+  --im-header-scrolled: #f3f0ff;
+  --im-header-scrolled-border: #e5dfff;
+  --im-toast-bg: var(--im-text);
+  --im-toast-text: #ffffff;
+  --im-toast-link: var(--im-brand-lavender);
+  --im-avatar-slate-bg: #e3e7ee; --im-avatar-slate: #36445a;
+  --im-avatar-sand-bg: #f0e7d8;  --im-avatar-sand: #64502c;
+  --im-avatar-stone-bg: #e9e7e2; --im-avatar-stone: #4f4c45;
+}
+
+/* One block, applied by the attribute or by the system setting. */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --im-bg: #17152b;
+  --im-surface: #211e3b;
+  --im-surface-sunken: #1b1932;
+  --im-surface-tint: #2e2a55;
+  --im-border: #353159;
+  --im-border-strong: #7d78a6;
+  --im-text: #eeebff;
+  --im-text-muted: #aba6d2;
+  --im-text-on-primary: #ffffff;
+  --im-primary: #6a62d8;
+  --im-primary-strong: #7d76e6;
+  --im-primary-ink: #a9a3ff;
+  --im-focus: #a9a3ff;
+  --im-error-ink: #ff8a95;
+  --im-success-ink: #7ee0cd;
+  --im-success-tint: #16332f;
+  --im-ex-cp-tint: #3d2030; --im-ex-cp-ink: #ff8a95;
+  --im-ex-np-tint: #2f2650; --im-ex-np-ink: #d4bbff;
+  --im-ex-a-tint: #1d2e48;  --im-ex-a-ink: #9cc8fa;
+  --im-ex-fc-tint: #3a3020; --im-ex-fc-ink: #ffcf6e;
+  --im-ex-ac-tint: #183731; --im-ex-ac-ink: #7ee0cd;
+  --im-shadow-1: 0 1px 2px rgb(0 0 0 / 0.4), 0 2px 8px rgb(0 0 0 / 0.3);
+  --im-shadow-2: 0 4px 12px rgb(0 0 0 / 0.45), 0 12px 32px rgb(0 0 0 / 0.4);
+  --im-header-scrolled: #211e3b;
+  --im-header-scrolled-border: #353159;
+  --im-toast-bg: #eeebff;
+  --im-toast-text: #17152b;
+  --im-toast-link: #4f47b8;
+  --im-avatar-slate-bg: #2c3442; --im-avatar-slate: #c9d3e3;
+  --im-avatar-sand-bg: #3b3326;  --im-avatar-sand: #e6d3b0;
+  --im-avatar-stone-bg: #33312c; --im-avatar-stone: #dcd8cf;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --im-bg: #17152b;
+    --im-surface: #211e3b;
+    --im-surface-sunken: #1b1932;
+    --im-surface-tint: #2e2a55;
+    --im-border: #353159;
+    --im-border-strong: #7d78a6;
+    --im-text: #eeebff;
+    --im-text-muted: #aba6d2;
+    --im-text-on-primary: #ffffff;
+    --im-primary: #6a62d8;
+    --im-primary-strong: #7d76e6;
+    --im-primary-ink: #a9a3ff;
+    --im-focus: #a9a3ff;
+    --im-error-ink: #ff8a95;
+    --im-success-ink: #7ee0cd;
+    --im-success-tint: #16332f;
+    --im-ex-cp-tint: #3d2030; --im-ex-cp-ink: #ff8a95;
+    --im-ex-np-tint: #2f2650; --im-ex-np-ink: #d4bbff;
+    --im-ex-a-tint: #1d2e48;  --im-ex-a-ink: #9cc8fa;
+    --im-ex-fc-tint: #3a3020; --im-ex-fc-ink: #ffcf6e;
+    --im-ex-ac-tint: #183731; --im-ex-ac-ink: #7ee0cd;
+    --im-shadow-1: 0 1px 2px rgb(0 0 0 / 0.4), 0 2px 8px rgb(0 0 0 / 0.3);
+    --im-shadow-2: 0 4px 12px rgb(0 0 0 / 0.45), 0 12px 32px rgb(0 0 0 / 0.4);
+    --im-header-scrolled: #211e3b;
+    --im-header-scrolled-border: #353159;
+    --im-toast-bg: #eeebff;
+    --im-toast-text: #17152b;
+  --im-toast-link: #4f47b8;
+    --im-avatar-slate-bg: #2c3442; --im-avatar-slate: #c9d3e3;
+    --im-avatar-sand-bg: #3b3326;  --im-avatar-sand: #e6d3b0;
+    --im-avatar-stone-bg: #33312c; --im-avatar-stone: #dcd8cf;
+  }
+}

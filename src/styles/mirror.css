@@ -13,7 +13,7 @@ button.app-sticker:hover { border-color: var(--im-primary); }
 .app-sticker__state svg { width: 14px; height: 14px; }
 .app-sticker[data-state="suggested"] { background: var(--im-surface-sunken); border: 1.5px dashed var(--im-border-strong); box-shadow: none; }
 .app-sticker[data-state="suggested"] strong { color: var(--im-text-muted); }
-.app-sticker__mark { position: absolute; top: 8px; right: 8px; width: 22px; height: 22px; border-radius: 50%; display: grid; place-items: center; background: var(--im-primary); color: #fff; }
+.app-sticker__mark { position: absolute; top: 8px; right: 8px; width: 22px; height: 22px; border-radius: 50%; display: grid; place-items: center; background: var(--im-primary); color: var(--im-text-on-primary); }
 .app-sticker__mark svg { width: 12px; height: 12px; }
 .app-sticker__was { position: absolute; top: 6px; left: 6px; }
 .app-sticker__q { width: 80px; aspect-ratio: 1; display: grid; place-items: center; font: 800 2rem/1 var(--im-font); color: var(--im-text-muted); }
@@ -47,8 +47,8 @@ button.app-sticker:hover { border-color: var(--im-primary); }
   .app-modal .app-sheet-bar { position: sticky; top: 0; background: var(--im-bg); padding: var(--im-space-2) 0; }
 }
 
-.app-toast { position: fixed; z-index: 40; left: 50%; bottom: var(--im-space-5); transform: translateX(-50%); display: flex; gap: var(--im-space-3); align-items: center; padding: var(--im-space-3) var(--im-space-5); background: var(--im-text); color: #fff; border-radius: var(--im-radius-pill); box-shadow: var(--im-shadow-2); font: var(--im-text-label); }
-.app-toast .app-textlink { color: var(--im-brand-lavender); }
+.app-toast { position: fixed; z-index: 40; left: 50%; bottom: var(--im-space-5); transform: translateX(-50%); display: flex; gap: var(--im-space-3); align-items: center; padding: var(--im-space-3) var(--im-space-5); background: var(--im-toast-bg); color: var(--im-toast-text); border-radius: var(--im-radius-pill); box-shadow: var(--im-shadow-2); font: var(--im-text-label); }
+.app-toast .app-textlink { color: var(--im-toast-link); }
 
 .app-storage { display: flex; gap: var(--im-space-3); align-items: start; padding: var(--im-space-4); border-top: 1px solid var(--im-border); font: var(--im-text-caption); color: var(--im-text-muted); }
 .app-storage svg { width: 18px; height: 18px; flex: none; margin-top: 2px; color: var(--im-primary-ink); }

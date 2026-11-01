@@ -5,6 +5,10 @@ import { privacyEn } from "./privacy.en.ts";
 export const en = {
   appName: "InnerMirror",
   langLabel: "Language",
+  theme: {
+    names: { system: "System", light: "Light", dark: "Dark" },
+    label: (now: string, next: string) => `Appearance: ${now}. Switch to ${next}`,
+  },
   steps: ["Conversation", "What Mirror sees", "My Reflection"],
   myMirror: "My Reflection",
   home: "InnerMirror, home",

@@ -4,7 +4,8 @@
 // EN | VI segmented toggle (one tap, active state visible, no flags), and the sticky header.
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import type { Lang } from "@/lib/conversation";
-import { useT } from "./ui";
+import { Icon, useT } from "./ui";
+import { useTheme, type Theme } from "./use-browser-state";
 
 export function BrandMark() {
   return (
@@ -26,6 +27,20 @@ export function LangToggle({ lang, onChange }: { lang: Lang; onChange: (l: Lang)
         <button key={l} type="button" lang={l} aria-pressed={l === lang} onClick={() => onChange(l)}>{l.toUpperCase()}</button>
       ))}
     </div>
+  );
+}
+
+const NEXT: Record<Theme, Theme> = { system: "light", light: "dark", dark: "system" };
+
+/** One button cycles System → Light → Dark; its label says the current mode and the next. */
+export function ThemeToggle() {
+  const { t } = useT();
+  const [theme, setTheme] = useTheme();
+  const T = t.theme;
+  return (
+    <button type="button" className="app-icon-btn app-theme" onClick={() => setTheme(NEXT[theme])} aria-label={T.label(T.names[theme], T.names[NEXT[theme]])} title={T.names[theme]}>
+      <Icon name={theme === "system" ? "system" : theme === "light" ? "sun" : "moon"} />
+    </button>
   );
 }
 

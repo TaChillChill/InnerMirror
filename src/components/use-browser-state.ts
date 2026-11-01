@@ -34,3 +34,24 @@ export function useCollections(): [Collection[], () => void] {
 }
 
 export const useStorageOk = () => useSyncExternalStore(subscribe, () => (cache.storageOk ??= storageAvailable()), () => true);
+
+// Light / Dark / System. "system" = no attribute, so CSS follows prefers-color-scheme. The
+// inline script in layout.tsx applies the stored choice before the first paint.
+export type Theme = "system" | "light" | "dark";
+export const THEME_KEY = "innermirror.theme";
+let chosenTheme: Theme | null = null;
+const readTheme = (): Theme => {
+  if (chosenTheme) return chosenTheme;
+  try { const v = localStorage.getItem(THEME_KEY); return v === "light" || v === "dark" ? v : "system"; } catch { return "system"; }
+};
+
+export function useTheme(): [Theme, (t: Theme) => void] {
+  const theme = useSyncExternalStore(subscribe, readTheme, () => "system" as Theme);
+  const set = useCallback((v: Theme) => {
+    chosenTheme = v;
+    if (v === "system") delete document.documentElement.dataset.theme; else document.documentElement.dataset.theme = v;
+    try { if (v === "system") localStorage.removeItem(THEME_KEY); else localStorage.setItem(THEME_KEY, v); } catch { /* not critical */ }
+    notify();
+  }, []);
+  return [theme, set];
+}

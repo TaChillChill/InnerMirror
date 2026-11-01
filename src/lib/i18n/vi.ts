@@ -7,6 +7,10 @@ import { privacyVi } from "./privacy.vi.ts";
 export const vi: Dict = {
   appName: "InnerMirror",
   langLabel: "Ngôn ngữ",
+  theme: {
+    names: { system: "Theo hệ thống", light: "Sáng", dark: "Tối" },
+    label: (now, next) => `Giao diện: ${now}. Chuyển sang ${next}`,
+  },
   steps: ["Cuộc trò chuyện", "Gương thấy gì?", "Nhìn lại mình"],
   myMirror: "Nhìn lại mình",
   home: "InnerMirror, trang chủ",

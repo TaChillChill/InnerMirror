@@ -28,6 +28,9 @@ const ICONS: Record<string, ReactNode> = {
   chev: <path d="M8 10l4 4 4-4" />,
   back: <path d="M20 12H5M10 7l-5 5 5 5" />,
   edit: <path d="M4.5 19.5l1-4L15.5 5.5l3 3-10 10z" />,
+  sun: <><circle cx="12" cy="12" r="4" /><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4" /></>,
+  moon: <path d="M19.5 14.5A8 8 0 019.5 4.5a8 8 0 1010 10z" />,
+  system: <><circle cx="12" cy="12" r="8.5" /><path d="M12 3.5a8.5 8.5 0 010 17z" fill="currentColor" /></>,
 };
 
 export function Icon({ name }: { name: keyof typeof ICONS | string }) {

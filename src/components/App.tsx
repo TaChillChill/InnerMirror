@@ -12,7 +12,7 @@ import { analyzeEstimate } from "@/lib/wait";
 import type { Analysis } from "@/lib/ai/analysis";
 import { LangContext, Icon } from "./ui";
 import { SiteFooter } from "./SiteFooter";
-import { BrandMark, LangToggle, StickyHeader } from "./BrandBits";
+import { BrandMark, LangToggle, StickyHeader, ThemeToggle } from "./BrandBits";
 import { useCollections, useLang, useStorageOk } from "./use-browser-state";
 import { freshSession, type Session } from "./session";
 import { Landing } from "./Landing";
@@ -116,6 +116,7 @@ export function App() {
               <Icon name="saved" /> <span className="app-bar__label">{t.myMirror}</span>{saved.length > 0 && <span className="app-count">{saved.length}</span>}
             </button>
           )}
+          <ThemeToggle />
           <LangToggle lang={lang} onChange={setLang} />
         </div>
       </StickyHeader>

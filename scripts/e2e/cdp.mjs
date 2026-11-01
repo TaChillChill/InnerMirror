@@ -44,7 +44,7 @@ export async function launch({ width = 390, height = 844, mocks = {} } = {}) {
   const goto = async (url) => { await send("Page.enable"); await send("Page.navigate", { url }); await sleep(1500); };
   const screenshot = async () => Buffer.from((await send("Page.captureScreenshot", { format: "png" })).data, "base64");
   const close = () => { ws.close(); proc.kill(); };
-  return { evaluate, goto, addInit, screenshot, close, api, sleep };
+  return { evaluate, goto, addInit, screenshot, close, api, sleep, send };
 }
 
 // In-page helpers, injected as a string.
