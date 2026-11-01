@@ -1,11 +1,12 @@
 {
-  "totalUsd": 3.665809,
+  "totalUsd": 3.756454,
   "byPhase": {
     "smoke": 0.007918,
     "eval": 0.050344,
     "eval-v2": 0.736201,
     "eval-p0": 2.637355,
-    "eval-rel": 0.233992
+    "eval-rel": 0.233992,
+    "eval-safety": 0.090646
   },
   "calls": [
     {
@@ -3093,6 +3094,153 @@
         }
       },
       "usd": 0.01734,
+      "finishReason": "stop"
+    },
+    {
+      "at": "2026-11-01T06:15:17.006Z",
+      "phase": "eval-safety",
+      "label": "v3:s-vi3-threat:selfA",
+      "model": "muse-spark-1.3",
+      "status": 200,
+      "latencyMs": 7940,
+      "usage": {
+        "completion_tokens": 1774,
+        "prompt_tokens": 2872,
+        "total_tokens": 4646,
+        "completion_tokens_details": {
+          "reasoning_tokens": 989
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "usd": 0.01113,
+      "finishReason": "stop"
+    },
+    {
+      "at": "2026-11-01T06:15:18.432Z",
+      "phase": "eval-safety",
+      "label": "v3:s-vi1-ideation:selfA",
+      "model": "muse-spark-1.3",
+      "status": 200,
+      "latencyMs": 9396,
+      "usage": {
+        "completion_tokens": 2404,
+        "prompt_tokens": 2922,
+        "total_tokens": 5326,
+        "completion_tokens_details": {
+          "reasoning_tokens": 1088
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "usd": 0.013869,
+      "finishReason": "stop"
+    },
+    {
+      "at": "2026-11-01T06:15:19.123Z",
+      "phase": "eval-safety",
+      "label": "v3:s-vi2-control:selfA",
+      "model": "muse-spark-1.3",
+      "status": 200,
+      "latencyMs": 10058,
+      "usage": {
+        "completion_tokens": 2243,
+        "prompt_tokens": 2921,
+        "total_tokens": 5164,
+        "completion_tokens_details": {
+          "reasoning_tokens": 1186
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "usd": 0.013184,
+      "finishReason": "stop"
+    },
+    {
+      "at": "2026-11-01T06:15:20.456Z",
+      "phase": "eval-safety",
+      "label": "v3:s-vi4-hyperbole:selfA",
+      "model": "muse-spark-1.3",
+      "status": 200,
+      "latencyMs": 11388,
+      "usage": {
+        "completion_tokens": 2685,
+        "prompt_tokens": 2919,
+        "total_tokens": 5604,
+        "completion_tokens_details": {
+          "reasoning_tokens": 1727
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "usd": 0.01506,
+      "finishReason": "stop"
+    },
+    {
+      "at": "2026-11-01T06:15:26.316Z",
+      "phase": "eval-safety",
+      "label": "v3:s-en1-ideation:selfA",
+      "model": "muse-spark-1.3",
+      "status": 200,
+      "latencyMs": 9231,
+      "usage": {
+        "completion_tokens": 2027,
+        "prompt_tokens": 2894,
+        "total_tokens": 4921,
+        "completion_tokens_details": {
+          "reasoning_tokens": 1185
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "usd": 0.012232,
+      "finishReason": "stop"
+    },
+    {
+      "at": "2026-11-01T06:15:45.847Z",
+      "phase": "eval-safety",
+      "label": "v3:s-en3-hyperbole:selfA",
+      "model": "muse-spark-1.3",
+      "status": 200,
+      "latencyMs": 8045,
+      "usage": {
+        "completion_tokens": 1838,
+        "prompt_tokens": 2903,
+        "total_tokens": 4741,
+        "completion_tokens_details": {
+          "reasoning_tokens": 942
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "usd": 0.01144,
+      "finishReason": "stop"
+    },
+    {
+      "at": "2026-11-01T06:15:46.023Z",
+      "phase": "eval-safety",
+      "label": "v3:s-en2-harass:selfA",
+      "model": "muse-spark-1.3",
+      "status": 200,
+      "latencyMs": 8279,
+      "usage": {
+        "completion_tokens": 2388,
+        "prompt_tokens": 2865,
+        "total_tokens": 5253,
+        "completion_tokens_details": {
+          "reasoning_tokens": 1608
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "usd": 0.01373,
       "finishReason": "stop"
     }
   ]

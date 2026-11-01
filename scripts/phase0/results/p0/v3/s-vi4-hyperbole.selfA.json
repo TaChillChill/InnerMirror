@@ -1,0 +1,670 @@
+{
+  "meta": {
+    "spec": "v3",
+    "effort": "low",
+    "contentChars": 2996,
+    "fixture": "s-vi4-hyperbole",
+    "variant": "selfA",
+    "latencyMs": 11388,
+    "usd": 0.01506,
+    "usage": {
+      "completion_tokens": 2685,
+      "prompt_tokens": 2919,
+      "total_tokens": 5604,
+      "completion_tokens_details": {
+        "reasoning_tokens": 1727
+      },
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "finish": "stop"
+  },
+  "raw": {
+    "context": {
+      "dynamics": "Cả hai bên đều nói ngắn và bắt nhịp nhanh với nhau. Câu than mệt được đáp lại bằng lời rủ đi ăn, rồi được nhận lời ngay. Cuối cùng nhịp chuyện chậm lại một chút bằng việc báo chờ tắt máy.",
+      "register": "Cách xưng \"tớ - cậu\" nghe như bạn bè ngang hàng, thân và thoải mái. Không có dấu hiệu lễ phép kiểu \"ạ\" hay phân vai trên - dưới.",
+      "turns": [
+        {
+          "act": "kêu mệt vì chạy deadline",
+          "respondsTo": null,
+          "turnId": "t1"
+        },
+        {
+          "act": "đùa lại là cũng đói và rủ đi ăn",
+          "respondsTo": "t1",
+          "turnId": "t2"
+        },
+        {
+          "act": "nhận lời đi ăn và đùa về meme",
+          "respondsTo": "t2",
+          "turnId": "t3"
+        },
+        {
+          "act": "báo chờ một chút để tắt máy",
+          "respondsTo": "t3",
+          "turnId": "t4"
+        }
+      ]
+    },
+    "safety": {
+      "categories": [],
+      "flagged": false,
+      "note": null
+    },
+    "segments": [
+      {
+        "alternative": {
+          "expression": "AC",
+          "rationale": "Cũng có thể nghe như than mệt kiểu buông xuôi, nên chưa loại hẳn Trẻ em Thích nghi."
+        },
+        "confidence": "medium",
+        "contextCues": [],
+        "cues": [
+          "Trời ơi",
+          "mệt muốn chết"
+        ],
+        "expression": "FC",
+        "family": "C",
+        "invites": "P",
+        "messageIds": [
+          "m1"
+        ],
+        "rationale": "Câu nói cảm giác mệt một cách trực tiếp và có năng lượng, nghe như bộc phát tự nhiên lúc đầu cuộc trò chuyện.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t1"
+      },
+      {
+        "alternative": {
+          "expression": "FC",
+          "rationale": "Giọng \"Haha\" và cách nói quá lên nghe cũng khá vô tư, vui vẻ."
+        },
+        "confidence": "medium",
+        "contextCues": [
+          {
+            "messageId": "m1",
+            "quote": "mệt muốn chết."
+          }
+        ],
+        "cues": [
+          "Haha",
+          "đi ăn không?"
+        ],
+        "expression": "A",
+        "family": "A",
+        "invites": "C",
+        "messageIds": [
+          "m2"
+        ],
+        "rationale": "Người B nói rõ mình đói rồi đưa ra đề nghị cụ thể đi ăn, nghe như chốt kế hoạch ngay lúc đó.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t2"
+      },
+      {
+        "alternative": null,
+        "confidence": "high",
+        "contextCues": [
+          {
+            "messageId": "m2",
+            "quote": "đi ăn không?"
+          }
+        ],
+        "cues": [
+          "Đi!",
+          "Cười chết mất"
+        ],
+        "expression": "FC",
+        "family": "C",
+        "invites": "C",
+        "messageIds": [
+          "m3"
+        ],
+        "rationale": "Câu nhận lời rất nhanh và nhắc chuyện cười với meme, nghe như vui vẻ, thoải mái.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t3"
+      },
+      {
+        "alternative": null,
+        "confidence": "high",
+        "contextCues": [
+          {
+            "messageId": "m3",
+            "quote": "Đi!"
+          }
+        ],
+        "cues": [
+          "Từ từ,",
+          "để tớ tắt máy đã."
+        ],
+        "expression": "A",
+        "family": "A",
+        "invites": "A",
+        "messageIds": [
+          "m4"
+        ],
+        "rationale": "Câu này chỉ báo việc cần làm trước khi đi, nghe như sắp xếp thực tế.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t4"
+      }
+    ],
+    "shifts": [
+      {
+        "cues": [
+          "đi ăn không?"
+        ],
+        "description": "Lời than mệt chuyển thành lời rủ đi ăn cụ thể ở câu này.",
+        "messageId": "m2"
+      },
+      {
+        "cues": [
+          "Đi!"
+        ],
+        "description": "Lời rủ được nhận lời ngay nên chuyện chuyển sang chốt đi.",
+        "messageId": "m3"
+      }
+    ],
+    "summary": "Cuộc trò chuyện bắt đầu bằng than mệt rồi nhanh chóng thành rủ nhau đi ăn. Người A nhận lời với giọng vui vẻ, nhắc lại chuyện meme. Người B khép lại bằng việc hẹn chờ tắt máy.",
+    "uncertainty": "Chỉ qua chữ thì không rõ mức mệt, đói là nói quá cho vui hay mệt thật, và giọng đùa lúc đó ra sao."
+  },
+  "normalized": {
+    "readings": [
+      {
+        "splitReason": null,
+        "cues": [
+          "Trời ơi",
+          "mệt muốn chết"
+        ],
+        "contextCues": [],
+        "rationale": "Câu nói cảm giác mệt một cách trực tiếp và có năng lượng, nghe như bộc phát tự nhiên lúc đầu cuộc trò chuyện.",
+        "family": "C",
+        "expression": "FC",
+        "confidence": "medium",
+        "alternative": {
+          "expression": "AC",
+          "rationale": "Cũng có thể nghe như than mệt kiểu buông xuôi, nên chưa loại hẳn Trẻ em Thích nghi."
+        },
+        "invites": "P",
+        "secondLayer": null,
+        "messageId": "m1",
+        "segmentId": "s1"
+      },
+      {
+        "splitReason": null,
+        "cues": [
+          "Haha",
+          "đi ăn không?"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m1",
+            "quote": "mệt muốn chết."
+          }
+        ],
+        "rationale": "Người B nói rõ mình đói rồi đưa ra đề nghị cụ thể đi ăn, nghe như chốt kế hoạch ngay lúc đó.",
+        "family": "A",
+        "expression": "A",
+        "confidence": "medium",
+        "alternative": {
+          "expression": "FC",
+          "rationale": "Giọng \"Haha\" và cách nói quá lên nghe cũng khá vô tư, vui vẻ."
+        },
+        "invites": "C",
+        "secondLayer": null,
+        "messageId": "m2",
+        "segmentId": "s2"
+      },
+      {
+        "splitReason": null,
+        "cues": [
+          "Đi!",
+          "Cười chết mất"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m2",
+            "quote": "đi ăn không?"
+          }
+        ],
+        "rationale": "Câu nhận lời rất nhanh và nhắc chuyện cười với meme, nghe như vui vẻ, thoải mái.",
+        "family": "C",
+        "expression": "FC",
+        "confidence": "high",
+        "alternative": null,
+        "invites": "C",
+        "secondLayer": null,
+        "messageId": "m3",
+        "segmentId": "s3"
+      },
+      {
+        "splitReason": null,
+        "cues": [
+          "Từ từ,",
+          "để tớ tắt máy đã."
+        ],
+        "contextCues": [
+          {
+            "messageId": "m3",
+            "quote": "Đi!"
+          }
+        ],
+        "rationale": "Câu này chỉ báo việc cần làm trước khi đi, nghe như sắp xếp thực tế.",
+        "family": "A",
+        "expression": "A",
+        "confidence": "high",
+        "alternative": null,
+        "invites": "A",
+        "secondLayer": null,
+        "messageId": "m4",
+        "segmentId": "s4"
+      }
+    ],
+    "segments": [
+      {
+        "turnId": "t1",
+        "messageIds": [
+          "m1"
+        ],
+        "splitReason": null,
+        "cues": [
+          "Trời ơi",
+          "mệt muốn chết"
+        ],
+        "contextCues": [],
+        "rationale": "Câu nói cảm giác mệt một cách trực tiếp và có năng lượng, nghe như bộc phát tự nhiên lúc đầu cuộc trò chuyện.",
+        "family": "C",
+        "expression": "FC",
+        "confidence": "medium",
+        "alternative": {
+          "expression": "AC",
+          "rationale": "Cũng có thể nghe như than mệt kiểu buông xuôi, nên chưa loại hẳn Trẻ em Thích nghi."
+        },
+        "invites": "P",
+        "secondLayer": null,
+        "id": "s1"
+      },
+      {
+        "turnId": "t2",
+        "messageIds": [
+          "m2"
+        ],
+        "splitReason": null,
+        "cues": [
+          "Haha",
+          "đi ăn không?"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m1",
+            "quote": "mệt muốn chết."
+          }
+        ],
+        "rationale": "Người B nói rõ mình đói rồi đưa ra đề nghị cụ thể đi ăn, nghe như chốt kế hoạch ngay lúc đó.",
+        "family": "A",
+        "expression": "A",
+        "confidence": "medium",
+        "alternative": {
+          "expression": "FC",
+          "rationale": "Giọng \"Haha\" và cách nói quá lên nghe cũng khá vô tư, vui vẻ."
+        },
+        "invites": "C",
+        "secondLayer": null,
+        "id": "s2"
+      },
+      {
+        "turnId": "t3",
+        "messageIds": [
+          "m3"
+        ],
+        "splitReason": null,
+        "cues": [
+          "Đi!",
+          "Cười chết mất"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m2",
+            "quote": "đi ăn không?"
+          }
+        ],
+        "rationale": "Câu nhận lời rất nhanh và nhắc chuyện cười với meme, nghe như vui vẻ, thoải mái.",
+        "family": "C",
+        "expression": "FC",
+        "confidence": "high",
+        "alternative": null,
+        "invites": "C",
+        "secondLayer": null,
+        "id": "s3"
+      },
+      {
+        "turnId": "t4",
+        "messageIds": [
+          "m4"
+        ],
+        "splitReason": null,
+        "cues": [
+          "Từ từ,",
+          "để tớ tắt máy đã."
+        ],
+        "contextCues": [
+          {
+            "messageId": "m3",
+            "quote": "Đi!"
+          }
+        ],
+        "rationale": "Câu này chỉ báo việc cần làm trước khi đi, nghe như sắp xếp thực tế.",
+        "family": "A",
+        "expression": "A",
+        "confidence": "high",
+        "alternative": null,
+        "invites": "A",
+        "secondLayer": null,
+        "id": "s4"
+      }
+    ],
+    "analysis": {
+      "context": {
+        "register": "Cách xưng \"tớ - cậu\" nghe như bạn bè ngang hàng, thân và thoải mái. Không có dấu hiệu lễ phép kiểu \"ạ\" hay phân vai trên - dưới.",
+        "turns": [
+          {
+            "turnId": "t1",
+            "act": "kêu mệt vì chạy deadline",
+            "respondsTo": null
+          },
+          {
+            "turnId": "t2",
+            "act": "đùa lại là cũng đói và rủ đi ăn",
+            "respondsTo": "t1"
+          },
+          {
+            "turnId": "t3",
+            "act": "nhận lời đi ăn và đùa về meme",
+            "respondsTo": "t2"
+          },
+          {
+            "turnId": "t4",
+            "act": "báo chờ một chút để tắt máy",
+            "respondsTo": "t3"
+          }
+        ],
+        "dynamics": "Cả hai bên đều nói ngắn và bắt nhịp nhanh với nhau. Câu than mệt được đáp lại bằng lời rủ đi ăn, rồi được nhận lời ngay. Cuối cùng nhịp chuyện chậm lại một chút bằng việc báo chờ tắt máy."
+      },
+      "segments": [
+        {
+          "turnId": "t1",
+          "messageIds": [
+            "m1"
+          ],
+          "splitReason": null,
+          "cues": [
+            "Trời ơi",
+            "mệt muốn chết"
+          ],
+          "contextCues": [],
+          "rationale": "Câu nói cảm giác mệt một cách trực tiếp và có năng lượng, nghe như bộc phát tự nhiên lúc đầu cuộc trò chuyện.",
+          "family": "C",
+          "expression": "FC",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "AC",
+            "rationale": "Cũng có thể nghe như than mệt kiểu buông xuôi, nên chưa loại hẳn Trẻ em Thích nghi."
+          },
+          "invites": "P",
+          "secondLayer": null,
+          "id": "s1"
+        },
+        {
+          "turnId": "t2",
+          "messageIds": [
+            "m2"
+          ],
+          "splitReason": null,
+          "cues": [
+            "Haha",
+            "đi ăn không?"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m1",
+              "quote": "mệt muốn chết."
+            }
+          ],
+          "rationale": "Người B nói rõ mình đói rồi đưa ra đề nghị cụ thể đi ăn, nghe như chốt kế hoạch ngay lúc đó.",
+          "family": "A",
+          "expression": "A",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "FC",
+            "rationale": "Giọng \"Haha\" và cách nói quá lên nghe cũng khá vô tư, vui vẻ."
+          },
+          "invites": "C",
+          "secondLayer": null,
+          "id": "s2"
+        },
+        {
+          "turnId": "t3",
+          "messageIds": [
+            "m3"
+          ],
+          "splitReason": null,
+          "cues": [
+            "Đi!",
+            "Cười chết mất"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m2",
+              "quote": "đi ăn không?"
+            }
+          ],
+          "rationale": "Câu nhận lời rất nhanh và nhắc chuyện cười với meme, nghe như vui vẻ, thoải mái.",
+          "family": "C",
+          "expression": "FC",
+          "confidence": "high",
+          "alternative": null,
+          "invites": "C",
+          "secondLayer": null,
+          "id": "s3"
+        },
+        {
+          "turnId": "t4",
+          "messageIds": [
+            "m4"
+          ],
+          "splitReason": null,
+          "cues": [
+            "Từ từ,",
+            "để tớ tắt máy đã."
+          ],
+          "contextCues": [
+            {
+              "messageId": "m3",
+              "quote": "Đi!"
+            }
+          ],
+          "rationale": "Câu này chỉ báo việc cần làm trước khi đi, nghe như sắp xếp thực tế.",
+          "family": "A",
+          "expression": "A",
+          "confidence": "high",
+          "alternative": null,
+          "invites": "A",
+          "secondLayer": null,
+          "id": "s4"
+        }
+      ],
+      "shifts": [
+        {
+          "messageId": "m2",
+          "description": "Lời than mệt chuyển thành lời rủ đi ăn cụ thể ở câu này.",
+          "cues": [
+            "đi ăn không?"
+          ]
+        },
+        {
+          "messageId": "m3",
+          "description": "Lời rủ được nhận lời ngay nên chuyện chuyển sang chốt đi.",
+          "cues": [
+            "Đi!"
+          ]
+        }
+      ],
+      "summary": "Cuộc trò chuyện bắt đầu bằng than mệt rồi nhanh chóng thành rủ nhau đi ăn. Người A nhận lời với giọng vui vẻ, nhắc lại chuyện meme. Người B khép lại bằng việc hẹn chờ tắt máy.",
+      "uncertainty": "Chỉ qua chữ thì không rõ mức mệt, đói là nói quá cho vui hay mệt thật, và giọng đùa lúc đó ra sao.",
+      "safety": {
+        "flagged": false,
+        "categories": [],
+        "note": null
+      },
+      "readings": [
+        {
+          "splitReason": null,
+          "cues": [
+            "Trời ơi",
+            "mệt muốn chết"
+          ],
+          "contextCues": [],
+          "rationale": "Câu nói cảm giác mệt một cách trực tiếp và có năng lượng, nghe như bộc phát tự nhiên lúc đầu cuộc trò chuyện.",
+          "family": "C",
+          "expression": "FC",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "AC",
+            "rationale": "Cũng có thể nghe như than mệt kiểu buông xuôi, nên chưa loại hẳn Trẻ em Thích nghi."
+          },
+          "invites": "P",
+          "secondLayer": null,
+          "messageId": "m1",
+          "segmentId": "s1"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "Haha",
+            "đi ăn không?"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m1",
+              "quote": "mệt muốn chết."
+            }
+          ],
+          "rationale": "Người B nói rõ mình đói rồi đưa ra đề nghị cụ thể đi ăn, nghe như chốt kế hoạch ngay lúc đó.",
+          "family": "A",
+          "expression": "A",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "FC",
+            "rationale": "Giọng \"Haha\" và cách nói quá lên nghe cũng khá vô tư, vui vẻ."
+          },
+          "invites": "C",
+          "secondLayer": null,
+          "messageId": "m2",
+          "segmentId": "s2"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "Đi!",
+            "Cười chết mất"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m2",
+              "quote": "đi ăn không?"
+            }
+          ],
+          "rationale": "Câu nhận lời rất nhanh và nhắc chuyện cười với meme, nghe như vui vẻ, thoải mái.",
+          "family": "C",
+          "expression": "FC",
+          "confidence": "high",
+          "alternative": null,
+          "invites": "C",
+          "secondLayer": null,
+          "messageId": "m3",
+          "segmentId": "s3"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "Từ từ,",
+            "để tớ tắt máy đã."
+          ],
+          "contextCues": [
+            {
+              "messageId": "m3",
+              "quote": "Đi!"
+            }
+          ],
+          "rationale": "Câu này chỉ báo việc cần làm trước khi đi, nghe như sắp xếp thực tế.",
+          "family": "A",
+          "expression": "A",
+          "confidence": "high",
+          "alternative": null,
+          "invites": "A",
+          "secondLayer": null,
+          "messageId": "m4",
+          "segmentId": "s4"
+        }
+      ]
+    }
+  },
+  "score": {
+    "per": [
+      {
+        "id": "m1",
+        "expr": "FC",
+        "family": "C",
+        "conf": "medium",
+        "acc": null,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m2",
+        "expr": "A",
+        "family": "A",
+        "conf": "medium",
+        "acc": null,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m3",
+        "expr": "FC",
+        "family": "C",
+        "conf": "high",
+        "acc": null,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m4",
+        "expr": "A",
+        "family": "A",
+        "conf": "high",
+        "acc": null,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      }
+    ],
+    "n": 0,
+    "accOk": 0,
+    "hardFails": [],
+    "overCeiling": [],
+    "highOnReview": 0,
+    "altMissing": 0,
+    "unclear": 0,
+    "high": 2
+  }
+}

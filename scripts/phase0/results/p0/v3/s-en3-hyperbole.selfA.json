@@ -1,0 +1,655 @@
+{
+  "meta": {
+    "spec": "v3",
+    "effort": "low",
+    "contentChars": 3206,
+    "fixture": "s-en3-hyperbole",
+    "variant": "selfA",
+    "latencyMs": 8045,
+    "usd": 0.01144025,
+    "usage": {
+      "completion_tokens": 1838,
+      "prompt_tokens": 2903,
+      "total_tokens": 4741,
+      "completion_tokens_details": {
+        "reasoning_tokens": 942
+      },
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "finish": "stop"
+  },
+  "raw": {
+    "context": {
+      "dynamics": "Both sides match each other with light, exaggerated wording. A complaint about the commute is met with a similar complaint, then a joking line about the donut, then a laughing reply. The wording stays playful throughout.",
+      "register": "No kinship or formal markers. \"lol\", \"Haha\", \"😂\" suggest casual, peer-like closeness.",
+      "turns": [
+        {
+          "act": "shares a hardship with humor",
+          "respondsTo": null,
+          "turnId": "t1"
+        },
+        {
+          "act": "matches the complaint with a want",
+          "respondsTo": "t1",
+          "turnId": "t2"
+        },
+        {
+          "act": "makes a joking threat about the donut",
+          "respondsTo": "t2",
+          "turnId": "t3"
+        },
+        {
+          "act": "answers the joke with laughing non-commitment",
+          "respondsTo": "t3",
+          "turnId": "t4"
+        }
+      ]
+    },
+    "safety": {
+      "categories": [],
+      "flagged": false,
+      "note": null
+    },
+    "segments": [
+      {
+        "alternative": {
+          "expression": "A",
+          "rationale": "It also names a hard situation, so a flat report reading is possible."
+        },
+        "confidence": "medium",
+        "contextCues": [],
+        "cues": [
+          "killing me",
+          "lol"
+        ],
+        "expression": "FC",
+        "family": "C",
+        "invites": "C",
+        "messageIds": [
+          "m1"
+        ],
+        "rationale": "The line says a strained feeling in exaggerated form, and \"lol\" can read as spontaneous and playful rather than literal.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t1"
+      },
+      {
+        "alternative": {
+          "expression": "AC",
+          "rationale": "It also just goes along with the prior complaint, so going along is possible."
+        },
+        "confidence": "medium",
+        "contextCues": [
+          {
+            "messageId": "m1",
+            "quote": "This commute is killing me lol"
+          }
+        ],
+        "cues": [
+          "Same",
+          "I could die for a coffee right now"
+        ],
+        "expression": "FC",
+        "family": "C",
+        "invites": "C",
+        "messageIds": [
+          "m2"
+        ],
+        "rationale": "\"Same\" matches the prior turn, and the coffee line can read as a want said with exaggerated energy.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t2"
+      },
+      {
+        "alternative": {
+          "expression": "CP",
+          "rationale": "The literal wording is a conditional threat, so a rule-like reading is possible without the emoji."
+        },
+        "confidence": "medium",
+        "contextCues": [
+          {
+            "messageId": "m2",
+            "quote": "Same, I could die for a coffee right now"
+          }
+        ],
+        "cues": [
+          "If you eat the last donut I'll kill you",
+          "😂"
+        ],
+        "expression": "FC",
+        "family": "C",
+        "invites": "C",
+        "messageIds": [
+          "m3"
+        ],
+        "rationale": "The threat wording with \"😂\" can read as play rather than a serious demand or blame.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t3"
+      },
+      {
+        "alternative": null,
+        "confidence": "medium",
+        "contextCues": [
+          {
+            "messageId": "m3",
+            "quote": "If you eat the last donut I'll kill you 😂"
+          }
+        ],
+        "cues": [
+          "Haha",
+          "no promises"
+        ],
+        "expression": "FC",
+        "family": "C",
+        "invites": "C",
+        "messageIds": [
+          "m4"
+        ],
+        "rationale": "\"Haha\" plus the short reply can read as continued play rather than a serious answer about the donut.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t4"
+      }
+    ],
+    "shifts": [],
+    "summary": "The exchange starts with commute complaints in exaggerated, joking words. Person A adds a laughing mock threat about the last donut. Person B closes with a short laughing reply that keeps the playful tone.",
+    "uncertainty": "Text alone cannot show tone of voice, facial expression, or whether the donut and commute details are real or just jokes between them."
+  },
+  "normalized": {
+    "readings": [
+      {
+        "splitReason": null,
+        "cues": [
+          "killing me",
+          "lol"
+        ],
+        "contextCues": [],
+        "rationale": "The line says a strained feeling in exaggerated form, and \"lol\" can read as spontaneous and playful rather than literal.",
+        "family": "C",
+        "expression": "FC",
+        "confidence": "medium",
+        "alternative": {
+          "expression": "A",
+          "rationale": "It also names a hard situation, so a flat report reading is possible."
+        },
+        "invites": "C",
+        "secondLayer": null,
+        "messageId": "m1",
+        "segmentId": "s1"
+      },
+      {
+        "splitReason": null,
+        "cues": [
+          "Same",
+          "I could die for a coffee right now"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m1",
+            "quote": "This commute is killing me lol"
+          }
+        ],
+        "rationale": "\"Same\" matches the prior turn, and the coffee line can read as a want said with exaggerated energy.",
+        "family": "C",
+        "expression": "FC",
+        "confidence": "medium",
+        "alternative": {
+          "expression": "AC",
+          "rationale": "It also just goes along with the prior complaint, so going along is possible."
+        },
+        "invites": "C",
+        "secondLayer": null,
+        "messageId": "m2",
+        "segmentId": "s2"
+      },
+      {
+        "splitReason": null,
+        "cues": [
+          "If you eat the last donut I'll kill you",
+          "😂"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m2",
+            "quote": "Same, I could die for a coffee right now"
+          }
+        ],
+        "rationale": "The threat wording with \"😂\" can read as play rather than a serious demand or blame.",
+        "family": "C",
+        "expression": "FC",
+        "confidence": "medium",
+        "alternative": {
+          "expression": "CP",
+          "rationale": "The literal wording is a conditional threat, so a rule-like reading is possible without the emoji."
+        },
+        "invites": "C",
+        "secondLayer": null,
+        "messageId": "m3",
+        "segmentId": "s3"
+      },
+      {
+        "splitReason": null,
+        "cues": [
+          "Haha",
+          "no promises"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m3",
+            "quote": "If you eat the last donut I'll kill you 😂"
+          }
+        ],
+        "rationale": "\"Haha\" plus the short reply can read as continued play rather than a serious answer about the donut.",
+        "family": "C",
+        "expression": "FC",
+        "confidence": "medium",
+        "alternative": null,
+        "invites": "C",
+        "secondLayer": null,
+        "messageId": "m4",
+        "segmentId": "s4"
+      }
+    ],
+    "segments": [
+      {
+        "turnId": "t1",
+        "messageIds": [
+          "m1"
+        ],
+        "splitReason": null,
+        "cues": [
+          "killing me",
+          "lol"
+        ],
+        "contextCues": [],
+        "rationale": "The line says a strained feeling in exaggerated form, and \"lol\" can read as spontaneous and playful rather than literal.",
+        "family": "C",
+        "expression": "FC",
+        "confidence": "medium",
+        "alternative": {
+          "expression": "A",
+          "rationale": "It also names a hard situation, so a flat report reading is possible."
+        },
+        "invites": "C",
+        "secondLayer": null,
+        "id": "s1"
+      },
+      {
+        "turnId": "t2",
+        "messageIds": [
+          "m2"
+        ],
+        "splitReason": null,
+        "cues": [
+          "Same",
+          "I could die for a coffee right now"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m1",
+            "quote": "This commute is killing me lol"
+          }
+        ],
+        "rationale": "\"Same\" matches the prior turn, and the coffee line can read as a want said with exaggerated energy.",
+        "family": "C",
+        "expression": "FC",
+        "confidence": "medium",
+        "alternative": {
+          "expression": "AC",
+          "rationale": "It also just goes along with the prior complaint, so going along is possible."
+        },
+        "invites": "C",
+        "secondLayer": null,
+        "id": "s2"
+      },
+      {
+        "turnId": "t3",
+        "messageIds": [
+          "m3"
+        ],
+        "splitReason": null,
+        "cues": [
+          "If you eat the last donut I'll kill you",
+          "😂"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m2",
+            "quote": "Same, I could die for a coffee right now"
+          }
+        ],
+        "rationale": "The threat wording with \"😂\" can read as play rather than a serious demand or blame.",
+        "family": "C",
+        "expression": "FC",
+        "confidence": "medium",
+        "alternative": {
+          "expression": "CP",
+          "rationale": "The literal wording is a conditional threat, so a rule-like reading is possible without the emoji."
+        },
+        "invites": "C",
+        "secondLayer": null,
+        "id": "s3"
+      },
+      {
+        "turnId": "t4",
+        "messageIds": [
+          "m4"
+        ],
+        "splitReason": null,
+        "cues": [
+          "Haha",
+          "no promises"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m3",
+            "quote": "If you eat the last donut I'll kill you 😂"
+          }
+        ],
+        "rationale": "\"Haha\" plus the short reply can read as continued play rather than a serious answer about the donut.",
+        "family": "C",
+        "expression": "FC",
+        "confidence": "medium",
+        "alternative": null,
+        "invites": "C",
+        "secondLayer": null,
+        "id": "s4"
+      }
+    ],
+    "analysis": {
+      "context": {
+        "register": "No kinship or formal markers. \"lol\", \"Haha\", \"😂\" suggest casual, peer-like closeness.",
+        "turns": [
+          {
+            "turnId": "t1",
+            "act": "shares a hardship with humor",
+            "respondsTo": null
+          },
+          {
+            "turnId": "t2",
+            "act": "matches the complaint with a want",
+            "respondsTo": "t1"
+          },
+          {
+            "turnId": "t3",
+            "act": "makes a joking threat about the donut",
+            "respondsTo": "t2"
+          },
+          {
+            "turnId": "t4",
+            "act": "answers the joke with laughing non-commitment",
+            "respondsTo": "t3"
+          }
+        ],
+        "dynamics": "Both sides match each other with light, exaggerated wording. A complaint about the commute is met with a similar complaint, then a joking line about the donut, then a laughing reply. The wording stays playful throughout."
+      },
+      "segments": [
+        {
+          "turnId": "t1",
+          "messageIds": [
+            "m1"
+          ],
+          "splitReason": null,
+          "cues": [
+            "killing me",
+            "lol"
+          ],
+          "contextCues": [],
+          "rationale": "The line says a strained feeling in exaggerated form, and \"lol\" can read as spontaneous and playful rather than literal.",
+          "family": "C",
+          "expression": "FC",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "A",
+            "rationale": "It also names a hard situation, so a flat report reading is possible."
+          },
+          "invites": "C",
+          "secondLayer": null,
+          "id": "s1"
+        },
+        {
+          "turnId": "t2",
+          "messageIds": [
+            "m2"
+          ],
+          "splitReason": null,
+          "cues": [
+            "Same",
+            "I could die for a coffee right now"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m1",
+              "quote": "This commute is killing me lol"
+            }
+          ],
+          "rationale": "\"Same\" matches the prior turn, and the coffee line can read as a want said with exaggerated energy.",
+          "family": "C",
+          "expression": "FC",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "AC",
+            "rationale": "It also just goes along with the prior complaint, so going along is possible."
+          },
+          "invites": "C",
+          "secondLayer": null,
+          "id": "s2"
+        },
+        {
+          "turnId": "t3",
+          "messageIds": [
+            "m3"
+          ],
+          "splitReason": null,
+          "cues": [
+            "If you eat the last donut I'll kill you",
+            "😂"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m2",
+              "quote": "Same, I could die for a coffee right now"
+            }
+          ],
+          "rationale": "The threat wording with \"😂\" can read as play rather than a serious demand or blame.",
+          "family": "C",
+          "expression": "FC",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "CP",
+            "rationale": "The literal wording is a conditional threat, so a rule-like reading is possible without the emoji."
+          },
+          "invites": "C",
+          "secondLayer": null,
+          "id": "s3"
+        },
+        {
+          "turnId": "t4",
+          "messageIds": [
+            "m4"
+          ],
+          "splitReason": null,
+          "cues": [
+            "Haha",
+            "no promises"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m3",
+              "quote": "If you eat the last donut I'll kill you 😂"
+            }
+          ],
+          "rationale": "\"Haha\" plus the short reply can read as continued play rather than a serious answer about the donut.",
+          "family": "C",
+          "expression": "FC",
+          "confidence": "medium",
+          "alternative": null,
+          "invites": "C",
+          "secondLayer": null,
+          "id": "s4"
+        }
+      ],
+      "shifts": [],
+      "summary": "The exchange starts with commute complaints in exaggerated, joking words. Person A adds a laughing mock threat about the last donut. Person B closes with a short laughing reply that keeps the playful tone.",
+      "uncertainty": "Text alone cannot show tone of voice, facial expression, or whether the donut and commute details are real or just jokes between them.",
+      "safety": {
+        "flagged": false,
+        "categories": [],
+        "note": null
+      },
+      "readings": [
+        {
+          "splitReason": null,
+          "cues": [
+            "killing me",
+            "lol"
+          ],
+          "contextCues": [],
+          "rationale": "The line says a strained feeling in exaggerated form, and \"lol\" can read as spontaneous and playful rather than literal.",
+          "family": "C",
+          "expression": "FC",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "A",
+            "rationale": "It also names a hard situation, so a flat report reading is possible."
+          },
+          "invites": "C",
+          "secondLayer": null,
+          "messageId": "m1",
+          "segmentId": "s1"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "Same",
+            "I could die for a coffee right now"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m1",
+              "quote": "This commute is killing me lol"
+            }
+          ],
+          "rationale": "\"Same\" matches the prior turn, and the coffee line can read as a want said with exaggerated energy.",
+          "family": "C",
+          "expression": "FC",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "AC",
+            "rationale": "It also just goes along with the prior complaint, so going along is possible."
+          },
+          "invites": "C",
+          "secondLayer": null,
+          "messageId": "m2",
+          "segmentId": "s2"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "If you eat the last donut I'll kill you",
+            "😂"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m2",
+              "quote": "Same, I could die for a coffee right now"
+            }
+          ],
+          "rationale": "The threat wording with \"😂\" can read as play rather than a serious demand or blame.",
+          "family": "C",
+          "expression": "FC",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "CP",
+            "rationale": "The literal wording is a conditional threat, so a rule-like reading is possible without the emoji."
+          },
+          "invites": "C",
+          "secondLayer": null,
+          "messageId": "m3",
+          "segmentId": "s3"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "Haha",
+            "no promises"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m3",
+              "quote": "If you eat the last donut I'll kill you 😂"
+            }
+          ],
+          "rationale": "\"Haha\" plus the short reply can read as continued play rather than a serious answer about the donut.",
+          "family": "C",
+          "expression": "FC",
+          "confidence": "medium",
+          "alternative": null,
+          "invites": "C",
+          "secondLayer": null,
+          "messageId": "m4",
+          "segmentId": "s4"
+        }
+      ]
+    }
+  },
+  "score": {
+    "per": [
+      {
+        "id": "m1",
+        "expr": "FC",
+        "family": "C",
+        "conf": "medium",
+        "acc": null,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m2",
+        "expr": "FC",
+        "family": "C",
+        "conf": "medium",
+        "acc": null,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m3",
+        "expr": "FC",
+        "family": "C",
+        "conf": "medium",
+        "acc": null,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m4",
+        "expr": "FC",
+        "family": "C",
+        "conf": "medium",
+        "acc": null,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": true
+      }
+    ],
+    "n": 0,
+    "accOk": 0,
+    "hardFails": [],
+    "overCeiling": [],
+    "highOnReview": 0,
+    "altMissing": 1,
+    "unclear": 0,
+    "high": 0
+  }
+}

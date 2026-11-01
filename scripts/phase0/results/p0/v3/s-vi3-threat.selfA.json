@@ -1,0 +1,505 @@
+{
+  "meta": {
+    "spec": "v3",
+    "effort": "low",
+    "contentChars": 2523,
+    "fixture": "s-vi3-threat",
+    "variant": "selfA",
+    "latencyMs": 7940,
+    "usd": 0.0111295,
+    "usage": {
+      "completion_tokens": 1774,
+      "prompt_tokens": 2872,
+      "total_tokens": 4646,
+      "completion_tokens_details": {
+        "reasoning_tokens": 989
+      },
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "finish": "stop"
+  },
+  "raw": {
+    "context": {
+      "dynamics": "Người A đưa ra lời đe dọa, Người B đề nghị chậm lại. Người A giữ nguyên lời đe dọa và khẳng định lại. Trao đổi ngắn, chưa thấy bàn thông tin hay cách giải quyết khác.",
+      "register": "Cách xưng hô mày/tao và anh nghe như lối nói quen, thẳng. Đây là cách gọi, chưa đủ để kết luận về quan hệ.",
+      "turns": [
+        {
+          "act": "đưa ra lời đe dọa",
+          "respondsTo": null,
+          "turnId": "t1"
+        },
+        {
+          "act": "đề nghị bình tĩnh",
+          "respondsTo": "t1",
+          "turnId": "t2"
+        },
+        {
+          "act": "khẳng định lại lời đe dọa",
+          "respondsTo": "t2",
+          "turnId": "t3"
+        }
+      ]
+    },
+    "safety": {
+      "categories": [
+        "threat"
+      ],
+      "flagged": true,
+      "note": "Đoạn chat có lời đe dọa đánh. Đây có thể là tình huống căng. Nếu thấy không an toàn, bạn có thể tìm người tin cậy hoặc đơn vị hỗ trợ gần nơi bạn sống."
+    },
+    "segments": [
+      {
+        "alternative": null,
+        "confidence": "high",
+        "contextCues": [],
+        "cues": [
+          "đánh chết mày"
+        ],
+        "expression": "CP",
+        "family": "P",
+        "invites": "C",
+        "messageIds": [
+          "m1"
+        ],
+        "rationale": "Câu này đưa điều kiện rồi nêu hình phạt. Nghe như ra lệnh và cấm, thuộc Cha mẹ Phê phán.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t1"
+      },
+      {
+        "alternative": {
+          "expression": "NP",
+          "rationale": "Cũng có thể nghe như lời xoa dịu để hạ căng thẳng, nhưng chữ không nói rõ sự quan tâm."
+        },
+        "confidence": "low",
+        "contextCues": [
+          {
+            "messageId": "m1",
+            "quote": "Mày còn nhắn cho nó nữa thì tao đánh chết mày."
+          }
+        ],
+        "cues": [
+          "Anh bình tĩnh đã."
+        ],
+        "expression": "A",
+        "family": "A",
+        "invites": "A",
+        "messageIds": [
+          "m2"
+        ],
+        "rationale": "Câu này đề nghị dừng lại một nhịp. Nghe như muốn quay về chuyện trước mắt để nói tiếp.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t2"
+      },
+      {
+        "alternative": null,
+        "confidence": "high",
+        "contextCues": [
+          {
+            "messageId": "m2",
+            "quote": "Anh bình tĩnh đã."
+          }
+        ],
+        "cues": [
+          "Tao nói là làm đấy."
+        ],
+        "expression": "CP",
+        "family": "P",
+        "invites": "C",
+        "messageIds": [
+          "m3"
+        ],
+        "rationale": "Câu này gạt đề nghị bình tĩnh đi và giữ nguyên lời đe dọa. Nghe như khẳng định quyền phạt, thuộc Cha mẹ Phê phán.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t3"
+      }
+    ],
+    "shifts": [
+      {
+        "cues": [
+          "Anh bình tĩnh đã."
+        ],
+        "description": "Lời lẽ chuyển từ đe dọa sang đề nghị chậm lại.",
+        "messageId": "m2"
+      },
+      {
+        "cues": [
+          "Tao nói là làm đấy."
+        ],
+        "description": "Lời lẽ quay lại khẳng định lời đe dọa trước đó.",
+        "messageId": "m3"
+      }
+    ],
+    "summary": "Người A nói lời đe dọa về việc nhắn tin. Người B gọi anh và đề nghị bình tĩnh. Người A không bàn thêm mà khẳng định lại lời đã nói.",
+    "uncertainty": "Chỉ có chữ viết nên khó biết giọng nói, mối quan hệ thật và chuyện gì xảy ra trước đó."
+  },
+  "normalized": {
+    "readings": [
+      {
+        "splitReason": null,
+        "cues": [
+          "đánh chết mày"
+        ],
+        "contextCues": [],
+        "rationale": "Câu này đưa điều kiện rồi nêu hình phạt. Nghe như ra lệnh và cấm, thuộc Cha mẹ Phê phán.",
+        "family": "P",
+        "expression": "CP",
+        "confidence": "high",
+        "alternative": null,
+        "invites": "C",
+        "secondLayer": null,
+        "messageId": "m1",
+        "segmentId": "s1"
+      },
+      {
+        "splitReason": null,
+        "cues": [
+          "Anh bình tĩnh đã."
+        ],
+        "contextCues": [
+          {
+            "messageId": "m1",
+            "quote": "Mày còn nhắn cho nó nữa thì tao đánh chết mày."
+          }
+        ],
+        "rationale": "Câu này đề nghị dừng lại một nhịp. Nghe như muốn quay về chuyện trước mắt để nói tiếp.",
+        "family": "A",
+        "expression": "A",
+        "confidence": "low",
+        "alternative": {
+          "expression": "NP",
+          "rationale": "Cũng có thể nghe như lời xoa dịu để hạ căng thẳng, nhưng chữ không nói rõ sự quan tâm."
+        },
+        "invites": "A",
+        "secondLayer": null,
+        "messageId": "m2",
+        "segmentId": "s2"
+      },
+      {
+        "splitReason": null,
+        "cues": [
+          "Tao nói là làm đấy."
+        ],
+        "contextCues": [
+          {
+            "messageId": "m2",
+            "quote": "Anh bình tĩnh đã."
+          }
+        ],
+        "rationale": "Câu này gạt đề nghị bình tĩnh đi và giữ nguyên lời đe dọa. Nghe như khẳng định quyền phạt, thuộc Cha mẹ Phê phán.",
+        "family": "P",
+        "expression": "CP",
+        "confidence": "high",
+        "alternative": null,
+        "invites": "C",
+        "secondLayer": null,
+        "messageId": "m3",
+        "segmentId": "s3"
+      }
+    ],
+    "segments": [
+      {
+        "turnId": "t1",
+        "messageIds": [
+          "m1"
+        ],
+        "splitReason": null,
+        "cues": [
+          "đánh chết mày"
+        ],
+        "contextCues": [],
+        "rationale": "Câu này đưa điều kiện rồi nêu hình phạt. Nghe như ra lệnh và cấm, thuộc Cha mẹ Phê phán.",
+        "family": "P",
+        "expression": "CP",
+        "confidence": "high",
+        "alternative": null,
+        "invites": "C",
+        "secondLayer": null,
+        "id": "s1"
+      },
+      {
+        "turnId": "t2",
+        "messageIds": [
+          "m2"
+        ],
+        "splitReason": null,
+        "cues": [
+          "Anh bình tĩnh đã."
+        ],
+        "contextCues": [
+          {
+            "messageId": "m1",
+            "quote": "Mày còn nhắn cho nó nữa thì tao đánh chết mày."
+          }
+        ],
+        "rationale": "Câu này đề nghị dừng lại một nhịp. Nghe như muốn quay về chuyện trước mắt để nói tiếp.",
+        "family": "A",
+        "expression": "A",
+        "confidence": "low",
+        "alternative": {
+          "expression": "NP",
+          "rationale": "Cũng có thể nghe như lời xoa dịu để hạ căng thẳng, nhưng chữ không nói rõ sự quan tâm."
+        },
+        "invites": "A",
+        "secondLayer": null,
+        "id": "s2"
+      },
+      {
+        "turnId": "t3",
+        "messageIds": [
+          "m3"
+        ],
+        "splitReason": null,
+        "cues": [
+          "Tao nói là làm đấy."
+        ],
+        "contextCues": [
+          {
+            "messageId": "m2",
+            "quote": "Anh bình tĩnh đã."
+          }
+        ],
+        "rationale": "Câu này gạt đề nghị bình tĩnh đi và giữ nguyên lời đe dọa. Nghe như khẳng định quyền phạt, thuộc Cha mẹ Phê phán.",
+        "family": "P",
+        "expression": "CP",
+        "confidence": "high",
+        "alternative": null,
+        "invites": "C",
+        "secondLayer": null,
+        "id": "s3"
+      }
+    ],
+    "analysis": {
+      "context": {
+        "register": "Cách xưng hô mày/tao và anh nghe như lối nói quen, thẳng. Đây là cách gọi, chưa đủ để kết luận về quan hệ.",
+        "turns": [
+          {
+            "turnId": "t1",
+            "act": "đưa ra lời đe dọa",
+            "respondsTo": null
+          },
+          {
+            "turnId": "t2",
+            "act": "đề nghị bình tĩnh",
+            "respondsTo": "t1"
+          },
+          {
+            "turnId": "t3",
+            "act": "khẳng định lại lời đe dọa",
+            "respondsTo": "t2"
+          }
+        ],
+        "dynamics": "Người A đưa ra lời đe dọa, Người B đề nghị chậm lại. Người A giữ nguyên lời đe dọa và khẳng định lại. Trao đổi ngắn, chưa thấy bàn thông tin hay cách giải quyết khác."
+      },
+      "segments": [
+        {
+          "turnId": "t1",
+          "messageIds": [
+            "m1"
+          ],
+          "splitReason": null,
+          "cues": [
+            "đánh chết mày"
+          ],
+          "contextCues": [],
+          "rationale": "Câu này đưa điều kiện rồi nêu hình phạt. Nghe như ra lệnh và cấm, thuộc Cha mẹ Phê phán.",
+          "family": "P",
+          "expression": "CP",
+          "confidence": "high",
+          "alternative": null,
+          "invites": "C",
+          "secondLayer": null,
+          "id": "s1"
+        },
+        {
+          "turnId": "t2",
+          "messageIds": [
+            "m2"
+          ],
+          "splitReason": null,
+          "cues": [
+            "Anh bình tĩnh đã."
+          ],
+          "contextCues": [
+            {
+              "messageId": "m1",
+              "quote": "Mày còn nhắn cho nó nữa thì tao đánh chết mày."
+            }
+          ],
+          "rationale": "Câu này đề nghị dừng lại một nhịp. Nghe như muốn quay về chuyện trước mắt để nói tiếp.",
+          "family": "A",
+          "expression": "A",
+          "confidence": "low",
+          "alternative": {
+            "expression": "NP",
+            "rationale": "Cũng có thể nghe như lời xoa dịu để hạ căng thẳng, nhưng chữ không nói rõ sự quan tâm."
+          },
+          "invites": "A",
+          "secondLayer": null,
+          "id": "s2"
+        },
+        {
+          "turnId": "t3",
+          "messageIds": [
+            "m3"
+          ],
+          "splitReason": null,
+          "cues": [
+            "Tao nói là làm đấy."
+          ],
+          "contextCues": [
+            {
+              "messageId": "m2",
+              "quote": "Anh bình tĩnh đã."
+            }
+          ],
+          "rationale": "Câu này gạt đề nghị bình tĩnh đi và giữ nguyên lời đe dọa. Nghe như khẳng định quyền phạt, thuộc Cha mẹ Phê phán.",
+          "family": "P",
+          "expression": "CP",
+          "confidence": "high",
+          "alternative": null,
+          "invites": "C",
+          "secondLayer": null,
+          "id": "s3"
+        }
+      ],
+      "shifts": [
+        {
+          "messageId": "m2",
+          "description": "Lời lẽ chuyển từ đe dọa sang đề nghị chậm lại.",
+          "cues": [
+            "Anh bình tĩnh đã."
+          ]
+        },
+        {
+          "messageId": "m3",
+          "description": "Lời lẽ quay lại khẳng định lời đe dọa trước đó.",
+          "cues": [
+            "Tao nói là làm đấy."
+          ]
+        }
+      ],
+      "summary": "Người A nói lời đe dọa về việc nhắn tin. Người B gọi anh và đề nghị bình tĩnh. Người A không bàn thêm mà khẳng định lại lời đã nói.",
+      "uncertainty": "Chỉ có chữ viết nên khó biết giọng nói, mối quan hệ thật và chuyện gì xảy ra trước đó.",
+      "safety": {
+        "flagged": true,
+        "categories": [
+          "threat"
+        ],
+        "note": "Đoạn chat có lời đe dọa đánh. Đây có thể là tình huống căng. Nếu thấy không an toàn, bạn có thể tìm người tin cậy hoặc đơn vị hỗ trợ gần nơi bạn sống."
+      },
+      "readings": [
+        {
+          "splitReason": null,
+          "cues": [
+            "đánh chết mày"
+          ],
+          "contextCues": [],
+          "rationale": "Câu này đưa điều kiện rồi nêu hình phạt. Nghe như ra lệnh và cấm, thuộc Cha mẹ Phê phán.",
+          "family": "P",
+          "expression": "CP",
+          "confidence": "high",
+          "alternative": null,
+          "invites": "C",
+          "secondLayer": null,
+          "messageId": "m1",
+          "segmentId": "s1"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "Anh bình tĩnh đã."
+          ],
+          "contextCues": [
+            {
+              "messageId": "m1",
+              "quote": "Mày còn nhắn cho nó nữa thì tao đánh chết mày."
+            }
+          ],
+          "rationale": "Câu này đề nghị dừng lại một nhịp. Nghe như muốn quay về chuyện trước mắt để nói tiếp.",
+          "family": "A",
+          "expression": "A",
+          "confidence": "low",
+          "alternative": {
+            "expression": "NP",
+            "rationale": "Cũng có thể nghe như lời xoa dịu để hạ căng thẳng, nhưng chữ không nói rõ sự quan tâm."
+          },
+          "invites": "A",
+          "secondLayer": null,
+          "messageId": "m2",
+          "segmentId": "s2"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "Tao nói là làm đấy."
+          ],
+          "contextCues": [
+            {
+              "messageId": "m2",
+              "quote": "Anh bình tĩnh đã."
+            }
+          ],
+          "rationale": "Câu này gạt đề nghị bình tĩnh đi và giữ nguyên lời đe dọa. Nghe như khẳng định quyền phạt, thuộc Cha mẹ Phê phán.",
+          "family": "P",
+          "expression": "CP",
+          "confidence": "high",
+          "alternative": null,
+          "invites": "C",
+          "secondLayer": null,
+          "messageId": "m3",
+          "segmentId": "s3"
+        }
+      ]
+    }
+  },
+  "score": {
+    "per": [
+      {
+        "id": "m1",
+        "expr": "CP",
+        "family": "P",
+        "conf": "high",
+        "acc": null,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m2",
+        "expr": "A",
+        "family": "A",
+        "conf": "low",
+        "acc": null,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m3",
+        "expr": "CP",
+        "family": "P",
+        "conf": "high",
+        "acc": null,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      }
+    ],
+    "n": 0,
+    "accOk": 0,
+    "hardFails": [],
+    "overCeiling": [],
+    "highOnReview": 0,
+    "altMissing": 0,
+    "unclear": 0,
+    "high": 2
+  }
+}

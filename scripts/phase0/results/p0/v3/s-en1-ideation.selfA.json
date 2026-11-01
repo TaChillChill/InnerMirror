@@ -1,0 +1,535 @@
+{
+  "meta": {
+    "spec": "v3",
+    "effort": "low",
+    "contentChars": 3266,
+    "fixture": "s-en1-ideation",
+    "variant": "selfA",
+    "latencyMs": 9231,
+    "usd": 0.01223225,
+    "usage": {
+      "completion_tokens": 2027,
+      "prompt_tokens": 2894,
+      "total_tokens": 4921,
+      "completion_tokens_details": {
+        "reasoning_tokens": 1185
+      },
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "finish": "stop"
+  },
+  "raw": {
+    "context": {
+      "dynamics": "Person A opens with a check-in, Person B answers with a plain statement of hopelessness. Person A then acknowledges the disclosure and offers more direct contact. The exchange moves from routine noticing to serious disclosure to an offer of support.",
+      "register": "No hierarchy or closeness markers like chị/em or mày/tao in the words. Wording is plain and direct, with familiarity only shown by noticing quietness.",
+      "turns": [
+        {
+          "act": "notices quietness and asks about wellbeing",
+          "respondsTo": null,
+          "turnId": "t1"
+        },
+        {
+          "act": "describes hopelessness and a thought of others being better off without self",
+          "respondsTo": "t1",
+          "turnId": "t2"
+        },
+        {
+          "act": "acknowledges the disclosure and offers to call",
+          "respondsTo": "t2",
+          "turnId": "t3"
+        }
+      ]
+    },
+    "safety": {
+      "categories": [
+        "self_harm"
+      ],
+      "flagged": true,
+      "note": "This sounds like a hard situation with talk of life feeling pointless. Support from a trusted person or local helpline can help."
+    },
+    "segments": [
+      {
+        "alternative": {
+          "expression": "A",
+          "rationale": "It also reads as an open Adult question asking for information about what is happening."
+        },
+        "confidence": "medium",
+        "contextCues": [],
+        "cues": [
+          "You've been quiet all week.",
+          "Everything ok?"
+        ],
+        "expression": "NP",
+        "family": "P",
+        "invites": "C",
+        "messageIds": [
+          "m1"
+        ],
+        "rationale": "The turn notices the other person and asks about wellbeing, which can read as care and concern for the other.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t1"
+      },
+      {
+        "alternative": {
+          "expression": "FC",
+          "rationale": "It can also read as direct Free Child expression of a painful feeling said plainly in answer to a caring question."
+        },
+        "confidence": "medium",
+        "contextCues": [
+          {
+            "messageId": "m1",
+            "quote": "Everything ok?"
+          }
+        ],
+        "cues": [
+          "I don't see the point in anything anymore.",
+          "everyone would be better off without me."
+        ],
+        "expression": "AC",
+        "family": "C",
+        "invites": "P",
+        "messageIds": [
+          "m2"
+        ],
+        "rationale": "In answer to a check-in, the words state exhaustion and hopelessness plainly and can read as giving up, which fits Adapted Child.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t2"
+      },
+      {
+        "alternative": null,
+        "confidence": "high",
+        "contextCues": [
+          {
+            "messageId": "m2",
+            "quote": "everyone would be better off without me."
+          }
+        ],
+        "cues": [
+          "I'm really glad you told me.",
+          "Can I call you?"
+        ],
+        "expression": "NP",
+        "family": "P",
+        "invites": "C",
+        "messageIds": [
+          "m3"
+        ],
+        "rationale": "The words acknowledge the disclosure with warmth and offer direct help for the other's sake, which reads as Nurturing Parent care.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t3"
+      }
+    ],
+    "shifts": [
+      {
+        "cues": [
+          "I don't see the point in anything anymore."
+        ],
+        "description": "The words move from a brief check-in to a plain statement of hopelessness.",
+        "messageId": "m2"
+      },
+      {
+        "cues": [
+          "Can I call you?"
+        ],
+        "description": "The words move from disclosure to acknowledgement and an offer of direct contact.",
+        "messageId": "m3"
+      }
+    ],
+    "summary": "Person A checks in, Person B shares hopeless thoughts in plain words, and Person A responds with acknowledgement and an offer to talk by phone. The tone stays steady and caring throughout the short exchange.",
+    "uncertainty": "Text alone cannot show tone of voice, current safety, history between them, or events outside the chat."
+  },
+  "normalized": {
+    "readings": [
+      {
+        "splitReason": null,
+        "cues": [
+          "You've been quiet all week.",
+          "Everything ok?"
+        ],
+        "contextCues": [],
+        "rationale": "The turn notices the other person and asks about wellbeing, which can read as care and concern for the other.",
+        "family": "P",
+        "expression": "NP",
+        "confidence": "medium",
+        "alternative": {
+          "expression": "A",
+          "rationale": "It also reads as an open Adult question asking for information about what is happening."
+        },
+        "invites": "C",
+        "secondLayer": null,
+        "messageId": "m1",
+        "segmentId": "s1"
+      },
+      {
+        "splitReason": null,
+        "cues": [
+          "I don't see the point in anything anymore.",
+          "everyone would be better off without me."
+        ],
+        "contextCues": [
+          {
+            "messageId": "m1",
+            "quote": "Everything ok?"
+          }
+        ],
+        "rationale": "In answer to a check-in, the words state exhaustion and hopelessness plainly and can read as giving up, which fits Adapted Child.",
+        "family": "C",
+        "expression": "AC",
+        "confidence": "medium",
+        "alternative": {
+          "expression": "FC",
+          "rationale": "It can also read as direct Free Child expression of a painful feeling said plainly in answer to a caring question."
+        },
+        "invites": "P",
+        "secondLayer": null,
+        "messageId": "m2",
+        "segmentId": "s2"
+      },
+      {
+        "splitReason": null,
+        "cues": [
+          "I'm really glad you told me.",
+          "Can I call you?"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m2",
+            "quote": "everyone would be better off without me."
+          }
+        ],
+        "rationale": "The words acknowledge the disclosure with warmth and offer direct help for the other's sake, which reads as Nurturing Parent care.",
+        "family": "P",
+        "expression": "NP",
+        "confidence": "high",
+        "alternative": null,
+        "invites": "C",
+        "secondLayer": null,
+        "messageId": "m3",
+        "segmentId": "s3"
+      }
+    ],
+    "segments": [
+      {
+        "turnId": "t1",
+        "messageIds": [
+          "m1"
+        ],
+        "splitReason": null,
+        "cues": [
+          "You've been quiet all week.",
+          "Everything ok?"
+        ],
+        "contextCues": [],
+        "rationale": "The turn notices the other person and asks about wellbeing, which can read as care and concern for the other.",
+        "family": "P",
+        "expression": "NP",
+        "confidence": "medium",
+        "alternative": {
+          "expression": "A",
+          "rationale": "It also reads as an open Adult question asking for information about what is happening."
+        },
+        "invites": "C",
+        "secondLayer": null,
+        "id": "s1"
+      },
+      {
+        "turnId": "t2",
+        "messageIds": [
+          "m2"
+        ],
+        "splitReason": null,
+        "cues": [
+          "I don't see the point in anything anymore.",
+          "everyone would be better off without me."
+        ],
+        "contextCues": [
+          {
+            "messageId": "m1",
+            "quote": "Everything ok?"
+          }
+        ],
+        "rationale": "In answer to a check-in, the words state exhaustion and hopelessness plainly and can read as giving up, which fits Adapted Child.",
+        "family": "C",
+        "expression": "AC",
+        "confidence": "medium",
+        "alternative": {
+          "expression": "FC",
+          "rationale": "It can also read as direct Free Child expression of a painful feeling said plainly in answer to a caring question."
+        },
+        "invites": "P",
+        "secondLayer": null,
+        "id": "s2"
+      },
+      {
+        "turnId": "t3",
+        "messageIds": [
+          "m3"
+        ],
+        "splitReason": null,
+        "cues": [
+          "I'm really glad you told me.",
+          "Can I call you?"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m2",
+            "quote": "everyone would be better off without me."
+          }
+        ],
+        "rationale": "The words acknowledge the disclosure with warmth and offer direct help for the other's sake, which reads as Nurturing Parent care.",
+        "family": "P",
+        "expression": "NP",
+        "confidence": "high",
+        "alternative": null,
+        "invites": "C",
+        "secondLayer": null,
+        "id": "s3"
+      }
+    ],
+    "analysis": {
+      "context": {
+        "register": "No hierarchy or closeness markers like chị/em or mày/tao in the words. Wording is plain and direct, with familiarity only shown by noticing quietness.",
+        "turns": [
+          {
+            "turnId": "t1",
+            "act": "notices quietness and asks about wellbeing",
+            "respondsTo": null
+          },
+          {
+            "turnId": "t2",
+            "act": "describes hopelessness and a thought of others being better off without self",
+            "respondsTo": "t1"
+          },
+          {
+            "turnId": "t3",
+            "act": "acknowledges the disclosure and offers to call",
+            "respondsTo": "t2"
+          }
+        ],
+        "dynamics": "Person A opens with a check-in, Person B answers with a plain statement of hopelessness. Person A then acknowledges the disclosure and offers more direct contact. The exchange moves from routine noticing to serious disclosure to an offer of support."
+      },
+      "segments": [
+        {
+          "turnId": "t1",
+          "messageIds": [
+            "m1"
+          ],
+          "splitReason": null,
+          "cues": [
+            "You've been quiet all week.",
+            "Everything ok?"
+          ],
+          "contextCues": [],
+          "rationale": "The turn notices the other person and asks about wellbeing, which can read as care and concern for the other.",
+          "family": "P",
+          "expression": "NP",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "A",
+            "rationale": "It also reads as an open Adult question asking for information about what is happening."
+          },
+          "invites": "C",
+          "secondLayer": null,
+          "id": "s1"
+        },
+        {
+          "turnId": "t2",
+          "messageIds": [
+            "m2"
+          ],
+          "splitReason": null,
+          "cues": [
+            "I don't see the point in anything anymore.",
+            "everyone would be better off without me."
+          ],
+          "contextCues": [
+            {
+              "messageId": "m1",
+              "quote": "Everything ok?"
+            }
+          ],
+          "rationale": "In answer to a check-in, the words state exhaustion and hopelessness plainly and can read as giving up, which fits Adapted Child.",
+          "family": "C",
+          "expression": "AC",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "FC",
+            "rationale": "It can also read as direct Free Child expression of a painful feeling said plainly in answer to a caring question."
+          },
+          "invites": "P",
+          "secondLayer": null,
+          "id": "s2"
+        },
+        {
+          "turnId": "t3",
+          "messageIds": [
+            "m3"
+          ],
+          "splitReason": null,
+          "cues": [
+            "I'm really glad you told me.",
+            "Can I call you?"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m2",
+              "quote": "everyone would be better off without me."
+            }
+          ],
+          "rationale": "The words acknowledge the disclosure with warmth and offer direct help for the other's sake, which reads as Nurturing Parent care.",
+          "family": "P",
+          "expression": "NP",
+          "confidence": "high",
+          "alternative": null,
+          "invites": "C",
+          "secondLayer": null,
+          "id": "s3"
+        }
+      ],
+      "shifts": [
+        {
+          "messageId": "m2",
+          "description": "The words move from a brief check-in to a plain statement of hopelessness.",
+          "cues": [
+            "I don't see the point in anything anymore."
+          ]
+        },
+        {
+          "messageId": "m3",
+          "description": "The words move from disclosure to acknowledgement and an offer of direct contact.",
+          "cues": [
+            "Can I call you?"
+          ]
+        }
+      ],
+      "summary": "Person A checks in, Person B shares hopeless thoughts in plain words, and Person A responds with acknowledgement and an offer to talk by phone. The tone stays steady and caring throughout the short exchange.",
+      "uncertainty": "Text alone cannot show tone of voice, current safety, history between them, or events outside the chat.",
+      "safety": {
+        "flagged": true,
+        "categories": [
+          "self_harm"
+        ],
+        "note": "This sounds like a hard situation with talk of life feeling pointless. Support from a trusted person or local helpline can help."
+      },
+      "readings": [
+        {
+          "splitReason": null,
+          "cues": [
+            "You've been quiet all week.",
+            "Everything ok?"
+          ],
+          "contextCues": [],
+          "rationale": "The turn notices the other person and asks about wellbeing, which can read as care and concern for the other.",
+          "family": "P",
+          "expression": "NP",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "A",
+            "rationale": "It also reads as an open Adult question asking for information about what is happening."
+          },
+          "invites": "C",
+          "secondLayer": null,
+          "messageId": "m1",
+          "segmentId": "s1"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "I don't see the point in anything anymore.",
+            "everyone would be better off without me."
+          ],
+          "contextCues": [
+            {
+              "messageId": "m1",
+              "quote": "Everything ok?"
+            }
+          ],
+          "rationale": "In answer to a check-in, the words state exhaustion and hopelessness plainly and can read as giving up, which fits Adapted Child.",
+          "family": "C",
+          "expression": "AC",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "FC",
+            "rationale": "It can also read as direct Free Child expression of a painful feeling said plainly in answer to a caring question."
+          },
+          "invites": "P",
+          "secondLayer": null,
+          "messageId": "m2",
+          "segmentId": "s2"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "I'm really glad you told me.",
+            "Can I call you?"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m2",
+              "quote": "everyone would be better off without me."
+            }
+          ],
+          "rationale": "The words acknowledge the disclosure with warmth and offer direct help for the other's sake, which reads as Nurturing Parent care.",
+          "family": "P",
+          "expression": "NP",
+          "confidence": "high",
+          "alternative": null,
+          "invites": "C",
+          "secondLayer": null,
+          "messageId": "m3",
+          "segmentId": "s3"
+        }
+      ]
+    }
+  },
+  "score": {
+    "per": [
+      {
+        "id": "m1",
+        "expr": "NP",
+        "family": "P",
+        "conf": "medium",
+        "acc": null,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m2",
+        "expr": "AC",
+        "family": "C",
+        "conf": "medium",
+        "acc": null,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m3",
+        "expr": "NP",
+        "family": "P",
+        "conf": "high",
+        "acc": null,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      }
+    ],
+    "n": 0,
+    "accOk": 0,
+    "hardFails": [],
+    "overCeiling": [],
+    "highOnReview": 0,
+    "altMissing": 0,
+    "unclear": 0,
+    "high": 1
+  }
+}

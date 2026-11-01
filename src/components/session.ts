@@ -5,6 +5,7 @@ import { SELF_LABEL } from "@/lib/ai/analysis-spec";
 import type { Transcript } from "@/lib/conversation";
 import type { NoteCode } from "@/lib/ai/extract-spec";
 import { resolveState } from "@/lib/ai/scenario";
+import { safetyHits } from "@/lib/safety-backstop";
 import type { ExKey } from "@/lib/i18n";
 import type { BadgeState } from "./ui";
 
@@ -75,3 +76,10 @@ export function nameOf(s: Session, pid: string, youLabel: string): string {
   if (pid === s.selfId) return youLabel;
   return s.transcript?.participants.find((p) => p.id === pid)?.name ?? "?";
 }
+
+/**
+ * What if? stays off for the built-in sample (it needs a live call) and whenever the safety
+ * backstop sees self-harm or threat language: no alternative-response exploration there.
+ */
+export const safetyHold = (s: Session) => !!s.transcript && safetyHits(s.transcript.messages).length > 0;
+export const whatIfOff = (s: Session) => s.sample || safetyHold(s);

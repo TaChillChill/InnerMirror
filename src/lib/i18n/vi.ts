@@ -261,6 +261,8 @@ export const vi: Dict = {
     emergency: "Nếu bạn đang gặp nguy hiểm, hãy liên hệ ngay dịch vụ khẩn cấp tại nơi bạn ở.",
     scope: "InnerMirror là một trò chơi tự nhận biết, không phải dịch vụ sức khoẻ tâm thần hay trị liệu.",
     back: "Về trang đầu",
+    holdTitle: "Có câu trong cuộc trò chuyện này nói đến việc không muốn sống, làm hại bản thân hoặc đe doạ người khác.",
+    holdBody: "Nếu điều đó đang xảy ra với bạn hay ai đó, bạn không phải đối mặt một mình. Hãy nói với một người bạn tin tưởng. Nếu khác đi? được tắt cho cuộc trò chuyện này.",
   },
   mirror: {
     title: "Tấm gương của mình",

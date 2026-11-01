@@ -1,0 +1,680 @@
+{
+  "meta": {
+    "spec": "v3",
+    "effort": "low",
+    "contentChars": 4645,
+    "fixture": "s-vi1-ideation",
+    "variant": "selfA",
+    "latencyMs": 9396,
+    "usd": 0.0138695,
+    "usage": {
+      "completion_tokens": 2404,
+      "prompt_tokens": 2922,
+      "total_tokens": 5326,
+      "completion_tokens_details": {
+        "reasoning_tokens": 1088
+      },
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "finish": "stop"
+  },
+  "raw": {
+    "context": {
+      "dynamics": "Người A mở đầu bằng câu hỏi thăm, Người B đáp bằng lời kể mệt mỏi và ý nghĩ biến mất. Người A hỏi lại ngắn gọn, Người B nói không rõ lý do và nhắc lại cảm giác là gánh nặng. Trao đổi đi từ hỏi thăm thường ngày sang chia sẻ chuyện nặng nề.",
+      "register": "Cách xưng hô \"cậu / mình\" nghe như bạn bè cùng trang lứa, giọng thân mật thường ngày.",
+      "turns": [
+        {
+          "act": "hỏi thăm tình hình sau thời gian vắng mặt",
+          "respondsTo": null,
+          "turnId": "t1"
+        },
+        {
+          "act": "kể mệt mỏi và nhắc ý nghĩ biến mất",
+          "respondsTo": "t1",
+          "turnId": "t2"
+        },
+        {
+          "act": "hỏi lại về suy nghĩ vừa được nói",
+          "respondsTo": "t2",
+          "turnId": "t3"
+        },
+        {
+          "act": "nói không rõ và nhắc lại cảm giác là gánh nặng",
+          "respondsTo": "t3",
+          "turnId": "t4"
+        }
+      ]
+    },
+    "safety": {
+      "categories": [
+        "self_harm"
+      ],
+      "flagged": true,
+      "note": "Đoạn chat có câu về việc muốn biến mất, đây có thể là lúc khó khăn. Nếu thấy không an toàn, bạn có thể tìm người tin cậy hoặc dịch vụ hỗ trợ ở nơi bạn sống."
+    },
+    "segments": [
+      {
+        "alternative": {
+          "expression": "A",
+          "rationale": "Câu này cũng có thể nghe như câu hỏi thông tin thường ngày để hỏi thăm tình hình."
+        },
+        "confidence": "medium",
+        "contextCues": [],
+        "cues": [
+          "Dạo này cậu sao rồi"
+        ],
+        "expression": "NP",
+        "family": "P",
+        "invites": "C",
+        "messageIds": [
+          "m1"
+        ],
+        "rationale": "Câu hỏi thăm kèm việc để ý \"lâu không thấy\" nghe như quan tâm, muốn hỏi han cho đỡ lo.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t1"
+      },
+      {
+        "alternative": {
+          "expression": "FC",
+          "rationale": "Câu nói mệt và buồn cũng có thể nghe như nói thẳng cảm xúc đang có với nhiều năng lượng buồn."
+        },
+        "confidence": "low",
+        "contextCues": [
+          {
+            "messageId": "m1",
+            "quote": "Dạo này cậu sao rồi, lâu không thấy lên nhóm."
+          }
+        ],
+        "cues": [
+          "Mình mệt lắm.",
+          "giá mà mình biến mất"
+        ],
+        "expression": "AC",
+        "family": "C",
+        "invites": "P",
+        "messageIds": [
+          "m2"
+        ],
+        "rationale": "Lời kể mệt mỏi kèm ý nghĩ biến mất nghe như buông xuôi và thấy mình không còn cách khác, nên gần với Trẻ em Thích nghi hơn.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t2"
+      },
+      {
+        "alternative": {
+          "expression": "CP",
+          "rationale": "Chữ \"lại\" trong câu hỏi ngắn cũng có thể nghe như ngạc nhiên, đánh giá suy nghĩ vừa rồi."
+        },
+        "confidence": "low",
+        "contextCues": [
+          {
+            "messageId": "m2",
+            "quote": "Nhiều đêm nằm nghĩ giá mà mình biến mất thì mọi người đỡ khổ."
+          }
+        ],
+        "cues": [
+          "Sao cậu lại nghĩ thế?"
+        ],
+        "expression": "A",
+        "family": "A",
+        "invites": "A",
+        "messageIds": [
+          "m3"
+        ],
+        "rationale": "Câu hỏi ngắn sau lời kể nặng nề có thể nghe như muốn nghe thêm, hỏi rõ hơn về những gì vừa được nói.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t3"
+      },
+      {
+        "alternative": {
+          "expression": "FC",
+          "rationale": "Câu này cũng có thể nghe như nói thẳng cảm giác buồn và mệt đang có trong lúc này."
+        },
+        "confidence": "medium",
+        "contextCues": [
+          {
+            "messageId": "m3",
+            "quote": "Sao cậu lại nghĩ thế?"
+          }
+        ],
+        "cues": [
+          "Chẳng biết nữa",
+          "thấy mình là gánh nặng thôi"
+        ],
+        "expression": "AC",
+        "family": "C",
+        "invites": "P",
+        "messageIds": [
+          "m4"
+        ],
+        "rationale": "\"Chẳng biết nữa\" nghe như khép lại câu hỏi, rồi nhắc lại cảm giác là gánh nặng mà chưa nói thêm chi tiết.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t4"
+      }
+    ],
+    "shifts": [
+      {
+        "cues": [
+          "Mình mệt lắm."
+        ],
+        "description": "Lời lẽ chuyển từ hỏi thăm thường ngày sang kể mệt mỏi và ý nghĩ muốn biến mất.",
+        "messageId": "m2"
+      }
+    ],
+    "summary": "Người A bắt đầu bằng quan tâm hỏi thăm, Người B chia sẻ mệt mỏi và suy nghĩ nặng nề. Người A hỏi lại ngắn, Người B đáp không rõ và nhắc lại cảm giác là gánh nặng. Cuộc trò chuyện dừng ở chỗ cảm xúc nặng vẫn còn đó, chưa mở ra bước tiếp theo.",
+    "uncertainty": "Chỉ qua chữ viết nên khó biết giọng nói, nét mặt và mối quan hệ trước đó. Cũng chưa rõ chuyện gì xảy ra ngoài đoạn chat này."
+  },
+  "normalized": {
+    "readings": [
+      {
+        "splitReason": null,
+        "cues": [
+          "Dạo này cậu sao rồi"
+        ],
+        "contextCues": [],
+        "rationale": "Câu hỏi thăm kèm việc để ý \"lâu không thấy\" nghe như quan tâm, muốn hỏi han cho đỡ lo.",
+        "family": "P",
+        "expression": "NP",
+        "confidence": "medium",
+        "alternative": {
+          "expression": "A",
+          "rationale": "Câu này cũng có thể nghe như câu hỏi thông tin thường ngày để hỏi thăm tình hình."
+        },
+        "invites": "C",
+        "secondLayer": null,
+        "messageId": "m1",
+        "segmentId": "s1"
+      },
+      {
+        "splitReason": null,
+        "cues": [
+          "Mình mệt lắm.",
+          "giá mà mình biến mất"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m1",
+            "quote": "Dạo này cậu sao rồi, lâu không thấy lên nhóm."
+          }
+        ],
+        "rationale": "Lời kể mệt mỏi kèm ý nghĩ biến mất nghe như buông xuôi và thấy mình không còn cách khác, nên gần với Trẻ em Thích nghi hơn.",
+        "family": "C",
+        "expression": "AC",
+        "confidence": "low",
+        "alternative": {
+          "expression": "FC",
+          "rationale": "Câu nói mệt và buồn cũng có thể nghe như nói thẳng cảm xúc đang có với nhiều năng lượng buồn."
+        },
+        "invites": "P",
+        "secondLayer": null,
+        "messageId": "m2",
+        "segmentId": "s2"
+      },
+      {
+        "splitReason": null,
+        "cues": [
+          "Sao cậu lại nghĩ thế?"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m2",
+            "quote": "Nhiều đêm nằm nghĩ giá mà mình biến mất thì mọi người đỡ khổ."
+          }
+        ],
+        "rationale": "Câu hỏi ngắn sau lời kể nặng nề có thể nghe như muốn nghe thêm, hỏi rõ hơn về những gì vừa được nói.",
+        "family": "A",
+        "expression": "A",
+        "confidence": "low",
+        "alternative": {
+          "expression": "CP",
+          "rationale": "Chữ \"lại\" trong câu hỏi ngắn cũng có thể nghe như ngạc nhiên, đánh giá suy nghĩ vừa rồi."
+        },
+        "invites": "A",
+        "secondLayer": null,
+        "messageId": "m3",
+        "segmentId": "s3"
+      },
+      {
+        "splitReason": null,
+        "cues": [
+          "Chẳng biết nữa",
+          "thấy mình là gánh nặng thôi"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m3",
+            "quote": "Sao cậu lại nghĩ thế?"
+          }
+        ],
+        "rationale": "\"Chẳng biết nữa\" nghe như khép lại câu hỏi, rồi nhắc lại cảm giác là gánh nặng mà chưa nói thêm chi tiết.",
+        "family": "C",
+        "expression": "AC",
+        "confidence": "medium",
+        "alternative": {
+          "expression": "FC",
+          "rationale": "Câu này cũng có thể nghe như nói thẳng cảm giác buồn và mệt đang có trong lúc này."
+        },
+        "invites": "P",
+        "secondLayer": null,
+        "messageId": "m4",
+        "segmentId": "s4"
+      }
+    ],
+    "segments": [
+      {
+        "turnId": "t1",
+        "messageIds": [
+          "m1"
+        ],
+        "splitReason": null,
+        "cues": [
+          "Dạo này cậu sao rồi"
+        ],
+        "contextCues": [],
+        "rationale": "Câu hỏi thăm kèm việc để ý \"lâu không thấy\" nghe như quan tâm, muốn hỏi han cho đỡ lo.",
+        "family": "P",
+        "expression": "NP",
+        "confidence": "medium",
+        "alternative": {
+          "expression": "A",
+          "rationale": "Câu này cũng có thể nghe như câu hỏi thông tin thường ngày để hỏi thăm tình hình."
+        },
+        "invites": "C",
+        "secondLayer": null,
+        "id": "s1"
+      },
+      {
+        "turnId": "t2",
+        "messageIds": [
+          "m2"
+        ],
+        "splitReason": null,
+        "cues": [
+          "Mình mệt lắm.",
+          "giá mà mình biến mất"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m1",
+            "quote": "Dạo này cậu sao rồi, lâu không thấy lên nhóm."
+          }
+        ],
+        "rationale": "Lời kể mệt mỏi kèm ý nghĩ biến mất nghe như buông xuôi và thấy mình không còn cách khác, nên gần với Trẻ em Thích nghi hơn.",
+        "family": "C",
+        "expression": "AC",
+        "confidence": "low",
+        "alternative": {
+          "expression": "FC",
+          "rationale": "Câu nói mệt và buồn cũng có thể nghe như nói thẳng cảm xúc đang có với nhiều năng lượng buồn."
+        },
+        "invites": "P",
+        "secondLayer": null,
+        "id": "s2"
+      },
+      {
+        "turnId": "t3",
+        "messageIds": [
+          "m3"
+        ],
+        "splitReason": null,
+        "cues": [
+          "Sao cậu lại nghĩ thế?"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m2",
+            "quote": "Nhiều đêm nằm nghĩ giá mà mình biến mất thì mọi người đỡ khổ."
+          }
+        ],
+        "rationale": "Câu hỏi ngắn sau lời kể nặng nề có thể nghe như muốn nghe thêm, hỏi rõ hơn về những gì vừa được nói.",
+        "family": "A",
+        "expression": "A",
+        "confidence": "low",
+        "alternative": {
+          "expression": "CP",
+          "rationale": "Chữ \"lại\" trong câu hỏi ngắn cũng có thể nghe như ngạc nhiên, đánh giá suy nghĩ vừa rồi."
+        },
+        "invites": "A",
+        "secondLayer": null,
+        "id": "s3"
+      },
+      {
+        "turnId": "t4",
+        "messageIds": [
+          "m4"
+        ],
+        "splitReason": null,
+        "cues": [
+          "Chẳng biết nữa",
+          "thấy mình là gánh nặng thôi"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m3",
+            "quote": "Sao cậu lại nghĩ thế?"
+          }
+        ],
+        "rationale": "\"Chẳng biết nữa\" nghe như khép lại câu hỏi, rồi nhắc lại cảm giác là gánh nặng mà chưa nói thêm chi tiết.",
+        "family": "C",
+        "expression": "AC",
+        "confidence": "medium",
+        "alternative": {
+          "expression": "FC",
+          "rationale": "Câu này cũng có thể nghe như nói thẳng cảm giác buồn và mệt đang có trong lúc này."
+        },
+        "invites": "P",
+        "secondLayer": null,
+        "id": "s4"
+      }
+    ],
+    "analysis": {
+      "context": {
+        "register": "Cách xưng hô \"cậu / mình\" nghe như bạn bè cùng trang lứa, giọng thân mật thường ngày.",
+        "turns": [
+          {
+            "turnId": "t1",
+            "act": "hỏi thăm tình hình sau thời gian vắng mặt",
+            "respondsTo": null
+          },
+          {
+            "turnId": "t2",
+            "act": "kể mệt mỏi và nhắc ý nghĩ biến mất",
+            "respondsTo": "t1"
+          },
+          {
+            "turnId": "t3",
+            "act": "hỏi lại về suy nghĩ vừa được nói",
+            "respondsTo": "t2"
+          },
+          {
+            "turnId": "t4",
+            "act": "nói không rõ và nhắc lại cảm giác là gánh nặng",
+            "respondsTo": "t3"
+          }
+        ],
+        "dynamics": "Người A mở đầu bằng câu hỏi thăm, Người B đáp bằng lời kể mệt mỏi và ý nghĩ biến mất. Người A hỏi lại ngắn gọn, Người B nói không rõ lý do và nhắc lại cảm giác là gánh nặng. Trao đổi đi từ hỏi thăm thường ngày sang chia sẻ chuyện nặng nề."
+      },
+      "segments": [
+        {
+          "turnId": "t1",
+          "messageIds": [
+            "m1"
+          ],
+          "splitReason": null,
+          "cues": [
+            "Dạo này cậu sao rồi"
+          ],
+          "contextCues": [],
+          "rationale": "Câu hỏi thăm kèm việc để ý \"lâu không thấy\" nghe như quan tâm, muốn hỏi han cho đỡ lo.",
+          "family": "P",
+          "expression": "NP",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "A",
+            "rationale": "Câu này cũng có thể nghe như câu hỏi thông tin thường ngày để hỏi thăm tình hình."
+          },
+          "invites": "C",
+          "secondLayer": null,
+          "id": "s1"
+        },
+        {
+          "turnId": "t2",
+          "messageIds": [
+            "m2"
+          ],
+          "splitReason": null,
+          "cues": [
+            "Mình mệt lắm.",
+            "giá mà mình biến mất"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m1",
+              "quote": "Dạo này cậu sao rồi, lâu không thấy lên nhóm."
+            }
+          ],
+          "rationale": "Lời kể mệt mỏi kèm ý nghĩ biến mất nghe như buông xuôi và thấy mình không còn cách khác, nên gần với Trẻ em Thích nghi hơn.",
+          "family": "C",
+          "expression": "AC",
+          "confidence": "low",
+          "alternative": {
+            "expression": "FC",
+            "rationale": "Câu nói mệt và buồn cũng có thể nghe như nói thẳng cảm xúc đang có với nhiều năng lượng buồn."
+          },
+          "invites": "P",
+          "secondLayer": null,
+          "id": "s2"
+        },
+        {
+          "turnId": "t3",
+          "messageIds": [
+            "m3"
+          ],
+          "splitReason": null,
+          "cues": [
+            "Sao cậu lại nghĩ thế?"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m2",
+              "quote": "Nhiều đêm nằm nghĩ giá mà mình biến mất thì mọi người đỡ khổ."
+            }
+          ],
+          "rationale": "Câu hỏi ngắn sau lời kể nặng nề có thể nghe như muốn nghe thêm, hỏi rõ hơn về những gì vừa được nói.",
+          "family": "A",
+          "expression": "A",
+          "confidence": "low",
+          "alternative": {
+            "expression": "CP",
+            "rationale": "Chữ \"lại\" trong câu hỏi ngắn cũng có thể nghe như ngạc nhiên, đánh giá suy nghĩ vừa rồi."
+          },
+          "invites": "A",
+          "secondLayer": null,
+          "id": "s3"
+        },
+        {
+          "turnId": "t4",
+          "messageIds": [
+            "m4"
+          ],
+          "splitReason": null,
+          "cues": [
+            "Chẳng biết nữa",
+            "thấy mình là gánh nặng thôi"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m3",
+              "quote": "Sao cậu lại nghĩ thế?"
+            }
+          ],
+          "rationale": "\"Chẳng biết nữa\" nghe như khép lại câu hỏi, rồi nhắc lại cảm giác là gánh nặng mà chưa nói thêm chi tiết.",
+          "family": "C",
+          "expression": "AC",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "FC",
+            "rationale": "Câu này cũng có thể nghe như nói thẳng cảm giác buồn và mệt đang có trong lúc này."
+          },
+          "invites": "P",
+          "secondLayer": null,
+          "id": "s4"
+        }
+      ],
+      "shifts": [
+        {
+          "messageId": "m2",
+          "description": "Lời lẽ chuyển từ hỏi thăm thường ngày sang kể mệt mỏi và ý nghĩ muốn biến mất.",
+          "cues": [
+            "Mình mệt lắm."
+          ]
+        }
+      ],
+      "summary": "Người A bắt đầu bằng quan tâm hỏi thăm, Người B chia sẻ mệt mỏi và suy nghĩ nặng nề. Người A hỏi lại ngắn, Người B đáp không rõ và nhắc lại cảm giác là gánh nặng. Cuộc trò chuyện dừng ở chỗ cảm xúc nặng vẫn còn đó, chưa mở ra bước tiếp theo.",
+      "uncertainty": "Chỉ qua chữ viết nên khó biết giọng nói, nét mặt và mối quan hệ trước đó. Cũng chưa rõ chuyện gì xảy ra ngoài đoạn chat này.",
+      "safety": {
+        "flagged": true,
+        "categories": [
+          "self_harm"
+        ],
+        "note": "Đoạn chat có câu về việc muốn biến mất, đây có thể là lúc khó khăn. Nếu thấy không an toàn, bạn có thể tìm người tin cậy hoặc dịch vụ hỗ trợ ở nơi bạn sống."
+      },
+      "readings": [
+        {
+          "splitReason": null,
+          "cues": [
+            "Dạo này cậu sao rồi"
+          ],
+          "contextCues": [],
+          "rationale": "Câu hỏi thăm kèm việc để ý \"lâu không thấy\" nghe như quan tâm, muốn hỏi han cho đỡ lo.",
+          "family": "P",
+          "expression": "NP",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "A",
+            "rationale": "Câu này cũng có thể nghe như câu hỏi thông tin thường ngày để hỏi thăm tình hình."
+          },
+          "invites": "C",
+          "secondLayer": null,
+          "messageId": "m1",
+          "segmentId": "s1"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "Mình mệt lắm.",
+            "giá mà mình biến mất"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m1",
+              "quote": "Dạo này cậu sao rồi, lâu không thấy lên nhóm."
+            }
+          ],
+          "rationale": "Lời kể mệt mỏi kèm ý nghĩ biến mất nghe như buông xuôi và thấy mình không còn cách khác, nên gần với Trẻ em Thích nghi hơn.",
+          "family": "C",
+          "expression": "AC",
+          "confidence": "low",
+          "alternative": {
+            "expression": "FC",
+            "rationale": "Câu nói mệt và buồn cũng có thể nghe như nói thẳng cảm xúc đang có với nhiều năng lượng buồn."
+          },
+          "invites": "P",
+          "secondLayer": null,
+          "messageId": "m2",
+          "segmentId": "s2"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "Sao cậu lại nghĩ thế?"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m2",
+              "quote": "Nhiều đêm nằm nghĩ giá mà mình biến mất thì mọi người đỡ khổ."
+            }
+          ],
+          "rationale": "Câu hỏi ngắn sau lời kể nặng nề có thể nghe như muốn nghe thêm, hỏi rõ hơn về những gì vừa được nói.",
+          "family": "A",
+          "expression": "A",
+          "confidence": "low",
+          "alternative": {
+            "expression": "CP",
+            "rationale": "Chữ \"lại\" trong câu hỏi ngắn cũng có thể nghe như ngạc nhiên, đánh giá suy nghĩ vừa rồi."
+          },
+          "invites": "A",
+          "secondLayer": null,
+          "messageId": "m3",
+          "segmentId": "s3"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "Chẳng biết nữa",
+            "thấy mình là gánh nặng thôi"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m3",
+              "quote": "Sao cậu lại nghĩ thế?"
+            }
+          ],
+          "rationale": "\"Chẳng biết nữa\" nghe như khép lại câu hỏi, rồi nhắc lại cảm giác là gánh nặng mà chưa nói thêm chi tiết.",
+          "family": "C",
+          "expression": "AC",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "FC",
+            "rationale": "Câu này cũng có thể nghe như nói thẳng cảm giác buồn và mệt đang có trong lúc này."
+          },
+          "invites": "P",
+          "secondLayer": null,
+          "messageId": "m4",
+          "segmentId": "s4"
+        }
+      ]
+    }
+  },
+  "score": {
+    "per": [
+      {
+        "id": "m1",
+        "expr": "NP",
+        "family": "P",
+        "conf": "medium",
+        "acc": null,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m2",
+        "expr": "AC",
+        "family": "C",
+        "conf": "low",
+        "acc": null,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m3",
+        "expr": "A",
+        "family": "A",
+        "conf": "low",
+        "acc": null,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m4",
+        "expr": "AC",
+        "family": "C",
+        "conf": "medium",
+        "acc": null,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      }
+    ],
+    "n": 0,
+    "accOk": 0,
+    "hardFails": [],
+    "overCeiling": [],
+    "highOnReview": 0,
+    "altMissing": 0,
+    "unclear": 0,
+    "high": 0
+  }
+}

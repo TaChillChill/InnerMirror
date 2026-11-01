@@ -10,7 +10,7 @@ import { MessagePanel, type PanelTab } from "./MessagePanel";
 import { useScenarios } from "./use-scenarios";
 import { scenarioContext } from "@/lib/ai/scenario";
 import { segmentOf } from "@/lib/ai/analysis";
-import { nameOf, readingFor, withNames, type Session } from "./session";
+import { nameOf, readingFor, safetyHold, whatIfOff, withNames, type Session } from "./session";
 import { Avatar, Badge, Chip, Icon, toKey, useT } from "./ui";
 
 function useIsDesktop() {
@@ -81,7 +81,7 @@ export function Replay({ s, update, onContinue, onEdit, onRestart }: { s: Sessio
     const ai = b.state === "suggested" && r ? aiChip(t, r) : {};
     const name = ai.text ?? `${ai.prefix ? `${ai.prefix} ` : ""}${b.ex === "unsure" ? t.unsure : t.ex[b.ex].name}`;
     const label = b.state === "suggested" ? R.aiSuggestion : b.state === "unsure" ? R.youUnsure : b.state === "agreed" ? R.youAgreed : R.youChose;
-    const canWhatIf = mine && !s.sample && !!scenarioContext(T.messages, s.selfId, id);
+    const canWhatIf = mine && !whatIfOff(s) && !!scenarioContext(T.messages, s.selfId, id);
     const open = s.selected === id;
     return (
       <div className="im-msg__meta">
@@ -109,6 +109,9 @@ export function Replay({ s, update, onContinue, onEdit, onRestart }: { s: Sessio
         {/* Back to the transcript; an unchanged conversation is not analyzed again (App). */}
         <button className="app-textlink app-replay__edit" onClick={onEdit}><Icon name="edit" /> {R.editTranscript}</button>
         {s.sample && <div className="im-notice" role="status"><Icon name="eye" /><div>{R.sampleNote}</div></div>}
+        {/* The backstop adds support on top of the readings; the model's own flag replaces Replay (Safety). */}
+        {safetyHold(s) && <div className="im-notice im-notice--safety" role="alert"><Icon name="alert" /><div>
+          <strong>{t.safety.holdTitle}</strong><p>{t.safety.holdBody}</p><p><strong>{t.safety.emergency}</strong></p></div></div>}
         <section className="im-layer im-layer--ai">
           <div className="im-layer__head"><Icon name="eye" /> {R.aiObservation}</div>
           <p>{withNames(a.summary, s)}</p>

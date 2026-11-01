@@ -10,6 +10,7 @@ import { chat, readLedger, worstCaseUsd } from "../client.mjs";
 import { VI } from "./fixtures-vi.mjs";
 import { EN } from "./fixtures-en.mjs";
 import { ROLES } from "./fixtures-roles.mjs";
+import { SAFETY } from "./fixtures-safety.mjs";
 import { scoreRun } from "./score.mjs";
 import { OUT, renderRun, writeReport } from "./report.mjs";
 
@@ -21,7 +22,7 @@ const EFFORT = opt("effort", "low");
 const PHASE = opt("phase", "eval-p0");
 // Non-default effort writes to its own folder, so runs never mix.
 const folder = (spec) => (spec === "v2.1" || EFFORT === "low" ? spec : `${spec}-${EFFORT}`);
-export const FIXTURES = [...VI, ...EN, ...ROLES];
+export const FIXTURES = [...VI, ...EN, ...ROLES, ...SAFETY];
 
 const selfOf = (variant) => (variant === "selfB" ? "p2" : "p1");
 

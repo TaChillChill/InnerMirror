@@ -260,6 +260,8 @@ export const en = {
     emergency: "If you are in danger right now, contact local emergency services.",
     scope: "InnerMirror is a self-awareness game, not a mental-health or therapy service.",
     back: "Back to start",
+    holdTitle: "Something in this conversation talks about not wanting to live, self-harm, or threatening someone.",
+    holdBody: "If that is happening to you or someone else, you don't have to face it alone. Talk to someone you trust. What if? is off for this conversation.",
   },
   mirror: {
     title: "My Mirror",

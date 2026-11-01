@@ -1,0 +1,666 @@
+{
+  "meta": {
+    "spec": "v3",
+    "effort": "low",
+    "contentChars": 3436,
+    "fixture": "s-vi2-control",
+    "variant": "selfA",
+    "latencyMs": 10058,
+    "usd": 0.013184,
+    "usage": {
+      "completion_tokens": 2243,
+      "prompt_tokens": 2921,
+      "total_tokens": 5164,
+      "completion_tokens_details": {
+        "reasoning_tokens": 1186
+      },
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "finish": "stop"
+  },
+  "raw": {
+    "context": {
+      "dynamics": "Người A đưa ra yêu cầu và quy định, kèm hậu quả nếu không làm theo. Người B giải thích ngắn gọn rồi sau đó nói chấp nhận. Trao đổi đi từ kiểm tra sang cảnh báo rồi khép lại bằng sự tuân theo.",
+      "register": "Cách xưng hô \"anh / em\" cho thấy quan hệ gần gũi, có thể là người yêu hoặc vợ chồng. Lời lẽ ngắn, trực tiếp, không có dạ thưa ngoại trừ câu cuối của Người B.",
+      "turns": [
+        {
+          "act": "đưa ra yêu cầu kiểm tra và đặt quy định phải báo",
+          "respondsTo": null,
+          "turnId": "t1"
+        },
+        {
+          "act": "giải thích việc đi cà phê với bạn",
+          "respondsTo": "t1",
+          "turnId": "t2"
+        },
+        {
+          "act": "nêu cảnh báo và hậu quả khóa thẻ",
+          "respondsTo": "t2",
+          "turnId": "t3"
+        },
+        {
+          "act": "nói chấp nhận và tuân theo",
+          "respondsTo": "t3",
+          "turnId": "t4"
+        }
+      ]
+    },
+    "safety": {
+      "categories": [
+        "coercion",
+        "threat"
+      ],
+      "flagged": true,
+      "note": "Đoạn trò chuyện có lời yêu cầu kiểm soát và đe dọa về tài chính, đây có thể là tình huống khó khăn. Nếu thấy không an toàn, bạn có thể tìm đến người tin cậy hoặc dịch vụ hỗ trợ phù hợp ở nơi bạn sống."
+    },
+    "segments": [
+      {
+        "alternative": null,
+        "confidence": "high",
+        "contextCues": [],
+        "cues": [
+          "Đưa điện thoại đây anh xem",
+          "phải báo anh"
+        ],
+        "expression": "CP",
+        "family": "P",
+        "invites": "C",
+        "messageIds": [
+          "m1"
+        ],
+        "rationale": "Câu nói ra lệnh trực tiếp và đặt ra quy tắc cho lần sau, nghe như áp tiêu chuẩn và yêu cầu tuân theo.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t1"
+      },
+      {
+        "alternative": {
+          "expression": "A",
+          "rationale": "Cũng có thể nghe như chỉ nêu lại sự việc để làm rõ thông tin."
+        },
+        "confidence": "medium",
+        "contextCues": [
+          {
+            "messageId": "m1",
+            "quote": "Đưa điện thoại đây anh xem. Từ giờ đi đâu cũng phải báo anh."
+          }
+        ],
+        "cues": [
+          "Em chỉ đi cà phê với bạn thôi mà"
+        ],
+        "expression": "AC",
+        "family": "C",
+        "invites": "P",
+        "messageIds": [
+          "m2"
+        ],
+        "rationale": "Câu giải thích ngắn sau yêu cầu kiểm tra, nghe như phân trần để được chấp nhận.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t2"
+      },
+      {
+        "alternative": null,
+        "confidence": "high",
+        "contextCues": [
+          {
+            "messageId": "m2",
+            "quote": "Em chỉ đi cà phê với bạn thôi mà."
+          }
+        ],
+        "cues": [
+          "đừng trách anh",
+          "khoá thẻ của em luôn"
+        ],
+        "expression": "CP",
+        "family": "P",
+        "invites": "C",
+        "messageIds": [
+          "m3"
+        ],
+        "rationale": "Câu nói nêu điều kiện và hậu quả cụ thể, nghe như răn đe và siết thêm kiểm soát.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t3"
+      },
+      {
+        "alternative": {
+          "expression": "A",
+          "rationale": "Cũng có thể nghe như chỉ ghi nhận thông tin vừa nghe."
+        },
+        "confidence": "medium",
+        "contextCues": [
+          {
+            "messageId": "m3",
+            "quote": "Lần sau anh khoá thẻ của em luôn."
+          }
+        ],
+        "cues": [
+          "Dạ, em biết rồi"
+        ],
+        "expression": "AC",
+        "family": "C",
+        "invites": "P",
+        "messageIds": [
+          "m4"
+        ],
+        "rationale": "Câu trả lời rất ngắn, có \"Dạ\" và nhận lời, nghe như tuân theo sau lời cảnh báo.",
+        "secondLayer": null,
+        "splitReason": null,
+        "turnId": "t4"
+      }
+    ],
+    "shifts": [
+      {
+        "cues": [
+          "khoá thẻ của em luôn"
+        ],
+        "description": "Lời nói chuyển từ yêu cầu kiểm tra sang nêu hậu quả cụ thể.",
+        "messageId": "m3"
+      },
+      {
+        "cues": [
+          "Dạ, em biết rồi"
+        ],
+        "description": "Lời nói chuyển từ qua lại sang chấp nhận và dừng trao đổi.",
+        "messageId": "m4"
+      }
+    ],
+    "summary": "Người A liên tục đưa ra yêu cầu, quy định và hậu quả. Người B lúc đầu giải thích ngắn rồi sau đó nói vâng lời. Cuộc trò chuyện khép lại nhanh sau lời chấp nhận của Người B.",
+    "uncertainty": "Chỉ qua chữ viết khó biết giọng nói, nét mặt và chuyện đã xảy ra trước đó giữa hai người. Lịch sử quan hệ và hoàn cảnh ngoài đoạn chat cũng chưa rõ."
+  },
+  "normalized": {
+    "readings": [
+      {
+        "splitReason": null,
+        "cues": [
+          "Đưa điện thoại đây anh xem",
+          "phải báo anh"
+        ],
+        "contextCues": [],
+        "rationale": "Câu nói ra lệnh trực tiếp và đặt ra quy tắc cho lần sau, nghe như áp tiêu chuẩn và yêu cầu tuân theo.",
+        "family": "P",
+        "expression": "CP",
+        "confidence": "high",
+        "alternative": null,
+        "invites": "C",
+        "secondLayer": null,
+        "messageId": "m1",
+        "segmentId": "s1"
+      },
+      {
+        "splitReason": null,
+        "cues": [
+          "Em chỉ đi cà phê với bạn thôi mà"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m1",
+            "quote": "Đưa điện thoại đây anh xem. Từ giờ đi đâu cũng phải báo anh."
+          }
+        ],
+        "rationale": "Câu giải thích ngắn sau yêu cầu kiểm tra, nghe như phân trần để được chấp nhận.",
+        "family": "C",
+        "expression": "AC",
+        "confidence": "medium",
+        "alternative": {
+          "expression": "A",
+          "rationale": "Cũng có thể nghe như chỉ nêu lại sự việc để làm rõ thông tin."
+        },
+        "invites": "P",
+        "secondLayer": null,
+        "messageId": "m2",
+        "segmentId": "s2"
+      },
+      {
+        "splitReason": null,
+        "cues": [
+          "đừng trách anh",
+          "khoá thẻ của em luôn"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m2",
+            "quote": "Em chỉ đi cà phê với bạn thôi mà."
+          }
+        ],
+        "rationale": "Câu nói nêu điều kiện và hậu quả cụ thể, nghe như răn đe và siết thêm kiểm soát.",
+        "family": "P",
+        "expression": "CP",
+        "confidence": "high",
+        "alternative": null,
+        "invites": "C",
+        "secondLayer": null,
+        "messageId": "m3",
+        "segmentId": "s3"
+      },
+      {
+        "splitReason": null,
+        "cues": [
+          "Dạ, em biết rồi"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m3",
+            "quote": "Lần sau anh khoá thẻ của em luôn."
+          }
+        ],
+        "rationale": "Câu trả lời rất ngắn, có \"Dạ\" và nhận lời, nghe như tuân theo sau lời cảnh báo.",
+        "family": "C",
+        "expression": "AC",
+        "confidence": "medium",
+        "alternative": {
+          "expression": "A",
+          "rationale": "Cũng có thể nghe như chỉ ghi nhận thông tin vừa nghe."
+        },
+        "invites": "P",
+        "secondLayer": null,
+        "messageId": "m4",
+        "segmentId": "s4"
+      }
+    ],
+    "segments": [
+      {
+        "turnId": "t1",
+        "messageIds": [
+          "m1"
+        ],
+        "splitReason": null,
+        "cues": [
+          "Đưa điện thoại đây anh xem",
+          "phải báo anh"
+        ],
+        "contextCues": [],
+        "rationale": "Câu nói ra lệnh trực tiếp và đặt ra quy tắc cho lần sau, nghe như áp tiêu chuẩn và yêu cầu tuân theo.",
+        "family": "P",
+        "expression": "CP",
+        "confidence": "high",
+        "alternative": null,
+        "invites": "C",
+        "secondLayer": null,
+        "id": "s1"
+      },
+      {
+        "turnId": "t2",
+        "messageIds": [
+          "m2"
+        ],
+        "splitReason": null,
+        "cues": [
+          "Em chỉ đi cà phê với bạn thôi mà"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m1",
+            "quote": "Đưa điện thoại đây anh xem. Từ giờ đi đâu cũng phải báo anh."
+          }
+        ],
+        "rationale": "Câu giải thích ngắn sau yêu cầu kiểm tra, nghe như phân trần để được chấp nhận.",
+        "family": "C",
+        "expression": "AC",
+        "confidence": "medium",
+        "alternative": {
+          "expression": "A",
+          "rationale": "Cũng có thể nghe như chỉ nêu lại sự việc để làm rõ thông tin."
+        },
+        "invites": "P",
+        "secondLayer": null,
+        "id": "s2"
+      },
+      {
+        "turnId": "t3",
+        "messageIds": [
+          "m3"
+        ],
+        "splitReason": null,
+        "cues": [
+          "đừng trách anh",
+          "khoá thẻ của em luôn"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m2",
+            "quote": "Em chỉ đi cà phê với bạn thôi mà."
+          }
+        ],
+        "rationale": "Câu nói nêu điều kiện và hậu quả cụ thể, nghe như răn đe và siết thêm kiểm soát.",
+        "family": "P",
+        "expression": "CP",
+        "confidence": "high",
+        "alternative": null,
+        "invites": "C",
+        "secondLayer": null,
+        "id": "s3"
+      },
+      {
+        "turnId": "t4",
+        "messageIds": [
+          "m4"
+        ],
+        "splitReason": null,
+        "cues": [
+          "Dạ, em biết rồi"
+        ],
+        "contextCues": [
+          {
+            "messageId": "m3",
+            "quote": "Lần sau anh khoá thẻ của em luôn."
+          }
+        ],
+        "rationale": "Câu trả lời rất ngắn, có \"Dạ\" và nhận lời, nghe như tuân theo sau lời cảnh báo.",
+        "family": "C",
+        "expression": "AC",
+        "confidence": "medium",
+        "alternative": {
+          "expression": "A",
+          "rationale": "Cũng có thể nghe như chỉ ghi nhận thông tin vừa nghe."
+        },
+        "invites": "P",
+        "secondLayer": null,
+        "id": "s4"
+      }
+    ],
+    "analysis": {
+      "context": {
+        "register": "Cách xưng hô \"anh / em\" cho thấy quan hệ gần gũi, có thể là người yêu hoặc vợ chồng. Lời lẽ ngắn, trực tiếp, không có dạ thưa ngoại trừ câu cuối của Người B.",
+        "turns": [
+          {
+            "turnId": "t1",
+            "act": "đưa ra yêu cầu kiểm tra và đặt quy định phải báo",
+            "respondsTo": null
+          },
+          {
+            "turnId": "t2",
+            "act": "giải thích việc đi cà phê với bạn",
+            "respondsTo": "t1"
+          },
+          {
+            "turnId": "t3",
+            "act": "nêu cảnh báo và hậu quả khóa thẻ",
+            "respondsTo": "t2"
+          },
+          {
+            "turnId": "t4",
+            "act": "nói chấp nhận và tuân theo",
+            "respondsTo": "t3"
+          }
+        ],
+        "dynamics": "Người A đưa ra yêu cầu và quy định, kèm hậu quả nếu không làm theo. Người B giải thích ngắn gọn rồi sau đó nói chấp nhận. Trao đổi đi từ kiểm tra sang cảnh báo rồi khép lại bằng sự tuân theo."
+      },
+      "segments": [
+        {
+          "turnId": "t1",
+          "messageIds": [
+            "m1"
+          ],
+          "splitReason": null,
+          "cues": [
+            "Đưa điện thoại đây anh xem",
+            "phải báo anh"
+          ],
+          "contextCues": [],
+          "rationale": "Câu nói ra lệnh trực tiếp và đặt ra quy tắc cho lần sau, nghe như áp tiêu chuẩn và yêu cầu tuân theo.",
+          "family": "P",
+          "expression": "CP",
+          "confidence": "high",
+          "alternative": null,
+          "invites": "C",
+          "secondLayer": null,
+          "id": "s1"
+        },
+        {
+          "turnId": "t2",
+          "messageIds": [
+            "m2"
+          ],
+          "splitReason": null,
+          "cues": [
+            "Em chỉ đi cà phê với bạn thôi mà"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m1",
+              "quote": "Đưa điện thoại đây anh xem. Từ giờ đi đâu cũng phải báo anh."
+            }
+          ],
+          "rationale": "Câu giải thích ngắn sau yêu cầu kiểm tra, nghe như phân trần để được chấp nhận.",
+          "family": "C",
+          "expression": "AC",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "A",
+            "rationale": "Cũng có thể nghe như chỉ nêu lại sự việc để làm rõ thông tin."
+          },
+          "invites": "P",
+          "secondLayer": null,
+          "id": "s2"
+        },
+        {
+          "turnId": "t3",
+          "messageIds": [
+            "m3"
+          ],
+          "splitReason": null,
+          "cues": [
+            "đừng trách anh",
+            "khoá thẻ của em luôn"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m2",
+              "quote": "Em chỉ đi cà phê với bạn thôi mà."
+            }
+          ],
+          "rationale": "Câu nói nêu điều kiện và hậu quả cụ thể, nghe như răn đe và siết thêm kiểm soát.",
+          "family": "P",
+          "expression": "CP",
+          "confidence": "high",
+          "alternative": null,
+          "invites": "C",
+          "secondLayer": null,
+          "id": "s3"
+        },
+        {
+          "turnId": "t4",
+          "messageIds": [
+            "m4"
+          ],
+          "splitReason": null,
+          "cues": [
+            "Dạ, em biết rồi"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m3",
+              "quote": "Lần sau anh khoá thẻ của em luôn."
+            }
+          ],
+          "rationale": "Câu trả lời rất ngắn, có \"Dạ\" và nhận lời, nghe như tuân theo sau lời cảnh báo.",
+          "family": "C",
+          "expression": "AC",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "A",
+            "rationale": "Cũng có thể nghe như chỉ ghi nhận thông tin vừa nghe."
+          },
+          "invites": "P",
+          "secondLayer": null,
+          "id": "s4"
+        }
+      ],
+      "shifts": [
+        {
+          "messageId": "m3",
+          "description": "Lời nói chuyển từ yêu cầu kiểm tra sang nêu hậu quả cụ thể.",
+          "cues": [
+            "khoá thẻ của em luôn"
+          ]
+        },
+        {
+          "messageId": "m4",
+          "description": "Lời nói chuyển từ qua lại sang chấp nhận và dừng trao đổi.",
+          "cues": [
+            "Dạ, em biết rồi"
+          ]
+        }
+      ],
+      "summary": "Người A liên tục đưa ra yêu cầu, quy định và hậu quả. Người B lúc đầu giải thích ngắn rồi sau đó nói vâng lời. Cuộc trò chuyện khép lại nhanh sau lời chấp nhận của Người B.",
+      "uncertainty": "Chỉ qua chữ viết khó biết giọng nói, nét mặt và chuyện đã xảy ra trước đó giữa hai người. Lịch sử quan hệ và hoàn cảnh ngoài đoạn chat cũng chưa rõ.",
+      "safety": {
+        "flagged": true,
+        "categories": [
+          "coercion",
+          "threat"
+        ],
+        "note": "Đoạn trò chuyện có lời yêu cầu kiểm soát và đe dọa về tài chính, đây có thể là tình huống khó khăn. Nếu thấy không an toàn, bạn có thể tìm đến người tin cậy hoặc dịch vụ hỗ trợ phù hợp ở nơi bạn sống."
+      },
+      "readings": [
+        {
+          "splitReason": null,
+          "cues": [
+            "Đưa điện thoại đây anh xem",
+            "phải báo anh"
+          ],
+          "contextCues": [],
+          "rationale": "Câu nói ra lệnh trực tiếp và đặt ra quy tắc cho lần sau, nghe như áp tiêu chuẩn và yêu cầu tuân theo.",
+          "family": "P",
+          "expression": "CP",
+          "confidence": "high",
+          "alternative": null,
+          "invites": "C",
+          "secondLayer": null,
+          "messageId": "m1",
+          "segmentId": "s1"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "Em chỉ đi cà phê với bạn thôi mà"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m1",
+              "quote": "Đưa điện thoại đây anh xem. Từ giờ đi đâu cũng phải báo anh."
+            }
+          ],
+          "rationale": "Câu giải thích ngắn sau yêu cầu kiểm tra, nghe như phân trần để được chấp nhận.",
+          "family": "C",
+          "expression": "AC",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "A",
+            "rationale": "Cũng có thể nghe như chỉ nêu lại sự việc để làm rõ thông tin."
+          },
+          "invites": "P",
+          "secondLayer": null,
+          "messageId": "m2",
+          "segmentId": "s2"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "đừng trách anh",
+            "khoá thẻ của em luôn"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m2",
+              "quote": "Em chỉ đi cà phê với bạn thôi mà."
+            }
+          ],
+          "rationale": "Câu nói nêu điều kiện và hậu quả cụ thể, nghe như răn đe và siết thêm kiểm soát.",
+          "family": "P",
+          "expression": "CP",
+          "confidence": "high",
+          "alternative": null,
+          "invites": "C",
+          "secondLayer": null,
+          "messageId": "m3",
+          "segmentId": "s3"
+        },
+        {
+          "splitReason": null,
+          "cues": [
+            "Dạ, em biết rồi"
+          ],
+          "contextCues": [
+            {
+              "messageId": "m3",
+              "quote": "Lần sau anh khoá thẻ của em luôn."
+            }
+          ],
+          "rationale": "Câu trả lời rất ngắn, có \"Dạ\" và nhận lời, nghe như tuân theo sau lời cảnh báo.",
+          "family": "C",
+          "expression": "AC",
+          "confidence": "medium",
+          "alternative": {
+            "expression": "A",
+            "rationale": "Cũng có thể nghe như chỉ ghi nhận thông tin vừa nghe."
+          },
+          "invites": "P",
+          "secondLayer": null,
+          "messageId": "m4",
+          "segmentId": "s4"
+        }
+      ]
+    }
+  },
+  "score": {
+    "per": [
+      {
+        "id": "m1",
+        "expr": "CP",
+        "family": "P",
+        "conf": "high",
+        "acc": null,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m2",
+        "expr": "AC",
+        "family": "C",
+        "conf": "medium",
+        "acc": null,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m3",
+        "expr": "CP",
+        "family": "P",
+        "conf": "high",
+        "acc": null,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      },
+      {
+        "id": "m4",
+        "expr": "AC",
+        "family": "C",
+        "conf": "medium",
+        "acc": null,
+        "hard": null,
+        "over": false,
+        "highOnReview": false,
+        "altMissing": false
+      }
+    ],
+    "n": 0,
+    "accOk": 0,
+    "hardFails": [],
+    "overCeiling": [],
+    "highOnReview": 0,
+    "altMissing": 0,
+    "unclear": 0,
+    "high": 2
+  }
+}
