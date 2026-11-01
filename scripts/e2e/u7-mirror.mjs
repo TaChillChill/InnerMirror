@@ -6,15 +6,16 @@ import { writeFileSync } from "node:fs";
 
 const width = Number(process.argv[2] ?? 390), lang = process.argv[3] ?? "vi";
 const FULL = [
-  { d: "2026-10-30", title: "Tranh luận về kế hoạch", s: { a: [3, 2], ac: [1, 1], cp: [0, 1] } },
-  { d: "2026-10-27", title: "Chuyện cuối tuần", s: { np: [2, 1], ac: [1, 1], fc: [1, 0] } },
-  { d: "2026-10-24", title: "Góp ý trong team", s: { cp: [1, 2], a: [0, 2], ac: [1, 0] }, unclear: 1 },
-  { d: "2026-10-20", title: "Nhắn tin với mẹ", s: { np: [3, 2], a: [1, 1], fc: [0, 1] }, unsure: 1 },
-  { d: "2026-10-18", title: "Tìm hướng giải pháp", s: { a: [2, 2], ac: [1, 1], np: [0, 1] } },
-  { d: "2026-10-12", title: "", s: { a: [1, 0], fc: [1, 1] }, unclear: 1 },
-  { d: "2026-10-07", title: "Hỏi bạn về chuyến đi", s: { fc: [2, 0], a: [1, 1] } },
-  { d: "2026-10-02", title: "", s: { ac: [1, 1], cp: [0, 1], a: [1, 0] } },
+  { ago: 2, title: "Tranh luận về kế hoạch", s: { a: [3, 2], ac: [1, 1], cp: [0, 1] } },
+  { ago: 5, title: "Chuyện cuối tuần", s: { np: [2, 1], ac: [1, 1], fc: [1, 0] } },
+  { ago: 8, title: "Góp ý trong team", s: { cp: [1, 2], a: [0, 2], ac: [1, 0] }, unclear: 1 },
+  { ago: 12, title: "Nhắn tin với mẹ", s: { np: [3, 2], a: [1, 1], fc: [0, 1] }, unsure: 1 },
+  { ago: 14, title: "Tìm hướng giải pháp", s: { a: [2, 2], ac: [1, 1], np: [0, 1] } },
+  { ago: 20, title: "", s: { a: [1, 0], fc: [1, 1] }, unclear: 1 },
+  { ago: 25, title: "Hỏi bạn về chuyến đi", s: { fc: [2, 0], a: [1, 1] } },
+  { ago: 30, title: "", s: { ac: [1, 1], cp: [0, 1], a: [1, 0] } },
 ];
+// Dates are days before the run (plus an hour, so day 30 stays inside), so the 7/30-day windows never drift.
 // Chosen-by-me turns get a different AI suggestion half the time, to prove my choice wins.
 const collections = FULL.map((c, i) => {
   const mine = [];
@@ -24,7 +25,7 @@ const collections = FULL.map((c, i) => {
   }
   for (let k = 0; k < (c.unclear ?? 0); k++) mine.push({ ai: "UNCLEAR", chosen: null });
   for (let k = 0; k < (c.unsure ?? 0); k++) mine.push({ ai: "a", chosen: "unsure" });
-  return { v: 1, id: `c${i}`, createdAt: `${c.d}T10:00:00.000Z`, lang: "vi", title: c.title, note: "", mine: mine.map((m, order) => ({ order, ...m })) };
+  return { v: 1, id: `c${i}`, createdAt: new Date(Date.now() - c.ago * 86_400_000 + 3_600_000).toISOString(), lang: "vi", title: c.title, note: "", mine: mine.map((m, order) => ({ order, ...m })) };
 });
 
 const b = await launch({ width, height: 900 });
