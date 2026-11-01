@@ -88,7 +88,7 @@ export function PersonalMirror({ saved }: { saved: Collection[] }) {
               {labels}
               <span className="app-donut__mid">
                 {/* eslint-disable-next-line @next/next/no-img-element -- placeholder until the transparent brand mascot arrives (D2) */}
-                <img src="/brand/app-icon.png" alt="" />
+                <img src="/brand/app-mark.png" alt="" />
                 <strong>{O.turns(n)}</strong>
                 <small>{O.convs(picked.length)}</small>
               </span>
@@ -117,7 +117,7 @@ export function PersonalMirror({ saved }: { saved: Collection[] }) {
             {list.length > 1 && <small>{O.dragHint}</small>}</p>
           <div className="app-pm__insight" aria-live="polite">
             {/* eslint-disable-next-line @next/next/no-img-element -- brand art */}
-            <img src="/brand/app-icon.png" alt="" />
+            <img src="/brand/app-mark.png" alt="" />
             <p>{summary}<small>{isThin(counts, picked.length) ? O.thin : O.notTrait}</small></p>
           </div>
         </div>

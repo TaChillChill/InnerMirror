@@ -118,8 +118,12 @@ export function Landing({ savedCount, onStart, onSample, onMirror, onContinue }:
       </section>
 
       <section className="lp-close lp-wrap">
-        {/* eslint-disable-next-line @next/next/no-img-element -- interim logo crop (D2), shown at 2x max */}
-        <img className="lp-logo" src="/brand/logo.png" alt="InnerMirror — Understand · Communicate · Be you" width={400} height={115} />
+        {/* Interim logo (D2) with its white matte removed; the dark copy has a light wordmark,
+            as in the brand's on-dark lockup. CSS shows the one that matches the theme. */}
+        {/* eslint-disable-next-line @next/next/no-img-element -- static brand art, shown at 2x max */}
+        <img className="lp-logo app-only-light" src="/brand/logo-light.png" alt="InnerMirror — Understand · Communicate · Be you" width={400} height={115} />
+        {/* eslint-disable-next-line @next/next/no-img-element -- static brand art, shown at 2x max */}
+        <img className="lp-logo app-only-dark" src="/brand/logo-dark.png" alt="InnerMirror — Understand · Communicate · Be you" width={400} height={115} />
         <h2 className="lp-h2">{L.closeTitle}</h2>
         <button className="im-btn im-btn--primary lp-cta" onClick={onStart}>{L.start}</button>
         <div className="im-notice"><Icon name="lock" /><div><strong>{L.privacyTitle}</strong>{L.privacy}</div></div>

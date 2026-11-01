@@ -11,7 +11,7 @@ export function BrandMark() {
   return (
     <span className="app-brand">
       {/* eslint-disable-next-line @next/next/no-img-element -- small static brand art */}
-      <img src="/brand/app-icon.png" alt="" width={32} height={32} />
+      <img src="/brand/app-mark.png" alt="" width={32} height={32} />
       <span>Inner<b>Mirror</b></span>
     </span>
   );
