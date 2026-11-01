@@ -136,7 +136,8 @@ export const vi: Dict = {
   },
   analyzing: {
     title: "Đang xem cuộc trò chuyện…",
-    stages: ["Đọc các tin nhắn", "Xem mỗi tin nhắn có thể nghe ra sao", "Tìm chỗ cuộc trò chuyện đổi hướng"],
+    explain: ["Gương đọc cả cuộc trò chuyện, từ đầu đến cuối.", "Gương tìm dấu hiệu trạng thái bản ngã trong chính lời nói.", "Gương tìm những chỗ cuộc trò chuyện đổi hướng."],
+    together: "Ba việc này diễn ra cùng lúc, trong một lần đọc.",
     wait: (lo, hi) => `Thường mất khoảng ${lo}–${hi} giây.`,
     slow: "Lâu hơn thường lệ một chút, Gương vẫn đang đọc.",
     cancel: "Huỷ",

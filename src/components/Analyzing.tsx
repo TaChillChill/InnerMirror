@@ -1,10 +1,10 @@
 "use client";
-// Loading and error states for the analysis call. Stages are a paced hint, not real
-// progress (the API returns one answer at the end), so they are paced by a measured
-// estimate for this conversation's size (src/lib/wait.ts).
+// Loading and error states for the analysis call. The wait estimate comes from measured
+// times for this conversation's size (src/lib/wait.ts).
 import { useEffect, useState } from "react";
 import type { Estimate } from "@/lib/wait";
-import { Icon, useT } from "./ui";
+import { EX_ORDER } from "@/lib/i18n";
+import { Badge, Icon, useT } from "./ui";
 
 /** Seconds since mount, ticking once a second while the wait lasts. */
 function useElapsed() {
@@ -25,17 +25,15 @@ export function WaitHint({ estimate, text, slow }: { estimate: Estimate; text: (
 export function Analyzing({ estimate, onCancel }: { estimate: Estimate; onCancel: () => void }) {
   const { t } = useT();
   const elapsed = useElapsed();
-  // The last stage is reached around the typical time and then stays.
-  const per = (estimate.lo + estimate.hi) / 2 / t.analyzing.stages.length;
-  const stage = Math.min(Math.floor(elapsed / per), t.analyzing.stages.length - 1);
+  // The API answers once, at the end, so nothing here claims progress: the lines only
+  // explain what Mirror does, in rotation, and never get ticked off.
+  const line = t.analyzing.explain[Math.floor(elapsed / 4) % t.analyzing.explain.length];
   return (
-    <div className="app-page app-loading" aria-live="polite">
+    <div className="app-page app-loading">
       <h1 className="app-h1">{t.analyzing.title}</h1>
-      <ol className="app-stages">
-        {t.analyzing.stages.map((label, i) => (
-          <li key={label} data-state={i < stage ? "done" : i === stage ? "now" : "next"}>{i < stage && <Icon name="check" />}{label}</li>
-        ))}
-      </ol>
+      <div className="app-loading__cast" aria-hidden="true">{EX_ORDER.map((ex) => <Badge key={ex} ex={ex} state="plain" size={48} />)}</div>
+      <p className="app-loading__line">{line}</p>
+      <p className="im-hint">{t.analyzing.together}</p>
       <WaitHint estimate={estimate} text={t.analyzing.wait} slow={t.analyzing.slow} />
       <button className="im-btn im-btn--ghost" onClick={onCancel}>{t.analyzing.cancel}</button>
     </div>

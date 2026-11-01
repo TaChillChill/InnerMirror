@@ -215,12 +215,15 @@ html:has(.app-sheet-open), html:has(.app-modal) { overflow: hidden; }
 .app-row-wrap { display: flex; flex-wrap: wrap; gap: var(--im-space-2); align-items: center; }
 .app-rv-name { font: var(--im-text-caption); font-weight: 700; color: var(--im-text-muted); }
 .app-method:disabled { cursor: not-allowed; opacity: 0.6; }
-.app-stages { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--im-space-2); }
-.app-stages li { display: flex; gap: var(--im-space-2); align-items: center; color: var(--im-text-muted); }
-.app-stages li[data-state="now"] { color: var(--im-text); font-weight: 700; }
-.app-stages li[data-state="now"]::before { content: ""; width: 14px; height: 14px; border-radius: 50%; border: 2px solid var(--im-primary); border-right-color: transparent; animation: im-spin 0.9s linear infinite; }
-.app-stages svg { width: 16px; height: 16px; color: var(--im-success-ink); }
-@media (prefers-reduced-motion: reduce) { .app-stages li[data-state="now"]::before { animation-duration: 2.4s; } }
+.app-loading__cast { display: flex; gap: var(--im-space-2); justify-content: center; align-items: flex-end; min-height: 72px; }
+.app-loading__cast .im-badge { animation: app-bob 2.4s ease-in-out infinite; }
+.app-loading__cast .im-badge:nth-child(2) { animation-delay: .3s; }
+.app-loading__cast .im-badge:nth-child(3) { animation-delay: .6s; }
+.app-loading__cast .im-badge:nth-child(4) { animation-delay: .9s; }
+.app-loading__cast .im-badge:nth-child(5) { animation-delay: 1.2s; }
+.app-loading__line { font: var(--im-text-h3); margin: 0; min-height: 3em; max-width: 34ch; }
+@keyframes app-bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+@media (prefers-reduced-motion: reduce) { .app-loading__cast .im-badge { animation: none; } }
 /* next/font serves Nunito from our own origin; tokens.css keeps the system fallbacks. */
 :root { --im-font: var(--font-nunito), "Nunito", ui-rounded, "SF Pro Rounded", system-ui, -apple-system, "Segoe UI", sans-serif; }
 

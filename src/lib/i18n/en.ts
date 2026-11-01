@@ -135,7 +135,8 @@ export const en = {
   },
   analyzing: {
     title: "Looking at the conversation…",
-    stages: ["Reading the messages", "Noticing how each one could sound", "Looking for where things shifted"],
+    explain: ["Mirror reads the whole conversation, start to finish.", "Mirror looks for ego-state cues in the words themselves.", "Mirror looks for the moments where things shifted."],
+    together: "All three happen at once, in a single read.",
     wait: (lo: number, hi: number) => `This usually takes about ${lo}–${hi} seconds.`,
     slow: "Taking a little longer than usual. Mirror is still reading.",
     cancel: "Cancel",
