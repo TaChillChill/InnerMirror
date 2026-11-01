@@ -35,6 +35,7 @@ export function Mirror({ s, update, saved, storageOk, onSavedChange, onNew, onBa
   const M = t.mirror;
   const [viewing, setViewing] = useState<Collection | null>(null);
   const [undo, setUndo] = useState<Collection | null>(null);
+  const [saveFailed, setSaveFailed] = useState(false);
   const showCurrent = !!s.analysis && !s.savedId && !s.analysis.safety.flagged;
   const canGoBack = !!s.analysis && !!s.transcript && !s.analysis.safety.flagged;
   const justSaved = s.savedId ? saved.find((c) => c.id === s.savedId) : undefined;
@@ -54,9 +55,17 @@ export function Mirror({ s, update, saved, storageOk, onSavedChange, onNew, onBa
     return () => document.removeEventListener("keydown", onKey);
   }, [viewing]);
 
+  // A failed save says so and leaves everything on screen as it was (UAT batch 2, #04).
   const save = () => {
-    const c = makeCollection(lang, s.title, s.note, mine.map(({ order, ai, chosen }) => ({ order, ai, chosen })));
-    if (addCollection(c)) { update({ savedId: c.id }); onSavedChange(); }
+    try {
+      const c = makeCollection(lang, s.title, s.note, mine.map(({ order, ai, chosen }) => ({ order, ai, chosen })));
+      if (!addCollection(c)) return setSaveFailed(true);
+      setSaveFailed(false);
+      update({ savedId: c.id });
+      onSavedChange();
+    } catch {
+      setSaveFailed(true);
+    }
   };
   // Not saving also drops the conversation from memory: nothing lingers in the tab.
   const dontSave = () => update({ analysis: null, transcript: null, choices: {}, title: "", note: "" });
@@ -94,6 +103,7 @@ export function Mirror({ s, update, saved, storageOk, onSavedChange, onNew, onBa
           <details className="app-more"><summary>{M.whatSaved}</summary>
             <ul className="app-saved-list">{M.savedList.map(([k, v]) => <li key={k}><strong>{k}</strong> {v}</li>)}</ul>
           </details>
+          {saveFailed && <div className="im-notice im-notice--error" role="alert"><Icon name="alert" /><div>{M.saveFailed}</div></div>}
           <div className="app-actions">
             {s.sample ? <p className="im-hint">{M.sampleNoSave}</p> : <button className="im-btn im-btn--primary" onClick={save}><Icon name="saved" /> {M.save}</button>}
             <button className="im-btn im-btn--ghost" onClick={dontSave}>{M.dontSave}</button>

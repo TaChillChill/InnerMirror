@@ -5,6 +5,7 @@ import { useState } from "react";
 import { EX_ORDER, type ExKey } from "@/lib/i18n";
 import { Badge, Icon, Mascot, useT } from "./ui";
 import { VoiceDemo, type DemoPick } from "./VoiceDemo";
+import { BrandMark } from "./BrandBits";
 import { DiagramLegend, InteractionDiagram } from "./InteractionDiagram";
 
 type Props = { savedCount: number; onStart: () => void; onSample: () => void; onMirror: () => void; onContinue?: () => void };
@@ -118,12 +119,8 @@ export function Landing({ savedCount, onStart, onSample, onMirror, onContinue }:
       </section>
 
       <section className="lp-close lp-wrap">
-        {/* Interim logo (D2) with its white matte removed; the dark copy has a light wordmark,
-            as in the brand's on-dark lockup. CSS shows the one that matches the theme. */}
-        {/* eslint-disable-next-line @next/next/no-img-element -- static brand art, shown at 2x max */}
-        <img className="lp-logo app-only-light" src="/brand/logo-light.png" alt="InnerMirror — Understand · Communicate · Be you" width={400} height={115} />
-        {/* eslint-disable-next-line @next/next/no-img-element -- static brand art, shown at 2x max */}
-        <img className="lp-logo app-only-dark" src="/brand/logo-dark.png" alt="InnerMirror — Understand · Communicate · Be you" width={400} height={115} />
+        {/* The same mark as the header, larger: one logo everywhere, in both themes (UAT batch 2, #01). */}
+        <span className="lp-logo"><BrandMark /></span>
         <h2 className="lp-h2">{L.closeTitle}</h2>
         <button className="im-btn im-btn--primary lp-cta" onClick={onStart}>{L.start}</button>
         <div className="im-notice"><Icon name="lock" /><div><strong>{L.privacyTitle}</strong>{L.privacy}</div></div>

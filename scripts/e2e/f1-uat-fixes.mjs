@@ -35,9 +35,8 @@ try {
 
   // #12 Logo: no white matte, the landing logo matches the theme.
   check("#12 header icon has a transparent corner", await step(alphaAt00(".app-brand img")) === 0);
-  const shown = await step(`[...document.querySelectorAll(".lp-logo")].filter((i) => getComputedStyle(i).display !== "none").map((i) => new URL(i.src).pathname).join(",")`);
-  check(`#12 landing shows the ${theme} logo only`, shown === `/brand/logo-${theme}.png`, shown);
-  check("#12 landing logo has a transparent corner", await step(alphaAt00(`.lp-logo.app-only-${theme}`)) === 0);
+  check("#12 / batch 2 #01: landing logo is the header mark, same file, transparent", await step(`(() => { const h = document.querySelector(".app-header .app-brand img"), l = document.querySelector(".lp-logo .app-brand img"); return !!l && l.src === h.src && /\\/brand\\/app-mark\\.png$/.test(l.src) && document.querySelector(".lp-logo .app-brand").textContent === "InnerMirror"; })()`));
+  check("#12 landing logo has a transparent corner", await step(alphaAt00(".lp-logo .app-brand img")) === 0);
 
   // Journey 1: input.
   await step(`$click(".lp-cta"); $wait(300)`);

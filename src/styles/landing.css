@@ -114,7 +114,8 @@
 
 /* Closing */
 .lp-close { display: grid; justify-items: center; text-align: center; gap: var(--im-space-4); padding-top: 72px; padding-bottom: var(--im-space-6); }
-.lp-logo { width: min(400px, 80vw); height: auto; }
+.lp-logo .app-brand { gap: 14px; font-size: 2rem; }
+.lp-logo .app-brand img { width: 64px; height: 64px; border-radius: 16px; }
 .lp-close .im-notice { text-align: start; max-width: 40rem; }
 .lp-close .lp-fine { max-width: 40rem; }
 

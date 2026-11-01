@@ -49,6 +49,7 @@ export function Replay({ s, update, onContinue, onEdit, onRestart }: { s: Sessio
   const desktop = useIsDesktop();
   const opener = useRef<HTMLButtonElement | null>(null);
   const [tab, setTab] = useState<PanelTab>("reading");
+  const [valueOpen, setValueOpen] = useState(false);
   // Explored scenarios live here, so they vanish when Replay unmounts.
   const scenarios = useScenarios();
   const a = s.analysis!;
@@ -109,8 +110,15 @@ export function Replay({ s, update, onContinue, onEdit, onRestart }: { s: Sessio
     <div className={`app-page app-page--replay${sheetOpen ? " app-sheet-open" : ""}`}>
       <div className="app-replay__main" inert={sheetOpen}>
         <h1 className="app-h1">{R.title}</h1>
-        {/* What Mirror offers comes first; its limits sit with the method below (UAT #06). */}
-        <p className="app-lead app-replay__value"><strong>{R.valueTitle}</strong> {R.valueBody}</p>
+        {/* What Mirror offers comes first (UAT #06), as one line that opens on demand, so the
+            observation is near the top on a phone (UAT batch 2, #05). */}
+        <div className="app-replay__value">
+          <button className="app-replay__value-btn" aria-expanded={valueOpen} aria-controls="value-body" onClick={() => setValueOpen(!valueOpen)}>
+            <strong>{R.valueTitle}</strong><span className="app-replay__value-icon" aria-hidden><Icon name={valueOpen ? "minus" : "plus"} /></span>
+            <span className="app-visually-hidden">{valueOpen ? R.valueLess : R.valueMore}</span>
+          </button>
+          {valueOpen && <p id="value-body" className="app-replay__value-body">{R.valueBody}</p>}
+        </div>
         {/* Back to the transcript; an unchanged conversation is not analyzed again (App). */}
         <button className="app-textlink app-replay__edit" onClick={onEdit}><Icon name="edit" /> {R.editTranscript}</button>
         {s.sample && <div className="im-notice" role="status"><Icon name="eye" /><div>{R.sampleNote}</div></div>}

@@ -33,11 +33,38 @@ export function ShotUpload({ s, update }: { s: Session; update: Update }) {
   const imagesRef = useRef(images);
   useEffect(() => { imagesRef.current = images; }, [images]);
   const locked = busy || viewing !== null;
+  const list = useRef<HTMLOListElement>(null);
+  const actions = useRef<HTMLDivElement>(null);
+  const problem = useRef<HTMLParagraphElement>(null);
+  // Bumped after every pick, so the effect below runs once the new thumbnails are on screen.
+  const [picked, setPicked] = useState(0);
+  // Touch screens can't drag or press Cmd+V, so they get the photo-library wording (UAT batch 2, A).
+  // This panel only renders after a tap on the Add screen, never on the server.
+  const [touch] = useState(() => typeof window !== "undefined" && matchMedia("(pointer: coarse)").matches);
+  const addedLast = useRef(0);
+
+  // After a pick, show what was added and the way on (UAT batch 2, #03): the thumbnails at the
+  // top of the screen, or, if they and Continue don't fit together, Continue at the bottom with
+  // the newest thumbnails above it. A failed pick shows its message instead. Nothing is sent.
+  useEffect(() => {
+    if (!picked) return;
+    const still = matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth";
+    const target = addedLast.current ? list.current : problem.current;
+    if (!target) return;
+    const room = innerHeight - (parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--app-header-h")) || 64) - 24;
+    const cta = actions.current;
+    if (target === list.current && cta && cta.getBoundingClientRect().bottom - target.getBoundingClientRect().top > room) cta.scrollIntoView({ block: "end", behavior: still });
+    else target.scrollIntoView({ block: "start", behavior: still });
+  }, [picked]);
 
   // Adding never starts extraction: the user still has to tick consent and press Read.
   const addFiles = useCallback(async (files: File[]) => {
     const { accepted, ignored, notImages } = planIntake(files, MAX_IMAGES - imagesRef.current.length);
-    if (!accepted.length && !ignored) return setError(notImages ? "format" : null);
+    if (!accepted.length && !ignored) {
+      setError(notImages ? "format" : null);
+      addedLast.current = 0;
+      return setPicked((n) => n + 1);
+    }
     setError(ignored ? "tooMany" : null);
     const next: string[] = [];
     for (const file of accepted) {
@@ -45,6 +72,8 @@ export function ShotUpload({ s, update }: { s: Session; update: Update }) {
       catch (e) { setError(e instanceof Error && ["format", "decode", "large"].includes(e.message) ? (e.message as ImageError) : "decode"); }
     }
     setImages((cur) => [...cur, ...next].slice(0, MAX_IMAGES));
+    addedLast.current = next.length;
+    setPicked((n) => n + 1);
   }, [setImages]);
 
   // Paste anywhere on the page, but never take over text paste in a field.
@@ -112,15 +141,13 @@ export function ShotUpload({ s, update }: { s: Session; update: Update }) {
   const message = error && ((S.problems as Record<string, string>)[error] ?? (t.errors as Record<string, string>)[error] ?? t.errors.unknown);
   return (
     <div className="app-panel">
-      <div className="im-notice"><Icon name="lock" /><div>{S.privacy} {S.tip}</div></div>
-
       <div className={`app-drop${dragging ? " is-drag" : ""}${full ? " is-full" : ""}`}
         onDragOver={(e) => { if (hasFiles(e.dataTransfer.types)) { e.preventDefault(); setDragging(true); } }}
         onDragLeave={(e) => { if (!e.currentTarget.contains(e.relatedTarget as Node | null)) setDragging(false); }}
         onDrop={(e) => { e.preventDefault(); setDragging(false); if (!locked) void addFiles(Array.from(e.dataTransfer.files)); }}>
         <Icon name="image" />
-        <p className="app-drop__title">{dragging ? S.dropNow : full ? S.full(MAX_IMAGES) : S.dropHere}</p>
-        <p className="im-hint">{S.methods(MAX_IMAGES)}</p>
+        <p className="app-drop__title">{dragging ? S.dropNow : full ? S.full(MAX_IMAGES) : touch ? S.dropHereTouch : S.dropHere}</p>
+        <p className="im-hint">{touch ? S.methodsTouch(MAX_IMAGES) : S.methods(MAX_IMAGES)}</p>
         <button className="im-btn im-btn--secondary" disabled={locked || full} onClick={() => input.current?.click()}>{images.length ? S.addMore : S.choose}</button>
         <input ref={input} type="file" hidden multiple accept="image/png,image/jpeg,image/webp,image/gif"
           onChange={(e) => { void addFiles(Array.from(e.target.files ?? [])); e.target.value = ""; }} />
@@ -128,8 +155,8 @@ export function ShotUpload({ s, update }: { s: Session; update: Update }) {
 
       {images.length > 0 && (
         <>
-          <p className="im-hint">{S.order}</p>
-          <ol className="app-shots" aria-label={S.listLabel}>
+          <p className="im-hint" role="status"><strong>{S.added(images.length, MAX_IMAGES)}</strong> {S.order}</p>
+          <ol className="app-shots" aria-label={S.listLabel} ref={list}>
             {images.map((src, i) => (
               <li key={src.slice(-40) + i} className="app-shot">
                 <button className="app-shot__open" onClick={() => setViewing(i)} disabled={busy} aria-label={S.open(i + 1)}>
@@ -146,16 +173,22 @@ export function ShotUpload({ s, update }: { s: Session; update: Update }) {
               </li>
             ))}
           </ol>
+        </>
+      )}
+      {/* Privacy after the upload area, never removed: it still sits right above consent (UAT batch 2, #02). */}
+      <div className="im-notice"><Icon name="lock" /><div>{S.privacy} {S.tip}</div></div>
+      {images.length > 0 && (
+        <>
           {confirmReplace && <ReplaceNotice onReplace={() => void extract()} onKeep={() => { setConfirmReplace(false); update({ screen: "review", shots: images }); }} />}
           <label className="im-check"><input type="checkbox" checked={consent} onChange={(e) => setConsent(e.target.checked)} /> {t.review.consent}</label>
-          <div className="app-actions">
+          <div className="app-actions" ref={actions}>
             <button className="im-btn im-btn--primary" disabled={(!consent && plan !== "reuse") || busy} onClick={onRead}>{busy ? S.reading : S.read}</button>
             {busy && <button className="im-btn im-btn--ghost" onClick={() => abort.current?.abort()}>{t.analyzing.cancel}</button>}
           </div>
         </>
       )}
       {busy && <WaitHint estimate={extractEstimate(images.length)} text={S.wait} slow={S.slow} />}
-      {message && <p className={error === "tooMany" ? "im-hint" : "im-error"} role="alert"><Icon name="alert" />{message}</p>}
+      {message && <p ref={problem} className={error === "tooMany" ? "im-hint" : "im-error"} role="alert"><Icon name="alert" />{message}</p>}
       {viewing !== null && <ShotLightbox images={images} index={viewing} onIndex={setViewing} onClose={() => setViewing(null)} />}
     </div>
   );

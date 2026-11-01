@@ -58,8 +58,19 @@ function write(list: Collection[]): boolean {
   }
 }
 
+/**
+ * crypto.randomUUID exists only in secure contexts (HTTPS or localhost). Opened over plain HTTP
+ * on a LAN address, as on an iPhone testing a local build, it is undefined and Save threw
+ * (Founder UAT batch 2, #04). getRandomValues works everywhere.
+ */
+export function newCollectionId(): string {
+  if (typeof crypto.randomUUID === "function") return crypto.randomUUID();
+  const b = crypto.getRandomValues(new Uint8Array(16));
+  return [...b].map((x) => x.toString(16).padStart(2, "0")).join("");
+}
+
 export function makeCollection(lang: Lang, title: string, note: string, mine: MineEntry[]): Collection {
-  return { v: 1, id: crypto.randomUUID(), createdAt: new Date().toISOString(), lang, title: title.trim().slice(0, 120), note: note.trim().slice(0, 2000), mine };
+  return { v: 1, id: newCollectionId(), createdAt: new Date().toISOString(), lang, title: title.trim().slice(0, 120), note: note.trim().slice(0, 2000), mine };
 }
 
 export const addCollection = (c: Collection) => write([c, ...loadCollections()]);

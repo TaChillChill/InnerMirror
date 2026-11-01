@@ -86,11 +86,3 @@
   }
 }
 
-/* Artwork that has a light and a dark copy (the landing logo): show the one for the theme. */
-.app-only-dark { display: none; }
-:root[data-theme="dark"] .app-only-light { display: none; }
-:root[data-theme="dark"] .app-only-dark { display: revert; }
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .app-only-light { display: none; }
-  :root:not([data-theme="light"]) .app-only-dark { display: revert; }
-}
