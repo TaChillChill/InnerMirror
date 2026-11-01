@@ -8,7 +8,9 @@ import { join } from "node:path";
 const CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
-export async function launch({ width = 390, height = 844, mocks = {} } = {}) {
+// live: true lets /api/* through to the real server (paid; only for scripts/e2e/live-uat.mjs)
+// and records each call's path and status instead.
+export async function launch({ width = 390, height = 844, mocks = {}, live = false } = {}) {
   const port = 9300 + Math.floor(Math.random() * 500);
   const proc = spawn(CHROME, ["--headless=new", `--remote-debugging-port=${port}`, `--user-data-dir=${mkdtempSync(join(tmpdir(), "im-e2e-"))}`, "--no-first-run", "about:blank"], { stdio: "ignore" });
   let tabs;
@@ -21,18 +23,26 @@ export async function launch({ width = 390, height = 844, mocks = {} } = {}) {
   ws.addEventListener("message", async (ev) => {
     const msg = JSON.parse(ev.data);
     if (msg.id && waiting.has(msg.id)) { const w = waiting.get(msg.id); waiting.delete(msg.id); msg.error ? w.rej(new Error(msg.error.message)) : w.res(msg.result); return; }
+    if (live && msg.method === "Network.responseReceived" && new URL(msg.params.response.url).pathname.startsWith("/api/")) {
+      api.push(`${new URL(msg.params.response.url).pathname} ${msg.params.response.status}`);
+      return;
+    }
     if (msg.method === "Fetch.requestPaused") {
       const { requestId, request } = msg.params;
       const path = new URL(request.url).pathname;
       api.push(path);
       const mock = mocks[path];
       if (mock) {
-        const body = Buffer.from(JSON.stringify(typeof mock === "function" ? mock(request) : mock)).toString("base64");
-        await send("Fetch.fulfillRequest", { requestId, responseCode: 200, responseHeaders: [{ name: "Content-Type", value: "application/json" }], body });
+        // A mock may answer { __status, __body } to simulate an error response.
+        const out = typeof mock === "function" ? mock(request) : mock;
+        const status = out?.__status ?? 200;
+        const body = Buffer.from(JSON.stringify(out?.__status ? out.__body : out)).toString("base64");
+        await send("Fetch.fulfillRequest", { requestId, responseCode: status, responseHeaders: [{ name: "Content-Type", value: "application/json" }], body });
       } else await send("Fetch.failRequest", { requestId, errorReason: "BlockedByClient" });
     }
   });
-  await send("Fetch.enable", { patterns: [{ urlPattern: "*/api/*" }] });
+  if (live) await send("Network.enable");
+  else await send("Fetch.enable", { patterns: [{ urlPattern: "*/api/*" }] });
   await send("Emulation.setDeviceMetricsOverride", { width, height, deviceScaleFactor: 1, mobile: width < 600 });
   const evaluate = async (expression) => {
     const r = await send("Runtime.evaluate", { expression, awaitPromise: true, returnByValue: true });
