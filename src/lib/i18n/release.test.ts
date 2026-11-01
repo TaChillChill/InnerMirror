@@ -48,3 +48,11 @@ test("privacy claims match the code: What if? leaves nothing on the device, Meta
     assert.match(d.review.privacy, /Meta/);
   }
 });
+
+test("vocabulary (D4/D5): the concept is 'trạng thái bản ngã' / 'ego state', the stage is 'Nhìn lại mình' / 'My Reflection'", () => {
+  const vi_ = JSON.stringify(vi), en_ = JSON.stringify(en);
+  assert.ok(!/nhân vật|Tấm gương của mình/i.test(vi_), "old VI terms");
+  assert.ok(!/\bcharacters?\b|My Mirror/.test(en_), "old EN terms");
+  assert.equal(vi.mirror.title, "Nhìn lại mình");
+  assert.equal(en.mirror.title, "My Reflection");
+});

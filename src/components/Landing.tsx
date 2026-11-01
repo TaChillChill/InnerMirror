@@ -43,6 +43,7 @@ export function Landing({ savedCount, onStart, onSample, onMirror, onContinue }:
             <button className="im-btn im-btn--ghost lp-sample" onClick={onSample}>{L.sample}</button>
             <button className="app-textlink" onClick={scrollToHow}>{L.howLink} ↓</button>
           </div>
+          <p className="lp-helper">{L.startHelper}</p>
           <p className="lp-fine">{L.fine}</p>
         </div>
         <VoiceDemo pick={pick} onPick={setPick} />
