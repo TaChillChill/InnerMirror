@@ -252,6 +252,7 @@ export const en = {
     fromThis: "From this conversation",
     state: { suggested: "Mirror noticed", agreed: "Confirmed", changed: "My choice", unsure: "Not sure" },
     aiWas: (n: string) => `Mirror noticed ${n}`,
+    mirrorUnclear: "Unclear to Mirror",
     openMessage: "Open the message",
     count: (n: number, open: number) => `${n} of my message${n === 1 ? "" : "s"}${open ? ` · ${open} still Mirror's observation (dashed)` : ""}.`,
     tapHint: "Tap a sticker to look at its message again.",

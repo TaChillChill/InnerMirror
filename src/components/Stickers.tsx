@@ -3,12 +3,13 @@
 // "not reviewed" lives in the tile: recessed, dashed, labelled "AI suggested".
 import { useState } from "react";
 import { EX_ORDER, type ExKey } from "@/lib/i18n";
-import type { Collection, MineEntry } from "@/lib/mirror-store";
+import { shownOf, tallyOf, type Collection, type MineEntry, type Shown } from "@/lib/mirror-store";
 import { Badge, Icon, Mascot, exName, useT } from "./ui";
 
 type StickerState = "suggested" | "agreed" | "changed" | "unsure";
 const stateOf = (m: MineEntry): StickerState => (!m.chosen ? "suggested" : m.chosen === "unsure" ? "unsure" : m.chosen === m.ai ? "agreed" : "changed");
-const shown = (m: MineEntry): ExKey | "unsure" => (m.chosen ?? (m.ai === "UNCLEAR" ? "unsure" : m.ai));
+// Both "?" buckets share the artwork-free badge; their names keep them apart.
+const badgeKey = (k: Shown): ExKey | "unsure" => (k === "unclear" ? "unsure" : k);
 const VISIBLE = 18; // long conversations show the first stickers, then "Show all"
 
 export function Stickers({ mine, onOpen }: { mine: (MineEntry & { id?: string })[]; onOpen?: (id: string) => void }) {
@@ -20,8 +21,8 @@ export function Stickers({ mine, onOpen }: { mine: (MineEntry & { id?: string })
     <>
       <ul className="app-stickers">
         {list.map((m) => {
-          const st = stateOf(m), ex = shown(m);
-          const name = exName(t, ex);
+          const st = stateOf(m), k = shownOf(m), ex = badgeKey(k);
+          const name = k === "unclear" ? M.mirrorUnclear : exName(t, ex);
           const aiName = exName(t, m.ai === "UNCLEAR" ? "UNCLEAR" : m.ai);
           const label = `${name}, ${M.state[st]}${st === "changed" ? `, ${M.aiWas(aiName)}` : ""}`;
           const inner = (
@@ -51,14 +52,13 @@ export function Stickers({ mine, onOpen }: { mine: (MineEntry & { id?: string })
 // Per-character count. Plain numbers, no goals or completion: not a game.
 export function Tally({ mine, tapHint }: { mine: MineEntry[]; tapHint?: boolean }) {
   const { t } = useT();
-  const count: Partial<Record<ExKey | "unsure", number>> = {};
-  for (const m of mine) { const ex = shown(m); count[ex] = (count[ex] ?? 0) + 1; }
+  const count = tallyOf(mine);
   const open = mine.filter((m) => !m.chosen).length;
   return (
     <>
       <ul className="app-tally">
-        {[...EX_ORDER, "unsure" as const].filter((k) => count[k]).map((k) => (
-          <li key={k}><Badge ex={k} state={k === "unsure" ? "unsure" : "plain"} size={24} />{exName(t, k)} <strong>{count[k]}</strong></li>
+        {[...EX_ORDER, "unsure" as const, "unclear" as const].filter((k) => count[k]).map((k) => (
+          <li key={k}><Badge ex={badgeKey(k)} state={k === "unsure" || k === "unclear" ? "unsure" : "plain"} size={24} />{k === "unclear" ? t.mirror.mirrorUnclear : exName(t, k)} <strong>{count[k]}</strong></li>
         ))}
       </ul>
       <p className="im-hint">{t.mirror.count(mine.length, open)}{tapHint ? ` ${t.mirror.tapHint}` : ""}</p>
@@ -78,7 +78,7 @@ export function CollectionCard({ c, onOpen }: { c: Collection; onOpen: (el: HTML
   return (
     <button className="app-coll" onClick={(e) => onOpen(e.currentTarget)} aria-label={label}>
       <span className="app-coll__badges" aria-hidden="true">
-        {c.mine.slice(0, max).map((m) => <Badge key={m.order} ex={shown(m)} state={stateOf(m)} />)}
+        {c.mine.slice(0, max).map((m) => <Badge key={m.order} ex={badgeKey(shownOf(m))} state={stateOf(m)} />)}
         {c.mine.length > max && <span className="app-coll__more">+{c.mine.length - max}</span>}
       </span>
       <strong className="app-coll__title">{title}</strong>

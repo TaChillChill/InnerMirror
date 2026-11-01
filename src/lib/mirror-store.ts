@@ -20,6 +20,19 @@ const collectionSchema = z.object({
 export type Collection = z.infer<typeof collectionSchema>;
 export type MineEntry = Collection["mine"][number];
 
+/**
+ * What an entry shows: my choice wins, else Mirror's suggestion. Mirror's "unclear" stays
+ * its own bucket and is never counted as my "not sure", nor forced into one of the five.
+ */
+export type Shown = z.infer<typeof ex> | "unsure" | "unclear";
+export const shownOf = (m: MineEntry): Shown => m.chosen ?? (m.ai === "UNCLEAR" ? "unclear" : m.ai);
+
+export function tallyOf(mine: MineEntry[]): Partial<Record<Shown, number>> {
+  const out: Partial<Record<Shown, number>> = {};
+  for (const m of mine) { const k = shownOf(m); out[k] = (out[k] ?? 0) + 1; }
+  return out;
+}
+
 export function storageAvailable(): boolean {
   try {
     const probe = `${KEY}.probe`;

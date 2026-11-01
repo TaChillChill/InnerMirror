@@ -253,6 +253,7 @@ export const vi: Dict = {
     fromThis: "Từ cuộc trò chuyện này",
     state: { suggested: "Gương thấy", agreed: "Đã xác nhận", changed: "Mình chọn", unsure: "Chưa chắc" },
     aiWas: (n) => `Gương thấy ${n}`,
+    mirrorUnclear: "Gương chưa rõ",
     openMessage: "Mở tin nhắn",
     count: (n, open) => `${n} tin nhắn của mình${open ? ` · ${open} vẫn là quan sát của Gương (viền đứt)` : ""}.`,
     tapHint: "Chạm vào sticker để xem lại tin nhắn đó.",
