@@ -1,18 +1,23 @@
 "use client";
-// The top of "What Mirror sees" (approved 2026-11-01): a one-line arc of how the conversation
-// moved, the uncertainty line, the method behind a collapsible, and a sheet that explains the
-// five ego states. The arc reuses the model's own neutral turn phrases (analysis.arcOf).
+// The top of "What Mirror sees" (approved 2026-11-01, revised at UAT): the conversation's title
+// (Mirror suggests, I can edit), a one-line arc of how it moved, the uncertainty line, the
+// method and its limits behind a collapsible, and a sheet on the five ego states. Title and arc
+// reuse the model's own neutral turn phrases (analysis.titlePhrases, analysis.arcOf).
 import { useEffect, useRef, useState } from "react";
 import { arcOf } from "@/lib/ai/analysis";
 import { EX_ORDER } from "@/lib/i18n";
 import type { Update } from "./App";
-import { withNames, type Session } from "./session";
+import { suggestedTitle, withNames, type Session } from "./session";
 import { Badge, Icon, useT } from "./ui";
 
-export function Observation({ s }: { s: Session }) {
+export function Observation({ s, update }: { s: Session; update: Update }) {
   const { t } = useT();
   const R = t.replay;
   const a = s.analysis!;
+  const [editingTitle, setEditingTitle] = useState(false);
+  const suggested = suggestedTitle(a, s, s.labels, R.titleFrom);
+  // An emptied title goes back to Mirror's suggestion, so a conversation always has one.
+  const closeTitle = () => { if (!s.title.trim()) update({ title: suggested }); setEditingTitle(false); };
   const arc = arcOf(a).map((p) => withNames(p, s));
   const how = useRef<HTMLDetailsElement>(null);
   const [learn, setLearn] = useState(false);
@@ -30,6 +35,20 @@ export function Observation({ s }: { s: Session }) {
     <>
       <section className="im-layer im-layer--ai app-obs">
         <div className="im-layer__head"><Icon name="eye" /> {R.aiObservation}</div>
+        <div className="app-obs__title">
+          <span className="im-label" id="conv-title">{R.convTitle}</span>
+          {editingTitle ? (
+            <input className="im-input" aria-labelledby="conv-title" value={s.title} maxLength={120} autoFocus
+              onChange={(e) => update({ title: e.target.value })} onBlur={closeTitle}
+              onKeyDown={(e) => { if (e.key === "Enter" || e.key === "Escape") { e.preventDefault(); e.stopPropagation(); closeTitle(); } }} />
+          ) : (
+            <p className="app-obs__title-row">
+              <strong>{s.title || suggested}</strong>
+              <button className="app-icon-btn" onClick={() => setEditingTitle(true)} aria-label={R.editTitle}><Icon name="edit" /></button>
+            </p>
+          )}
+          <span className="im-hint">{R.convTitleHint}</span>
+        </div>
         {arc.length > 1
           ? <p className="app-obs__arc">{R.arcFrom} {arc.map((p, i) => <span key={p}>{i > 0 && " → "}<strong>{p}</strong></span>)}.</p>
           : <p>{withNames(a.summary, s)}</p>}

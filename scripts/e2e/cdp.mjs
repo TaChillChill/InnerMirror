@@ -19,7 +19,7 @@ export async function launch({ width = 390, height = 844, mocks = {}, live = fal
   const ws = new WebSocket(page.webSocketDebuggerUrl);
   await new Promise((r) => ws.addEventListener("open", r, { once: true }));
   let id = 0; const waiting = new Map(); const api = [];
-  const send = (method, params = {}) => new Promise((res, rej) => { const n = ++id; waiting.set(n, { res, rej }); ws.send(JSON.stringify({ id: n, method, params })); });
+  const send = (method, params = {}) => new Promise((res, rej) => { const n = ++id; waiting.set(n, { res, rej: (e) => rej(new Error(`${method}: ${e.message}`)) }); ws.send(JSON.stringify({ id: n, method, params })); });
   ws.addEventListener("message", async (ev) => {
     const msg = JSON.parse(ev.data);
     if (msg.id && waiting.has(msg.id)) { const w = waiting.get(msg.id); waiting.delete(msg.id); msg.error ? w.rej(new Error(msg.error.message)) : w.res(msg.result); return; }

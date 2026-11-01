@@ -2,7 +2,7 @@
 // Input methods. Each one only has to produce a Transcript; review, analysis and
 // My Mirror are shared. What the user typed or added lives in the session (`draft`), so
 // Back from Review returns here with everything intact.
-import { useCallback, useRef, useState } from "react";
+import { useCallback, useState } from "react";
 import { looksLikeStory, parsePasted, rereadPlan, textKey, type Transcript } from "@/lib/conversation";
 import { parseStory } from "@/lib/story";
 import type { Update } from "./App";
@@ -15,7 +15,6 @@ import { useDictation } from "./use-dictation";
 export function AddConversation({ s, update }: { s: Session; update: Update }) {
   const { t, lang } = useT();
   const A = t.add;
-  const panel = useRef<HTMLDivElement>(null);
   const { method, text } = s.draft;
   const [empty, setEmpty] = useState(false);
   // An action that would replace edits made on Review; it runs only after the user agrees.
@@ -27,15 +26,17 @@ export function AddConversation({ s, update }: { s: Session; update: Update }) {
     if (phrase) update((cur) => ({ draft: { ...cur.draft, text: cur.draft.text.trim() ? `${cur.draft.text.trimEnd()}\n${phrase}` : phrase } }));
   }, [update]);
   const mic = useDictation(lang, appendSpoken);
-  // Choosing a way to start brings its input into view, so it never sits below the fold.
-  const choose = (m: Session["draft"]["method"]) => {
+  // Once a way to start is chosen, the two cards shrink to a switch at the top and the input
+  // sits right under it, so on a phone it is in view without scrolling (Founder UAT #01).
+  // The text box isn't focused: on iOS the keyboard would cover the mic and Continue.
+  const choose = (m: NonNullable<Session["draft"]["method"]>) => {
     setDraft({ method: m });
-    requestAnimationFrame(() => panel.current?.scrollIntoView({ block: "nearest", behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" }));
+    requestAnimationFrame(() => window.scrollTo({ top: 0 }));
   };
 
-  const openReview = (transcript: Transcript, readFrom: string | null) => update({ screen: "review", transcript, selfId: null, consent: false, readFrom, shots: [], extractNotes: [] });
-  const guard = (key: string | null, read: () => void) => {
-    const plan = key === null ? (s.transcript?.messages.length ? "ask" : "read") : rereadPlan(s.transcript, s.readFrom, key);
+  const openReview = (transcript: Transcript, readFrom: string) => update({ screen: "review", transcript, selfId: null, consent: false, readFrom, shots: [], extractNotes: [] });
+  const guard = (key: string, read: () => void) => {
+    const plan = rereadPlan(s.transcript, s.readFrom, key);
     if (plan === "reuse") return update({ screen: "review" });
     if (plan === "ask") return setPending(() => read);
     read();
@@ -49,30 +50,25 @@ export function AddConversation({ s, update }: { s: Session; update: Update }) {
       openReview(looksLikeStory(text) ? parseStory(text, { unknown: A.unknown, me: A.me }) : parsePasted(text, A.unknown), textKey(text));
     });
   };
-  // Typing from scratch: two people, the user on the right, no messages yet.
-  const typeFromScratch = () => guard(null, () => {
-    openReview({ source: "paste", participants: [{ id: "p1", name: A.otherPerson }, { id: "p2", name: A.me }], messages: [] }, null);
-    update({ selfId: "p2" });
-  });
 
   return (
     <div className="app-page">
-      <h1 className="app-h1">{A.title}</h1>
-      <p className="app-lead">{A.lead}</p>
-      <div className="app-methods" role="radiogroup" aria-label={A.methods}>
-        <button className="app-method" role="radio" aria-checked={method === "shot"} aria-describedby="shot-sub" onClick={() => choose("shot")}>
-          <Icon name="image" /><span><strong>{A.shot}</strong><small id="shot-sub">{A.shotSub}</small></span>
+      <h1 className={method ? "app-visually-hidden" : "app-h1"}>{A.title}</h1>
+      {!method && <p className="app-lead">{A.lead}</p>}
+      <div className={`app-methods${method ? " is-compact" : ""}`} role="radiogroup" aria-label={A.methods}>
+        <button className="app-method" role="radio" aria-checked={method === "shot"} aria-describedby={method ? undefined : "shot-sub"} onClick={() => choose("shot")}>
+          <Icon name="image" /><span><strong>{A.shot}</strong>{!method && <small id="shot-sub">{A.shotSub}</small>}</span>
         </button>
         <button className="app-method" role="radio" aria-checked={method === "paste"} onClick={() => choose("paste")}>
-          <Icon name="text" /><span><strong>{A.paste}</strong><small>{A.pasteSub}</small></span>
+          <Icon name="text" /><span><strong>{A.paste}</strong>{!method && <small>{A.pasteSub}</small>}</span>
         </button>
       </div>
-      <div ref={panel} className="app-add-panel">
+      {method && <div className="app-add-panel">
       {method === "shot" ? <ShotUpload s={s} update={update} /> : (
       <div className="app-panel">
         <div className={`im-field${empty ? " im-field--error" : ""}`}>
           <label className="im-label" htmlFor="paste">{A.pasteLabel}</label>
-          <textarea id="paste" className="im-textarea" rows={8} value={text} placeholder={A.pastePlaceholder}
+          <textarea id="paste" className="im-textarea" rows={6} value={text} placeholder={A.pastePlaceholder}
             onChange={(e) => { setDraft({ text: e.target.value }); setEmpty(false); setPending(null); }} />
           {empty && <p className="im-error" role="alert"><Icon name="alert" />{A.pasteEmpty}</p>}
           {mic.listening && mic.interim && <p className="app-mic__live" aria-hidden="true">{mic.interim}</p>}
@@ -89,11 +85,10 @@ export function AddConversation({ s, update }: { s: Session; update: Update }) {
         {pending && <ReplaceNotice onReplace={() => { setPending(null); pending(); }} onKeep={() => { setPending(null); update({ screen: "review" }); }} />}
         <div className="app-actions">
           <button className="im-btn im-btn--primary" onClick={applyPaste}>{A.pasteApply}</button>
-          <button className="im-btn im-btn--ghost" onClick={typeFromScratch}>{A.typeInstead}</button>
         </div>
       </div>
       )}
-      </div>
+      </div>}
     </div>
   );
 }

@@ -13,7 +13,7 @@ import { effectiveState, nameOf, withNames, type Session } from "./session";
 import { Badge, Chip, Icon, toKey, useT } from "./ui";
 
 type Msg = NonNullable<Session["transcript"]>["messages"][number];
-type Props = { s: Session; ctx: ScenarioContext<Msg>; scenarios: ReturnType<typeof useScenarios>; preset?: ExKey | null };
+type Props = { s: Session; ctx: ScenarioContext<Msg>; scenarios: ReturnType<typeof useScenarios> };
 type Done = Extract<Entry, { status: "done" }>;
 
 const asState = (k: ExKey) => k.toUpperCase() as State;
@@ -32,13 +32,12 @@ function Who({ ex, name, dashed, waiting }: { ex: ExKey | "unsure"; name: string
 }
 const Arrow = ({ dashed }: { dashed?: boolean }) => <span className={`app-wi__arrow${dashed ? " is-dashed" : ""}`}><Icon name="arrow" /></span>;
 
-export function WhatIf({ s, ctx, scenarios, preset }: Props) {
+export function WhatIf({ s, ctx, scenarios }: Props) {
   const { t, lang } = useT();
   const W = t.whatIf;
   const heading = useRef<HTMLHeadingElement>(null);
   const card = useRef<HTMLDivElement>(null);
-  // Preselected when opened from Direction; still only sent on the Explore tap.
-  const [picked, setPicked] = useState<ExKey | null>(preset ?? null);
+  const [picked, setPicked] = useState<ExKey | null>(null);
   const [open, setOpen] = useState<string | null>(null);
   const receiver = nameOf(s, ctx.receiverId, t.replay.you);
   // The explored speaker: "you" for my own messages, else their name (U9).

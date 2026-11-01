@@ -7,7 +7,8 @@ for args in "m1-back.mjs 390" "m1-back.mjs 1280" "m2-merge.mjs 390" "m6-sample.m
             "u7-mirror.mjs 390 vi" "u7-mirror.mjs 1280 en" "r1-untouched.mjs 390" "r1-untouched.mjs 1280" \
             "w1-observe.mjs 390" "w1-observe.mjs 1280" "w2-input.mjs 390" "w2-input.mjs 1280" \
             "u8-direction.mjs 390" "u8-direction.mjs 1280" "u3-story.mjs 390" "u3-story.mjs 1280" \
-            "t1-theme.mjs 360" "t1-theme.mjs 1280" "e1-errors.mjs 390"; do
+            "t1-theme.mjs 360" "t1-theme.mjs 1280" "e1-errors.mjs 390" \
+            "f1-uat-fixes.mjs 360 dark" "f1-uat-fixes.mjs 390 light" "f1-uat-fixes.mjs 390 dark" "f1-uat-fixes.mjs 1280 light"; do
   # shellcheck disable=SC2086 # word splitting is intended
   node --disable-warning=ExperimentalWarning $args
 done | grep -E "^width|PASS|FAIL|ERROR|API requests"

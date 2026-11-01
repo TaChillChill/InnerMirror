@@ -3,8 +3,7 @@ import type { DirectionDict } from "./direction.en.ts";
 
 export const directionVi: DirectionDict = {
   title: "Bạn muốn cuộc trò chuyện đi theo hướng nào?",
-  lead: "Chọn một hướng để xem những trạng thái bản ngã bạn có thể thử. Chưa có gì được gửi đi cho đến khi bạn chọn khám phá.",
-  needSelf: "Chọn bạn là ai ở phía trên để thử một hướng đi.",
+  lead: "Chạm vào một hướng để xem những trạng thái bản ngã có thể phù hợp.",
   goals: {
     understand: "Thấu hiểu nhau hơn",
     solve: "Cùng tìm giải pháp",
@@ -20,13 +19,6 @@ export const directionVi: DirectionDict = {
     pause: { a: "Nói rõ quyết định tạm dừng cuộc trò chuyện.", np: "Từ chối nhẹ nhàng mà vẫn quan tâm." },
   },
   suggestTitle: "Với hướng đi này, bạn có thể thử…",
-  stillYou: "Bạn vẫn là người quyết định.",
-  chooseOther: "Chọn trạng thái khác",
-  hideOther: "Ẩn các trạng thái khác",
-  tryIt: "Thử hướng này",
-  pickState: "Chọn một trạng thái ở trên trước.",
-  limit: "Gương thử với tin nhắn bạn đã gửi. Gợi ý cho câu trả lời tiếp theo sẽ có sau.",
-  noTarget: "Chưa có tin nhắn nào của bạn được trả lời, nên chưa có gì để thử.",
-  sampleOff: "Trong bản mẫu, Nếu khác đi? được tắt vì cần gọi Gương trực tiếp.",
-  tableNote: "Các gợi ý này lấy từ một bảng cố định, giống nhau cho mọi cuộc trò chuyện. Chúng không dựa trên bạn hay đoạn chat này.",
+  tableNote: "Các gợi ý này lấy từ một bảng cố định, giống nhau cho mọi cuộc trò chuyện. Chúng không dựa trên bạn hay đoạn chat này, và trạng thái khác cũng có thể phù hợp.",
+  reference: "Đây là những hướng đi để bạn tham khảo. Bạn vẫn là người quyết định điều mình muốn làm tiếp theo.",
 };

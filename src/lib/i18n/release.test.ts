@@ -56,3 +56,16 @@ test("vocabulary (D4/D5): the concept is 'trạng thái bản ngã' / 'ego state
   assert.equal(vi.mirror.title, "Nhìn lại mình");
   assert.equal(en.mirror.title, "My Reflection");
 });
+
+// Founder UAT 2026-11-01: wording that was approved and once failed to ship stays in place.
+test("approved UAT wording: Tiếp tục, Trạng thái bản ngã, value line; old labels gone", () => {
+  assert.equal(vi.add.pasteApply, "Tiếp tục");
+  assert.equal(en.add.pasteApply, "Continue");
+  assert.equal(vi.replay.tabReading, "Trạng thái bản ngã");
+  assert.equal(en.replay.tabReading, "Ego state");
+  assert.equal(vi.replay.valueTitle, "Một góc nhìn khác, để hiểu nhau hơn.");
+  const all = JSON.stringify({ en, vi });
+  for (const gone of ["Cách hiểu của bạn", "cách hiểu của bạn", "Your reading", "Hiện thành khung chat", "Show as a chat", "Hoặc gõ từng tin nhắn", "message by message", "Thử hướng này", "Try this direction", "Ẩn các trạng thái khác"]) {
+    assert.ok(!all.includes(gone), gone);
+  }
+});

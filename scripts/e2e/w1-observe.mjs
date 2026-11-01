@@ -20,7 +20,7 @@ try {
   await step(`$click(".lp-cta"); $wait(300)`);
   await step(`$click("[role=radio]", "Tell it"); $wait(200)`);
   await step(`$type("#paste", ${JSON.stringify(chat)}); $wait(100)`);
-  await step(`$click("button", "Show as a chat"); $wait(300)`);
+  await step(`$click("button", "Continue"); $wait(300)`);
   check("Review asks who is in it, not who you are", await step(`!!$t("h2", "Who is in this conversation?") && !$t("h2", "Which one is you")`));
   await step(`document.querySelector(".im-check input").click(); $wait(100)`);
   check("analyze is possible without choosing a self", await step(`!$t("button", "Look at this conversation").disabled`));
@@ -42,7 +42,7 @@ try {
   check("Esc closes the sheet and returns focus to its link", await step(`!document.querySelector(".app-modal") && document.activeElement?.textContent.includes("Learn about")`));
   // Panel: instant choose, tap again clears, only ✕ closes.
   await step(`document.querySelectorAll(".app-meta-btn")[1].click(); $wait(300)`);
-  check("panel order: Mirror sees → why (open) → your view", await step(`(() => { const l = [...document.querySelectorAll(".app-sel__label")].map((x) => x.textContent); return l[0] === "Mirror sees" && l[1] === "Your view" && document.querySelector(".app-sel__why").open; })()`));
+  check("panel order: Mirror sees → why (open) → the state you choose", await step(`(() => { const l = [...document.querySelectorAll(".app-sel__label")].map((x) => x.textContent); return l[0] === "Mirror sees" && l[1] === "The state you choose" && document.querySelector(".app-sel__why").open; })()`));
   check("no Done / Clear / Yes buttons", await step(`![...document.querySelectorAll(".app-sel button")].some((x) => /^(Done|Clear|Yes)/.test(x.textContent.trim()))`));
   await step(`$click(".app-sel__opt", "Adult"); $wait(200)`);
   check("tap saves at once", await step(`$t(".app-sel__opt", "Adult").getAttribute("aria-pressed") === "true" && /saved/.test(document.querySelector(".app-sel__status").textContent)`));

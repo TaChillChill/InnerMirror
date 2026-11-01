@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { anchorOf, arcOf, cleanAnalysis } from "./analysis.ts";
+import { anchorOf, arcOf, cleanAnalysis, titlePhrases } from "./analysis.ts";
 import { SAMPLES } from "../samples.ts";
 import { buildAnalysisBody, groupTurns } from "./analysis-spec.ts";
 
@@ -114,4 +114,19 @@ test("arcOf: first turn's act, then the acts at shift points, capped and de-dupl
   assert.equal(arc[0], a.context.turns[0].act.trim());
   assert.equal(new Set(arc).size, arc.length);
   assert.deepEqual(arcOf({ ...a, context: { ...a.context, turns: [] }, shifts: [] }), []);
+});
+
+test("titlePhrases: first clause of the opening and closing turns, short, no call needed (UAT #07)", () => {
+  for (const lang of ["en", "vi"] as const) {
+    const s = SAMPLES[lang];
+    const a = cleanAnalysis(s.raw, s.messages)!;
+    const parts = titlePhrases(a);
+    assert.equal(parts.length, 2, lang);
+    for (const p of parts) assert.ok(p.length > 2 && p.split(" ").length <= 7, p);
+    assert.ok(a.context.turns[0].act.startsWith(parts[0]), parts[0]);
+  }
+  const one = (act: string) => ({ context: { turns: [{ turnId: "t1", act }] } }) as unknown as Parameters<typeof titlePhrases>[0];
+  assert.deepEqual(titlePhrases(one("nhắc chuyện về muộn và nhắc lại lời đã dặn")), ["nhắc chuyện về muộn"]);
+  assert.deepEqual(titlePhrases(one("asks how it happened, then waits")), ["asks how it happened"]);
+  assert.deepEqual(titlePhrases(one("")), []);
 });

@@ -1,5 +1,5 @@
 "use client";
-// One panel per open message: "Your reading", and on my own messages "What if?". Replay
+// One panel per open message: "Ego state" (what Mirror observed + my choice) and "What if?". Replay
 // renders it as a sticky right column on desktop and as a bottom sheet on phones, so the
 // conversation stays in view (desktop) or one tap away (phones).
 import type { KeyboardEvent } from "react";
@@ -10,15 +10,14 @@ import { Selector } from "./Selector";
 import { WhatIf } from "./WhatIf";
 import { nameOf, whatIfOff, type Session } from "./session";
 import type { useScenarios } from "./use-scenarios";
-import type { ExKey } from "@/lib/i18n";
 import { Icon, useT } from "./ui";
 
 export type PanelTab = "reading" | "whatif";
 const TABS: PanelTab[] = ["reading", "whatif"];
 
-type Props = { s: Session; update: Update; id: string; tab: PanelTab; onTab: (t: PanelTab) => void; scenarios: ReturnType<typeof useScenarios>; onClose: () => void; preset?: ExKey | null };
+type Props = { s: Session; update: Update; id: string; tab: PanelTab; onTab: (t: PanelTab) => void; scenarios: ReturnType<typeof useScenarios>; onClose: () => void };
 
-export function MessagePanel({ s, update, id, tab, onTab, scenarios, onClose, preset }: Props) {
+export function MessagePanel({ s, update, id, tab, onTab, scenarios, onClose }: Props) {
   const { t } = useT();
   const R = t.replay;
   const m = s.transcript?.messages.find((x) => x.id === id);
@@ -54,7 +53,7 @@ export function MessagePanel({ s, update, id, tab, onTab, scenarios, onClose, pr
       )}
       <div id={`tabpanel-${active}`} role={ctx ? "tabpanel" : undefined} aria-labelledby={ctx ? `tab-${active}` : undefined}>
         {active === "whatif" && ctx
-          ? <WhatIf key={`${id}:${preset ?? ""}`} s={s} ctx={ctx} scenarios={scenarios} preset={preset ?? null} />
+          ? <WhatIf key={id} s={s} ctx={ctx} scenarios={scenarios} />
           : <Selector s={s} update={update} id={id} />}
       </div>
     </>

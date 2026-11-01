@@ -1,7 +1,8 @@
 "use client";
 // Transcript review as a chat: bubbles first, editing only when a bubble is tapped.
-// One editor for pasted, typed and screenshot-extracted transcripts.
-import { Fragment, useState } from "react";
+// One editor for pasted, told and screenshot-extracted transcripts. Review only confirms and
+// fixes what was entered; adding more happens back on the input step (Founder UAT #05).
+import { Fragment, useEffect, useState } from "react";
 import { mergeParticipants, newId, reviewProblem, type Message, type Transcript } from "@/lib/conversation";
 import type { Update } from "./App";
 import type { Session } from "./session";
@@ -17,18 +18,17 @@ export function Review({ s, update, onAnalyze, onBack }: Props) {
   const T = s.transcript as Transcript;
   const [editing, setEditing] = useState<string | null>(null);
   const [renaming, setRenaming] = useState<string | null>(null);
-  const [speaker, setSpeaker] = useState(T.participants[0]?.id ?? "p1");
-  const [draft, setDraft] = useState("");
   const [mergeInto, setMergeInto] = useState<string | null>(null);
   // The state before the last merge, offered as Undo until the next edit.
   const [undo, setUndo] = useState<{ transcript: Transcript; selfId: string | null; to: string } | null>(null);
+  // Every way in (Continue, Edit from Replay, an error) starts at the title, never mid-thread.
+  useEffect(() => { window.scrollTo({ top: 0 }); }, []);
 
   const setT = (patch: Partial<Transcript>) => { setUndo(null); update((cur) => ({ transcript: { ...(cur.transcript as Transcript), ...patch } })); };
   const nameOf = (pid: string) => T.participants.find((p) => p.id === pid)?.name ?? "?";
   const merge = (from: string, to: string) => {
     setUndo({ transcript: T, selfId: s.selfId, to: nameOf(to) });
     update({ transcript: mergeParticipants(T, from, to), selfId: s.selfId === from ? to : s.selfId });
-    if (speaker === from) setSpeaker(to);
     setRenaming(null);
     setMergeInto(null);
   };
@@ -52,11 +52,6 @@ export function Review({ s, update, onAnalyze, onBack }: Props) {
   // Until "This is me" is chosen, keep the usual chat layout: the second speaker on the right.
   const isRight = (m: Message) => (s.selfId ? m.speakerId === s.selfId : m.speakerId === T.participants[1]?.id);
 
-  const addMessage = () => {
-    if (!draft.trim()) return;
-    setT({ messages: [...T.messages, { id: newId("m"), speakerId: speaker, text: draft.trim() }] });
-    setDraft("");
-  };
   const addPerson = () => {
     const id = newId("p");
     setT({ participants: [...T.participants, { id, name: R.newPerson(T.participants.length + 1) }] });
@@ -70,8 +65,8 @@ export function Review({ s, update, onAnalyze, onBack }: Props) {
 
   return (
     <div className="app-page">
-      <h1 className="app-h1">{fromShot ? X.title : story ? S.title : T.messages.length ? R.titleCheck : R.titleWrite}</h1>
-      <p className="app-lead">{fromShot ? X.lead : story ? S.body : T.messages.length ? R.leadCheck : R.leadWrite}</p>
+      <h1 className="app-h1">{fromShot ? X.title : story ? S.title : R.titleCheck}</h1>
+      <p className="app-lead">{fromShot ? X.lead : story ? S.body : R.leadCheck}</p>
       {fromShot && (
         <>
           {(attention > 0 || s.extractNotes.length > 0) && (
@@ -171,15 +166,6 @@ export function Review({ s, update, onAnalyze, onBack }: Props) {
             {narr(null)}
           </ol>
         ) : <div className="app-empty-chat"><Icon name="text" /><p>{R.empty}</p></div>}
-
-        <section className="app-composer" aria-label={R.composer}>
-          <div className="app-row-wrap"><span className="im-label">{R.whoSaid}</span>{speakerChips(speaker, setSpeaker)}</div>
-          <div className="app-composer__row">
-            <input className="im-input" placeholder={R.typeMessage} aria-label={R.message} value={draft}
-              onChange={(e) => setDraft(e.target.value)} onKeyDown={(e) => { if (e.key === "Enter") { e.preventDefault(); addMessage(); } }} />
-            <button className="im-btn im-btn--secondary" onClick={addMessage}><Icon name="plus" /> {R.add}</button>
-          </div>
-        </section>
       </div>
 
       <label className="im-check"><input type="checkbox" checked={s.consent} onChange={(e) => update({ consent: e.target.checked })} /> {R.consent}</label>

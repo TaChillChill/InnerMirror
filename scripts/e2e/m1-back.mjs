@@ -13,7 +13,7 @@ try {
   await step(`$click("[role=radio]", "Tell it"); $wait(200)`);
   const chat = "Linh: Did you book the restaurant?\nMe: I forgot, sorry.\nLinh: You always forget.";
   await step(`$type("#paste", ${JSON.stringify(chat)}); $wait(100)`);
-  await step(`$click("button", "Show as a chat"); $wait(300)`);
+  await step(`$click("button", "Continue"); $wait(300)`);
   check("paste → Review", await step(`!!document.querySelector(".app-rv-thread")`));
   // Edit message 2 on Review.
   await step(`$click(".app-rv-bubble", "I forgot"); $wait(200)`);
@@ -21,16 +21,16 @@ try {
   await step(`$click(".app-rv-edit button", "Done"); $wait(200)`);
   await step(`$click("button", "Back"); $wait(300)`);
   check("Back keeps paste method + text", await step(`document.querySelector("#paste")?.value === ${JSON.stringify(chat)}`));
-  await step(`$click("button", "Show as a chat"); $wait(300)`);
+  await step(`$click("button", "Continue"); $wait(300)`);
   check("unchanged text → same edited transcript", await step(`document.body.innerText.includes("EDITED")`));
   await step(`$click("button", "Back"); $wait(300)`);
   await step(`$type("#paste", ${JSON.stringify(chat + "\nMe: OK.")}); $wait(100)`);
-  await step(`$click("button", "Show as a chat"); $wait(300)`);
+  await step(`$click("button", "Continue"); $wait(300)`);
   check("changed text → asks before replacing", await step(`!!$t(".im-notice", "edited this conversation")`));
   await step(`$click("button", "Keep my edited version"); $wait(300)`);
   check("Keep → edited transcript", await step(`document.body.innerText.includes("EDITED")`));
   await step(`$click("button", "Back"); $wait(300)`);
-  await step(`$click("button", "Show as a chat"); $wait(300)`);
+  await step(`$click("button", "Continue"); $wait(300)`);
   await step(`$click("button", "Read it again"); $wait(300)`);
   check("Read again → new transcript, edits replaced", await step(`!document.body.innerText.includes("EDITED") && document.body.innerText.includes("OK.")`));
 
@@ -51,7 +51,7 @@ try {
   console.log("before read:", await step(`JSON.stringify({ boxes: document.querySelectorAll(".im-check input").length, checked: document.querySelector(".im-check input")?.checked, btn: $t("button", "Read my")?.disabled })`));
   await step(`document.querySelector(".im-check input").click(); $wait(150)`);
   console.log("after tick:", await step(`JSON.stringify({ checked: document.querySelector(".im-check input")?.checked, btn: $t("button", "Read my")?.disabled })`));
-  await step(`$click("button", "Read my screenshots"); $wait(300)`);
+  await step(`$click("button", "Continue"); $wait(300)`);
   check("screenshots over an edited paste transcript ask first, no call yet", await step(`!!$t(".im-notice", "edited this conversation")`) && b.api.length === 0);
   await step(`$click("button", "Read it again"); $wait(800)`);
   const callsAfterRead = b.api.filter((p) => p === "/api/extract").length;
@@ -59,8 +59,8 @@ try {
   await step(`$click("button", "Back"); $wait(400)`);
   const order3 = await step(`[...document.querySelectorAll(".app-shot img")].map((i) => [...i.src].reduce((h, ch) => (h * 31 + ch.charCodeAt(0)) >>> 0, 7)).join("|")`);
   check("Back keeps screenshots and their order", order3 === order2, order3 ? "" : "no images");
-  check("same screenshots offer 'Continue with what was read'", await step(`!!$t("button", "Continue with what was read")`));
-  await step(`$click("button", "Continue with what was read"); $wait(400)`);
+  check("same screenshots: one Continue, no consent needed again", await step(`!!$t(".app-add-panel button.im-btn--primary", "Continue") && !$t(".app-add-panel button.im-btn--primary", "Continue").disabled`));
+  await step(`$click(".app-add-panel button.im-btn--primary", "Continue"); $wait(400)`);
   check("continue makes no new call", b.api.filter((p) => p === "/api/extract").length === 1 && await step(`!!document.querySelector(".app-rv-thread")`));
   check("no horizontal scroll", await step(`document.documentElement.scrollWidth <= innerWidth`));
 } catch (e) {

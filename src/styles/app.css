@@ -121,6 +121,11 @@ main:focus { outline: none; }
 .app-obs__arc { font: 600 1.0625rem/1.55 var(--im-font); margin: 0; }
 .app-obs__arc strong { color: var(--im-primary-ink); font-weight: 800; }
 .app-obs__how { margin: 0; padding-inline-start: 1.2em; display: grid; gap: 4px; }
+.app-obs__title { display: grid; gap: 2px; }
+.app-obs__title-row { display: flex; align-items: center; gap: var(--im-space-1); margin: 0; font: var(--im-text-h3); }
+.app-obs__title-row strong { min-width: 0; overflow-wrap: anywhere; }
+.app-obs__title-row .app-icon-btn { flex: none; }
+.app-replay__value strong { display: block; color: var(--im-text); margin-bottom: 2px; }
 .app-person-edit { flex-basis: 100%; display: grid; gap: var(--im-space-2); padding: var(--im-space-3); border-radius: var(--im-radius-md); background: var(--im-surface-sunken); }
 .app-rv-thread { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--im-space-3); }
 .app-rv-msg { display: flex; gap: var(--im-space-2); align-items: end; max-width: 88%; }
@@ -133,10 +138,6 @@ main:focus { outline: none; }
 .app-rv-msg:has(.app-rv-edit) { max-width: 100%; width: 100%; }
 .app-chip-btn { display: inline-flex; align-items: center; gap: 6px; min-height: var(--im-tap-min); padding: 0 var(--im-space-3) 0 6px; border-radius: var(--im-radius-pill); border: 1.5px solid var(--im-border-strong); background: var(--im-surface); font: var(--im-text-label); color: var(--im-text); cursor: pointer; }
 .app-chip-btn[aria-pressed="true"] { border-color: var(--im-primary); background: var(--im-surface-tint); color: var(--im-primary-ink); }
-.app-composer { display: grid; gap: var(--im-space-3); padding: var(--im-space-4); background: var(--im-surface-sunken); border-radius: var(--im-radius-lg); }
-.app-composer__row { display: flex; gap: var(--im-space-2); }
-.app-composer__row .im-input { flex: 1; min-width: 0; }
-.app-composer > .app-textlink { justify-self: start; min-height: var(--im-tap-min); display: inline-flex; align-items: center; }
 .app-empty-chat { display: flex; gap: var(--im-space-3); align-items: center; color: var(--im-text-muted); padding: var(--im-space-5); border: 1.5px dashed var(--im-border); border-radius: var(--im-radius-lg); }
 .app-empty-chat svg { width: 24px; height: 24px; }
 
@@ -230,6 +231,11 @@ html:has(.app-sheet-open), html:has(.app-modal) { overflow: hidden; }
 .app-row-wrap { display: flex; flex-wrap: wrap; gap: var(--im-space-2); align-items: center; }
 .app-rv-name { font: var(--im-text-caption); font-weight: 700; color: var(--im-text-muted); }
 .app-method:disabled { cursor: not-allowed; opacity: 0.6; }
+/* After a choice the cards become a two-up switch so the input sits right under it (UAT #01). */
+.app-methods.is-compact { grid-template-columns: 1fr 1fr; gap: var(--im-space-2); }
+.app-methods.is-compact .app-method { align-items: center; gap: var(--im-space-2); padding: var(--im-space-3); min-height: var(--im-tap-min); border-radius: var(--im-radius-md); }
+.app-methods.is-compact .app-method svg { width: 22px; height: 22px; }
+.app-methods.is-compact .app-method strong { font: var(--im-text-label); }
 .app-loading__cast { display: flex; gap: var(--im-space-2); justify-content: center; align-items: flex-end; min-height: 72px; }
 .app-loading__cast .im-badge { animation: app-bob 2.4s ease-in-out infinite; }
 .app-loading__cast .im-badge:nth-child(2) { animation-delay: .3s; }

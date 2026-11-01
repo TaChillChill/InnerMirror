@@ -14,7 +14,7 @@ import { LangContext, Icon } from "./ui";
 import { SiteFooter } from "./SiteFooter";
 import { BrandMark, LangToggle, StickyHeader, ThemeToggle } from "./BrandBits";
 import { useCollections, useLang, useStorageOk } from "./use-browser-state";
-import { freshSession, type Session } from "./session";
+import { freshSession, suggestedTitle, type Session } from "./session";
 import { Landing } from "./Landing";
 import { AddConversation } from "./AddConversation";
 import { Review } from "./Review";
@@ -57,6 +57,7 @@ export function App() {
     const req = toAnalyzeRequest(transcript, sm.selfId, lang);
     const labels = Object.fromEntries(Object.entries(analysisLabels(req)).map(([pid, label]) => [label, pid]));
     setS({ ...freshSession(), screen: "replay", sample: true, transcript, selfId: sm.selfId, consent: true, analysis, labels,
+      title: suggestedTitle(analysis, { transcript }, labels, t.replay.titleFrom),
       lastResult: { key: analysisKey(req), selfId: sm.selfId, analysis, labels } });
     window.scrollTo({ top: 0 });
   };
@@ -87,13 +88,17 @@ export function App() {
       if (!res.ok) return update({ screen: "error", error: errorCode(res.status, json) });
       const raw = json.analysis as Analysis, labels = json.labels ?? {};
       const analysis = s.transcript.source === "story" ? capForStory(raw) : raw;
-      update({ screen: "replay", analysis, labels, sample: false, lastResult: { key, selfId: s.selfId, analysis, labels } });
+      // Mirror's title replaces the old suggestion, never a title the user wrote.
+      const at = { transcript: s.transcript };
+      const before = last ? suggestedTitle(last.analysis, at, last.labels, t.replay.titleFrom) : "";
+      const title = !s.title.trim() || s.title === before ? suggestedTitle(analysis, at, labels, t.replay.titleFrom) : s.title;
+      update({ screen: "replay", analysis, labels, title, sample: false, lastResult: { key, selfId: s.selfId, analysis, labels } });
       window.scrollTo({ top: 0 });
     } catch (e) {
       if (e instanceof DOMException && e.name === "AbortError") return update({ screen: "review" });
       update({ screen: "error", error: "network" });
     }
-  }, [s.transcript, s.selfId, s.lastResult, s.savedId, s.draft, lang, update]);
+  }, [s.transcript, s.selfId, s.lastResult, s.savedId, s.draft, s.title, lang, t, update]);
 
   const stepIndex = { add: 0, review: 0, analyzing: 0, error: 0, replay: 1, mirror: s.analysis ? 2 : -1, landing: -1 }[s.screen];
 

@@ -1,9 +1,8 @@
-// Conversation Direction strings (U8, Founder N1/N2 2026-11-01). Each action says what the
+// Conversation Direction strings (U8, Founder N1/N2 2026-11-01; reference only since UAT #09/#10). Each action says what the
 // state would do in words, never what it would achieve; the table is the same for everyone.
 export const directionEn = {
   title: "Which way would you like the conversation to go?",
-  lead: "Pick a direction to see ego states you could try. Nothing is sent until you choose to explore.",
-  needSelf: "Choose who you are above to try a direction.",
+  lead: "Tap a direction to see ego states that could fit it.",
   goals: {
     understand: "Understand each other better",
     solve: "Find a solution together",
@@ -19,14 +18,7 @@ export const directionEn = {
     pause: { a: "Say clearly that you are pausing the conversation.", np: "Decline gently while still showing care." },
   } as Record<string, Record<string, string>>,
   suggestTitle: "With this direction, you could try…",
-  stillYou: "You still decide.",
-  chooseOther: "Choose another state",
-  hideOther: "Hide the other states",
-  tryIt: "Try this direction",
-  pickState: "Pick a state above first.",
-  limit: "Mirror tries this on a message you already sent. Suggestions for your next reply will come later.",
-  noTarget: "None of your messages has a reply yet, so there's nothing to try this on.",
-  sampleOff: "In the sample, What if? is off because it needs a live call.",
-  tableNote: "These suggestions come from a fixed table, the same for every conversation. They aren't based on you or on this chat.",
+  tableNote: "These suggestions come from a fixed table, the same for every conversation. They aren't based on you or on this chat, and other states could fit too.",
+  reference: "These directions are here for reference. You still decide what you want to do next.",
 };
 export type DirectionDict = typeof directionEn;

@@ -22,7 +22,7 @@ try {
   await step(`$click(".lp-cta"); $wait(300)`);
   await step(`$click("[role=radio]", "Tell it"); $wait(200)`);
   await step(`$type("#paste", ${JSON.stringify(chat)}); $wait(100)`);
-  await step(`$click("button", "Show as a chat"); $wait(300)`);
+  await step(`$click("button", "Continue"); $wait(300)`);
   await step(`document.querySelector(".im-check input").click(); $wait(100)`);
   await step(`$click("button", "Look at this conversation"); $wait(800)`);
   check("firewall 429 → 'too many tries', with Try again", await step(`/Too many tries/.test(document.querySelector(".im-notice--error")?.textContent ?? "") && !!$t("button", "Try again")`), await step(`document.querySelector(".im-notice--error")?.textContent`));

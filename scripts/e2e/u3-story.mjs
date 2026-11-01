@@ -31,7 +31,7 @@ try {
   await step(`$click(".lp-cta"); $wait(300)`);
   await step(`$click("[role=radio]", "Tell it"); $wait(200)`);
   await step(`$type("#paste", ${JSON.stringify(story)}); $wait(100)`);
-  await step(`$click("button", "Show as a chat"); $wait(400)`);
+  await step(`$click("button", "Continue"); $wait(400)`);
   check("story opens Review split, no blocking notice", await step(`document.querySelector(".app-h1")?.textContent === "Mirror split your story"`));
   const bubbles = await step(`document.querySelectorAll(".app-rv-bubble").length`);
   const narr = await step(`document.querySelectorAll(".app-narr").length`);

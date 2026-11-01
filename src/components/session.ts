@@ -1,6 +1,6 @@
 // In-memory state for one conversation. Nothing here is persisted: closing the tab
 // drops the conversation; only an explicit Save writes labels to My Mirror.
-import { anchorOf, type Analysis, type Reading } from "@/lib/ai/analysis";
+import { anchorOf, titlePhrases, type Analysis, type Reading } from "@/lib/ai/analysis";
 import { SELF_LABEL } from "@/lib/ai/analysis-spec";
 import type { Transcript } from "@/lib/conversation";
 import type { NoteCode } from "@/lib/ai/extract-spec";
@@ -28,7 +28,7 @@ export type Session = {
   shots: string[]; // screenshots kept in browser memory only, to compare while reviewing
   // The Add screen as the user left it, so Back from Review costs no re-work. Memory only;
   // screenshots are dropped once the conversation is analyzed, like `shots`.
-  draft: { method: "shot" | "paste"; text: string; images: string[] };
+  draft: { method: "shot" | "paste" | null; text: string; images: string[] }; // null until a way to start is chosen
   readFrom: string | null; // textKey/imagesKey of what the current transcript was read from
   sample: boolean; // the built-in sample: no API calls, nothing saved
   extractNotes: NoteCode[];
@@ -40,7 +40,7 @@ export type Session = {
 export const freshSession = (): Session => ({
   screen: "landing", transcript: null, selfId: null, consent: false, analysis: null, labels: {},
   choices: {}, selected: null, error: null, title: "", note: "", savedId: null, shots: [], extractNotes: [], lastResult: null,
-  draft: { method: "shot", text: "", images: [] }, readFrom: null, sample: false,
+  draft: { method: null, text: "", images: [] }, readFrom: null, sample: false,
 });
 
 export const readingFor = (a: Analysis, id: string): Reading | undefined => a.readings.find((r) => r.messageId === id);
@@ -60,7 +60,7 @@ export const effectiveState = (s: Session, id: string) => resolveState(readingFo
  * The analysis labels everyone neutrally, the user included; What if? calls the user
  * "You"/"Bạn", which already reads right. Each call can pass its own label map.
  */
-export function withNames(text: string, s: Session, labels: Record<string, string> = s.labels): string {
+export function withNames(text: string, s: Pick<Session, "transcript" | "labels">, labels: Record<string, string> = s.labels): string {
   if (!s.transcript) return text;
   let out = text;
   for (const [label, pid] of Object.entries(labels)) {
@@ -69,6 +69,12 @@ export function withNames(text: string, s: Session, labels: Record<string, strin
     if (name) out = out.split(label).join(name);
   }
   return out;
+}
+
+/** Mirror's suggested title (UAT #07) with the names typed on this device; "" if there is nothing to go on. */
+export function suggestedTitle(a: Analysis, s: Pick<Session, "transcript">, labels: Record<string, string>, from: (a: string, b?: string) => string): string {
+  const [first, last] = titlePhrases(a);
+  return first ? withNames(from(first, last), { transcript: s.transcript, labels }).slice(0, 120) : "";
 }
 
 /** Display name: "You" for me, the typed name for others. */

@@ -149,7 +149,7 @@ export function ShotUpload({ s, update }: { s: Session; update: Update }) {
           {confirmReplace && <ReplaceNotice onReplace={() => void extract()} onKeep={() => { setConfirmReplace(false); update({ screen: "review", shots: images }); }} />}
           <label className="im-check"><input type="checkbox" checked={consent} onChange={(e) => setConsent(e.target.checked)} /> {t.review.consent}</label>
           <div className="app-actions">
-            <button className="im-btn im-btn--primary" disabled={(!consent && plan !== "reuse") || busy} onClick={onRead}>{busy ? S.reading : plan === "reuse" ? S.continueRead : S.read}</button>
+            <button className="im-btn im-btn--primary" disabled={(!consent && plan !== "reuse") || busy} onClick={onRead}>{busy ? S.reading : S.read}</button>
             {busy && <button className="im-btn im-btn--ghost" onClick={() => abort.current?.abort()}>{t.analyzing.cancel}</button>}
           </div>
         </>

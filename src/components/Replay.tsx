@@ -9,7 +9,6 @@ import { MessagePanel, type PanelTab } from "./MessagePanel";
 import { useScenarios } from "./use-scenarios";
 import { Observation, WhoPicker } from "./Observation";
 import { Direction } from "./Direction";
-import type { ExKey } from "@/lib/i18n";
 import { scenarioContext } from "@/lib/ai/scenario";
 import { segmentOf } from "@/lib/ai/analysis";
 import { narrationBefore } from "@/lib/story";
@@ -50,8 +49,6 @@ export function Replay({ s, update, onContinue, onEdit, onRestart }: { s: Sessio
   const desktop = useIsDesktop();
   const opener = useRef<HTMLButtonElement | null>(null);
   const [tab, setTab] = useState<PanelTab>("reading");
-  // A state picked in Direction, preselected in What if? until the panel is opened another way.
-  const [preset, setPreset] = useState<ExKey | null>(null);
   // Explored scenarios live here, so they vanish when Replay unmounts.
   const scenarios = useScenarios();
   const a = s.analysis!;
@@ -62,7 +59,6 @@ export function Replay({ s, update, onContinue, onEdit, onRestart }: { s: Sessio
   const openPanel = (el: HTMLButtonElement, id: string, which: PanelTab) => {
     opener.current = el;
     if (s.selected === id && tab === which) return close();
-    setPreset(null);
     setTab(which);
     update({ selected: id });
   };
@@ -106,13 +102,6 @@ export function Replay({ s, update, onContinue, onEdit, onRestart }: { s: Sessio
     );
   };
 
-  const tryDirection = (id: string, state: ExKey, from: HTMLButtonElement) => {
-    opener.current = from;
-    setPreset(state);
-    setTab("whatif");
-    update({ selected: id });
-  };
-
   if (a.safety.flagged) return <Safety note={a.safety.note} onBack={onRestart} />;
   const sheetOpen = !!s.selected && !desktop;
 
@@ -120,6 +109,8 @@ export function Replay({ s, update, onContinue, onEdit, onRestart }: { s: Sessio
     <div className={`app-page app-page--replay${sheetOpen ? " app-sheet-open" : ""}`}>
       <div className="app-replay__main" inert={sheetOpen}>
         <h1 className="app-h1">{R.title}</h1>
+        {/* What Mirror offers comes first; its limits sit with the method below (UAT #06). */}
+        <p className="app-lead app-replay__value"><strong>{R.valueTitle}</strong> {R.valueBody}</p>
         {/* Back to the transcript; an unchanged conversation is not analyzed again (App). */}
         <button className="app-textlink app-replay__edit" onClick={onEdit}><Icon name="edit" /> {R.editTranscript}</button>
         {s.sample && <div className="im-notice" role="status"><Icon name="eye" /><div>{R.sampleNote}</div></div>}
@@ -127,7 +118,7 @@ export function Replay({ s, update, onContinue, onEdit, onRestart }: { s: Sessio
         {/* The backstop adds support on top of the readings; the model's own flag replaces Replay (Safety). */}
         {safetyHold(s) && <div className="im-notice im-notice--safety" role="alert"><Icon name="alert" /><div>
           <strong>{t.safety.holdTitle}</strong><p>{t.safety.holdBody}</p><p><strong>{t.safety.emergency}</strong></p></div></div>}
-        <Observation s={s} />
+        <Observation s={s} update={update} />
 
         <div className="im-thread app-thread">
           {T.messages.map((m) => {
@@ -161,7 +152,7 @@ export function Replay({ s, update, onContinue, onEdit, onRestart }: { s: Sessio
         </div>
 
         <WhoPicker s={s} update={update} />
-        {!safetyHold(s) && <Direction s={s} onTry={tryDirection} />}
+        {!safetyHold(s) && <Direction />}
         <div className="app-continue">
           <button className="im-btn im-btn--primary" onClick={onContinue}>{R.continue}</button>
           <span className="im-hint">{R.continueHint}</span>
@@ -171,7 +162,7 @@ export function Replay({ s, update, onContinue, onEdit, onRestart }: { s: Sessio
       {!desktop && <div className="app-sheet-backdrop" onClick={close} aria-hidden="true" />}
       <aside className={`app-sheet${s.selected ? " is-open" : ""}`} aria-label={R.panelLabel} role={sheetOpen ? "dialog" : undefined} aria-modal={sheetOpen || undefined}>
         {s.selected
-          ? <MessagePanel s={s} update={update} id={s.selected} tab={tab} preset={preset} onTab={setTab} scenarios={scenarios} onClose={close} />
+          ? <MessagePanel s={s} update={update} id={s.selected} tab={tab} onTab={setTab} scenarios={scenarios} onClose={close} />
           : desktop && <p className="app-panel-empty"><Icon name="eye" /><span>{R.panelEmpty}</span></p>}
       </aside>
     </div>
