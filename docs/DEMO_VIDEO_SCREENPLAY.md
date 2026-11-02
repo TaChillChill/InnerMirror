@@ -2,6 +2,12 @@
 
 Status: **Rough cut V1 rendered (Phase C, 2026-11-02), for Founder review.** MP4: `design/film/public/out/innermirror-roughcut.mp4` (git-ignored). Viewer: `design/film/` (`npm run dev` → http://127.0.0.1:5174). Conversation A **locked**. No app code, prompt or schema changed.
 
+## Rough cut V1.1: Dark Mode take (2026-11-02, Founder request)
+- **New live take `dark1`:** the app in Dark Mode (its default), real app + real Muse, 3 calls, $0.0592. Recorded at 1920 × 1080 (Chrome device scale 1.5; the app's layout is unchanged at 1280 × 720 CSS), so rough-cut point 5 below is fixed. Muse's responses are kept in `design/film/public/take/dark1/api.json`. A second take (`dark2`, $0.0568) gave the same What if? outcome and was discarded.
+- **Film styling only:** the S6 stage, footage frame, tap rings, the S8 donut stage and the S9 end card moved from light lavender to the film's night palette, so motion → product → motion stays one world. The end card sets the app mark + wordmark (the logo file has a white matte). Structure, timing (S6 still 68–138 s; D1's labelled "sped up" wait absorbs Muse's faster read) and captions are unchanged.
+- **Real content that changed with the take (data-honesty rule):** S2 states now follow `dark1`: Jordan A · Unclear · A · CP · FC · CP; Alex A · A · AC · AC · A · FC · AC (last line still AC). D6 What if? on "wow ok…" as Adult now shows "Mirror doesn't see another clear possibility here": Muse returned only a pattern-based Adult, and the app shows only context-based possibilities as another way. Captions stay true ("Muse looks at Jordan's earlier words…", "It writes no lines. It predicts nothing.").
+- Render: `design/film/public/out/innermirror-roughcut-dark.mp4` (git-ignored). The take's `take.mp4` and frames are git-ignored too: back them up, a live take can't be rebuilt for free.
+
 ## Rough cut V1: what is real and what changed
 **Real (S6 and the donut in S8):** one live take of the local production build, synthetic screenshots of conversation A, 3 live Muse calls (extract, analyze, What if?), $0.0588. Waits are sped up and labelled "sped up ▸▸"; tap rings and tap sounds are added in the edit; the panel is zoomed. Nothing on screen was edited. My Reflection history for the donut is seeded synthetic data (labels only), tagged "demo history".
 

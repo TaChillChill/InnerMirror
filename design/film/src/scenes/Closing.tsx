@@ -1,7 +1,7 @@
 // S8–S9: "See yourself / Connect" (donut → network), end card. S7 lives in River.tsx.
 import { AbsoluteFill, interpolate, useCurrentFrame } from "remotion";
-import { C, FONT, MASCOT, STATES, logo } from "../brand";
-import { Clip, M, RealTag, type Seg } from "../Footage";
+import { C, FONT, MASCOT, STATES, appMark } from "../brand";
+import { Clip, M, RealTag, STAGE, type Seg } from "../Footage";
 import { s } from "../story";
 import { Line, Tag, ramp, window01 } from "../ui";
 
@@ -20,12 +20,12 @@ export function World() {
   const net = f >= s(8);
   const reveal = (ring: number) => ramp(f, s(8.3) + ring * 30, 30);
   return (
-    <AbsoluteFill style={{ background: shrink < 1 ? "#e9e6f6" : C.night, fontFamily: FONT }}>
+    <AbsoluteFill style={{ background: shrink < 1 ? STAGE : C.night, fontFamily: FONT }}>
       {shrink < 1 && (
         <div style={{ position: "absolute", inset: 0, opacity: 1 - shrink, transform: `scale(${1 - shrink * 0.9})` }}>
           <Clip segs={DONUT} />
           <RealTag text="REAL APP · My Reflection · demo history (synthetic)" />
-          <div style={{ position: "absolute", top: 930, width: "100%", textAlign: "center", font: `800 60px ${FONT}`, color: C.text, opacity: window01(f, 20, s(7), 12) }}>See yourself more clearly.</div>
+          <div style={{ position: "absolute", top: 930, width: "100%", textAlign: "center", font: `800 60px ${FONT}`, color: C.nightText, opacity: window01(f, 20, s(7), 12) }}>See yourself more clearly.</div>
         </div>
       )}
       {shrink > 0 && !net && <div style={{ position: "absolute", left: 960 - 20, top: 540 - 20, width: 40, height: 40, borderRadius: 20, background: "#fff",
@@ -71,12 +71,16 @@ function Network({ f, reveal }: { f: number; reveal: (ring: number) => number })
 export function EndCard() {
   const f = useCurrentFrame();
   return (
-    <AbsoluteFill style={{ background: C.bg, fontFamily: FONT, alignItems: "center", justifyContent: "center", gap: 34, opacity: ramp(f, 0, 14) }}>
-      <img src={logo} style={{ width: 560, mixBlendMode: "multiply" }} />
-      <div style={{ font: `700 46px ${FONT}`, color: C.text }}>The world within us shapes the world between us.</div>
+    <AbsoluteFill style={{ background: STAGE, fontFamily: FONT, alignItems: "center", justifyContent: "center", gap: 34, opacity: ramp(f, 0, 14) }}>
+      {/* The logo file has a white matte, so on the night stage the mark and wordmark are set like the app header. */}
+      <div style={{ display: "flex", alignItems: "center", gap: 26 }}>
+        <img src={appMark} style={{ width: 112, height: 112, borderRadius: 28 }} />
+        <div style={{ font: `900 96px ${FONT}`, letterSpacing: -2, color: C.nightText }}>Inner<span style={{ color: "#a9a3ff" }}>Mirror</span></div>
+      </div>
+      <div style={{ font: `700 46px ${FONT}`, color: C.nightText }}>The world within us shapes the world between us.</div>
       <div style={{ padding: "22px 48px", borderRadius: 40, background: C.primary, color: "#fff", font: `800 38px ${FONT}`, opacity: ramp(f, 40, 12) }}>Try it with a chat you keep replaying</div>
-      <div style={{ font: `700 34px ${FONT}`, color: C.primaryInk, opacity: ramp(f, 55, 12) }}>innermirror.app <span style={{ color: "#b06000", fontSize: 22 }}>(URL TBD)</span></div>
-      <div style={{ position: "absolute", bottom: 40, font: `500 22px ${FONT}`, color: C.muted, opacity: ramp(f, 70, 12) }}>
+      <div style={{ font: `700 34px ${FONT}`, color: "#a9a3ff", opacity: ramp(f, 55, 12) }}>innermirror.app <span style={{ color: "#ffc34d", fontSize: 22 }}>(URL TBD)</span></div>
+      <div style={{ position: "absolute", bottom: 40, font: `500 22px ${FONT}`, color: C.nightMuted, opacity: ramp(f, 70, 12) }}>
         Mirror's observations are hypotheses, not diagnoses. Runs on Meta's Muse Spark model.
       </div>
     </AbsoluteFill>

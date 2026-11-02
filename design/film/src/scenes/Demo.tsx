@@ -4,7 +4,7 @@
 // "Conversation shift" lines Muse wrote are shown during the replay pass in D3.
 import { AbsoluteFill, Img, Sequence, interpolate, useCurrentFrame } from "remotion";
 import { C } from "../brand";
-import { Clip, M, RealTag, clipFrames, type Seg } from "../Footage";
+import { Clip, M, RealTag, STAGE, clipFrames, type Seg } from "../Footage";
 import { s } from "../story";
 import { Caption, clamp, ramp } from "../ui";
 import shot1 from "../../shots/out/chat-1.png";
@@ -13,11 +13,14 @@ import shot3 from "../../shots/out/chat-3.png";
 
 const PANEL = { x: 978, y: 390 }; // centre of the side panel on the 1280 × 720 page
 type Beat = { id: string; segs: Seg[]; captions: { text: string; from: number; to: number }[] };
+// Muse's reading time differs per take; the sped-up wait in D1 absorbs it so S6 stays 70 s
+// and every later sound cue keeps its place. Still labelled "sped up".
+const D1_WAIT_S = 1.65;
 
 export const BEATS: Beat[] = [
   { id: "D1", segs: [
     { from: 1.5, to: M["extract-start"] },
-    { from: M["extract-start"], to: M.review, rate: 13, sped: true },
+    { from: M["extract-start"], to: M.review, rate: (M.review - M["extract-start"]) / D1_WAIT_S, sped: true },
     { from: M.review, to: M.review + 0.6 },
   ], captions: [{ text: "Snap the chat you keep replaying. Muse reads the screenshots.", from: 0.3, to: 6.4 }] },
   { id: "D2", segs: [
@@ -55,7 +58,7 @@ export const DEMO_FRAMES = beatStarts.at(-1)! + clipFrames(BEATS.at(-1)!.segs);
 
 export function Demo() {
   return (
-    <AbsoluteFill style={{ background: "#e9e6f6" }}>
+    <AbsoluteFill style={{ background: STAGE }}>
       <Sequence durationInFrames={INTRO + 10}><MatchCut /></Sequence>
       {BEATS.map((b, i) => (
         <Sequence key={b.id} from={beatStarts[i]} durationInFrames={clipFrames(b.segs)}>
@@ -76,7 +79,7 @@ function MatchCut() {
   const out = ramp(f, INTRO - 8, 18);
   const shots = [shot1, shot2, shot3];
   return (
-    <AbsoluteFill style={{ background: bg < 1 ? C.night : "#e9e6f6", opacity: 1 - out }}>
+    <AbsoluteFill style={{ background: C.night, opacity: 1 - out }}>
       {shots.map((src, i) => {
         if (f < 44 && i !== 2) return null;
         const x = 960 + (i - 1) * 420 * fan;
@@ -84,7 +87,7 @@ function MatchCut() {
           border: "12px solid #111", boxShadow: "0 30px 70px rgba(0,0,0,0.35)", transform: `scale(${interpolate(fan, [0, 1], [1, 0.82])}) rotate(${(i - 1) * 4 * fan}deg)` }} />;
       })}
       <AbsoluteFill style={{ background: "#fff", opacity: flash }} />
-      <div style={{ position: "absolute", left: 40, top: 6, font: "800 18px Nunito", letterSpacing: 1.4, color: C.primaryInk, opacity: bg }}>SYNTHETIC CHAT SCREENSHOTS</div>
+      <div style={{ position: "absolute", left: 40, top: 6, font: "800 18px Nunito", letterSpacing: 1.4, color: C.nightMuted, opacity: bg }}>SYNTHETIC CHAT SCREENSHOTS</div>
     </AbsoluteFill>
   );
 }

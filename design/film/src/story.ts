@@ -27,8 +27,8 @@ export const TOTAL_SEC = 180;
 export type Msg = { who: "J" | "X"; text: string; state: Reading };
 
 // Conversation A "Running late" (locked by the Founder, 2026-11-02). Alex (X) is the user.
-// States are Muse's real readings from the live take `live1` (2026-11-02, spec v3.2); the
-// motion follows them. Only the unreadable "rush" filler in Storm.tsx is illustrative.
+// States are Muse's real readings from the live take `dark1` (2026-11-02, spec v3.2, the take
+// shown in S6; responses in public/take/dark1/api.json); the motion follows them. Only the unreadable "rush" filler in Storm.tsx is illustrative.
 export const NAMES = { J: "Jordan", X: "Alex" } as const;
 // Fixed person avatars (placeholder art): the same face on every message, so it reads as a 1:1 chat.
 // Colours are the app's neutral avatar tokens, never the ego-state colours.
@@ -38,16 +38,16 @@ export const PEOPLE = {
 } as const;
 export const CHAT: Msg[] = [
   { who: "J", text: "dinner at 7 still? got the good wine 🍷", state: "A" },
-  { who: "X", text: "yesss 100%. leaving at 6", state: "FC" },
+  { who: "X", text: "yesss 100%. leaving at 6", state: "A" },
   { who: "X", text: "ugh meeting ran over. 20 min", state: "A" },
   { who: "J", text: "k", state: "UNCLEAR" },
   { who: "X", text: "k?? i said sorry", state: "AC" },
-  { who: "J", text: "u didn't actually", state: "CP" },
+  { who: "J", text: "u didn't actually", state: "A" },
   { who: "X", text: "wow ok. i'm literally rushing rn", state: "AC" },
   { who: "J", text: "it's fine. it's always fine", state: "CP" },
   { who: "X", text: "what's that supposed to mean", state: "A" },
-  { who: "J", text: "it means i'm tired of always being the one who waits", state: "CP" },
-  { who: "X", text: "and i'm tired of feeling guilty for working", state: "AC" },
+  { who: "J", text: "it means i'm tired of always being the one who waits", state: "FC" },
+  { who: "X", text: "and i'm tired of feeling guilty for working", state: "FC" },
   { who: "J", text: "then eat at the office lol", state: "CP" },
   { who: "X", text: "fine. do whatever u want.", state: "AC" },
 ];

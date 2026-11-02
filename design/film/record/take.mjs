@@ -2,6 +2,8 @@
 // 1920 × 1080 frames), capturing a CDP screencast plus timed marks and tap positions.
 //   node record/take.mjs --mock <name>   dry run, every /api/* answered locally ($0)
 //   node record/take.mjs --live <name>   real app + real Muse (server must run with APP_SPEND_CAP_USD)
+//   THEME=dark (default light) picks the app theme; live takes also keep Muse's real responses
+//   in api.json (kept in git: synthetic chat, real Muse output) so the motion and the README quote them exactly.
 // Output: public/take/<name>/frames/*.jpg, take.json (frames, marks, taps, api calls).
 import { mkdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
@@ -28,6 +30,15 @@ b.on("Page.screencastFrame", ({ data, metadata, sessionId }) => {
   frames.push({ i, t: Math.round(metadata.timestamp * 1000) });
   b.send("Page.screencastFrameAck", { sessionId }).catch(() => {});
 });
+// Live only: the API responses, exactly as the app received them.
+const responses = [], pending = new Map();
+b.on("Network.responseReceived", ({ requestId, response }) => { if (new URL(response.url).pathname.startsWith("/api/")) pending.set(requestId, new URL(response.url).pathname); });
+b.on("Network.loadingFinished", async ({ requestId }) => {
+  const path = pending.get(requestId);
+  if (!path) return;
+  pending.delete(requestId);
+  try { const { body } = await b.send("Network.getResponseBody", { requestId }); responses.push({ path, t: now(), body: JSON.parse(body) }); } catch (e) { notes.push(`body ${path}: ${e.message}`); }
+});
 const step = async (js) => { await b.evaluate(HELPERS); return b.evaluate(js); };
 const tap = async (js, label) => { const p = await step(`$tap(${js})`); taps.push({ ...p, t: now(), label }); await sleep(250); return p; };
 const waitFor = async (js, ms) => { const end = Date.now() + ms; while (Date.now() < end) { if (await step(js)) return true; await sleep(400); } return false; };
@@ -38,7 +49,7 @@ const attempt = async (label, fn) => { try { await fn(); } catch (e) { notes.pus
 
 try {
   await b.goto(`${APP}/`);
-  await b.evaluate(`localStorage.clear(); localStorage.setItem("innermirror.lang", "en"); localStorage.setItem("innermirror.theme", "light");
+  await b.evaluate(`localStorage.clear(); localStorage.setItem("innermirror.lang", "en"); localStorage.setItem("innermirror.theme", ${JSON.stringify(process.env.THEME ?? "light")});
     localStorage.setItem("innermirror.collections.v1", ${JSON.stringify(JSON.stringify(seedCollections()))}); location.reload()`);
   await sleep(2000);
   await b.send("Page.startScreencast", { format: "jpeg", quality: 88, maxWidth: 1920, maxHeight: 1080, everyNthFrame: 1 });
@@ -116,6 +127,7 @@ try {
   const firstWall = t0 + (frames.length ? 0 : 0);
   writeFileSync(`${out}/take.json`, JSON.stringify({ mode, app: APP, viewport: [1280, 720], scale: 1.5, frames: frames.map((f) => ({ i: f.i, t: f.t - base })),
     frameBaseWall: base, t0Wall: firstWall, marks, taps, notes, api: b.api.map((a) => ({ ...a, t: a.at - t0 })) }, null, 1));
+  if (responses.length) writeFileSync(`${out}/api.json`, JSON.stringify(responses, null, 1));
   console.log(`${frames.length} frames, ${marks.length} marks, notes: ${JSON.stringify(notes)}, api: ${JSON.stringify(b.api.map((a) => `${a.path} ${a.status ?? "mock"}`))}`);
   b.close();
 }

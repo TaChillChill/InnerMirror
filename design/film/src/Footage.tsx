@@ -1,4 +1,5 @@
-// Real app footage: cuts from the live take (public/take/live1/take.mp4, 1280 × 720, the
+// Real app footage: cuts from the live take (public/take/dark1/take.mp4, the app in Dark Mode,
+// 1280 × 720 CSS recorded at 1920 × 1080, the
 // app's real UI and Muse's real output). A clip is a list of take segments; waits can be
 // sped up (labelled on screen), a segment can zoom towards a point, and taps show as rings.
 import type { ReactNode } from "react";
@@ -6,9 +7,9 @@ import { Audio, OffthreadVideo, Sequence, interpolate, staticFile, useCurrentFra
 import { C, FONT } from "./brand";
 import { FPS } from "./story";
 import { clamp } from "./ui";
-import cues from "../public/take/live1/cues.json";
+import cues from "../public/take/dark1/cues.json";
 
-export const TAKE_SRC = staticFile("take/live1/take.mp4");
+export const TAKE_SRC = staticFile("take/dark1/take.mp4");
 export const M = cues.marks as Record<string, number>;
 const TAPS = cues.taps as { x: number; y: number; t: number; label: string }[];
 
@@ -17,16 +18,18 @@ export type Seg = { from: number; to: number; rate?: number; sped?: boolean; zoo
 export const segFrames = (g: Seg) => Math.round(((g.to - g.from) / (g.rate ?? 1)) * FPS);
 export const clipFrames = (segs: Seg[]) => segs.reduce((n, g) => n + segFrames(g), 0);
 
-// The screen sits in a soft frame so captions below never cover the UI.
+// The screen sits in a soft frame so captions below never cover the UI. The stage is the film's
+// night, so the cut from motion to product stays in one world.
+export const STAGE = `radial-gradient(1400px 800px at 50% 42%, #221f40 0%, ${C.night} 70%)`;
 const BOX = { left: 192, top: 36, w: 1536, h: 864 };
 const K = BOX.w / 1280;
 
 export function Clip({ segs, children }: { segs: Seg[]; children?: ReactNode }) {
   let at = 0;
   return (
-    <div style={{ position: "absolute", inset: 0, background: "#e9e6f6", fontFamily: FONT }}>
+    <div style={{ position: "absolute", inset: 0, background: STAGE, fontFamily: FONT }}>
       <div style={{ position: "absolute", left: BOX.left, top: BOX.top, width: BOX.w, height: BOX.h, borderRadius: 18, overflow: "hidden",
-        boxShadow: "0 24px 70px rgba(37,35,68,0.22)", background: "#fafafe" }}>
+        boxShadow: "0 30px 90px rgba(0,0,0,0.55), 0 0 0 1px rgba(169,163,255,0.16)", background: "#17152b" }}>
         {segs.map((g, i) => {
           const from = at;
           at += segFrames(g);
@@ -56,7 +59,7 @@ function Segment({ g }: { g: Seg }) {
           <Audio src={staticFile("sfx/tap.wav")} volume={0.35} />
         </Sequence>
       ))}
-      {g.sped && <div style={{ position: "absolute", right: 18, top: 16, padding: "6px 14px", borderRadius: 8, background: "rgba(37,35,68,0.75)",
+      {g.sped && <div style={{ position: "absolute", right: 18, top: 16, padding: "6px 14px", borderRadius: 8, background: "rgba(106,98,216,0.85)",
         color: "#fff", font: `700 22px ${FONT}`, transform: `scale(${1 / s})`, transformOrigin: "top right" }}>sped up ▸▸</div>}
     </div>
   );
@@ -68,9 +71,9 @@ function Ring({ x, y, dt }: { x: number; y: number; dt: number }) {
   const r = dt < 0 ? 26 : 26 + dt * 70;
   const o = dt < 0 ? interpolate(dt, [-0.35, -0.1], [0, 0.9], clamp) : 0.9 * (1 - dt / 0.5);
   return <div style={{ position: "absolute", left: x - r, top: y - r, width: 2 * r, height: 2 * r, borderRadius: "50%", opacity: o,
-    border: "4px solid rgba(99,91,206,0.9)", background: dt < 0 ? "rgba(99,91,206,0.25)" : "transparent" }} />;
+    border: "4px solid rgba(169,163,255,0.95)", background: dt < 0 ? "rgba(169,163,255,0.28)" : "transparent" }} />;
 }
 
 export function RealTag({ text = "REAL APP · live Muse output · synthetic chat" }: { text?: string }) {
-  return <div style={{ position: "absolute", left: 40, top: 6, font: `800 18px ${FONT}`, letterSpacing: 1.4, color: C.primaryInk, zIndex: 50 }}>{text}</div>;
+  return <div style={{ position: "absolute", left: 40, top: 6, font: `800 18px ${FONT}`, letterSpacing: 1.4, color: C.nightMuted, zIndex: 50 }}>{text}</div>;
 }

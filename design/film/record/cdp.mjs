@@ -12,7 +12,9 @@ export const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 export async function launch({ width, height, scale = 2, mocks = null }) {
   const port = 9800 + Math.floor(Math.random() * 150);
   const proc = spawn(CHROME, ["--headless=new", `--remote-debugging-port=${port}`, `--user-data-dir=${mkdtempSync(join(tmpdir(), "im-film-"))}`,
-    "--no-first-run", "--hide-scrollbars", "about:blank"], { stdio: "ignore" });
+    "--no-first-run", "--hide-scrollbars",
+    // The screencast sends CSS pixels unless the whole browser renders at the device scale.
+    ...(scale !== 1 ? [`--force-device-scale-factor=${scale}`] : []), "about:blank"], { stdio: "ignore" });
   let tabs = [];
   for (let i = 0; i < 100 && !tabs.length; i++) {
     try { tabs = (await (await fetch(`http://127.0.0.1:${port}/json`)).json()).filter((t) => t.type === "page"); } catch { /* starting */ }
