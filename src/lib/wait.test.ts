@@ -15,4 +15,7 @@ test("analysis estimate grows with turns and matches measured runs", () => {
 test("extraction estimate covers the measured 4–14 s", () => {
   assert.deepEqual(extractEstimate(1), { lo: 5, hi: 15 });
   assert.ok(extractEstimate(3).hi >= 14);
+  // 10 screenshots: 4 parts, 2 at a time = 2 rounds of up to 3.
+  assert.deepEqual(extractEstimate(10), { lo: 10, hi: 45 });
+  assert.deepEqual(extractEstimate(6), { lo: 5, hi: 25 });
 });

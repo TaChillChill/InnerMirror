@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { attemptTimeout, callUntilValid, ROUTE_BUDGET_MS } from "./meta-client.ts";
+import { attemptTimeout, callUntilValid, rateLimited, ROUTE_BUDGET_MS } from "./meta-client.ts";
 
 test("attempt timeout stays inside the route budget and refuses when too little is left", () => {
   const t0 = 1_000_000;
@@ -36,4 +36,17 @@ test("retries once when there is time, and skips the retry near the deadline", a
     console.info = info;
     fake.restore();
   }
+});
+
+test("rate limit can count one request as several units (screenshots)", () => {
+  const key = `test:${Math.random()}`;
+  assert.equal(rateLimited(key, 30, 60_000, 10), false);
+  assert.equal(rateLimited(key, 30, 60_000, 10), false);
+  assert.equal(rateLimited(key, 30, 60_000, 10), false);
+  // 30 used: the next screenshot is refused, and a refused request doesn't use any up.
+  assert.equal(rateLimited(key, 30, 60_000, 1), true);
+  assert.equal(rateLimited(key, 30, 60_000, 1), true);
+  const other = `test:${Math.random()}`;
+  for (let i = 0; i < 8; i++) assert.equal(rateLimited(other), false);
+  assert.equal(rateLimited(other), true);
 });

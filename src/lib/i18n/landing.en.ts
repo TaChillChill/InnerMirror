@@ -56,7 +56,7 @@ export const landingEn = {
     kicker: "How it works",
     title: "Four simple steps",
     steps: [
-      ["Add a conversation", "Paste the text or upload up to three screenshots."],
+      ["Add a conversation", "Paste the text or upload up to ten screenshots."],
       ["See how it moved", "Mirror suggests a possible voice for each message and where things shifted."],
       ["Reflect and explore", "Agree, choose another, or stay unsure. Try What if? to see how another voice might have landed."],
       ["Save your Mirror", "Keep stickers of what you discovered, only in this browser."],

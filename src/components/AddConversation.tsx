@@ -34,7 +34,7 @@ export function AddConversation({ s, update }: { s: Session; update: Update }) {
     requestAnimationFrame(() => window.scrollTo({ top: 0 }));
   };
 
-  const openReview = (transcript: Transcript, readFrom: string) => update({ screen: "review", transcript, selfId: null, consent: false, readFrom, shots: [], extractNotes: [] });
+  const openReview = (transcript: Transcript, readFrom: string) => update({ screen: "review", transcript, selfId: null, consent: false, readFrom, shots: [], extractNotes: [], shotsSkipped: "" });
   const guard = (key: string, read: () => void) => {
     const plan = rereadPlan(s.transcript, s.readFrom, key);
     if (plan === "reuse") return update({ screen: "review" });

@@ -74,13 +74,13 @@ export function App() {
     if (last?.key === key) {
       // Unchanged conversation (only "Who am I?" may differ): same reading, my choices kept.
       // A save belongs to the perspective it was made from.
-      update({ screen: "replay", analysis: last.analysis, labels: last.labels, ...titleFor(s.transcript), error: null, selected: null, shots: [], draft: { ...s.draft, images: [] }, extractNotes: [], savedId: last.selfId === s.selfId ? s.savedId : null });
+      update({ screen: "replay", analysis: last.analysis, labels: last.labels, ...titleFor(s.transcript), error: null, selected: null, shots: [], draft: { ...s.draft, images: [], reads: {} }, extractNotes: [], shotsSkipped: "", savedId: last.selfId === s.selfId ? s.savedId : null });
       window.scrollTo({ top: 0 });
       return;
     }
     const controller = new AbortController();
     abort.current = controller;
-    update({ screen: "analyzing", error: null, analysis: null, choices: {}, selected: null, savedId: null, shots: [], draft: { ...s.draft, images: [] }, extractNotes: [] });
+    update({ screen: "analyzing", error: null, analysis: null, choices: {}, selected: null, savedId: null, shots: [], draft: { ...s.draft, images: [], reads: {} }, extractNotes: [], shotsSkipped: "" });
     try {
       const res = await fetch("/api/analyze", {
         method: "POST",

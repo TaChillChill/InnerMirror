@@ -2,6 +2,9 @@
 import { directionEn } from "./direction.en.ts";
 import { landingEn } from "./landing.en.ts";
 import { privacyEn } from "./privacy.en.ts";
+// "Screenshot 4", "Screenshots 4–6, 10": `which` is a list of numbers and ranges.
+const shotsLabel = (which: string) => `Screenshot${/[–,]/.test(which) ? "s" : ""} ${which}`;
+
 export const en = {
   appName: "InnerMirror",
   langLabel: "Language",
@@ -32,7 +35,7 @@ export const en = {
     lead: "Bring Mirror one that left you wondering, “Wait, how did we end up here?” Look back at what happened together, and explore where else it could have gone.",
     methods: "How do you want to start?",
     shot: "I have the chat",
-    shotSub: "Upload screenshots of the messages for Mirror to read. Up to 3; you check the text before anything is looked at.",
+    shotSub: "Upload screenshots of the messages for Mirror to read. Up to 10; you check the text before anything is looked at.",
     paste: "Tell it",
     pasteSub: "Type it, paste a chat, or tap the mic and tell what happened.",
     pasteLabel: "Tell the conversation. Mirror reads it best when each line is one person's words, like Name: words",
@@ -102,6 +105,7 @@ export const en = {
         non_text_skipped: "Photos, stickers, voice notes or reactions were not included.",
         not_a_chat: "This may not be a text conversation.",
       },
+      skipped: (which: string) => `${shotsLabel(which)} ${/[–,]/.test(which) ? "weren't read, so their" : "wasn't read, so its"} messages are missing here. Tap Back to try again.`,
       namesGuess: "Names Mirror couldn't see were left generic. Rename people with the pencil.",
     },
     namesNote: "Names stay on this device. Mirror sees “You”, “Person A”, “Person B” instead, but names written inside messages are sent as they are.",
@@ -130,7 +134,7 @@ export const en = {
     methods: (n: number) => `Drag and drop, paste with Cmd/Ctrl+V, or choose files. Up to ${n}.`,
     dropHereTouch: "Add screenshots of the chat",
     methodsTouch: (n: number) => `Choose screenshots from your photo library. Up to ${n}.`,
-    added: (n: number, max: number) => `${n} of ${max} screenshots added.`,
+    added: (n: number, max: number) => `${n}/${max} screenshots added.`,
     open: (n: number) => `View screenshot ${n} larger`,
     position: (i: number, n: number) => `Screenshot ${i} of ${n}`,
     prev: "Previous screenshot",
@@ -149,11 +153,16 @@ export const en = {
     reading: "Reading…",
     wait: (lo: number, hi: number) => `Reading the text usually takes about ${lo}–${hi} seconds. Nothing is analyzed yet.`,
     slow: "Taking a little longer than usual. Still reading the screenshots.",
+    progress: (done: number, total: number) => `${done} of ${total} screenshots read…`,
+    partial: (done: number, total: number, which: string) => `${done} of ${total} screenshots read. ${shotsLabel(which)} couldn't be read.`,
+    partialKeep: "What was read is kept. Trying again only sends the screenshots that failed.",
+    retryFailed: "Try those again",
+    continueWithout: "Continue without them",
     problems: {
       format: "That file isn't a PNG, JPEG, WebP or GIF image.",
       decode: "That image couldn't be opened. Try another one.",
       large: "That image is too large even after shrinking. Crop it or take a smaller screenshot.",
-      tooMany: "You can add up to 3 screenshots. The extra ones weren't added. Remove one first to swap it.",
+      tooMany: (max: number, left: number) => `You can add up to ${max} screenshots, so ${left} ${left === 1 ? "wasn't" : "weren't"} added. Remove one first to swap it.`,
       not_a_chat: "No conversation was found in the image. Try a clearer screenshot of a chat.",
     },
   },

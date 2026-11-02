@@ -5,6 +5,7 @@ import { pseudonymLabel, SELF_LABEL } from "@/lib/ai/analysis-spec";
 import { defaultTitle, titleNames } from "@/lib/conversation-title";
 import type { Lang, Transcript } from "@/lib/conversation";
 import type { NoteCode } from "@/lib/ai/extract-spec";
+import type { Extraction } from "@/lib/ai/extraction";
 import { resolveState } from "@/lib/ai/scenario";
 import { safetyHits } from "@/lib/safety-backstop";
 import { DICTS, type ExKey } from "@/lib/i18n";
@@ -30,10 +31,13 @@ export type Session = {
   shots: string[]; // screenshots kept in browser memory only, to compare while reviewing
   // The Add screen as the user left it, so Back from Review costs no re-work. Memory only;
   // screenshots are dropped once the conversation is analyzed, like `shots`.
-  draft: { method: "shot" | "paste" | null; text: string; images: string[] }; // null until a way to start is chosen
+  // `reads`: each part of the screenshots already read (key: imagesKey of the part), so a retry
+  // or a second read only sends the parts that failed or changed.
+  draft: { method: "shot" | "paste" | null; text: string; images: string[]; reads: Record<string, Extraction> }; // method null until chosen
   readFrom: string | null; // textKey/imagesKey of what the current transcript was read from
   sample: boolean; // the built-in sample: no API calls, nothing saved
   extractNotes: NoteCode[];
+  shotsSkipped: string; // screenshots left out after a partial failure, e.g. "4–6", shown on Review
   // The last reading and what it was made from, so an unchanged conversation isn't sent
   // again. In memory only, like everything here; a new conversation drops it.
   lastResult: { key: string; selfId: string | null; analysis: Analysis; labels: Record<string, string> } | null;
@@ -41,8 +45,8 @@ export type Session = {
 
 export const freshSession = (): Session => ({
   screen: "landing", transcript: null, selfId: null, consent: false, analysis: null, labels: {},
-  choices: {}, selected: null, error: null, title: "", titleAuto: true, note: "", savedId: null, shots: [], extractNotes: [], lastResult: null,
-  draft: { method: null, text: "", images: [] }, readFrom: null, sample: false,
+  choices: {}, selected: null, error: null, title: "", titleAuto: true, note: "", savedId: null, shots: [], extractNotes: [], shotsSkipped: "", lastResult: null,
+  draft: { method: null, text: "", images: [], reads: {} }, readFrom: null, sample: false,
 });
 
 export const readingFor = (a: Analysis, id: string): Reading | undefined => a.readings.find((r) => r.messageId === id);

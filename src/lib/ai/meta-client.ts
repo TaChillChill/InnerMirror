@@ -73,13 +73,14 @@ function log(route: string, data: Record<string, unknown>) {
 }
 
 // Small in-memory rate limit per client. Enough for a protected demo; not a substitute
-// for platform-level limits if the URL ever goes public.
+// for platform-level limits if the URL ever goes public. `weight` counts one request as
+// several units (extraction counts screenshots, since one conversation now spans requests).
 const hits = new Map<string, number[]>();
-export function rateLimited(clientKey: string, limit = 8, windowMs = 10 * 60_000): boolean {
+export function rateLimited(clientKey: string, limit = 8, windowMs = 10 * 60_000, weight = 1): boolean {
   const now = Date.now();
   const recent = (hits.get(clientKey) ?? []).filter((t) => now - t < windowMs);
-  if (recent.length >= limit) { hits.set(clientKey, recent); return true; }
-  recent.push(now);
+  if (recent.length + weight > limit) { hits.set(clientKey, recent); return true; }
+  for (let i = 0; i < weight; i++) recent.push(now);
   hits.set(clientKey, recent);
   return false;
 }

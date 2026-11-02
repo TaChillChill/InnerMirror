@@ -9,7 +9,12 @@ import { callUntilValid, logRequest, MetaError, rateLimited } from "@/lib/ai/met
 export const runtime = "nodejs";
 export const maxDuration = 120;
 
-const MAX_IMAGES = 3; // keep in sync with src/lib/image.ts
+// Per request. A conversation can have up to 10 screenshots; the browser sends them in parts
+// of 3 (src/lib/shot-batches.ts), which keeps each body under Vercel's limit.
+const MAX_IMAGES = 3;
+// Screenshots per client per 10 minutes. Before, 8 requests of up to 3 = 24; now about three
+// 10-screenshot conversations, so the cost a single client can cause stays about the same.
+const RATE_LIMIT_IMAGES = 30;
 // Vercel rejects bodies over 4.5 MB; the browser compresses to fit well under that.
 const MAX_BODY_BYTES = 4_300_000;
 // Conservative stand-in for image input tokens (undocumented; refined from measured usage).
@@ -30,7 +35,6 @@ export async function POST(req: Request) {
   const code = process.env.ACCESS_CODE;
   if (code && req.headers.get("x-access-code") !== code) return fail("forbidden", 403);
   const client = req.headers.get("x-forwarded-for")?.split(",")[0].trim() || "local";
-  if (rateLimited(`extract:${client}`)) return fail("rate_limited", 429);
 
   const raw = await req.text();
   if (raw.length > MAX_BODY_BYTES) return fail("too_large", 413);
@@ -38,6 +42,8 @@ export async function POST(req: Request) {
   try { parsed = requestSchema.safeParse(JSON.parse(raw)); } catch { return fail("invalid_input", 400); }
   if (!parsed.success) return fail("invalid_input", 400);
   const { language, images } = parsed.data;
+  // Counted after validation, by screenshots: a rejected body costs nothing upstream.
+  if (rateLimited(`extract:${client}`, RATE_LIMIT_IMAGES, 10 * 60_000, images.length)) return fail("rate_limited", 429);
 
   const body = {
     // Low effort: medium was tested on a Vietnamese crop and made the same diacritic misreads at 2x cost.

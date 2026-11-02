@@ -71,8 +71,9 @@ export function Review({ s, update, onAnalyze, onBack }: Props) {
       {fromShot ? <MoreLine id="shot-lead" line={X.short} body={<p>{X.lead}</p>} /> : <p className="app-lead">{story ? S.body : R.leadCheck}</p>}
       {fromShot && (
         <>
-          {(attention > 0 || s.extractNotes.length > 0) && (
+          {(attention > 0 || s.extractNotes.length > 0 || s.shotsSkipped) && (
             <div className="im-notice" role="status"><Icon name="alert" /><div>
+              {s.shotsSkipped && <p><strong>{X.skipped(s.shotsSkipped)}</strong></p>}
               {attention > 0 && <p>{X.attention(attention)}</p>}
               {s.extractNotes.map((n) => <p key={n}>{X.notes[n]}</p>)}
             </div></div>
@@ -82,7 +83,7 @@ export function Review({ s, update, onAnalyze, onBack }: Props) {
               <summary>{X.compare}</summary>
               <div className="app-shots app-shots--compare">
                 {/* eslint-disable-next-line @next/next/no-img-element -- local data URLs */}
-                {s.shots.map((src, i) => <img key={i} src={src} alt={R.shotAlt(i + 1)} />)}
+                {s.shots.map((src, i) => <img key={i} src={src} alt={R.shotAlt(i + 1)} loading="lazy" decoding="async" />)}
               </div>
             </details>
           )}

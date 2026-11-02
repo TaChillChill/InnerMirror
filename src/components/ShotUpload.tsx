@@ -2,12 +2,15 @@
 // Screenshot → extract. Produces the same Transcript as pasting; the user always lands on
 // Review and nothing is analyzed until they confirm it there. Images arrive by picker,
 // drag and drop or paste, all through one `addFiles` so the same limits apply. They live
-// in the session draft, so Back from Review keeps them and their order.
+// in the session draft, so Back from Review keeps them and their order. Up to 10 are read
+// in parts (use-shot-reader.ts); if some parts fail, the rest is kept and the user chooses.
 import { useCallback, useEffect, useRef, useState } from "react";
 import { MAX_IMAGES, prepareImage, type ImageError } from "@/lib/image";
 import { hasFiles, isEditableTarget, planIntake } from "@/lib/image-intake";
 import { toTranscript, type Extraction } from "@/lib/ai/extraction";
 import { imagesKey, rereadPlan } from "@/lib/conversation";
+import { chunkImages, mergeExtractions, partRange } from "@/lib/shot-batches";
+import { useShotReader, type Part } from "./use-shot-reader";
 import type { Update } from "./App";
 import type { Session } from "./session";
 import { ReplaceNotice } from "./ReplaceNotice";
@@ -15,7 +18,6 @@ import { ShotLightbox } from "./ShotLightbox";
 import { Icon, useT } from "./ui";
 import { WaitHint } from "./Analyzing";
 import { extractEstimate } from "@/lib/wait";
-import { errorCode } from "@/lib/api-error";
 
 export function ShotUpload({ s, update }: { s: Session; update: Update }) {
   const { t, lang } = useT();
@@ -24,11 +26,13 @@ export function ShotUpload({ s, update }: { s: Session; update: Update }) {
   const setImages = useCallback((next: (cur: string[]) => string[]) => update((cur) => ({ draft: { ...cur.draft, images: next(cur.draft.images) } })), [update]);
   const [confirmReplace, setConfirmReplace] = useState(false);
   const [consent, setConsent] = useState(false);
-  const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [ignored, setIgnored] = useState(0);
   const [dragging, setDragging] = useState(false);
   const [viewing, setViewing] = useState<number | null>(null);
-  const abort = useRef<AbortController | null>(null);
+  const onPart = useCallback((key: string, ex: Extraction) => update((cur) => ({ draft: { ...cur.draft, reads: { ...cur.draft.reads, [key]: ex } } })), [update]);
+  const reader = useShotReader(lang, onPart);
+  const busy = reader.busy;
   const input = useRef<HTMLInputElement>(null);
   const imagesRef = useRef(images);
   useEffect(() => { imagesRef.current = images; }, [images]);
@@ -66,6 +70,7 @@ export function ShotUpload({ s, update }: { s: Session; update: Update }) {
       return setPicked((n) => n + 1);
     }
     setError(ignored ? "tooMany" : null);
+    setIgnored(ignored);
     const next: string[] = [];
     for (const file of accepted) {
       try { next.push(await prepareImage(file)); }
@@ -113,32 +118,46 @@ export function ShotUpload({ s, update }: { s: Session; update: Update }) {
     void extract();
   };
 
+  // A changed set of screenshots makes an earlier partial result meaningless.
+  const key = imagesKey(images);
+  const { clear } = reader;
+  useEffect(() => { clear(); }, [key, clear]);
+
   const extract = async () => {
     setConfirmReplace(false);
-    const controller = new AbortController();
-    abort.current = controller;
-    setBusy(true);
     setError(null);
-    try {
-      const res = await fetch("/api/extract", {
-        method: "POST", headers: { "Content-Type": "application/json" }, signal: controller.signal,
-        body: JSON.stringify({ language: lang, images, consent: true }),
-      });
-      const json = await res.json().catch(() => ({}));
-      if (!res.ok) return setError(errorCode(res.status, json));
-      const extraction = json.extraction as Extraction;
-      const transcript = toTranscript(extraction, { me: t.add.me, unknown: t.add.unknown, other: (n) => (n === 1 ? t.add.otherPerson : `${t.add.otherPerson} ${n}`) });
-      if (!transcript.messages.length) return setError("not_a_chat");
-      update({ screen: "review", transcript, selfId: null, consent: false, shots: images, extractNotes: extraction.notes, readFrom: imagesKey(images) });
-    } catch (e) {
-      if (!(e instanceof DOMException && e.name === "AbortError")) setError("network");
-    } finally {
-      setBusy(false);
-    }
+    // Reads of screenshots that were removed or moved since are dropped here.
+    const keep = new Set(chunkImages(images).map(imagesKey));
+    const cache = Object.fromEntries(Object.entries(s.draft.reads).filter(([k]) => keep.has(k)));
+    update((cur) => ({ draft: { ...cur.draft, reads: cache } }));
+    const out = await reader.read(images, cache);
+    if (out.aborted) return reader.clear();
+    const failed = out.parts.filter((p) => p.status !== "done");
+    if (!failed.length) return finish(out.parts, out.results);
+    if (failed.length === out.parts.length) { reader.clear(); setError(failed[0].error ?? "unknown"); }
+    // Otherwise the partial notice below lets the user retry the failed parts or go on without them.
   };
 
+  const finish = (parts: Part[], results: (Extraction | null)[]) => {
+    const done = parts.filter((p) => p.status === "done" && results[p.index]);
+    const extraction = mergeExtractions(done.map((p) => results[p.index] as Extraction));
+    const transcript = toTranscript(extraction, { me: t.add.me, unknown: t.add.unknown, other: (n) => (n === 1 ? t.add.otherPerson : `${t.add.otherPerson} ${n}`) });
+    if (!transcript.messages.length) { reader.clear(); return setError("not_a_chat"); }
+    const skipped = parts.filter((p) => !done.includes(p)).map((p) => partRange(p.index, p.count)).join(", ");
+    // Read from only what was used, so reading again after Back retries the missing parts.
+    const used = chunkImages(images).filter((_, i) => done.some((p) => p.index === i)).flat();
+    reader.clear();
+    update({ screen: "review", transcript, selfId: null, consent: false, shots: images, extractNotes: extraction.notes, shotsSkipped: skipped, readFrom: imagesKey(used) });
+  };
+
+  const parts = reader.parts;
+  const imagesDone = parts?.filter((p) => p.status === "done").reduce((n, p) => n + p.count, 0) ?? 0;
+  const failedParts = !busy && parts ? parts.filter((p) => p.status === "failed") : [];
+  const failedWhy = failedParts[0]?.error;
+
   const full = images.length >= MAX_IMAGES;
-  const message = error && ((S.problems as Record<string, string>)[error] ?? (t.errors as Record<string, string>)[error] ?? t.errors.unknown);
+  const known = error ? (S.problems as Record<string, string | ((max: number, left: number) => string)>)[error] : undefined;
+  const message = error && (typeof known === "function" ? known(MAX_IMAGES, ignored) : known ?? (t.errors as Record<string, string>)[error] ?? t.errors.unknown);
   return (
     <div className="app-panel">
       <div className={`app-drop${dragging ? " is-drag" : ""}${full ? " is-full" : ""}`}
@@ -161,7 +180,7 @@ export function ShotUpload({ s, update }: { s: Session; update: Update }) {
               <li key={src.slice(-40) + i} className="app-shot">
                 <button className="app-shot__open" onClick={() => setViewing(i)} disabled={busy} aria-label={S.open(i + 1)}>
                   {/* eslint-disable-next-line @next/next/no-img-element -- a local data URL, not an optimizable asset */}
-                  <img src={src} alt={S.alt(i + 1)} />
+                  <img src={src} alt={S.alt(i + 1)} decoding="async" />
                   <span className="app-shot__n" aria-hidden>{i + 1}</span>
                   <span className="app-shot__zoom" aria-hidden><Icon name="search" /></span>
                 </button>
@@ -183,11 +202,22 @@ export function ShotUpload({ s, update }: { s: Session; update: Update }) {
           <label className="im-check"><input type="checkbox" checked={consent} onChange={(e) => setConsent(e.target.checked)} /> {t.review.consent}</label>
           <div className="app-actions" ref={actions}>
             <button className="im-btn im-btn--primary" disabled={(!consent && plan !== "reuse") || busy} onClick={onRead}>{busy ? S.reading : S.read}</button>
-            {busy && <button className="im-btn im-btn--ghost" onClick={() => abort.current?.abort()}>{t.analyzing.cancel}</button>}
+            {busy && <button className="im-btn im-btn--ghost" onClick={reader.cancel}>{t.analyzing.cancel}</button>}
           </div>
         </>
       )}
       {busy && <WaitHint estimate={extractEstimate(images.length)} text={S.wait} slow={S.slow} />}
+      {busy && parts && parts.length > 1 && <p className="im-hint" role="status">{S.progress(imagesDone, images.length)}</p>}
+      {failedParts.length > 0 && (
+        <div className="im-notice app-partial" role="alert"><Icon name="alert" /><div>
+          <p>{S.partial(imagesDone, images.length, failedParts.map((p) => partRange(p.index, p.count)).join(", "))} {failedWhy && failedWhy !== "aborted" ? (t.errors as Record<string, string>)[failedWhy] ?? t.errors.unknown : ""}</p>
+          <p>{S.partialKeep}</p>
+          <div className="app-actions">
+            <button className="im-btn im-btn--primary" disabled={!consent} onClick={() => void extract()}>{S.retryFailed}</button>
+            <button className="im-btn im-btn--secondary" onClick={() => parts && finish(parts, parts.map((p) => s.draft.reads[p.key] ?? null))}>{S.continueWithout}</button>
+          </div>
+        </div></div>
+      )}
       {message && <p ref={problem} className={error === "tooMany" ? "im-hint" : "im-error"} role="alert"><Icon name="alert" />{message}</p>}
       {viewing !== null && <ShotLightbox images={images} index={viewing} onIndex={setViewing} onClose={() => setViewing(null)} />}
     </div>
