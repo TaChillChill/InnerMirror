@@ -1,0 +1,3 @@
+# Full-size captures; rebuild with capture.mjs. Only the composed img/ is committed.
+raw/
+img/.tmp.html

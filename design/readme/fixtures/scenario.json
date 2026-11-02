@@ -1,0 +1,32 @@
+{
+ "scenario": {
+  "flagged": false,
+  "evidence": "thin",
+  "reason": "model",
+  "ranked": false,
+  "possibilities": [
+   {
+    "state": "A",
+    "basis": "pattern",
+    "rationale": "The earlier words checking the time and mentioning wine could read as Adult describing information. A reply from Adult could fit that pattern.",
+    "evidenceMessageIds": [
+     "m1"
+    ],
+    "cues": [
+     "dinner at 7 still?",
+     "got the good wine"
+    ]
+   }
+  ],
+  "note": "The text alone cannot show what Person A's short replies meant in this exchange.",
+  "reflectionQuestion": "What do you notice when you look at Person A's earlier messages alongside this moment?"
+ },
+ "labels": {
+  "Person A": "p1",
+  "You": "p2"
+ },
+ "meta": {
+  "latencyMs": 10953,
+  "spec": "s2.0"
+ }
+}

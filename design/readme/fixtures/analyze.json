@@ -1,0 +1,344 @@
+{
+ "analysis": {
+  "context": {
+   "register": "No forms of address or closeness markers are visible. The wording is short and informal, which can read as casual texting.",
+   "turns": [
+    {
+     "turnId": "t1",
+     "act": "checks the dinner time and shares a detail",
+     "respondsTo": null
+    },
+    {
+     "turnId": "t2",
+     "act": "confirms enthusiastically and reports running late",
+     "respondsTo": "t1"
+    },
+    {
+     "turnId": "t3",
+     "act": "acknowledges briefly",
+     "respondsTo": "t2"
+    },
+    {
+     "turnId": "t4",
+     "act": "questions the short reply and claims an apology was given",
+     "respondsTo": "t3"
+    },
+    {
+     "turnId": "t5",
+     "act": "corrects the claim that an apology was given",
+     "respondsTo": "t4"
+    }
+   ],
+   "dynamics": "The exchange starts with practical coordination about dinner, then a delay is reported. A very short reply is followed by questions about that reply and about whether an apology happened."
+  },
+  "segments": [
+   {
+    "turnId": "t1",
+    "messageIds": [
+     "m1"
+    ],
+    "splitReason": null,
+    "cues": [
+     "dinner at 7 still?",
+     "got the good wine"
+    ],
+    "contextCues": [],
+    "rationale": "The turn can read as here-and-now checking: a question for confirmation plus a practical detail.",
+    "family": "A",
+    "expression": "A",
+    "confidence": "medium",
+    "alternative": {
+     "expression": "FC",
+     "rationale": "The mention of \"good wine\" could also read as spontaneous enthusiasm about the plan."
+    },
+    "invites": "A",
+    "secondLayer": null,
+    "id": "s1"
+   },
+   {
+    "turnId": "t2",
+    "messageIds": [
+     "m2",
+     "m3"
+    ],
+    "splitReason": null,
+    "cues": [
+     "yesss 100%",
+     "ugh meeting ran over."
+    ],
+    "contextCues": [
+     {
+      "messageId": "m1",
+      "quote": "dinner at 7 still? got the good wine"
+     }
+    ],
+    "rationale": "The all-caps energy in \"yesss\" and the direct \"ugh\" can read as spontaneous expression, alongside the time update.",
+    "family": "C",
+    "expression": "FC",
+    "confidence": "medium",
+    "alternative": {
+     "expression": "A",
+     "rationale": "The times and delay could also read as plain factual updating about the plan."
+    },
+    "invites": "A",
+    "secondLayer": null,
+    "id": "s2"
+   },
+   {
+    "turnId": "t3",
+    "messageIds": [
+     "m4"
+    ],
+    "splitReason": null,
+    "cues": [],
+    "contextCues": [
+     {
+      "messageId": "m3",
+      "quote": "ugh meeting ran over. 20 min"
+     }
+    ],
+    "rationale": "A single letter gives very little evidence about what it does in context.",
+    "family": "UNCLEAR",
+    "expression": "UNCLEAR",
+    "confidence": "low",
+    "alternative": null,
+    "invites": "UNCLEAR",
+    "secondLayer": null,
+    "id": "s3"
+   },
+   {
+    "turnId": "t4",
+    "messageIds": [
+     "m5"
+    ],
+    "splitReason": null,
+    "cues": [
+     "k??",
+     "i said sorry"
+    ],
+    "contextCues": [
+     {
+      "messageId": "m4",
+      "quote": "k"
+     }
+    ],
+    "rationale": "The turn can read as pushback against the short reply, defending the earlier messages as already apologetic.",
+    "family": "C",
+    "expression": "AC",
+    "confidence": "low",
+    "alternative": {
+     "expression": "CP",
+     "rationale": "\"k??\" could also read as judging the short reply rather than reacting to it."
+    },
+    "invites": "P",
+    "secondLayer": null,
+    "id": "s4"
+   },
+   {
+    "turnId": "t5",
+    "messageIds": [
+     "m6"
+    ],
+    "splitReason": null,
+    "cues": [
+     "u didn't actually"
+    ],
+    "contextCues": [
+     {
+      "messageId": "m5",
+      "quote": "i said sorry"
+     }
+    ],
+    "rationale": "The words can read as a factual correction about what was said before.",
+    "family": "A",
+    "expression": "A",
+    "confidence": "medium",
+    "alternative": {
+     "expression": "CP",
+     "rationale": "It could also read as correcting the other person in a pointed way."
+    },
+    "invites": "A",
+    "secondLayer": null,
+    "id": "s5"
+   }
+  ],
+  "shifts": [
+   {
+    "messageId": "m3",
+    "description": "The words move from confirming the plan to reporting a delay.",
+    "cues": [
+     "ugh meeting ran over. 20 min"
+    ]
+   },
+   {
+    "messageId": "m4",
+    "description": "The words move from detailed updates to a minimal one-letter reply.",
+    "cues": [
+     "k"
+    ]
+   },
+   {
+    "messageId": "m5",
+    "description": "The words move from schedule coordination to questioning the previous reply.",
+    "cues": [
+     "k??"
+    ]
+   }
+  ],
+  "summary": "Person A opens with a check about dinner, and Person B confirms and then reports being delayed. After a one-letter reply from Person A, the talk shifts to whether Person B had apologized, with Person A saying no apology was actually given.",
+  "uncertainty": "Text alone cannot show tone of voice, timing between messages, or history between them, so the short replies could read in more than one way.",
+  "safety": {
+   "flagged": false,
+   "categories": [],
+   "note": null
+  },
+  "readings": [
+   {
+    "splitReason": null,
+    "cues": [
+     "dinner at 7 still?",
+     "got the good wine"
+    ],
+    "contextCues": [],
+    "rationale": "The turn can read as here-and-now checking: a question for confirmation plus a practical detail.",
+    "family": "A",
+    "expression": "A",
+    "confidence": "medium",
+    "alternative": {
+     "expression": "FC",
+     "rationale": "The mention of \"good wine\" could also read as spontaneous enthusiasm about the plan."
+    },
+    "invites": "A",
+    "secondLayer": null,
+    "messageId": "m1",
+    "segmentId": "s1"
+   },
+   {
+    "splitReason": null,
+    "cues": [
+     "yesss 100%",
+     "ugh meeting ran over."
+    ],
+    "contextCues": [
+     {
+      "messageId": "m1",
+      "quote": "dinner at 7 still? got the good wine"
+     }
+    ],
+    "rationale": "The all-caps energy in \"yesss\" and the direct \"ugh\" can read as spontaneous expression, alongside the time update.",
+    "family": "C",
+    "expression": "FC",
+    "confidence": "medium",
+    "alternative": {
+     "expression": "A",
+     "rationale": "The times and delay could also read as plain factual updating about the plan."
+    },
+    "invites": "A",
+    "secondLayer": null,
+    "messageId": "m2",
+    "segmentId": "s2"
+   },
+   {
+    "splitReason": null,
+    "cues": [
+     "yesss 100%",
+     "ugh meeting ran over."
+    ],
+    "contextCues": [
+     {
+      "messageId": "m1",
+      "quote": "dinner at 7 still? got the good wine"
+     }
+    ],
+    "rationale": "The all-caps energy in \"yesss\" and the direct \"ugh\" can read as spontaneous expression, alongside the time update.",
+    "family": "C",
+    "expression": "FC",
+    "confidence": "medium",
+    "alternative": {
+     "expression": "A",
+     "rationale": "The times and delay could also read as plain factual updating about the plan."
+    },
+    "invites": "A",
+    "secondLayer": null,
+    "messageId": "m3",
+    "segmentId": "s2"
+   },
+   {
+    "splitReason": null,
+    "cues": [],
+    "contextCues": [
+     {
+      "messageId": "m3",
+      "quote": "ugh meeting ran over. 20 min"
+     }
+    ],
+    "rationale": "A single letter gives very little evidence about what it does in context.",
+    "family": "UNCLEAR",
+    "expression": "UNCLEAR",
+    "confidence": "low",
+    "alternative": null,
+    "invites": "UNCLEAR",
+    "secondLayer": null,
+    "messageId": "m4",
+    "segmentId": "s3"
+   },
+   {
+    "splitReason": null,
+    "cues": [
+     "k??",
+     "i said sorry"
+    ],
+    "contextCues": [
+     {
+      "messageId": "m4",
+      "quote": "k"
+     }
+    ],
+    "rationale": "The turn can read as pushback against the short reply, defending the earlier messages as already apologetic.",
+    "family": "C",
+    "expression": "AC",
+    "confidence": "low",
+    "alternative": {
+     "expression": "CP",
+     "rationale": "\"k??\" could also read as judging the short reply rather than reacting to it."
+    },
+    "invites": "P",
+    "secondLayer": null,
+    "messageId": "m5",
+    "segmentId": "s4"
+   },
+   {
+    "splitReason": null,
+    "cues": [
+     "u didn't actually"
+    ],
+    "contextCues": [
+     {
+      "messageId": "m5",
+      "quote": "i said sorry"
+     }
+    ],
+    "rationale": "The words can read as a factual correction about what was said before.",
+    "family": "A",
+    "expression": "A",
+    "confidence": "medium",
+    "alternative": {
+     "expression": "CP",
+     "rationale": "It could also read as correcting the other person in a pointed way."
+    },
+    "invites": "A",
+    "secondLayer": null,
+    "messageId": "m6",
+    "segmentId": "s5"
+   }
+  ]
+ },
+ "labels": {
+  "Person A": "p1",
+  "Person B": "p2"
+ },
+ "meta": {
+  "latencyMs": 14953,
+  "spec": "v3.2"
+ }
+}
