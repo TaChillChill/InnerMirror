@@ -1,8 +1,10 @@
 // Lays out the README images in headless Chrome: a brand hero, a row of real phone screens,
 // and a framed desktop frame from the live demo take. Only arranges real assets; nothing in a
-// screen is drawn or edited. Light and dark versions, so GitHub can follow the reader's theme.
+// screen is drawn or edited. App screens are always Dark Mode (the product default); only the
+// page around them follows the reader's GitHub theme.
 //   node design/readme/capture.mjs && node design/readme/compose.mjs   → design/readme/img/
-// img/live-observe.gif: live take frames t = 61.0–80.5 s at 1.5×, 880 px, 12 fps, 128-colour
+// img/live-observe.gif: dark1 frames from the first visible result to 5.2 s after the "k??" panel
+// opens, at 1.5×, cropped to x 150–1770 of 1920 and scaled to 960 px, 12 fps, 128-colour
 // palette, encoded with the ffmpeg bundled in design/film (@remotion/compositor-*; it has no
 // fps filter, so the rate is set with -r on the output).
 import { mkdirSync, writeFileSync } from "node:fs";
@@ -10,7 +12,7 @@ import { launch } from "../../scripts/e2e/cdp.mjs";
 
 const root = new URL("../../", import.meta.url).pathname;
 const here = `${root}design/readme/`;
-const take = `${root}design/film/public/take/live1/frames/`; // git-ignored; rebuild with design/film/record/take.mjs
+const take = `${root}design/film/public/take/dark1/frames/`; // git-ignored; rebuild with design/film/record/take.mjs
 mkdirSync(`${here}img`, { recursive: true });
 
 const THEMES = {
@@ -49,7 +51,7 @@ function phones(t, theme) {
   return page(t, 2400, `<div style="display:flex;gap:44px;padding:70px 60px 64px;justify-content:center">
     ${STEPS.map(([shot, title, sub], i) => `<div style="width:420px">
       <div style="border-radius:58px;padding:11px;background:${t.bezel};box-shadow:0 24px 60px rgba(25,18,70,.22)">
-        <img src="${file(`${here}raw/phone-${theme}-${shot}.png`)}" style="display:block;width:398px;border-radius:48px"></div>
+        <img src="${file(`${here}raw/phone-dark-${shot}.png`)}" style="display:block;width:398px;border-radius:48px"></div>
       <div style="display:flex;gap:14px;align-items:flex-start;margin-top:30px">
         <span style="flex:0 0 46px;height:46px;border-radius:50%;background:${t.brand};color:${theme === "dark" ? "#17152b" : "#fff"};font-weight:900;font-size:24px;display:grid;place-items:center">${i + 1}</span>
         <div><div style="font-size:29px;font-weight:900;color:${t.label}">${title}</div><div style="font-size:21px;font-weight:600;color:${t.muted};margin-top:4px;line-height:1.3">${sub}</div></div>
@@ -124,9 +126,9 @@ try {
     const t = THEMES[theme];
     await render(`hero-${theme}`, hero(t), 1600, 1.5);
     await render(`phones-${theme}`, phones(t, theme), 2400, 1);
-    // Frame 2263 of the live take (What if? result, t = 115.5 s): real app, real Muse.
+    // Frame 2420 of the Dark Mode live take dark1 (What if? result): real app, real Muse.
     await render(`workflow-${theme}`, workflow(t, theme), 1760, 1.5);
-    await render(`whatif-${theme}`, windowed(t, "02263"), 1440, 1);
+    await render(`whatif-${theme}`, windowed(t, "02420"), 1440, 1.5);
   }
 } finally {
   b.close();

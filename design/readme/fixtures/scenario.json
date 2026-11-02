@@ -8,25 +8,26 @@
    {
     "state": "A",
     "basis": "pattern",
-    "rationale": "The earlier words checking the time and mentioning wine could read as Adult describing information. A reply from Adult could fit that pattern.",
+    "rationale": "The words in \"dinner at 7 still?\" and \"u didn't actually\" could read as checking or describing information, which may fit a reply from Adult.",
     "evidenceMessageIds": [
-     "m1"
+     "m1",
+     "m6"
     ],
     "cues": [
      "dinner at 7 still?",
-     "got the good wine"
+     "u didn't actually"
     ]
    }
   ],
-  "note": "The text alone cannot show what Person A's short replies meant in this exchange.",
-  "reflectionQuestion": "What do you notice when you look at Person A's earlier messages alongside this moment?"
+  "note": "The text alone cannot show how Person A's brief messages sounded beyond the words.",
+  "reflectionQuestion": "What do you notice when you compare Person A's earlier messages with this moment?"
  },
  "labels": {
-  "Person A": "p1",
-  "You": "p2"
+  "You": "p2",
+  "Person A": "p1"
  },
  "meta": {
-  "latencyMs": 10953,
+  "latencyMs": 13543,
   "spec": "s2.0"
  }
 }

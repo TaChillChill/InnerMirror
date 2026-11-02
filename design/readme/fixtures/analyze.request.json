@@ -1,7 +1,75 @@
-{"language":"en","participantIds":["p1","p2"],"consent":true,"messages":[
-{"id":"m1","speakerId":"p1","text":"dinner at 7 still? got the good wine"},
-{"id":"m2","speakerId":"p2","text":"yesss 100%. leaving at 6"},
-{"id":"m3","speakerId":"p2","text":"ugh meeting ran over. 20 min"},
-{"id":"m4","speakerId":"p1","text":"k"},
-{"id":"m5","speakerId":"p2","text":"k?? i said sorry"},
-{"id":"m6","speakerId":"p1","text":"u didn't actually"}]}
+{
+ "language": "en",
+ "participantIds": [
+  "p1",
+  "p2"
+ ],
+ "consent": true,
+ "messages": [
+  {
+   "id": "m1",
+   "speakerId": "p1",
+   "text": "dinner at 7 still? got the good wine 🍷"
+  },
+  {
+   "id": "m2",
+   "speakerId": "p2",
+   "text": "yesss 100%. leaving at 6"
+  },
+  {
+   "id": "m3",
+   "speakerId": "p2",
+   "text": "ugh meeting ran over. 20 min"
+  },
+  {
+   "id": "m4",
+   "speakerId": "p1",
+   "text": "k"
+  },
+  {
+   "id": "m5",
+   "speakerId": "p2",
+   "text": "k?? i said sorry"
+  },
+  {
+   "id": "m6",
+   "speakerId": "p1",
+   "text": "u didn't actually"
+  },
+  {
+   "id": "m7",
+   "speakerId": "p2",
+   "text": "wow ok. i'm literally rushing rn"
+  },
+  {
+   "id": "m8",
+   "speakerId": "p1",
+   "text": "it's fine. it's always fine"
+  },
+  {
+   "id": "m9",
+   "speakerId": "p2",
+   "text": "what's that supposed to mean"
+  },
+  {
+   "id": "m10",
+   "speakerId": "p1",
+   "text": "it means i'm tired of always being the one who waits"
+  },
+  {
+   "id": "m11",
+   "speakerId": "p2",
+   "text": "and i'm tired of feeling guilty for working"
+  },
+  {
+   "id": "m12",
+   "speakerId": "p1",
+   "text": "then eat at the office lol"
+  },
+  {
+   "id": "m13",
+   "speakerId": "p2",
+   "text": "fine. do whatever u want."
+  }
+ ]
+}

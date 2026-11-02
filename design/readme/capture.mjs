@@ -1,6 +1,6 @@
 // README screenshots: the real app (local production build) driven through the flow, with
-// /api/analyze and /api/scenario answered by REAL Muse Spark responses recorded on Production
-// on 2026-11-02 (fixtures/, synthetic conversation). Nothing is paid for and no text is edited.
+// /api/analyze and /api/scenario answered by the REAL Muse Spark responses of the Dark Mode
+// demo take dark1 (2026-11-02; fixtures/ = design/film/public/take/dark1/api.json, synthetic chat). Nothing is paid for and no text is edited.
 // My Reflection uses the film's synthetic saved history (labels only).
 //   npm run build && META_API_KEY= npx next start -p 3123 &
 //   node design/readme/capture.mjs            → design/readme/raw/*.png
@@ -84,7 +84,6 @@ async function flow(s, prefix, { panelShots }) {
 const only = process.argv[2];
 const runs = [
   ["phone-dark", { width: 390, height: 844, scale: 3, theme: "dark" }, { panelShots: true }],
-  ["phone-light", { width: 390, height: 844, scale: 3, theme: "light" }, { panelShots: true }],
 ];
 for (const [prefix, view, opts] of runs) {
   if (only && only !== prefix) continue;

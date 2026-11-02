@@ -53,9 +53,9 @@ Everyone speaks from all five. A state belongs to a **message**, never to a pers
 ## See it in action
 
 <p align="center">
-  <img src="design/readme/img/live-observe.gif" width="100%" alt="The app showing an ego state under each message, then opening the explanation for “k?? i said sorry”: Adapted Child, medium confidence, with the quoted words and an alternative reading.">
+  <img src="design/readme/img/live-observe.gif" width="100%" alt="The app showing an ego state under each message, then opening the explanation for “k?? i said sorry”: Adapted Child, low confidence, with the quoted words and an alternative reading (Critical Parent).">
 </p>
-<p align="center"><sub>Recorded from a live run: the real app with Muse Spark on a synthetic conversation (played at 1.5× speed).</sub></p>
+<p align="center"><sub>Recorded from a live run: the real app in Dark Mode with Muse Spark on a synthetic conversation (1.5× speed). The same take is the product demo in our video.</sub></p>
 
 ### The journey
 
@@ -74,12 +74,12 @@ Everyone speaks from all five. A state belongs to a **message**, never to a pers
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="design/readme/img/whatif-dark.jpg">
-  <img alt="The What if panel: what happened (You as Critical Parent, Jordan as Critical Parent), and one possible interaction if you had answered as Adult." src="design/readme/img/whatif-light.jpg" width="100%">
+  <img alt="The What if panel for “wow ok. i'm literally rushing rn”: what happened (You as Critical Parent, Jordan as Critical Parent), and, exploring an Adult answer, Mirror saying it doesn't see another clear possibility." src="design/readme/img/whatif-light.jpg" width="100%">
 </picture>
 
-Pick any message and an ego state it could have come from. Mirror looks only at the other person's **earlier** words and shows up to two states they might plausibly answer from, each tied to quotes. **It writes no replies and predicts nothing.** It is one possible interaction, offered so you can think about it.
+Pick any message and an ego state it could have come from. Mirror looks only at the other person's **earlier** words and shows up to two states they might plausibly answer from, each tied to quotes. **It writes no replies and predicts nothing.** And when the words don't point anywhere clear, it says so, as in this live run, instead of inventing an answer.
 
-<sub>Real screens of the app. The journey screens are a local production build that replays real Muse Spark responses recorded on Production (2 Nov 2026) for the synthetic chat shown. "What if…?" comes from the same live run as the recording above. My Reflection uses synthetic saved history.</sub>
+<sub>Real screens of the app, all from one Dark Mode live run with Muse Spark (2 Nov 2026, synthetic chat). The GIF and "What if…?" are frames of that recording; the phone screens are the same build at phone size, replaying that run's Muse responses unedited. My Reflection uses synthetic saved history.</sub>
 
 ## How Muse Spark powers InnerMirror
 
