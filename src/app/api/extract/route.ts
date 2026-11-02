@@ -9,11 +9,11 @@ import { callUntilValid, logRequest, MetaError, rateLimited } from "@/lib/ai/met
 export const runtime = "nodejs";
 export const maxDuration = 120;
 
-// Per request. A conversation can have up to 10 screenshots; the browser sends them in parts
+// Per request. A conversation can have up to 5 screenshots; the browser sends them in parts
 // of 3 (src/lib/shot-batches.ts), which keeps each body under Vercel's limit.
 const MAX_IMAGES = 3;
-// Screenshots per client per 10 minutes. Before, 8 requests of up to 3 = 24; now about three
-// 10-screenshot conversations, so the cost a single client can cause stays about the same.
+// Screenshots per client per 10 minutes: about the old 8 requests of up to 3 (24), so the cost
+// a single client can cause stays the same; six full 5-screenshot reads.
 const RATE_LIMIT_IMAGES = 30;
 // Vercel rejects bodies over 4.5 MB; the browser compresses to fit well under that.
 const MAX_BODY_BYTES = 4_300_000;

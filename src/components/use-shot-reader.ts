@@ -1,5 +1,5 @@
 "use client";
-// Reads up to 10 screenshots in parts of 3, two parts at a time (src/lib/shot-batches.ts).
+// Reads up to 5 screenshots in parts of 3, two parts at a time (src/lib/shot-batches.ts).
 // Each part that comes back is stored in the session draft right away (memory only), so a
 // failed part never loses the others and trying again only sends what failed or changed.
 import { useCallback, useRef, useState } from "react";

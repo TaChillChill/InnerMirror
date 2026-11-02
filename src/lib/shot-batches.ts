@@ -1,4 +1,4 @@
-// Up to 10 screenshots are read in requests of at most 3: one request with 10 would pass
+// Up to 5 screenshots are read in requests of at most 3: one request with all of them could pass
 // Vercel's 4.5 MB body limit and the route's time budget. The model merges overlaps inside
 // one request; this module joins the parts in order and merges the overlap where two parts
 // meet. Pure, so it is unit-tested in Node.

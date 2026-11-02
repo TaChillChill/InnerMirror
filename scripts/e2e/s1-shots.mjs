@@ -1,4 +1,4 @@
-// S1: up to 10 screenshots. Read in parts of 3 (2 at a time), joined in order with the
+// S1: up to 5 screenshots. Read in parts of 3 (2 at a time), joined in order with the
 // overlap at each seam listed once; a failed part keeps the others (retry only sends what
 // failed, or continue without it); limits, large images, Back/Next. All /api/* mocked.
 //   node scripts/e2e/s1-shots.mjs <width> <en|vi>
@@ -7,8 +7,8 @@ import { launch, HELPERS } from "./cdp.mjs";
 const width = Number(process.argv[2] ?? 390);
 const lang = process.argv[3] ?? "en";
 const L = {
-  en: { start: "I have the chat", next: "Continue", back: "Back", retry: "Try those again", without: "Continue without them", again: "Read it again", added: (n) => `${n}/10 screenshots added`, partial: "Screenshots 4–6 couldn't be read", skipped: "Screenshots 4–6 weren't read", tooMany: "so 2 weren't added", large: "too large even after shrinking", rate: "Too many tries", merged: "listed once" },
-  vi: { start: "Có sẵn cuộc trò chuyện", next: "Tiếp tục", back: "Quay lại", retry: "Thử đọc lại các ảnh đó", without: "Tiếp tục mà không có các ảnh đó", again: "Đọc lại", added: (n) => `Đã thêm ${n}/10 ảnh`, partial: "Chưa đọc được ảnh 4–6", skipped: "Ảnh 4–6 chưa được đọc", tooMany: "nên 2 ảnh chưa được thêm", large: "vẫn quá lớn", rate: "nhiều lần quá", merged: "liệt kê một lần" },
+  en: { start: "I have the chat", next: "Continue", back: "Back", retry: "Try those again", without: "Continue without them", again: "Read it again", added: (n) => `${n}/5 screenshots added`, partial: "Screenshots 4–5 couldn't be read", skipped: "Screenshots 4–5 weren't read", tooMany: "so 2 weren't added", large: "too large even after shrinking", rate: "Too many tries", merged: "listed once" },
+  vi: { start: "Có sẵn cuộc trò chuyện", next: "Tiếp tục", back: "Quay lại", retry: "Thử đọc lại các ảnh đó", without: "Tiếp tục mà không có các ảnh đó", again: "Đọc lại", added: (n) => `Đã thêm ${n}/5 ảnh`, partial: "Chưa đọc được ảnh 4–5", skipped: "Ảnh 4–5 chưa được đọc", tooMany: "nên 2 ảnh chưa được thêm", large: "vẫn quá lớn", rate: "nhiều lần quá", merged: "liệt kê một lần" },
 }[lang];
 
 // The fake model: screenshot n shows 3 lines and repeats the previous screenshot's last
@@ -68,93 +68,92 @@ try {
   const expected = (n) => Array.from({ length: n }, (_, i) => [1, 2, 3].map((k) => `line ${i + 1}.${k}`)).flat();
   const noOverflow = () => step(`document.documentElement.scrollWidth <= innerWidth`);
 
-  for (const n of [1, 3, 5, 10]) {
+  for (const n of [1, 3, 5]) {
     await fresh();
     const labels = Array.from({ length: n }, (_, i) => i + 1);
     await drop(labels);
     await register(labels);
-    check(`${n}: counter shows ${n}/10`, await step(`document.body.innerText.includes(${JSON.stringify(L.added(n))})`));
+    check(`${n}: counter shows ${n}/5`, await step(`document.body.innerText.includes(${JSON.stringify(L.added(n))})`));
     const before = calls();
     await read();
     const got = await bubbles();
     check(`${n}: ${Math.ceil(n / 3)} extract call(s), ${3 * n} messages in order, seams merged`, calls() - before === Math.ceil(n / 3) && JSON.stringify(got) === JSON.stringify(expected(n)), `${calls() - before} calls; ${got.length} msgs`);
     check(`${n}: two people across parts`, await step(`document.querySelectorAll(".app-who__opt").length === 2`));
     if (n > 3) check(`${n}: overlap note shown`, await step(`document.body.innerText.includes(${JSON.stringify(L.merged)})`));
-    if (n === 10) {
-      check("10: no horizontal overflow on Review", await noOverflow());
-      // Back keeps all 10 in order; unchanged → Review again with no call.
+    if (n === 5) {
+      check("5: no horizontal overflow on Review", await noOverflow());
+      // Back keeps all 5 in order; unchanged → Review again with no call.
       await step(`$click("button", ${JSON.stringify(L.back)}); $wait(400)`);
       const kept = await step(`[...document.querySelectorAll(".app-shot img")].map((i) => i.src)`);
-      check("10: Back keeps the 10 screenshots in order", kept.length === 10 && kept.every((f, i) => index.get(f) === i + 1));
-      check("10: Add button off at the limit, no overflow", await step(`[...document.querySelectorAll(".app-drop button")].every((x) => x.disabled)`) && await noOverflow());
+      check("5: Back keeps the 5 screenshots in order", kept.length === 5 && kept.every((f, i) => index.get(f) === i + 1));
+      check("5: Add button off at the limit, no overflow", await step(`[...document.querySelectorAll(".app-drop button")].every((x) => x.disabled)`) && await noOverflow());
       const c0 = calls();
       await step(`$click(".app-actions button", ${JSON.stringify(L.next)}); $wait(600)`);
-      check("10: Next again → same Review, no new call", calls() === c0 && (await bubbles()).length === 30);
-      // Lightbox walks all 10.
+      check("5: Next again → same Review, no new call", calls() === c0 && (await bubbles()).length === 15);
+      // Lightbox reaches the last one.
       await step(`$click("button", ${JSON.stringify(L.back)}); $wait(400)`);
-      await step(`document.querySelectorAll(".app-shot__open")[9].click(); $wait(300)`);
-      check("10: lightbox opens screenshot 10 of 10", await step(`/10\\D+10/.test(document.querySelector(".app-lb__count").textContent)`));
+      await step(`document.querySelectorAll(".app-shot__open")[4].click(); $wait(300)`);
+      check("5: lightbox opens screenshot 5 of 5", await step(`/5\\D+5/.test(document.querySelector(".app-lb__count").textContent)`));
       await step(`document.querySelector(".app-lb").close(); $wait(200)`);
-      // Remove one → 9/10, adding is possible again.
+      // Remove one → 4/5, adding is possible again.
       await step(`document.querySelectorAll(".app-shot__tools button")[2].click(); $wait(200)`);
-      check("10: remove → 9/10 and Add is back", await step(`document.body.innerText.includes(${JSON.stringify(L.added(9))}) && !document.querySelector(".app-drop button").disabled`));
+      check("5: remove → 4/5 and Add is back", await step(`document.body.innerText.includes(${JSON.stringify(L.added(4))}) && !document.querySelector(".app-drop button").disabled`));
     }
   }
 
   // Same screenshot twice across a seam (3 and 4 are the same file): listed once.
   await fresh();
-  await drop([1, 2, 3, 3, 4, 5]);
-  await register([1, 2, 3, 3, 4, 5]);
+  await drop([1, 2, 3, 3, 4]);
+  await register([1, 2, 3, 3, 4]);
   await read();
   const dup = await bubbles();
-  check("duplicate screenshot across a seam: messages listed once", JSON.stringify(dup) === JSON.stringify(expected(5)), dup.join(","));
+  check("duplicate screenshot across a seam: messages listed once", JSON.stringify(dup) === JSON.stringify(expected(4)), dup.join(","));
 
-  // Part 2 (screenshots 4–6) fails: the rest is kept; retry sends only that part.
+  // Part 2 (screenshots 4–5) fails: the rest is kept; retry sends only that part.
   await fresh();
-  const ten = Array.from({ length: 10 }, (_, i) => i + 1);
-  await drop(ten); await register(ten);
+  const five = [1, 2, 3, 4, 5];
+  await drop(five); await register(five);
   fail.add(5);
   let c0 = calls();
   await read();
-  check("partial failure: notice names screenshots 4–6, stays on Add", await step(`!!$t(".app-partial", ${JSON.stringify(L.partial)}) && !document.querySelector(".app-rv-thread")`), `${calls() - c0} calls`);
-  check("partial failure: 4 calls, no overflow", calls() - c0 === 4 && await noOverflow());
+  check("partial failure: notice names screenshots 4–5, stays on Add", await step(`!!$t(".app-partial", ${JSON.stringify(L.partial)}) && !document.querySelector(".app-rv-thread")`), `${calls() - c0} calls`);
+  check("partial failure: 2 calls, no overflow", calls() - c0 === 2 && await noOverflow());
   fail.clear();
   c0 = calls();
   await step(`$click(".app-partial button", ${JSON.stringify(L.retry)}); $wait(1200)`);
-  check("retry sends only the failed part → full Review", calls() - c0 === 1 && JSON.stringify(await bubbles()) === JSON.stringify(expected(10)), `${calls() - c0} calls`);
+  check("retry sends only the failed part → full Review", calls() - c0 === 1 && JSON.stringify(await bubbles()) === JSON.stringify(expected(5)), `${calls() - c0} calls`);
 
   // Same failure, then continue without: Review says what's missing; Back + read again fills it.
   await fresh();
-  await drop(ten); await register(ten);
+  await drop(five); await register(five);
   fail.add(5);
   await read();
   await step(`$click(".app-partial button", ${JSON.stringify(L.without)}); $wait(600)`);
   const partial = await bubbles();
-  // Screenshots 1–3 and 7–10: 7 × 3 lines, plus line 6.3 that screenshot 7 repeats at its top.
-  check("continue without: Review with 7 screenshots' messages and a notice", partial.length === 22 && await step(`document.body.innerText.includes(${JSON.stringify(L.skipped)})`), `${partial.length} msgs`);
+  check("continue without: Review with screenshots 1–3 (9 messages) and a notice", partial.length === 9 && await step(`document.body.innerText.includes(${JSON.stringify(L.skipped)})`), `${partial.length} msgs`);
   fail.clear();
   await step(`$click("button", ${JSON.stringify(L.back)}); $wait(400)`);
   c0 = calls();
   await read(); // consent is asked again on a new visit to Add
   const asked = await step(`!!document.querySelector(".app-panel .im-notice button")`);
   if (asked) await step(`$click(".app-panel .im-notice button", ${JSON.stringify(L.again)}); $wait(1200)`);
-  check("Back + read again: only the missing part is sent, Review complete", calls() - c0 === 1 && JSON.stringify(await bubbles()) === JSON.stringify(expected(10)), `asked ${asked}, ${calls() - c0} calls`);
+  check("Back + read again: only the missing part is sent, Review complete", calls() - c0 === 1 && JSON.stringify(await bubbles()) === JSON.stringify(expected(5)), `asked ${asked}, ${calls() - c0} calls`);
 
   // Rate limited: no more parts are sent after the refusal.
   await fresh();
-  await drop(ten); await register(ten);
+  await drop(five); await register(five);
   failWith = { __status: 429, __body: { error: "rate_limited" } };
-  ten.forEach((n) => fail.add(n));
+  five.forEach((n) => fail.add(n));
   c0 = calls();
   await read();
   check("rate limited: stops after the parts in flight (≤ 2 calls), says why", calls() - c0 <= 2 && await step(`document.body.innerText.includes(${JSON.stringify(L.rate)})`), `${calls() - c0} calls`);
   fail.clear();
   failWith = { __status: 502, __body: { error: "upstream" } };
 
-  // 12 at once → 10 kept, the message says 2 were left out.
+  // 7 at once → 5 kept, the message says 2 were left out.
   await fresh();
-  await drop(Array.from({ length: 12 }, (_, i) => i + 1));
-  check("12 dropped → 10 added, 2 left out explained", await step(`document.querySelectorAll(".app-shot").length === 10 && document.body.innerText.includes(${JSON.stringify(L.tooMany)})`));
+  await drop(Array.from({ length: 7 }, (_, i) => i + 1));
+  check("7 dropped → 5 added, 2 left out explained", await step(`document.querySelectorAll(".app-shot").length === 5 && document.body.innerText.includes(${JSON.stringify(L.tooMany)})`));
 
   // Large images: a huge plain one is shrunk and kept; a huge noisy one is refused, others stay.
   await fresh();

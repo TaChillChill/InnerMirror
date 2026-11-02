@@ -57,7 +57,7 @@ export const landingVi: LandingDict = {
     kicker: "Cách hoạt động",
     title: "Bốn bước đơn giản",
     steps: [
-      ["Thêm cuộc trò chuyện", "Dán nội dung hoặc tải lên tối đa mười ảnh chụp màn hình."],
+      ["Thêm cuộc trò chuyện", "Dán nội dung hoặc tải lên tối đa năm ảnh chụp màn hình."],
       ["Xem nó diễn biến", "Gương gợi ý một giọng có thể cho từng tin nhắn và chỗ cuộc trò chuyện đổi hướng."],
       ["Suy ngẫm và khám phá", "Đồng ý, chọn giọng khác, hoặc để là chưa chắc. Thử What if? để xem một giọng khác có thể được đón nhận ra sao."],
       ["Lưu Tấm gương", "Giữ lại sticker cho điều bạn khám phá, chỉ trong trình duyệt này."],

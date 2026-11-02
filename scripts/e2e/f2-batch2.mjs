@@ -23,8 +23,8 @@ const extraction = {
 };
 const analysis = cleanAnalysis(sm.raw, sm.messages);
 const L = lang === "vi"
-  ? { have: "Có sẵn cuộc trò chuyện", cont: "Tiếp tục", look: "Xem cuộc trò chuyện này", next: "Tiếp tục nhìn lại mình", save: "Lưu vào thiết bị này", added: (n) => `Đã thêm ${n}/10 ảnh.`, photo: "thư viện ảnh", drag: "Kéo thả", value: "Một góc nhìn khác, để hiểu nhau hơn.", privacy: "không lưu ảnh" }
-  : { have: "I have the chat", cont: "Continue", look: "Look at this conversation", next: "Continue to My Reflection", save: "Save to this device", added: (n) => `${n}/10 screenshots added.`, photo: "photo library", drag: "Drag and drop", value: "Another perspective, to understand each other better.", privacy: "don't save your screenshots" };
+  ? { have: "Có sẵn cuộc trò chuyện", cont: "Tiếp tục", look: "Xem cuộc trò chuyện này", next: "Tiếp tục nhìn lại mình", save: "Lưu vào thiết bị này", added: (n) => `Đã thêm ${n}/5 ảnh.`, photo: "thư viện ảnh", drag: "Kéo thả", value: "Một góc nhìn khác, để hiểu nhau hơn.", privacy: "không lưu ảnh" }
+  : { have: "I have the chat", cont: "Continue", look: "Look at this conversation", next: "Continue to My Reflection", save: "Save to this device", added: (n) => `${n}/5 screenshots added.`, photo: "photo library", drag: "Drag and drop", value: "Another perspective, to understand each other better.", privacy: "don't save your screenshots" };
 
 const b = await launch({ width, height, mocks: { "/api/extract": { extraction }, "/api/analyze": { analysis, labels: { [lang === "vi" ? "Người A" : "Person A"]: "p1", [lang === "vi" ? "Người B" : "Person B"]: "p2" }, meta: { spec: "v3.2" } } } });
 const results = [];
