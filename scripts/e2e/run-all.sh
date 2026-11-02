@@ -15,7 +15,8 @@ for args in "m1-back.mjs 390" "m1-back.mjs 1280" "m2-merge.mjs 390" "m6-sample.m
             "f1-uat-fixes.mjs 360 dark" "f1-uat-fixes.mjs 390 light" "f1-uat-fixes.mjs 390 dark" "f1-uat-fixes.mjs 1280 light" \
             "f2-batch2.mjs 390 dark vi $LAN" "f2-batch2.mjs 360 light en $LAN" "f2-batch2.mjs 1280 light vi" "f2-batch2.mjs 1280 dark en $LAN" \
             "f3-batch3.mjs 390 dark" "f3-batch3.mjs 360 light" "f3-batch3.mjs 1280 light" \
-            "s1-shots.mjs 360 vi" "s1-shots.mjs 390 en" "s1-shots.mjs 1280 en" "s1-shots.mjs 1280 vi"; do
+            "s1-shots.mjs 360 vi" "s1-shots.mjs 390 en" "s1-shots.mjs 1280 en" "s1-shots.mjs 1280 vi" \
+            "l1-turns.mjs 360 vi" "l1-turns.mjs 390 en" "l1-turns.mjs 1280 en"; do
   # shellcheck disable=SC2086 # word splitting is intended
   node --disable-warning=ExperimentalWarning $args
 done | grep -E "^width|PASS|FAIL|ERROR|API requests"

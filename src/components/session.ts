@@ -38,6 +38,11 @@ export type Session = {
   sample: boolean; // the built-in sample: no API calls, nothing saved
   extractNotes: NoteCode[];
   shotsSkipped: string; // screenshots left out after a partial failure, e.g. "4–6", shown on Review
+  // Over 40 turns the user picks which 40 to analyze (turn-window.ts): the first message of
+  // that part. While a part is analyzed, `transcript` holds the part and `fullTranscript` the
+  // whole conversation, which Review shows again; nothing is dropped.
+  turnFrom: string | null;
+  fullTranscript: Transcript | null;
   // The last reading and what it was made from, so an unchanged conversation isn't sent
   // again. In memory only, like everything here; a new conversation drops it.
   lastResult: { key: string; selfId: string | null; analysis: Analysis; labels: Record<string, string> } | null;
@@ -45,7 +50,7 @@ export type Session = {
 
 export const freshSession = (): Session => ({
   screen: "landing", transcript: null, selfId: null, consent: false, analysis: null, labels: {},
-  choices: {}, selected: null, error: null, title: "", titleAuto: true, note: "", savedId: null, shots: [], extractNotes: [], shotsSkipped: "", lastResult: null,
+  choices: {}, selected: null, error: null, title: "", titleAuto: true, note: "", savedId: null, shots: [], extractNotes: [], shotsSkipped: "", turnFrom: null, fullTranscript: null, lastResult: null,
   draft: { method: null, text: "", images: [], reads: {} }, readFrom: null, sample: false,
 });
 

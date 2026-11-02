@@ -9,6 +9,8 @@ import type { Session } from "./session";
 import { Avatar, Icon, MoreLine, useT } from "./ui";
 import { NarrationLines } from "./StoryLines";
 import { dropMessage, dropNarration, narrationBefore, toDialogue, toNarration } from "@/lib/story";
+import { partOptions, windowOf } from "@/lib/turn-window";
+import { TurnPartPicker } from "./TurnPartPicker";
 
 type Props = { s: Session; update: Update; onAnalyze: () => void; onBack: () => void };
 
@@ -58,7 +60,11 @@ export function Review({ s, update, onAnalyze, onBack }: Props) {
     setRenaming(id);
   };
 
-  const problem = reviewProblem(T) ?? (s.consent ? null : "consent");
+  // Over 40 turns, the checks apply to the part the user chose; until then, choosing comes first.
+  const needsPart = partOptions(T.messages).length > 0;
+  const part = windowOf(T, s.turnFrom);
+  const inPart = needsPart && part ? new Set(part.messages.map((m) => m.id)) : null;
+  const problem = (part ? reviewProblem(part) : "choosePart") ?? (s.consent ? null : "consent");
   const speakerChips = (current: string, onPick: (pid: string) => void) => T.participants.map((p) => (
     <button key={p.id} className="app-chip-btn" aria-pressed={current === p.id} onClick={() => onPick(p.id)}>{avatar(p.id, 24)}{p.name}</button>
   ));
@@ -135,6 +141,8 @@ export function Review({ s, update, onAnalyze, onBack }: Props) {
         <p className="im-hint">{R.namesNote}</p>
       </section>
 
+      <TurnPartPicker messages={T.messages} value={s.turnFrom} onChange={(id) => update({ turnFrom: id })} />
+
       <div className="app-stack">
         {T.messages.length || T.narration?.length ? (
           <ol className="app-rv-thread" aria-label={t.steps[0]}>
@@ -157,7 +165,7 @@ export function Review({ s, update, onAnalyze, onBack }: Props) {
               );
               return (
                 <Fragment key={m.id}>{narr(m.id)}
-                <li className={`app-rv-msg ${isRight(m) ? "is-right" : ""}`}>
+                <li className={`app-rv-msg ${isRight(m) ? "is-right" : ""}${inPart && !inPart.has(m.id) ? " is-outside" : ""}`}>
                   {!isRight(m) && avatar(m.speakerId, 32)}
                   <button className={`im-bubble app-rv-bubble${m.legibility === "partial" ? " is-partial" : ""}`} onClick={() => setEditing(m.id)} aria-label={`${name}: ${m.text || X.unreadable}. ${R.editHint}`}>
                     <span className="app-rv-name">{name}{m.legibility === "partial" && <em className="app-rv-tag"> · {X.partialTag}</em>}</span>

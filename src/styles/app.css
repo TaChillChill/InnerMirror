@@ -310,3 +310,8 @@ html:has(.app-sheet-open), html:has(.app-modal) { overflow: hidden; }
 .app-mic__live { margin: 0; font: var(--im-text-caption); color: var(--im-text-muted); font-style: italic; }
 @keyframes app-pulse { 50% { opacity: .35; } }
 @media (prefers-reduced-motion: reduce) { .app-mic__btn.is-on .app-mic__dot { animation: none; } }
+
+/* Over 40 turns: the part picker on Review, and the messages outside the chosen part. */
+.app-part { margin-block: var(--im-space-4); }
+.app-part__select { width: 100%; max-width: 100%; margin-top: var(--im-space-2); }
+.app-rv-msg.is-outside { opacity: 0.45; }

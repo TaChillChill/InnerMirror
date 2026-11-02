@@ -3,6 +3,7 @@
 import { analyzeRequestSchema } from "@/lib/conversation";
 import { ANALYSIS_SPEC_VERSION, analysisLabels, buildAnalysisBody, groupTurns } from "@/lib/ai/analysis-spec";
 import { cleanAnalysis } from "@/lib/ai/analysis";
+import { MAX_TURNS } from "@/lib/turn-window";
 import { callUntilValid, logRequest, MetaError, rateLimited } from "@/lib/ai/meta-client";
 
 export const runtime = "nodejs";
@@ -24,6 +25,9 @@ export async function POST(req: Request) {
   try { parsed = analyzeRequestSchema.safeParse(JSON.parse(raw)); } catch { return fail("invalid_input", 400); }
   if (!parsed.success) return fail("invalid_input", 400);
   const input = parsed.data;
+  // The browser sends at most 40 turns (the part the user chose); longer would risk the time
+  // and token ceilings, so it is refused before any call.
+  if (groupTurns(input.messages).length > MAX_TURNS) return fail("too_long", 413);
 
   // Names never leave the browser, and the model isn't told who the user is: every
   // participant gets a neutral label, so "Who am I?" can't change a reading.

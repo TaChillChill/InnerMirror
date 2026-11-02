@@ -2,7 +2,7 @@
 // Screenshot → extract. Produces the same Transcript as pasting; the user always lands on
 // Review and nothing is analyzed until they confirm it there. Images arrive by picker,
 // drag and drop or paste, all through one `addFiles` so the same limits apply. They live
-// in the session draft, so Back from Review keeps them and their order. Up to 10 are read
+// in the session draft, so Back from Review keeps them and their order. Up to 5 are read
 // in parts (use-shot-reader.ts); if some parts fail, the rest is kept and the user chooses.
 import { useCallback, useEffect, useRef, useState } from "react";
 import { MAX_IMAGES, prepareImage, type ImageError } from "@/lib/image";
@@ -147,7 +147,7 @@ export function ShotUpload({ s, update }: { s: Session; update: Update }) {
     // Read from only what was used, so reading again after Back retries the missing parts.
     const used = chunkImages(images).filter((_, i) => done.some((p) => p.index === i)).flat();
     reader.clear();
-    update({ screen: "review", transcript, selfId: null, consent: false, shots: images, extractNotes: extraction.notes, shotsSkipped: skipped, readFrom: imagesKey(used) });
+    update({ screen: "review", transcript, selfId: null, consent: false, shots: images, extractNotes: extraction.notes, shotsSkipped: skipped, readFrom: imagesKey(used), turnFrom: null, fullTranscript: null });
   };
 
   const parts = reader.parts;

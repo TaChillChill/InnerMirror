@@ -3,6 +3,7 @@
 // thought sent as several bubbles reads as one), shifts between messages, and the selector
 // for the open segment. The AI's cues are highlighted in the bubbles themselves.
 import { Fragment, useCallback, useEffect, useRef, useState, type ReactNode } from "react";
+import { partOptions, turnCount } from "@/lib/turn-window";
 import type { Update } from "./App";
 import { aiChip, badgeFor } from "./Selector";
 import { MessagePanel, type PanelTab } from "./MessagePanel";
@@ -53,6 +54,9 @@ export function Replay({ s, update, onContinue, onEdit, onRestart }: { s: Sessio
   const scenarios = useScenarios();
   const a = s.analysis!;
   const T = s.transcript!;
+  // Only part of a long conversation was looked at: say which, so nothing seems lost.
+  const chosen = s.fullTranscript && partOptions(s.fullTranscript.messages).find((o) => o.firstId === s.turnFrom);
+  const looked = chosen && s.fullTranscript ? { ...chosen, total: turnCount(s.fullTranscript.messages) } : null;
   const others = T.participants.filter((p) => p.id !== s.selfId);
   const close = useCallback(() => update({ selected: null }), [update]);
   // The same button closes what it opened; the other one switches tab.
@@ -116,6 +120,7 @@ export function Replay({ s, update, onContinue, onEdit, onRestart }: { s: Sessio
         <button className="app-textlink app-replay__edit" onClick={onEdit}><Icon name="edit" /> {R.editTranscript}</button>
         {s.sample && <div className="im-notice" role="status"><Icon name="eye" /><div>{R.sampleNote}</div></div>}
         {T.source === "story" && <div className="im-notice" role="status"><Icon name="text" /><div>{R.storyNote}</div></div>}
+        {looked && <div className="im-notice" role="status"><Icon name="text" /><div>{t.review.part.looked(looked.from, looked.to, looked.total)}</div></div>}
         {/* The backstop adds support on top of the readings; the model's own flag replaces Replay (Safety). */}
         {safetyHold(s) && <div className="im-notice im-notice--safety" role="alert"><Icon name="alert" /><div>
           <strong>{t.safety.holdTitle}</strong><p>{t.safety.holdBody}</p><p><strong>{t.safety.emergency}</strong></p></div></div>}
