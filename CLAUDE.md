@@ -97,3 +97,4 @@ Live commands spend from the approved budget: run them only with the Founder's g
 | `docs/RELEASE_READINESS.md` | Completion sprint: feature matrix, test evidence, risks, spend, iPhone UAT checklist, Preview GO/NO-GO |
 | `docs/UAT_FIX_SPRINT.md` | Founder UAT fix sprint (12 issues): status, why approved feedback was missed, evidence, re-test guide |
 | `docs/UAT_EXECUTION_PLAN.md` | Round 3: gap analysis, full roadmap, execution order to submission (proposed; supersedes the audit where they differ) |
+| `docs/DEMO_VIDEO_SCREENPLAY.md` | Demo film: screenplay, shot list, conversation options, music cues; animatic in `design/film/` (draft, not locked) |

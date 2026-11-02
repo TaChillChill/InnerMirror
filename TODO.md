@@ -12,7 +12,7 @@ Session state and next actions. Stable rules live in `CLAUDE.md`. Overwrite this
 - **Founder UAT 12 issues fixed (local commits, not pushed):** logo `791ee7b`, cloud `810a381`, input/review/observation/title/Direction `28253fa`. Status per issue, why approved feedback was missed, re-test guide: `docs/UAT_FIX_SPRINT.md`.
 - **Earlier sprint** (all approved pre-submission items): `docs/RELEASE_READINESS.md` (§5 iPhone checklist updated for the fixes).
 - **Recommendation:** Founder re-tests the three journeys (`UAT_FIX_SPRINT.md` §6); then Preview deploy (needs approval).
-- **Spend:** this sprint $0. Project ≈ **$4.86 of $6** (ledger $4.11 + app/Preview ≈ $0.75, partly estimated).
+- **Spend:** demo-film live take $0.0588 (server log, 3 calls). Project ≈ **$4.92 of $6** (ledger $4.11 + app/Preview/film ≈ $0.81, partly estimated).
 - **Local server:** `npx next start -p 3123` reads `.env.local` (live calls). For mocked e2e, run it with `META_API_KEY=` (empty). Live UAT: `APP_SPEND_CAP_USD=0.4 npx next start -p 3123` + `node scripts/e2e/live-uat.mjs` (updated for reference-only Direction, not re-run).
 
 ## Next actions (max 5)
@@ -20,7 +20,7 @@ Session state and next actions. Stable rules live in `CLAUDE.md`. Overwrite this
 2. **Founder:** Q15 rules → judge-access method (UAT plan §7.12); decide the in-app rate limit for judging (R2: 8 per 10 min per IP).
 3. VI native-reader pass: Direction table + reference line, title template "Từ … đến …", story copy, What if? copy for other speakers. Decide whether a model-written title is worth a prompt change (≈ $0.3 eval).
 4. Fix UAT findings only (feature freeze Nov 3, 18:00 ICT).
-5. Submission: README, demo video, submit by Nov 4, 22:00 ICT. Video Phase A done (2026-11-02): screenplay V2 `docs/DEMO_VIDEO_SCREENPLAY.md` + animatic `design/film/` (`npm run dev`, port 5174). **Founder:** pick conversation A/B/C and review the animatic; Phase C (live take ≤ $0.15, recording, render) only after that approval.
+5. Submission: README, demo video, submit by Nov 4, 22:00 ICT. **Video rough cut V1 done (2026-11-02):** `design/film/public/out/innermirror-roughcut.mp4` (180 s, 1080p, git-ignored), viewer `cd design/film && npm run dev` → :5174. Live take = 3 Muse calls, **$0.0588** (cap $0.15). **Founder:** review; decide the 7 points in `docs/DEMO_VIDEO_SCREENPLAY.md` "Rough cut V1" (last line read as AC, "Me" vs Alex, 720p footage, music).
 
 ## Blockers
 - Meta publishes no retention period; copy says "may keep it for a period it decides".
