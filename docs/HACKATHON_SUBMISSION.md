@@ -1,13 +1,13 @@
 # Hackathon submission — copy-ready text
 
-Status: **draft for Founder review, 2026-11-02.** English answers for the Meta Global AI Developer Hackathon form. Every claim below is checked against the code (`src/lib/ai/`, `src/app/api/`) and `docs/RELEASE_READINESS.md`. Before pasting: check each field's character limit in the form, and fill the two `[…]` placeholders (demo video, repo URL).
+Status: **draft for Founder review, 2026-11-02.** English answers for the Meta Global AI Developer Hackathon form. Every claim below is checked against the code (`src/lib/ai/`, `src/app/api/`) and `docs/RELEASE_READINESS.md`. Before pasting: check each field's character limit in the form, and fill the demo video placeholder.
 
 | Field | Value |
 |---|---|
 | Project name | InnerMirror |
 | Tagline | See yourself more clearly through your everyday conversations. |
 | Live app | https://innermirror-flame.vercel.app |
-| Repository | [GitHub URL once public] |
+| Repository | https://github.com/TaChillChill/InnerMirror |
 | Demo video | [link] |
 | Track | Indie |
 | Meta model | Muse Spark, Standard tier (`muse-spark-1.3`), via the Meta Model API |
@@ -64,7 +64,7 @@ InnerMirror is not a diagnosis or therapy. It is a mirror: **AI observes. Humans
 
 ## Pre-submit checklist
 - [ ] Q15 rules checked: repo visibility, video length, Meta model requirement, pre-existing work, Indie eligibility, partner list.
-- [ ] Repository public and URL filled above (see `TODO.md` for the open decision on commit email).
+- [x] Repository public: https://github.com/TaChillChill/InnerMirror (2026-11-02, after the history audit and the email rewrite).
 - [ ] Demo video uploaded and linked here and in `README.md` §10.
 - [ ] Character limits of each form field checked.
 - [ ] Meta console: credits remaining before judging opens.
