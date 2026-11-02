@@ -16,6 +16,7 @@
 </p>
 <p align="center">
   <a href="#the-conversation-you-keep-replaying">Story</a> ·
+  <a href="#watch-the-demo">Demo</a> ·
   <a href="#see-it-in-action">See it in action</a> ·
   <a href="#how-muse-spark-powers-innermirror">Muse Spark</a> ·
   <a href="#privacy-and-safety-by-design">Privacy</a> ·
@@ -49,6 +50,13 @@ Everyone speaks from all five. A state belongs to a **message**, never to a pers
 | <img src="public/mascots/a-128.png" width="56" alt=""> | **Adult** | weighs facts and options |
 | <img src="public/mascots/fc-128.png" width="56" alt=""> | **Free Child** | expresses feelings and wants |
 | <img src="public/mascots/ac-128.png" width="56" alt=""> | **Adapted Child** | adjusts to others' expectations |
+
+## Watch the demo
+
+<p align="center">
+  <a href="https://www.youtube.com/watch?v=TChwjcAryMY"><img src="https://img.youtube.com/vi/TChwjcAryMY/maxresdefault.jpg" width="100%" alt="InnerMirror demo video on YouTube: Understand Your Conversations, Understand Yourself"></a>
+</p>
+<p align="center"><sub>▶ <a href="https://www.youtube.com/watch?v=TChwjcAryMY">Watch the demo on YouTube</a></sub></p>
 
 ## See it in action
 
@@ -167,7 +175,7 @@ sh scripts/e2e/run-all.sh
 - **Event:** Meta Global AI Developer Hackathon 2026, Indie track
 - **Team:** HeoCoin Family (solo founder)
 - **Meta technology:** Meta Model API with Muse Spark (`muse-spark-1.3`) for vision, observation and the Scenario Explorer
-- **Demo video:** *link added at submission*
+- **Demo video:** [youtube.com/watch?v=TChwjcAryMY](https://www.youtube.com/watch?v=TChwjcAryMY)
 - **Theory:** Eric Berne's Parent–Adult–Child model and the later functional five-state model; product hypotheses are kept separate ([`docs/THEORY_FOUNDATION.md`](docs/THEORY_FOUNDATION.md))
 
 ## License and assets
