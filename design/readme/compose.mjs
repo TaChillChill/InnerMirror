@@ -65,7 +65,7 @@ const FLOW = [
   ["you", "Check every line", "Fix words and speakers, pick who you are. Nothing is analyzed before this"],
   ["muse", "Observe", "Per message: a suggested ego state, quoted cues, confidence, an alternative; plus shifts", "/api/analyze"],
   ["you", "Interpret", "Agree, choose another state, or “Not sure”. Mirror never overwrites you"],
-  ["muse", "What if? · optional", "Up to 2 states the other person might answer from, with their earlier words. No replies written", "/api/scenario"],
+  ["muse", "What if? · optional", "Up to 2 states the other person might answer from, from the moment and their earlier words. No replies written", "/api/scenario"],
   ["you", "My Reflection", "Labels and your notes, saved only in your browser"],
 ];
 function workflow(t, theme) {
