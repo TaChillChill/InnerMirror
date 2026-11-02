@@ -56,6 +56,47 @@ function phones(t, theme) {
       </div></div>`).join("")}</div>`);
 }
 
+// The three Muse Spark calls between the human steps. Row 2 runs right to left (a snake).
+const FLOW = [
+  ["you", "Bring a conversation", "Paste it, retell it, or add up to 5 screenshots"],
+  ["muse", "Read", "Vision: text, speakers and sides from the screenshots. Transcribes only", "/api/extract"],
+  ["you", "Check every line", "Fix words and speakers, pick who you are. Nothing is analyzed before this"],
+  ["muse", "Observe", "Per message: a suggested ego state, quoted cues, confidence, an alternative; plus shifts", "/api/analyze"],
+  ["you", "Interpret", "Agree, choose another state, or “Not sure”. Mirror never overwrites you"],
+  ["muse", "What if? · optional", "Up to 2 states the other person might answer from, with their earlier words. No replies written", "/api/scenario"],
+  ["you", "My Reflection", "Labels and your notes, saved only in your browser"],
+];
+function workflow(t, theme) {
+  const dark = theme === "dark";
+  const card = ([who, title, sub, api], n) => {
+    const muse = who === "muse";
+    const bg = muse ? "#6a62d8" : (dark ? "#211e3b" : "#ffffff");
+    const fg = muse ? "#ffffff" : t.ink;
+    const line = muse ? "#4f47b8" : t.pillLine;
+    return `<div style="background:${bg};color:${fg};border:2px ${n === 5 ? "dashed" : "solid"} ${n === 5 ? (dark ? "#a9a3ff" : "#ffffff") : line};border-radius:26px;padding:24px 26px;height:268px;box-shadow:0 14px 34px rgba(25,18,70,${muse ? .28 : .1})">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <span style="font-size:15px;font-weight:900;letter-spacing:1.4px;padding:5px 12px;border-radius:999px;background:${muse ? "rgba(255,255,255,.18)" : (dark ? "#2e2a55" : "#ede8ff")};color:${muse ? "#fff" : t.brand}">${muse ? "✦ MUSE SPARK" : "YOU"}</span>
+        <span style="font-size:22px;font-weight:900;opacity:.55">${n + 1}</span></div>
+      <div style="font-size:31px;font-weight:900;margin-top:16px">${title}</div>
+      <div style="font-size:21px;font-weight:600;line-height:1.32;margin-top:8px;opacity:${muse ? .92 : .8}">${sub}</div>
+      ${api ? `<div style="font:600 17px ui-monospace,Menlo,monospace;margin-top:10px;opacity:.75">${api}</div>` : ""}</div>`;
+  };
+  const arrow = (dir) => `<div style="height:100%;display:grid;place-items:center;color:${t.brand};font-size:40px;font-weight:900">${dir}</div>`;
+  const cell = (col, row, html) => `<div style="grid-column:${col};grid-row:${row}">${html}</div>`;
+  return page(t, 1760, `<div style="padding:56px 64px 60px">
+    <div style="display:flex;gap:28px;align-items:center;font-size:21px;font-weight:800;color:${t.muted};margin-bottom:30px">
+      <span><span style="display:inline-block;width:18px;height:18px;border-radius:6px;background:#6a62d8;vertical-align:-2px"></span>&nbsp; Muse Spark via the Meta Model API</span>
+      <span><span style="display:inline-block;width:18px;height:18px;border-radius:6px;background:${dark ? "#211e3b" : "#fff"};border:2px solid ${t.pillLine};vertical-align:-3px"></span>&nbsp; You decide</span></div>
+    <div style="display:grid;grid-template-columns:376px 56px 376px 56px 376px 56px 376px;grid-template-rows:268px 64px 268px">
+      ${cell(1, 1, card(FLOW[0], 0))}${cell(2, 1, arrow("→"))}${cell(3, 1, card(FLOW[1], 1))}${cell(4, 1, arrow("→"))}${cell(5, 1, card(FLOW[2], 2))}${cell(6, 1, arrow("→"))}${cell(7, 1, card(FLOW[3], 3))}
+      ${cell(7, 2, arrow("↓"))}
+      ${cell(1, 3, `<div style="height:268px;border-radius:26px;padding:28px;display:flex;flex-direction:column;justify-content:center;gap:12px;border:2px solid ${t.pillLine};color:${t.ink}">
+        <div style="font-size:27px;font-weight:900">🔒 Nothing stored on our server</div>
+        <div style="font-size:20px;font-weight:600;line-height:1.35;color:${t.muted}">For the analysis, names are swapped for neutral labels. Every response is schema-checked before you see it.</div></div>`)}
+      ${cell(3, 3, card(FLOW[6], 6))}${cell(4, 3, arrow("←"))}${cell(5, 3, card(FLOW[5], 5))}${cell(6, 3, arrow("←"))}${cell(7, 3, card(FLOW[4], 4))}
+    </div></div>`);
+}
+
 function windowed(t, frame) {
   return page(t, 1440, `<div style="padding:56px 80px 72px">
     <div style="border-radius:18px;overflow:hidden;box-shadow:0 30px 80px rgba(25,18,70,.28);border:1px solid ${t.pillLine}">
@@ -84,6 +125,7 @@ try {
     await render(`hero-${theme}`, hero(t), 1600, 1.5);
     await render(`phones-${theme}`, phones(t, theme), 2400, 1);
     // Frame 2263 of the live take (What if? result, t = 115.5 s): real app, real Muse.
+    await render(`workflow-${theme}`, workflow(t, theme), 1760, 1.5);
     await render(`whatif-${theme}`, windowed(t, "02263"), 1440, 1);
   }
 } finally {

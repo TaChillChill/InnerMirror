@@ -87,20 +87,10 @@ Pick any message and an ego state it could have come from. Mirror looks only at 
 
 InnerMirror runs on Meta's **Muse Spark** (`muse-spark-1.3`, Standard tier) through the Meta Model API. Muse does three jobs, and each one stops where a human decision begins.
 
-```mermaid
-flowchart LR
-    S["📸 Up to 5 screenshots"]:::you --> X
-    P["✍️ Paste or retell"]:::you --> R
-    X["<b>Muse Spark · vision</b><br/>reads text, speakers, sides<br/><i>/api/extract</i>"]:::muse --> R
-    R["👀 You check every line<br/>and pick who you are"]:::you --> O
-    O["<b>Muse Spark · observation</b><br/>ego state, quoted cues,<br/>confidence, shifts, per message<br/><i>/api/analyze</i>"]:::muse --> I
-    I["🧭 Your interpretation<br/>agree, choose another,<br/>or “Not sure”"]:::you --> M
-    I --> W
-    W["<b>Muse Spark · What if?</b><br/>≤ 2 possible states for the<br/>other person, with evidence<br/><i>/api/scenario</i>"]:::muse -.-> I
-    M["🪞 My Reflection<br/>saved in your browser"]:::you
-    classDef muse fill:#6a62d8,stroke:#4f47b8,color:#ffffff
-    classDef you fill:#ede8ff,stroke:#a9a3ff,color:#252344
-```
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="design/readme/img/workflow-dark.jpg">
+  <img alt="Workflow. 1 You bring a conversation. 2 Muse Spark reads screenshots (vision, /api/extract). 3 You check every line. 4 Muse Spark observes each message (/api/analyze). 5 You interpret. 6 Optional: Muse Spark explores What if? (/api/scenario). 7 My Reflection, saved only in your browser." src="design/readme/img/workflow-light.jpg" width="100%">
+</picture>
 
 | Step | What Muse Spark does | Why it matters |
 |---|---|---|
