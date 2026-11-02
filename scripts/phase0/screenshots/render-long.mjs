@@ -1,7 +1,7 @@
-// Renders a long synthetic conversation as 10 phone screenshots taken while scrolling: each
+// Renders a long synthetic conversation as N (default 10) phone screenshots taken while scrolling: each
 // one overlaps the one before and bubbles are cut at the edges, as real ones are. Generic
 // look (no real app branding). Output is git-ignored; the JSON is the ground truth.
-//   node scripts/phase0/screenshots/render-long.mjs 10-long-vi
+//   node scripts/phase0/screenshots/render-long.mjs 10-long-vi [count]
 import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { execFileSync } from "node:child_process";
 import { fileURLToPath } from "node:url";

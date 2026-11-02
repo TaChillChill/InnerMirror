@@ -1,37 +1,46 @@
-// LIVE (paid): 10 synthetic screenshots through the real app → extract (4 requests) → Review
-// → analyze. Measures wall time per step and compares Review with the ground-truth JSON.
-// Not part of run-all. Render the screenshots, then start the server with a hard cap:
-//   node scripts/phase0/screenshots/render-long.mjs 10-long-vi
+// LIVE (paid): N synthetic screenshots through the real app → extract (parts of 3) → Review
+// (choose a part if over 40 turns) → analyze → save to My Reflection. Checks the dark default
+// on a fresh visit, times each step and compares Review with the ground-truth JSON.
+// Not part of run-all. Render the screenshots, then run against a local server with a hard cap
+// or, as a smoke test, against Production:
+//   node scripts/phase0/screenshots/render-long.mjs 10-long-vi 5
 //   npm run build && APP_SPEND_CAP_USD=0.4 npx next start -p 3123
-//   node scripts/e2e/live-shots.mjs 10-long-vi [--no-analyze]
+//   node scripts/e2e/live-shots.mjs 10-long-vi [--count=5] [--base=https://…] [--no-analyze]
 // Cost per run is read from the server log (meta_call lines carry usd; never content).
 import { readFileSync } from "node:fs";
 import { launch, HELPERS } from "./cdp.mjs";
 
 const id = process.argv[2] ?? "10-long-vi";
 const analyze = !process.argv.includes("--no-analyze");
+const arg = (name, fallback) => process.argv.find((a) => a.startsWith(`--${name}=`))?.split("=")[1] ?? fallback;
+const count = Number(arg("count", 5));
+const base = arg("base", "http://localhost:3123/");
 const conv = JSON.parse(readFileSync(new URL(`../phase0/conversations/${id}.json`, import.meta.url), "utf8"));
 const lang = conv.language;
-const L = lang === "vi" ? { start: "Có sẵn cuộc trò chuyện", next: "Tiếp tục", look: "Xem cuộc trò chuyện này" } : { start: "I have the chat", next: "Continue", look: "Look at this conversation" };
+const L = lang === "vi"
+  ? { start: "Có sẵn cuộc trò chuyện", next: "Tiếp tục", look: "Xem cuộc trò chuyện này", mirror: "Tiếp tục nhìn lại mình", save: "Lưu vào thiết bị này" }
+  : { start: "I have the chat", next: "Continue", look: "Look at this conversation", mirror: "Continue to My Reflection", save: "Save to this device" };
 const norm = (s) => s.normalize("NFC").replace(/\s+/g, " ").trim();
 const truth = conv.messages.map((m) => norm(m.text));
 
 const b = await launch({ width: 390, height: 844, live: true });
 const step = async (js) => { await b.evaluate(HELPERS); return b.evaluate(js); };
 const waitFor = async (js, ms) => { const end = Date.now() + ms; while (Date.now() < end) { if (await step(js)) return true; await b.sleep(250); } return false; };
-const out = { id, screenshots: 10 };
+const out = { id, base, screenshots: count };
 try {
-  await b.goto("http://localhost:3123/");
+  await b.send("Emulation.setEmulatedMedia", { features: [{ name: "prefers-color-scheme", value: "light" }] });
+  await b.goto(base);
   await b.evaluate(`localStorage.clear(); localStorage.setItem("innermirror.lang", "${lang}"); location.reload()`);
-  await b.sleep(1500);
+  await b.sleep(2500);
+  out.darkByDefault = await step(`document.documentElement.dataset.theme === "dark" && getComputedStyle(document.body).backgroundColor === "rgb(23, 21, 43)" && localStorage.getItem("innermirror.theme") === null`);
   await step(`$click(".lp-cta"); $wait(300)`);
   await step(`$click("[role=radio]", ${JSON.stringify(L.start)}); $wait(200)`);
-  const pngs = Array.from({ length: 10 }, (_, i) => readFileSync(new URL(`../phase0/screenshots/long/${id}-${String(i + 1).padStart(2, "0")}.png`, import.meta.url)).toString("base64"));
+  const pngs = Array.from({ length: count }, (_, i) => readFileSync(new URL(`../phase0/screenshots/long/${id}-${String(i + 1).padStart(2, "0")}.png`, import.meta.url)).toString("base64"));
   const t0 = Date.now();
   await step(`(async () => { const dt = new DataTransfer(); const pngs = ${JSON.stringify(pngs)};
     for (let i = 0; i < pngs.length; i++) dt.items.add(new File([await (await fetch("data:image/png;base64," + pngs[i])).blob()], (i + 1) + ".png", { type: "image/png" }));
     document.querySelector(".app-drop").dispatchEvent(new DragEvent("drop", { dataTransfer: dt, bubbles: true, cancelable: true })); return true; })()`);
-  await waitFor(`document.querySelectorAll(".app-shot").length === 10`, 30_000);
+  await waitFor(`document.querySelectorAll(".app-shot").length === ${count}`, 30_000);
   out.prepareMs = Date.now() - t0;
   out.uploadKb = await step(`Math.round([...document.querySelectorAll(".app-shot img")].reduce((n, i) => n + i.src.length, 0) / 1024)`);
   await step(`document.querySelector(".app-panel .im-check input").click(); $wait(100)`);
@@ -58,7 +67,10 @@ try {
   out.notInTruth = got.filter((g) => !truth.includes(g)).slice(0, 12);
   out.missing = truth.filter((t) => !got.includes(t)).slice(0, 12);
   if (analyze) {
-    // "Who am I?" is chosen later, on Replay; analysis doesn't need it.
+    // "Who am I?" is chosen later, on Replay; analysis doesn't need it. Over 40 turns, choose the
+    // latest part, as a user who cares about how it ended would.
+    out.partOptions = await step(`document.querySelectorAll("#turn-part option").length - 1`);
+    if (out.partOptions > 0) await step(`(() => { const s = document.querySelector("#turn-part"); s.value = s.options[s.options.length - 1].value; s.dispatchEvent(new Event("change", { bubbles: true })); })(); $wait(200)`);
     await step(`document.querySelector(".app-page .im-check input")?.click(); $wait(100)`);
     const t2 = Date.now();
     await step(`$click("button", ${JSON.stringify(L.look)})`);
@@ -67,6 +79,13 @@ try {
     out.analyzeOk = done && await step(`document.querySelectorAll(".app-meta-btn").length > 0`);
     out.analyzeBadges = await step(`document.querySelectorAll(".app-meta-btn").length`);
     if (!out.analyzeOk) out.analyzeError = await step(`document.body.innerText.slice(0, 300)`);
+    else {
+      await step(`$click("button", ${JSON.stringify(L.mirror)}); $wait(800)`);
+      await step(`$click("button", ${JSON.stringify(L.save)}); $wait(800)`);
+      out.savedToMyReflection = await step(`JSON.parse(localStorage.getItem("innermirror.collections.v1") ?? "[]").length === 1`);
+      // What is saved holds labels only, never message text.
+      out.savedHasNoText = await step(`!localStorage.getItem("innermirror.collections.v1").includes(${JSON.stringify(conv.messages[conv.messages.length - 1].text)})`);
+    }
   }
 } catch (e) {
   out.error = e.message;
