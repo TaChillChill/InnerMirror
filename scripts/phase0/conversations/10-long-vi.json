@@ -1,0 +1,253 @@
+{
+  "id": "10-long-vi",
+  "description": "Synthetic. Siblings in Vietnamese, 47 messages: parents' Tết visit, who gives up a room; friction then repair. For the 10-screenshot test.",
+  "language": "vi",
+  "selfId": "p2",
+  "participants": [
+    {
+      "id": "p1",
+      "displayName": "Chị Hà"
+    },
+    {
+      "id": "p2",
+      "displayName": "Minh"
+    }
+  ],
+  "messages": [
+    {
+      "id": "m1",
+      "speakerId": "p1",
+      "text": "Minh ơi, Tết này bố mẹ lên Sài Gòn ở với chị nhé"
+    },
+    {
+      "id": "m2",
+      "speakerId": "p2",
+      "text": "Dạ, em nghe mẹ nói rồi"
+    },
+    {
+      "id": "m3",
+      "speakerId": "p1",
+      "text": "Chị tính để bố mẹ ở phòng của em mấy hôm"
+    },
+    {
+      "id": "m4",
+      "speakerId": "p2",
+      "text": "Phòng em á? Thế em ngủ đâu chị?"
+    },
+    {
+      "id": "m5",
+      "speakerId": "p1",
+      "text": "Em ngủ sofa vài đêm thôi mà"
+    },
+    {
+      "id": "m6",
+      "speakerId": "p2",
+      "text": "Vài đêm là mấy đêm ạ"
+    },
+    {
+      "id": "m7",
+      "speakerId": "p1",
+      "text": "Chắc khoảng một tuần"
+    },
+    {
+      "id": "m8",
+      "speakerId": "p2",
+      "text": "Một tuần em còn đi làm đến 28 Tết chị ơi"
+    },
+    {
+      "id": "m9",
+      "speakerId": "p1",
+      "text": "Thì có sao đâu, sofa cũng êm"
+    },
+    {
+      "id": "m10",
+      "speakerId": "p2",
+      "text": "Em nói thật là em hơi mệt"
+    },
+    {
+      "id": "m11",
+      "speakerId": "p1",
+      "text": "Ai mà chẳng mệt, chị cũng mệt"
+    },
+    {
+      "id": "m12",
+      "speakerId": "p2",
+      "text": "Sao chị không hỏi em trước"
+    },
+    {
+      "id": "m13",
+      "speakerId": "p1",
+      "text": "Chị tưởng chuyện bố mẹ thì em phải đồng ý chứ"
+    },
+    {
+      "id": "m14",
+      "speakerId": "p2",
+      "text": "Em đồng ý bố mẹ lên, em chỉ muốn được hỏi"
+    },
+    {
+      "id": "m15",
+      "speakerId": "p1",
+      "text": "Ừ thì giờ chị hỏi đây"
+    },
+    {
+      "id": "m16",
+      "speakerId": "p2",
+      "text": "Hay để bố mẹ ở phòng chị, chị ngủ với bé Na"
+    },
+    {
+      "id": "m17",
+      "speakerId": "p1",
+      "text": "Phòng chị chật, bé Na ngủ không yên"
+    },
+    {
+      "id": "m18",
+      "speakerId": "p2",
+      "text": "Phòng em cũng chật mà"
+    },
+    {
+      "id": "m19",
+      "speakerId": "p1",
+      "text": "Em lúc nào cũng tính toán thế"
+    },
+    {
+      "id": "m20",
+      "speakerId": "p2",
+      "text": "Em đâu có tính toán, em đang nói chuyện thôi"
+    },
+    {
+      "id": "m21",
+      "speakerId": "p1",
+      "text": "Thôi được rồi, để chị nghĩ thêm"
+    },
+    {
+      "id": "m22",
+      "speakerId": "p2",
+      "text": "Hay mình thuê thêm một phòng khách sạn gần nhà"
+    },
+    {
+      "id": "m23",
+      "speakerId": "p1",
+      "text": "Tốn tiền lắm em ạ"
+    },
+    {
+      "id": "m24",
+      "speakerId": "p2",
+      "text": "Em góp một nửa"
+    },
+    {
+      "id": "m25",
+      "speakerId": "p1",
+      "text": "Thật không đấy?"
+    },
+    {
+      "id": "m26",
+      "speakerId": "p2",
+      "text": "Thật mà. Em muốn bố mẹ được thoải mái"
+    },
+    {
+      "id": "m27",
+      "speakerId": "p1",
+      "text": "Chị cũng muốn vậy"
+    },
+    {
+      "id": "m28",
+      "speakerId": "p1",
+      "text": "Nhưng mẹ sẽ không chịu ở khách sạn đâu"
+    },
+    {
+      "id": "m29",
+      "speakerId": "p2",
+      "text": "Ừ, mẹ chắc chắn sẽ nói là phí tiền"
+    },
+    {
+      "id": "m30",
+      "speakerId": "p1",
+      "text": "Đấy, em hiểu mẹ mà"
+    },
+    {
+      "id": "m31",
+      "speakerId": "p2",
+      "text": "Vậy để bố mẹ ở phòng em ba đêm đầu"
+    },
+    {
+      "id": "m32",
+      "speakerId": "p2",
+      "text": "Sau đó em về quê với bố mẹ luôn"
+    },
+    {
+      "id": "m33",
+      "speakerId": "p1",
+      "text": "Ý hay đấy"
+    },
+    {
+      "id": "m34",
+      "speakerId": "p1",
+      "text": "Thế em được nghỉ từ hôm nào?"
+    },
+    {
+      "id": "m35",
+      "speakerId": "p2",
+      "text": "Từ 29 Tết ạ"
+    },
+    {
+      "id": "m36",
+      "speakerId": "p1",
+      "text": "Vậy cũng ổn"
+    },
+    {
+      "id": "m37",
+      "speakerId": "p1",
+      "text": "Mà chị xin lỗi vì không hỏi em trước nhé"
+    },
+    {
+      "id": "m38",
+      "speakerId": "p2",
+      "text": "Dạ không sao, em cũng hơi gắt"
+    },
+    {
+      "id": "m39",
+      "speakerId": "p1",
+      "text": "Chị biết dạo này em áp lực công việc"
+    },
+    {
+      "id": "m40",
+      "speakerId": "p2",
+      "text": "Vâng, cuối năm dự án dồn quá"
+    },
+    {
+      "id": "m41",
+      "speakerId": "p1",
+      "text": "Ráng lên em, Tết về nghỉ ngơi"
+    },
+    {
+      "id": "m42",
+      "speakerId": "p2",
+      "text": "Dạ. Chị nhớ mua thêm chăn mỏng cho bố nhé"
+    },
+    {
+      "id": "m43",
+      "speakerId": "p1",
+      "text": "Ừ, chị ghi lại rồi"
+    },
+    {
+      "id": "m44",
+      "speakerId": "p2",
+      "text": "Bố hay bị lạnh chân lắm"
+    },
+    {
+      "id": "m45",
+      "speakerId": "p1",
+      "text": "Chị biết mà, để chị lo"
+    },
+    {
+      "id": "m46",
+      "speakerId": "p2",
+      "text": "Cảm ơn chị nhiều"
+    },
+    {
+      "id": "m47",
+      "speakerId": "p1",
+      "text": "Cảm ơn gì, chị em mà 😊"
+    }
+  ]
+}

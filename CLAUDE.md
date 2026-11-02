@@ -59,6 +59,8 @@ npm run build && META_API_KEY= npx next start -p 3123 &   # local prod build for
 sh scripts/e2e/run-all.sh                                   # mocked e2e, all /api/* intercepted, $0
 node scripts/phase0/u9/run.mjs --dry                       # What if? s2.0 eval (live without --dry)
 node scripts/phase0/story/run.mjs --dry                    # story eval (live without --dry)
+node scripts/phase0/screenshots/render-long.mjs 10-long-vi  # 10 overlapping synthetic screenshots (git-ignored)
+node scripts/e2e/live-shots.mjs 10-long-vi                  # live (paid): 10 screenshots → extract → analyze, vs ground truth
 APP_SPEND_CAP_USD=0.4 npx next start -p 3123 && node scripts/e2e/live-uat.mjs   # live UAT journeys (paid, synthetic)
 ```
 Live commands spend from the approved budget: run them only with the Founder's go-ahead in that session. App commands (dev, build, lint, typecheck, test) are added in Phase 1.
@@ -97,4 +99,5 @@ Live commands spend from the approved budget: run them only with the Founder's g
 | `docs/RELEASE_READINESS.md` | Completion sprint: feature matrix, test evidence, risks, spend, iPhone UAT checklist, Preview GO/NO-GO |
 | `docs/UAT_FIX_SPRINT.md` | Founder UAT fix sprint (12 issues): status, why approved feedback was missed, evidence, re-test guide |
 | `docs/UAT_EXECUTION_PLAN.md` | Round 3: gap analysis, full roadmap, execution order to submission (proposed; supersedes the audit where they differ) |
+| `docs/SHOTS10_DARK_DEFAULT.md` | 10 screenshots (parts of 3, seam merge, partial failure) + Dark by default: audit, live measurements, decisions |
 | `docs/DEMO_VIDEO_SCREENPLAY.md` | Demo film: screenplay, shot list, conversation options, music cues; animatic in `design/film/` (draft, not locked) |

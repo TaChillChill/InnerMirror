@@ -1,0 +1,268 @@
+{
+  "id": "09-long-en",
+  "description": "Synthetic. Couple, 50 messages: cabin weekend vs work offsite, chores; escalation then repair. For the 10-screenshot test (rendered as overlapping screenshots).",
+  "language": "en",
+  "selfId": "p2",
+  "participants": [
+    {
+      "id": "p1",
+      "displayName": "Jordan"
+    },
+    {
+      "id": "p2",
+      "displayName": "Alex"
+    }
+  ],
+  "messages": [
+    {
+      "id": "m1",
+      "speakerId": "p1",
+      "text": "morning! did you see the cabin listing i sent?"
+    },
+    {
+      "id": "m2",
+      "speakerId": "p2",
+      "text": "yes!! it looks amazing"
+    },
+    {
+      "id": "m3",
+      "speakerId": "p2",
+      "text": "the lake view 😍"
+    },
+    {
+      "id": "m4",
+      "speakerId": "p1",
+      "text": "right? it's free the weekend of the 14th"
+    },
+    {
+      "id": "m5",
+      "speakerId": "p2",
+      "text": "oh wait. i might have the offsite that week"
+    },
+    {
+      "id": "m6",
+      "speakerId": "p1",
+      "text": "might?"
+    },
+    {
+      "id": "m7",
+      "speakerId": "p2",
+      "text": "they haven't sent the dates yet"
+    },
+    {
+      "id": "m8",
+      "speakerId": "p1",
+      "text": "ok can you ask? the deposit is due friday"
+    },
+    {
+      "id": "m9",
+      "speakerId": "p2",
+      "text": "sure i'll ask today"
+    },
+    {
+      "id": "m10",
+      "speakerId": "p1",
+      "text": "thanks 🙏"
+    },
+    {
+      "id": "m11",
+      "speakerId": "p1",
+      "text": "also did you pay the electricity bill?"
+    },
+    {
+      "id": "m12",
+      "speakerId": "p2",
+      "text": "not yet, it's on my list"
+    },
+    {
+      "id": "m13",
+      "speakerId": "p1",
+      "text": "it was due tuesday"
+    },
+    {
+      "id": "m14",
+      "speakerId": "p2",
+      "text": "i know. i'll do it tonight"
+    },
+    {
+      "id": "m15",
+      "speakerId": "p1",
+      "text": "you said that last week too"
+    },
+    {
+      "id": "m16",
+      "speakerId": "p2",
+      "text": "last week was insane, you know that"
+    },
+    {
+      "id": "m17",
+      "speakerId": "p1",
+      "text": "every week is insane for you"
+    },
+    {
+      "id": "m18",
+      "speakerId": "p2",
+      "text": "that's not fair"
+    },
+    {
+      "id": "m19",
+      "speakerId": "p1",
+      "text": "i'm just saying i end up chasing everything"
+    },
+    {
+      "id": "m20",
+      "speakerId": "p2",
+      "text": "i do plenty of stuff around here"
+    },
+    {
+      "id": "m21",
+      "speakerId": "p1",
+      "text": "like what"
+    },
+    {
+      "id": "m22",
+      "speakerId": "p2",
+      "text": "seriously? i cooked every night this week"
+    },
+    {
+      "id": "m23",
+      "speakerId": "p1",
+      "text": "ok that's true. thank you for that"
+    },
+    {
+      "id": "m24",
+      "speakerId": "p2",
+      "text": "thank you"
+    },
+    {
+      "id": "m25",
+      "speakerId": "p1",
+      "text": "i'm not trying to fight. i'm just tired"
+    },
+    {
+      "id": "m26",
+      "speakerId": "p2",
+      "text": "me too honestly"
+    },
+    {
+      "id": "m27",
+      "speakerId": "p1",
+      "text": "so what about the cabin"
+    },
+    {
+      "id": "m28",
+      "speakerId": "p2",
+      "text": "let me check the offsite first"
+    },
+    {
+      "id": "m29",
+      "speakerId": "p2",
+      "text": "just heard back. offsite is the 13th to the 15th"
+    },
+    {
+      "id": "m30",
+      "speakerId": "p1",
+      "text": "of course it is"
+    },
+    {
+      "id": "m31",
+      "speakerId": "p2",
+      "text": "i'm sorry. i can't skip it"
+    },
+    {
+      "id": "m32",
+      "speakerId": "p1",
+      "text": "you never can"
+    },
+    {
+      "id": "m33",
+      "speakerId": "p2",
+      "text": "that's my job, Jordan"
+    },
+    {
+      "id": "m34",
+      "speakerId": "p1",
+      "text": "and this was supposed to be our weekend"
+    },
+    {
+      "id": "m35",
+      "speakerId": "p2",
+      "text": "we can book another weekend"
+    },
+    {
+      "id": "m36",
+      "speakerId": "p1",
+      "text": "the 21st is taken already. i checked"
+    },
+    {
+      "id": "m37",
+      "speakerId": "p2",
+      "text": "what about early next month?"
+    },
+    {
+      "id": "m38",
+      "speakerId": "p1",
+      "text": "fine. whatever works for your calendar"
+    },
+    {
+      "id": "m39",
+      "speakerId": "p2",
+      "text": "why are you being like this"
+    },
+    {
+      "id": "m40",
+      "speakerId": "p1",
+      "text": "because i planned this for weeks"
+    },
+    {
+      "id": "m41",
+      "speakerId": "p2",
+      "text": "i didn't know about the offsite when you planned it"
+    },
+    {
+      "id": "m42",
+      "speakerId": "p1",
+      "text": "i know. i'm not blaming you for the offsite"
+    },
+    {
+      "id": "m43",
+      "speakerId": "p1",
+      "text": "i just wish it felt like a priority"
+    },
+    {
+      "id": "m44",
+      "speakerId": "p2",
+      "text": "it is a priority. you are"
+    },
+    {
+      "id": "m45",
+      "speakerId": "p1",
+      "text": "then help me find a date tonight?"
+    },
+    {
+      "id": "m46",
+      "speakerId": "p2",
+      "text": "yes. after dinner, laptops out"
+    },
+    {
+      "id": "m47",
+      "speakerId": "p1",
+      "text": "deal. and the electricity bill"
+    },
+    {
+      "id": "m48",
+      "speakerId": "p2",
+      "text": "paying it right now 😅"
+    },
+    {
+      "id": "m49",
+      "speakerId": "p1",
+      "text": "haha ok. love you"
+    },
+    {
+      "id": "m50",
+      "speakerId": "p2",
+      "text": "love you too"
+    }
+  ]
+}
