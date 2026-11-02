@@ -6,6 +6,7 @@ Session state and next actions. Stable rules live in `CLAUDE.md`. Overwrite this
 **Phase 1 — Functional MVP, UAT round 4 (CONDITIONAL GO, 2026-11-01).** Plan and decisions: `docs/UAT_EXECUTION_PLAN.md` §7. Feature freeze Nov 3, 18:00 ICT; internal submit Nov 4, 22:00 ICT. Everything is local commits: nothing pushed or deployed since the protected Preview.
 
 ## Current status (2026-11-01, Founder UAT fix sprint)
+- **Submission readiness (2026-11-02):** README rewritten (accurate Meta use, no Muse Image), copy-ready form answers in `docs/HACKATHON_SUBMISSION.md` (draft, Founder review). Security audit of all history PASS: no keys/tokens/.env/real conversations; commit author email rewritten to the GitHub noreply (Founder decision; old→new hashes in `docs/commit-map.txt`). GitHub repo + public: see Next actions. Live re-check on Production: 1 analyze + 1 What if?, both 200, ≈ $0.035.
 - **Production updated (Founder approval, 2026-11-02): 5 screenshots, 40-turn analysis limit with part picker, Dark default** → `ca7c5b2` on https://innermirror-flame.vercel.app. Tests 127 unit + 671/671 e2e; Production smoke live PASS (≈ $0.09). Open P2: VI OCR misread can stop the seam merge (duplicates on Review); fix proposed, not deployed. Details: `docs/RELEASE_READINESS.md` §7.6, audit `docs/SHOTS10_DARK_DEFAULT.md`.
 - **Web Analytics live on Production (`e13ea97`):** page views only; privacy policy updated; dashboard view not yet confirmed (`docs/RELEASE_READINESS.md` §7.5).
 - **Production is public (Founder approval, 2026-11-02):** https://innermirror-flame.vercel.app; Previews and deployment URLs stay protected (`docs/RELEASE_READINESS.md` §7.4, restore steps there). Watch Meta credits.
@@ -16,7 +17,7 @@ Session state and next actions. Stable rules live in `CLAUDE.md`. Overwrite this
 - **Founder UAT 12 issues fixed (local commits, not pushed):** logo `791ee7b`, cloud `810a381`, input/review/observation/title/Direction `28253fa`. Status per issue, why approved feedback was missed, re-test guide: `docs/UAT_FIX_SPRINT.md`.
 - **Earlier sprint** (all approved pre-submission items): `docs/RELEASE_READINESS.md` (§5 iPhone checklist updated for the fixes).
 - **Recommendation:** Founder re-tests the three journeys (`UAT_FIX_SPRINT.md` §6); then Preview deploy (needs approval).
-- **Spend:** 10-screenshot live test $0.215 (server log, 10 calls); demo-film live take $0.0588. Project ≈ **$5.22 of $6** (ledger $4.11 + app/Preview/film/10-shots/Prod smoke ≈ $1.11, partly estimated).
+- **Spend:** 10-screenshot live test $0.215 (server log, 10 calls); demo-film live take $0.0588; submission re-check $0.035. Project ≈ **$5.26 of $6** (ledger $4.11 + app/Preview/film/10-shots/Prod smoke ≈ $1.11, partly estimated).
 - **Local server:** `npx next start -p 3123` reads `.env.local` (live calls). For mocked e2e, run it with `META_API_KEY=` (empty). Live UAT: `APP_SPEND_CAP_USD=0.4 npx next start -p 3123` + `node scripts/e2e/live-uat.mjs` (updated for reference-only Direction, not re-run).
 
 ## Next actions (max 5)
