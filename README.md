@@ -32,13 +32,11 @@ InnerMirror gently turns that question around: **which part of me was speaking?*
 
 Transactional Analysis describes a few recognizable "voices" we all speak from. When you can see which one took over in a moment, you get something valuable for next time: **a choice**.
 
-<table>
-  <tr>
-    <td align="center" width="33%"><h3>🔍 AI observes</h3>Mirror, the app's AI observer, suggests an ego state for each message and quotes the exact words behind it. When the words are unclear, it says so.</td>
-    <td align="center" width="33%"><h3>🧭 Humans interpret</h3>You decide what fits, or answer <b>“I'm not sure”</b>. Mirror's view and yours stay side by side, and the AI never overwrites you.</td>
-    <td align="center" width="33%"><h3>🌱 Awareness creates choice</h3>Explore how a different reply might land, and notice your own patterns over time, privately, on your device.</td>
-  </tr>
-</table>
+> **🔍 AI observes.** Mirror, the app's AI observer, suggests an ego state for each message and quotes the exact words behind it. When the words are unclear, it says so.
+>
+> **🧭 Humans interpret.** You decide what fits, or answer **“I'm not sure”**. Mirror's view and yours stay side by side, and the AI never overwrites you.
+>
+> **🌱 Awareness creates choice.** Explore how a different reply might land, and notice your own patterns over time, privately, on your device.
 
 ### Meet the five voices
 
