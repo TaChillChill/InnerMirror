@@ -39,6 +39,8 @@ Session state and next actions. Stable rules live in `CLAUDE.md`. Overwrite this
 - Brand mascot for the donut is the app icon placeholder (D2); logo is the interim art with its matte removed (needs a proper transparent/SVG file). Free-text direction = E3. Enhancements E1–E10 after submission.
 
 ## Last validation result
+2026-11-02 Submission readiness (app code unchanged since Production `ca7c5b2`, now `5b93f74` after the email rewrite): `npm test` 127/127; lint, typecheck, build clean; `run-all.sh` 38 runs, 671/671 PASS (all /api/* mocked). Production anonymous: `/`, `/privacy` 200; `/.env*` 404; empty bodies 400 on all 3 APIs; no secret strings in HTML + 9 JS bundles. Live on Production (synthetic): analyze 200 in 15.6 s (6 readings, v3.2, "k" UNCLEAR), What if? 200 in 11.4 s (s2.0); ≈ $0.035. Not verified: real iPhone.
+
 2026-11-02 Production release `ca7c5b2`: `npm test` 127/127; lint, typecheck, build clean; `run-all.sh` 38 runs, 671/671 PASS. Production smoke (synthetic, live): dark default, 5 screenshots → OCR → Review → part picker → analysis → My Reflection save. ≈ $0.09. Not verified: real iPhone.
 
 2026-11-02 10 screenshots + Dark default (`108e751`, `33efdf5`): `npm test` 123/123; lint, typecheck, build clean; `run-all.sh` 35 runs, 651/651 PASS (new `s1-shots` ×4, `t1-theme` rewritten). Live (synthetic): 2 × (4 extract + 1 analyze), $0.215, both Review sets exact. Not verified: real iPhone (10-photo pick, memory), live failure paths.

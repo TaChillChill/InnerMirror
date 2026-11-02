@@ -1,0 +1,85 @@
+# Commit hashes before → after the 2026-11-02 author-email rewrite (same content, same order).
+# Docs written before that date cite the old hashes; look them up here.
+d541498 eade30a  Initialize InnerMirror: project docs and plan (pre-approval)
+5d8c639 6a5ef47  Phase 0: update docs for approved decisions, add feasibility harness
+9fa8f3d b879e7d  Phase 0: partial report (policy and rules done, live tests pending)
+8f5ec37 651f6c7  Add handoff instructions for next session
+96dcab0 76b7bdc  Add project setup: TODO.md, commands, DoD, secret-file deny rules
+0f1ffb4 614e0e2  Add design system, prototype v2 and planning docs
+936c7e5 01ea859  Phase 1 M1-M2: live analysis pipeline and functional MVP flow
+544db0a 5df5ccf  Phase 1 M3: screenshot upload, extraction, lightbox, drag/drop/paste
+49f55c4 e302c8a  Phase 1 M5: state-only What if? Scenario Explorer
+b2e5abc 400f35b  M5 UX revision: message panel, What happened vs What if card, Mirror voice
+ea63eea e8f7e9e  M5 round 3: observed vs possible layers, My Mirror navigation, a11y fixes
+ae3449e aa9623a  Release prep: 18+ note, scope disclaimer, EN/VI privacy page, safety copy
+6c2fcb9 a5d004f  Add HeoCoin Family credit footer and privacy contact
+d903a99 a28c7c7  TODO: record Vercel project, deploy rule and next steps
+7b36120 66732db  TODO: record Preview paid smoke test result
+ad249a6 d5f7571  Landing V3: two-egos hook, voice demo, TA section, EN | VI toggle
+bcc9b34 0fc79be  Sticky adaptive header, compact mobile bar, P/A/C legend for diagrams
+2697c9d b1b3f72  TODO: firewall rate limit now blocking; beta access proposal
+0a6c172 a0e5fa7  P0 audit: classification reliability findings, VI eval set, results
+7d5fd41 257baa8  Analysis spec v3.2: speaker-blind, turn grouping, context-first schema, TA defini
+e303197 eab800c  Replay: one character per segment, uncertainty on the chip, visible alternative
+3759ba9 3f20baf  P0 eval harness and results (synthetic fixtures, $2.64 of $3)
+c2ed7b6 046b3d9  Docs: P0 status, v3.2 analysis types, eval commands
+d478bf2 aa6ee7f  Performance & latency audit for v3.2 (no code changes, $0)
+afa8132 e1d681b  Document relationship context and story analysis requirements (proposed)
+4269053 f096266  Perf quick wins Q1-Q5 and relationship eval
+b5e5a67 e75be75  Narrative guard for pasted stories, keyboard-dictation hint, input audit
+89cd089 d88f2f9  Cap sarcasm readings at medium when the second layer is quoted
+d97d283 08921aa  Docs: Founder UAT audit, execution plan, round-4 decisions
+0e6093b 8d9ac18  My Mirror: keep Mirror's 'unclear' apart from my 'not sure'
+f5e5211 4770401  Honest loading: rotating explanation, no timed checkmarks
+efd73a5 fa77a1d  Privacy copy: name Meta's processing on Review, fix the device-storage claim
+a28a4ed fcd69b0  Back from Review keeps text, screenshots, order and edits
+cbc3085 e52459b  Review: merge two names for the same person, with undo
+4281675 602cead  Sample mode: the full journey with zero API calls
+eb8424c 756cce2  Docs: wave 0 progress, S1 safety scan, U6 landing copy
+7bd8325 a9f9153  Docs: two-level My Mirror redesign notes and open decisions
+d7d5802 79607a7  My Mirror: conversation cards with state clouds and the Personal Mirror
+3f1af15 a3fa253  Docs: U7 built and validated
+a893661 1b85418  S1 safety backstop and probe eval
+53052e9 b6a1438  Regression: untouched observations still give full My Mirror stats
+efd9ab3 e1ab3ee  Ego-state panel and observation screen (U4, U5)
+eb83fbf 964a71a  Two ways to start and an in-app mic (U1, U2)
+2f396d6 bbd63db  Vocabulary and landing copy (U6, D4, D5)
+306698c 2a10b76  Docs: Wave 1 status and S1 safety report
+ca8f60a 24de66d  Docs: judge-access test plan (nothing deployed)
+cb293e6 2bc8366  My Reflection: this conversation's state cloud and rows replace the old tally
+84c6d8a cc3e9f4  Conversation Direction v1 (U8, N1, N2)
+82856b4 cfc08aa  TODO: current state after U8; drop stale Oct 30-31 status
+35120d6 94fb351  Read the firewall's 429 as rate limited, not a generic error
+6d0ee0e c6732fa  What if? for any speaker's message (U9, N3) and VI state names (C1)
+f379c19 c6a5588  Story input v1 (U3, N4 revised): narration as context, dialogue read
+be099a0 95c6b39  Light / Dark / System appearance
+8199e9a 775d91b  e2e: My Mirror fixtures use dates relative to the run
+c35358c 4f28787  e2e: error recovery (mocked) and an opt-in live UAT script
+eccec9c 797d9ae  Docs: release readiness after the completion sprint
+791ee7b 3965ba2  Logo without its white matte, light and dark (UAT #12)
+810a381 e45f771  State cloud as one compact row (UAT #11)
+28253fa e3a6d83  Founder UAT fixes: input, review, observation, title, direction (#01–#10)
+02f0ae6 2ded9ff  Docs: Founder UAT fix sprint status, root causes, re-test guide
+408419e b9590bd  Founder UAT batch 2: Save on iPhone, screenshot flow, intro, logo
+02230e2 4249a80  Docs: UAT batch 2 status, Save root cause, re-test steps
+72d439a 8c86823  Interface language from the device on first visit (UAT batch 3 #03)
+1d13015 4575d91  Default title = people + number; screenshot Review advice folds (UAT batch 3 #01,
+b79025e 398e19d  Docs: UAT batch 3 status; privacy notes reflect names in titles
+289a1e4 e9dff4c  Privacy copy: name the screenshot button as it is now; titles may hold names
+dddb4a2 da1855f  Docs: Preview release record, iPhone UAT, judge-access options
+ae699b8 c1005e6  Demo film: Remotion rough cut with real app footage (design/film)
+6f0afbc d18bc24  Docs: demo film screenplay V2.1, rough cut V1 status and decisions
+a061aca cbb8f1a  E2E: always close headless Chrome and remove its temp profile
+3619f48 aca417e  Docs: Production deploy record, env, smoke test, rollback
+fa301a1 5a73bbe  Docs: Production opened to the public (standard protection), checks, restore
+e13ea97 41fa6f4  Vercel Web Analytics on Production builds, privacy policy updated
+3a32b1c 618b21e  Docs: Web Analytics release record and checks
+108e751 06cf2b8  Screenshots: up to 10 per conversation, read in parts of 3
+33efdf5 e8899a0  Theme: Dark by default for new visitors, stored choices respected
+7ec17f0 a9202a7  E2E: add s1-shots to the mocked regression run
+2317848 a5c2d65  Docs + live harness: 10-screenshot audit, measurements, decisions
+9a7c353 b263cfd  Screenshots: limit 5 per conversation (Founder decision)
+78a21b5 db6b930  Analysis: at most 40 turns; the user picks the part, nothing is cut
+ca7c5b2 5b93f74  Live harness: N screenshots, any base URL, part choice and save (smoke test)
+c9732f5 839753f  Docs: Production release record (5 screenshots, 40 turns, dark default), smoke re
+a3ed35e 25f05f5  Docs: submission README and copy-ready hackathon answers
