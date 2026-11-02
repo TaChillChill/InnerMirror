@@ -2,6 +2,16 @@
 
 Status: **Rough cut V1 rendered (Phase C, 2026-11-02), for Founder review.** MP4: `design/film/public/out/innermirror-roughcut.mp4` (git-ignored). Viewer: `design/film/` (`npm run dev` → http://127.0.0.1:5174). Conversation A **locked**. No app code, prompt or schema changed.
 
+## Final v1 (2026-11-02, Founder decisions on V1.1)
+- **MP4:** `design/film/public/out/innermirror-final-v1.mp4` (180 s, 1080p30, git-ignored). Viewer as before.
+- **D6 re-shot (take `dark1wi`):** same session, dark1's real extract + analysis replayed (identical screens), What if? called live on "what's that supposed to mean" as **Nurturing Parent** → "Jordan could reply like: **Adapted Child** · Another possibility" (context basis; Adult kept as the pattern). Found with one direct probe; one live take. Caption 1 now "Muse looks at the moment and Jordan's earlier words for replies that could fit." (the shown possibility is context-based). S6 still 70 s: the scroll to the message is sped 1.5× and labelled.
+- **Kept:** S2 follows dark1; "Me" as in the app.
+- **End card:** innermirror-flame.vercel.app.
+- **Voice:** the audio session's script (`src/narration.ts`) rendered as a **scratch** voice (macOS `say`, Samantha, `record/voice-say.mjs`, $0) and mixed in `src/Voice.tsx`; beds duck to 45% under each line (voice ≈ −17 LUFS vs beds −22 to −32). Replace the WAVs with the chosen TTS, same ids. The "Transactional Analysis…" line ends 0.9 s into the first mascot chime.
+- **Music:** still the synthesized placeholder beds; licensed tracks to come.
+- **App fix:** state-cloud mascots no longer draw over the sticky header (CSS isolation, e2e `h1-header`). It wasn't visible in the film's framing, so no re-take.
+- **Backups:** `~/InnerMirror-backups/` and the private release `TaChillChill/innermirror-film-takes` (`takes-2026-11-02`: dark1, dark1wi, live1 + SHA256SUMS; restore verified for dark1).
+
 ## Rough cut V1.1: Dark Mode take (2026-11-02, Founder request)
 - **New live take `dark1`:** the app in Dark Mode (its default), real app + real Muse, 3 calls, $0.0592. Recorded at 1920 × 1080 (Chrome device scale 1.5; the app's layout is unchanged at 1280 × 720 CSS), so rough-cut point 5 below is fixed. Muse's responses are kept in `design/film/public/take/dark1/api.json`. A second take (`dark2`, $0.0568) gave the same What if? outcome and was discarded.
 - **Film styling only:** the S6 stage, footage frame, tap rings, the S8 donut stage and the S9 end card moved from light lavender to the film's night palette, so motion → product → motion stays one world. The end card sets the app mark + wordmark (the logo file has a white matte). Structure, timing (S6 still 68–138 s; D1's labelled "sped up" wait absorbs Muse's faster read) and captions are unchanged.

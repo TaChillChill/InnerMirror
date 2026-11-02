@@ -12,7 +12,7 @@ import { launch } from "../../scripts/e2e/cdp.mjs";
 
 const root = new URL("../../", import.meta.url).pathname;
 const here = `${root}design/readme/`;
-const take = `${root}design/film/public/take/dark1/frames/`; // git-ignored; rebuild with design/film/record/take.mjs
+const takes = `${root}design/film/public/take/`; // git-ignored; rebuild with design/film/record/take.mjs
 mkdirSync(`${here}img`, { recursive: true });
 
 const THEMES = {
@@ -104,7 +104,7 @@ function windowed(t, frame) {
     <div style="border-radius:18px;overflow:hidden;box-shadow:0 30px 80px rgba(25,18,70,.28);border:1px solid ${t.pillLine}">
       <div style="height:40px;background:${t.pill};display:flex;align-items:center;gap:9px;padding-left:18px">
         ${["#ff6159", "#ffbd2e", "#28c941"].map((c) => `<span style="width:13px;height:13px;border-radius:50%;background:${c}"></span>`).join("")}</div>
-      <img src="${file(`${take}${frame}.jpg`)}" style="display:block;width:1280px"></div></div>`);
+      <img src="${file(`${takes}${frame}.jpg`)}" style="display:block;width:1280px"></div></div>`);
 }
 
 const b = await launch({ width: 1600, height: 600 });
@@ -126,9 +126,9 @@ try {
     const t = THEMES[theme];
     await render(`hero-${theme}`, hero(t), 1600, 1.5);
     await render(`phones-${theme}`, phones(t, theme), 2400, 1);
-    // Frame 2420 of the Dark Mode live take dark1 (What if? result): real app, real Muse.
+    // Take dark1wi (the film's D6: dark1's analysis, What if? live), frame 01348: the result.
     await render(`workflow-${theme}`, workflow(t, theme), 1760, 1.5);
-    await render(`whatif-${theme}`, windowed(t, "02420"), 1440, 1.5);
+    await render(`whatif-${theme}`, windowed(t, "dark1wi/frames/01348"), 1440, 1.5);
   }
 } finally {
   b.close();
