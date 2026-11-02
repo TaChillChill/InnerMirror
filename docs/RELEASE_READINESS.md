@@ -207,5 +207,11 @@ Report failures with the step number and a screenshot.
 
 Rate limit for judging (R2): 8 analyses / 10 min per IP is fine for one judge; several judges behind one NAT could hit it. Raise to ~20 only if Q15 implies shared access (one-line change + redeploy, approval). Budget: ≈ $1.14 left ≈ 50 analyses; decide a judging budget before opening access.
 
-### 7.3 Production
-NO-GO until the iPhone UAT (7.1) passes, Q15 is known and the access option is chosen. The Production release checklist and GO/NO-GO are prepared after the Founder confirms the UAT.
+### 7.3 Production — deployed 2026-11-02 (Founder approval in session)
+- **Deployed:** `a061aca` (app code identical to Preview `289a1e4`; later commits touch only `design/film`, docs and the e2e driver) → https://innermirror-dfwvn065y-tachillchills-projects.vercel.app, production alias **https://innermirror-flame.vercel.app**. Ready.
+- **Not ours:** `innermirror.vercel.app` redirects to an unrelated site; never use or share it.
+- **Env (values not read):** `META_API_KEY` reused from Preview by adding the Production target through the Vercel API (sensitive; value never returned); `APP_SPEND_CAP_USD=5` for Production (Founder decision; per instance, resets on restart, so it no longer bounds the $6 test budget: the Meta credits are the ceiling). `ANALYZE_EFFORT`, `ACCESS_CODE` unset.
+- **Protection unchanged:** project SSO protection covers all deployments, Production included; anonymous page and `/api/*` → 302 to Vercel SSO. The existing automation bypass secret (created earlier) was used by `vercel curl`; no new secret.
+- **Live smoke (synthetic, via `vercel curl`):** home 200; `/api/extract` 200 in 6.4 s, 3/3 bubbles read; `/api/analyze` 200 in 15.5 s, 6 readings, spec v3.2, safety not flagged; `/api/scenario` 200 in 11.8 s, model answer. One extract attempt returned 400 because the test sent a PNG (the app always sends JPEG); no model call. Spend ≈ $0.045.
+- **Rollback:** `vercel rollback` to `innermirror-19q36ekkb` (Oct 31) or promote the previous Preview; needs Founder approval.
+- **Open:** Founder iPhone UAT on Production (7.1, especially Save → reload → reopen); judge access (7.2) not needed yet.
