@@ -85,7 +85,9 @@ button.app-sticker:hover { border-color: var(--im-primary); }
 .app-rail__arrow:disabled { opacity: 0; pointer-events: none; }
 @media (hover: hover) and (min-width: 720px) { .app-rail__arrow { display: block; } }
 
-.app-cloud { display: flex; align-items: center; justify-content: center; container-type: inline-size; min-height: 0; }
+/* isolation keeps the mascots' stacking order (inline z-index up to 10) inside the cloud, so they
+   can never paint over the sticky header (also z-index 10) when scrolled under it. */
+.app-cloud { display: flex; align-items: center; justify-content: center; container-type: inline-size; min-height: 0; isolation: isolate; }
 .app-card .app-cloud { padding-top: var(--im-space-3); min-height: 96px; }
 .app-card .app-cloud__n { min-width: 20px; height: 20px; padding: 0 4px; font-size: 0.75rem; }
 .app-cloud--large { width: min(100%, 420px); margin: 0 auto; padding-block: var(--im-space-2); }
