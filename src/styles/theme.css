@@ -1,7 +1,8 @@
 /* Light / Dark / System (Founder, 2026-11-01). The light values live in design tokens;
    this file adds the few colors that were hard-coded in app CSS, and the dark theme from
    design/DESIGN_SYSTEM.md appendix A (contrast re-checked, see docs/RELEASE_READINESS.md).
-   No attribute = follow the system; data-theme="light" | "dark" = the user's choice. */
+   No attribute = follow the system; data-theme="light" | "dark" = the user's choice, or
+   "dark" set by the inline script in layout.tsx when nothing is stored (dark by default). */
 :root {
   --im-header-scrolled: #f3f0ff;
   --im-header-scrolled-border: #e5dfff;

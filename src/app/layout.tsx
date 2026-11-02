@@ -23,9 +23,10 @@ export const viewport: Viewport = {
   themeColor: [{ media: "(prefers-color-scheme: light)", color: "#fafafe" }, { media: "(prefers-color-scheme: dark)", color: "#17152b" }],
 };
 
-// Applies the stored Light/Dark choice before the first paint, so a dark choice never
-// flashes light. Static string, no user input.
-const THEME_SCRIPT = `try{var t=localStorage.getItem("innermirror.theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch(e){}`;
+// Applies the theme before the first paint, so nothing flashes light. Dark is the default
+// for anyone without a stored choice (Founder, 2026-11-02); a stored "light" or "system"
+// always wins. Static string, no user input.
+const THEME_SCRIPT = `var t;try{t=localStorage.getItem("innermirror.theme")}catch(e){}if(t!=="system")document.documentElement.dataset.theme=t==="light"?"light":"dark"`;
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
