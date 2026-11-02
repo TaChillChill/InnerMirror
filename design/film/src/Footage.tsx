@@ -8,13 +8,20 @@ import { C, FONT } from "./brand";
 import { FPS } from "./story";
 import { clamp } from "./ui";
 import cues from "../public/take/dark1/cues.json";
+// D6 only: same session replayed with dark1's real extract + analysis, What if? called live.
+import cuesWi from "../public/take/dark1wi/cues.json";
 
-export const TAKE_SRC = staticFile("take/dark1/take.mp4");
+type Tap = { x: number; y: number; t: number; label: string };
+const TAKES = {
+  main: { src: staticFile("take/dark1/take.mp4"), taps: cues.taps as Tap[] },
+  wi: { src: staticFile("take/dark1wi/take.mp4"), taps: cuesWi.taps as Tap[] },
+};
+export const TAKE_SRC = TAKES.main.src;
 export const M = cues.marks as Record<string, number>;
-const TAPS = cues.taps as { x: number; y: number; t: number; label: string }[];
+export const M_WI = cuesWi.marks as Record<string, number>;
 
 /** Take seconds. `zoom` scales around a point of the 1280 × 720 page, easing in from `zoomAt` (take time). */
-export type Seg = { from: number; to: number; rate?: number; sped?: boolean; zoom?: { s: number; x: number; y: number; at?: number } };
+export type Seg = { from: number; to: number; rate?: number; sped?: boolean; zoom?: { s: number; x: number; y: number; at?: number }; take?: keyof typeof TAKES };
 export const segFrames = (g: Seg) => Math.round(((g.to - g.from) / (g.rate ?? 1)) * FPS);
 export const clipFrames = (segs: Seg[]) => segs.reduce((n, g) => n + segFrames(g), 0);
 
@@ -51,10 +58,10 @@ function Segment({ g }: { g: Seg }) {
   const origin = z ? `${z.x * K}px ${z.y * K}px` : "center";
   return (
     <div style={{ position: "absolute", inset: 0, transform: `scale(${s})`, transformOrigin: origin }}>
-      <OffthreadVideo src={TAKE_SRC} startFrom={Math.round(g.from * FPS)} endAt={Math.round(g.to * FPS) + 1} playbackRate={rate} muted
+      <OffthreadVideo src={TAKES[g.take ?? "main"].src} startFrom={Math.round(g.from * FPS)} endAt={Math.round(g.to * FPS) + 1} playbackRate={rate} muted
         style={{ width: "100%", height: "100%", display: "block" }} />
-      {TAPS.filter((p) => p.t >= g.from - 0.4 && p.t <= g.to).map((p) => <Ring key={p.t} x={p.x * K} y={p.y * K} dt={takeT - p.t} />)}
-      {TAPS.filter((p) => p.t >= g.from && p.t <= g.to).map((p) => (
+      {TAKES[g.take ?? "main"].taps.filter((p) => p.t >= g.from - 0.4 && p.t <= g.to).map((p) => <Ring key={p.t} x={p.x * K} y={p.y * K} dt={takeT - p.t} />)}
+      {TAKES[g.take ?? "main"].taps.filter((p) => p.t >= g.from && p.t <= g.to).map((p) => (
         <Sequence key={`s${p.t}`} from={Math.round(((p.t - g.from) / rate) * FPS)} durationInFrames={6} layout="none">
           <Audio src={staticFile("sfx/tap.wav")} volume={0.35} />
         </Sequence>

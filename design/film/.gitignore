@@ -8,3 +8,5 @@ public/take/*/take.mp4
 public/take/*/fatal.png
 public/out/
 public/sfx/
+# Scratch voice files (record/voice-say.mjs rebuilds them); manifest.json is kept.
+public/vo/*.wav

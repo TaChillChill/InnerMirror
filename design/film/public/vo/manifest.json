@@ -1,0 +1,82 @@
+{
+ "voice": "Samantha (macOS say, scratch)",
+ "rate": 170,
+ "lines": {
+  "s1-type": {
+   "at": 0.8,
+   "sec": 3.52
+  },
+  "s2-dinner": {
+   "at": 6.6,
+   "sec": 1.11
+  },
+  "s2-sense": {
+   "at": 17,
+   "sec": 3.03
+  },
+  "s4-replay": {
+   "at": 33.4,
+   "sec": 1.35
+  },
+  "s4-pattern": {
+   "at": 39.7,
+   "sec": 2.34
+  },
+  "s5-bridge": {
+   "at": 44.6,
+   "sec": 3.31
+  },
+  "s5-ta": {
+   "at": 49.8,
+   "sec": 3.9
+  },
+  "s5-all": {
+   "at": 65.4,
+   "sec": 1.67
+  },
+  "s6-this": {
+   "at": 68.6,
+   "sec": 1.01
+  },
+  "s6-snap": {
+   "at": 71.4,
+   "sec": 1.89
+  },
+  "s6-hypothesis": {
+   "at": 102.3,
+   "sec": 3.08
+  },
+  "s6-decide": {
+   "at": 115.3,
+   "sec": 2.12
+  },
+  "s6-device": {
+   "at": 133.6,
+   "sec": 2.07
+  },
+  "s7-sooner": {
+   "at": 139.5,
+   "sec": 4.08
+  },
+  "s7-promise": {
+   "at": 146.4,
+   "sec": 2
+  },
+  "s8-see": {
+   "at": 159,
+   "sec": 1.52
+  },
+  "s8-connect": {
+   "at": 167.7,
+   "sec": 2.32
+  },
+  "s9-world": {
+   "at": 173.4,
+   "sec": 2.31
+  },
+  "s9-name": {
+   "at": 177.4,
+   "sec": 0.66
+  }
+ }
+}

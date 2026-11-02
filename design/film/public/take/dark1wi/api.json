@@ -1,0 +1,930 @@
+[
+ {
+  "path": "/api/extract",
+  "t": 10379,
+  "body": {
+   "__delay": 2500,
+   "extraction": {
+    "speakers": [
+     {
+      "key": "S1",
+      "displayedName": "Jordan",
+      "side": "left"
+     },
+     {
+      "key": "S2",
+      "displayedName": null,
+      "side": "right"
+     }
+    ],
+    "messages": [
+     {
+      "speaker": "S1",
+      "text": "dinner at 7 still? got the good wine 🍷",
+      "legibility": "clear"
+     },
+     {
+      "speaker": "S2",
+      "text": "yesss 100%. leaving at 6",
+      "legibility": "clear"
+     },
+     {
+      "speaker": "S2",
+      "text": "ugh meeting ran over. 20 min",
+      "legibility": "clear"
+     },
+     {
+      "speaker": "S1",
+      "text": "k",
+      "legibility": "clear"
+     },
+     {
+      "speaker": "S2",
+      "text": "k?? i said sorry",
+      "legibility": "clear"
+     },
+     {
+      "speaker": "S1",
+      "text": "u didn't actually",
+      "legibility": "clear"
+     },
+     {
+      "speaker": "S2",
+      "text": "wow ok. i'm literally rushing rn",
+      "legibility": "clear"
+     },
+     {
+      "speaker": "S1",
+      "text": "it's fine. it's always fine",
+      "legibility": "clear"
+     },
+     {
+      "speaker": "S2",
+      "text": "what's that supposed to mean",
+      "legibility": "clear"
+     },
+     {
+      "speaker": "S1",
+      "text": "it means i'm tired of always being the one who waits",
+      "legibility": "clear"
+     },
+     {
+      "speaker": "S2",
+      "text": "and i'm tired of feeling guilty for working",
+      "legibility": "clear"
+     },
+     {
+      "speaker": "S1",
+      "text": "then eat at the office lol",
+      "legibility": "clear"
+     },
+     {
+      "speaker": "S2",
+      "text": "fine. do whatever u want.",
+      "legibility": "clear"
+     }
+    ],
+    "notes": [
+     "overlap_merged"
+    ]
+   },
+   "meta": {
+    "latencyMs": 8983,
+    "spec": "x1.0"
+   }
+  }
+ },
+ {
+  "path": "/api/analyze",
+  "t": 19912,
+  "body": {
+   "__delay": 2500,
+   "analysis": {
+    "context": {
+     "register": "Informal peer register with no kinship or formal markers. Short forms like \"u\", \"rn\", \"lol\" and an emoji suggest a close, casual relationship.",
+     "turns": [
+      {
+       "turnId": "t1",
+       "act": "checks dinner plan with light tone",
+       "respondsTo": null
+      },
+      {
+       "turnId": "t2",
+       "act": "confirms plan and reports a delay",
+       "respondsTo": "t1"
+      },
+      {
+       "turnId": "t3",
+       "act": "gives a minimal reply",
+       "respondsTo": "t2"
+      },
+      {
+       "turnId": "t4",
+       "act": "questions the minimal reply and claims an apology",
+       "respondsTo": "t3"
+      },
+      {
+       "turnId": "t5",
+       "act": "corrects the claim of apology",
+       "respondsTo": "t4"
+      },
+      {
+       "turnId": "t6",
+       "act": "protests and reports rushing",
+       "respondsTo": "t5"
+      },
+      {
+       "turnId": "t7",
+       "act": "says acceptance with a generalization",
+       "respondsTo": "t6"
+      },
+      {
+       "turnId": "t8",
+       "act": "asks for clarification of meaning",
+       "respondsTo": "t7"
+      },
+      {
+       "turnId": "t9",
+       "act": "states tiredness about waiting",
+       "respondsTo": "t8"
+      },
+      {
+       "turnId": "t10",
+       "act": "counters with tiredness about guilt",
+       "respondsTo": "t9"
+      },
+      {
+       "turnId": "t11",
+       "act": "makes a dismissive eating suggestion",
+       "respondsTo": "t10"
+      },
+      {
+       "turnId": "t12",
+       "act": "withdraws and leaves decision open",
+       "respondsTo": "t11"
+      }
+     ],
+     "dynamics": "The exchange starts with light planning and moves into friction after a delay update. Short replies are followed by corrections and counter-statements about waiting and guilt. The closing turns move toward dismissal and withdrawal."
+    },
+    "segments": [
+     {
+      "turnId": "t1",
+      "messageIds": [
+       "m1"
+      ],
+      "splitReason": null,
+      "cues": [
+       "dinner at 7 still?",
+       "got the good wine 🍷"
+      ],
+      "contextCues": [],
+      "rationale": "Can read as here-and-now checking of a plan, with a light detail added. The question seems to ask for confirmation.",
+      "family": "A",
+      "expression": "A",
+      "confidence": "medium",
+      "alternative": {
+       "expression": "FC",
+       "rationale": "The wine mention and emoji could also read as spontaneous delight."
+      },
+      "invites": "A",
+      "secondLayer": null,
+      "id": "s1"
+     },
+     {
+      "turnId": "t2",
+      "messageIds": [
+       "m2",
+       "m3"
+      ],
+      "splitReason": null,
+      "cues": [
+       "yesss 100%.",
+       "meeting ran over"
+      ],
+      "contextCues": [
+       {
+        "messageId": "m1",
+        "quote": "dinner at 7 still?"
+       }
+      ],
+      "rationale": "Can read as confirming the plan and reporting a delay with facts. The 'ugh' sounds like frustration at the event rather than at the other person.",
+      "family": "A",
+      "expression": "A",
+      "confidence": "medium",
+      "alternative": {
+       "expression": "FC",
+       "rationale": "The stretched 'yesss' could also read as spontaneous enthusiasm."
+      },
+      "invites": "A",
+      "secondLayer": null,
+      "id": "s2"
+     },
+     {
+      "turnId": "t3",
+      "messageIds": [
+       "m4"
+      ],
+      "splitReason": null,
+      "cues": [],
+      "contextCues": [
+       {
+        "messageId": "m3",
+        "quote": "ugh meeting ran over. 20 min"
+       }
+      ],
+      "rationale": "A single 'k' gives too little wording to settle on one reading in text alone.",
+      "family": "UNCLEAR",
+      "expression": "UNCLEAR",
+      "confidence": "low",
+      "alternative": null,
+      "invites": "UNCLEAR",
+      "secondLayer": null,
+      "id": "s3"
+     },
+     {
+      "turnId": "t4",
+      "messageIds": [
+       "m5"
+      ],
+      "splitReason": null,
+      "cues": [
+       "k??",
+       "i said sorry"
+      ],
+      "contextCues": [
+       {
+        "messageId": "m4",
+        "quote": "k"
+       }
+      ],
+      "rationale": "Can read as protesting the short reply and defending against being seen as rude. It seems shaped by the previous message.",
+      "family": "C",
+      "expression": "AC",
+      "confidence": "low",
+      "alternative": {
+       "expression": "CP",
+       "rationale": "The 'k??' question could also read as challenging the other person's reply."
+      },
+      "invites": "A",
+      "secondLayer": null,
+      "id": "s4"
+     },
+     {
+      "turnId": "t5",
+      "messageIds": [
+       "m6"
+      ],
+      "splitReason": null,
+      "cues": [
+       "u didn't actually"
+      ],
+      "contextCues": [
+       {
+        "messageId": "m5",
+        "quote": "i said sorry"
+       }
+      ],
+      "rationale": "Can read as a factual correction about what was said. The wording is short, so the tone stays unclear.",
+      "family": "A",
+      "expression": "A",
+      "confidence": "low",
+      "alternative": {
+       "expression": "CP",
+       "rationale": "It could also read as a brief correction that implies the other person was wrong."
+      },
+      "invites": "A",
+      "secondLayer": null,
+      "id": "s5"
+     },
+     {
+      "turnId": "t6",
+      "messageIds": [
+       "m7"
+      ],
+      "splitReason": null,
+      "cues": [
+       "wow ok.",
+       "i'm literally rushing rn"
+      ],
+      "contextCues": [
+       {
+        "messageId": "m6",
+        "quote": "u didn't actually"
+       }
+      ],
+      "rationale": "Can read as pushback combined with withdrawing a little after being corrected. The rushing report restates constraint rather than opening options.",
+      "family": "C",
+      "expression": "AC",
+      "confidence": "medium",
+      "alternative": {
+       "expression": "FC",
+       "rationale": "The rushing report could also read as plain expression of pressure in the moment."
+      },
+      "invites": "P",
+      "secondLayer": null,
+      "id": "s6"
+     },
+     {
+      "turnId": "t7",
+      "messageIds": [
+       "m8"
+      ],
+      "splitReason": null,
+      "cues": [
+       "it's fine.",
+       "it's always fine"
+      ],
+      "contextCues": [
+       {
+        "messageId": "m7",
+        "quote": "wow ok. i'm literally rushing rn"
+       }
+      ],
+      "rationale": "Can read as acceptance on the surface that also generalizes with 'always', which sounds like evaluation of a pattern.",
+      "family": "P",
+      "expression": "CP",
+      "confidence": "medium",
+      "alternative": {
+       "expression": "AC",
+       "rationale": "It could also read as sulking withdrawal that says acceptance while holding back."
+      },
+      "invites": "C",
+      "secondLayer": {
+       "observation": "The words say 'fine' and then add 'always', which sit uneasily together and can read as more than plain acceptance.",
+       "cues": [
+        "it's fine.",
+        "it's always fine"
+       ]
+      },
+      "id": "s7"
+     },
+     {
+      "turnId": "t8",
+      "messageIds": [
+       "m9"
+      ],
+      "splitReason": null,
+      "cues": [
+       "what's that supposed to mean"
+      ],
+      "contextCues": [
+       {
+        "messageId": "m8",
+        "quote": "it's always fine"
+       }
+      ],
+      "rationale": "Can read as asking for clarification of the previous message. In context it also sounds tense, so a judging edge cannot be ruled out.",
+      "family": "A",
+      "expression": "A",
+      "confidence": "low",
+      "alternative": {
+       "expression": "CP",
+       "rationale": "It could also read as a challenge to the previous generalization rather than a neutral request."
+      },
+      "invites": "A",
+      "secondLayer": null,
+      "id": "s8"
+     },
+     {
+      "turnId": "t9",
+      "messageIds": [
+       "m10"
+      ],
+      "splitReason": null,
+      "cues": [
+       "i'm tired of",
+       "always being the one who waits"
+      ],
+      "contextCues": [
+       {
+        "messageId": "m9",
+        "quote": "what's that supposed to mean"
+       }
+      ],
+      "rationale": "Can read as direct expression of tiredness and frustration about waiting. The 'always' adds a sense of repetition.",
+      "family": "C",
+      "expression": "FC",
+      "confidence": "medium",
+      "alternative": {
+       "expression": "AC",
+       "rationale": "The tiredness and 'always' could also read as giving-up restatement of a repeated problem."
+      },
+      "invites": "P",
+      "secondLayer": null,
+      "id": "s9"
+     },
+     {
+      "turnId": "t10",
+      "messageIds": [
+       "m11"
+      ],
+      "splitReason": null,
+      "cues": [
+       "and i'm tired of",
+       "feeling guilty for working"
+      ],
+      "contextCues": [
+       {
+        "messageId": "m10",
+        "quote": "it means i'm tired of always being the one who waits"
+       }
+      ],
+      "rationale": "Can read as direct expression of tiredness about guilt. It answers the previous tiredness with a parallel feeling statement.",
+      "family": "C",
+      "expression": "FC",
+      "confidence": "medium",
+      "alternative": {
+       "expression": "AC",
+       "rationale": "It could also read as a helpless counter-restatement that mirrors the previous tiredness."
+      },
+      "invites": "P",
+      "secondLayer": null,
+      "id": "s10"
+     },
+     {
+      "turnId": "t11",
+      "messageIds": [
+       "m12"
+      ],
+      "splitReason": null,
+      "cues": [
+       "then eat at the office lol"
+      ],
+      "contextCues": [
+       {
+        "messageId": "m11",
+        "quote": "and i'm tired of feeling guilty for working"
+       }
+      ],
+      "rationale": "Can read as a quick directive that closes the matter rather than offering an option. The 'lol' sits oddly with the tense exchange.",
+      "family": "P",
+      "expression": "CP",
+      "confidence": "medium",
+      "alternative": {
+       "expression": "AC",
+       "rationale": "It could also read as rebellious pushback that dismisses the discussion."
+      },
+      "invites": "C",
+      "secondLayer": {
+       "observation": "A dismissive suggestion appears together with 'lol', which contrasts with the frustration in the surrounding words.",
+       "cues": [
+        "then eat at the office",
+        "lol"
+       ]
+      },
+      "id": "s11"
+     },
+     {
+      "turnId": "t12",
+      "messageIds": [
+       "m13"
+      ],
+      "splitReason": null,
+      "cues": [
+       "fine.",
+       "do whatever u want."
+      ],
+      "contextCues": [
+       {
+        "messageId": "m12",
+        "quote": "then eat at the office lol"
+       }
+      ],
+      "rationale": "Can read as withdrawing and giving up on deciding together. The wording steps back rather than proposing next steps.",
+      "family": "C",
+      "expression": "AC",
+      "confidence": "medium",
+      "alternative": {
+       "expression": "CP",
+       "rationale": "It could also read as a closing verdict that hands the decision back."
+      },
+      "invites": "UNCLEAR",
+      "secondLayer": {
+       "observation": "'Fine' followed by leaving the choice to the other person can read as more than neutral agreement.",
+       "cues": [
+        "fine.",
+        "do whatever u want."
+       ]
+      },
+      "id": "s12"
+     }
+    ],
+    "shifts": [
+     {
+      "messageId": "m4",
+      "description": "The wording shifts from detailed planning to a one-letter reply.",
+      "cues": [
+       "k"
+      ]
+     },
+     {
+      "messageId": "m8",
+      "description": "The wording shifts from back-and-forth about the short reply to naming a repeated pattern.",
+      "cues": [
+       "it's fine.",
+       "it's always fine"
+      ]
+     },
+     {
+      "messageId": "m13",
+      "description": "The wording shifts from mutual tiredness statements to stepping back from the plan.",
+      "cues": [
+       "fine.",
+       "do whatever u want."
+      ]
+     }
+    ],
+    "summary": "What begins as confirming dinner and flagging lateness becomes a tense exchange around short replies and waiting. Both sides then name tiredness in parallel terms, one around waiting and one around guilt. The conversation ends with a dismissive suggestion and withdrawal rather than a new plan.",
+    "uncertainty": "Text alone cannot show tone of voice, facial cues, timing, or history of lateness and waiting. Those missing details make it hard to tell playful, neutral, and pointed readings apart.",
+    "safety": {
+     "flagged": false,
+     "categories": [],
+     "note": null
+    },
+    "readings": [
+     {
+      "splitReason": null,
+      "cues": [
+       "dinner at 7 still?",
+       "got the good wine 🍷"
+      ],
+      "contextCues": [],
+      "rationale": "Can read as here-and-now checking of a plan, with a light detail added. The question seems to ask for confirmation.",
+      "family": "A",
+      "expression": "A",
+      "confidence": "medium",
+      "alternative": {
+       "expression": "FC",
+       "rationale": "The wine mention and emoji could also read as spontaneous delight."
+      },
+      "invites": "A",
+      "secondLayer": null,
+      "messageId": "m1",
+      "segmentId": "s1"
+     },
+     {
+      "splitReason": null,
+      "cues": [
+       "yesss 100%.",
+       "meeting ran over"
+      ],
+      "contextCues": [
+       {
+        "messageId": "m1",
+        "quote": "dinner at 7 still?"
+       }
+      ],
+      "rationale": "Can read as confirming the plan and reporting a delay with facts. The 'ugh' sounds like frustration at the event rather than at the other person.",
+      "family": "A",
+      "expression": "A",
+      "confidence": "medium",
+      "alternative": {
+       "expression": "FC",
+       "rationale": "The stretched 'yesss' could also read as spontaneous enthusiasm."
+      },
+      "invites": "A",
+      "secondLayer": null,
+      "messageId": "m2",
+      "segmentId": "s2"
+     },
+     {
+      "splitReason": null,
+      "cues": [
+       "yesss 100%.",
+       "meeting ran over"
+      ],
+      "contextCues": [
+       {
+        "messageId": "m1",
+        "quote": "dinner at 7 still?"
+       }
+      ],
+      "rationale": "Can read as confirming the plan and reporting a delay with facts. The 'ugh' sounds like frustration at the event rather than at the other person.",
+      "family": "A",
+      "expression": "A",
+      "confidence": "medium",
+      "alternative": {
+       "expression": "FC",
+       "rationale": "The stretched 'yesss' could also read as spontaneous enthusiasm."
+      },
+      "invites": "A",
+      "secondLayer": null,
+      "messageId": "m3",
+      "segmentId": "s2"
+     },
+     {
+      "splitReason": null,
+      "cues": [],
+      "contextCues": [
+       {
+        "messageId": "m3",
+        "quote": "ugh meeting ran over. 20 min"
+       }
+      ],
+      "rationale": "A single 'k' gives too little wording to settle on one reading in text alone.",
+      "family": "UNCLEAR",
+      "expression": "UNCLEAR",
+      "confidence": "low",
+      "alternative": null,
+      "invites": "UNCLEAR",
+      "secondLayer": null,
+      "messageId": "m4",
+      "segmentId": "s3"
+     },
+     {
+      "splitReason": null,
+      "cues": [
+       "k??",
+       "i said sorry"
+      ],
+      "contextCues": [
+       {
+        "messageId": "m4",
+        "quote": "k"
+       }
+      ],
+      "rationale": "Can read as protesting the short reply and defending against being seen as rude. It seems shaped by the previous message.",
+      "family": "C",
+      "expression": "AC",
+      "confidence": "low",
+      "alternative": {
+       "expression": "CP",
+       "rationale": "The 'k??' question could also read as challenging the other person's reply."
+      },
+      "invites": "A",
+      "secondLayer": null,
+      "messageId": "m5",
+      "segmentId": "s4"
+     },
+     {
+      "splitReason": null,
+      "cues": [
+       "u didn't actually"
+      ],
+      "contextCues": [
+       {
+        "messageId": "m5",
+        "quote": "i said sorry"
+       }
+      ],
+      "rationale": "Can read as a factual correction about what was said. The wording is short, so the tone stays unclear.",
+      "family": "A",
+      "expression": "A",
+      "confidence": "low",
+      "alternative": {
+       "expression": "CP",
+       "rationale": "It could also read as a brief correction that implies the other person was wrong."
+      },
+      "invites": "A",
+      "secondLayer": null,
+      "messageId": "m6",
+      "segmentId": "s5"
+     },
+     {
+      "splitReason": null,
+      "cues": [
+       "wow ok.",
+       "i'm literally rushing rn"
+      ],
+      "contextCues": [
+       {
+        "messageId": "m6",
+        "quote": "u didn't actually"
+       }
+      ],
+      "rationale": "Can read as pushback combined with withdrawing a little after being corrected. The rushing report restates constraint rather than opening options.",
+      "family": "C",
+      "expression": "AC",
+      "confidence": "medium",
+      "alternative": {
+       "expression": "FC",
+       "rationale": "The rushing report could also read as plain expression of pressure in the moment."
+      },
+      "invites": "P",
+      "secondLayer": null,
+      "messageId": "m7",
+      "segmentId": "s6"
+     },
+     {
+      "splitReason": null,
+      "cues": [
+       "it's fine.",
+       "it's always fine"
+      ],
+      "contextCues": [
+       {
+        "messageId": "m7",
+        "quote": "wow ok. i'm literally rushing rn"
+       }
+      ],
+      "rationale": "Can read as acceptance on the surface that also generalizes with 'always', which sounds like evaluation of a pattern.",
+      "family": "P",
+      "expression": "CP",
+      "confidence": "medium",
+      "alternative": {
+       "expression": "AC",
+       "rationale": "It could also read as sulking withdrawal that says acceptance while holding back."
+      },
+      "invites": "C",
+      "secondLayer": {
+       "observation": "The words say 'fine' and then add 'always', which sit uneasily together and can read as more than plain acceptance.",
+       "cues": [
+        "it's fine.",
+        "it's always fine"
+       ]
+      },
+      "messageId": "m8",
+      "segmentId": "s7"
+     },
+     {
+      "splitReason": null,
+      "cues": [
+       "what's that supposed to mean"
+      ],
+      "contextCues": [
+       {
+        "messageId": "m8",
+        "quote": "it's always fine"
+       }
+      ],
+      "rationale": "Can read as asking for clarification of the previous message. In context it also sounds tense, so a judging edge cannot be ruled out.",
+      "family": "A",
+      "expression": "A",
+      "confidence": "low",
+      "alternative": {
+       "expression": "CP",
+       "rationale": "It could also read as a challenge to the previous generalization rather than a neutral request."
+      },
+      "invites": "A",
+      "secondLayer": null,
+      "messageId": "m9",
+      "segmentId": "s8"
+     },
+     {
+      "splitReason": null,
+      "cues": [
+       "i'm tired of",
+       "always being the one who waits"
+      ],
+      "contextCues": [
+       {
+        "messageId": "m9",
+        "quote": "what's that supposed to mean"
+       }
+      ],
+      "rationale": "Can read as direct expression of tiredness and frustration about waiting. The 'always' adds a sense of repetition.",
+      "family": "C",
+      "expression": "FC",
+      "confidence": "medium",
+      "alternative": {
+       "expression": "AC",
+       "rationale": "The tiredness and 'always' could also read as giving-up restatement of a repeated problem."
+      },
+      "invites": "P",
+      "secondLayer": null,
+      "messageId": "m10",
+      "segmentId": "s9"
+     },
+     {
+      "splitReason": null,
+      "cues": [
+       "and i'm tired of",
+       "feeling guilty for working"
+      ],
+      "contextCues": [
+       {
+        "messageId": "m10",
+        "quote": "it means i'm tired of always being the one who waits"
+       }
+      ],
+      "rationale": "Can read as direct expression of tiredness about guilt. It answers the previous tiredness with a parallel feeling statement.",
+      "family": "C",
+      "expression": "FC",
+      "confidence": "medium",
+      "alternative": {
+       "expression": "AC",
+       "rationale": "It could also read as a helpless counter-restatement that mirrors the previous tiredness."
+      },
+      "invites": "P",
+      "secondLayer": null,
+      "messageId": "m11",
+      "segmentId": "s10"
+     },
+     {
+      "splitReason": null,
+      "cues": [
+       "then eat at the office lol"
+      ],
+      "contextCues": [
+       {
+        "messageId": "m11",
+        "quote": "and i'm tired of feeling guilty for working"
+       }
+      ],
+      "rationale": "Can read as a quick directive that closes the matter rather than offering an option. The 'lol' sits oddly with the tense exchange.",
+      "family": "P",
+      "expression": "CP",
+      "confidence": "medium",
+      "alternative": {
+       "expression": "AC",
+       "rationale": "It could also read as rebellious pushback that dismisses the discussion."
+      },
+      "invites": "C",
+      "secondLayer": {
+       "observation": "A dismissive suggestion appears together with 'lol', which contrasts with the frustration in the surrounding words.",
+       "cues": [
+        "then eat at the office",
+        "lol"
+       ]
+      },
+      "messageId": "m12",
+      "segmentId": "s11"
+     },
+     {
+      "splitReason": null,
+      "cues": [
+       "fine.",
+       "do whatever u want."
+      ],
+      "contextCues": [
+       {
+        "messageId": "m12",
+        "quote": "then eat at the office lol"
+       }
+      ],
+      "rationale": "Can read as withdrawing and giving up on deciding together. The wording steps back rather than proposing next steps.",
+      "family": "C",
+      "expression": "AC",
+      "confidence": "medium",
+      "alternative": {
+       "expression": "CP",
+       "rationale": "It could also read as a closing verdict that hands the decision back."
+      },
+      "invites": "UNCLEAR",
+      "secondLayer": {
+       "observation": "'Fine' followed by leaving the choice to the other person can read as more than neutral agreement.",
+       "cues": [
+        "fine.",
+        "do whatever u want."
+       ]
+      },
+      "messageId": "m13",
+      "segmentId": "s12"
+     }
+    ]
+   },
+   "labels": {
+    "Person A": "p1",
+    "Person B": "p2"
+   },
+   "meta": {
+    "latencyMs": 24012,
+    "spec": "v3.2"
+   }
+  }
+ },
+ {
+  "path": "/api/scenario",
+  "t": 71222,
+  "body": {
+   "scenario": {
+    "flagged": false,
+    "evidence": "enough",
+    "reason": "model",
+    "ranked": true,
+    "possibilities": [
+     {
+      "state": "A",
+      "basis": "pattern",
+      "rationale": "Person A's earlier words asking for information and stating what happened could read as Adult, so a reply from Adult could fit.",
+      "evidenceMessageIds": [
+       "m1",
+       "m6"
+      ],
+      "cues": [
+       "dinner at 7 still?",
+       "u didn't actually"
+      ]
+     },
+     {
+      "state": "AC",
+      "basis": "context",
+      "rationale": "In TA, a message from Nurturing Parent is described as addressing Child, so a reply from Adapted Child could fit this kind of exchange. This is a general idea, not something their messages show.",
+      "evidenceMessageIds": [],
+      "cues": []
+     }
+    ],
+    "note": "The short text alone cannot show tone or intention beyond the words used.",
+    "reflectionQuestion": "What do you notice when you compare these patterns with how the exchange felt to you?"
+   },
+   "labels": {
+    "You": "p2",
+    "Person A": "p1"
+   },
+   "meta": {
+    "latencyMs": 15710,
+    "spec": "s2.0"
+   }
+  }
+ }
+]

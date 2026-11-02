@@ -4,7 +4,7 @@
 // "Conversation shift" lines Muse wrote are shown during the replay pass in D3.
 import { AbsoluteFill, Img, Sequence, interpolate, useCurrentFrame } from "remotion";
 import { C } from "../brand";
-import { Clip, M, RealTag, STAGE, clipFrames, type Seg } from "../Footage";
+import { Clip, M, M_WI, RealTag, STAGE, clipFrames, type Seg } from "../Footage";
 import { s } from "../story";
 import { Caption, clamp, ramp } from "../ui";
 import shot1 from "../../shots/out/chat-1.png";
@@ -15,7 +15,7 @@ const PANEL = { x: 978, y: 390 }; // centre of the side panel on the 1280 × 720
 type Beat = { id: string; segs: Seg[]; captions: { text: string; from: number; to: number }[] };
 // Muse's reading time differs per take; the sped-up wait in D1 absorbs it so S6 stays 70 s
 // and every later sound cue keeps its place. Still labelled "sped up".
-const D1_WAIT_S = 1.65;
+const D1_WAIT_S = 1.2;
 
 export const BEATS: Beat[] = [
   { id: "D1", segs: [
@@ -41,12 +41,15 @@ export const BEATS: Beat[] = [
     { text: "“Not sure” is an answer too.", from: 0.6, to: 4.6 },
     { text: "Mirror suggests. You decide.", from: 5.6, to: 9.4 },
   ] },
+  // D6 comes from take dark1wi: it continues from the same moment (the choice on "wow ok…"),
+  // then explores "what's that supposed to mean" as Nurturing Parent with a live What if? call.
   { id: "D6", segs: [
-    { from: M.chose + 0.6, to: M["wi-start"] + 0.5, zoom: { s: 1.35, ...PANEL } },
-    { from: M["wi-start"] + 0.5, to: M["wi-done"], rate: 9, sped: true, zoom: { s: 1.35, ...PANEL } },
-    { from: M["wi-done"], to: M["wi-done"] + 6.2, zoom: { s: 1.35, ...PANEL } },
+    { from: M_WI.chose + 0.6, to: M_WI["wi-open"] - 0.2, rate: 1.5, sped: true, take: "wi", zoom: { s: 1.35, ...PANEL } },
+    { from: M_WI["wi-open"] - 0.2, to: M_WI["wi-start"] + 0.5, take: "wi", zoom: { s: 1.35, ...PANEL } },
+    { from: M_WI["wi-start"] + 0.5, to: M_WI["wi-done"], rate: 9, sped: true, take: "wi", zoom: { s: 1.35, ...PANEL } },
+    { from: M_WI["wi-done"], to: M_WI["wi-done"] + 6.2, take: "wi", zoom: { s: 1.35, ...PANEL } },
   ], captions: [
-    { text: "Muse looks at Jordan's earlier words for replies that could fit.", from: 6.6, to: 10.8 },
+    { text: "Muse looks at the moment and Jordan's earlier words for replies that could fit.", from: 6.6, to: 10.8 },
     { text: "It writes no lines. It predicts nothing.", from: 10.9, to: 13.5 },
   ] },
   { id: "D7", segs: [{ from: M.reflect, to: M.reflect + 5.6 }],

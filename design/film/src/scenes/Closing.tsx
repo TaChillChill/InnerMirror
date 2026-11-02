@@ -79,7 +79,7 @@ export function EndCard() {
       </div>
       <div style={{ font: `700 46px ${FONT}`, color: C.nightText }}>The world within us shapes the world between us.</div>
       <div style={{ padding: "22px 48px", borderRadius: 40, background: C.primary, color: "#fff", font: `800 38px ${FONT}`, opacity: ramp(f, 40, 12) }}>Try it with a chat you keep replaying</div>
-      <div style={{ font: `700 34px ${FONT}`, color: "#a9a3ff", opacity: ramp(f, 55, 12) }}>innermirror.app <span style={{ color: "#ffc34d", fontSize: 22 }}>(URL TBD)</span></div>
+      <div style={{ font: `800 42px ${FONT}`, letterSpacing: 0.5, color: "#a9a3ff", opacity: ramp(f, 55, 12) }}>innermirror-flame.vercel.app</div>
       <div style={{ position: "absolute", bottom: 40, font: `500 22px ${FONT}`, color: C.nightMuted, opacity: ramp(f, 70, 12) }}>
         Mirror's observations are hypotheses, not diagnoses. Runs on Meta's Muse Spark model.
       </div>

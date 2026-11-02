@@ -7,6 +7,7 @@ import { Demo } from "./scenes/Demo";
 import { River } from "./scenes/River";
 import { EndCard, World } from "./scenes/Closing";
 import { Sound } from "./Sound";
+import { Narration } from "./Voice";
 
 const at = (id: string) => SCENES.find((x) => x.id === id)!;
 const len = (id: string) => s(at(id).to - at(id).from);
@@ -24,6 +25,7 @@ export function Film() {
       <Sequence from={s(at("S8").from)} durationInFrames={len("S8")}><World /></Sequence>
       <Sequence from={s(at("S9").from)} durationInFrames={len("S9")}><EndCard /></Sequence>
       <Sound />
+      <Narration />
     </AbsoluteFill>
   );
 }

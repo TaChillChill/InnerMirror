@@ -5,11 +5,14 @@ import { Audio, Sequence, interpolate, staticFile } from "remotion";
 import { SCENES, s } from "./story";
 import { BOOM, ITEMS } from "./scenes/Storm";
 import { VOICE_LEN, VOICE_START } from "./scenes/Opening";
+import { voiceAt } from "./Voice";
 
 const sfx = (n: string) => staticFile(`sfx/${n}.wav`);
 const start = (id: string) => s(SCENES.find((x) => x.id === id)!.from);
 
 type Cue = { at: number; src: string; vol?: number; len?: number; fade?: boolean };
+// Beds step back to 45% under the narrator so every word stays clear.
+const DUCK = 0.45;
 
 function cues(): Cue[] {
   const c: Cue[] = [];
@@ -50,6 +53,7 @@ export function Sound() {
     <Sequence key={i} from={q.at} durationInFrames={q.len} layout="none">
       <Audio src={sfx(q.src)} volume={q.fade && q.len
         ? (f) => q.vol! * interpolate(f, [0, 20, q.len! - 30, q.len!], [0, 1, 1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" })
+          * (1 - (1 - DUCK) * voiceAt(q.at + f))
         : q.vol ?? 1} />
     </Sequence>
   ))}</>;

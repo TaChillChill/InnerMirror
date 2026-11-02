@@ -9,7 +9,8 @@ import { join } from "node:path";
 const CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
 export const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
-export async function launch({ width, height, scale = 2, mocks = null }) {
+// `passthrough`: /api paths that go to the real server even when the others are mocked.
+export async function launch({ width, height, scale = 2, mocks = null, passthrough = [] }) {
   const port = 9800 + Math.floor(Math.random() * 150);
   const proc = spawn(CHROME, ["--headless=new", `--remote-debugging-port=${port}`, `--user-data-dir=${mkdtempSync(join(tmpdir(), "im-film-"))}`,
     "--no-first-run", "--hide-scrollbars",
@@ -48,7 +49,8 @@ export async function launch({ width, height, scale = 2, mocks = null }) {
         await sleep(body.__delay ?? 0);
         const data = Buffer.from(JSON.stringify(body.__body ?? body)).toString("base64");
         await send("Fetch.fulfillRequest", { requestId, responseCode: 200, responseHeaders: [{ name: "Content-Type", value: "application/json" }], body: data });
-      } else await send("Fetch.failRequest", { requestId, errorReason: "BlockedByClient" });
+      } else if (passthrough.includes(path)) await send("Fetch.continueRequest", { requestId });
+      else await send("Fetch.failRequest", { requestId, errorReason: "BlockedByClient" });
       return;
     }
     if (msg.method === "Network.responseReceived") {
@@ -59,7 +61,7 @@ export async function launch({ width, height, scale = 2, mocks = null }) {
   });
   // Mocked: every /api/* request is answered locally, nothing can reach Meta.
   if (mocks) await send("Fetch.enable", { patterns: [{ urlPattern: "*/api/*" }] });
-  else await send("Network.enable");
+  if (!mocks || passthrough.length) await send("Network.enable");
   await send("Page.enable");
   await send("Emulation.setDeviceMetricsOverride", { width, height, deviceScaleFactor: scale, mobile: false });
   const evaluate = async (expression) => {

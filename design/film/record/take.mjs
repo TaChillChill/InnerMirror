@@ -2,6 +2,9 @@
 // 1920 × 1080 frames), capturing a CDP screencast plus timed marks and tap positions.
 //   node record/take.mjs --mock <name>   dry run, every /api/* answered locally ($0)
 //   node record/take.mjs --live <name>   real app + real Muse (server must run with APP_SPEND_CAP_USD)
+//   node record/take.mjs --replay <name>  FROM=<take>: extract + analyze answered with that take's
+//                                         real responses (api.json), What if? live (paid)
+//   WI_MSG / WI_STATE choose the message and state explored in D6 (default: "wow ok…" as Adult).
 //   THEME=dark (default light) picks the app theme; live takes also keep Muse's real responses
 //   in api.json (kept in git: synthetic chat, real Muse output) so the motion and the README quote them exactly.
 // Output: public/take/<name>/frames/*.jpg, take.json (frames, marks, taps, api calls).
@@ -12,14 +15,21 @@ import { seedCollections } from "./seed.mjs";
 import { mockApi } from "./mock.mjs";
 
 const [mode, name = mode === "--live" ? "live" : "dry"] = process.argv.slice(2);
-if (mode !== "--mock" && mode !== "--live") throw new Error("usage: take.mjs --mock|--live <name>");
+if (!["--mock", "--live", "--replay"].includes(mode)) throw new Error("usage: take.mjs --mock|--live|--replay <name>");
 const APP = process.env.APP_URL ?? "http://localhost:3124";
 const film = fileURLToPath(new URL("..", import.meta.url));
 const out = `${film}public/take/${name}`;
 rmSync(out, { recursive: true, force: true });
 mkdirSync(`${out}/frames`, { recursive: true });
 
-const b = await launch({ width: 1280, height: 720, scale: 1.5, mocks: mode === "--mock" ? await mockApi() : null });
+// Replay: the earlier take's own Muse responses, so the screens before D6 match it exactly.
+const replay = () => {
+  const prev = JSON.parse(readFileSync(`${film}public/take/${process.env.FROM}/api.json`, "utf8"));
+  const body = (path) => ({ __delay: 2500, ...prev.find((x) => x.path === path).body });
+  return { "/api/extract": body("/api/extract"), "/api/analyze": body("/api/analyze") };
+};
+const b = await launch({ width: 1280, height: 720, scale: 1.5, mocks: mode === "--mock" ? await mockApi() : mode === "--replay" ? replay() : null,
+  passthrough: mode === "--replay" ? ["/api/scenario"] : [] });
 const frames = [], marks = [], taps = [], notes = [];
 let t0 = 0;
 const now = () => Date.now() - t0;
@@ -98,9 +108,14 @@ try {
   const pick = /Critical/.test(ai) ? "Adapted Child" : "Critical Parent";
   await attempt("choose", () => tap(`$el("aside .app-sel__opt", ${JSON.stringify(pick)})`, "choose")); mark("chose"); await sleep(2500);
 
-  // D6 — What if? on the same message, explored as Adult.
-  await attempt("what if tab", () => tap(`$el("aside button", "What if?")`, "wi-tab")); mark("wi-open"); await sleep(1800);
-  await attempt("wi option", () => tap(`$el("aside .app-wi__opt", "Adult")`, "wi-adult")); await sleep(900);
+  // D6 — What if?: by default on the same message, explored as Adult; WI_MSG picks another message.
+  if (process.env.WI_MSG) {
+    await scrollTo(`${msg(process.env.WI_MSG)}`, 1400);
+    await attempt("what if on message", () => tap(`[...${msg(process.env.WI_MSG)}.querySelectorAll("button")].find((x) => /What if/.test(x.textContent))`, "wi-msg"));
+  } else await attempt("what if tab", () => tap(`$el("aside button", "What if?")`, "wi-tab"));
+  mark("wi-open"); await sleep(1800);
+  const wiState = process.env.WI_STATE ?? "Adult";
+  await attempt("wi option", () => tap(`$el("aside .app-wi__opt", ${JSON.stringify(wiState)})`, "wi-state")); await sleep(900);
   await attempt("explore", () => tap(`$el("aside .app-wi__go button")`, "explore")); mark("wi-start");
   const wi = await waitFor(`!!document.querySelector("aside .app-wi__results") || /doesn't see another|too short|Only one earlier/.test(document.querySelector("aside")?.textContent ?? "")`, 150_000);
   if (!wi) notes.push("what-if result not seen");
