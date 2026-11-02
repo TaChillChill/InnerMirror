@@ -1,0 +1,26 @@
+{
+  "name": "innermirror-film",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Animated storyboard for the InnerMirror demo film. Separate from the app: own deps, never imported by src/.",
+  "scripts": {
+    "dev": "vite --port 5174",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.536",
+    "@remotion/google-fonts": "4.0.536",
+    "@remotion/player": "4.0.536",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "remotion": "4.0.536"
+  },
+  "devDependencies": {
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "@vitejs/plugin-react": "6.1.2",
+    "typescript": "5.9.3",
+    "vite": "8.3.4"
+  }
+}

@@ -1,0 +1,10 @@
+# Generated, large or reproducible: take frames and MP4s, renders, synthesized sound.
+# Rebuild with record/*.mjs (see README). Kept in git because the film imports them:
+# public/take/<name>/cues.json (times and tap positions only) and shots/out/*.png (synthetic).
+public/take/*/frames/
+public/take/*/frames.txt
+public/take/*/take.json
+public/take/*/take.mp4
+public/take/*/fatal.png
+public/out/
+public/sfx/

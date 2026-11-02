@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>InnerMirror Film Animatic</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,600&display=swap" rel="stylesheet" />
+  <style>
+    :root { --bg: #f4f2fb; --text: #252344; --muted: #5e5a7e; --primary: #635bce; --border: #e3dff3; --surface: #fff; }
+    @media (prefers-color-scheme: dark) { :root { --bg: #17152b; --text: #eeebff; --muted: #aba6d2; --primary: #a9a3ff; --border: #353159; --surface: #211e3b; } }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--text); font-family: Nunito, system-ui, sans-serif; }
+    main { max-width: 1280px; margin: 0 auto; padding: 24px 16px 60px; }
+    h1 { font-size: 24px; margin: 0 0 4px; }
+    header p { margin: 0 0 16px; color: var(--muted); }
+    .now { margin: 14px 0; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+    .now p { flex-basis: 100%; margin: 0; color: var(--muted); }
+    .kind { font-size: 13px; font-weight: 800; padding: 3px 10px; border-radius: 6px; background: var(--border); }
+    .kind--mixed, .kind--mock { background: #dcd7ff; color: #3b3494; }
+    .kind--placeholder { background: #ffd89a; color: #7a3d00; }
+    nav { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 8px; margin-top: 10px; }
+    nav.beats { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+    button { text-align: left; font: inherit; font-size: 14px; color: var(--text); background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 8px 12px; cursor: pointer; }
+    button small { display: block; color: var(--muted); }
+    button[aria-current="true"] { border: 2px solid var(--primary); }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.tsx"></script>
+</body>
+</html>
