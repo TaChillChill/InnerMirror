@@ -1,6 +1,6 @@
 # 10 screenshots + Dark by default — audit, changes, evidence
 
-Date: 2026-11-02. Status: **implemented in local commits `108e751`, `33efdf5`, `7ec17f0` (+ docs commit); not pushed, not deployed.** Production untouched.
+Date: 2026-11-02. Status: **superseded in part (Founder, 2026-11-02): shipped with 5 screenshots and a 40-turn analysis limit with a part picker (`RELEASE_READINESS.md` §7.6).** Originally: implemented in local commits `108e751`, `33efdf5`, `7ec17f0` (+ docs commit); not pushed, not deployed.** Production untouched.
 
 ## TL;DR
 - 10 screenshots work end to end: live on two synthetic 10-screenshot chats (VI 47 messages, EN 50), Review matched the ground truth **exactly, in order, with no duplicates**; extraction 25–31 s, 4 requests ≈ $0.05–0.06.

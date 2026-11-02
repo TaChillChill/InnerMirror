@@ -80,7 +80,9 @@ try {
     out.analyzeBadges = await step(`document.querySelectorAll(".app-meta-btn").length`);
     if (!out.analyzeOk) out.analyzeError = await step(`document.body.innerText.slice(0, 300)`);
     else {
-      await step(`$click("button", ${JSON.stringify(L.mirror)}); $wait(800)`);
+      // Saving needs "Who am I?", asked on Replay.
+      await step(`document.querySelectorAll(".app-whopick .app-chip-btn")[1]?.click(); $wait(300)`);
+      await step(`$click(".app-continue button", ${JSON.stringify(L.mirror)}); $wait(800)`);
       await step(`$click("button", ${JSON.stringify(L.save)}); $wait(800)`);
       out.savedToMyReflection = await step(`JSON.parse(localStorage.getItem("innermirror.collections.v1") ?? "[]").length === 1`);
       // What is saved holds labels only, never message text.
