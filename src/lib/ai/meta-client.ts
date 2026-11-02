@@ -1,5 +1,7 @@
 // Server-side Meta Model API client. Imported only by route handlers: the key never
 // reaches the browser. Logs metadata only (tokens, cost, latency), never content.
+// Fails the build if a client component ever imports this module.
+import "server-only";
 
 export const MODEL = "muse-spark-1.3"; // Standard tier only: -contributor models may train on inputs
 const ENDPOINT = "https://api.meta.ai/v1/chat/completions";
