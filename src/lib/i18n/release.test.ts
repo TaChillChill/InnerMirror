@@ -82,3 +82,14 @@ test("privacy copy: names are saved only inside a title, and buttons are named a
     assert.ok(!/Read my screenshot|Đọc ảnh chụp/.test(sent));
   }
 });
+
+// Vercel Web Analytics is on in production: the policy may not claim "no analytics" any more.
+test("privacy policy names Vercel Web Analytics and what it never receives", () => {
+  for (const d of [en, vi]) {
+    const stats = d.privacyPage.sections.find(([h]) => /statistics|thống kê/i.test(h))![1];
+    assert.match(stats, /Vercel Web Analytics/);
+    assert.match(stats, /cookie/i);
+    assert.match(stats, /conversation|cuộc trò chuyện/i);
+    assert.ok(!/no analytics|không công cụ phân tích/i.test(JSON.stringify(d.privacyPage)));
+  }
+});

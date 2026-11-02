@@ -9,6 +9,7 @@ import "../styles/mirror.css";
 import "../styles/whatif.css";
 import "../styles/story.css";
 import "../styles/landing.css";
+import { Metrics } from "@/components/Metrics";
 
 const nunito = Nunito({ subsets: ["latin", "vietnamese"], weight: ["400", "600", "700", "800"], variable: "--font-nunito", display: "swap" });
 
@@ -30,7 +31,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={nunito.variable} suppressHydrationWarning>
       <head><script dangerouslySetInnerHTML={{ __html: THEME_SCRIPT }} /></head>
-      <body>{children}</body>
+      <body>
+        {children}
+        {/* Production builds only: Preview and local runs are never counted. */}
+        {process.env.VERCEL_ENV === "production" && <Metrics />}
+      </body>
     </html>
   );
 }
