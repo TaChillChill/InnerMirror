@@ -6,6 +6,7 @@ Session state and next actions. Stable rules live in `CLAUDE.md`. Overwrite this
 **Phase 1 — Functional MVP, UAT round 4 (CONDITIONAL GO, 2026-11-01).** Plan and decisions: `docs/UAT_EXECUTION_PLAN.md` §7. Feature freeze Nov 3, 18:00 ICT; internal submit Nov 4, 22:00 ICT. Everything is local commits: nothing pushed or deployed since the protected Preview.
 
 ## Current status (2026-11-01, Founder UAT fix sprint)
+- **Production is public (Founder approval, 2026-11-02):** https://innermirror-flame.vercel.app; Previews and deployment URLs stay protected (`docs/RELEASE_READINESS.md` §7.4, restore steps there). Watch Meta credits.
 - **Production deployed (Founder approval, 2026-11-02):** https://innermirror-flame.vercel.app (SSO-protected, `APP_SPEND_CAP_USD=5`), live smoke extract/analyze/scenario all 200, ≈ $0.045. Next: Founder iPhone UAT on Production. Details: `docs/RELEASE_READINESS.md` §7.3.
 - **Preview deployed (Founder GO, 2026-11-02):** `289a1e4` → https://innermirror-jbj4lc6gz-tachillchills-projects.vercel.app, protected (SSO). Next: Founder iPhone UAT (`docs/RELEASE_READINESS.md` §7.1), Q15 → judge access (§7.2). Production NO-GO until then.
 - **Founder UAT batch 3 fixed (`72d439a`, `1d13015`):** screenshot Review advice folds, title = people + number (privacy copy updated: names can be saved inside a title), device language on first visit. Details: `docs/UAT_FIX_SPRINT.md` (Batch 3). Release gate: Founder iPhone UAT (incl. batch 2 #04 Save) → release decision.
