@@ -5,7 +5,6 @@ import { buildScenarioBody, SCENARIO_SPEC_VERSION } from "@/lib/ai/scenario-spec
 import { cleanScenario, localAnswer, receiverPrior, scenarioParticipants, scenarioRequestSchema } from "@/lib/ai/scenario";
 import { pseudonymLabel, SELF_LABEL } from "@/lib/ai/analysis-spec";
 import { callUntilValid, logRequest, MetaError, rateLimited } from "@/lib/ai/meta-client";
-import { botBlocked } from "@/lib/ai/bot-check";
 
 export const runtime = "nodejs";
 export const maxDuration = 120;
@@ -19,8 +18,6 @@ export async function POST(req: Request) {
   const startedAt = Date.now();
   const code = process.env.ACCESS_CODE;
   if (code && req.headers.get("x-access-code") !== code) return fail("forbidden", 403);
-  const blocked = await botBlocked("scenario");
-  if (blocked) return blocked;
   const client = req.headers.get("x-forwarded-for")?.split(",")[0].trim() || "local";
   if (rateLimited(`scenario:${client}`, RATE_LIMIT)) return fail("rate_limited", 429);
 

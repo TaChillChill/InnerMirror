@@ -5,7 +5,6 @@ import { ANALYSIS_SPEC_VERSION, analysisLabels, buildAnalysisBody, groupTurns } 
 import { cleanAnalysis } from "@/lib/ai/analysis";
 import { MAX_TURNS } from "@/lib/turn-window";
 import { callUntilValid, logRequest, MetaError, rateLimited } from "@/lib/ai/meta-client";
-import { botBlocked } from "@/lib/ai/bot-check";
 
 export const runtime = "nodejs";
 export const maxDuration = 120;
@@ -17,8 +16,6 @@ export async function POST(req: Request) {
   const startedAt = Date.now();
   const code = process.env.ACCESS_CODE;
   if (code && req.headers.get("x-access-code") !== code) return fail("forbidden", 403);
-  const blocked = await botBlocked("analyze");
-  if (blocked) return blocked;
   const client = req.headers.get("x-forwarded-for")?.split(",")[0].trim() || "local";
   if (rateLimited(client)) return fail("rate_limited", 429);
 

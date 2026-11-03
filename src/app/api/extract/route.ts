@@ -5,7 +5,6 @@ import { z } from "zod";
 import { EXTRACT_SYSTEM_PROMPT, EXTRACT_JSON_SCHEMA, EXTRACT_SPEC_VERSION, buildExtractContent } from "@/lib/ai/extract-spec";
 import { cleanExtraction } from "@/lib/ai/extraction";
 import { callUntilValid, logRequest, MetaError, rateLimited } from "@/lib/ai/meta-client";
-import { botBlocked } from "@/lib/ai/bot-check";
 
 export const runtime = "nodejs";
 export const maxDuration = 120;
@@ -35,8 +34,6 @@ export async function POST(req: Request) {
   const startedAt = Date.now();
   const code = process.env.ACCESS_CODE;
   if (code && req.headers.get("x-access-code") !== code) return fail("forbidden", 403);
-  const blocked = await botBlocked("extract");
-  if (blocked) return blocked;
   const client = req.headers.get("x-forwarded-for")?.split(",")[0].trim() || "local";
 
   const raw = await req.text();

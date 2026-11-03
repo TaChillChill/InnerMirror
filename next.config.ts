@@ -28,23 +28,12 @@ const SECURITY_HEADERS = [
   { key: "Permissions-Policy", value: "camera=(), geolocation=(), microphone=(self), payment=(), usb=()" },
 ];
 
-// Path Vercel routes BotID challenge requests to (botid/next/config).
-const BOTID_PREFIX = "149e9513-01fa-4fb0-aad4-566afd725d1b";
-
 const nextConfig: NextConfig = {
   poweredByHeader: false,
   // `next dev` otherwise writes an AGENTS.md into the repo; project rules live in CLAUDE.md.
   agentRules: false,
   async headers() {
-    // BotID's challenge frames its own same-origin path, so that prefix keeps the
-    // SAMEORIGIN framing rule botid ships with instead of DENY.
-    return [
-      { source: `/:path((?!${BOTID_PREFIX}/).*)`, headers: SECURITY_HEADERS },
-      { source: `/${BOTID_PREFIX}/:path*`, headers: [
-        { key: "X-Frame-Options", value: "SAMEORIGIN" },
-        { key: "Content-Security-Policy", value: "frame-ancestors 'self'" },
-      ] },
-    ];
+    return [{ source: "/:path*", headers: SECURITY_HEADERS }];
   },
 };
 
