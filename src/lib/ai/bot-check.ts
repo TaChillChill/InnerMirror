@@ -13,9 +13,11 @@ export const botIdActive = (env = process.env.VERCEL_ENV) => env === "production
 export async function botBlocked(route: string): Promise<Response | null> {
   if (!botIdActive()) return null;
   try {
-    const { isBot } = await checkBotId();
+    const { isBot, bypassed } = await checkBotId();
+    // Verdict only, no request data: lets runtime logs show enforcement (and firewall
+    // bypasses, which BotID lets through as non-bots).
+    console.info(JSON.stringify({ event: "botid", route, isBot, bypassed: bypassed ?? null }));
     if (!isBot) return null;
-    console.info(JSON.stringify({ event: "botid_blocked", route }));
     // A generic code: a real person misread as a bot sees "Something went wrong", not a
     // message about access codes.
     return Response.json({ error: "unknown" }, { status: 403 });
